@@ -1,0 +1,1 @@
+export { TextCol } from "./TextCol"

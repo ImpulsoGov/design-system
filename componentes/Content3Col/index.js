@@ -1,0 +1,1 @@
+export { Content3Col } from "./Content3Col";

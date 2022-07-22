@@ -1,0 +1,1 @@
+export { Imagemfundo } from "./ImagemFundo"
