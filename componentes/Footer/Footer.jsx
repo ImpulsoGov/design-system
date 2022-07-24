@@ -1,9 +1,6 @@
 import React from "react";
 import cx from "classnames";
 import style from "./Footer.module.css";
-const InstagramSVG = "/instagram.svg";
-const LinkedInSVG ="/linked-in.svg";
-const TwitterSVG = "/twitter.svg";
 
 const Footer = ({
   theme,
@@ -62,7 +59,7 @@ const Footer = ({
               <img
                 className={style.socialMediaFooter}
                 alt="twitter"
-                src= {TwitterSVG}
+                src= ""
               />
             </a>
             <a
@@ -72,7 +69,7 @@ const Footer = ({
               <img
                 className={style.socialMediaFooter}
                 alt="instagram"
-                src= {InstagramSVG}
+                src= ""
               />
             </a>
             <a
@@ -82,7 +79,7 @@ const Footer = ({
               <img
                 className={style.socialMediaFooter}
                 alt="linkedin"
-                src= {LinkedInSVG}
+                src= ""
               />
             </a>
           </div>
