@@ -58,33 +58,17 @@ const Footer = ({
             </div>
           </div>
           <div className={style.socialMediasFooter}>
-            <a className={style.socialMediaFooter} href={socialMediaURLs.twitter}>
-              <img
-                className={style.socialMediaFooter}
-                alt="twitter"
-                src= {TwitterSVG}
-              />
-            </a>
-            <a
-              className={style.socialMediaFooter}
-              href={socialMediaURLs.instagram}
-            >
-              <img
-                className={style.socialMediaFooter}
-                alt="instagram"
-                src= {InstagramSVG}
-              />
-            </a>
-            <a
-              className={style.socialMediaFooter}
-              href={socialMediaURLs.linkedIn}
-            >
-              <img
-                className={style.socialMediaFooter}
-                alt="linkedin"
-                src= {LinkedInSVG}
-              />
-            </a>
+            {socialMediaURLs.map((socialMedia)=>{
+              return(
+                <a className={style.socialMediaFooter} href={socialMedia.url} key={socialMedia.url}>
+                  <img
+                    className={style.socialMediaFooter}
+                    alt={socialMedia.url}
+                    src= {socialMedia.logo}
+                  />
+                </a>
+              )
+          })}
           </div>
         </div>
       </div>

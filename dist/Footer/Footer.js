@@ -59,28 +59,17 @@ const Footer = _ref => {
     className: _FooterModule.default.contactFooter
   }, /*#__PURE__*/_react.default.createElement("div", null, contactCopyright.email), /*#__PURE__*/_react.default.createElement("div", null, contactCopyright.copyright))), /*#__PURE__*/_react.default.createElement("div", {
     className: _FooterModule.default.socialMediasFooter
-  }, /*#__PURE__*/_react.default.createElement("a", {
-    className: _FooterModule.default.socialMediaFooter,
-    href: socialMediaURLs.twitter
-  }, /*#__PURE__*/_react.default.createElement("img", {
-    className: _FooterModule.default.socialMediaFooter,
-    alt: "twitter",
-    src: TwitterSVG
-  })), /*#__PURE__*/_react.default.createElement("a", {
-    className: _FooterModule.default.socialMediaFooter,
-    href: socialMediaURLs.instagram
-  }, /*#__PURE__*/_react.default.createElement("img", {
-    className: _FooterModule.default.socialMediaFooter,
-    alt: "instagram",
-    src: InstagramSVG
-  })), /*#__PURE__*/_react.default.createElement("a", {
-    className: _FooterModule.default.socialMediaFooter,
-    href: socialMediaURLs.linkedIn
-  }, /*#__PURE__*/_react.default.createElement("img", {
-    className: _FooterModule.default.socialMediaFooter,
-    alt: "linkedin",
-    src: LinkedInSVG
-  }))))));
+  }, socialMediaURLs.map(socialMedia => {
+    return /*#__PURE__*/_react.default.createElement("a", {
+      className: _FooterModule.default.socialMediaFooter,
+      href: socialMedia.url,
+      key: socialMedia.url
+    }, /*#__PURE__*/_react.default.createElement("img", {
+      className: _FooterModule.default.socialMediaFooter,
+      alt: socialMedia.url,
+      src: socialMedia.logo
+    }));
+  })))));
 };
 
 exports.Footer = Footer;
