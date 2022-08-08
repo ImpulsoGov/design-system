@@ -87,12 +87,6 @@ Object.defineProperty(exports, "TituloTexto", {
     return _TituloTexto.TituloTexto;
   }
 });
-Object.defineProperty(exports, "Typography", {
-  enumerable: true,
-  get: function get() {
-    return _Typography.Typography;
-  }
-});
 
 var _ButtonLogin = require("./ButtonLogin/ButtonLogin");
 
@@ -121,5 +115,3 @@ var _Slider = require("./Slider/Slider");
 var _TextCol = require("./TextCol/TextCol");
 
 var _TituloTexto = require("./TituloTexto/TituloTexto");
-
-var _Typography = require("./Typography/Typography");

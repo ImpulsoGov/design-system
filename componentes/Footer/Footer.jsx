@@ -1,9 +1,6 @@
 import React from "react";
 import cx from "classnames";
 import style from "./Footer.module.css";
-const InstagramSVG = "/instagram.svg";
-const LinkedInSVG ="/linked-in.svg";
-const TwitterSVG = "/twitter.svg";
 
 const Footer = ({
   theme,
@@ -36,11 +33,13 @@ const Footer = ({
           </div>
           <div className={style.realizacaoFooter}>
             <div>Realização:</div>
-            <div >
-              <img className={style.logoImpulso}
-                  alt="impulso-gov-logo"
-                  src= {String(theme.logoImpulso)}
-              />
+            <div>
+              <a href="https://www.impulsogov.org">
+                <img className={style.logoImpulso}
+                    alt="impulso-gov-logo"
+                    src= {String(theme.logoImpulso)}
+                />
+              </a>
             </div>
           </div>
 

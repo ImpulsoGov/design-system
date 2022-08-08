@@ -2,11 +2,21 @@
 .themeColorIP{
   background-color: #145C56;
   color: #FFFFFF;
+  text-decoration: none;
 }
+.themeColorIP a{
+  text-decoration: none;
+}
+
 .themeWhite{
   background-color: #FFFFFF;
   color: #1F1F1F;
+  text-decoration: none;
 }
+.themeWhite a{
+  text-decoration: none;
+}
+
 .container_navbar {
     display: flex;
     padding: 28px 40px;

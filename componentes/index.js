@@ -12,5 +12,4 @@ export { ParceriasTexto } from "./ParceriasTexto/ParceriasTexto";
 export { Slider } from "./Slider/Slider";
 export { TextCol } from "./TextCol/TextCol";
 export { TituloTexto } from "./TituloTexto/TituloTexto";
-export { Typography } from "./Typography/Typography";
 

@@ -13,10 +13,6 @@ var _FooterModule = _interopRequireDefault(require("./Footer.module.css"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-const InstagramSVG = "/instagram.svg";
-const LinkedInSVG = "/linked-in.svg";
-const TwitterSVG = "/twitter.svg";
-
 const Footer = _ref => {
   let {
     theme,
@@ -47,11 +43,13 @@ const Footer = _ref => {
     }, item.label));
   })), /*#__PURE__*/_react.default.createElement("div", {
     className: _FooterModule.default.realizacaoFooter
-  }, /*#__PURE__*/_react.default.createElement("div", null, "Realiza\xE7\xE3o:"), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("img", {
+  }, /*#__PURE__*/_react.default.createElement("div", null, "Realiza\xE7\xE3o:"), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("a", {
+    href: "https://www.impulsogov.org"
+  }, /*#__PURE__*/_react.default.createElement("img", {
     className: _FooterModule.default.logoImpulso,
     alt: "impulso-gov-logo",
     src: String(theme.logoImpulso)
-  })))), /*#__PURE__*/_react.default.createElement("div", {
+  }))))), /*#__PURE__*/_react.default.createElement("div", {
     className: _FooterModule.default.contactAddressSocialMediasFooter
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: _FooterModule.default.contactAddressFooter
