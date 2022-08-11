@@ -13,10 +13,6 @@ var _FooterModule = _interopRequireDefault(require("./Footer.module.css"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-const InstagramSVG = "/instagram.svg";
-const LinkedInSVG = "/linked-in.svg";
-const TwitterSVG = "/twitter.svg";
-
 const Footer = _ref => {
   let {
     theme,
@@ -47,11 +43,13 @@ const Footer = _ref => {
     }, item.label));
   })), /*#__PURE__*/_react.default.createElement("div", {
     className: _FooterModule.default.realizacaoFooter
-  }, /*#__PURE__*/_react.default.createElement("div", null, "Realiza\xE7\xE3o:"), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("img", {
+  }, /*#__PURE__*/_react.default.createElement("div", null, "Realiza\xE7\xE3o:"), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("a", {
+    href: "https://www.impulsogov.org"
+  }, /*#__PURE__*/_react.default.createElement("img", {
     className: _FooterModule.default.logoImpulso,
     alt: "impulso-gov-logo",
     src: String(theme.logoImpulso)
-  })))), /*#__PURE__*/_react.default.createElement("div", {
+  }))))), /*#__PURE__*/_react.default.createElement("div", {
     className: _FooterModule.default.contactAddressSocialMediasFooter
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: _FooterModule.default.contactAddressFooter
@@ -59,28 +57,17 @@ const Footer = _ref => {
     className: _FooterModule.default.contactFooter
   }, /*#__PURE__*/_react.default.createElement("div", null, contactCopyright.email), /*#__PURE__*/_react.default.createElement("div", null, contactCopyright.copyright))), /*#__PURE__*/_react.default.createElement("div", {
     className: _FooterModule.default.socialMediasFooter
-  }, /*#__PURE__*/_react.default.createElement("a", {
-    className: _FooterModule.default.socialMediaFooter,
-    href: socialMediaURLs.twitter
-  }, /*#__PURE__*/_react.default.createElement("img", {
-    className: _FooterModule.default.socialMediaFooter,
-    alt: "twitter",
-    src: TwitterSVG
-  })), /*#__PURE__*/_react.default.createElement("a", {
-    className: _FooterModule.default.socialMediaFooter,
-    href: socialMediaURLs.instagram
-  }, /*#__PURE__*/_react.default.createElement("img", {
-    className: _FooterModule.default.socialMediaFooter,
-    alt: "instagram",
-    src: InstagramSVG
-  })), /*#__PURE__*/_react.default.createElement("a", {
-    className: _FooterModule.default.socialMediaFooter,
-    href: socialMediaURLs.linkedIn
-  }, /*#__PURE__*/_react.default.createElement("img", {
-    className: _FooterModule.default.socialMediaFooter,
-    alt: "linkedin",
-    src: LinkedInSVG
-  }))))));
+  }, socialMediaURLs.map(socialMedia => {
+    return /*#__PURE__*/_react.default.createElement("a", {
+      className: _FooterModule.default.socialMediaFooter,
+      href: socialMedia.url,
+      key: socialMedia.url
+    }, /*#__PURE__*/_react.default.createElement("img", {
+      className: _FooterModule.default.socialMediaFooter,
+      alt: socialMedia.url,
+      src: socialMedia.logo
+    }));
+  })))));
 };
 
 exports.Footer = Footer;

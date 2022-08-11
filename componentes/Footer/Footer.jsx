@@ -33,11 +33,13 @@ const Footer = ({
           </div>
           <div className={style.realizacaoFooter}>
             <div>Realização:</div>
-            <div >
-              <img className={style.logoImpulso}
-                  alt="impulso-gov-logo"
-                  src= {String(theme.logoImpulso)}
-              />
+            <div>
+              <a href="https://www.impulsogov.org">
+                <img className={style.logoImpulso}
+                    alt="impulso-gov-logo"
+                    src= {String(theme.logoImpulso)}
+                />
+              </a>
             </div>
           </div>
 
@@ -55,33 +57,17 @@ const Footer = ({
             </div>
           </div>
           <div className={style.socialMediasFooter}>
-            <a className={style.socialMediaFooter} href={socialMediaURLs.twitter}>
-              <img
-                className={style.socialMediaFooter}
-                alt="twitter"
-                src= ""
-              />
-            </a>
-            <a
-              className={style.socialMediaFooter}
-              href={socialMediaURLs.instagram}
-            >
-              <img
-                className={style.socialMediaFooter}
-                alt="instagram"
-                src= ""
-              />
-            </a>
-            <a
-              className={style.socialMediaFooter}
-              href={socialMediaURLs.linkedIn}
-            >
-              <img
-                className={style.socialMediaFooter}
-                alt="linkedin"
-                src= ""
-              />
-            </a>
+            {socialMediaURLs.map((socialMedia)=>{
+              return(
+                <a className={style.socialMediaFooter} href={socialMedia.url} key={socialMedia.url}>
+                  <img
+                    className={style.socialMediaFooter}
+                    alt={socialMedia.url}
+                    src= {socialMedia.logo}
+                  />
+                </a>
+              )
+          })}
           </div>
         </div>
       </div>
