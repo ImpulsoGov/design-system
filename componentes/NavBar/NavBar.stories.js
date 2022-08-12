@@ -27,6 +27,8 @@ export const Default = () =>{
         { label: "Capitação Ponderada", url:"/capitacao" },
         { label: "Ações Estratégicas", url: "/acoes-estrategicas" },
       ]}
+      NavBarIconBranco = "https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconBranco.svg"
+      NavBarIconDark = "https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconDark.svg"
     />
   )
 }

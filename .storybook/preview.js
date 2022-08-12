@@ -1,3 +1,5 @@
+import "./style.css"
+
 const customViewports = {
   small: {
     name: 'small',
@@ -55,5 +57,6 @@ export const parameters = {
   viewport: {
     viewports: customViewports
   },
+  layout: 'fullscreen',
 }
 

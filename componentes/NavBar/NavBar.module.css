@@ -70,6 +70,10 @@
     font-size: inherit;
     padding: 10px 15px 10px 15px;
   }
+  .dropdownItemNavBar a{
+    color: #fff;
+  }
+
   .dropdownItemNavBar:hover {
     background-color: #145C56;
   }
@@ -147,6 +151,7 @@
     .container_navbar {
       padding: 16px 24px 16px 24px;
       align-items: center;
+      width: 87%;
     }
     .container_navbar a {
       color: #1F1F1F;
@@ -190,6 +195,9 @@
     }
     .linksNavBarMoblieVisible{
       display: block;
+      position: fixed;
+      z-index: 100;
+      top: 75px;
     }
     .linksNavBarMoblie a{
       color: #fff;
@@ -198,6 +206,7 @@
       font-weight: 40;
       font-size: 18px;
       margin-right: 18px;
+      text-decoration: none;
       }
     .links_navbar{
       display: none;

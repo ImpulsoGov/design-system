@@ -1,10 +1,8 @@
 import React, {useState} from "react";
 import cx from "classnames";
 import style from"./NavBar.module.css";
-const NavBarIconBranco  = "/hamburgerIconBranco.svg"
-const NavBarIconDark  = "/hamburgerIconDark.svg"
 
-const NavBarMenu = (tema) => {
+const NavBarMenu = (tema,NavBarIconBranco,NavBarIconDark) => {
   let theme = (tema=="ColorIP") ?  NavBarIconBranco : NavBarIconDark
   return theme
 }
@@ -52,8 +50,8 @@ const DropdownMenuMoblie = (attr) => {
     setMode(!active)
     return active
   }
-
-  if (attr.index==0){
+  console.log(attr)
+  if (attr.index==2){
     return(
       <div>
         <a
@@ -75,7 +73,7 @@ const DropdownMenuMoblie = (attr) => {
     )
   }else{
     return(
-      <a href={attr.link.label}>
+      <a href={attr.link.url}>
         {attr.link.label}
       </a>
     )
@@ -118,7 +116,7 @@ const NavBar = (props) => {
             <img
                 id="navBarIcon"
                 alt="NavBarIcon"
-                src= {NavBarMenu(props.theme.cor)}
+                src= {NavBarMenu(props.theme.cor,props.NavBarIconBranco,props.NavBarIconDark)}
               />
           </div>
       </div>

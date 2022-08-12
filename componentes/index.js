@@ -1,12 +1,12 @@
 export { ButtonLogin } from "./ButtonLogin/ButtonLogin";
 export { Content3Col } from "./Content3Col/Content3Col";
-export { Footer } from "./Footer";
+export { Footer } from "./Footer/Footer";
 export { FormConsultoria } from "./FormConsultoria/FormConsultoria";
 export { Header } from "./Header";
 export { HomeBanner } from "./HomeBanner/HomeBanner";
 export { IFrame}  from "./IFrame/IFrame"
 export { ImagemFundo } from "./ImagemFundo/ImagemFundo";
-export { NavBar } from "./NavBar";
+export { NavBar } from "./NavBar/NavBar";
 export { Parcerias } from "./Parcerias";
 export { ParceriasTexto } from "./ParceriasTexto/ParceriasTexto";
 export { Slider } from "./Slider/Slider";
