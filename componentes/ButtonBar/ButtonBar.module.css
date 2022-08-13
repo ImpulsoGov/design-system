@@ -1,0 +1,26 @@
+.ButtonBar{
+    width: fit-content;
+    display: flex;
+    gap: 60px;
+    padding-left: 60px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-color: #fff;
+}
+
+@media screen and (max-width: 1023px) {
+    .ButtonBar{
+        flex-direction: column;
+        align-content:space-around;
+        gap: 60px;
+        padding-left: 15px;
+        padding-top: 50px;
+    }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1439px) {
+    .ButtonBar{
+        gap: 45px;
+        padding-left: 30px;    
+    }
+}

@@ -19,10 +19,7 @@ function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "functio
 
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-const NavBarIconBranco = "/hamburgerIconBranco.svg";
-const NavBarIconDark = "/hamburgerIconDark.svg";
-
-const NavBarMenu = tema => {
+const NavBarMenu = (tema, NavBarIconBranco, NavBarIconDark) => {
   let theme = tema == "ColorIP" ? NavBarIconBranco : NavBarIconDark;
   return theme;
 };
@@ -71,7 +68,7 @@ const DropdownMenuMoblie = attr => {
     return active;
   };
 
-  if (attr.index == 0) {
+  if (attr.index == 2) {
     return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("a", {
       onClick: menuVisible
     }, attr.link.label), active && /*#__PURE__*/_react.default.createElement("div", {
@@ -84,7 +81,7 @@ const DropdownMenuMoblie = attr => {
     })));
   } else {
     return /*#__PURE__*/_react.default.createElement("a", {
-      href: attr.link.label
+      href: attr.link.url
     }, attr.link.label);
   }
 };
@@ -125,7 +122,7 @@ const NavBar = props => {
   }, /*#__PURE__*/_react.default.createElement("img", {
     id: "navBarIcon",
     alt: "NavBarIcon",
-    src: NavBarMenu(props.theme.cor)
+    src: NavBarMenu(props.theme.cor, props.NavBarIconBranco, props.NavBarIconDark)
   }))), /*#__PURE__*/_react.default.createElement("div", {
     className: active ? _NavBarModule.default["linksNavBarMoblie"] : (0, _classnames.default)(_NavBarModule.default["linksNavBarMoblie"], _NavBarModule.default["linksNavBarMoblieVisible"])
   }, props.menu.map((link, index) => {
