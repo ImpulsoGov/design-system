@@ -147,7 +147,7 @@
     display: none;
   }
   
-  @media screen and (max-width: 640px) {
+  @media screen and (max-width: 1023px) {
     .container_navbar {
       padding: 16px 24px 16px 24px;
       align-items: center;

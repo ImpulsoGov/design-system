@@ -3,7 +3,6 @@
     display: flex;
     gap: 60px;
     padding-left: 60px;
-    padding-top: 50px;
     padding-bottom: 50px;
     background-color: #fff;
 }
@@ -14,7 +13,7 @@
         align-content:space-around;
         gap: 60px;
         padding-left: 15px;
-        padding-top: 50px;
+        padding-top: 0;
     }
 }
 

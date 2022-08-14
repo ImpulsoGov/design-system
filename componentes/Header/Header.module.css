@@ -1,7 +1,7 @@
 .conteinerHeader{
     background-color: #FFF;
     border-radius: 10px;
-    padding: 148px 72px 148px 64px;
+    padding: 148px 72px 15px 64px;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
@@ -27,13 +27,15 @@
     line-height: 150%;
     margin-top: 60px;
     margin-bottom: 60px;
-    padding-right: 43%;
+    padding-right: 0;
+    text-align: left;
 }
 
 .conteinerChamadasHeader{
     font-size: 16px;
     line-height: 150%;
     padding: 0;
+    margin-bottom: 130px;
 }
 .buttonHeader{
     background-color: #2EB280;
@@ -42,6 +44,7 @@
     padding: 16px 24px 17px;
     border: none;
     color: #FFF;
+    width: fit-content;
 }
 .buttonHeader:hover{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -61,22 +64,22 @@
 @media screen and (max-width: 1023px) {
     .conteinerHeader{
         justify-content: center;
-        text-align: center;
-        padding: 72px 54px 96px 54px;
+        padding: 72px 54px 0px 54px;
     }
     .tituloHeader{
         font-size: 32px;
         line-height: 110%;
         padding: 0;
-        text-align: center;
+        text-align: left;
     }
     .textoHeader{
-        text-align: center;
+        text-align: left;
         font-size: 16px;
         line-height: 110%;
         padding: 0;
         margin-top: 60px;
         margin-bottom: 60px;
+        width: 300px;
     }
     .conteinerChamadasHeader{
         font-size: 14px;
@@ -84,6 +87,7 @@
     .buttonHeader{
         margin: 0 0 25px 0;
         display: block;
+        text-align: center;
     }
 }
 
@@ -95,7 +99,6 @@
     }
     .textoHeader{
         font-size: 16px;
-        padding-right: 44%;
     }
     .conteinerChamadasHeader{
         font-size: 10px;
@@ -105,7 +108,7 @@
 /* XLARGE */
 @media screen and (min-width: 1920px) {
     .conteinerHeader{
-        padding: 200px 72px 148px 90px;
+        padding: 200px 72px 15px 90px;
     }
     .tituloHeader{
         font-size: 128px;
@@ -113,7 +116,6 @@
     }
     .textoHeader{
         font-size: 20px;
-        padding-right: 44%;
         margin-top: 80px;
         margin-bottom: 80px;
     }
