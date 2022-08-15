@@ -18,7 +18,7 @@ export const Default = () =>{
           [
             { label: "A Impulso Gov", url: "/impulsogov" },
             { label: "O Previne Brasil", url: "/previnebrasil" },
-            { label: "Análise", url: "" },
+            { label: "Análise", url: "analise" },
             { label: "Consultoria", url: "/consultoria" }
           ]
       }

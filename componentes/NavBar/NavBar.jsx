@@ -20,33 +20,11 @@ const DropdownMenuMoblie = (attr) => {
     setMode(!active)
     return active
   }
-  if (attr.index==2){
-    return(
-      <div>
-        <a
-          onClick = {menuVisible} 
-        >{attr.link.label}
-        </a>
-        { active &&
-          <div className={cx(style.subMenuMoblie, style.themeColorIP)}>
-            {attr.props.subtitles.map((subtitle)=>{
-              return(
-                <a 
-                  href={subtitle.url}
-                  className={style.linkNavBarMoblie}>{subtitle.label}</a>
-              )
-            })}
-          </div>
-        }
-      </div>
-    )
-  }else{
     return(
       <a href={attr.link.url}>
         {attr.link.label}
       </a>
     )
-  }
 }
 
 const NavBar = (props) => {
