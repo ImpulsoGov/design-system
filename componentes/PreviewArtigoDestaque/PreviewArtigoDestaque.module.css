@@ -1,0 +1,84 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@40;500&display=swap");
+
+.PreviewArtigoDestaqueContainer{
+    display: flex;
+    flex-direction: row;
+    padding-left: 82px;
+    padding-right: 82px;
+    margin-top: 15px;
+    height: fit-content;
+}
+
+.ContainerDestaque{
+    display: flex;
+    flex-direction: column;
+    width: 55%;
+    height: 490px;
+    gap: 45px;
+    margin-right: 45px;
+}
+
+.PreviewArtigoDestaqueTag{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #1F1F1F;
+    background-color: #E6ECF0;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    border-radius: 8px;
+    padding: 0px 10px 1px;
+    width: fit-content;
+    height: 32px;
+    white-space: nowrap;
+}
+
+.PreviewArtigoDestaqueTitulo{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 64px;
+    color: #1F1F1F;
+    text-align: left;
+}
+
+.PreviewArtigoDestaqueTexto{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    color: #1F1F1F;
+    text-align: left;
+}
+
+.PreviewArtigoDestaqueAutor{
+    display: flex;
+    flex-direction: row;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    color: #1F1F1F;
+}
+
+.PreviewArtigoDestaqueData{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    color: #606E78;
+}
+
+
+.PreviewArtigoDestaqueAutorAvatar{
+    margin-right: 10px;
+}
+
+.PreviewArtigoDestaqueImage{
+    background-color: #606E78;
+    border-radius: 20px;
+    width: 490px;
+    height: 490px;
+}
