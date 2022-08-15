@@ -24,40 +24,11 @@ const NavBarMenu = (tema, NavBarIconBranco, NavBarIconDark) => {
   return theme;
 };
 
-const Dropdown = props => {
-  return /*#__PURE__*/_react.default.createElement("div", {
-    className: _NavBarModule.default["dropdownNavBar"]
-  }, /*#__PURE__*/_react.default.createElement("div", null, props.link), /*#__PURE__*/_react.default.createElement("div", {
-    className: _NavBarModule.default.dropdownContentNavBar
-  }, /*#__PURE__*/_react.default.createElement("div", {
-    className: _NavBarModule.default.iconDropdownNavBar
-  }, /*#__PURE__*/_react.default.createElement("div", {
-    className: _NavBarModule.default.iconDropdownContainerNavBar
-  })), /*#__PURE__*/_react.default.createElement("div", {
-    className: _NavBarModule.default.itensDropdownNavBar
-  }, props.subtitles.map((subtitle, index) => {
-    return /*#__PURE__*/_react.default.createElement("div", {
-      key: index
-    }, /*#__PURE__*/_react.default.createElement("div", {
-      className: _NavBarModule.default.dropdownItemNavBar
-    }, /*#__PURE__*/_react.default.createElement("a", {
-      href: subtitle.url
-    }, subtitle.label)));
-  }))));
-};
-
 const DropdownMenu = attr => {
-  if (attr.index == 2) {
-    return /*#__PURE__*/_react.default.createElement(Dropdown, {
-      link: attr.link.label,
-      subtitles: attr.props.subtitles
-    });
-  } else {
-    return /*#__PURE__*/_react.default.createElement("a", {
-      href: attr.link.url,
-      className: _NavBarModule.default["theme" + attr.props.theme.cor]
-    }, attr.link.label);
-  }
+  return /*#__PURE__*/_react.default.createElement("a", {
+    href: attr.link.url,
+    className: _NavBarModule.default["theme" + attr.props.theme.cor]
+  }, attr.link.label);
 };
 
 const DropdownMenuMoblie = attr => {

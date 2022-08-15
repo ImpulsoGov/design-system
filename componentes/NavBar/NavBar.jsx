@@ -6,42 +6,12 @@ const NavBarMenu = (tema,NavBarIconBranco,NavBarIconDark) => {
   let theme = (tema=="ColorIP") ?  NavBarIconBranco : NavBarIconDark
   return theme
 }
-const Dropdown = (props) => {
-  return (
-    <div className={style["dropdownNavBar"]}>
-      <div>{props.link}</div>
-      <div className={style.dropdownContentNavBar}>
-        <div className={style.iconDropdownNavBar}>
-          <div className={style.iconDropdownContainerNavBar}></div>
-        </div>
-        <div className={style.itensDropdownNavBar}>
-          {props.subtitles.map((subtitle,index)=>{
-            return(
-              <div key={index}>
-                <div className={style.dropdownItemNavBar}><a href={subtitle.url}>{subtitle.label}</a></div>
-              </div>
-            )
-          })}
-        </div>
-      </div>
-    </div>
-  )
-}
 const DropdownMenu = (attr) => {  
-  if (attr.index==2){
-    return(
-      <Dropdown 
-        link={attr.link.label}
-        subtitles={attr.props.subtitles}
-      />
-    )
-  }else{
     return(
       <a href={attr.link.url} className={style["theme"+attr.props.theme.cor]}>
         {attr.link.label}
       </a>
     )
-  }
 }
 
 const DropdownMenuMoblie = (attr) => {  
