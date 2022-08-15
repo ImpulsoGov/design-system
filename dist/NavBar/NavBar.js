@@ -39,22 +39,9 @@ const DropdownMenuMoblie = attr => {
     return active;
   };
 
-  if (attr.index == 2) {
-    return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("a", {
-      onClick: menuVisible
-    }, attr.link.label), active && /*#__PURE__*/_react.default.createElement("div", {
-      className: (0, _classnames.default)(_NavBarModule.default.subMenuMoblie, _NavBarModule.default.themeColorIP)
-    }, attr.props.subtitles.map(subtitle => {
-      return /*#__PURE__*/_react.default.createElement("a", {
-        href: subtitle.url,
-        className: _NavBarModule.default.linkNavBarMoblie
-      }, subtitle.label);
-    })));
-  } else {
-    return /*#__PURE__*/_react.default.createElement("a", {
-      href: attr.link.url
-    }, attr.link.label);
-  }
+  return /*#__PURE__*/_react.default.createElement("a", {
+    href: attr.link.url
+  }, attr.link.label);
 };
 
 const NavBar = props => {
