@@ -3,8 +3,8 @@
 .PreviewArtigoDestaqueContainer{
     display: flex;
     flex-direction: row;
-    padding-left: 82px;
-    padding-right: 82px;
+    padding-left: 50px;
+    padding-right: 50px;
     margin-top: 15px;
     height: fit-content;
 }
@@ -12,10 +12,9 @@
 .ContainerDestaque{
     display: flex;
     flex-direction: column;
-    width: 55%;
-    height: 490px;
+    width: 60%;
     gap: 45px;
-    margin-right: 45px;
+    margin-right: 10px;
 }
 
 .PreviewArtigoDestaqueTag{
@@ -79,6 +78,6 @@
 .PreviewArtigoDestaqueImage{
     background-color: #606E78;
     border-radius: 20px;
-    width: 490px;
+    width: 40%;
     height: 490px;
 }
