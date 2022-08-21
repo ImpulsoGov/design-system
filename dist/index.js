@@ -27,6 +27,12 @@ Object.defineProperty(exports, "Content3Col", {
     return _Content3Col.Content3Col;
   }
 });
+Object.defineProperty(exports, "ConteudoBlog", {
+  enumerable: true,
+  get: function get() {
+    return _ConteudoBlog.ConteudoBlog;
+  }
+});
 Object.defineProperty(exports, "Footer", {
   enumerable: true,
   get: function get() {
@@ -108,11 +114,13 @@ var _ButtonLogin = require("./ButtonLogin/ButtonLogin");
 
 var _Content3Col = require("./Content3Col/Content3Col");
 
-var _Footer = require("./Footer");
+var _ConteudoBlog = require("./ConteudoBlog/ConteudoBlog");
+
+var _Footer = require("./Footer/Footer");
 
 var _FormConsultoria = require("./FormConsultoria/FormConsultoria");
 
-var _Header = require("./Header");
+var _Header = require("./Header/Header");
 
 var _HomeBanner = require("./HomeBanner/HomeBanner");
 
@@ -120,9 +128,9 @@ var _IFrame = require("./IFrame/IFrame");
 
 var _ImagemFundo = require("./ImagemFundo/ImagemFundo");
 
-var _NavBar = require("./NavBar");
+var _NavBar = require("./NavBar/NavBar");
 
-var _Parcerias = require("./Parcerias");
+var _Parcerias = require("./Parcerias/Parcerias");
 
 var _ParceriasTexto = require("./ParceriasTexto/ParceriasTexto");
 
