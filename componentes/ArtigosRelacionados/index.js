@@ -1,0 +1,1 @@
+export { ArtigosRelacionados } from "./ArtigosRelacionados";
