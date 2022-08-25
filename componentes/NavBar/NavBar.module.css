@@ -147,11 +147,11 @@
     display: none;
   }
   
-  @media screen and (max-width: 640px) {
+  @media screen and (max-width: 1023px) {
     .container_navbar {
       padding: 16px 24px 16px 24px;
       align-items: center;
-      width: 87%;
+      width: 100%;
     }
     .container_navbar a {
       color: #1F1F1F;
