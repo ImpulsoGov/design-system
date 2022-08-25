@@ -1,0 +1,60 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@40;500&display=swap");
+
+.ListaArtigosContainer{
+    padding-top: 90px;
+    padding-bottom: 300px;
+}
+.ListaResumoTitulo{
+    padding-left: 50px;
+    padding-right: 50px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 64px;
+    line-height: 120%;
+    margin-bottom: 139px;
+    margin-top: 139px;
+}
+
+.ListaResumoBtnContainer{
+    margin-top: 76px;
+    margin-right: 50px;
+    display: flex;
+    justify-content: right;
+}
+
+.TodosArtigosSelect{
+    margin-left: 50px;
+    margin-bottom: 90px;
+    width: 145px;
+    height: 48px;
+    background: #FFFFFF;
+    border: 1px solid rgba(96, 110, 120, 0.15);
+    border-radius: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0px 25px 0px 15px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 100%;
+    text-transform: uppercase;
+    color: #1F1F1F;
+    width: fit-content;
+    outline: none;
+    appearance: none;
+
+    background-image:
+        linear-gradient(45deg, transparent 50%, gray 50%),
+        linear-gradient(135deg, gray 50%, transparent 50%);
+    background-position:
+        calc(100% - 16px) calc(1em + 5px),
+        calc(100% - 12px) calc(1em + 5px);
+    background-size:
+        5px 5px,
+        5px 5px;
+    background-repeat: no-repeat;
+}
