@@ -1,0 +1,147 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@40;500&display=swap");
+
+.PreviewArtigoDestaqueContainer{
+    display: flex;
+    flex-direction: row;
+    padding-left: 50px;
+    padding-right: 50px;
+    margin-top: 15px;
+    height: fit-content;
+}
+
+.ContainerDestaque{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 45px;
+    margin-right: 45px;
+}
+.ContainerDestaque a{
+    text-decoration: none;
+}
+.PreviewArtigoDestaqueTag{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #1F1F1F;
+    background-color: #E6ECF0;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    border-radius: 8px;
+    padding: 0px 10px 1px;
+    width: fit-content;
+    height: 32px;
+    white-space: nowrap;
+}
+
+.PreviewArtigoDestaqueTitulo{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 64px;
+    color: #1F1F1F;
+    text-align: left;
+}
+
+.PreviewArtigoDestaqueTexto{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    color: #1F1F1F;
+    text-align: left;
+}
+
+.PreviewArtigoDestaqueAutor{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    color: #1F1F1F;
+}
+
+.PreviewArtigoDestaqueData{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    color: #606E78;
+}
+
+
+.PreviewArtigoDestaqueAutorAvatar{
+    margin-right: 10px;
+}
+
+.PreviewArtigoDestaqueImage{
+    background-color: #606E78;
+    border-radius: 20px;
+    width: 100%;
+    height: auto;
+}
+
+.PreviewArtigoDestaqueImageContainer{
+    border-radius: 20px;
+    height: fit-content;
+    top: 80px;
+    position: relative;
+}
+
+
+@media screen and (max-width: 1023px){
+    .PreviewArtigoDestaqueContainer{
+        flex-direction: column-reverse;
+        padding: 16px;
+        gap: 45px;
+    }
+    .ContainerDestaque{
+        width: 100%;
+        margin-right: 0px;
+    }
+    .PreviewArtigoDestaqueTitulo{
+        font-size: 48px;
+    }
+    .PreviewArtigoDestaqueTexto{
+        font-size: 16px;
+    }
+    .PreviewArtigoDestaqueImage{
+        width: 100%;
+        height: auto;
+        background-color: none;
+    }
+    
+}
+
+@media screen and (min-width: 1023px) and (max-width: 1439px){
+    .PreviewArtigoDestaqueContainer{
+        flex-direction: column-reverse;
+        padding: 72px 82px 45px 82px;
+        gap: 45px;
+    }
+    .ContainerDestaque{
+        width: 100%;
+        margin-right: 0px;
+    }
+    .PreviewArtigoDestaqueTitulo{
+        font-size: 48px;
+    }
+    .PreviewArtigoDestaqueTexto{
+        font-size: 16px;
+    }
+    .PreviewArtigoDestaqueImage{
+        width: 100%;
+        height: auto;
+        background-color: none;
+    }
+    
+}
+@media screen and (min-width: 1920px) {
+    .PreviewArtigoDestaqueImageContainer{
+        position:static;
+    }
+}
