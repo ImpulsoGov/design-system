@@ -40,7 +40,7 @@ const ListaResumo = ({
                             tag = {artigo.tag}
                             titulo = {artigo.titulo}
                             texto = {artigo.texto}
-                            autor = {artigo.autor}
+                            autor = {{nome : artigo.autor, avatar: artigo.avatar, data: artigo.data}}
                             imagem = {artigo.imagem}
                         />
                     </div>
