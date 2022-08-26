@@ -2,7 +2,7 @@ import React from 'react'
 import { ArtigosRelacionados } from './index'
 
 
-export const artigos = [
+const artigos = [
 	{
 			id: "cl6v73chm2xbn0blwom0s8o1l",
 			tag : "Capitação Ponderada",
