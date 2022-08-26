@@ -9,6 +9,10 @@ const ConteudoBlog = ({
     capa,
     autor
   }) => {
+    const meses = ["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"]
+    const mes = new Date(autor.data).getMonth()
+    const ano = new Date(autor.data).getFullYear()
+
     return (
       <div className={style.ConteudoBlogContainer}>
         <div>
@@ -28,7 +32,7 @@ const ConteudoBlog = ({
                 src={autor.avatar}
                 alt={autor.avatar}
             ></img>
-            <div>{autor.nome} <span className={style.ConteudoBlogData}>{autor.data}</span></div>
+            <div>{autor.nome} <span className={style.ConteudoBlogData}>  ·  {meses[mes]} {ano}</span></div>
         </div>
         <div 
           className={style.ConteudoBlogTexto}

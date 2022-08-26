@@ -33,14 +33,14 @@ const ListaResumo = ({
     return(
         <div>
             <div className={style.ListaResumoTitulo}>{titulo}</div>
-            {artigos5.map((artigo)=>{
+            {artigos5.map((artigo,index)=>{
                 return(
-                    <div>
+                    <div key={index}>
                         <PreviewArtigo
                             tag = {artigo.tag}
                             titulo = {artigo.titulo}
                             texto = {artigo.texto}
-                            autor = {artigo.autor}
+                            autor = {{nome : artigo.autor, avatar: artigo.avatar, data: artigo.data}}
                             imagem = {artigo.imagem}
                         />
                     </div>
@@ -69,7 +69,7 @@ const TodosArtigos = ({
             <select 
                 className={style.TodosArtigosSelect}
                 onChange={(e) =>setArtigos([...Ordenar(artigos_sort,e.target.value)])}>
-                <option selected>Ordenar</option>
+                <option defaultValue>Ordenar</option>
                 <option value={true}>Mais Recente</option>
                 <option value={false}>Mais Antigo</option>
             </select>
