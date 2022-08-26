@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@40;500&display=swap");
+
+.ArtigosRelacionadosContainer {
+  background-color: #eff5f9;
+  width: 100%;
+}
+
+header {
+  padding: 7% 5%;
+}
+
+header h1 {
+  font-weight: 400;
+  font-family: "inter";
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-left: 1%;
+  gap: 80px;
+}
