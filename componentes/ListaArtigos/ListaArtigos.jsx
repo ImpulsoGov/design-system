@@ -33,9 +33,9 @@ const ListaResumo = ({
     return(
         <div>
             <div className={style.ListaResumoTitulo}>{titulo}</div>
-            {artigos5.map((artigo)=>{
+            {artigos5.map((artigo,index)=>{
                 return(
-                    <div>
+                    <div key={index}>
                         <PreviewArtigo
                             tag = {artigo.tag}
                             titulo = {artigo.titulo}
