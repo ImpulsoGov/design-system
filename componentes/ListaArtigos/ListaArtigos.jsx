@@ -69,7 +69,7 @@ const TodosArtigos = ({
             <select 
                 className={style.TodosArtigosSelect}
                 onChange={(e) =>setArtigos([...Ordenar(artigos_sort,e.target.value)])}>
-                <option selected>Ordenar</option>
+                <option defaultValue>Ordenar</option>
                 <option value={true}>Mais Recente</option>
                 <option value={false}>Mais Antigo</option>
             </select>
