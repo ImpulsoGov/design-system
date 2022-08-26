@@ -13,6 +13,7 @@ const ArtigosRelacionados = ({list})=>{
           {list.map((item, index) => (
             <PreviewArtigo
               key={index}
+              id={item.id}
               tag={item.tag}
               titulo={item.titulo}
               texto={item.texto}
