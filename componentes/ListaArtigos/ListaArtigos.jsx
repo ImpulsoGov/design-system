@@ -10,6 +10,7 @@ const Lista = (props)=>{
                 return(
                     <div key={index}>
                         <PreviewArtigo
+                            id = {artigo.id}
                             tag = {artigo.tag}
                             titulo = {artigo.titulo}
                             texto = {artigo.texto}
@@ -37,6 +38,7 @@ const ListaResumo = ({
                 return(
                     <div key={index}>
                         <PreviewArtigo
+                            id = {artigo.id}
                             tag = {artigo.tag}
                             titulo = {artigo.titulo}
                             texto = {artigo.texto}
