@@ -1,0 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@40;500&display=swap");
+
+.SMNavBarContainer{
+  display: flex;
+  width: 100%;
+  height: 80px;
+  background-color: #145C56;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 42px;
+}
+
+.SMNavBarContainer span {
+  color: white;
+  font-family: "Inter";
+}
+
