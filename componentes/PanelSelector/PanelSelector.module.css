@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@40;500&display=swap");
+
+.PanelSelectorContainer {
+  display: flex;
+  gap: 20px;
+  border-top: 1px solid #bdbdbd;
+  height: 40px;
+  width: 100%;
+  font-family: "Inter";
+  font-size: small;
+}
+
+.PanelSelectorButtonSelected {
+  border-top: 3px solid black;
+  font-family: "Inter";
+  font-size: small;
+  outline: none;
+  background: none;
+  transition: 0.3s;
+  height: 80%;
+  width: fit-content;
+  cursor: pointer;
+  display: flex;
+  align-items: flex-end;
+  margin-top: -2px;
+}
+
+.PanelSelectorButton {
+  font-family: "Inter";
+  font-size: small;
+  outline: none;
+  background: none;
+  transition: 0.3s;
+  height: 100%;
+  width: fit-content;
+  cursor: pointer;
+  display: flex;
+  align-items: flex-end;
+  margin-top: -3px;
+}
