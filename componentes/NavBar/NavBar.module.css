@@ -39,7 +39,7 @@
     color: #1D856C;
   }
   .logoWrapper_navbar {
-    height: 24px;
+    height: 30px;
     width: 372px;
   }
   
@@ -146,7 +146,10 @@
   .buttonMoblieWhite{
     display: none;
   }
-  
+  .NavBarSearchConteinerMoblie{
+    display: none;
+  }
+
   @media screen and (max-width: 1023px) {
     .container_navbar {
       padding: 16px 24px 16px 24px;
@@ -157,7 +160,7 @@
       color: #1F1F1F;
     }
     .logoWrapper_navbar {
-      height: 21px;
+      height: 50px;
       width: 135px;
       margin-right: auto;
     }
@@ -237,7 +240,9 @@
       position: relative;
       left: 0;
     }
-  
+    .NavBarSearchConteinerMoblie{
+      display: block;
+    }
   }
 
   @media screen and (max-width: 1024px) {

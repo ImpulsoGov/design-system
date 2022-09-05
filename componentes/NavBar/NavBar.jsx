@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import cx from "classnames";
 import style from"./NavBar.module.css";
+import { SearchBar } from "../SearchBar/SearchBar";
 
 const NavBarMenu = (tema,NavBarIconBranco,NavBarIconDark) => {
   let theme = (tema=="ColorIP") ?  NavBarIconBranco : NavBarIconDark
@@ -40,11 +41,20 @@ const NavBar = (props) => {
           <div className={style.logo_navbar}>
             <a href="/">
               <img
+                  className={style.logoWrapper_navbar}
                   alt="impulso-previne-logo_navbar"
                   src= {String(props.theme.logoProjeto)}
                 />
-              </a>
+            </a>
           </div>
+        </div>
+        <div className={style.NavBarSearchConteinerMoblie}>
+          <SearchBar 
+            data={props.data}
+            theme={props.theme.cor}
+            municipio = {props.municipio}
+            setMunicipio = {props.setMunicipio}
+          />
         </div>
 
             <div className={style.links_navbar}>
@@ -55,6 +65,15 @@ const NavBar = (props) => {
                     </div>
                   );
                 })}
+                <div className={style.NavBarSearchConteiner}>
+                  <SearchBar 
+                  data={props.data}
+                  theme={props.theme.cor}
+                  municipio = {props.municipio}
+                  setMunicipio = {props.setMunicipio}
+                  />
+                </div>
+
             </div>
 
           <div className={style["buttonMoblie"+props.theme.cor]}
@@ -75,7 +94,7 @@ const NavBar = (props) => {
                 </div>
               );
         })}
-
+  
       </div>
     </div>
 )};
