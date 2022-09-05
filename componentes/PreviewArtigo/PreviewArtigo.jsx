@@ -24,11 +24,11 @@ const PreviewArtigo = ({
             </div>
             <div className={style.PreviewArtigoContainerInner} id={style.PreviewArtigoContainerID}>
                 <div className={style.PreviewArtigoContainerTituloTexto}>
-                    <a href={"blog/"+id}><div className={style.PreviewArtigoTitulo}>{titulo}</div></a>
+                    <a href={"blog/artigos/"+id}><div className={style.PreviewArtigoTitulo}>{titulo}</div></a>
                     <div className={style.PreviewArtigoTexto}>{texto.slice(0,300)+"..."}</div>
                 </div>
                 <div className={style.PreviewArtigoImage}>
-                    <a href={"blog/"+id}>
+                    <a href={"blog/artigos/"+id}>
                         <img 
                             className={style.PreviewArtigoImage}
                             src={imagem}

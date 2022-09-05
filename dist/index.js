@@ -69,6 +69,12 @@ Object.defineProperty(exports, "ImagemFundo", {
     return _ImagemFundo.ImagemFundo;
   }
 });
+Object.defineProperty(exports, "ListaArtigos", {
+  enumerable: true,
+  get: function get() {
+    return _ListaArtigos.ListaArtigos;
+  }
+});
 Object.defineProperty(exports, "NavBar", {
   enumerable: true,
   get: function get() {
@@ -85,6 +91,18 @@ Object.defineProperty(exports, "ParceriasTexto", {
   enumerable: true,
   get: function get() {
     return _ParceriasTexto.ParceriasTexto;
+  }
+});
+Object.defineProperty(exports, "PreviewArtigo", {
+  enumerable: true,
+  get: function get() {
+    return _PreviewArtigo.PreviewArtigo;
+  }
+});
+Object.defineProperty(exports, "PreviewArtigoDestaque", {
+  enumerable: true,
+  get: function get() {
+    return _PreviewArtigoDestaque.PreviewArtigoDestaque;
   }
 });
 Object.defineProperty(exports, "Slider", {
@@ -128,11 +146,17 @@ var _IFrame = require("./IFrame/IFrame");
 
 var _ImagemFundo = require("./ImagemFundo/ImagemFundo");
 
+var _ListaArtigos = require("./ListaArtigos/ListaArtigos");
+
 var _NavBar = require("./NavBar/NavBar");
 
 var _Parcerias = require("./Parcerias/Parcerias");
 
 var _ParceriasTexto = require("./ParceriasTexto/ParceriasTexto");
+
+var _PreviewArtigo = require("./PreviewArtigo/PreviewArtigo");
+
+var _PreviewArtigoDestaque = require("./PreviewArtigoDestaque/PreviewArtigoDestaque");
 
 var _Slider = require("./Slider/Slider");
 
