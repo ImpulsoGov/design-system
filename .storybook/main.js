@@ -1,7 +1,7 @@
 module.exports = {
   "stories": [
     "../componentes/**/*.stories.mdx",
-    "/home/danilo/impulso/design-system/componentes/**/*.stories.@(js|jsx|ts|tsx)"
+    "../componentes/**/*.stories.@(js|jsx|ts|tsx)"
   ],
   "addons": [
     "@storybook/addon-links",
