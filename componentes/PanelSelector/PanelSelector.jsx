@@ -4,10 +4,6 @@ import style from "./PanelSelector.module.css";
 
 const PanelSelector = (props) => {
   const [activeTabIndex, setActiveTabIndex] = useState(0);
-  const [iframeLink, setInframeLink] = useState(props.list[0].link);
-
-  console.log(iframeLink);
-
   return (
     <>
       <div className={style.PanelSelectorMain}>
@@ -17,7 +13,6 @@ const PanelSelector = (props) => {
             <buton
               onClick={() => {
                 setActiveTabIndex(index);
-                setInframeLink(item.link);
               }}
               key={index}
               className={
@@ -31,7 +26,7 @@ const PanelSelector = (props) => {
           ))}
         </div>
       </div>
-      <IFrame link={iframeLink} />
+      <IFrame link={props.links[activeTabIndex]} height="3650"/>
     </>
   );
 };
