@@ -1,0 +1,32 @@
+.SearchBarInputColorIP{
+    border-radius: 80px;
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+    outline: none;
+    width: 140px;
+    padding: 5px;
+}
+.SearchBarInputWhite{
+    border-radius: 80px;
+    color: #1F1F1F;
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+    outline: none;
+    width: 140px;
+    padding: 5px;
+}
+
+
+.SearchBarInputColorIP:focus{
+    border: solid 1px #606E78;
+}
+
+.SearchBarInputWhite:focus{
+    border: solid 1px #606E78;
+}
+
+.SearchBarInputWrong:focus{
+    border: solid 1px rgb(236, 76, 76);
+    background-color: rgb(236, 76, 76,0.4);
+}

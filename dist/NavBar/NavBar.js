@@ -13,6 +13,8 @@ var _classnames = _interopRequireDefault(require("classnames"));
 
 var _NavBarModule = _interopRequireDefault(require("./NavBar.module.css"));
 
+var _SearchBar = require("../SearchBar/SearchBar");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
@@ -61,9 +63,17 @@ const NavBar = props => {
   }, /*#__PURE__*/_react.default.createElement("a", {
     href: "/"
   }, /*#__PURE__*/_react.default.createElement("img", {
+    className: _NavBarModule.default.logoWrapper_navbar,
     alt: "impulso-previne-logo_navbar",
     src: String(props.theme.logoProjeto)
   })))), /*#__PURE__*/_react.default.createElement("div", {
+    className: _NavBarModule.default.NavBarSearchConteinerMoblie
+  }, /*#__PURE__*/_react.default.createElement(_SearchBar.SearchBar, {
+    data: props.data,
+    theme: props.theme.cor,
+    municipio: props.municipio,
+    setMunicipio: props.setMunicipio
+  })), /*#__PURE__*/_react.default.createElement("div", {
     className: _NavBarModule.default.links_navbar
   }, props.menu.map((link, index) => {
     return /*#__PURE__*/_react.default.createElement("div", {
@@ -74,7 +84,14 @@ const NavBar = props => {
       link,
       props
     }));
-  })), /*#__PURE__*/_react.default.createElement("div", {
+  }), /*#__PURE__*/_react.default.createElement("div", {
+    className: _NavBarModule.default.NavBarSearchConteiner
+  }, /*#__PURE__*/_react.default.createElement(_SearchBar.SearchBar, {
+    data: props.data,
+    theme: props.theme.cor,
+    municipio: props.municipio,
+    setMunicipio: props.setMunicipio
+  }))), /*#__PURE__*/_react.default.createElement("div", {
     className: _NavBarModule.default["buttonMoblie" + props.theme.cor],
     onClick: menuVisible
   }, /*#__PURE__*/_react.default.createElement("img", {
