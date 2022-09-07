@@ -1,0 +1,102 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@40;500&display=swap");
+
+.AboutSectionContainer{
+  display: flex;
+  width: 100vw;
+  height: 788px;
+  padding: 68px 82px 127px 82px;
+  gap: 26px;
+}
+
+.AboutSectionDescription{
+  width: 55%;
+  height: 53%;
+  max-height: 390px;
+
+  padding: 60px 0;
+  overflow: hidden;
+  position: relative;
+  transition: .2s;
+}
+
+.AboutSectionDescription p{
+  margin-bottom: 50px;
+  line-height: 30px;
+  font-family: "Inter";
+  font-weight: 400;
+  font-size: 20px;
+  text-align: justify;
+  white-space: normal;
+  color: #1F1F1F;
+}
+
+.AboutSectionDescription button{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  padding: 20px 24px;
+  width: 200px;
+  height: 44px;
+  
+  border-radius: 80px;
+  border: none;
+  
+  outline: none;
+  background-color: #6A2914;
+  color: white;
+  font-family: "Inter";
+  font-weight: 500;
+
+  cursor: pointer;
+}
+
+.AboutSectionDescription button:hover{
+  opacity: .98;
+}
+
+.AboutSectionOpenDescription{
+  width: 100%;
+  height: fit-content;
+
+  padding: 60px 0;
+  position: relative;
+
+  transition: .2s;
+}
+
+.AboutSectionOpenDescription p{
+  margin-bottom: 50px;
+  line-height: 30px;
+  font-family: "Inter";
+  font-weight: 400;
+  font-size: 20px;
+  text-align: justify;
+  white-space: normal;
+  color: #1F1F1F;
+}
+
+.AboutSectionOpenDescription button{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  padding: 20px 24px;
+  width: 200px;
+  height: 44px;
+  
+  border-radius: 80px;
+  border: none;
+  
+  outline: none;
+  background-color: #6A2914;
+  color: white;
+  font-family: "Inter";
+  font-weight: 500;
+
+  cursor: pointer;
+}
