@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@40;500&display=swap");
 
-.AboutSectionContainer{
+.AboutSectionContainer {
   display: flex;
   width: 100vw;
   height: 788px;
@@ -8,33 +8,37 @@
   gap: 26px;
 }
 
-.AboutSectionDescription{
-  width: 55%;
+.AboutSectionBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 130px;
+  min-height: 100%;
+  height: fit-content;
+}
+
+.AboutSectionDescription {
+  width: 100%;
   height: 53%;
   max-height: 390px;
 
   padding: 60px 0;
   overflow: hidden;
   position: relative;
-  transition: .2s;
+  transition: 0.2s;
 }
 
-.AboutSectionDescription p{
+.AboutSectionDescription p {
   margin-bottom: 50px;
   line-height: 30px;
   font-family: "Inter";
   font-weight: 400;
-  font-size: 20px;
+  font-size: clamp(1rem, 0.9167rem + 0.3704vw, 1.25rem);
   text-align: justify;
   white-space: normal;
-  color: #1F1F1F;
+  color: #1f1f1f;
 }
 
-.AboutSectionDescription button{
-  position: absolute;
-  bottom: 0;
-  left: 0;
-
+.AboutSectionBlock button {
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -42,12 +46,13 @@
   padding: 20px 24px;
   width: 200px;
   height: 44px;
-  
+  margin-top: 40px;
+
   border-radius: 80px;
   border: none;
-  
+
   outline: none;
-  background-color: #6A2914;
+  background-color: #6a2914;
   color: white;
   font-family: "Inter";
   font-weight: 500;
@@ -55,48 +60,62 @@
   cursor: pointer;
 }
 
-.AboutSectionDescription button:hover{
-  opacity: .98;
+.AboutSectionBlock button:hover {
+  opacity: 0.98;
 }
 
-.AboutSectionOpenDescription{
+.AboutSectionOpenDescription {
   width: 100%;
   height: fit-content;
 
   padding: 60px 0;
   position: relative;
 
-  transition: .2s;
+  transition: 0.2s;
 }
 
-.AboutSectionOpenDescription p{
+.AboutSectionOpenDescription p {
   margin-bottom: 50px;
   line-height: 30px;
   font-family: "Inter";
   font-weight: 400;
-  font-size: 20px;
+  font-size: clamp(1rem, 0.9167rem + 0.3704vw, 1.25rem);
   text-align: justify;
   white-space: normal;
-  color: #1F1F1F;
+  color: #1f1f1f;
 }
 
-.AboutSectionOpenDescription button{
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
 
-  padding: 20px 24px;
-  width: 200px;
-  height: 44px;
-  
-  border-radius: 80px;
-  border: none;
-  
-  outline: none;
-  background-color: #6A2914;
-  color: white;
-  font-family: "Inter";
-  font-weight: 500;
+@media(max-width: 479px){
+  .AboutSectionContainer {
+    display: flex;
+    width: 100vw;
+    height: 788px;
+    padding: 5%;
+    gap: 26px;
+    overflow-x: hidden;
+  }
 
-  cursor: pointer;
+  .AboutSectionDescription {
+    width: 85%;
+    height: 53%;
+    max-height: 390px;
+  
+    overflow: hidden;
+    position: relative;
+    transition: 0.2s;
+    marker-start: 0 auto;
+  }
+
+  .AboutSectionOpenDescription {
+    width: 85%;
+    height: fit-content;
+    
+    overflow: hidden;
+    transition: 0.2s;
+  }
+
+  iframe{
+    display: none;
+  }
 }

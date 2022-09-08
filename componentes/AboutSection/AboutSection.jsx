@@ -6,7 +6,7 @@ const AboutSection = (props) => {
   const [fullView, setFullView] = useState(false);
   return (
     <section className={styles.AboutSectionContainer}>
-      <>
+      <div className={styles.AboutSectionBlock}>
         <div
           className={
             fullView
@@ -17,14 +17,13 @@ const AboutSection = (props) => {
           {props.paragraphsList.map((item, index) => (
             <p key={index}>{item}</p>
           ))}
-
-          {props.paragraphsList.length > 2 && (
-            <button onClick={() => setFullView(!fullView)}>
-              {fullView ? "LER MENOS" : "LER TUDO"}
-            </button>
-          )}
         </div>
-      </>
+        {props.paragraphsList.length > 2 && (
+          <button onClick={() => setFullView(!fullView)}>
+            {fullView ? "LER MENOS" : "LER TUDO"}
+          </button>
+        )}
+      </div>
       {!fullView && <iframe src={props.link} width="35%" height="65%"></iframe>}
     </section>
   );
