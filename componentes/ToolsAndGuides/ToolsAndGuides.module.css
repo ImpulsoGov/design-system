@@ -1,0 +1,87 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@40;500&display=swap");
+
+.ToolsAndGuidesContainer {
+  display: flex;
+  justify-content: space-between;
+
+  padding: 120px 80px;
+
+  width: 100vw;
+  height: 560px;
+  background-color: #f0f4f6;
+}
+
+.ToolsAndGuidesTitle {
+  font-size: clamp(1.25rem, 1rem + 1.1111vw, 2rem);
+  font-weight: 500;
+  font-family: "Inter";
+  line-height: 48px;
+  color: #1f1f1f;
+}
+
+.ToolsAndGuidesBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 52px;
+  width: 632px;
+}
+
+.ToolsAndGuidesContent {
+  font-family: "Inter";
+  font-weight: 400;
+  font-size: clamp(1rem, 0.9167rem + 0.3704vw, 1.25rem);
+  line-height: 32px;
+  color: #1f1f1f;
+}
+
+.ToolsAndGuidesContent button {
+  width: 56px;
+  height: 56px;
+  border: 1px solid #1f1f1f;
+  border-radius: 50%;
+  background: none;
+  outline: none;
+  font-size: clamp(1rem, 0.9167rem + 0.3704vw, 1.25rem);
+  cursor: pointer;
+  margin-right: 16px;
+  transition: .4s;
+}
+
+.ToolsAndGuidesContent button:hover{
+  border: 1px solid #dbdbdb;
+  color: #dbdbdb;
+}
+
+@media (max-width: 480px) {
+  .ToolsAndGuidesContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    padding: 10% 5%;
+
+    width: 100vw;
+    height: 560px;
+    background-color: #f0f4f6;
+
+  }
+
+  .ToolsAndGuidesBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    width: 100%;
+  }
+
+  .ToolsAndGuidesContent {
+    font-family: "Inter";
+    font-weight: 400;
+    font-size: clamp(1rem, 0.9167rem + 0.3704vw, 1.25rem);
+    line-height: 32px;
+    color: #1f1f1f;
+    overflow-wrap: break-word;  
+    word-wrap: break-word; 
+    word-break: break-word;
+    width: 340px;
+  }
+}
