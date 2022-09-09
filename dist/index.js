@@ -81,6 +81,12 @@ Object.defineProperty(exports, "NavBar", {
     return _NavBar.NavBar;
   }
 });
+Object.defineProperty(exports, "PanelSelector", {
+  enumerable: true,
+  get: function get() {
+    return _PanelSelector.PanelSelector;
+  }
+});
 Object.defineProperty(exports, "Parcerias", {
   enumerable: true,
   get: function get() {
@@ -149,6 +155,8 @@ var _ImagemFundo = require("./ImagemFundo/ImagemFundo");
 var _ListaArtigos = require("./ListaArtigos/ListaArtigos");
 
 var _NavBar = require("./NavBar/NavBar");
+
+var _PanelSelector = require("./PanelSelector/PanelSelector");
 
 var _Parcerias = require("./Parcerias/Parcerias");
 
