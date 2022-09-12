@@ -26,7 +26,7 @@ const PanelSelector = (props) => {
           ))}
         </div>
       </div>
-      <IFrame link={props.links[activeTabIndex]} height="3650"/>
+      <IFrame link={props.list[activeTabIndex].link} height="3650"/>
     </>
   );
 };
