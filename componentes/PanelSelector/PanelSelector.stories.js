@@ -1,38 +1,22 @@
 import React from "react";
 import { PanelSelector } from "./index";
 
-const tabs = [
+const dsLink = [
+  "https://datastudio.google.com/embed/reporting/12fb288f-4955-4930-b091-63da3f846c51/page/p_1i1fd8auvc?params=%7B%22df58%22:%22include%25EE%2580%25800%25EE%2580%2580IN%25EE%2580%2580Santo%2520Andr%25C3%25A9%2520-%2520SP%22%7D",
+  "https://datastudio.google.com/embed/reporting/12fb288f-4955-4930-b091-63da3f846c51/page/p_8qgdgiz2xc?params=%7B%22df56%22:%22include%25EE%2580%25800%25EE%2580%2580IN%25EE%2580%2580Abadi%25C3%25A2nia%2520-%2520GO%22%7D",
+  "https://datastudio.google.com/embed/reporting/12fb288f-4955-4930-b091-63da3f846c51/page/p_1i1fd8auvc?params=%7B%22df58%22:%22include%25EE%2580%25800%25EE%2580%2580IN%25EE%2580%2580Santo%2520Andr%25C3%25A9%2520-%2520SP%22%7D",
+]
+const labels = [
   {
-    label: "RESUMO",
-    link: "https://www.delftstack.com/pt/api/",
+    label: "Indicadores de Desempenho",
   },
   {
-    label: "APS E CAPS",
-    link: "https://www.delftstack.com/pt/tutorial/",
+    label: "Captação Ponderada",
   },
   {
-    label: "APS E AMBULATÓRIO",
-    link: "https://www.delftstack.com/pt/howto/css/hide-scrollbar-css/#defina-scrollbar-width-como-none-para-ocultar-a-barra-de-rolagem-em-css",
+    label: "Incentivos a Ações Estratégicas",
   },
-  {
-    label: "CAPS E REUE",
-    link: "https://www.delftstack.com/howto/node.js/",
-  },
-  {
-    label: "RAPS E ATENÇÃO HOSPITALAR",
-    link: "https://www.delftstack.com/howto/typescript/",
-  },
-  {
-    label: "RAPS E ATENÇÃO HOSPITALAR",
-    link: "https://developer.mozilla.org/pt-BR/docs/Web/CSS/overflow",
-  },
-
-  ,
-];
-const props = {
-  list: tabs,
-  title: "Cuidado compartilhado de Saúde Mental entre as redes de saúde",
-};
+]
 export default {
   title: "Componentes/PanelSelector",
   component: PanelSelector,
@@ -41,8 +25,9 @@ export default {
 export const Default = () => {
   return (
     <PanelSelector
-      list={tabs}
-      title="Cuidado compartilhado de Saúde Mental entre as redes de saúde"
-    />
+      links = {dsLink}
+      list={labels}
+      title="Análises"
+  />
   );
 };
