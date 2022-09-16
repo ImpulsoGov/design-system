@@ -8,6 +8,16 @@
   text-decoration: none;
 }
 
+.themeColorAGP{
+  background-color: #6A2914;
+  color: #FFFFFF;
+  text-decoration: none;
+}
+.themeColorAGP a{
+  text-decoration: none;
+}
+
+
 .themeWhite{
   background-color: #FFFFFF;
   color: #1F1F1F;
@@ -35,9 +45,18 @@
     font-style: normal;
     font-weight: 40;
   }
-  .container_navbar a:hover{
+  .themeColorIP a:hover{
     color: #1D856C;
   }
+
+  .themeColorAGP a:hover{
+    color: #F4CCAB;
+  }
+
+  .themeColorWhite a:hover{
+    color: #1D856C;
+  }
+
   .logoWrapper_navbar {
     height: 30px;
     width: 372px;
