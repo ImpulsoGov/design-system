@@ -4,7 +4,7 @@ import style from"./NavBar.module.css";
 import { SearchBar } from "../SearchBar/SearchBar";
 
 const NavBarMenu = (tema,NavBarIconBranco,NavBarIconDark) => {
-  let theme = (tema=="ColorIP") ?  NavBarIconBranco : NavBarIconDark
+  let theme = (tema=="ColorIP" || tema=="ColorAGP") ?  NavBarIconBranco : NavBarIconDark
   return theme
 }
 const DropdownMenu = (attr) => {  
