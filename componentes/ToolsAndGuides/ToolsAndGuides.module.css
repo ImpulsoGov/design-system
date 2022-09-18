@@ -4,11 +4,10 @@
   display: flex;
   justify-content: space-between;
 
-  padding: 120px 80px;
-
   width: 100vw;
   height: 560px;
   background-color: #f0f4f6;
+ 
 }
 
 .ToolsAndGuidesTitle {
@@ -17,6 +16,8 @@
   font-family: "Inter";
   line-height: 48px;
   color: #1f1f1f;
+  
+  padding-left: 60px;
 }
 
 .ToolsAndGuidesBlock {
@@ -24,6 +25,10 @@
   flex-direction: column;
   gap: 52px;
   width: 632px;
+}
+
+.ToolsAndGuidesBlock {
+  word-wrap: break-word;
 }
 
 .ToolsAndGuidesContent {
@@ -58,8 +63,6 @@
     flex-direction: column;
     justify-content: space-between;
 
-    padding: 10% 5%;
-
     width: 100vw;
     height: 560px;
     background-color: #f0f4f6;
@@ -71,6 +74,7 @@
     flex-direction: column;
     gap: 25px;
     width: 100%;
+    padding: 0;
   }
 
   .ToolsAndGuidesContent {
@@ -83,5 +87,7 @@
     word-wrap: break-word; 
     word-break: break-word;
     width: 340px;
+    text-align: justify;
+    padding: 10px;
   }
 }
