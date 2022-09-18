@@ -24,7 +24,7 @@ const AboutSection = (props) => {
           </button>
         )}
       </div>
-      {!fullView && <iframe src={props.link} width="35%" height="65%"></iframe>}
+      {!fullView && <iframe src={props.link} width="390px" height="390px"></iframe>}
     </section>
   );
 };

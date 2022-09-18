@@ -4,15 +4,17 @@
   display: flex;
   width: 100vw;
   height: 788px;
-  padding: 68px 82px 127px 82px;
-  gap: 26px;
+  padding-top: 38px;
+  gap: 33px;
 }
 
 .AboutSectionBlock {
   display: flex;
   flex-direction: column;
-  gap: 130px;
-  min-height: 100%;
+  gap: 65;
+  max-height: 65%;
+  width: 65%;
+  padding: 0 30px;
   height: fit-content;
 }
 
@@ -86,15 +88,29 @@
 }
 
 
-@media(max-width: 479px){
+@media(max-width: 480px){
   .AboutSectionContainer {
     display: flex;
+    flex-direction: column;
     width: 100vw;
-    height: 788px;
-    padding: 5%;
-    gap: 26px;
-    overflow-x: hidden;
+    max-width: 100vw;
+    height: fit-content;
+
+    padding: 0;
   }
+
+  .AboutSectionBlock {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    max-width: 100%;
+    width: 100%;
+    height: fit-content;
+
+    padding: 0;
+  }
+  
 
   .AboutSectionDescription {
     width: 85%;
@@ -104,15 +120,30 @@
     overflow: hidden;
     position: relative;
     transition: 0.2s;
-    marker-start: 0 auto;
+    margin: 0 auto;
+    border: 1px solid purple;
   }
 
   .AboutSectionOpenDescription {
-    width: 85%;
+    display: block;
+    width: 100%;
+    max-width: 90%;
     height: fit-content;
-    
-    overflow: hidden;
+    padding: 0;
     transition: 0.2s;
+
+    margin: 0 auto;
+  }
+
+  .AboutSectionOpenDescription p {
+    margin-bottom: 25px;
+    line-height: 25px;
+    font-family: "Inter";
+    font-weight: 400;
+    font-size: clamp(1rem, 0.9167rem + 0.3704vw, 1.25rem);
+    text-align: left;
+    white-space: normal;
+    color: #1f1f1f;
   }
 
   iframe{
