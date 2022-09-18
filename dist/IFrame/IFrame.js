@@ -14,8 +14,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 const IFrame = _ref => {
   let {
     height,
-    link,
-    id
+    link
   } = _ref;
   return /*#__PURE__*/_react.default.createElement("div", {
     className: _IFrameModule.default["iframe"],

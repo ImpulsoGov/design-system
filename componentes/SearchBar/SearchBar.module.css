@@ -1,25 +1,32 @@
 .SearchBarInputColorIP{
+    margin-left: auto;
     border-radius: 80px;
     color: #fff;
     background-color: rgba(255, 255, 255, 0);
-    border: none;
+    border: solid 1px #fff;
     outline: none;
     width: 140px;
-    padding: 5px;
+    padding: 10px;
 }
 .SearchBarInputWhite{
     border-radius: 80px;
     color: #1F1F1F;
     background-color: rgba(255, 255, 255, 0);
-    border: none;
+    border: solid 1px;
     outline: none;
     width: 140px;
-    padding: 5px;
+    padding: 10px;
 }
 
+.SearchBarInputColorIP::placeholder{
+    text-align: center;
+}
+.SearchBarInputWhite::placeholder{
+    text-align: center;
+}
 
 .SearchBarInputColorIP:focus{
-    border: solid 1px #606E78;
+    border: solid 1px #fff;
 }
 
 .SearchBarInputWhite:focus{
@@ -29,4 +36,22 @@
 .SearchBarInputWrong:focus{
     border: solid 1px rgb(236, 76, 76);
     background-color: rgb(236, 76, 76,0.4);
+}
+
+@media screen and (min-width: 768px) {
+    .SearchBarInputColorIP{
+        width: 180px;
+    }
+    .SearchBarInputWhite{
+        width: 180px;
+    }
+}
+
+@media screen and (min-width: 1366px) {
+    .SearchBarInputColorIP{
+        width: 240px;
+    }
+    .SearchBarInputWhite{
+        width: 240px;
+    }
 }

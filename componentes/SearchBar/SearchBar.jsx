@@ -27,7 +27,7 @@ const SearchBar = (props)=>{
             <input
                 className={cx(...inputStyle)}
                 type="text"
-                placeholder="Alterar Município..."
+                placeholder="Selecionar Município"
                 onInput={handleChange}
                 value={searchInput}
                 list="municipios"

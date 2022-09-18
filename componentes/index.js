@@ -12,6 +12,7 @@ export { IFrame}  from "./IFrame/IFrame"
 export { ImagemFundo } from "./ImagemFundo/ImagemFundo";
 export { ListaArtigos } from "./ListaArtigos/ListaArtigos";
 export { NavBar } from "./NavBar/NavBar";
+export { PanelSelector } from "./PanelSelector/PanelSelector"
 export { Parcerias } from "./Parcerias/Parcerias";
 export { ParceriasTexto } from "./ParceriasTexto/ParceriasTexto";
 export { PreviewArtigo } from "./PreviewArtigo/PreviewArtigo";
