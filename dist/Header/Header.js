@@ -9,6 +9,8 @@ var _react = _interopRequireDefault(require("react"));
 
 var _sanitize = require("../sanitize");
 
+var _classnames = _interopRequireDefault(require("classnames"));
+
 var _HeaderModule = _interopRequireDefault(require("./Header.module.css"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -18,10 +20,11 @@ const Header = _ref => {
     titulo,
     texto,
     botao,
-    chamada
+    chamada,
+    theme
   } = _ref;
   return /*#__PURE__*/_react.default.createElement("div", {
-    className: _HeaderModule.default.conteinerHeader
+    className: (0, _classnames.default)(_HeaderModule.default.conteinerHeader, _HeaderModule.default["theme" + theme])
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: _HeaderModule.default.tituloHeader,
     dangerouslySetInnerHTML: {
@@ -35,10 +38,10 @@ const Header = _ref => {
   }), (botao.label || chamada.label) && /*#__PURE__*/_react.default.createElement("div", {
     className: _HeaderModule.default.conteinerChamadasHeader
   }, botao.label && /*#__PURE__*/_react.default.createElement("a", {
-    className: _HeaderModule.default.buttonHeader,
+    className: (0, _classnames.default)(_HeaderModule.default.buttonHeader, _HeaderModule.default["buttonHeader" + theme]),
     href: botao.url
   }, botao.label.toUpperCase()), chamada.label && /*#__PURE__*/_react.default.createElement("a", {
-    className: _HeaderModule.default.consultoriaHeader,
+    className: (0, _classnames.default)(_HeaderModule.default.consultoriaHeader, _HeaderModule.default["consultoriaHeader" + theme]),
     href: chamada.url
   }, chamada.label.toUpperCase())));
 };

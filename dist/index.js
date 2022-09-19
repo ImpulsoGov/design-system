@@ -3,6 +3,12 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+Object.defineProperty(exports, "AboutSection", {
+  enumerable: true,
+  get: function get() {
+    return _AboutSection.AboutSection;
+  }
+});
 Object.defineProperty(exports, "ButtonBar", {
   enumerable: true,
   get: function get() {
@@ -129,6 +135,14 @@ Object.defineProperty(exports, "TituloTexto", {
     return _TituloTexto.TituloTexto;
   }
 });
+Object.defineProperty(exports, "ToolsAndGuides", {
+  enumerable: true,
+  get: function get() {
+    return _ToolsAndGuides.ToolsAndGuides;
+  }
+});
+
+var _AboutSection = require("./AboutSection/AboutSection");
 
 var _ButtonBar = require("./ButtonBar/ButtonBar");
 
@@ -171,3 +185,5 @@ var _Slider = require("./Slider/Slider");
 var _TextCol = require("./TextCol/TextCol");
 
 var _TituloTexto = require("./TituloTexto/TituloTexto");
+
+var _ToolsAndGuides = require("./ToolsAndGuides/ToolsAndGuides");
