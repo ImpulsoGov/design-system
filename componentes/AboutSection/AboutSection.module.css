@@ -1,0 +1,151 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@40;500&display=swap");
+
+.AboutSectionContainer {
+  display: flex;
+  width: 100vw;
+  height: 788px;
+  padding-top: 38px;
+  gap: 33px;
+}
+
+.AboutSectionBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 65;
+  max-height: 65%;
+  width: 65%;
+  padding: 0 30px;
+  height: fit-content;
+}
+
+.AboutSectionDescription {
+  width: 100%;
+  height: 53%;
+  max-height: 390px;
+
+  padding: 60px 0;
+  overflow: hidden;
+  position: relative;
+  transition: 0.2s;
+}
+
+.AboutSectionDescription p {
+  margin-bottom: 50px;
+  line-height: 30px;
+  font-family: "Inter";
+  font-weight: 400;
+  font-size: clamp(1rem, 0.9167rem + 0.3704vw, 1.25rem);
+  text-align: justify;
+  white-space: normal;
+  color: #1f1f1f;
+}
+
+.AboutSectionBlock button {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  padding: 20px 24px;
+  width: 200px;
+  height: 44px;
+  margin-top: 40px;
+
+  border-radius: 80px;
+  border: none;
+
+  outline: none;
+  background-color: #6a2914;
+  color: white;
+  font-family: "Inter";
+  font-weight: 500;
+
+  cursor: pointer;
+}
+
+.AboutSectionBlock button:hover {
+  opacity: 0.98;
+}
+
+.AboutSectionOpenDescription {
+  width: 100%;
+  height: fit-content;
+
+  padding: 60px 0;
+  position: relative;
+
+  transition: 0.2s;
+}
+
+.AboutSectionOpenDescription p {
+  margin-bottom: 50px;
+  line-height: 30px;
+  font-family: "Inter";
+  font-weight: 400;
+  font-size: clamp(1rem, 0.9167rem + 0.3704vw, 1.25rem);
+  text-align: justify;
+  white-space: normal;
+  color: #1f1f1f;
+}
+
+
+@media(max-width: 480px){
+  .AboutSectionContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    max-width: 100vw;
+    height: fit-content;
+
+    padding: 0;
+  }
+
+  .AboutSectionBlock {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    max-width: 100%;
+    width: 100%;
+    height: fit-content;
+
+    padding: 0;
+  }
+  
+
+  .AboutSectionDescription {
+    width: 85%;
+    height: 53%;
+    max-height: 390px;
+  
+    overflow: hidden;
+    position: relative;
+    transition: 0.2s;
+    margin: 0 auto;
+  }
+
+  .AboutSectionOpenDescription {
+    display: block;
+    width: 100%;
+    max-width: 90%;
+    height: fit-content;
+    padding: 0;
+    transition: 0.2s;
+
+    margin: 0 auto;
+  }
+
+  .AboutSectionOpenDescription p {
+    margin-bottom: 25px;
+    line-height: 25px;
+    font-family: "Inter";
+    font-weight: 400;
+    font-size: clamp(1rem, 0.9167rem + 0.3704vw, 1.25rem);
+    text-align: left;
+    white-space: normal;
+    color: #1f1f1f;
+  }
+
+  iframe{
+    display: none;
+  }
+}

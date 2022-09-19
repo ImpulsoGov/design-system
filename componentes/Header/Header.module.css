@@ -7,6 +7,11 @@
     font-weight: 400;
 }
 
+.themeColorAGP{
+    background-color: #6A2914;
+    color: #ffffff;
+}
+
 .tituloHeader{
     line-height: 110%;
     letter-spacing: -0.04em;
@@ -51,6 +56,11 @@
     background-color: #ef8264;
     color: #FFF;
 }
+
+.buttonHeaderColorAGP{
+    background-color: #F4CCAB;
+    color: #1F1F1F;
+}
 .consultoriaHeader{
     color: #2EB280;
     margin-left: 20px;
@@ -60,8 +70,12 @@
     color: #ef8264;
 }
 
+.consultoriaHeaderColorAGP{
+    color: #F4CCAB
+}
+
 /* SMALL */
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 780px) {
     .conteinerHeader{
         justify-content: center;
         padding: 72px 54px 0px 54px;

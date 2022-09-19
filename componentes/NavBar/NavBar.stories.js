@@ -233,8 +233,8 @@ export const ColorIP = () =>{
       setMunicipio = {setState}
       data={data}
       theme={{
-        logoProjeto : "https://github.com/ImpulsoGov/DesignSystem/raw/dev-componente-footer/componentes/estatico/impulso-previne-logo-branco.svg",
-        cor : "ColorIP"
+        logoProjeto : "https://media.graphassets.com/0q9BBD4xRCivV24aSg80",
+        cor : "ColorAGP"
       }}
       menu={
           [
@@ -261,7 +261,7 @@ export const White = () =>{
       municipio = "Brazil"
       data={data}
       theme={{
-        logoProjeto : "https://github.com/ImpulsoGov/DesignSystem/raw/dev-componente-footer/componentes/estatico/impulso-previne-logo-preto.svg",
+        logoProjeto : "https://media.graphassets.com/8QBvEx9R8WD5CR8YkCGR",
         cor : "White"
       }}
       menu={

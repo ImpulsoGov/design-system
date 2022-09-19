@@ -1,3 +1,4 @@
+export { AboutSection } from "./AboutSection/AboutSection";
 export { ButtonBar } from "./ButtonBar/ButtonBar";
 export { ButtonLight } from "./ButtonLight/ButtonLight";
 export { ButtonLogin } from "./ButtonLogin/ButtonLogin";
@@ -19,4 +20,5 @@ export { PreviewArtigoDestaque } from "./PreviewArtigoDestaque/PreviewArtigoDest
 export { Slider } from "./Slider/Slider";
 export { TextCol } from "./TextCol/TextCol";
 export { TituloTexto } from "./TituloTexto/TituloTexto";
+export { ToolsAndGuides } from "./ToolsAndGuides/ToolsAndGuides";
 
