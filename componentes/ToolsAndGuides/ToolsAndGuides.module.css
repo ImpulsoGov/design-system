@@ -63,10 +63,9 @@
     flex-direction: column;
     justify-content: space-between;
 
-    width: 100vw;
+    min-width: 100vw;
     height: 560px;
     background-color: #f0f4f6;
-
   }
 
   .ToolsAndGuidesBlock {
@@ -89,5 +88,6 @@
     width: 340px;
     text-align: justify;
     padding: 10px;
+    border: 1px solid black;
   }
 }
