@@ -56,6 +56,7 @@
 
   .container_parceiros {
     flex-direction: column;
+    width: 100%;
   }
 }
 
