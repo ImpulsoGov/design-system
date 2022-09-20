@@ -71,9 +71,15 @@
   .ToolsAndGuidesBlock {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 25px;
     width: 100%;
     padding: 0;
+  }
+
+  .ToolsAndGuidesTitle{
+    padding: 0;
+    text-align: center;
   }
 
   .ToolsAndGuidesContent {
@@ -88,6 +94,5 @@
     width: 340px;
     text-align: justify;
     padding: 10px;
-    border: 1px solid black;
   }
 }
