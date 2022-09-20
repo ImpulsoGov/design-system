@@ -1,11 +1,15 @@
 import React from "react";
+import cx from "classnames";
 import "./Parcerias.css";
 
 const Parcerias = ({
-    parceiros
+    parceiros,
+    theme
 }) => {
+
+    //"container_parceiros"
   return (
-    <div className="container_parceiros">
+    <div className={cx("container_parceiros","theme"+theme)}>
         <div className="parceirosLabel">Parceiros</div>
         <div className="gridContainer">
                 {parceiros.map((parceiro,index)=>{
