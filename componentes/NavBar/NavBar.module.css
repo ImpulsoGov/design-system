@@ -17,6 +17,14 @@
   text-decoration: none;
 }
 
+.themeColorSM{
+  background-color: #1B2D82;
+  color: #FFFFFF;
+  text-decoration: none;
+}
+.themeColorSM a{
+  text-decoration: none;
+}
 
 .themeWhite{
   background-color: #FFFFFF;
@@ -53,6 +61,10 @@
     color: #F4CCAB;
   }
 
+
+  .themeColorSM a:hover{
+    color: #5367C9;
+  }
   .themeColorWhite a:hover{
     color: #1D856C;
   }
@@ -193,6 +205,22 @@
       border-radius: 50%;
       padding: 8px;
     }
+
+    .buttonMoblieColorAGP{
+      display: block;
+      margin-left: auto;
+      border: 1px solid #FFF;
+      border-radius: 50%;
+      padding: 8px;
+    }
+
+    .buttonMoblieColorSM{
+      display: block;
+      margin-left: auto;
+      border: 1px solid #FFF;
+      border-radius: 50%;
+      padding: 8px;
+    }
     .buttonMoblieWhite{
       display: block;
       margin-left: auto;
@@ -215,6 +243,24 @@
       text-align: left;
       display: none;
     }
+
+    .linksNavBarMoblieColorSM{
+      background-color: #5367C9;
+    }
+
+    .linksNavBarMoblieColorSM a{
+      color: #fff;
+    }
+
+    .linksNavBarMoblieColorAGP{
+      background-color: #F4CCAB;
+    }
+
+    .linksNavBarMoblieColorAGP a{
+      
+      color: #fff;
+    }
+    
     .linksNavBarMoblieVisible{
       display: block;
       position: fixed;

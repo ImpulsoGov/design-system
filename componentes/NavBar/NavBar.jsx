@@ -4,7 +4,7 @@ import style from"./NavBar.module.css";
 import { SearchBar } from "../SearchBar/SearchBar";
 
 const NavBarMenu = (tema,NavBarIconBranco,NavBarIconDark) => {
-  let theme = (tema=="ColorIP" || tema=="ColorAGP") ?  NavBarIconBranco : NavBarIconDark
+  let theme = (tema=="ColorIP" || tema=="ColorAGP" || tema=="ColorSM") ?  NavBarIconBranco : NavBarIconDark
   return theme
 }
 const DropdownMenu = (attr) => {  
@@ -86,7 +86,7 @@ const NavBar = (props) => {
               />
           </div>
       </div>
-      <div className={active ?  style["linksNavBarMoblie"] : cx(style["linksNavBarMoblie"], style["linksNavBarMoblieVisible"])}>
+      <div className={active ? cx(style["linksNavBarMoblie"])  : cx(style["linksNavBarMoblie"], style["linksNavBarMoblieVisible"], style["linksNavBarMoblie"+props.theme.cor])}>
         {props.menu.map((link, index) => {
               return (
                 <div key={index} className={style.link_navbar}>
