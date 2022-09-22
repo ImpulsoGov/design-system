@@ -27,7 +27,7 @@ const InfoTab = ({contentList}) => {
           <p className={styles.InfoTabTitle}>{contentList[0].rightTitle}</p>
           <p className={styles.InfoTabContent}>{contentList[0].rightContent}</p>
 
-          <button onClick={contentList.onClick}>{contentList[0].buttonTitle.toLocaleUpperCase()} ➔</button>
+          <button onClick={contentList[0].onClick}>{contentList[0].buttonTitle.toLocaleUpperCase()} ➔</button>
 
         </div>
       </div>
@@ -38,7 +38,7 @@ const InfoTab = ({contentList}) => {
           <p className={styles.InfoTabTitleBlack}>{contentList[1].rightTitle}</p>
           <p className={styles.InfoTabContentBlack}>{contentList[1].rightContent}</p>
 
-          <button onClick={contentList.onClick}>{contentList[1].buttonTitle.toLocaleUpperCase()}➔</button> 
+          <button onClick={contentList[1].onClick}>{contentList[1].buttonTitle.toLocaleUpperCase()}➔</button> 
 
         </div>
       </div>
