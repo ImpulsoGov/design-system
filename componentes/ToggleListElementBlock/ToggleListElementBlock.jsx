@@ -8,7 +8,13 @@ const ToggleListElementBlock = (props) => {
 
   return (
     <div className={styles.ToggleListElementBlock}>
-      <p>{props.title} <button className={detailsIsVisible ? styles.ToggleListButton : styles.ToggleListButtonRotated} onClick={() => setDetailIsVisible(!detailsIsVisible)}>^</button></p>
+      <p>{props.title} 
+        <button 
+          className={detailsIsVisible ? styles.ToggleListButton : styles.ToggleListButtonRotated} 
+          onClick={() => setDetailIsVisible(!detailsIsVisible)}
+        >
+          <img src={props.imgLink} alt="ícone do botão" />
+        </button></p>
 
       {
         detailsIsVisible && (
