@@ -1,9 +1,8 @@
 import React from "react";
-import { useState } from "react";
 import styles from "./ToggleList.module.css";
+import { ToggleListElementBlock } from "../ToggleListElementBlock/ToggleListElementBlock"
 
 const ToggleList = ({ list }) => {
-  const [detailsIsVisible, setDetailIsVisible] = useState(true)
 
   return (
     <div className={styles.ToggleListContainer}>
@@ -13,28 +12,15 @@ const ToggleList = ({ list }) => {
 
       <div className={styles.ToggleListRightBlock}>
         {
-          list.map((item, index) => (
-            <div className={styles.ToggleListElementBlock} key={index}>
-              <p>{item.title} <button className={detailsIsVisible ? styles.ToggleListButton : styles.ToggleListButtonRotated} onClick={() => setDetailIsVisible(!detailsIsVisible)}>^</button></p>
-
-              {
-                detailsIsVisible && (
-                  <>
-                    <strong>{item.subTitle}</strong>
-                    <p>{item.description}</p>
-                    <p>{item.source}</p>
-                  </>
-                )
-
-              }
-
-            </div>
-          ))
+          list.map((item, index) => {
+            return (
+              <ToggleListElementBlock key={index} title={item.title} subTitle={item.subTitle} description={item.description} source={item.source} />
+            )
+          })
         }
 
       </div>
     </div>
-
   )
 }
 
