@@ -1,14 +1,14 @@
 import React from "react"
 import styles from "./ToggleText.module.css"
 
-const ToggleText = () => {
-  return (
+const ToggleText = ({text})=> {
+  return(
     <div className={styles.ToggleTextContainer}>
       <p>
-        Entenda como interpretar os indicadores Impulso
+        {text}
       </p>
     </div>
   )
 };
 
-export { ToggleText }
+export {ToggleText}

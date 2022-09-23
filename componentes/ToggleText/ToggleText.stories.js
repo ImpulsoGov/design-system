@@ -9,7 +9,7 @@ export default {
 
 export const Default = () => {
   return (
-    <ToggleText />
+    <ToggleText text="Entenda como interpretar os indicadores Impulso"/>
   )
 };
 
