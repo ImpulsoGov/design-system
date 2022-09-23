@@ -14,7 +14,14 @@ const ToggleList = ({ list }) => {
         {
           list.map((item, index) => {
             return (
-              <ToggleListElementBlock key={index} title={item.title} subTitle={item.subTitle} description={item.description} source={item.source} />
+              <ToggleListElementBlock 
+                key={index} 
+                title={item.title} 
+                subTitle={item.subTitle} 
+                description={item.description} 
+                source={item.source} 
+                imgLink={"https://media.graphassets.com/WRihknmuQGKEPw9xmMOy"}
+              />
             )
           })
         }
