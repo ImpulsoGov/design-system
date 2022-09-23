@@ -20,6 +20,8 @@ export { PreviewArtigoDestaque } from "./PreviewArtigoDestaque/PreviewArtigoDest
 export { Slider } from "./Slider/Slider";
 export { TextCol } from "./TextCol/TextCol";
 export { TituloTexto } from "./TituloTexto/TituloTexto";
+export { ToggleList } from "./ToggleList/ToggleList";
+
 export { ToggleText } from "./ToggleText/ToggleText";
 export { ToolsAndGuides } from "./ToolsAndGuides/ToolsAndGuides";
 
