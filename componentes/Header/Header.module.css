@@ -75,10 +75,10 @@
 }
 
 /* SMALL */
-@media screen and (max-width: 780px) {
+@media(max-width: 780px) {
     .conteinerHeader{
         justify-content: center;
-        padding: 72px 54px 0px 54px;
+        padding: 92px 54px 0px 54px;
     }
     .tituloHeader{
         font-size: 32px;
@@ -93,7 +93,7 @@
         padding: 0;
         margin-top: 60px;
         margin-bottom: 60px;
-        width: 300px;
+        width: 100%;
     }
     .conteinerChamadasHeader{
         font-size: 14px;
@@ -104,6 +104,7 @@
         text-align: center;
     }
 }
+
 
 /* MEDIUM */
 @media screen and (min-width: 1024px) and (max-width: 1439px) {

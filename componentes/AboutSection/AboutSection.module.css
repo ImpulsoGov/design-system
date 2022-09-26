@@ -13,7 +13,7 @@
   flex-direction: column;
   gap: 65;
   
-  width: 65%;
+  width: 100%;
   padding: 0 30px;
   height: fit-content;
 
@@ -75,7 +75,6 @@
   position: relative;
 
   transition: 0.2s;
- 
 }
 
 .AboutSectionOpenDescription p {
