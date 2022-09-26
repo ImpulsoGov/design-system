@@ -63,18 +63,23 @@
     flex-direction: column;
     justify-content: space-between;
 
-    width: 100vw;
+    min-width: 100vw;
     height: 560px;
     background-color: #f0f4f6;
-
   }
 
   .ToolsAndGuidesBlock {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 25px;
     width: 100%;
     padding: 0;
+  }
+
+  .ToolsAndGuidesTitle{
+    padding: 0;
+    text-align: center;
   }
 
   .ToolsAndGuidesContent {

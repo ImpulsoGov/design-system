@@ -19,8 +19,8 @@ export default {
 export const Default = () => {
   return (
     <AboutSection
-      paragraphsList={paragraphList}
-      link={"https://www.w3schools.com/html/html_iframe.asp"}
+        paragraphsList={paragraphList}
+        link={"https://www.w3schools.com/html/html_iframe.asp"}
     />
   );
 };
