@@ -22,7 +22,7 @@ function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "functio
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 const NavBarMenu = (tema, NavBarIconBranco, NavBarIconDark) => {
-  let theme = tema == "ColorIP" || tema == "ColorAGP" ? NavBarIconBranco : NavBarIconDark;
+  let theme = tema == "ColorIP" || tema == "ColorAGP" || tema == "ColorSM" ? NavBarIconBranco : NavBarIconDark;
   return theme;
 };
 
@@ -99,7 +99,7 @@ const NavBar = props => {
     alt: "NavBarIcon",
     src: NavBarMenu(props.theme.cor, props.NavBarIconBranco, props.NavBarIconDark)
   }))), /*#__PURE__*/_react.default.createElement("div", {
-    className: active ? _NavBarModule.default["linksNavBarMoblie"] : (0, _classnames.default)(_NavBarModule.default["linksNavBarMoblie"], _NavBarModule.default["linksNavBarMoblieVisible"])
+    className: active ? (0, _classnames.default)(_NavBarModule.default["linksNavBarMoblie"]) : (0, _classnames.default)(_NavBarModule.default["linksNavBarMoblie"], _NavBarModule.default["linksNavBarMoblieVisible"], _NavBarModule.default["linksNavBarMoblie" + props.theme.cor])
   }, props.menu.map((link, index) => {
     return /*#__PURE__*/_react.default.createElement("div", {
       key: index,

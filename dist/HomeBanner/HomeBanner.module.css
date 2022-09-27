@@ -6,6 +6,15 @@
     font-weight: 400;
 }
 
+.conteinerHeaderColorSM{
+    background-color: #1B2D82;
+}
+
+
+.tituloDestaqueHeaderColorSM{
+    color: #5367C9;
+}
+
 .tituloHeader{
     line-height: 110%;
     letter-spacing: -0.04em;
@@ -18,6 +27,7 @@
     color: #2EB280;
 
 }
+
 
 .textoHeader{
     font-family: 'Inter';
