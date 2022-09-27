@@ -1,0 +1,69 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@40;500&display=swap");
+
+.ToggleListContainer {
+  display: flex;
+  width: 90%;
+  margin: 64px 0 0 80px;
+
+}
+
+.ToggleListLeftBlock {
+  display: flex;
+  justify-content: flex-start;
+  width: 368px;
+
+}
+
+.ToggleListLeftBlock p {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 130%;
+  /* identical to box height, or 42px */
+
+  letter-spacing: -0.02em;
+
+  color: #000000;
+}
+
+.ToggleListRightBlock {
+  width: 100%;
+}
+
+
+@media(max-width: 1440px) {
+  .ToggleListLeftBlock p {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 130%;
+    letter-spacing: -0.02em;
+  }
+}
+
+@media(max-width: 780px) {
+  .ToggleListContainer {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 64px 40px;
+  }
+
+  .ToggleListLeftBlock p {
+    font-weight: 400;
+  }
+}
+
+@media(max-width: 360px) {
+  .ToggleListContainer {
+    margin: 64px 16px;
+  }
+
+  .ToggleListLeftBlock p {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 130%;
+
+    letter-spacing: -0.02em;
+  }
+}

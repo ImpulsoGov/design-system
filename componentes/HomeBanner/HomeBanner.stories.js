@@ -8,7 +8,10 @@ export default {
 }
 
 export const Default = () => {
-  return <HomeBanner titulo ="aaaaaaaaaaa" tituloDestaque="bbbbbbbbb" texto="cccccccc" />
+  return <HomeBanner titulo ="título" tituloDestaque="destaque" texto="texto" />
 }
 
+export const SM = () => {
+  return <HomeBanner titulo ="título" tituloDestaque="destaque" texto="texto" theme="ColorSM"/>
+}
 

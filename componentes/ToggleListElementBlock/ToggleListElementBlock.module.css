@@ -1,0 +1,117 @@
+.ToggleListElementBlock {
+  height: fit-content;
+  border-bottom: 1px solid #C4C4C4;
+  transition: .4s;
+}
+
+
+
+.ToggleListElementBlock p:nth-child(1) {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 130%;
+
+  letter-spacing: -0.02em;
+
+  color: #000000;
+}
+
+.ToggleListButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  background: none;
+  width: 56px;
+  height: 56px;
+
+  border: 1px solid #C4C4C4;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: .4s;
+}
+
+.ToggleListButtonRotated{
+  box-sizing: border-box;
+  background: none;
+  width: 56px;
+  height: 56px;
+
+  border: 1px solid #C4C4C4;
+  border-radius: 50%;
+  cursor: pointer;
+  transform: rotate(180deg);
+  transition: .4s;
+}
+
+
+.ToggleListElementBlock strong {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 150%;
+  letter-spacing: -0.02em;
+  color: #000000;
+}
+
+.ToggleListElementBlock p {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 150%;
+  letter-spacing: -0.02em;
+
+  color: rgba(0, 0, 0, 0.7);
+  
+}
+
+@media(max-width: 1440px) {
+  .ToggleListElementBlock p:nth-child(1) {
+    font-weight: 500;
+    font-size: 24px;
+  }
+
+  .ToggleListElementBlock strong {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: -0.01em;
+  }
+
+  .ToggleListElementBlock p {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    /* or 24px */
+
+    letter-spacing: -0.01em;
+  }
+}
+
+
+@media(max-width: 780px) {
+  .ToggleListElementBlock p:nth-child(1) {
+    font-weight: 400;
+  }
+
+  .ToggleListElementBlock p {
+    margin-bottom: 40px;
+  }
+}
+
+
+@media(max-width: 360px) {
+  .ToggleListElementBlock p:nth-child(1) {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 130%;
+
+    letter-spacing: -0.02em;
+  }
+}
