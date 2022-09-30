@@ -9,6 +9,7 @@ export { FormConsultoria } from "./FormConsultoria/FormConsultoria";
 export { Header } from "./Header/Header";
 export { HomeBanner } from "./HomeBanner/HomeBanner";
 export { IFrame } from "./IFrame/IFrame"
+export { InfoTab } from "./InfoTab/InfoTab"
 export { ImagemFundo } from "./ImagemFundo/ImagemFundo";
 export { ListaArtigos } from "./ListaArtigos/ListaArtigos";
 export { NavBar } from "./NavBar/NavBar";
