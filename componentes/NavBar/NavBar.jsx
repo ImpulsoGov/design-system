@@ -3,33 +3,6 @@ import cx from "classnames";
 import style from "./NavBar.module.css";
 import { SearchBar } from "../SearchBar/SearchBar";
 
-const subMenus = [
-  {
-    label: "Primeiro",
-    url: "https://google.com",
-    sub: {
-      label: "Sub",
-      url: "https://twitch.tv",
-    }
-  },
-  {
-    label: "segundo",
-    url: "https://google.com",
-    sub: {
-      label: "Sub",
-      url: "https://twitch.tv",
-    }
-  },
-  {
-    label: "terceiro",
-    url: "https://google.com",
-    sub: {
-      label: "Sub",
-      url: "https://twitch.tv",
-    }
-  },
-]
-
 const NavBarMenu = (tema, NavBarIconBranco, NavBarIconDark) => {
   let theme = (tema == "ColorIP" || tema == "ColorAGP" || tema == "ColorSM") ? NavBarIconBranco : NavBarIconDark
   return theme
@@ -42,7 +15,6 @@ const DropdownMenu = (attr) => {
     </a>
   )
 }
-
 
 const DropdownMenuMoblie = (attr) => {
   const [active, setMode] = useState(false)
