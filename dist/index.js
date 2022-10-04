@@ -75,6 +75,12 @@ Object.defineProperty(exports, "ImagemFundo", {
     return _ImagemFundo.ImagemFundo;
   }
 });
+Object.defineProperty(exports, "InfoTab", {
+  enumerable: true,
+  get: function get() {
+    return _InfoTab.InfoTab;
+  }
+});
 Object.defineProperty(exports, "ListaArtigos", {
   enumerable: true,
   get: function get() {
@@ -181,6 +187,8 @@ var _Header = require("./Header/Header");
 var _HomeBanner = require("./HomeBanner/HomeBanner");
 
 var _IFrame = require("./IFrame/IFrame");
+
+var _InfoTab = require("./InfoTab/InfoTab");
 
 var _ImagemFundo = require("./ImagemFundo/ImagemFundo");
 

@@ -24,6 +24,7 @@
     position: absolute;
     top: 0;
     padding: 64px 0 81px 82px;
+
 }
 .containerCardsImagemFundo{
     display: flex;
@@ -36,6 +37,16 @@
     font-size: 32px;
     width: 630px;
 }
+.ImagemFundoSubTexto{
+    color: #fff;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    width: 630px;
+    margin-top: 50px;
+}
+
 .chamadaColor{
     color: #9DEECD;
 }
@@ -87,6 +98,11 @@
         width: 880px;
         font-size: 48px;
     }
+    .ImagemFundoSubTexto{
+        font-size: 32px;
+        margin-top: 50px;
+    }
+    
     .cardsImagemFundo{
         margin-top: 250px;
     }
@@ -110,40 +126,71 @@
         margin-top: 78px;
         font-size: 18px;
     }
+    .gradienteImagemFundo{
+        width: 95.5%;
+        height: 84.8%;
+    }
+
 }
 
-@media screen and (min-width: 1024px) and (max-width: 1439px) {
-    .gradienteImagemFundo{
-        width: 100%;
-        height: 100%;
-    }
-    .imagemFundo{
-        height: 800px;
-    }
-}
 
 @media screen and (min-width: 1440px) and (max-width: 1919px) {
     .imagemFundo{
         height: 850px;
     }  
+    .ImagemFundoSubTexto{
+        font-size: 20px;
+        margin-top: 50px;
+    }
+    .gradienteImagemFundo{
+        width: 94%;
+        height: 82.5%;
+    }
+
+}
+@media screen and (min-width: 501px) and (max-width: 1439px) {
+    .gradienteImagemFundo{
+        width: 96%;
+        height: 81%;
+        padding: 64px 0 73px 45px;
+    }
+    .ImagemFundoSubTexto{
+        font-size: 20px;
+        margin-top: 50px;
+    }
+
+    .imagemFundo{
+        height: 750px;
+    }
+
+    .cardImagemFundo{
+        width: 280px;
+        margin-right: 20px;
+        padding: 32px 10px 0 0;
+    }
+    .cardsImagemFundo{
+        margin-top: 140px;
+    }
+
+
 }
 
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 500px) {
     .containerImagemFundo{
         width: 100%;
         margin: 0;
     }
         
     .gradienteImagemFundo{
-        background-image: url("/imagem-fundo.png");
-        width: 100%;
+        width: 91%;
         height: fit-content;
         position: relative;
         padding: 15px;
+        background: url(https://www.impulsoprevine.org/imagem-fundo.png);
     }
     
     .imagemFundo{
-        height: 400px;
+        height: auto;
         border-radius: 0;
     }
     .chamadaImagemFundo{
@@ -151,6 +198,13 @@
         width: 95%;
         font-size: 20px;
     }
+
+    .ImagemFundoSubTexto{
+        width: 80%;
+        font-size: 16px;
+        margin-top: 25px;
+    }
+
     .cardsImagemFundo{
         flex-direction: column;
         margin-top: 40px;

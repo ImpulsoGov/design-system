@@ -1,23 +1,25 @@
 import React from "react";
 
 import style from "./ImagemFundo.module.css"
-const ImagemFundoPNG = "/imagem-fundo.png"
 
 const ImagemFundo = ({
     chamada,
     chamadacolor,
+    subtexto,
     cards,
-    botao
+    botao,
+    imagem
 }) =>{
     return(
         <div className={style.containerImagemFundo}>
             <div className={style.containerImagemGradiente}>
                 <img
                     className={style.imagemFundo}
-                    src={ImagemFundoPNG}
+                    src={imagem}
                 />
                 <div className={style.gradienteImagemFundo}>
                     <div className={style.chamadaImagemFundo}>{chamada}<span className={style.chamadaColor}>{chamadacolor}</span></div>
+                    {subtexto && <div className={style.ImagemFundoSubTexto}>{subtexto}</div>}
                     <div className={style.cardsImagemFundo}>
                         {cards.map((card,index)=>{
                             return(
@@ -28,7 +30,7 @@ const ImagemFundo = ({
                             )
                     })}
                     </div>
-                    <a href={botao.url} className={style.botaoImagemFundo}>{botao.label.toUpperCase()}</a>
+                    {botao.url && <a href={botao.url} className={style.botaoImagemFundo}>{botao.label.toUpperCase()}</a>}
                 </div>
             </div>
         </div>

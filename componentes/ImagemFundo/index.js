@@ -1,1 +1,1 @@
-export { Imagemfundo } from "./ImagemFundo"
+export { ImagemFundo } from "./ImagemFundo"
