@@ -18,6 +18,7 @@ const ImagemFundo = ({
                     src={imagem}
                 />
                 <div className={style.gradienteImagemFundo}>
+                    <div className={style.ImagemFundoBlurBackgroundMoblie}></div>
                     <div className={style.chamadaImagemFundo}>{chamada}<span className={style.chamadaColor}>{chamadacolor}</span></div>
                     {subtexto && <div className={style.ImagemFundoSubTexto}>{subtexto}</div>}
                     <div className={style.cardsImagemFundo}>

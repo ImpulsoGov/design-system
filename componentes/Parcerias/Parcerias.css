@@ -1,5 +1,4 @@
 .container_parceiros {
-
   border-radius: 0px 15px 15px 0px;
   display: flex;
   width: 98%;
@@ -43,7 +42,7 @@
   max-width: 110px;
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 740px) {
   .logo_parceiros {
     display: flex;
     justify-content: center;
@@ -56,33 +55,9 @@
 
   .container_parceiros {
     flex-direction: column;
-    width: 100%;
+    width: 98%;
   }
 }
 
-@media screen and (max-width: 800px) {
-  .container_parceiros {
-    width: 61%;
-  }
 
-}
 
-@media screen and (min-width: 1440px)and (max-width: 1900px) {
-  .imageContainer {
-    margin-bottom: 30px;
-    margin-top: 30px;
-    max-width: none;
-  }
-
-  .container_parceiros {
-    width: 91%;
-  }
-
-}
-
-@media screen and (min-width: 1920px) {
-  .container_parceiros {
-    width: 93%;
-  }
-
-}

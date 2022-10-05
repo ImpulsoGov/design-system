@@ -11,14 +11,14 @@ var _ImagemFundoModule = _interopRequireDefault(require("./ImagemFundo.module.cs
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-const ImagemFundoPNG = "/imagem-fundo.png";
-
 const ImagemFundo = _ref => {
   let {
     chamada,
     chamadacolor,
+    subtexto,
     cards,
-    botao
+    botao,
+    imagem
   } = _ref;
   return /*#__PURE__*/_react.default.createElement("div", {
     className: _ImagemFundoModule.default.containerImagemFundo
@@ -26,14 +26,16 @@ const ImagemFundo = _ref => {
     className: _ImagemFundoModule.default.containerImagemGradiente
   }, /*#__PURE__*/_react.default.createElement("img", {
     className: _ImagemFundoModule.default.imagemFundo,
-    src: ImagemFundoPNG
+    src: imagem
   }), /*#__PURE__*/_react.default.createElement("div", {
     className: _ImagemFundoModule.default.gradienteImagemFundo
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: _ImagemFundoModule.default.chamadaImagemFundo
   }, chamada, /*#__PURE__*/_react.default.createElement("span", {
     className: _ImagemFundoModule.default.chamadaColor
-  }, chamadacolor)), /*#__PURE__*/_react.default.createElement("div", {
+  }, chamadacolor)), subtexto && /*#__PURE__*/_react.default.createElement("div", {
+    className: _ImagemFundoModule.default.ImagemFundoSubTexto
+  }, subtexto), /*#__PURE__*/_react.default.createElement("div", {
     className: _ImagemFundoModule.default.cardsImagemFundo
   }, cards.map((card, index) => {
     return /*#__PURE__*/_react.default.createElement("div", {
@@ -44,7 +46,7 @@ const ImagemFundo = _ref => {
     }, card.title), /*#__PURE__*/_react.default.createElement("div", {
       className: _ImagemFundoModule.default.cardBodyImagemFundo
     }, card.body));
-  })), /*#__PURE__*/_react.default.createElement("a", {
+  })), botao.url && /*#__PURE__*/_react.default.createElement("a", {
     href: botao.url,
     className: _ImagemFundoModule.default.botaoImagemFundo
   }, botao.label.toUpperCase()))));

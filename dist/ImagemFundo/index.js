@@ -3,10 +3,10 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-Object.defineProperty(exports, "Imagemfundo", {
+Object.defineProperty(exports, "ImagemFundo", {
   enumerable: true,
   get: function get() {
-    return _ImagemFundo.Imagemfundo;
+    return _ImagemFundo.ImagemFundo;
   }
 });
 
