@@ -127,8 +127,8 @@
         font-size: 18px;
     }
     .gradienteImagemFundo{
-        width: 95.5%;
-        height: 84.8%;
+        width: 100%;
+        height: 100%;
     }
 
 }
@@ -142,16 +142,10 @@
         font-size: 20px;
         margin-top: 50px;
     }
-    .gradienteImagemFundo{
-        width: 94%;
-        height: 82.5%;
-    }
 
 }
-@media screen and (min-width: 501px) and (max-width: 1439px) {
+@media screen and (min-width: 1024px) and (max-width: 1439px) {
     .gradienteImagemFundo{
-        width: 96%;
-        height: 81%;
         padding: 64px 0 73px 45px;
     }
     .ImagemFundoSubTexto{
@@ -175,14 +169,26 @@
 
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 1023px) {
     .containerImagemFundo{
         width: 100%;
-        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
     }
-        
+    .containerImagemGradiente{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .ImagemFundoBlurBackgroundMoblie{
+        width: 100%;
+        height: 100%;
+    }    
     .gradienteImagemFundo{
-        width: 91%;
+        width: 100%;
         height: fit-content;
         position: relative;
         padding: 15px;
@@ -192,6 +198,7 @@
     .imagemFundo{
         height: auto;
         border-radius: 0;
+        width: 108.8%;
     }
     .chamadaImagemFundo{
         margin-top: 30px;

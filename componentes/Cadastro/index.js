@@ -1,0 +1,1 @@
+export { Cadastro } from "./Cadastro"

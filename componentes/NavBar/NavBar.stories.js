@@ -225,6 +225,49 @@ const data = [
     },
 ]
 
+const subMenus = [
+    {
+      label: "Primeiro",
+      url: "https://google.com",
+      sub: {
+        label: "Sub",
+        url: "https://twitch.tv",
+      }
+    },
+    {
+      label: "segundo",
+      url: "https://google.com",
+      sub: {
+        label: "Sub",
+        url: "https://twitch.tv",
+      }
+    },
+    {
+      label: "terceiro",
+      url: "https://google.com",
+      sub: {
+        label: "Sub",
+        url: "https://twitch.tv",
+        sub: {
+          label: "Sub",
+          url: "https://twitch.tv",
+        }
+      }
+    },
+    {
+        label: "quarto",
+        url: "https://google.com",
+        sub: {
+          label: "Sub",
+          url: "https://twitch.tv",
+          sub: {
+            label: "Sub",
+            url: "https://twitch.tv",
+          }
+        }
+      },
+  ]
+
 import { useState } from 'react'
 export const ColorIP = () => {
     const [state, setState] = useState("São Felipe D'Oeste - RO");
@@ -254,6 +297,33 @@ export const ColorIP = () => {
                 { label: "Capitação Ponderada", url: "/capitacao" },
                 { label: "Ações Estratégicas", url: "/acoes-estrategicas" },
             ]}
+            NavBarIconBranco="https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconBranco.svg"
+            NavBarIconDark="https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconDark.svg"
+        />
+    )
+}
+
+export const SubMenu = () => {
+    const [state, setState] = useState("São Felipe D'Oeste - RO");
+    return (
+        <NavBar
+            municipio={state}
+            setMunicipio={setState}
+            data={data}
+            theme={{
+                logoProjeto: "https://media.graphassets.com/0q9BBD4xRCivV24aSg80",
+                cor: "ColorAGP"
+            }}
+            menu={
+                [
+                    { label: "A Impulso Gov", url: "/impulsogov" },
+                    { label: "O Previne Brasil", url: "/previnebrasil" },
+                    { label: "Análise", url: "analise" },
+                    { label: "Consultoria", url: "/consultoria" }
+                ]
+            }
+            submenu={subMenus}
+            links
             NavBarIconBranco="https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconBranco.svg"
             NavBarIconDark="https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconDark.svg"
         />

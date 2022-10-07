@@ -127,6 +127,94 @@
   cursor: pointer;
 }
 
+@media(max-width: 1440px) {
+  .InfoTabContainer {
+    height: 548px;
+    padding: 60px 75px 120px 40px;
+    gap: 32px;
+  }
+
+  .InfoTabTitle {
+    font-size: 32px;
+  }
+
+  .InfoTabBlock {
+    gap: 32px;
+    max-width: 632px;
+  }
+
+  .InfoTabContent {
+    font-family: "Inter";
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 130%;
+    letter-spacing: -0.02em;
+    opacity: 0.7;
+  }
+
+  .InfoTabBlock button {
+
+    height: 56px;
+    max-width: 250px;
+    background: #FFFFFF;
+
+    border: 1px solid rgba(96, 110, 120, 0.15);
+    border-radius: 100px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 100%;
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+  }
+
+  .InfoTabContainerBlack {
+    height: 548px;
+    background-color: #1F1F1F;
+    padding: 60px 75px 120px 40px;
+    gap: 32px;
+  }
+  
+  .InfoTabTitleBlack {
+    font-size: 32px;
+
+  }
+  
+  .InfoTabBlockBlack {
+    gap: 32px;
+    max-width: 632px;
+  }
+  
+  
+  .InfoTabContentBlack {
+    font-family: "Inter";
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 130%;
+    letter-spacing: -0.02em;
+    opacity: 0.7;
+  }
+  
+  .InfoTabBlockBlack button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 24px;
+  
+    height: 56px;
+    max-width: 250px;
+
+    font-size: 15px;
+    line-height: 100%;
+  
+  }
+}
+
 @media(max-width: 780px) {
   .InfoTabContainer {
     display: flex;

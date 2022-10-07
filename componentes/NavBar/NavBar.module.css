@@ -128,9 +128,76 @@
   .linksNavBarMoblie{
     display: none;
   }
+
   .link_navbar {
     padding-right: 24px;
     white-space: nowrap;
+    position: relative;
+  }
+
+  .link_navbar .NavBarSubMenu {
+    position: absolute;
+    padding: 10px;
+    width: 80px;
+    height: fit-content;
+    top: 38px;
+    left: 25%;
+    visibility: hidden;
+    background-color: #a07061;
+    color: #FFFFFF;
+    transition: all 0.25s
+  }
+
+  .NavBarSubMenu:after{ /*Triangulo*/
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    /*Faz seta "apontar para baixo. Definir o valor como 'top' fará ela "apontar para cima" */
+    /*Aqui entra a cor da "aba" do balão */
+    border-bottom: 10px solid #a07061;
+    top: -10px; /*localização. Experimente alterar para 'bottom'*/
+    left: 20%;
+}
+
+  .link_navbar:hover .NavBarSubMenu {
+    visibility: visible;
+  }
+
+  .NavBarSubMenuContainer .NavBarSecondSubMenu{
+    position: absolute;
+    padding: 10px;
+    width: fit-content;
+    height: fit-content;
+    top: 38px;
+    left: calc(25% + 110px);
+    padding-left: 15px;
+    background-color: #a07061;
+    color: #FFFFFF;
+    visibility: hidden;
+  }
+
+  .NavBarSecondSubMenu:after{
+     content: "";
+     width: 0; 
+     height: 0;
+     position: absolute;
+     /* Right com valor negativo para ele ficar para fora do balão de dialogo */
+     left: -10px;
+     bottom: -5px;
+     /* É aqui o truque com as bordas */
+     /* usar metade da altura do elemento, assim temos uma seta da mesma altura que nosso elemento */
+     border-top: 25px solid transparent;
+     border-bottom: 25px solid transparent;
+     border-right: 25px solid #a07061; /* Defina 'right' e a seta apontará para a esquerda */
+     /* Borda de fora do elemento */
+     border-radius: 50%;
+  }
+
+  .NavBarSubMenuContainer:hover .NavBarSecondSubMenu{
+    visibility: visible;
   }
   
   .containerCidadeLogin_navbar {
