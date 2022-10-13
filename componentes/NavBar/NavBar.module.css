@@ -244,6 +244,12 @@
   .buttonMoblieWhite{
     display: none;
   }
+  .buttonMoblieColorAGP {
+    display: none;
+  }
+  .buttonMoblieColorSM {
+    display: none;
+  }
   .NavBarSearchConteinerMoblie{
     display: none;
   }
