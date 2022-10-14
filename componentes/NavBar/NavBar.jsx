@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import cx from "classnames";
 import style from "./NavBar.module.css";
 import { SearchBar } from "../SearchBar/SearchBar";
+import { themeColorSelector } from "../../utils/themeColorSelector";
 
 const NavBarMenu = (tema, NavBarIconBranco, NavBarIconDark) => {
   let theme = (tema == "ColorIP" || tema == "ColorAGP" || tema == "ColorSM") ? NavBarIconBranco : NavBarIconDark
@@ -16,20 +17,34 @@ const DropdownMenu = (attr) => {
   )
 }
 
+
 const DropdownMenuMoblie = (attr) => {
   const [active, setMode] = useState(false)
+
   const menuVisible = () => {
     setMode(!active)
     return active
   }
   return (
-    <a href={attr.link.url}>
-      {attr.link.label}
-    </a>
+    <>
+      {
+        attr.sub ? (
+          <button onClick={attr.onClick} className={style.DropDownMenuMobileButton}>
+            {attr.link.label}
+          </button>
+        ) : (
+          <a href={attr.link.url} >
+            {attr.link.label}
+          </a>
+        )
+      }
+    </>
+
   )
 }
 
 const NavBar = (props) => {
+  const [subMenuIsVisible, setSubMenuIsVisible] = useState(false);
   const [active, setMode] = useState(true)
   const menuVisible = () => {
     setMode(!active)
@@ -63,23 +78,22 @@ const NavBar = (props) => {
             return (
               <div key={index} className={style.link_navbar}>
                 {DropdownMenu({ index, link, props })}
-                {props.submenu && (
-                  <div className={style.NavBarSubMenuContainer}>
-                    <a href={props.submenu[index].url} className={style.NavBarSubMenu}>
-                      {props.submenu[index].label}
-                    </a>
+                {link.sub && (
+                  <div className={style.NavBarSubMapContainer}>
                     {
-                      props.submenu[index].sub && (
-                        <a href={props.submenu[index].sub.url} className={style.NavBarSecondSubMenu}>
-                          {props.submenu[index].sub.label}
-                        </a>
-                      )
+
+                      link.sub.map((subContent, index) => (
+                        <div className={style.NavBarSubMenuContainer} key={index}>
+                          <a href={subContent.url} className={style.NavBarSubMenuAnchor}>{subContent.label} </a>
+                        </div>
+                      ))
                     }
                   </div>
                 )}
               </div>
             );
           })}
+
           <div className={style.NavBarSearchConteiner}>
             <SearchBar
               data={props.data}
@@ -101,18 +115,39 @@ const NavBar = (props) => {
           />
         </div>
       </div>
-      <div className={active ? cx(style["linksNavBarMoblie"]) : cx(style["linksNavBarMoblie"], style["linksNavBarMoblieVisible"], style["linksNavBarMoblie" + props.theme.cor])}>
+      <div
+        className={active
+          ? cx(style["linksNavBarMoblie"])
+          : cx(
+            style["linksNavBarMoblie"],
+            style["linksNavBarMoblieVisible"],
+            style["linksNavBarMoblie" + props.theme.cor]
+          )
+        }
+
+        style={{ backgroundColor: themeColorSelector(props.pageTheme) }}>
         {props.menu.map((link, index) => {
           return (
             <div key={index} className={style.link_navbar}>
-              {DropdownMenuMoblie({ index, link, props })}
+              {DropdownMenuMoblie({ index, link, props, onClick: () => setSubMenuIsVisible(!subMenuIsVisible), sub: link.sub })}
+              {link.sub && subMenuIsVisible && (
+                <div className={style.NavBarSubMapMobileContainer}>
+                  {
+                    link.sub.map((subContent, index) => (
+                      <div className={style.NavBarSubMenuMobileContainer} key={index}>
+                        <a href={subContent.url} className={style.NavBarSubMenuAnchor}>{subContent.label} </a>
+                      </div>
+                    ))
+                  }
+                </div>
+              )}
             </div>
           );
         })}
-
       </div>
     </div>
   )
 };
+
 
 export { NavBar };
