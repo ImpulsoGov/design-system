@@ -227,46 +227,46 @@ const data = [
 
 const subMenus = [
     {
-      label: "Primeiro",
-      url: "https://google.com",
-      sub: {
-        label: "Sub",
-        url: "https://twitch.tv",
-      }
-    },
-    {
-      label: "segundo",
-      url: "https://google.com",
-      sub: {
-        label: "Sub",
-        url: "https://twitch.tv",
-      }
-    },
-    {
-      label: "terceiro",
-      url: "https://google.com",
-      sub: {
-        label: "Sub",
-        url: "https://twitch.tv",
+        label: "Primeiro",
+        url: "https://google.com",
         sub: {
-          label: "Sub",
-          url: "https://twitch.tv",
+            label: "Sub",
+            url: "https://twitch.tv",
         }
-      }
+    },
+    {
+        label: "segundo",
+        url: "https://google.com",
+        sub: {
+            label: "Sub",
+            url: "https://twitch.tv",
+        }
+    },
+    {
+        label: "terceiro",
+        url: "https://google.com",
+        sub: {
+            label: "Sub",
+            url: "https://twitch.tv",
+            sub: {
+                label: "Sub",
+                url: "https://twitch.tv",
+            }
+        }
     },
     {
         label: "quarto",
         url: "https://google.com",
         sub: {
-          label: "Sub",
-          url: "https://twitch.tv",
-          sub: {
             label: "Sub",
             url: "https://twitch.tv",
-          }
+            sub: {
+                label: "Sub",
+                url: "https://twitch.tv",
+            }
         }
-      },
-  ]
+    },
+]
 
 import { useState } from 'react'
 export const ColorIP = () => {
@@ -312,17 +312,31 @@ export const SubMenu = () => {
             data={data}
             theme={{
                 logoProjeto: "https://media.graphassets.com/0q9BBD4xRCivV24aSg80",
-                cor: "ColorAGP"
+                cor: "ColorSM"
             }}
             menu={
                 [
                     { label: "A Impulso Gov", url: "/impulsogov" },
-                    { label: "O Previne Brasil", url: "/previnebrasil" },
+                    {
+                        label: "O Previne Brasil", url: "/previnebrasil", sub: [
+                            {
+                                label: "Acompanhamento dos serviços CAPS",
+                                url: "/caps",
+                            },
+                            {
+                                label: "Outros serviços RAPS",
+                                url: "/outros-raps",
+                            },
+                            {
+                                label: "Cuidado compartilhado de saúde mental",
+                                url: "/cuidado-compartilhado",
+                            },
+                        ]
+                    },
                     { label: "Análise", url: "analise" },
                     { label: "Consultoria", url: "/consultoria" }
                 ]
             }
-            submenu={subMenus}
             links
             NavBarIconBranco="https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconBranco.svg"
             NavBarIconDark="https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconDark.svg"
