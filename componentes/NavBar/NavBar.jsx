@@ -135,7 +135,9 @@ const NavBar = (props) => {
                   {
                     link.sub.map((subContent, index) => (
                       <div className={style.NavBarSubMenuMobileContainer} key={index}>
-                        <a href={subContent.url} className={style.NavBarSubMenuAnchor}>{subContent.label} </a>
+                        <a href={subContent.url} className={style.NavBarSubMenuMobileAnchor}>
+                           <p> {subContent.label} </p>  
+                        </a>
                       </div>
                     ))
                   }
