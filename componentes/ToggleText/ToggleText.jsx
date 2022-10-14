@@ -10,7 +10,10 @@ const ToggleText = ({ title, list, leftSubtitle, rightSubtitle, imgLink }) => {
         {title}
       </p>
       <div className={styles.ToggleTextListContainer}>
-        <p>{leftSubtitle}</p>
+        <div className={styles.ToggleTextListLeftTitle}>
+          <p >{leftSubtitle}</p>
+        </div>
+
         <div className={styles.ToggleTextRightBlock}>
           <p>
             {rightSubtitle}
