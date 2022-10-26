@@ -9,6 +9,12 @@ Object.defineProperty(exports, "AboutSection", {
     return _AboutSection.AboutSection;
   }
 });
+Object.defineProperty(exports, "Banner2Col", {
+  enumerable: true,
+  get: function get() {
+    return _Banner2col.Banner2Col;
+  }
+});
 Object.defineProperty(exports, "ButtonBar", {
   enumerable: true,
   get: function get() {
@@ -191,6 +197,8 @@ Object.defineProperty(exports, "ToolsAndGuides", {
 });
 
 var _AboutSection = require("./AboutSection/AboutSection");
+
+var _Banner2col = require("./Banner2col/Banner2col");
 
 var _ButtonBar = require("./ButtonBar/ButtonBar");
 
