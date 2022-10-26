@@ -1,0 +1,28 @@
+.ModalContainer{
+    width: 343px;
+    height: 100vh;
+    z-index: 200;
+    position: fixed;
+    background-color: #fff;
+    margin-left: auto;
+}
+.ModalExit{
+    color:#fff;
+    background-color: black;
+    border-radius: 100%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right:24px;
+    margin-top: 20px;
+    margin-left: auto;
+    text-decoration: none;
+}
+
+.ModalExit:before{
+    content: "✖";
+    cursor: pointer;
+    padding:0.5em;
+}

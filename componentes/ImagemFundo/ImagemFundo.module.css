@@ -9,6 +9,8 @@
 
 .containerImagemGradiente{
     position: relative;
+    display: flex;
+    flex-direction: column;
 }
 .imagemFundo{
     width: 100%;
@@ -192,13 +194,13 @@
         height: fit-content;
         position: relative;
         padding: 15px;
-        background: url(https://www.impulsoprevine.org/imagem-fundo.png);
+        background-repeat: no-repeat;
+        background-size: cover !important;
+        background: url(https://media.graphassets.com/oaJRGQ7RwehEUMiC473t?_gl=1*10zumx1*_ga*MzY0MzkwNjMwLjE2NTg1OTU1NjU.*_ga_G6FYGSYGZ4*MTY2NTAxNDQ2MS43OC4xLjE2NjUwMTQ1NDcuNDAuMC4w);
     }
-    
     .imagemFundo{
         height: auto;
         border-radius: 0;
-        width: 108.8%;
     }
     .chamadaImagemFundo{
         margin-top: 30px;

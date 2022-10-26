@@ -1,0 +1,69 @@
+.LoggedContainer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.LoggedIcon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15px 15px 60px 15px;
+    border-radius: 100px;
+    width: 94px;
+    height: 94px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 150%;
+    text-transform: uppercase;
+    border: 1px solid rgba(96, 110, 120, 0.25);
+    color: #1F1F1F;
+}
+.LoggedName{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 150%;
+    text-transform: uppercase;
+    color: #1F1F1F;
+}
+.LoggedCargo{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 150%;
+    text-transform: uppercase;
+    color:  #606E78;
+    margin-bottom: 200px;
+}
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@40;500&display=swap");
+
+.ButtonLogOut{
+    border: 1px solid rgba(96, 110, 120, 0.15);
+    background-color: #fff;
+    color: #1F1F1F;
+    border-radius: 100px;
+    padding: 0px 30px;
+    font-size: 15px;
+    font-family: 'inter';
+    font-weight: 500;
+    line-height: 100%;
+    box-sizing: border-box;
+    width: fit-content;
+    height: 64px;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.ButtonLogOut:hover{
+    border: 1px solid rgba(96, 110, 120, 0.50);
+    background-color: #fff;
+    cursor: pointer;
+}

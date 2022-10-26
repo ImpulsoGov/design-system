@@ -273,23 +273,28 @@ export const ColorIP = () => {
     const [state, setState] = useState("São Felipe D'Oeste - RO");
     return (
         <NavBar
+            user={
+                {                  
+                    nome: null,
+                    cargo :"Coordenadora APS",
+                    button : {label:"sair",link:""},
+                    label : "e",
+                    login : ()=> console.log('logado')
+                }
+            }
             municipio={state}
             setMunicipio={setState}
             data={data}
             theme={{
-                logoProjeto: "https://media.graphassets.com/0q9BBD4xRCivV24aSg80",
+                logoProjeto: "https://media.graphassets.com/Kal4aulRmYkqd0L6RBAd",
                 cor: "ColorIP"
             }}
             menu={
                 [
-                    {
-                        label: "Sobre",
-                        url: "/sobre"
-                    },
-                    {
-                        label: "Competências e Soluções",
-                        url: "/competenciasesolucoes"
-                    }
+                    { label: "A Impulso Gov", url: "/impulsogov" },
+                    { label: "Resultados", url: "analise" },
+                    { label: "Busca Ativa", url: "/busca-ativa-gestantes" },
+                    { label: "Consultoria", url: "/consultoria" }
                 ]
             }
             subtitles={[

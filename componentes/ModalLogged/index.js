@@ -1,0 +1,1 @@
+export { ModalLogged } from "./ModalLogged"

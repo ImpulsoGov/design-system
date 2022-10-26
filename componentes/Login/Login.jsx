@@ -1,42 +1,36 @@
 import React from "react";
+import { useState } from "react";
 import style from "./Login.module.css"
 import { ButtonColor } from "../ButtonColor";
 
 
-const Login = ({
-    titulo,
-    campos,
-    button
-})=>{
+const Login = (props)=>{
+    const [senha, setSenha] = useState("");
+    const [mail, setMail] = useState("");
     return(
         <div className={style.LoginConteiner}>
-            <div className={style.LoginTitulo}>{titulo}</div>
+            <div className={style.LoginTitulo}>{props.titulo}</div>
             <div className={style.LoginCampos}>
-                {campos.map((campo,index)=>{
-                    return(
-                        <>
-                            <input 
-                                key={index}
-                                className={style.LoginCampo} 
-                                type="text" 
-                                placeholder={campo.label}
-                            />
-                            { 
-                                campo.label === "(DDD) Telefone" &&
-                                <>
-                                    <span className={style.LoginCampoWP} ><input className={style.LoginCampoCheck} type="checkbox"/> <label> Esse número possui WhatsApp </label></span>
-                                </>
-                            }
-                        </>
-
-                    )
-                })}
+                <input 
+                    className={style.LoginCampo} 
+                    type="text"
+                    placeholder="E-mail"
+                    value={mail}
+                    onChange={(e) => {setMail(e.target.value);}}
+                />
+                <input 
+                    className={style.LoginCampo} 
+                    type="password" 
+                    placeholder="Senha"
+                    value={senha}
+                    onChange={(e) => {setSenha(e.target.value);}}
+                />
             </div>
             <div className={style.LoginCampoButton}>
-                <ButtonColor
-                    label={button.label}
-                    link={button.link}
-                />
+            <button 
+                className={style.LoginButton}
+                onClick={() => props.entrar('credentials', { redirect: true,username:mail, password: senha })}
+            >{props.button.label.toUpperCase()}</button>
             </div>
         </div>
     )

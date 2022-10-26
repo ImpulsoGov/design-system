@@ -4,6 +4,7 @@
     align-items: center;
     justify-content: center;
     width: 100%;
+    padding: 45px;
 }
 .LoginCampos{
     display: flex;
@@ -39,7 +40,7 @@
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
-    font-size: 32px;
+    font-size: 24px;
     line-height: 150%;
     color: #1F1F1F;
     width: 100%;
@@ -51,6 +52,30 @@
     width: 100%;
     display: flex;
     text-transform: uppercase;
+}
+.LoginButton{
+    border: 1px solid rgba(96, 110, 120, 0.15);
+    background-color: #1D856C;
+    color: #fff;
+    border-radius: 100px;
+    padding: 0px 30px;
+    font-size: 15px;
+    font-family: 'inter';
+    font-weight: 500;
+    line-height: 100%;
+    box-sizing: border-box;
+    width: fit-content;
+    height: 64px;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.LoginButton:hover{
+    border: 1px solid rgba(96, 110, 120, 0.50);
+    background-color: #1d856df0;
 }
 @media screen and (max-width: 1023px) {
     .LoginTitulo{

@@ -15,6 +15,12 @@ Object.defineProperty(exports, "ButtonBar", {
     return _ButtonBar.ButtonBar;
   }
 });
+Object.defineProperty(exports, "ButtonColor", {
+  enumerable: true,
+  get: function get() {
+    return _ButtonColor.ButtonColor;
+  }
+});
 Object.defineProperty(exports, "ButtonLight", {
   enumerable: true,
   get: function get() {
@@ -85,6 +91,24 @@ Object.defineProperty(exports, "ListaArtigos", {
   enumerable: true,
   get: function get() {
     return _ListaArtigos.ListaArtigos;
+  }
+});
+Object.defineProperty(exports, "Login", {
+  enumerable: true,
+  get: function get() {
+    return _Login.Login;
+  }
+});
+Object.defineProperty(exports, "Modal", {
+  enumerable: true,
+  get: function get() {
+    return _Modal.Modal;
+  }
+});
+Object.defineProperty(exports, "ModalLogged", {
+  enumerable: true,
+  get: function get() {
+    return _ModalLogged.ModalLogged;
   }
 });
 Object.defineProperty(exports, "NavBar", {
@@ -170,6 +194,8 @@ var _AboutSection = require("./AboutSection/AboutSection");
 
 var _ButtonBar = require("./ButtonBar/ButtonBar");
 
+var _ButtonColor = require("./ButtonColor/ButtonColor");
+
 var _ButtonLight = require("./ButtonLight/ButtonLight");
 
 var _ButtonLogin = require("./ButtonLogin/ButtonLogin");
@@ -188,11 +214,17 @@ var _HomeBanner = require("./HomeBanner/HomeBanner");
 
 var _IFrame = require("./IFrame/IFrame");
 
-var _InfoTab = require("./InfoTab/InfoTab");
-
 var _ImagemFundo = require("./ImagemFundo/ImagemFundo");
 
+var _InfoTab = require("./InfoTab/InfoTab");
+
 var _ListaArtigos = require("./ListaArtigos/ListaArtigos");
+
+var _Login = require("./Login/Login");
+
+var _Modal = require("./Modal/Modal");
+
+var _ModalLogged = require("./ModalLogged/ModalLogged");
 
 var _NavBar = require("./NavBar/NavBar");
 

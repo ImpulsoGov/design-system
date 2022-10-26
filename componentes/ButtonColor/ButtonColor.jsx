@@ -17,16 +17,32 @@ const ButtonColor = ({
 
 const ButtonColorSubmit = ({
     label,
-    link
+    submit,
+    arg
 })=>{
     return(
         <button 
             className={style.ButtonColorContainer}
-            href={link}
+            onClick={()=>submit(arg)}
         >
             {label.toUpperCase()}
         </button>
     )
 }
 
-export {ButtonColor,ButtonColorSubmit}
+const ButtonColorSubmitMultiple = ({
+    label,
+    submit,
+    arg
+})=>{
+    return(
+        <button 
+            className={style.ButtonColorContainer}
+            onClick={()=>submit[1]()}
+        >
+            {label.toUpperCase()}
+        </button>
+    )
+}
+
+export {ButtonColor,ButtonColorSubmit,ButtonColorSubmitMultiple}

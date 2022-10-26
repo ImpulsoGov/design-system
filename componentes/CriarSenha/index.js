@@ -1,1 +1,0 @@
-export { CriarSenha } from "./CriarSenha"

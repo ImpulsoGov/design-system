@@ -1,5 +1,6 @@
 export { AboutSection } from "./AboutSection/AboutSection";
 export { ButtonBar } from "./ButtonBar/ButtonBar";
+export { ButtonColor } from "./ButtonColor/ButtonColor";
 export { ButtonLight } from "./ButtonLight/ButtonLight";
 export { ButtonLogin } from "./ButtonLogin/ButtonLogin";
 export { Content3Col } from "./Content3Col/Content3Col";
@@ -9,9 +10,12 @@ export { FormConsultoria } from "./FormConsultoria/FormConsultoria";
 export { Header } from "./Header/Header";
 export { HomeBanner } from "./HomeBanner/HomeBanner";
 export { IFrame } from "./IFrame/IFrame"
-export { InfoTab } from "./InfoTab/InfoTab"
 export { ImagemFundo } from "./ImagemFundo/ImagemFundo";
+export { InfoTab } from "./InfoTab/InfoTab"
 export { ListaArtigos } from "./ListaArtigos/ListaArtigos";
+export { Login } from "./Login/Login";
+export { Modal } from "./Modal/Modal";
+export { ModalLogged } from "./ModalLogged/ModalLogged";
 export { NavBar } from "./NavBar/NavBar";
 export { PanelSelector } from "./PanelSelector/PanelSelector"
 export { Parcerias } from "./Parcerias/Parcerias";

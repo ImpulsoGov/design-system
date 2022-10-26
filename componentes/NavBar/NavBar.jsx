@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import cx from "classnames";
 import style from "./NavBar.module.css";
 import { SearchBar } from "../SearchBar/SearchBar";
+import { Modal } from "../Modal";
+import { ModalLogged } from "../ModalLogged";
+import { Login } from "../Login";
 
 const NavBarMenu = (tema, NavBarIconBranco, NavBarIconDark) => {
   let theme = (tema == "ColorIP" || tema == "ColorAGP" || tema == "ColorSM") ? NavBarIconBranco : NavBarIconDark
@@ -29,13 +32,30 @@ const DropdownMenuMoblie = (attr) => {
   )
 }
 
+
 const NavBar = (props) => {
   const [active, setMode] = useState(true)
+  const [modal, setModal] = useState(false)
   const menuVisible = () => {
     setMode(!active)
     return active
   }
+  const Logged = <ModalLogged
+                  nome = {props.user.nome}
+                  label = {props.user.label}
+                  cargo = {props.user.cargo}
+                  button = {props.user.button}
+                  logout = {props.user.logout}
+
+                />
+  const login = <Login
+                  titulo= "Faça o login para ver o painel de busca ativa"
+                  button = {{label:"entrar"}}
+                  entrar = {props.user.login}
+                />
+  const ModalChildren = [Logged,login]
   return (
+    <>
     <div>
       <div className={cx(style.container_navbar, style["theme" + props.theme.cor])}>
         <div className={style.logoWrapper_navbar}>
@@ -88,7 +108,14 @@ const NavBar = (props) => {
               setMunicipio={props.setMunicipio}
             />
           </div>
-
+          <div 
+            className={cx(
+                          style.NavBarLogin,
+                          style['NavBarLogin' + props.theme.cor],
+                          style[props?.user?.label?.length==1 ? 'NavBarLogged' : 'NavBarLogOut']
+                      )}
+            onClick={()=>setModal(!modal)}
+          >{props.user.label}</div>
         </div>
 
         <div className={style["buttonMoblie" + props.theme.cor]}
@@ -112,6 +139,15 @@ const NavBar = (props) => {
 
       </div>
     </div>
+   {modal &&
+    <div className={style.NavBarModalContainer}>
+      <Modal
+          show = {modal}
+          setModal = {setModal}
+          child={props.user.nome ? ModalChildren[0] : ModalChildren[1]}
+      />
+    </div>}
+    </>
   )
 };
 

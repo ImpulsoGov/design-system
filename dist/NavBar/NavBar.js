@@ -15,6 +15,12 @@ var _NavBarModule = _interopRequireDefault(require("./NavBar.module.css"));
 
 var _SearchBar = require("../SearchBar/SearchBar");
 
+var _Modal = require("../Modal");
+
+var _ModalLogged = require("../ModalLogged");
+
+var _Login = require("../Login");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
@@ -47,14 +53,34 @@ const DropdownMenuMoblie = attr => {
 };
 
 const NavBar = props => {
+  var _props$user, _props$user$label;
+
   const [active, setMode] = (0, _react.useState)(true);
+  const [modal, setModal] = (0, _react.useState)(false);
 
   const menuVisible = () => {
     setMode(!active);
     return active;
   };
 
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("div", {
+  const Logged = /*#__PURE__*/_react.default.createElement(_ModalLogged.ModalLogged, {
+    nome: props.user.nome,
+    label: props.user.label,
+    cargo: props.user.cargo,
+    button: props.user.button,
+    logout: props.user.logout
+  });
+
+  const login = /*#__PURE__*/_react.default.createElement(_Login.Login, {
+    titulo: "Fa\xE7a o login para ver o painel de busca ativa",
+    button: {
+      label: "entrar"
+    },
+    entrar: props.user.login
+  });
+
+  const ModalChildren = [Logged, login];
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("div", {
     className: (0, _classnames.default)(_NavBarModule.default.container_navbar, _NavBarModule.default["theme" + props.theme.cor])
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: _NavBarModule.default.logoWrapper_navbar
@@ -83,7 +109,15 @@ const NavBar = props => {
       index,
       link,
       props
-    }));
+    }), props.submenu && /*#__PURE__*/_react.default.createElement("div", {
+      className: _NavBarModule.default.NavBarSubMenuContainer
+    }, /*#__PURE__*/_react.default.createElement("a", {
+      href: props.submenu[index].url,
+      className: _NavBarModule.default.NavBarSubMenu
+    }, props.submenu[index].label), props.submenu[index].sub && /*#__PURE__*/_react.default.createElement("a", {
+      href: props.submenu[index].sub.url,
+      className: _NavBarModule.default.NavBarSecondSubMenu
+    }, props.submenu[index].sub.label)));
   }), /*#__PURE__*/_react.default.createElement("div", {
     className: _NavBarModule.default.NavBarSearchConteiner
   }, /*#__PURE__*/_react.default.createElement(_SearchBar.SearchBar, {
@@ -91,7 +125,10 @@ const NavBar = props => {
     theme: props.theme.cor,
     municipio: props.municipio,
     setMunicipio: props.setMunicipio
-  }))), /*#__PURE__*/_react.default.createElement("div", {
+  })), /*#__PURE__*/_react.default.createElement("div", {
+    className: (0, _classnames.default)(_NavBarModule.default.NavBarLogin, _NavBarModule.default['NavBarLogin' + props.theme.cor], _NavBarModule.default[(props === null || props === void 0 ? void 0 : (_props$user = props.user) === null || _props$user === void 0 ? void 0 : (_props$user$label = _props$user.label) === null || _props$user$label === void 0 ? void 0 : _props$user$label.length) == 1 ? 'NavBarLogged' : 'NavBarLogOut']),
+    onClick: () => setModal(!modal)
+  }, props.user.label)), /*#__PURE__*/_react.default.createElement("div", {
     className: _NavBarModule.default["buttonMoblie" + props.theme.cor],
     onClick: menuVisible
   }, /*#__PURE__*/_react.default.createElement("img", {
@@ -109,6 +146,12 @@ const NavBar = props => {
       link,
       props
     }));
+  }))), modal && /*#__PURE__*/_react.default.createElement("div", {
+    className: _NavBarModule.default.NavBarModalContainer
+  }, /*#__PURE__*/_react.default.createElement(_Modal.Modal, {
+    show: modal,
+    setModal: setModal,
+    child: props.user.nome ? ModalChildren[0] : ModalChildren[1]
   })));
 };
 

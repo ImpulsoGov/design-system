@@ -1,16 +1,36 @@
 import React, { useState } from "react";
 import { IFrame } from "../IFrame/IFrame";
+import cx from "classnames";
 import style from "./PanelSelector.module.css";
 
 const PanelSelector = (props) => {
   const [activeTabIndex, setActiveTabIndex] = useState(0);
+  const [activeTitleTabIndex, setActiveTitleTabIndex] = useState(0);
   return (
-    <>
+    <div style={{zIndex:90,position:'relative',width:'100%',paddingTop:'90px'}}>
       <div className={style.PanelSelectorMain}>
-        <p>{props.title}</p>
-        <div className={style.PanelSelectorContainer}>
-          {props.list.map((item, index) => (
+        <div className={style.PanelSelectorTitles}>
+          {props.titles.map((item, index) => (
             <buton
+              onClick={() => {
+                setActiveTitleTabIndex(index);
+                setActiveTabIndex(0)
+              }}
+              key={index}
+              className={
+                activeTitleTabIndex === index
+                  ? style.PanelSelectorTitleButtonSelected
+                  : style.PanelSelectorTitleButton
+              }
+            >
+              {item.label}
+            </buton>
+          ))}
+        </div>
+
+        <div className={cx(style.PanelSelectorContainer,style["PanelSelectorContainerPosition"+activeTitleTabIndex.toString()])}>
+          {props.list[activeTitleTabIndex].map((item, index) => (
+            <div
               onClick={() => {
                 setActiveTabIndex(index);
               }}
@@ -22,12 +42,12 @@ const PanelSelector = (props) => {
               }
             >
               {item.label}
-            </buton>
+            </div>
           ))}
         </div>
       </div>
-      <IFrame link={props.links[activeTabIndex]} height="3650"/>
-    </>
+      <IFrame link={props.links[activeTitleTabIndex][activeTabIndex]} height="3650"/>
+    </div>
   );
 };
 
