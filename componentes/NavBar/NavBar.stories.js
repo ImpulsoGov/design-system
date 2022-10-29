@@ -279,7 +279,8 @@ export const ColorIP = () => {
                     cargo :"Coordenadora APS",
                     button : {label:"sair",link:""},
                     label : "e",
-                    login : ()=> console.log('logado')
+                    login : ()=> console.log('logado'),
+                    logout : ()=> console.log('deslogado')
                 }
             }
             municipio={state}

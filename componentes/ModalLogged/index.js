@@ -1,1 +1,1 @@
-export { ModalLogged } from "./ModalLogged"
+export { ModalLogged,UserAvatar} from "./ModalLogged"

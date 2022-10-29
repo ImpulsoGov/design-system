@@ -39,11 +39,11 @@
     line-height: 150%;
     text-transform: uppercase;
     color:  #606E78;
-    margin-bottom: 200px;
 }
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@40;500&display=swap");
 
 .ButtonLogOut{
+    margin-top: 200px;
     border: 1px solid rgba(96, 110, 120, 0.15);
     background-color: #fff;
     color: #1F1F1F;

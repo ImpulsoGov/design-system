@@ -10,6 +10,7 @@ const sout = ()=> console.log("logout")
 export const Default = () => {
     return <ModalLogged
                 nome = "Camila Alves"
+                label = "C"
                 cargo = "Coordenadora APS"
                 button = {{label:"sair",link:""}}
                 logout = {sout}

@@ -245,8 +245,6 @@
   .buttonMoblieWhite{
     display: none;
   }
-  .NavBarSearchConteiner{
-  }
   
   .NavBarSearchConteinerMoblie{
     display: none;
@@ -350,7 +348,7 @@
     }
 
     .linksNavBarMoblie{
-      background-color: #2EB380;
+      background-color: #fff;
       width: 100%;
       padding-top: 25px;
       padding-bottom: 25px;

@@ -1,0 +1,96 @@
+.MenuMoblieContainer{
+    width: 100%;
+    height: fit-content;
+}
+.MenuMoblieUser{
+    padding: 45px 45px 0px 45px;
+}
+.MenuMoblieMenus{
+    padding: 45px;
+    display: flex;
+    flex-direction: column;
+}
+.MenuMoblieMenus a{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px !important;
+    line-height: 130%;
+    text-decoration: none;
+    color: #1F1F1F !important;
+    margin-bottom: 24px;
+}
+.MenuMoblieLoginOut{
+    border: 1px solid rgba(96, 110, 120, 0.15);
+    background-color: #fff;
+    color: #1D856C;
+    border-radius: 100px;
+    padding: 0px 30px;
+    font-size: 15px;
+    font-family: 'inter';
+    font-weight: 500;
+    line-height: 100%;
+    box-sizing: border-box;
+    width: fit-content;
+    height: 64px;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    cursor: pointer;
+    margin: 0 0 0 45px;
+    margin-bottom: 45px;
+}
+
+.MenuMoblieLoginOut:hover{
+    border: 1px solid rgba(96, 110, 120, 0.50);
+}
+
+.LoginButton{
+    border: 1px solid rgba(96, 110, 120, 0.15);
+    background-color: #1D856C;
+    color: #fff;
+    border-radius: 100px;
+    padding: 0px 30px;
+    font-size: 15px;
+    font-family: 'inter';
+    font-weight: 500;
+    line-height: 100%;
+    box-sizing: border-box;
+    width: fit-content;
+    height: 64px;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.LoginButton:hover{
+    border: 1px solid rgba(96, 110, 120, 0.50);
+    background-color: #1d856df0;
+}
+
+
+.MenuMoblieBack{
+    height: 30px;
+    text-align: center;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 130%;
+    text-decoration: none;
+    color: #1F1F1F;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.MenuMoblieBack:hover{
+    color: #fff;
+    border: 1px solid rgba(96, 110, 120, 0.50);
+    background-color: #1d856df0;
+    cursor: pointer;
+}

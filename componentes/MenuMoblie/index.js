@@ -1,0 +1,1 @@
+export { MenuMoblie } from "./MenuMoblie"

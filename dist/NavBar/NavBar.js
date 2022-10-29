@@ -21,6 +21,8 @@ var _ModalLogged = require("../ModalLogged");
 
 var _Login = require("../Login");
 
+var _MenuMoblie = require("../MenuMoblie");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
@@ -137,15 +139,12 @@ const NavBar = props => {
     src: NavBarMenu(props.theme.cor, props.NavBarIconBranco, props.NavBarIconDark)
   }))), /*#__PURE__*/_react.default.createElement("div", {
     className: active ? (0, _classnames.default)(_NavBarModule.default["linksNavBarMoblie"]) : (0, _classnames.default)(_NavBarModule.default["linksNavBarMoblie"], _NavBarModule.default["linksNavBarMoblieVisible"], _NavBarModule.default["linksNavBarMoblie" + props.theme.cor])
-  }, props.menu.map((link, index) => {
-    return /*#__PURE__*/_react.default.createElement("div", {
-      key: index,
-      className: _NavBarModule.default.link_navbar
-    }, DropdownMenuMoblie({
-      index,
-      link,
-      props
-    }));
+  }, /*#__PURE__*/_react.default.createElement(_MenuMoblie.MenuMoblie, {
+    menus: props.menu,
+    logged: props.user.nome ? true : false,
+    user: props.user,
+    login: props.user.login,
+    logout: props.user.logout
   }))), modal && /*#__PURE__*/_react.default.createElement("div", {
     className: _NavBarModule.default.NavBarModalContainer
   }, /*#__PURE__*/_react.default.createElement(_Modal.Modal, {

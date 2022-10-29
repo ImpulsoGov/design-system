@@ -5,6 +5,7 @@ import { SearchBar } from "../SearchBar/SearchBar";
 import { Modal } from "../Modal";
 import { ModalLogged } from "../ModalLogged";
 import { Login } from "../Login";
+import { MenuMoblie } from "../MenuMoblie";
 
 const NavBarMenu = (tema, NavBarIconBranco, NavBarIconDark) => {
   let theme = (tema == "ColorIP" || tema == "ColorAGP" || tema == "ColorSM") ? NavBarIconBranco : NavBarIconDark
@@ -129,14 +130,13 @@ const NavBar = (props) => {
         </div>
       </div>
       <div className={active ? cx(style["linksNavBarMoblie"]) : cx(style["linksNavBarMoblie"], style["linksNavBarMoblieVisible"], style["linksNavBarMoblie" + props.theme.cor])}>
-        {props.menu.map((link, index) => {
-          return (
-            <div key={index} className={style.link_navbar}>
-              {DropdownMenuMoblie({ index, link, props })}
-            </div>
-          );
-        })}
-
+        <MenuMoblie
+          menus={props.menu}
+          logged={props.user.nome ? true : false}
+          user={props.user}
+          login={props.user.login}
+          logout={props.user.logout}
+        />
       </div>
     </div>
    {modal &&
