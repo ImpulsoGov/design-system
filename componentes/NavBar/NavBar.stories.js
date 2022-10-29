@@ -275,7 +275,7 @@ export const ColorIP = () => {
         <NavBar
             user={
                 {                  
-                    nome: null,
+                    nome: "Camila Alves",
                     cargo :"Coordenadora APS",
                     button : {label:"sair",link:""},
                     label : "e",

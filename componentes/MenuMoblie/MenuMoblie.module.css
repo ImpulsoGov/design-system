@@ -1,9 +1,8 @@
 .MenuMoblieContainer{
     width: 100%;
-    height: fit-content;
 }
 .MenuMoblieUser{
-    padding: 45px 45px 0px 45px;
+    padding: 0px 45px 0px 45px;
 }
 .MenuMoblieMenus{
     padding: 45px;
