@@ -7,6 +7,7 @@ const UserAvatar = (props)=>{
             <div className={style.LoggedIcon}>{props.label}</div>
             <div className={style.LoggedName}>{props.nome}</div>
             <div className={style.LoggedCargo}>{props.cargo}</div>
+            <div className={style.LoggedCargo}>{props?.equipe}</div>
         </>
     )
 }
