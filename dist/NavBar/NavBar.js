@@ -70,7 +70,8 @@ const NavBar = props => {
     label: props.user.label,
     cargo: props.user.cargo,
     button: props.user.button,
-    logout: props.user.logout
+    logout: props.user.logout,
+    equipe: props.user.equipe
   });
 
   const login = /*#__PURE__*/_react.default.createElement(_Login.Login, {

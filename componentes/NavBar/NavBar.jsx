@@ -47,7 +47,7 @@ const NavBar = (props) => {
                   cargo = {props.user.cargo}
                   button = {props.user.button}
                   logout = {props.user.logout}
-
+                  equipe = {props.user.equipe}
                 />
   const login = <Login
                   titulo= "Faça o login para ver o painel de busca ativa"

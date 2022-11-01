@@ -19,6 +19,7 @@ const ModalLogged = (props)=>{
                 label = {props.label}
                 nome = {props.nome}
                 cargo = {props.cargo}
+                equipe = {props.equipe}
             />
             <button
                 className={style.ButtonLogOut}

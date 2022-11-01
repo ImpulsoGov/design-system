@@ -279,6 +279,7 @@ export const ColorIP = () => {
                     cargo :"Coordenadora APS",
                     button : {label:"sair",link:""},
                     label : "e",
+                    equipe : "000003456",
                     login : ()=> console.log('logado'),
                     logout : ()=> console.log('deslogado')
                 }

@@ -12,6 +12,7 @@ export const Default = () => {
                 nome = "Camila Alves"
                 label = "C"
                 cargo = "Coordenadora APS"
+                equipe = "00003287"
                 button = {{label:"sair",link:""}}
                 logout = {sout}
             />
