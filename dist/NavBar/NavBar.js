@@ -55,7 +55,7 @@ const DropdownMenuMoblie = attr => {
 };
 
 const NavBar = props => {
-  var _props$user, _props$user$label;
+  var _props$user, _props$user2, _props$user3, _props$user4, _props$user5, _props$user6, _props$user7, _props$user8, _props$user8$label, _props$user9, _props$user10, _props$user11;
 
   const [active, setMode] = (0, _react.useState)(true);
   const [modal, setModal] = (0, _react.useState)(false);
@@ -66,12 +66,12 @@ const NavBar = props => {
   };
 
   const Logged = /*#__PURE__*/_react.default.createElement(_ModalLogged.ModalLogged, {
-    nome: props.user.nome,
-    label: props.user.label,
-    cargo: props.user.cargo,
-    button: props.user.button,
-    logout: props.user.logout,
-    equipe: props.user.equipe
+    nome: props === null || props === void 0 ? void 0 : (_props$user = props.user) === null || _props$user === void 0 ? void 0 : _props$user.nome,
+    label: props === null || props === void 0 ? void 0 : (_props$user2 = props.user) === null || _props$user2 === void 0 ? void 0 : _props$user2.label,
+    cargo: props === null || props === void 0 ? void 0 : (_props$user3 = props.user) === null || _props$user3 === void 0 ? void 0 : _props$user3.cargo,
+    button: props === null || props === void 0 ? void 0 : (_props$user4 = props.user) === null || _props$user4 === void 0 ? void 0 : _props$user4.button,
+    logout: props === null || props === void 0 ? void 0 : (_props$user5 = props.user) === null || _props$user5 === void 0 ? void 0 : _props$user5.logout,
+    equipe: props === null || props === void 0 ? void 0 : (_props$user6 = props.user) === null || _props$user6 === void 0 ? void 0 : _props$user6.equipe
   });
 
   const login = /*#__PURE__*/_react.default.createElement(_Login.Login, {
@@ -79,7 +79,7 @@ const NavBar = props => {
     button: {
       label: "entrar"
     },
-    entrar: props.user.login
+    entrar: props === null || props === void 0 ? void 0 : (_props$user7 = props.user) === null || _props$user7 === void 0 ? void 0 : _props$user7.login
   });
 
   const ModalChildren = [Logged, login];
@@ -128,8 +128,8 @@ const NavBar = props => {
     theme: props.theme.cor,
     municipio: props.municipio,
     setMunicipio: props.setMunicipio
-  })), /*#__PURE__*/_react.default.createElement("div", {
-    className: (0, _classnames.default)(_NavBarModule.default.NavBarLogin, _NavBarModule.default['NavBarLogin' + props.theme.cor], _NavBarModule.default[(props === null || props === void 0 ? void 0 : (_props$user = props.user) === null || _props$user === void 0 ? void 0 : (_props$user$label = _props$user.label) === null || _props$user$label === void 0 ? void 0 : _props$user$label.length) == 1 ? 'NavBarLogged' : 'NavBarLogOut']),
+  })), (props === null || props === void 0 ? void 0 : props.user) != null && /*#__PURE__*/_react.default.createElement("div", {
+    className: (0, _classnames.default)(_NavBarModule.default.NavBarLogin, _NavBarModule.default['NavBarLogin' + props.theme.cor], _NavBarModule.default[(props === null || props === void 0 ? void 0 : (_props$user8 = props.user) === null || _props$user8 === void 0 ? void 0 : (_props$user8$label = _props$user8.label) === null || _props$user8$label === void 0 ? void 0 : _props$user8$label.length) == 1 ? 'NavBarLogged' : 'NavBarLogOut']),
     onClick: () => setModal(!modal)
   }, props.user.label)), /*#__PURE__*/_react.default.createElement("div", {
     className: _NavBarModule.default["buttonMoblie" + props.theme.cor],
@@ -142,16 +142,16 @@ const NavBar = props => {
     className: active ? (0, _classnames.default)(_NavBarModule.default["linksNavBarMoblie"]) : (0, _classnames.default)(_NavBarModule.default["linksNavBarMoblie"], _NavBarModule.default["linksNavBarMoblieVisible"], _NavBarModule.default["linksNavBarMoblie" + props.theme.cor])
   }, /*#__PURE__*/_react.default.createElement(_MenuMoblie.MenuMoblie, {
     menus: props.menu,
-    logged: props.user.nome ? true : false,
-    user: props.user,
-    login: props.user.login,
-    logout: props.user.logout
+    logged: props !== null && props !== void 0 && (_props$user9 = props.user) !== null && _props$user9 !== void 0 && _props$user9.nome ? true : false,
+    user: props === null || props === void 0 ? void 0 : props.user,
+    login: props === null || props === void 0 ? void 0 : (_props$user10 = props.user) === null || _props$user10 === void 0 ? void 0 : _props$user10.login,
+    logout: props === null || props === void 0 ? void 0 : (_props$user11 = props.user) === null || _props$user11 === void 0 ? void 0 : _props$user11.logout
   }))), modal && /*#__PURE__*/_react.default.createElement("div", {
     className: _NavBarModule.default.NavBarModalContainer
   }, /*#__PURE__*/_react.default.createElement(_Modal.Modal, {
     show: modal,
     setModal: setModal,
-    child: props.user.nome ? ModalChildren[0] : ModalChildren[1]
+    child: props !== null && props !== void 0 && props.user.nome ? ModalChildren[0] : ModalChildren[1]
   })));
 };
 
