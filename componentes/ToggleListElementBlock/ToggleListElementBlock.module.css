@@ -3,9 +3,25 @@
   transition: .4s;
 }
 
-
-
+.ToggleListElementBlockClosed {
+  height: fit-content;
+  transition: .4s;
+  border-bottom: 1px solid #C4C4C4;
+}
 .ToggleListElementBlock p:nth-child(1) {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 130%;
+
+  letter-spacing: -0.02em;
+
+  color: #000000;
+}
+.ToggleListElementBlockClosed p:nth-child(1) {
   display: flex;
   justify-content: space-between;
   font-family: 'Inter';

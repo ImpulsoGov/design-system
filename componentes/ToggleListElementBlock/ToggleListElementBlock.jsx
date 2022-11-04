@@ -7,7 +7,7 @@ const ToggleListElementBlock = (props) => {
   const [detailsIsVisible, setDetailIsVisible] = useState(false)
 
   return (
-    <div className={styles.ToggleListElementBlock}>
+    <div className={detailsIsVisible ? styles.ToggleListElementBlock : styles.ToggleListElementBlockClosed }>
       <p>{props.title}
         <button
           className={detailsIsVisible ? styles.ToggleListButton : styles.ToggleListButtonRotated}
