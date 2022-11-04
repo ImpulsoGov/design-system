@@ -1,6 +1,5 @@
 .ToggleListElementBlock {
   height: fit-content;
-  border-bottom: 1px solid #C4C4C4;
   transition: .4s;
 }
 
@@ -69,6 +68,11 @@
 
   color: rgba(0, 0, 0, 0.7);
   
+}
+.ToggleListBlock{
+  border-bottom: 1px solid #C4C4C4;
+  padding-bottom: 15px;
+  margin-bottom: 25px;
 }
 
 @media(max-width: 1440px) {
