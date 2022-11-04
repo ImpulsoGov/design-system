@@ -24,9 +24,10 @@ const ToggleListElementBlock = (props) => {
               props.blocks.map((block,index)=>{
                 return(
                   <div key={index} className={styles.ToggleListBlock}>
-                    <strong>{block.subTitle}</strong>
-                    <p>{block.description}</p>
-                    <p>{block.source}</p>
+                    <strong>{block?.subTitle}</strong>
+                    <p>{block?.description}</p>
+                    <p>{block?.source}</p>
+                    <p>{block?.concepts}</p>
                   </div>
                 )
               })
