@@ -23,7 +23,9 @@ const Footer = _ref => {
   } = _ref;
   return /*#__PURE__*/_react.default.createElement("div", {
     className: (0, _classnames.default)(_FooterModule.default["containerFooter"], _FooterModule.default["theme" + theme.cor + "Footer"])
-  }, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("img", {
+  }, /*#__PURE__*/_react.default.createElement("a", {
+    href: "/"
+  }, /*#__PURE__*/_react.default.createElement("img", {
     className: _FooterModule.default.logoWrapperFooter,
     alt: "impulso-previne-logo",
     src: String(theme.logoProjeto)
