@@ -11,13 +11,13 @@ const Footer = ({
 }) => {
   return (
     <div className={cx(style["containerFooter"], style["theme"+theme.cor+"Footer"])}>
-      <div>
+      <a href="/">
         <img
           className={style.logoWrapperFooter}
           alt="impulso-previne-logo"
           src= {String(theme.logoProjeto)}
         />
-      </div>
+      </a>
       <div className={style.infoLinksWrapperFooter}>
         <div className={style.conteinerUpperFooter}>
           <div className={style.listFooter}>

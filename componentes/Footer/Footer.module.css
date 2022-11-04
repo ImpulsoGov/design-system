@@ -19,6 +19,18 @@
   background-color: #1F1F1F;
   color: #FFFFFF;
 }
+.themeIPFooter{
+  background-color: #1F1F1F;
+  color: #FFFFFF;
+}
+.themeSMFooter{
+  background-color: #1F1F1F;
+  color: #FFFFFF;
+}
+.themeSMFooter a:hover{
+  color:#1B2D82;
+}
+
 .themeWhiteFooter{ 
   background-color: #FFFFFF;
   color:#606E78;
