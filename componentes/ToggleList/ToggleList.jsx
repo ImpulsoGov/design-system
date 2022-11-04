@@ -16,10 +16,8 @@ const ToggleList = ({ list }) => {
             return (
               <ToggleListElementBlock 
                 key={index} 
-                title={item.title} 
-                subTitle={item.subTitle} 
-                description={item.description} 
-                source={item.source} 
+                title={item.title}
+                blocks={item.blocks} 
                 imgLink={"https://media.graphassets.com/WRihknmuQGKEPw9xmMOy"}
               />
             )

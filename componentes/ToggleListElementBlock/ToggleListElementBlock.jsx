@@ -4,7 +4,7 @@ import styles from "./ToggleListElementBlock.module.css";
 
 const ToggleListElementBlock = (props) => {
 
-  const [detailsIsVisible, setDetailIsVisible] = useState(true)
+  const [detailsIsVisible, setDetailIsVisible] = useState(false)
 
   return (
     <div className={styles.ToggleListElementBlock}>
@@ -20,9 +20,17 @@ const ToggleListElementBlock = (props) => {
       {
         detailsIsVisible && (
           <>
-            <strong>{props.subTitle}</strong>
-            <p>{props.description}</p>
-            <p>{props.source}</p>
+            {
+              props.blocks.map((block,index)=>{
+                return(
+                  <div key={index}>
+                    <strong>{block.subTitle}</strong>
+                    <p>{block.description}</p>
+                    <p>{block.source}</p>
+                  </div>
+                )
+              })
+            }
           </>
         )
 
