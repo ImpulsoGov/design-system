@@ -42,17 +42,17 @@ const NavBar = (props) => {
     return active
   }
   const Logged = <ModalLogged
-                  nome = {props.user.nome}
-                  label = {props.user.label}
-                  cargo = {props.user.cargo}
-                  button = {props.user.button}
-                  logout = {props.user.logout}
-                  equipe = {props.user.equipe}
+                  nome = {props?.user?.nome}
+                  label = {props?.user?.label}
+                  cargo = {props?.user?.cargo}
+                  button = {props?.user?.button}
+                  logout = {props?.user?.logout}
+                  equipe = {props?.user?.equipe}
                 />
   const login = <Login
                   titulo= "Faça o login para ver o painel de busca ativa"
                   button = {{label:"entrar"}}
-                  entrar = {props.user.login}
+                  entrar = {props?.user?.login}
                 />
   const ModalChildren = [Logged,login]
   return (
@@ -109,14 +109,17 @@ const NavBar = (props) => {
               setMunicipio={props.setMunicipio}
             />
           </div>
-          <div 
-            className={cx(
-                          style.NavBarLogin,
-                          style['NavBarLogin' + props.theme.cor],
-                          style[props?.user?.label?.length==1 ? 'NavBarLogged' : 'NavBarLogOut']
-                      )}
-            onClick={()=>setModal(!modal)}
-          >{props.user.label}</div>
+          {
+            props?.user != null &&
+            <div 
+              className={cx(
+                            style.NavBarLogin,
+                            style['NavBarLogin' + props.theme.cor],
+                            style[props?.user?.label?.length==1 ? 'NavBarLogged' : 'NavBarLogOut']
+                        )}
+              onClick={()=>setModal(!modal)}
+            >{props.user.label}</div>
+          }
         </div>
 
         <div className={style["buttonMoblie" + props.theme.cor]}
@@ -132,10 +135,10 @@ const NavBar = (props) => {
       <div className={active ? cx(style["linksNavBarMoblie"]) : cx(style["linksNavBarMoblie"], style["linksNavBarMoblieVisible"], style["linksNavBarMoblie" + props.theme.cor])}>
         <MenuMoblie
           menus={props.menu}
-          logged={props.user.nome ? true : false}
-          user={props.user}
-          login={props.user.login}
-          logout={props.user.logout}
+          logged={props?.user?.nome ? true : false}
+          user={props?.user}
+          login={props?.user?.login}
+          logout={props?.user?.logout}
         />
       </div>
     </div>
@@ -144,7 +147,7 @@ const NavBar = (props) => {
       <Modal
           show = {modal}
           setModal = {setModal}
-          child={props.user.nome ? ModalChildren[0] : ModalChildren[1]}
+          child={props?.user.nome ? ModalChildren[0] : ModalChildren[1]}
       />
     </div>}
     </>

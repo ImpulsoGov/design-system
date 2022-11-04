@@ -383,16 +383,7 @@ ColorAGP.args = {
 }
 export const ColorSM = Template.bind({});
 ColorSM.args ={
-    user:
-        {                  
-            nome: "Camila Alves",
-            cargo :"Coordenadora APS",
-            button : {label:"sair",link:""},
-            label : "e",
-            equipe : "000003456",
-            login : ()=> console.log('logado'),
-            logout : ()=> console.log('deslogado')
-        },
+    user: null,
         data:data,
         theme:{
             logoProjeto: "https://media.graphassets.com/Xvh8jUvxTiaimkk4AD75",
