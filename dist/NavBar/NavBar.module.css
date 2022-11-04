@@ -38,7 +38,7 @@
 .container_navbar {
     display: flex;
     align-items: center;
-    padding: 20px 0px;
+    padding: 20px;
     top: 0;
     margin: 0;
     font-family: 'Inter';
@@ -234,12 +234,27 @@
     font-weight: 40;
   }
 
+  .citySelect_navbarColorSM {
+    background-color: #5367C9;
+    color: #FFFFFF;
+    border: none;
+    text-align: center;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 40;
+  }
 
   .citySelect_navbar select {
     display: none; /*hide original SELECT element:*/
   }
 
   .buttonMoblieColorIP {
+    display: none;
+  }
+  .buttonMoblieColorSM {
+    display: none;
+  }
+  .buttonMoblieColorAGP {
     display: none;
   }
   .buttonMoblieWhite{
@@ -285,6 +300,19 @@
     border: 1px solid rgba(255, 255, 255, 0.25);
     color: #FFFF;
   }
+
+  .NavBarLoginColorSM{
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: #FFFF;
+  }
+
+  .NavBarLoginColorAGP{
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: #FFFF;
+  }
+
+
+
   .NavBarModalContainer{
     display: flex;
     justify-content: right;
