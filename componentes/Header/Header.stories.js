@@ -4,6 +4,12 @@ import { Header } from './index'
 export default {
   title: "Componentes/Header",
   component: Header,
+  argTypes: {
+    theme: {
+      options: [null, 'ColorAGP'],
+      control: { type: 'radio' },
+    },
+  },
 }
 
 const Template = (args) => <Header {...args}/>

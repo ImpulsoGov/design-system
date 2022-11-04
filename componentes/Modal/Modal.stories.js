@@ -7,6 +7,7 @@ export default {
     title: "Componentes/Modal",
     component: Modal,
 }
+const Template = (args) => <Modal {...args}/>
 
 const Logged = <ModalLogged
                     nome = "Camila Alves"
@@ -23,17 +24,13 @@ const login = <Login
                 ]}
                 button = {{label:"entrar",link:""}}
             />
-
-export const LoggedIn = () => {
-    return <Modal
-                show = {true}
-                child={Logged}
-            />
+export const LoggedIn = Template.bind({});
+LoggedIn.args ={
+    show: true,
+    child:Logged
 }
-
-export const LogIn = () => {
-    return <Modal
-                show = {true}
-                child={login}
-            />
+export const LogIn = Template.bind({});
+LogIn.args ={
+    show :true,
+    child:login
 }

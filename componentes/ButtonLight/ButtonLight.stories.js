@@ -6,11 +6,9 @@ export default {
   component: ButtonLight,
   argTypes: { label: { control: 'text' }}
 }
-
-export const Default = () => {
-  return <ButtonLight
-    label = "INDICADORES DE DESEMPENHO"
-    link = "indicadores"
-  />
-
+const Template = (args) => <ButtonLight {...args}/>
+export const Default = Template.bind({});
+Default.args={
+  label : "INDICADORES DE DESEMPENHO",
+  link : "indicadores"
 }

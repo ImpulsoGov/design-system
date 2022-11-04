@@ -15,12 +15,10 @@ export default {
   title: "Componentes/AboutSection",
   component: AboutSection,
 };
+const Template = (args) => <AboutSection {...args}/>
 
-export const Default = () => {
-  return (
-    <AboutSection
-        paragraphsList={paragraphList}
-        link={"https://www.w3schools.com/html/html_iframe.asp"}
-    />
-  );
-};
+export const Default = Template.bind({});
+Default.args={
+  paragraphsList:paragraphList,
+  link:"https://www.w3schools.com/html/html_iframe.asp"
+}

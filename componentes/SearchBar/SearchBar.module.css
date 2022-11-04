@@ -8,6 +8,29 @@
     width: 140px;
     padding: 8px;
 }
+.SearchBarInputColorSM{
+    margin-left: auto;
+    border-radius: 80px;
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0);
+    border: solid 1px #fff;
+    outline: none;
+    width: 140px;
+    padding: 8px;
+}
+
+.SearchBarInputColorAGP{
+    margin-left: auto;
+    border-radius: 80px;
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0);
+    border: solid 1px #fff;
+    outline: none;
+    width: 140px;
+    padding: 8px;
+}
+
+
 .SearchBarInputWhite{
     border-radius: 80px;
     color: #1F1F1F;

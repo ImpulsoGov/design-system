@@ -1,11 +1,41 @@
 import React from 'react'
 import { NavBar } from './index'
+import { useState } from 'react'
 
 export default {
     title: "Componentes/NavBar",
     component: NavBar,
+    argTypes: {
+        user: {
+            name: "Dados do Usuário",
+            description: "Dados do usuário autenticado, utilizado pelo modal.\n\n**nome** : nome do usuário *string*,\n\n**cargo**: Cargo do usuário *string*,\n\n**button**: Rótulo do botão de sair *object*,\n\n**label**: Letra do botão de usuário quando autenticado *string*, \n\n**equipe**: Código INE *string*,\n\n**login**: Função de login *function*,\n\n**logout**: Função de logout *function* "
+        },
+        data:{
+            name: "Lista de Municípios",
+            description: "Lista de municípios do auto-complete no seletor de municípios *object array*.\n\n**nome**: Nome do município *string*,\n\n**uf**: Sigla da Unidade Federativa *string*"
+        },
+        theme: {
+            name: "Tema",
+            description: '**logoProjeto** : url do logo da barra de navegação *string/url*;\n\n**cor** : Tema que define o esquema de cores por projeto *string*:\n\n valores aceitos : *ColorIP, ColorAGP, ColorSM, White*',
+        },
+        menu:{
+            name: "Menu",
+            description: "Menus da barra de navegação.\n\n**label**: Rótulo do menu *string*,\n\n**url**: URL do menu *string/url*"
+        },
+        NavBarIconBranco:{
+            description: "Ícone do menu hamburger no versão mobile, quando o tema ColorXXX é selecionado *string/url*"
+        },
+        NavBarIconDark:{
+            description: "Ícone do menu hamburger no versão mobile, quando o tema White é selecionado *string/url*"
+        }
+      },
 }
-
+const Template = (args) => {
+    const [municipio, setMunicipio] = useState("São Felipe D'Oeste - RO")
+    args["municipio"] = municipio
+    args["setMunicipio"] = setMunicipio 
+    return <NavBar {...args}/>
+}
 const data = [
     {
         "nome": "Maraã",
@@ -266,10 +296,156 @@ const subMenus = [
           }
         }
       },
-  ]
+]
 
-import { useState } from 'react'
-export const ColorIP = () => {
+
+export const ColorIPLogin = Template.bind({});
+ColorIPLogin.args = {
+    user:{
+            nome: "Camila Alves",
+            cargo :"Coordenadora APS",
+            button : {label:"sair"},
+            label : "e",
+            equipe : "000003456",
+            login : ()=> console.log('logado'),
+            logout : ()=> console.log('deslogado')
+        },
+    data:data,
+    theme:{
+        logoProjeto: "https://media.graphassets.com/Kal4aulRmYkqd0L6RBAd",
+        cor: "ColorIP"
+    },
+    menu:
+        [
+            { label: "A Impulso Gov", url: "/impulsogov" },
+            { label: "Resultados", url: "analise" },
+            { label: "Busca Ativa", url: "/busca-ativa-gestantes" },
+            { label: "Consultoria", url: "/consultoria" }
+        ],
+    NavBarIconBranco:"https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconBranco.svg",
+    NavBarIconDark:"https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconDark.svg"
+}
+
+export const ColorIPLogout = Template.bind({});
+ColorIPLogout.args = {
+    user:{
+            button : {label:"sair",link:""},
+            label : "ENTRAR",
+            login : ()=> console.log('logado'),
+            logout : ()=> console.log('deslogado')
+        },
+    data:data,
+    theme:{
+        logoProjeto: "https://media.graphassets.com/Kal4aulRmYkqd0L6RBAd",
+        cor: "ColorIP"
+    },
+    menu:
+        [
+            { label: "A Impulso Gov", url: "/impulsogov" },
+            { label: "Resultados", url: "analise" },
+            { label: "Busca Ativa", url: "/busca-ativa-gestantes" },
+            { label: "Consultoria", url: "/consultoria" }
+        ],
+    NavBarIconBranco:"https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconBranco.svg",
+    NavBarIconDark:"https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconDark.svg"
+}
+export const ColorAGP = Template.bind({});
+ColorAGP.args = {
+    user:{
+            nome: "Camila Alves",
+            cargo :"Coordenadora APS",
+            button : {label:"sair",link:""},
+            label : "e",
+            equipe : "000003456",
+            login : ()=> console.log('logado'),
+            logout : ()=> console.log('deslogado')
+        },
+    data:data,
+    theme:{
+        logoProjeto: "https://media.graphassets.com/0q9BBD4xRCivV24aSg80",
+        cor: "ColorAGP"
+    },
+    menu:
+        [
+            { label: "A Impulso Gov", url: "/impulsogov" },
+            { label: "O Previne Brasil", url: "/previnebrasil" },
+            { label: "Análise", url: "analise" },
+            { label: "Consultoria", url: "/consultoria" }
+        ],
+    
+    subtitles:[
+        { label: "Indicadores de Desempenho", url: "/indicadores" },
+        { label: "Capitação Ponderada", url: "/capitacao" },
+        { label: "Ações Estratégicas", url: "/acoes-estrategicas" },
+    ],
+    NavBarIconBranco:"https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconBranco.svg",
+    NavBarIconDark:"https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconDark.svg"
+}
+export const ColorSM = Template.bind({});
+ColorSM.args ={
+    user:
+        {                  
+            nome: "Camila Alves",
+            cargo :"Coordenadora APS",
+            button : {label:"sair",link:""},
+            label : "e",
+            equipe : "000003456",
+            login : ()=> console.log('logado'),
+            logout : ()=> console.log('deslogado')
+        },
+        data:data,
+        theme:{
+            logoProjeto: "https://media.graphassets.com/Xvh8jUvxTiaimkk4AD75",
+            cor: "ColorSM"
+        },
+        menu:
+            [
+                { label: "A Impulso Gov", url: "/impulsogov" },
+                { label: "O Previne Brasil", url: "/previnebrasil" },
+                { label: "Análise", url: "analise" },
+                { label: "Consultoria", url: "/consultoria" }
+            ],
+        subtitles:[
+            { label: "Indicadores de Desempenho", url: "/indicadores" },
+            { label: "Capitação Ponderada", url: "/capitacao" },
+            { label: "Ações Estratégicas", url: "/acoes-estrategicas" },
+        ],
+        NavBarIconBranco:"https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconBranco.svg",
+        NavBarIconDark:"https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconDark.svg"
+}
+export const White = Template.bind({});
+White.args={
+    user:
+        {                  
+            nome: "Camila Alves",
+            cargo :"Coordenadora APS",
+            button : {label:"sair",link:""},
+            label : "e",
+            equipe : "000003456",
+            login : ()=> console.log('logado'),
+            logout : ()=> console.log('deslogado')
+        },
+        data:data,
+        theme:{
+            logoProjeto: "https://media.graphassets.com/3Vvlszx1RraNWFWyfgaT",
+            cor: "White"
+        },
+        menu:
+            [
+                { label: "A Impulso Gov", url: "/impulsogov" },
+                { label: "O Previne Brasil", url: "/previnebrasil" },
+                { label: "Análise", url: "analise" },
+                { label: "Consultoria", url: "/consultoria" }
+            ],
+        subtitles:[
+            { label: "Indicadores de Desempenho", url: "/indicadores" },
+            { label: "Capitação Ponderada", url: "/capitacao" },
+            { label: "Ações Estratégicas", url: "/acoes-estrategicas" },
+        ],
+        NavBarIconBranco:"https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconBranco.svg",
+        NavBarIconDark:"https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconDark.svg"
+}
+export const SubMenu = () => {
     const [state, setState] = useState("São Felipe D'Oeste - RO");
     return (
         <NavBar
@@ -284,36 +460,7 @@ export const ColorIP = () => {
                     logout : ()=> console.log('deslogado')
                 }
             }
-            municipio={state}
-            setMunicipio={setState}
-            data={data}
-            theme={{
-                logoProjeto: "https://media.graphassets.com/Kal4aulRmYkqd0L6RBAd",
-                cor: "ColorIP"
-            }}
-            menu={
-                [
-                    { label: "A Impulso Gov", url: "/impulsogov" },
-                    { label: "Resultados", url: "analise" },
-                    { label: "Busca Ativa", url: "/busca-ativa-gestantes" },
-                    { label: "Consultoria", url: "/consultoria" }
-                ]
-            }
-            subtitles={[
-                { label: "Indicadores de Desempenho", url: "/indicadores" },
-                { label: "Capitação Ponderada", url: "/capitacao" },
-                { label: "Ações Estratégicas", url: "/acoes-estrategicas" },
-            ]}
-            NavBarIconBranco="https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconBranco.svg"
-            NavBarIconDark="https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconDark.svg"
-        />
-    )
-}
 
-export const SubMenu = () => {
-    const [state, setState] = useState("São Felipe D'Oeste - RO");
-    return (
-        <NavBar
             municipio={state}
             setMunicipio={setState}
             data={data}
@@ -331,96 +478,6 @@ export const SubMenu = () => {
             }
             submenu={subMenus}
             links
-            NavBarIconBranco="https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconBranco.svg"
-            NavBarIconDark="https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconDark.svg"
-        />
-    )
-}
-
-export const ColorAGP = () => {
-    const [state, setState] = useState("São Felipe D'Oeste - RO");
-    return (
-        <NavBar
-            municipio={state}
-            setMunicipio={setState}
-            data={data}
-            theme={{
-                logoProjeto: "https://media.graphassets.com/0q9BBD4xRCivV24aSg80",
-                cor: "ColorAGP"
-            }}
-            menu={
-                [
-                    { label: "A Impulso Gov", url: "/impulsogov" },
-                    { label: "O Previne Brasil", url: "/previnebrasil" },
-                    { label: "Análise", url: "analise" },
-                    { label: "Consultoria", url: "/consultoria" }
-                ]
-            }
-            subtitles={[
-                { label: "Indicadores de Desempenho", url: "/indicadores" },
-                { label: "Capitação Ponderada", url: "/capitacao" },
-                { label: "Ações Estratégicas", url: "/acoes-estrategicas" },
-            ]}
-            links
-            NavBarIconBranco="https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconBranco.svg"
-            NavBarIconDark="https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconDark.svg"
-        />
-    )
-}
-
-
-export const ColorSM = () => {
-    const [state, setState] = useState("São Felipe D'Oeste - RO");
-    return (
-        <NavBar
-            municipio={state}
-            setMunicipio={setState}
-            data={data}
-            theme={{
-                logoProjeto: "https://media.graphassets.com/Xvh8jUvxTiaimkk4AD75",
-                cor: "ColorSM"
-            }}
-            menu={
-                [
-                    { label: "A Impulso Gov", url: "/impulsogov" },
-                    { label: "O Previne Brasil", url: "/previnebrasil" },
-                    { label: "Análise", url: "analise" },
-                    { label: "Consultoria", url: "/consultoria" }
-                ]
-            }
-            subtitles={[
-                { label: "Indicadores de Desempenho", url: "/indicadores" },
-                { label: "Capitação Ponderada", url: "/capitacao" },
-                { label: "Ações Estratégicas", url: "/acoes-estrategicas" },
-            ]}
-            NavBarIconBranco="https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconBranco.svg"
-            NavBarIconDark="https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconDark.svg"
-        />
-    )
-}
-
-export const White = () => {
-    return (
-        <NavBar
-            municipio="Brazil"
-            data={data}
-            theme={{
-                logoProjeto: "https://media.graphassets.com/8QBvEx9R8WD5CR8YkCGR",
-                cor: "White"
-            }}
-            menu={
-                [
-                    { label: "A Impulso Gov", url: "/impulsogov" },
-                    { label: "O Previne Brasil", url: "/previnebrasil" },
-                    { label: "Análise", url: "analise" },
-                    { label: "Consultoria", url: "/consultoria" }
-                ]
-            }
-            subtitles={[
-                { label: "Indicadores de Desempenho", url: "/indicadores" },
-                { label: "Capitação Ponderada", url: "/capitacao" },
-                { label: "Ações Estratégicas", url: "/acoes-estrategicas" },
-            ]}
             NavBarIconBranco="https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconBranco.svg"
             NavBarIconDark="https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconDark.svg"
         />
