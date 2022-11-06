@@ -84,23 +84,22 @@ const NavBar = (props) => {
             return (
               <div key={index} className={style.link_navbar}>
                 {DropdownMenu({ index, link, props })}
-                {props.submenu && (
-                  <div className={style.NavBarSubMenuContainer}>
-                    <a href={props.submenu[index].url} className={style.NavBarSubMenu}>
-                      {props.submenu[index].label}
-                    </a>
+                {link.sub && (
+                  <div className={style.NavBarSubMapContainer}>
                     {
-                      props.submenu[index].sub && (
-                        <a href={props.submenu[index].sub.url} className={style.NavBarSecondSubMenu}>
-                          {props.submenu[index].sub.label}
-                        </a>
-                      )
+
+                      link.sub.map((subContent, index) => (
+                        <div className={style.NavBarSubMenuContainer} key={index}>
+                          <a href={subContent.url} className={style.NavBarSubMenuAnchor}>{subContent.label} </a>
+                        </div>
+                      ))
                     }
                   </div>
                 )}
               </div>
             );
           })}
+
           <div className={style.NavBarSearchConteiner}>
             <SearchBar
               data={props.data}
@@ -109,17 +108,7 @@ const NavBar = (props) => {
               setMunicipio={props.setMunicipio}
             />
           </div>
-          {
-            props?.user != null &&
-            <div 
-              className={cx(
-                            style.NavBarLogin,
-                            style['NavBarLogin' + props.theme.cor],
-                            style[props?.user?.label?.length==1 ? 'NavBarLogged' : 'NavBarLogOut']
-                        )}
-              onClick={()=>setModal(!modal)}
-            >{props.user.label}</div>
-          }
+
         </div>
 
         <div className={style["buttonMoblie" + props.theme.cor]}

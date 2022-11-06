@@ -255,48 +255,20 @@ const data = [
     },
 ]
 
-const subMenus = [
+const subMenus =  [
     {
-      label: "Primeiro",
-      url: "https://google.com",
-      sub: {
-        label: "Sub",
-        url: "https://twitch.tv",
-      }
+      "label": "Acompanhamento dos serviços CAPS",
+      "url": "/caps"
     },
     {
-      label: "segundo",
-      url: "https://google.com",
-      sub: {
-        label: "Sub",
-        url: "https://twitch.tv",
-      }
+      "label": "Outros serviços RAPS",
+      "url": "/outros-raps"
     },
     {
-      label: "terceiro",
-      url: "https://google.com",
-      sub: {
-        label: "Sub",
-        url: "https://twitch.tv",
-        sub: {
-          label: "Sub",
-          url: "https://twitch.tv",
-        }
-      }
-    },
-    {
-        label: "quarto",
-        url: "https://google.com",
-        sub: {
-          label: "Sub",
-          url: "https://twitch.tv",
-          sub: {
-            label: "Sub",
-            url: "https://twitch.tv",
-          }
-        }
-      },
-]
+      "label": "Cuidado compartilhado de saúde mental",
+      "url": "/cuidado-compartilhado"
+    }
+  ]
 
 
 export const ColorIPLogin = Template.bind({});
@@ -463,7 +435,12 @@ export const SubMenu = () => {
                 [
                     { label: "A Impulso Gov", url: "/impulsogov" },
                     { label: "O Previne Brasil", url: "/previnebrasil" },
-                    { label: "Análise", url: "analise" },
+                    {
+                        label: "Análise",
+                        url: "analise" ,
+                        sub : subMenus
+                        
+                    },
                     { label: "Consultoria", url: "/consultoria" }
                 ]
             }

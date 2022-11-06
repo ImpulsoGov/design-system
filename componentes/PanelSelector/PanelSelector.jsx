@@ -12,7 +12,7 @@ const PanelSelector = (props) => {
       <div className={style.PanelSelectorMain}>
         <div className={style.PanelSelectorTitles}>
           {props.titles.map((item, index) => (
-            <buton
+            <div
               onClick={() => {
                 setActiveTitleTabIndex(index);
                 setActiveTabIndex(0)
@@ -25,7 +25,7 @@ const PanelSelector = (props) => {
               }
             >
               {item.label}
-            </buton>
+            </div>
           ))}
         </div>
 

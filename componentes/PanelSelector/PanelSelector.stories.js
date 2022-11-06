@@ -326,9 +326,10 @@ export const Analises = () => {
             NavBarIconDark="https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconDark.svg"
         />
         <PanelSelector
-          links = {[dsLink]}
-          list={[labels]}
-          titles={titles}
+            panel={1}
+            links = {[dsLink]}
+            list={[labels]}
+            titles={titles}
         />
 
     </>
