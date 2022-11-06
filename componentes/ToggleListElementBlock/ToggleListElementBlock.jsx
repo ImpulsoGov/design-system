@@ -27,7 +27,14 @@ const ToggleListElementBlock = (props) => {
                     <strong>{block?.subTitle}</strong>
                     <p>{block?.description}</p>
                     <p>{block?.source}</p>
-                    <p>{block?.concepts}</p>
+                    <p>{block?.concept?.title}</p>
+                    {
+                      block?.concept && 
+                      block?.concept.elements.map((concept,index)=>{
+                      return(
+                        <p>{index+1} - {concept}</p>
+                      )
+                    })}
                   </div>
                 )
               })
