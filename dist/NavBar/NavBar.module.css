@@ -201,6 +201,77 @@
     visibility: visible;
   }
   
+  .NavBarSubMapContainer {
+    position: absolute;
+    top: 120%;
+    visibility: hidden;
+  
+    transition: .3s;
+    color: white;
+  }
+  
+  .link_navbar:hover .NavBarSubMapContainer {
+    visibility: visible;
+  
+  }
+  
+  .NavBarSubMenuContainer {
+    background-color: #5367C9;
+    padding: 5px;
+  
+  }
+  
+  .NavBarSubMenuContainer:hover {
+    color: white;
+  
+  }
+  
+  .NavBarSubMenuAnchor {
+    color: white;
+    font-size: 14px;
+    text-decoration: none;
+  }
+  
+  .NavBarSubMenuAnchor:hover {
+    color: white;
+  }
+  
+  
+  .NavBarSubMenuContainer:hover {
+    opacity: .8;
+  
+  }
+  
+  .NavBarSubMapMobileContainer {
+    position: absolute;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    gap: 10px;
+    right: 100%;
+    padding: 1px;
+    padding-right: 0;
+    top: 4px;
+    background-color: #7579EA;
+    width: 194px;
+  }
+  
+  .linksNavBarMoblie .NavBarSubMenuMobileAnchor {
+    font-size: 12px;
+    margin: 0;
+    display: flex;
+  }
+  
+  .linksNavBarMoblie .NavBarSubMenuMobileAnchor p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 25ch;
+    margin: 0;
+  
+  }
+  
+
   .containerCidadeLogin_navbar {
     align-items: center;
     display: flex;
