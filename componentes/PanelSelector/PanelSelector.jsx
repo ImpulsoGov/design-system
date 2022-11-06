@@ -4,7 +4,8 @@ import cx from "classnames";
 import style from "./PanelSelector.module.css";
 
 const PanelSelector = (props) => {
-  const [activeTabIndex, setActiveTabIndex] = useState(0);
+  const initialPanel = (props?.panel) ? props.panel : 0
+  const [activeTabIndex, setActiveTabIndex] = useState(initialPanel);
   const [activeTitleTabIndex, setActiveTitleTabIndex] = useState(0);
   return (
     <div style={{zIndex:90,position:'relative',width:'100%',paddingTop:'90px'}}>
