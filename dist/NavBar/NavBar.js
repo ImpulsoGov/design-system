@@ -7,6 +7,8 @@ exports.NavBar = void 0;
 
 require("core-js/modules/web.dom-collections.iterator.js");
 
+require("core-js/modules/es.regexp.to-string.js");
+
 var _react = _interopRequireWildcard(require("react"));
 
 var _classnames = _interopRequireDefault(require("classnames"));
@@ -104,7 +106,7 @@ const NavBar = props => {
     setMunicipio: props.setMunicipio
   })), /*#__PURE__*/_react.default.createElement("div", {
     className: _NavBarModule.default.links_navbar
-  }, props.menu.map((link, index) => {
+  }, props.menu && props.menu.map((link, index) => {
     return /*#__PURE__*/_react.default.createElement("div", {
       key: index,
       className: _NavBarModule.default.link_navbar
@@ -114,13 +116,29 @@ const NavBar = props => {
       props
     }), link.sub && /*#__PURE__*/_react.default.createElement("div", {
       className: _NavBarModule.default.NavBarSubMapContainer
-    }, link.sub.map((subContent, index) => /*#__PURE__*/_react.default.createElement("div", {
-      className: _NavBarModule.default.NavBarSubMenuContainer,
-      key: index
-    }, /*#__PURE__*/_react.default.createElement("a", {
-      href: subContent.url,
-      className: _NavBarModule.default.NavBarSubMenuAnchor
-    }, subContent.label, " ")))));
+    }, link.sub && link.sub.map((subContent, index) => {
+      const NavBarSubMenuContainerPosition = {
+        top: (index * 30).toString() + 'px'
+      };
+      return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", {
+        className: _NavBarModule.default.NavBarSubMenuContainer,
+        key: index
+      }, /*#__PURE__*/_react.default.createElement("a", {
+        href: subContent.url,
+        className: _NavBarModule.default.NavBarSubMenuAnchor
+      }, subContent.label, " ")), subContent.item && /*#__PURE__*/_react.default.createElement("div", {
+        className: _NavBarModule.default.NavBarSubMenuItemContainer,
+        style: NavBarSubMenuContainerPosition
+      }, subContent.item.map((subContent, index) => {
+        return /*#__PURE__*/_react.default.createElement("div", {
+          className: _NavBarModule.default.NavBarSubMenuItem,
+          key: index
+        }, /*#__PURE__*/_react.default.createElement("a", {
+          href: subContent.url,
+          className: _NavBarModule.default.NavBarSubMenuItemAnchor
+        }, subContent.label, " "));
+      })));
+    })));
   }), /*#__PURE__*/_react.default.createElement("div", {
     className: _NavBarModule.default.NavBarSearchConteiner
   }, /*#__PURE__*/_react.default.createElement(_SearchBar.SearchBar, {

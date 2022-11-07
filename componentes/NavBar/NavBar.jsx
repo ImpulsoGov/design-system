@@ -80,25 +80,45 @@ const NavBar = (props) => {
         </div>
 
         <div className={style.links_navbar}>
-          {props.menu.map((link, index) => {
-            return (
-              <div key={index} className={style.link_navbar}>
-                {DropdownMenu({ index, link, props })}
-                {link.sub && (
-                  <div className={style.NavBarSubMapContainer}>
-                    {
-
-                      link.sub.map((subContent, index) => (
-                        <div className={style.NavBarSubMenuContainer} key={index}>
-                          <a href={subContent.url} className={style.NavBarSubMenuAnchor}>{subContent.label} </a>
-                        </div>
-                      ))
-                    }
-                  </div>
-                )}
-              </div>
-            );
-          })}
+          { props.menu && 
+            props.menu.map((link, index) => {
+              return (
+                <div key={index} className={style.link_navbar}>
+                  {DropdownMenu({ index, link, props })}
+                  {link.sub && (
+                    <div className={style.NavBarSubMapContainer}>
+                      {   link.sub &&
+                          link.sub.map((subContent, index) => {
+                            const NavBarSubMenuContainerPosition = {
+                              top : (index * 30).toString()+'px',
+                            }
+                            return(
+                              <>
+                                <div className={style.NavBarSubMenuContainer} key={index} >
+                                  <a href={subContent.url} className={style.NavBarSubMenuAnchor}>{subContent.label} </a>
+                                </div>
+                                {   subContent.item &&
+                                    <div className={style.NavBarSubMenuItemContainer} style={NavBarSubMenuContainerPosition}>
+                                      {
+                                        subContent.item.map((subContent, index) => {
+                                          return(
+                                            <div  className={style.NavBarSubMenuItem} key={index}>
+                                              <a href={subContent.url} className={style.NavBarSubMenuItemAnchor}>{subContent.label} </a>
+                                            </div>
+                                          )
+                                        })
+                                    }
+                                    </div>
+                                }
+                              </>
+                            )
+                          })
+                      }
+                    </div>
+                  )}
+                </div>
+              );
+            })}
 
           <div className={style.NavBarSearchConteiner}>
             <SearchBar

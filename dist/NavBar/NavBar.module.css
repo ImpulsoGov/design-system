@@ -62,7 +62,6 @@
     color: #F4CCAB;
   }
 
-
   .themeColorSM a:hover{
     color: #5367C9;
   }
@@ -233,15 +232,53 @@
   }
   
   .NavBarSubMenuAnchor:hover {
-    color: white;
+    color: white !important;
   }
-  
+  .NavBarSubMenuAnchor:hover  .NavBarSubMenuItem{
+    visibility: visible;
+    display: block !important;
+  }
+
+  .NavBarSubMenuContainer:hover + .NavBarSubMenuItemContainer{
+    visibility: visible;
+  }
   
   .NavBarSubMenuContainer:hover {
-    opacity: .8;
-  
+    background-color: #7579EA;
   }
-  
+  .NavBarSubMenuItemContainer{
+    position: absolute;
+    width: fit-content;
+    height: fit-content;
+    left: 278px;
+    background-color: #5367C9;
+    color: #FFFFFF;
+    visibility: hidden;
+  }
+  .NavBarSubMenuItem{
+    padding: 5px;
+  }
+  .NavBarSubMenuItem:hover{
+    background-color: #7579EA;
+  }
+  .NavBarSubMenuItemContainer:hover{
+    visibility: visible;
+  }
+  .NavBarSubMenuItemContainer a{
+    text-decoration: none;
+    color: #FFF;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 40;
+    font-size: 14px;
+  }
+  .NavBarSubMenuItemContainer a:hover{
+    text-decoration: none;
+    color: #FFF;
+  }
+  .NavBarSubMenuItemContainer div:hover{
+    background-color: #7579EA;
+  }
   .NavBarSubMapMobileContainer {
     position: absolute;
     display: flex;

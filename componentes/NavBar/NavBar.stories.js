@@ -258,15 +258,83 @@ const data = [
 const subMenus =  [
     {
       "label": "Acompanhamento dos serviços CAPS",
-      "url": "/caps"
+      "url": "/caps",
+      "item": [
+        {
+            "label": "Resumo",
+            "url": "/paineis?painel=1"
+        },
+        {
+            "label": "Perfil de Usuários",
+            "url": "/paineis?painel=2"
+        },
+        {
+            "label": "Novos Usuários",
+            "url": "/paineis?painel=3"
+        },
+        {
+            "label": "Taxa de Abandono",
+            "url": "/paineis?painel=4"
+        },
+        {
+            "label": "Atendimentos Individuais",
+            "url": "/paineis?painel=5"
+        },
+        {
+            "label": "Procedimentos por Usuário",
+            "url": "/paineis?painel=6"
+        },
+        {
+            "label": "Produção",
+            "url": "/paineis?painel=7"
+        },
+
+      ]
     },
     {
       "label": "Outros serviços RAPS",
-      "url": "/outros-raps"
+      "url": "/outros-raps",
+      "item":[
+        {
+            "label": "Resumo",
+            "url": "/paineis?painel=1"
+        },
+        {
+            "label": "Ambulatório de Saúde Mental",
+            "url": "/paineis?painel=2"
+        },
+        {
+            "label": "Consultório na Rua",
+            "url": "/paineis?painel=3"
+        },
+        {
+            "label": "Redução de Danos",
+            "url": "/paineis?painel=4"
+        },
+      ]
     },
     {
       "label": "Cuidado compartilhado de saúde mental",
-      "url": "/cuidado-compartilhado"
+      "url": "/cuidado-compartilhado",
+      "item":[
+        {
+            "label": "Resumo",
+            "url": "/paineis?painel=1"
+        },
+        {
+            "label": "APS e CAPS",
+            "url": "/paineis?painel=2"
+        },
+        {
+            "label": "APS e Ambulatório",
+            "url": "/paineis?painel=3"
+        },
+        {
+            "label": "RAPS e Atenção Hospitalar",
+            "url": "/paineis?painel=4"
+        },
+
+      ]
     }
   ]
 
@@ -429,7 +497,7 @@ export const SubMenu = () => {
             data={data}
             theme={{
                 logoProjeto: "https://media.graphassets.com/0q9BBD4xRCivV24aSg80",
-                cor: "ColorAGP"
+                cor: "ColorSM"
             }}
             menu={
                 [
@@ -439,12 +507,10 @@ export const SubMenu = () => {
                         label: "Análise",
                         url: "analise" ,
                         sub : subMenus
-                        
                     },
                     { label: "Consultoria", url: "/consultoria" }
                 ]
             }
-            submenu={subMenus}
             links
             NavBarIconBranco="https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconBranco.svg"
             NavBarIconDark="https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconDark.svg"
