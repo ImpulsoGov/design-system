@@ -115,7 +115,8 @@ const NavBar = props => {
       link,
       props
     }), link.sub && /*#__PURE__*/_react.default.createElement("div", {
-      className: _NavBarModule.default.NavBarSubMapContainer
+      className: _NavBarModule.default.NavBarSubMapContainer,
+      key: index
     }, link.sub && link.sub.map((subContent, index) => {
       const NavBarSubMenuContainerPosition = {
         top: (index * 30).toString() + 'px'
@@ -128,7 +129,8 @@ const NavBar = props => {
         className: _NavBarModule.default.NavBarSubMenuAnchor
       }, subContent.label, " ")), subContent.item && /*#__PURE__*/_react.default.createElement("div", {
         className: _NavBarModule.default.NavBarSubMenuItemContainer,
-        style: NavBarSubMenuContainerPosition
+        style: NavBarSubMenuContainerPosition,
+        key: index
       }, subContent.item.map((subContent, index) => {
         return /*#__PURE__*/_react.default.createElement("div", {
           className: _NavBarModule.default.NavBarSubMenuItem,

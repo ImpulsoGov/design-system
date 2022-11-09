@@ -86,7 +86,7 @@ const NavBar = (props) => {
                 <div key={index} className={style.link_navbar}>
                   {DropdownMenu({ index, link, props })}
                   {link.sub && (
-                    <div className={style.NavBarSubMapContainer}>
+                    <div className={style.NavBarSubMapContainer} key={index}>
                       {   link.sub &&
                           link.sub.map((subContent, index) => {
                             const NavBarSubMenuContainerPosition = {
@@ -98,7 +98,7 @@ const NavBar = (props) => {
                                   <a href={subContent.url} className={style.NavBarSubMenuAnchor}>{subContent.label} </a>
                                 </div>
                                 {   subContent.item &&
-                                    <div className={style.NavBarSubMenuItemContainer} style={NavBarSubMenuContainerPosition}>
+                                    <div className={style.NavBarSubMenuItemContainer} style={NavBarSubMenuContainerPosition} key={index}>
                                       {
                                         subContent.item.map((subContent, index) => {
                                           return(
