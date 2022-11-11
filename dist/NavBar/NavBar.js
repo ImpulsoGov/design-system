@@ -43,6 +43,54 @@ const DropdownMenu = attr => {
   }, attr.link.label);
 };
 
+const SeletorMunicipios = _ref => {
+  let {
+    parentProps
+  } = _ref;
+  const [display, setDisplay] = (0, _react.useState)(false);
+  const [show, setShow] = (0, _react.useState)("none");
+  const [itemSelecionado, setItemSelecionado] = (0, _react.useState)(parentProps.data[0].nome + " - " + parentProps.data[0].uf);
+
+  if ((parentProps === null || parentProps === void 0 ? void 0 : parentProps.SeletorTipo) == 1) {
+    return /*#__PURE__*/_react.default.createElement("div", {
+      className: _NavBarModule.default.NavBarSeletorMunicipiosContainer
+    }, /*#__PURE__*/_react.default.createElement("div", {
+      className: _NavBarModule.default.NavBarSeletorMunicipios,
+      onClick: () => {
+        setDisplay(!display);
+        display ? setShow("block") : setShow("none");
+      }
+    }, itemSelecionado, /*#__PURE__*/_react.default.createElement("span", {
+      style: {
+        float: 'right',
+        marginRight: '15px'
+      }
+    }, "\u25BE")), /*#__PURE__*/_react.default.createElement("div", {
+      className: _NavBarModule.default.NavBarSeletorMunicipiosLista,
+      style: {
+        display: show
+      }
+    }, parentProps.data.map(municipio => {
+      const municipio_uf = municipio.nome + " - " + municipio.uf;
+      return /*#__PURE__*/_react.default.createElement("div", {
+        className: _NavBarModule.default.NavBarSeletorMunicipiosItem,
+        key: municipio_uf,
+        onClick: () => {
+          setItemSelecionado(municipio_uf);
+          setShow("none");
+        }
+      }, municipio_uf);
+    })));
+  } else {
+    return /*#__PURE__*/_react.default.createElement(_SearchBar.SearchBar, {
+      data: parentProps.data,
+      theme: parentProps.theme.cor,
+      municipio: parentProps.municipio,
+      setMunicipio: parentProps.setMunicipio
+    });
+  }
+};
+
 const DropdownMenuMoblie = attr => {
   const [active, setMode] = (0, _react.useState)(false);
 
@@ -143,11 +191,8 @@ const NavBar = props => {
     })));
   }), /*#__PURE__*/_react.default.createElement("div", {
     className: _NavBarModule.default.NavBarSearchConteiner
-  }, /*#__PURE__*/_react.default.createElement(_SearchBar.SearchBar, {
-    data: props.data,
-    theme: props.theme.cor,
-    municipio: props.municipio,
-    setMunicipio: props.setMunicipio
+  }, /*#__PURE__*/_react.default.createElement(SeletorMunicipios, {
+    parentProps: props
   }))), /*#__PURE__*/_react.default.createElement("div", {
     className: _NavBarModule.default["buttonMoblie" + props.theme.cor],
     onClick: menuVisible
