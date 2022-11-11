@@ -15,7 +15,7 @@ const PanelSelector = (props) => {
             <div
               onClick={() => {
                 setActiveTitleTabIndex(index);
-                setActiveTabIndex(0)
+                (list[0].label != "Coordenação de Equipe") ? setActiveTabIndex(0) : setActiveTabIndex(1)
               }}
               key={index}
               className={

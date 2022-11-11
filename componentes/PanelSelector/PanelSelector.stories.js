@@ -17,6 +17,13 @@ const dsLinkBuscaAtiva =[
     "https://aps.saude.gov.br/gestor/financiamento"
   ]
 ]
+const dsLinkBuscaAtivaEquipe =[
+    [
+      "https://www.impulsogov.org/",
+      "https://saude.sp.gov.br/"
+    ],
+  ]
+  
 const labels = [
   {
     label: "Indicadores de Desempenho",
@@ -46,7 +53,14 @@ const labelsBuscaAtiva = [
     },
   ]
 ]
-
+const labelsBuscaAtivaEquipe = [
+    [
+      {
+        label: "Coordenação de Equipe",
+      },
+    ],
+  ]
+  
 const titlesBuscaAtiva = [
   {
     label: "Indicadores Gestantes",
@@ -55,7 +69,12 @@ const titlesBuscaAtiva = [
     label: "Cadastros - Gestantes",
   },
 ]
-
+const titlesBuscaAtivaEquipe = [
+    {
+      label: "Indicadores Gestantes",
+    },
+  ]
+  
 const titles = [
   {
     label: "Análises",
@@ -345,3 +364,13 @@ export const BuscaAtiva = () => {
   />
   );
 };
+
+export const BuscaAtivaEquipe = () => {
+    return (
+      <PanelSelector
+        links = {dsLinkBuscaAtiva}
+        list={labelsBuscaAtivaEquipe}
+        titles={titlesBuscaAtivaEquipe}
+    />
+    );
+  };
