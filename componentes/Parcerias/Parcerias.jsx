@@ -1,6 +1,6 @@
 import React from "react";
 import cx from "classnames";
-import style from "./Parcerias.css";
+import style from "./Parcerias.module.css";
 
 const Parcerias = ({
     parceiros,

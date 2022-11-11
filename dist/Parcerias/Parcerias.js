@@ -9,7 +9,7 @@ var _react = _interopRequireDefault(require("react"));
 
 var _classnames = _interopRequireDefault(require("classnames"));
 
-var _Parcerias = _interopRequireDefault(require("./Parcerias.css"));
+var _ParceriasModule = _interopRequireDefault(require("./Parcerias.module.css"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -20,17 +20,17 @@ const Parcerias = _ref => {
   } = _ref;
   //"container_parceiros"
   return /*#__PURE__*/_react.default.createElement("div", {
-    className: (0, _classnames.default)(_Parcerias.default.container_parceiros, _Parcerias.default["theme" + theme])
+    className: (0, _classnames.default)(_ParceriasModule.default.container_parceiros, _ParceriasModule.default["theme" + theme])
   }, /*#__PURE__*/_react.default.createElement("div", {
-    className: _Parcerias.default.parceirosLabel
+    className: _ParceriasModule.default.parceirosLabel
   }, "Parceiros"), /*#__PURE__*/_react.default.createElement("div", {
-    className: _Parcerias.default.gridContainer
+    className: _ParceriasModule.default.gridContainer
   }, parceiros.map((parceiro, index) => {
     return /*#__PURE__*/_react.default.createElement("div", {
-      className: _Parcerias.default.logo_parceiros,
+      className: _ParceriasModule.default.logo_parceiros,
       key: index
     }, /*#__PURE__*/_react.default.createElement("img", {
-      className: _Parcerias.default.imageContainer,
+      className: _ParceriasModule.default.imageContainer,
       alt: parceiro.alt,
       src: parceiro.src
     }));
