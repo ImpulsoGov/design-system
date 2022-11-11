@@ -115,7 +115,7 @@ const NavBar = (props) => {
             setMunicipio={props.setMunicipio}
           />
         </div>
-
+        
         <div className={style.links_navbar}>
           { props.menu && 
             props.menu.map((link, index) => {
@@ -160,6 +160,18 @@ const NavBar = (props) => {
           <div className={style.NavBarSearchConteiner}>
             <SeletorMunicipios parentProps={props}/>
           </div>
+          {
+            props?.user != null &&
+            <div 
+              className={cx(
+                            style.NavBarLogin,
+                            style['NavBarLogin' + props.theme.cor],
+                            style[props?.user?.label?.length==1 ? 'NavBarLogged' : 'NavBarLogOut']
+                        )}
+              onClick={()=>setModal(!modal)}
+            >{props.user.label}
+            </div>
+          }
 
         </div>
 

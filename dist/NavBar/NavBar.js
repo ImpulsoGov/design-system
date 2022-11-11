@@ -105,7 +105,7 @@ const DropdownMenuMoblie = attr => {
 };
 
 const NavBar = props => {
-  var _props$user, _props$user2, _props$user3, _props$user4, _props$user5, _props$user6, _props$user7, _props$user8, _props$user9, _props$user10;
+  var _props$user, _props$user2, _props$user3, _props$user4, _props$user5, _props$user6, _props$user7, _props$user8, _props$user8$label, _props$user9, _props$user10, _props$user11;
 
   const [active, setMode] = (0, _react.useState)(true);
   const [modal, setModal] = (0, _react.useState)(false);
@@ -193,7 +193,10 @@ const NavBar = props => {
     className: _NavBarModule.default.NavBarSearchConteiner
   }, /*#__PURE__*/_react.default.createElement(SeletorMunicipios, {
     parentProps: props
-  }))), /*#__PURE__*/_react.default.createElement("div", {
+  })), (props === null || props === void 0 ? void 0 : props.user) != null && /*#__PURE__*/_react.default.createElement("div", {
+    className: (0, _classnames.default)(_NavBarModule.default.NavBarLogin, _NavBarModule.default['NavBarLogin' + props.theme.cor], _NavBarModule.default[(props === null || props === void 0 ? void 0 : (_props$user8 = props.user) === null || _props$user8 === void 0 ? void 0 : (_props$user8$label = _props$user8.label) === null || _props$user8$label === void 0 ? void 0 : _props$user8$label.length) == 1 ? 'NavBarLogged' : 'NavBarLogOut']),
+    onClick: () => setModal(!modal)
+  }, props.user.label)), /*#__PURE__*/_react.default.createElement("div", {
     className: _NavBarModule.default["buttonMoblie" + props.theme.cor],
     onClick: menuVisible
   }, /*#__PURE__*/_react.default.createElement("img", {
@@ -204,10 +207,10 @@ const NavBar = props => {
     className: active ? (0, _classnames.default)(_NavBarModule.default["linksNavBarMoblie"]) : (0, _classnames.default)(_NavBarModule.default["linksNavBarMoblie"], _NavBarModule.default["linksNavBarMoblieVisible"], _NavBarModule.default["linksNavBarMoblie" + props.theme.cor])
   }, /*#__PURE__*/_react.default.createElement(_MenuMoblie.MenuMoblie, {
     menus: props.menu,
-    logged: props !== null && props !== void 0 && (_props$user8 = props.user) !== null && _props$user8 !== void 0 && _props$user8.nome ? true : false,
+    logged: props !== null && props !== void 0 && (_props$user9 = props.user) !== null && _props$user9 !== void 0 && _props$user9.nome ? true : false,
     user: props === null || props === void 0 ? void 0 : props.user,
-    login: props === null || props === void 0 ? void 0 : (_props$user9 = props.user) === null || _props$user9 === void 0 ? void 0 : _props$user9.login,
-    logout: props === null || props === void 0 ? void 0 : (_props$user10 = props.user) === null || _props$user10 === void 0 ? void 0 : _props$user10.logout
+    login: props === null || props === void 0 ? void 0 : (_props$user10 = props.user) === null || _props$user10 === void 0 ? void 0 : _props$user10.login,
+    logout: props === null || props === void 0 ? void 0 : (_props$user11 = props.user) === null || _props$user11 === void 0 ? void 0 : _props$user11.logout
   }))), modal && /*#__PURE__*/_react.default.createElement("div", {
     className: _NavBarModule.default.NavBarModalContainer
   }, /*#__PURE__*/_react.default.createElement(_Modal.Modal, {
