@@ -108,7 +108,7 @@ const NavBar = props => {
     className: _NavBarModule.default.links_navbar
   }, props.menu && props.menu.map((link, index) => {
     return /*#__PURE__*/_react.default.createElement("div", {
-      key: index,
+      key: link.label,
       className: _NavBarModule.default.link_navbar
     }, DropdownMenu({
       index,
@@ -123,22 +123,22 @@ const NavBar = props => {
       };
       return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", {
         className: _NavBarModule.default.NavBarSubMenuContainer,
-        key: index
+        key: subContent.label
       }, /*#__PURE__*/_react.default.createElement("a", {
         href: subContent.url,
         className: _NavBarModule.default.NavBarSubMenuAnchor
       }, subContent.label, " ")), subContent.item && /*#__PURE__*/_react.default.createElement("div", {
         className: _NavBarModule.default.NavBarSubMenuItemContainer,
         style: NavBarSubMenuContainerPosition,
-        key: index
-      }, subContent.item.map((subContent, index) => {
+        key: subContent.item
+      }, subContent.item.map((subcontent, index) => {
         return /*#__PURE__*/_react.default.createElement("div", {
           className: _NavBarModule.default.NavBarSubMenuItem,
-          key: index
+          key: subcontent.label
         }, /*#__PURE__*/_react.default.createElement("a", {
-          href: subContent.url,
+          href: subcontent.url,
           className: _NavBarModule.default.NavBarSubMenuItemAnchor
-        }, subContent.label, " "));
+        }, subcontent.label, " "));
       })));
     })));
   }), /*#__PURE__*/_react.default.createElement("div", {

@@ -351,6 +351,39 @@
     font-style: normal;
     font-weight: 40;
   }
+  .NavBarSeletorMunicipiosContainer{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  .NavBarSeletorMunicipios{
+    text-align: center;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    position: relative;
+    border-radius: 80px;
+    border: solid 1px #fff;
+    color: #fff;
+    padding: 6px;
+    width:250px;
+  }
+  .NavBarSeletorMunicipiosLista{
+    top: 52px;
+    position: absolute;
+    background-color: #5367C9;
+    transition: display 4s;
+  }
+  .NavBarSeletorMunicipiosItem{
+    border-bottom: solid 1px rgba(255, 255, 255, 0.2);
+    padding: 10px;
+  }
+  .NavBarSeletorMunicipiosItem:hover{
+    opacity: 0.3;
+    cursor: pointer;
+  }
+
 
   .citySelect_navbar select {
     display: none; /*hide original SELECT element:*/

@@ -36,6 +36,21 @@ const Template = (args) => {
     args["setMunicipio"] = setMunicipio 
     return <NavBar {...args}/>
 }
+
+const dataSM =[
+    {
+        "nome": "Aracaju",
+        "uf": "SE"
+    },
+    {
+        "nome": "Aparecida de Goiânia",
+        "uf": "GO"
+    },
+    {
+        "nome": "Recife",
+        "uf": "PE"
+    },
+]
 const data = [
     {
         "nome": "Maraã",
@@ -424,7 +439,7 @@ ColorAGP.args = {
 export const ColorSM = Template.bind({});
 ColorSM.args ={
     user: null,
-        data:data,
+        data:dataSM,
         theme:{
             logoProjeto: "https://media.graphassets.com/Xvh8jUvxTiaimkk4AD75",
             cor: "ColorSM"
@@ -441,6 +456,7 @@ ColorSM.args ={
             { label: "Capitação Ponderada", url: "/capitacao" },
             { label: "Ações Estratégicas", url: "/acoes-estrategicas" },
         ],
+        SeletorTipo:1,
         NavBarIconBranco:"https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconBranco.svg",
         NavBarIconDark:"https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconDark.svg"
 }

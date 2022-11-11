@@ -19,7 +19,44 @@ const DropdownMenu = (attr) => {
     </a>
   )
 }
-
+const SeletorMunicipios = ({parentProps})=>{
+  const [display, setDisplay] = useState(false)
+  const [show, setShow] = useState("none")
+  const [itemSelecionado, setItemSelecionado] = useState(parentProps.data[0].nome + " - " + parentProps.data[0].uf)
+  if(parentProps?.SeletorTipo==1){
+    return(
+      <div className={style.NavBarSeletorMunicipiosContainer}>
+        <div 
+          className={style.NavBarSeletorMunicipios}
+          onClick={()=>{setDisplay(!display);(display) ? setShow("block") : setShow("none")}}
+        >
+          {itemSelecionado}<span style={{float:'right',marginRight:'15px'}}>▾</span>
+        </div>
+        <div className={style.NavBarSeletorMunicipiosLista} style={{display:show}}>
+          {parentProps.data.map((municipio)=>{
+            const municipio_uf = municipio.nome + " - " + municipio.uf
+            return(
+              <div
+                className={style.NavBarSeletorMunicipiosItem}
+                key={municipio_uf}
+                onClick={()=>{setItemSelecionado(municipio_uf);setShow("none")}}
+              >{municipio_uf}</div>
+            )
+          })}
+        </div>
+      </div>  
+    )}else{
+      return(
+        <SearchBar
+          data={parentProps.data}
+          theme={parentProps.theme.cor}
+          municipio={parentProps.municipio}
+          setMunicipio={parentProps.setMunicipio}
+        />
+      )
+    }
+  
+}
 const DropdownMenuMoblie = (attr) => {
   const [active, setMode] = useState(false)
   const menuVisible = () => {
@@ -83,7 +120,7 @@ const NavBar = (props) => {
           { props.menu && 
             props.menu.map((link, index) => {
               return (
-                <div key={index} className={style.link_navbar}>
+                <div key={link.label} className={style.link_navbar}>
                   {DropdownMenu({ index, link, props })}
                   {link.sub && (
                     <div className={style.NavBarSubMapContainer} key={index}>
@@ -94,16 +131,16 @@ const NavBar = (props) => {
                             }
                             return(
                               <>
-                                <div className={style.NavBarSubMenuContainer} key={index} >
+                                <div className={style.NavBarSubMenuContainer} key={subContent.label} >
                                   <a href={subContent.url} className={style.NavBarSubMenuAnchor}>{subContent.label} </a>
                                 </div>
                                 {   subContent.item &&
-                                    <div className={style.NavBarSubMenuItemContainer} style={NavBarSubMenuContainerPosition} key={index}>
+                                    <div className={style.NavBarSubMenuItemContainer} style={NavBarSubMenuContainerPosition} key={subContent.item}>
                                       {
-                                        subContent.item.map((subContent, index) => {
+                                        subContent.item.map((subcontent, index) => {
                                           return(
-                                            <div  className={style.NavBarSubMenuItem} key={index}>
-                                              <a href={subContent.url} className={style.NavBarSubMenuItemAnchor}>{subContent.label} </a>
+                                            <div  className={style.NavBarSubMenuItem} key={subcontent.label}>
+                                              <a href={subcontent.url} className={style.NavBarSubMenuItemAnchor}>{subcontent.label} </a>
                                             </div>
                                           )
                                         })
@@ -121,12 +158,7 @@ const NavBar = (props) => {
             })}
 
           <div className={style.NavBarSearchConteiner}>
-            <SearchBar
-              data={props.data}
-              theme={props.theme.cor}
-              municipio={props.municipio}
-              setMunicipio={props.setMunicipio}
-            />
+            <SeletorMunicipios parentProps={props}/>
           </div>
 
         </div>

@@ -6,8 +6,8 @@ import { UserAvatar } from "../ModalLogged";
 const Menus = ({menus})=>{
     return(
         <div className={style.MenuMoblieMenus}>
-        { menus.map((menu,index)=>{
-                return <a key={index} href={menu.url}>{menu.label}</a>
+        { menus.map((menu)=>{
+                return <a key={menu.label} href={menu.url}>{menu.label}</a>
             })}
         </div>
     )
