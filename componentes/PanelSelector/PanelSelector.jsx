@@ -43,7 +43,7 @@ const PanelSelector = (props) => {
                   : style.PanelSelectorButton
               }
             >
-              {item.label}{index}{activeTabIndex}
+              {item.label}
             </div>
           ))}
         </div>
