@@ -48,28 +48,40 @@ const SeletorMunicipios = _ref => {
     parentProps
   } = _ref;
   const [display, setDisplay] = (0, _react.useState)(false);
-  const [show, setShow] = (0, _react.useState)("none");
+  const refList = (0, _react.useRef)();
+  const refSeletor = (0, _react.useRef)();
+
+  const hideList = () => setDisplay(false);
+
   const [itemSelecionado, setItemSelecionado] = (0, _react.useState)(parentProps.data[0].nome + " - " + parentProps.data[0].uf);
+  (0, _react.useEffect)(() => {
+    const handleClick = e => {
+      if (display && refList.current && !refList.current.contains(e.target)) {
+        if (!refSeletor.current.contains(e.target)) {
+          hideList();
+        }
+      }
+    };
+
+    document.addEventListener("click", handleClick);
+    return () => document.removeEventListener("click", handleClick);
+  }, [display]);
 
   if ((parentProps === null || parentProps === void 0 ? void 0 : parentProps.SeletorTipo) == 1) {
     return /*#__PURE__*/_react.default.createElement("div", {
       className: _NavBarModule.default.NavBarSeletorMunicipiosContainer
     }, /*#__PURE__*/_react.default.createElement("div", {
       className: _NavBarModule.default.NavBarSeletorMunicipios,
-      onClick: () => {
-        setDisplay(!display);
-        display ? setShow("block") : setShow("none");
-      }
+      onClick: () => setDisplay(!display),
+      ref: refSeletor
     }, itemSelecionado, /*#__PURE__*/_react.default.createElement("span", {
       style: {
         float: 'right',
         marginRight: '15px'
       }
-    }, "\u25BE")), /*#__PURE__*/_react.default.createElement("div", {
+    }, "\u25BE")), display && /*#__PURE__*/_react.default.createElement("div", {
       className: _NavBarModule.default.NavBarSeletorMunicipiosLista,
-      style: {
-        display: show
-      }
+      ref: refList
     }, parentProps.data.map(municipio => {
       const municipio_uf = municipio.nome + " - " + municipio.uf;
       return /*#__PURE__*/_react.default.createElement("div", {
@@ -77,7 +89,7 @@ const SeletorMunicipios = _ref => {
         key: municipio_uf,
         onClick: () => {
           setItemSelecionado(municipio_uf);
-          setShow("none");
+          setDisplay(false);
         }
       }, municipio_uf);
     })));
@@ -147,11 +159,8 @@ const NavBar = props => {
     src: String(props.theme.logoProjeto)
   })))), /*#__PURE__*/_react.default.createElement("div", {
     className: _NavBarModule.default.NavBarSearchConteinerMoblie
-  }, /*#__PURE__*/_react.default.createElement(_SearchBar.SearchBar, {
-    data: props.data,
-    theme: props.theme.cor,
-    municipio: props.municipio,
-    setMunicipio: props.setMunicipio
+  }, /*#__PURE__*/_react.default.createElement(SeletorMunicipios, {
+    parentProps: props
   })), /*#__PURE__*/_react.default.createElement("div", {
     className: _NavBarModule.default.links_navbar
   }, props.menu && props.menu.map((link, index) => {

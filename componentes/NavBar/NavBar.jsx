@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect,useRef } from "react";
 import cx from "classnames";
 import style from "./NavBar.module.css";
 import { SearchBar } from "../SearchBar/SearchBar";
@@ -19,31 +19,53 @@ const DropdownMenu = (attr) => {
     </a>
   )
 }
+
+
 const SeletorMunicipios = ({parentProps})=>{
   const [display, setDisplay] = useState(false)
-  const [show, setShow] = useState("none")
+  const refList = useRef();
+  const refSeletor = useRef();
+  const hideList = ()=> setDisplay(false)
   const [itemSelecionado, setItemSelecionado] = useState(parentProps.data[0].nome + " - " + parentProps.data[0].uf)
+  useEffect(() => {
+    const handleClick = (e) => {
+      if (display && refList.current && !refList.current.contains(e.target) ) {
+        if (!refSeletor.current.contains(e.target)){
+          hideList()
+        }
+      }
+    };
+  
+    document.addEventListener("click", handleClick);
+    return () => document.removeEventListener("click", handleClick);
+  },[display]);
+
   if(parentProps?.SeletorTipo==1){
     return(
       <div className={style.NavBarSeletorMunicipiosContainer}>
         <div 
           className={style.NavBarSeletorMunicipios}
-          onClick={()=>{setDisplay(!display);(display) ? setShow("block") : setShow("none")}}
+          onClick={()=>setDisplay(!display)}
+          ref={refSeletor}
         >
           {itemSelecionado}<span style={{float:'right',marginRight:'15px'}}>▾</span>
         </div>
-        <div className={style.NavBarSeletorMunicipiosLista} style={{display:show}}>
-          {parentProps.data.map((municipio)=>{
-            const municipio_uf = municipio.nome + " - " + municipio.uf
-            return(
-              <div
-                className={style.NavBarSeletorMunicipiosItem}
-                key={municipio_uf}
-                onClick={()=>{setItemSelecionado(municipio_uf);setShow("none")}}
-              >{municipio_uf}</div>
-            )
-          })}
-        </div>
+        { 
+          display && (
+            <div className={style.NavBarSeletorMunicipiosLista} ref={refList}>
+              {parentProps.data.map((municipio)=>{
+                const municipio_uf = municipio.nome + " - " + municipio.uf
+                return(
+                  <div
+                    className={style.NavBarSeletorMunicipiosItem}
+                    key={municipio_uf}
+                    onClick={()=>{setItemSelecionado(municipio_uf);setDisplay(false)}}
+                  >{municipio_uf}</div>
+                )
+              })}
+            </div>
+          )
+        }
       </div>  
     )}else{
       return(
@@ -108,12 +130,7 @@ const NavBar = (props) => {
           </div>
         </div>
         <div className={style.NavBarSearchConteinerMoblie}>
-          <SearchBar
-            data={props.data}
-            theme={props.theme.cor}
-            municipio={props.municipio}
-            setMunicipio={props.setMunicipio}
-          />
+          <SeletorMunicipios parentProps={props}/>
         </div>
         
         <div className={style.links_navbar}>

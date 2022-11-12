@@ -373,12 +373,32 @@
     top: 52px;
     position: absolute;
     background-color: #5367C9;
-    transition: display 4s;
+    height: fit-content;
   }
   .NavBarSeletorMunicipiosItem{
     border-bottom: solid 1px rgba(255, 255, 255, 0.2);
     padding: 10px;
+    animation: growDown 200ms ease-in-out forwards;
   }
+  .NavBarSeletorMunicipiosItemGrowUp{
+    animation: growUp 200ms ease-in-out forwards;
+  }
+  @keyframes growDown {
+    from {
+      height: 0px;
+      opacity: 0;
+    }
+    to {
+      height: fit-content;
+      opacity: 1;
+    }
+  }
+  @keyframes growUp {
+    from {height: fit-content;}
+    to {height: 0px;}
+  }
+
+  
   .NavBarSeletorMunicipiosItem:hover{
     opacity: 0.3;
     cursor: pointer;
@@ -580,7 +600,16 @@
     .containerCidadeLogin_navbar {
       display: none;
     }
-
+    .NavBarSeletorMunicipios{
+      width: 200px;
+      font-size: 12px;
+    }
+    .NavBarSeletorMunicipiosLista{
+      top: 55px;
+    }
+    .NavBarSeletorMunicipiosItem{
+      font-size: 12px;
+    }
     .ButtonLoginBox_navbar {
       height: 30px;
       margin-right: 0px;

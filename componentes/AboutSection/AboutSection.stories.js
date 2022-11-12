@@ -14,6 +14,16 @@ const paragraphList = [
 export default {
   title: "Componentes/AboutSection",
   component: AboutSection,
+  argTypes: {
+    paragraphsList: {
+        name: "paragraphList",
+        description: "Parágrafo com texto descritivo \n\n**ler mais** : Botão que mostra toda extensão do texto contido no parágrago *button*,\n\n**ler menos** : Botão queoculta parte do texto contido no parágrago *button*"
+    },
+    link:{
+        name: "link",
+        description: "Link para imagem *URL*"
+    },
+  },
 };
 const Template = (args) => <AboutSection {...args}/>
 
