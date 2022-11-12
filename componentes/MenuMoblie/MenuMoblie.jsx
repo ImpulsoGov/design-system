@@ -15,19 +15,23 @@ const Menus = ({menus})=>{
 
 const Logout = ({
     menus,
-    setEtapa
+    setEtapa,
+    login
 })=>{
     return(
         <div className={style.MenuMoblieContainer}>
             <Menus
                 menus={menus}
             />
-            <div className={style.MenuMoblieMenus}>
-                <button 
-                    className={style.LoginButton}
-                    onClick={() => setEtapa(1)}
-                >ENTRAR</button>
-            </div>
+            {   
+                login &&
+                <div className={style.MenuMoblieMenus}>
+                    <button 
+                        className={style.LoginButton}
+                        onClick={() => setEtapa(1)}
+                    >ENTRAR</button>
+                </div>
+            }
         </div>
 )
 }
@@ -68,6 +72,7 @@ const MenuMoblie = ({
                     <Logout 
                         menus={menus}
                         setEtapa={setEtapa}
+                        login={login}
                     />
                 }
                 {etapa == 1 &&
@@ -76,12 +81,11 @@ const MenuMoblie = ({
                             titulo= "Faça o login para ver o painel de busca ativa"
                             button = {{label:"entrar"}}
                             entrar = {login}
-                        />  
+                        />
                         <div 
                             className={style.MenuMoblieBack}
                             onClick={() => setEtapa(0)}
                         >Voltar</div>
-
                     </div>
                 }
             </>}

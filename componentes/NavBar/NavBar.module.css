@@ -545,8 +545,8 @@
       display: none;
     }
 
-    .linksNavBarMoblieColorSM{
-      background-color: #5367C9;
+    .linksNavBarMoblieColorSM a:hover{
+      color: #5367C9 !important;
     }
 
     .linksNavBarMoblieColorSM a{

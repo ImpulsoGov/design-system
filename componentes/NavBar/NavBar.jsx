@@ -12,10 +12,13 @@ const NavBarMenu = (tema, NavBarIconBranco, NavBarIconDark) => {
   return theme
 }
 
-const DropdownMenu = (attr) => {
+const Menu = ({
+  link,
+  tema
+}) => {
   return (
-    <a href={attr.link.url} className={style["theme" + attr.props.theme.cor]}>
-      {attr.link.label}
+    <a href={link.url} className={style["theme" + tema]}>
+      {link.label}
     </a>
   )
 }
@@ -137,8 +140,14 @@ const NavBar = (props) => {
           { props.menu && 
             props.menu.map((link, index) => {
               return (
-                <div key={link.label} className={style.link_navbar}>
-                  {DropdownMenu({ index, link, props })}
+                <div 
+                  key={link.label} 
+                  className={style.link_navbar}
+                >
+                  <Menu
+                    link={link}
+                    tema={props.theme.cor}
+                  />
                   {link.sub && (
                     <div className={style.NavBarSubMapContainer} key={index}>
                       {   link.sub &&

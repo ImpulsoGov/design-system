@@ -36,17 +36,21 @@ const NavBarMenu = (tema, NavBarIconBranco, NavBarIconDark) => {
   return theme;
 };
 
-const DropdownMenu = attr => {
+const Menu = _ref => {
+  let {
+    link,
+    tema
+  } = _ref;
   return /*#__PURE__*/_react.default.createElement("a", {
-    href: attr.link.url,
-    className: _NavBarModule.default["theme" + attr.props.theme.cor]
-  }, attr.link.label);
+    href: link.url,
+    className: _NavBarModule.default["theme" + tema]
+  }, link.label);
 };
 
-const SeletorMunicipios = _ref => {
+const SeletorMunicipios = _ref2 => {
   let {
     parentProps
-  } = _ref;
+  } = _ref2;
   const [display, setDisplay] = (0, _react.useState)(false);
   const refList = (0, _react.useRef)();
   const refSeletor = (0, _react.useRef)();
@@ -167,10 +171,9 @@ const NavBar = props => {
     return /*#__PURE__*/_react.default.createElement("div", {
       key: link.label,
       className: _NavBarModule.default.link_navbar
-    }, DropdownMenu({
-      index,
-      link,
-      props
+    }, /*#__PURE__*/_react.default.createElement(Menu, {
+      link: link,
+      tema: props.theme.cor
     }), link.sub && /*#__PURE__*/_react.default.createElement("div", {
       className: _NavBarModule.default.NavBarSubMapContainer,
       key: index
