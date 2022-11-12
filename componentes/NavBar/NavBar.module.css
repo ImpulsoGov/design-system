@@ -255,6 +255,7 @@
     color: #FFFFFF;
     visibility: hidden;
   }
+
   .NavBarSubMenuItem{
     padding: 5px;
   }
@@ -369,6 +370,19 @@
     padding: 6px;
     width:250px;
   }
+  .NavBarSeletorMunicipiosWhite{
+    text-align: center;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    position: relative;
+    border-radius: 80px;
+    border: solid 1px #1F1F1F;
+    color: #1F1F1F;
+    padding: 6px;
+    width:250px;
+  }
   .NavBarSeletorMunicipiosLista{
     top: 52px;
     position: absolute;
@@ -377,6 +391,7 @@
   }
   .NavBarSeletorMunicipiosItem{
     border-bottom: solid 1px rgba(255, 255, 255, 0.2);
+    color: #FFF;
     padding: 10px;
     animation: growDown 200ms ease-in-out forwards;
   }

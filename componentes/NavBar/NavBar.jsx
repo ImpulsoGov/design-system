@@ -29,7 +29,7 @@ const SeletorMunicipios = ({parentProps})=>{
   const refList = useRef();
   const refSeletor = useRef();
   const hideList = ()=> setDisplay(false)
-  const [itemSelecionado, setItemSelecionado] = useState(parentProps.data[0].nome + " - " + parentProps.data[0].uf)
+  const [itemSelecionado, setItemSelecionado] = useState(parentProps.municipio)
   useEffect(() => {
     const handleClick = (e) => {
       if (display && refList.current && !refList.current.contains(e.target) ) {
@@ -42,16 +42,19 @@ const SeletorMunicipios = ({parentProps})=>{
     document.addEventListener("click", handleClick);
     return () => document.removeEventListener("click", handleClick);
   },[display]);
-
   if(parentProps?.SeletorTipo==1){
     return(
       <div className={style.NavBarSeletorMunicipiosContainer}>
         <div 
-          className={style.NavBarSeletorMunicipios}
+          className={
+            (parentProps.theme.cor!="White") ?
+            style.NavBarSeletorMunicipios :
+            style.NavBarSeletorMunicipiosWhite
+          }
           onClick={()=>setDisplay(!display)}
           ref={refSeletor}
         >
-          {itemSelecionado}<span style={{float:'right',marginRight:'15px'}}>▾</span>
+          {parentProps.municipio}<span style={{float:'right',marginRight:'15px'}}>▾</span>
         </div>
         { 
           display && (
@@ -62,7 +65,7 @@ const SeletorMunicipios = ({parentProps})=>{
                   <div
                     className={style.NavBarSeletorMunicipiosItem}
                     key={municipio_uf}
-                    onClick={()=>{setItemSelecionado(municipio_uf);setDisplay(false)}}
+                    onClick={()=>{setItemSelecionado(municipio_uf);parentProps.setMunicipio(municipio_uf);setDisplay(false)}}
                   >{municipio_uf}</div>
                 )
               })}

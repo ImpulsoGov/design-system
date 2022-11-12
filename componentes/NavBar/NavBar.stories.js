@@ -460,6 +460,31 @@ ColorSM.args ={
         NavBarIconBranco:"https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconBranco.svg",
         NavBarIconDark:"https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconDark.svg"
 }
+export const WhiteSM = Template.bind({});
+WhiteSM.args ={
+    user: null,
+        data:dataSM,
+        theme:{
+            logoProjeto: "https://media.graphassets.com/Xvh8jUvxTiaimkk4AD75",
+            cor: "White"
+        },
+        menu:
+            [
+                { label: "A Impulso Gov", url: "/impulsogov" },
+                { label: "O Previne Brasil", url: "/previnebrasil" },
+                { label: "Análise", url: "analise" },
+                { label: "Consultoria", url: "/consultoria" }
+            ],
+        subtitles:[
+            { label: "Indicadores de Desempenho", url: "/indicadores" },
+            { label: "Capitação Ponderada", url: "/capitacao" },
+            { label: "Ações Estratégicas", url: "/acoes-estrategicas" },
+        ],
+        SeletorTipo:1,
+        NavBarIconBranco:"https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconBranco.svg",
+        NavBarIconDark:"https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconDark.svg"
+}
+
 export const White = Template.bind({});
 White.args={
     user:
@@ -492,6 +517,7 @@ White.args={
         NavBarIconBranco:"https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconBranco.svg",
         NavBarIconDark:"https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconDark.svg"
 }
+
 export const SubMenu = () => {
     const [state, setState] = useState("São Felipe D'Oeste - RO");
     return (

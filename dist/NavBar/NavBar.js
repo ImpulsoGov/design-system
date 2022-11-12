@@ -57,7 +57,7 @@ const SeletorMunicipios = _ref2 => {
 
   const hideList = () => setDisplay(false);
 
-  const [itemSelecionado, setItemSelecionado] = (0, _react.useState)(parentProps.data[0].nome + " - " + parentProps.data[0].uf);
+  const [itemSelecionado, setItemSelecionado] = (0, _react.useState)(parentProps.municipio);
   (0, _react.useEffect)(() => {
     const handleClick = e => {
       if (display && refList.current && !refList.current.contains(e.target)) {
@@ -75,10 +75,10 @@ const SeletorMunicipios = _ref2 => {
     return /*#__PURE__*/_react.default.createElement("div", {
       className: _NavBarModule.default.NavBarSeletorMunicipiosContainer
     }, /*#__PURE__*/_react.default.createElement("div", {
-      className: _NavBarModule.default.NavBarSeletorMunicipios,
+      className: parentProps.theme.cor != "White" ? _NavBarModule.default.NavBarSeletorMunicipios : _NavBarModule.default.NavBarSeletorMunicipiosWhite,
       onClick: () => setDisplay(!display),
       ref: refSeletor
-    }, itemSelecionado, /*#__PURE__*/_react.default.createElement("span", {
+    }, parentProps.municipio, /*#__PURE__*/_react.default.createElement("span", {
       style: {
         float: 'right',
         marginRight: '15px'
@@ -93,6 +93,7 @@ const SeletorMunicipios = _ref2 => {
         key: municipio_uf,
         onClick: () => {
           setItemSelecionado(municipio_uf);
+          parentProps.setMunicipio(municipio_uf);
           setDisplay(false);
         }
       }, municipio_uf);
