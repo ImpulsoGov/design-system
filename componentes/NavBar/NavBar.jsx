@@ -47,7 +47,7 @@ const SeletorMunicipios = ({parentProps})=>{
       <div className={style.NavBarSeletorMunicipiosContainer}>
         <div 
           className={
-            (parentProps.theme.cor!="White") ?
+            (parentProps.theme.cor!="WhiteSM") ?
             style.NavBarSeletorMunicipios :
             style.NavBarSeletorMunicipiosWhite
           }

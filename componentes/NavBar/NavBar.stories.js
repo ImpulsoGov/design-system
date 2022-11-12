@@ -466,7 +466,7 @@ WhiteSM.args ={
         data:dataSM,
         theme:{
             logoProjeto: "https://media.graphassets.com/Xvh8jUvxTiaimkk4AD75",
-            cor: "White"
+            cor: "WhiteSM"
         },
         menu:
             [

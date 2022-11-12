@@ -31,6 +31,12 @@
   color: #1F1F1F;
   text-decoration: none;
 }
+.themeWhiteSM{
+  background-color: #FFFFFF;
+  color: #1F1F1F;
+  text-decoration: none;
+}
+
 .themeWhite a{
   text-decoration: none;
 }
@@ -68,7 +74,9 @@
   .themeWhite a:hover{
     color: #1D856C;
   }
-
+  .themeWhiteSM a:hover{
+    color: #5367C9;
+  }
   .logoWrapper_navbar {
     height: 30px;
     width: 200px;
@@ -401,11 +409,9 @@
   @keyframes growDown {
     from {
       height: 0px;
-      opacity: 0;
     }
     to {
       height: fit-content;
-      opacity: 1;
     }
   }
   @keyframes growUp {
@@ -415,6 +421,7 @@
 
   
   .NavBarSeletorMunicipiosItem:hover{
+    background-color: #1B2D82;
     opacity: 0.3;
     cursor: pointer;
   }

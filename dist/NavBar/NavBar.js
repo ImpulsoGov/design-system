@@ -75,7 +75,7 @@ const SeletorMunicipios = _ref2 => {
     return /*#__PURE__*/_react.default.createElement("div", {
       className: _NavBarModule.default.NavBarSeletorMunicipiosContainer
     }, /*#__PURE__*/_react.default.createElement("div", {
-      className: parentProps.theme.cor != "White" ? _NavBarModule.default.NavBarSeletorMunicipios : _NavBarModule.default.NavBarSeletorMunicipiosWhite,
+      className: parentProps.theme.cor != "WhiteSM" ? _NavBarModule.default.NavBarSeletorMunicipios : _NavBarModule.default.NavBarSeletorMunicipiosWhite,
       onClick: () => setDisplay(!display),
       ref: refSeletor
     }, parentProps.municipio, /*#__PURE__*/_react.default.createElement("span", {
