@@ -18,7 +18,6 @@ const Parcerias = _ref => {
     parceiros,
     theme
   } = _ref;
-  //"container_parceiros"
   return /*#__PURE__*/_react.default.createElement("div", {
     className: (0, _classnames.default)(_ParceriasModule.default.container_parceiros, _ParceriasModule.default["theme" + theme])
   }, /*#__PURE__*/_react.default.createElement("div", {

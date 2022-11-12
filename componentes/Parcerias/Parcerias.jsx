@@ -6,8 +6,6 @@ const Parcerias = ({
     parceiros,
     theme
 }) => {
-
-    //"container_parceiros"
   return (
     <div className={cx(style.container_parceiros,style["theme"+theme])}>
         <div className={style.parceirosLabel}>Parceiros</div>
