@@ -7,6 +7,8 @@ exports.FormConsultoria = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
+var _link = _interopRequireDefault(require("next/link"));
+
 var _FormConsultoriaModule = _interopRequireDefault(require("./FormConsultoria.module.css"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -26,10 +28,11 @@ const FormConsultoria = _ref => {
     className: _FormConsultoriaModule.default.titleFormConsultoria
   }, title, /*#__PURE__*/_react.default.createElement("span", {
     className: _FormConsultoriaModule.default.mailFormConsultoria
-  }, mail)), button != "" && /*#__PURE__*/_react.default.createElement("a", {
-    className: _FormConsultoriaModule.default.buttonFormConsultoria,
+  }, mail)), button != "" && /*#__PURE__*/_react.default.createElement(_link.default, {
     href: link
-  }, button.toUpperCase())));
+  }, /*#__PURE__*/_react.default.createElement("a", {
+    className: _FormConsultoriaModule.default.buttonFormConsultoria
+  }, button.toUpperCase()))));
 };
 
 exports.FormConsultoria = FormConsultoria;

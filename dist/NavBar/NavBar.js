@@ -13,6 +13,8 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _classnames = _interopRequireDefault(require("classnames"));
 
+var _link = _interopRequireDefault(require("next/link"));
+
 var _NavBarModule = _interopRequireDefault(require("./NavBar.module.css"));
 
 var _SearchBar = require("../SearchBar/SearchBar");
@@ -41,10 +43,11 @@ const Menu = _ref => {
     link,
     tema
   } = _ref;
-  return /*#__PURE__*/_react.default.createElement("a", {
-    href: link.url,
+  return /*#__PURE__*/_react.default.createElement(_link.default, {
+    href: link.url
+  }, /*#__PURE__*/_react.default.createElement("a", {
     className: _NavBarModule.default["theme" + tema]
-  }, link.label);
+  }, link.label));
 };
 
 const SeletorMunicipios = _ref2 => {
@@ -116,9 +119,9 @@ const DropdownMenuMoblie = attr => {
     return active;
   };
 
-  return /*#__PURE__*/_react.default.createElement("a", {
+  return /*#__PURE__*/_react.default.createElement(_link.default, {
     href: attr.link.url
-  }, attr.link.label);
+  }, /*#__PURE__*/_react.default.createElement("a", null, attr.link.label));
 };
 
 const NavBar = props => {
@@ -156,13 +159,13 @@ const NavBar = props => {
     className: _NavBarModule.default.logoWrapper_navbar
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: _NavBarModule.default.logo_navbar
-  }, /*#__PURE__*/_react.default.createElement("a", {
+  }, /*#__PURE__*/_react.default.createElement(_link.default, {
     href: "/"
-  }, /*#__PURE__*/_react.default.createElement("img", {
+  }, /*#__PURE__*/_react.default.createElement("a", null, /*#__PURE__*/_react.default.createElement("img", {
     className: _NavBarModule.default.logoWrapper_navbar,
     alt: "impulso-previne-logo_navbar",
     src: String(props.theme.logoProjeto)
-  })))), /*#__PURE__*/_react.default.createElement("div", {
+  }))))), /*#__PURE__*/_react.default.createElement("div", {
     className: _NavBarModule.default.NavBarSearchConteinerMoblie
   }, /*#__PURE__*/_react.default.createElement(SeletorMunicipios, {
     parentProps: props
@@ -185,10 +188,11 @@ const NavBar = props => {
       return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", {
         className: _NavBarModule.default.NavBarSubMenuContainer,
         key: subContent.label
+      }, /*#__PURE__*/_react.default.createElement(_link.default, {
+        href: subContent.url
       }, /*#__PURE__*/_react.default.createElement("a", {
-        href: subContent.url,
         className: _NavBarModule.default.NavBarSubMenuAnchor
-      }, subContent.label, " ")), subContent.item && /*#__PURE__*/_react.default.createElement("div", {
+      }, subContent.label))), subContent.item && /*#__PURE__*/_react.default.createElement("div", {
         className: _NavBarModule.default.NavBarSubMenuItemContainer,
         style: NavBarSubMenuContainerPosition,
         key: subContent.item
@@ -196,10 +200,11 @@ const NavBar = props => {
         return /*#__PURE__*/_react.default.createElement("div", {
           className: _NavBarModule.default.NavBarSubMenuItem,
           key: subcontent.label
+        }, /*#__PURE__*/_react.default.createElement(_link.default, {
+          href: subcontent.url
         }, /*#__PURE__*/_react.default.createElement("a", {
-          href: subcontent.url,
           className: _NavBarModule.default.NavBarSubMenuItemAnchor
-        }, subcontent.label, " "));
+        }, subcontent.label)));
       })));
     })));
   }), /*#__PURE__*/_react.default.createElement("div", {
