@@ -4,8 +4,7 @@ import cx from "classnames";
 import style from "./PanelSelector.module.css";
 
 const PanelSelector = (props) => {
-  const initialPanel = (typeof(props?.panel)==undefined) ? props.panel : 0
-  console.log(initialPanel)
+  const initialPanel = (typeof(props?.panel)!=undefined) ? props.panel : 0
   const [activeTabIndex, setActiveTabIndex] = useState(initialPanel);
   const [activeTitleTabIndex, setActiveTitleTabIndex] = useState(0);
   return (

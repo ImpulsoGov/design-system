@@ -31,10 +31,18 @@ export default {
       },
 }
 const Template = (args) => {
-    const [municipio, setMunicipio] = useState("São Felipe D'Oeste - RO")
+    const [municipio, setMunicipio] = useState("Recife - PE")
     args["municipio"] = municipio
     args["setMunicipio"] = setMunicipio 
-    return <NavBar {...args}/>
+    return (
+        <>
+            <NavBar {...args}/>
+            <p>{municipio}</p>
+            <p>{municipio}</p>
+            <p>{municipio}</p>
+
+        </>
+    )
 }
 
 const dataSM =[
@@ -448,7 +456,11 @@ ColorSM.args ={
             [
                 { label: "A Impulso Gov", url: "/impulsogov" },
                 { label: "O Previne Brasil", url: "/previnebrasil" },
-                { label: "Análise", url: "analise" },
+                {
+                    label: "Análise",
+                    url: "analise" ,
+                    sub : subMenus
+                },
                 { label: "Consultoria", url: "/consultoria" }
             ],
         subtitles:[
@@ -518,45 +530,4 @@ White.args={
         NavBarIconDark:"https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconDark.svg"
 }
 
-export const SubMenu = () => {
-    const [state, setState] = useState("São Felipe D'Oeste - RO");
-    return (
-        <NavBar
-            user={
-                {                  
-                    nome: "Camila Alves",
-                    cargo :"Coordenadora APS",
-                    button : {label:"sair",link:""},
-                    label : "e",
-                    equipe : "000003456",
-                    login : ()=> console.log('logado'),
-                    logout : ()=> console.log('deslogado')
-                }
-            }
-
-            municipio={state}
-            setMunicipio={setState}
-            data={data}
-            theme={{
-                logoProjeto: "https://media.graphassets.com/0q9BBD4xRCivV24aSg80",
-                cor: "ColorSM"
-            }}
-            menu={
-                [
-                    { label: "A Impulso Gov", url: "/impulsogov" },
-                    { label: "O Previne Brasil", url: "/previnebrasil" },
-                    {
-                        label: "Análise",
-                        url: "analise" ,
-                        sub : subMenus
-                    },
-                    { label: "Consultoria", url: "/consultoria" }
-                ]
-            }
-            links
-            NavBarIconBranco="https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconBranco.svg"
-            NavBarIconDark="https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconDark.svg"
-        />
-    )
-}
 

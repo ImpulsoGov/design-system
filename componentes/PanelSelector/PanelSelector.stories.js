@@ -311,41 +311,8 @@ export const Analises = () => {
 
   return (
     <>
-        <NavBar
-            user={
-                {                  
-                    nome: null,
-                    cargo :"Coordenadora APS",
-                    button : {label:"sair",link:""},
-                    label : "e",
-                    login : ()=> console.log('logado')
-                }
-            }
-            municipio={state}
-            setMunicipio={setState}
-            data={data}
-            theme={{
-                logoProjeto: "https://media.graphassets.com/Kal4aulRmYkqd0L6RBAd",
-                cor: "ColorIP"
-            }}
-            menu={
-                [
-                    { label: "A Impulso Gov", url: "/impulsogov" },
-                    { label: "Resultados do Município", url: "analise" },
-                    { label: "Busca Ativa", url: "/busca-ativa-gestantes" },
-                    { label: "Consultoria", url: "/consultoria" }
-                ]
-            }
-            subtitles={[
-                { label: "Indicadores de Desempenho", url: "/indicadores" },
-                { label: "Capitação Ponderada", url: "/capitacao" },
-                { label: "Ações Estratégicas", url: "/acoes-estrategicas" },
-            ]}
-            NavBarIconBranco="https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconBranco.svg"
-            NavBarIconDark="https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconDark.svg"
-        />
         <PanelSelector
-            panel={1}
+            panel={2}
             links = {[dsLink]}
             list={[labels]}
             titles={titles}
