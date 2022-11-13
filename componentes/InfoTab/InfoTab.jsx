@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import styles from "./InfoTab.module.css";
 
 const InfoTab = ({contentList}) => {
@@ -10,8 +11,9 @@ const InfoTab = ({contentList}) => {
         <div className={styles.InfoTabBlock}>
           <p className={styles.InfoTabTitle}>{contentList[0].rightTitle}</p>
           <p className={styles.InfoTabContent}>{contentList[0].rightContent}</p>
-
-          <a href={contentList[0].buttonLink} className={styles.InfoTabWhiteButton}>{contentList[0].buttonTitle.toLocaleUpperCase()} ➔</a>
+          <Link href={contentList[0].buttonLink}>
+            <a className={styles.InfoTabWhiteButton}>{contentList[0].buttonTitle.toLocaleUpperCase()} ➔</a>
+          </Link>
 
         </div>
       </div>
@@ -21,9 +23,9 @@ const InfoTab = ({contentList}) => {
         <div className={styles.InfoTabBlockBlack}>
           <p className={styles.InfoTabTitleBlack}>{contentList[1].rightTitle}</p>
           <p className={styles.InfoTabContentBlack}>{contentList[1].rightContent}</p>
-
-          <a href={contentList[1].buttonLink} className={styles.InfoTabBlackButton}>{contentList[1].buttonTitle.toLocaleUpperCase()} ➔</a> 
-
+          <Link href={contentList[1].buttonLink}>
+            <a className={styles.InfoTabBlackButton}>{contentList[1].buttonTitle.toLocaleUpperCase()} ➔</a> 
+          </Link>
         </div>
       </div>
     </>

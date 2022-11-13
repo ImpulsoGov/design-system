@@ -1,6 +1,7 @@
 import React from "react";
 import cx from "classnames";
 import style from "./Footer.module.css";
+import Link from "next/link";
 
 const Footer = ({
   theme,
@@ -11,22 +12,26 @@ const Footer = ({
 }) => {
   return (
     <div className={cx(style["containerFooter"], style["theme"+theme.cor+"Footer"])}>
-      <a href="/">
-        <img
-          className={style.logoWrapperFooter}
-          alt="impulso-previne-logo"
-          src= {String(theme.logoProjeto)}
-        />
-      </a>
+      <Link href="/">
+        <a>
+          <img
+            className={style.logoWrapperFooter}
+            alt="impulso-previne-logo"
+            src= {String(theme.logoProjeto)}
+          />
+        </a>
+      </Link>
       <div className={style.infoLinksWrapperFooter}>
         <div className={style.conteinerUpperFooter}>
           <div className={style.listFooter}>
             {links.map((item) => {
               return (
                 <div key={item.label} className={style.itemFooter}>
-                  <a href={item.url} className={style["theme"+theme.cor+"Footer"]}>
-                      {item.label}
-                  </a>
+                  <Link href={item.url}>
+                    <a className={style["theme"+theme.cor+"Footer"]}>
+                        {item.label}
+                    </a>
+                  </Link>
                 </div>
               );
             })}
@@ -34,12 +39,14 @@ const Footer = ({
           <div className={style.realizacaoFooter}>
             <div>Realização:</div>
             <div>
-              <a href="https://www.impulsogov.org">
-                <img className={style.logoImpulso}
-                    alt="impulso-gov-logo"
-                    src= {String(theme.logoImpulso)}
-                />
-              </a>
+              <Link href="https://www.impulsogov.org">
+                <a>
+                  <img className={style.logoImpulso}
+                      alt="impulso-gov-logo"
+                      src= {String(theme.logoImpulso)}
+                  />
+                </a>
+              </Link>
             </div>
           </div>
 
@@ -59,13 +66,15 @@ const Footer = ({
           <div className={style.socialMediasFooter}>
             {socialMediaURLs.map((socialMedia)=>{
               return(
-                <a className={style.socialMediaFooter} href={socialMedia.url} key={socialMedia.url}>
-                  <img
-                    className={style.socialMediaFooter}
-                    alt={socialMedia.url}
-                    src= {socialMedia.logo}
-                  />
-                </a>
+                <Link href={socialMedia.url}>
+                  <a className={style.socialMediaFooter}  key={socialMedia.url}>
+                    <img
+                      className={style.socialMediaFooter}
+                      alt={socialMedia.url}
+                      src= {socialMedia.logo}
+                    />
+                  </a>
+                </Link>
               )
           })}
           </div>
