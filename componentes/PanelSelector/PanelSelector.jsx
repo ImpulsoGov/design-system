@@ -8,7 +8,7 @@ const PanelSelector = (props) => {
   const [activeTabIndex, setActiveTabIndex] = useState(initialPanel);
   const [activeTitleTabIndex, setActiveTitleTabIndex] = useState(0);
   return (
-    <div style={{zIndex:90,position:'relative',width:'100%',paddingTop:'90px'}}>
+    <div style={{zIndex:90,position:'relative',width:'100%'}}>
       <div className={style.PanelSelectorMain}>
         <div className={style.PanelSelectorTitles}>
           {props.titles.map((item, index) => (
