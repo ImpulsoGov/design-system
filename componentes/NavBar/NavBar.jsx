@@ -1,5 +1,6 @@
 import React, { useState,useEffect,useRef } from "react";
 import cx from "classnames";
+import Link from "next/link"
 import style from "./NavBar.module.css";
 import { SearchBar } from "../SearchBar/SearchBar";
 import { Modal } from "../Modal";
@@ -17,9 +18,11 @@ const Menu = ({
   tema
 }) => {
   return (
-    <a href={link.url} className={style["theme" + tema]}>
-      {link.label}
-    </a>
+    <Link href={link.url}>
+      <a className={style["theme" + tema]}>
+        {link.label}
+      </a>
+    </Link>
   )
 }
 
@@ -92,9 +95,11 @@ const DropdownMenuMoblie = (attr) => {
     return active
   }
   return (
-    <a href={attr.link.url}>
-      {attr.link.label}
-    </a>
+    <Link href={attr.link.url}>
+      <a >
+        {attr.link.label}
+      </a>
+    </Link>
   )
 }
 
@@ -126,13 +131,15 @@ const NavBar = (props) => {
       <div className={cx(style.container_navbar, style["theme" + props.theme.cor])}>
         <div className={style.logoWrapper_navbar}>
           <div className={style.logo_navbar}>
-            <a href="/">
-              <img
-                className={style.logoWrapper_navbar}
-                alt="impulso-previne-logo_navbar"
-                src={String(props.theme.logoProjeto)}
-              />
-            </a>
+            <Link href="/">
+              <a>
+                <img
+                  className={style.logoWrapper_navbar}
+                  alt="impulso-previne-logo_navbar"
+                  src={String(props.theme.logoProjeto)}
+                />
+              </a>
+            </Link>
           </div>
         </div>
         <div className={style.NavBarSearchConteinerMoblie}>
@@ -161,7 +168,11 @@ const NavBar = (props) => {
                             return(
                               <>
                                 <div className={style.NavBarSubMenuContainer} key={subContent.label} >
-                                  <a href={subContent.url} className={style.NavBarSubMenuAnchor}>{subContent.label} </a>
+                                  <Link href={subContent.url}>
+                                    <a className={style.NavBarSubMenuAnchor}>
+                                      {subContent.label} 
+                                    </a>
+                                  </Link>
                                 </div>
                                 {   subContent.item &&
                                     <div className={style.NavBarSubMenuItemContainer} style={NavBarSubMenuContainerPosition} key={subContent.item}>
@@ -169,7 +180,11 @@ const NavBar = (props) => {
                                         subContent.item.map((subcontent, index) => {
                                           return(
                                             <div  className={style.NavBarSubMenuItem} key={subcontent.label}>
-                                              <a href={subcontent.url} className={style.NavBarSubMenuItemAnchor}>{subcontent.label} </a>
+                                              <Link href={subcontent.url}>
+                                                <a className={style.NavBarSubMenuItemAnchor}>
+                                                  {subcontent.label} 
+                                                </a>
+                                              </Link>
                                             </div>
                                           )
                                         })

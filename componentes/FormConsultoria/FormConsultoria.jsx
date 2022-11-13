@@ -1,5 +1,5 @@
 import React from "react";
-
+import Link from "next/link";
 import style from "./FormConsultoria.module.css"
 
 const FormConsultoria = ({
@@ -12,11 +12,14 @@ const FormConsultoria = ({
         <div id="formulario">
             <div className={style.containerFormConsultoria}>
                 <div className={style.titleFormConsultoria}>{title}<span className={style.mailFormConsultoria}>{mail}</span></div>
-                {button != "" && 
-                <a 
-                    className={style.buttonFormConsultoria}
-                    href={link}
-                >{button.toUpperCase()}</a>}
+                {
+                    button != "" && 
+                    <Link href={link}>
+                        <a className={style.buttonFormConsultoria}>
+                            {button.toUpperCase()}
+                        </a>
+                    </Link>
+                }
             </div>
         </div>
     )

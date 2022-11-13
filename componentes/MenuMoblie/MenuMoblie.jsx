@@ -2,12 +2,13 @@ import React, { useState} from "react";
 import style from './MenuMoblie.module.css'
 import { Login } from "../Login";
 import { UserAvatar } from "../ModalLogged";
+import Link from "next/link";
 
 const Menus = ({menus})=>{
     return(
         <div className={style.MenuMoblieMenus}>
         { menus.map((menu)=>{
-                return <a key={menu.label} href={menu.url}>{menu.label}</a>
+                return <Link href={menu.url}> <a key={menu.label}>{menu.label}</a> </Link>
             })}
         </div>
     )

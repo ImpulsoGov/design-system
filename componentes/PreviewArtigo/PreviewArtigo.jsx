@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import style from "./PreviewArtigo.module.css"
 
@@ -24,17 +25,21 @@ const PreviewArtigo = ({
             </div>
             <div className={style.PreviewArtigoContainerInner} id={style.PreviewArtigoContainerID}>
                 <div className={style.PreviewArtigoContainerTituloTexto}>
-                    <a href={"blog/artigos/"+id}><div className={style.PreviewArtigoTitulo}>{titulo}</div></a>
+                    <Link href={"blog/artigos/"+id}>
+                        <a><div className={style.PreviewArtigoTitulo}>{titulo}</div></a>
+                    </Link>
                     <div className={style.PreviewArtigoTexto}>{texto.slice(0,300)+"..."}</div>
                 </div>
                 <div className={style.PreviewArtigoImage}>
-                    <a href={"blog/artigos/"+id}>
-                        <img 
-                            className={style.PreviewArtigoImage}
-                            src={imagem}
-                            alt={imagem}
-                        ></img>
-                    </a>
+                    <Link href={"blog/artigos/"+id}>
+                        <a >
+                            <img 
+                                className={style.PreviewArtigoImage}
+                                src={imagem}
+                                alt={imagem}
+                            ></img>
+                        </a>
+                    </Link>
                 </div>
 
             </div>

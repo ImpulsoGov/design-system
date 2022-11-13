@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import style from "./PreviewArtigoDestaque.module.css"
 
@@ -16,7 +17,9 @@ const PreviewArtigoDestaque = ({
         <div className={style.PreviewArtigoDestaqueContainer}>
             <div className={style.ContainerDestaque}>
                 <div className={style.PreviewArtigoDestaqueTag}>{tag}</div>
-                <a href={"blog/"+id} className={style.PreviewArtigoDestaqueTitulo}>{titulo}</a>
+                <Link href={"blog/"+id}>
+                    <a className={style.PreviewArtigoDestaqueTitulo}>{titulo}</a>
+                </Link>
                 <div className={style.PreviewArtigoDestaqueTexto}>{texto.slice(0,300)+"..."}</div>
                 <div className={style.PreviewArtigoDestaqueAutor}>
                     <img
@@ -27,13 +30,15 @@ const PreviewArtigoDestaque = ({
                     <div>{autor.nome} <span className={style.PreviewArtigoDestaqueData}>  ·  {meses[mes]} {ano}</span></div>
                 </div>
             </div>
-            <a href={"blog/"+id} className={style.PreviewArtigoDestaqueImageContainer}>
-                <img 
-                    className={style.PreviewArtigoDestaqueImage}
-                    src={imagem}
-                    alt={imagem}
-                ></img>
-            </a>
+            <Link href={"blog/"+id}>
+                <a className={style.PreviewArtigoDestaqueImageContainer}>
+                    <img 
+                        className={style.PreviewArtigoDestaqueImage}
+                        src={imagem}
+                        alt={imagem}
+                    ></img>
+                </a>
+            </Link>
         </div>
     )
 }
