@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 import style from "./ImagemFundo.module.css"
@@ -25,7 +26,21 @@ const ImagemFundo = ({
                             return(
                                 <div className={style.cardImagemFundo} key={index}>
                                     <div className={style.cardTitleImagemFundo}>{card.title}</div>
-                                    <div className={style.cardBodyImagemFundo}>{card.body}</div>
+                                    { typeof(card.body)=='string' && <div className={style.cardBodyImagemFundo}>{card.body}</div>}
+                                    { 
+                                        Array.isArray(card.body) && 
+                                        <div className={style.ImagemFundoCardBodyContainer}>
+                                            {
+                                                card.body.map((item)=>{
+                                                    return(
+                                                        <Link href={item.url}>
+                                                            <a className={style.ImagemFundoCardBodyItem}>{item.label}</a>
+                                                        </Link>
+                                                    )
+                                            })
+                                        }   
+                                        </div>
+                                    }
                                 </div>
                             )
                     })}

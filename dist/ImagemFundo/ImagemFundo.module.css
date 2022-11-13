@@ -74,6 +74,18 @@
 .cardBodyImagemFundo{
     font-size: 16px;
 }
+.ImagemFundoCardBodyContainer{
+    display: flex;
+    flex-direction: column;
+}
+.ImagemFundoCardBodyItem{
+    text-decoration: none;
+    color: #fff;
+    margin-bottom: 10px;
+}
+.ImagemFundoCardBodyItem:hover{
+    color: #5367C9 !important;
+}
 .botaoImagemFundo{
     margin-top: 48px;
     margin-bottom: 100px;

@@ -5,6 +5,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.ImagemFundo = void 0;
 
+var _link = _interopRequireDefault(require("next/link"));
+
 var _react = _interopRequireDefault(require("react"));
 
 var _ImagemFundoModule = _interopRequireDefault(require("./ImagemFundo.module.css"));
@@ -43,9 +45,17 @@ const ImagemFundo = _ref => {
       key: index
     }, /*#__PURE__*/_react.default.createElement("div", {
       className: _ImagemFundoModule.default.cardTitleImagemFundo
-    }, card.title), /*#__PURE__*/_react.default.createElement("div", {
+    }, card.title), typeof card.body == 'string' && /*#__PURE__*/_react.default.createElement("div", {
       className: _ImagemFundoModule.default.cardBodyImagemFundo
-    }, card.body));
+    }, card.body), Array.isArray(card.body) && /*#__PURE__*/_react.default.createElement("div", {
+      className: _ImagemFundoModule.default.ImagemFundoCardBodyContainer
+    }, card.body.map(item => {
+      return /*#__PURE__*/_react.default.createElement(_link.default, {
+        href: item.url
+      }, /*#__PURE__*/_react.default.createElement("a", {
+        className: _ImagemFundoModule.default.ImagemFundoCardBodyItem
+      }, item.label));
+    })));
   })), botao.url && /*#__PURE__*/_react.default.createElement("a", {
     href: botao.url,
     className: _ImagemFundoModule.default.botaoImagemFundo
