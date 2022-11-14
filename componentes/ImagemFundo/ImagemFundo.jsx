@@ -34,7 +34,7 @@ const ImagemFundo = ({
                                                 card.body.map((item)=>{
                                                     return(
                                                         <Link href={item.url}>
-                                                            <a className={style.ImagemFundoCardBodyItem}>{item.label}</a>
+                                                            <a className={style.ImagemFundoCardBodyItem}>› {item.label}</a>
                                                         </Link>
                                                     )
                                             })

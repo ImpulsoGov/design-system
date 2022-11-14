@@ -54,7 +54,7 @@ const ImagemFundo = _ref => {
         href: item.url
       }, /*#__PURE__*/_react.default.createElement("a", {
         className: _ImagemFundoModule.default.ImagemFundoCardBodyItem
-      }, item.label));
+      }, "\u203A ", item.label));
     })));
   })), botao.url && /*#__PURE__*/_react.default.createElement("a", {
     href: botao.url,
