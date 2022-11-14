@@ -554,6 +554,14 @@
       border-radius: 50%;
       padding: 8px;
     }
+    .buttonMoblieWhiteSM{
+      display: block;
+      margin-left: auto;
+      border: 1px solid #1F1F1F;
+      border-radius: 50%;
+      padding: 8px;
+    }
+
     .buttonMoblieWhite:hover{
       cursor: pointer;
     }
@@ -629,6 +637,11 @@
       width: 200px;
       font-size: 12px;
     }
+    .NavBarSeletorMunicipiosWhite{
+      width: 200px;
+      font-size: 12px;
+    }
+
     .NavBarSeletorMunicipiosLista{
       top: 55px;
     }
