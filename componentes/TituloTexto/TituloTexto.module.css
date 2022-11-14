@@ -38,6 +38,11 @@
         width: 336px;
         height: auto;
     }
+    .corpoTexto iframe{
+        width: 336px;
+        height: auto;
+    }
+
 }
 /* MEDIUM */
 @media screen and (min-width: 1024px)and (max-width: 1400px) {
@@ -54,6 +59,15 @@
         margin-left: 120px;
         margin-right: 120px;
     }
+    .corpoTexto img{
+        width: 980px;
+        height: auto;
+    }
+    .corpoTexto iframe{
+        width: 980px;
+        height: auto;
+    }
+
 }
 
 /* XLARGE */
