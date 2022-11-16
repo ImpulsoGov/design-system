@@ -5,12 +5,34 @@ export default {
   title: "Componentes/Header",
   component: Header,
   argTypes: {
+    titulo: {
+      name: "titulo",
+      description: "Título da página *string*"
+    },
+    tituloDestaque: {
+      name: "tituloDestaque",
+      description: "Título em destaque da página *sring*"
+    },
+    texto: {
+      name: "texto",
+      description: "Texto descritivo da página *string*"
+    },
+    botao: {
+      name: "botao",
+      description: "**label:** rótulo do botão *string*, \n\n **URL**: URL do botão *URL*"
+    },
+    chamada: {
+      name: "chamada",
+      description: "**label:** rótulo da chamada *string*, \n\n **URL:** URL da chamada *URL*."
+    },
     theme: {
+      name: "theme",
+      description: "Nome do tema referente ao projeto *string*",
       options: [null, 'ColorAGP'],
       control: { type: 'radio' },
     },
   },
-}
+};
 
 const Template = (args) => <Header {...args}/>
 

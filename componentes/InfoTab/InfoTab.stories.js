@@ -2,6 +2,32 @@ import React from "react";
 
 import { InfoTab } from "./index";
 
+export default {
+  title: "Componentes/InfoTab",
+  component: InfoTab,
+  argTypes : {
+    leftTitle: {
+      name: 'leftTitle',
+      description: 'Título descritivo da página contendo o nome do projuto *string*'
+    },
+    rightTitle: {
+      name: 'rightTitle',
+      description: 'Título descritivo sobre o que é a plataforma *string*'
+    },
+    rightContent: {
+      name: 'rightContent',
+      description: 'Texto explicativo sobre a plataforma *string*'
+    },
+    buttonTitle: {
+      name: 'buttonTitle',
+      description: 'Rótulo do botão *string*'
+    },
+    onClick: {
+      name:'onClick',
+      description: 'Botão da seção *button, func*'
+    }
+  },
+}
 const props = [
   {
     leftTitle: "Saúde Mental",
@@ -18,10 +44,7 @@ const props = [
     onClick: () => console.log("segundo botão")
   },
 ]
-export default {
-  title: "Componentes/InfoTab",
-  component: InfoTab,
-};
+
 
 export const Default = () => {
   return (

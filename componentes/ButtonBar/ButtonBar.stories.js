@@ -6,8 +6,21 @@ import { ButtonLight } from '../ButtonLight/index'
 export default {
   title: "Componentes/ButtonBar",
   component: ButtonBar,
-  argTypes: { label: { control: 'text' }}
-}
+  argTypes: { 
+    child1: { 
+      name: "child1",
+      description: "Botão para o painel Indicadores de Desempenho \n\n**label**: rótulo do botão *string* \n\n **link** Url da página do painel de indicadores *URL*"
+    },
+    child2:{
+      name: "child2",
+      description: "Botão para o painel Capitação Ponderada \n\n**label**: rótulo do botão *string* \n\n **link** Url da página do painel de capitação ponderada *URL*"
+    },
+    child3: {
+      name: "child3",
+      description: "Botão para o painel Incentivo a Ações Estratégicas \n\n**label**: rótulo do botão *string* \n\n **link** Url da página do painel de ações estratégicas *URL*"
+    },
+  },
+};
 const Template = (args) => <ButtonBar {...args}/>
 export const Default = Template.bind({});
 Default.args={

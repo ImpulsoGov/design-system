@@ -4,7 +4,13 @@ import { SearchBar } from './index'
 export default {
     title: "Componentes/SearchBar",
     component: SearchBar,
-}
+    argTypes: {
+      Default: {
+        name:'Default',
+        description:'Barra de pesquisa da página \n\n **data:** lista contendo o nome dos países e seu continente *lista* \n\n **municipio:** Municípios do país selecionado *string*'
+    },
+  }
+};
 const data = [
     { name: "Belgium", continent: "Europe" },
     { name: "India", continent: "Asia" },

@@ -5,8 +5,25 @@ import { ConteudoBlog } from './ConteudoBlog'
 export default {
   title: "Componentes/ConteudoBlog",
   component: ConteudoBlog,
-  argTypes: { label: { control: 'text' }}
-}
+  argTypes: { 
+    titulo: {
+      name: "titulo",
+      description: "Título da página *string*"
+     },
+     texto: {
+      name: "texto",
+      description: "Bloco de texto *string*"
+     },
+     capa: {
+      name: "capa",
+      description: "URL da imagem de capa *URL*",
+     },
+     autor: {
+      name: "autor",
+      description: "**avatar:** URL da imagem do autor da postagem *URL*, \n\n **nome:** nome do autor da postagem *string*, \n\n **data:** data da postagem do conteúdo *string*."
+     },    
+  },
+};
 const Template = (args) => <ConteudoBlog {...args}/>
 export const Default = Template.bind({});
 Default.args={

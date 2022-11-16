@@ -5,8 +5,26 @@ import { TextCol } from '../TextCol/TextCol'
 export default {
   title: "Componentes/Content3Col",
   component: Content3Col,
-  argTypes: { label: { control: 'text' }}
-}
+  argTypes: { 
+    titulo: {
+        name: "título",
+        description: "Título da página *string*"
+    },
+    child1: {
+        name: "child1",
+        description:"Bloco de conteúdo \n\n **título:** Título do bloco *string*\n\n **corpo:** Conteúdo em texto do bloco *string*"
+    },
+    child2: {
+        name: "child2",
+        description: "Bloco de conteúdo \n\n **título:** Título do bloco *string*\n\n **corpo:** Conteúdo em texto do bloco *string*"
+
+    },
+    child3: {
+        name: "child3",
+        description: "Bloco de conteúdo \n\n **título:** Título do bloco *string*\n\n **corpo:** Conteúdo em texto do bloco *string*"
+    },
+},
+};
 const Template = (args) => <Content3Col {...args}/>
 export const Default = Template.bind({});
 Default.args={

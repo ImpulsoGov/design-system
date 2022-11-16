@@ -4,7 +4,33 @@ import { ImagemFundo } from './index'
 export default {
     title: "Componentes/ImagemFundo",
     component: ImagemFundo,
-}
+    argTypes : {
+        imagem: {
+            name: 'imagem',
+            description: 'Imagem de fundo da página *URL*'
+        },
+        chamada: {
+            name: 'chamada',
+            description: 'Texto descritivo da página *string*'
+        },
+        chamadacolor: {
+            name: 'chamadacolor',
+            description: ''
+        },
+        subtexto: {
+            name:'subtexto',
+            description:'Texto descritivo da página *string*'
+        },
+        cards: {
+            name:'cards',
+            description:' Blocos de texto da página \n\n **title:** Título do bloco de texto *string* \n\n **body:** Corpo de texto do bloco *string*'
+        },
+        botao: {
+            name:'botao',
+            description: '**label: ** Rótulo do botão *string* \n\n **URL:** URL do botão *URL* '
+        },
+    },
+};
 
 
 export const Default = () => {

@@ -5,6 +5,16 @@ const parceiros = [{ alt: "parceiros", src: "https://media.graphassets.com/ekDlC
 export default {
   title: "Componentes/Parcerias",
   component: Parcerias,
+  argTypes: {
+    parceiros:{
+      name: 'parceiros',
+      description: 'Lista contendo os parceiros *lista*'
+    },
+    theme: {
+      name:'theme',
+      description:'Tema referente ao projeto *string*'
+    }
+  },
 };
 
 export const Default = () => {

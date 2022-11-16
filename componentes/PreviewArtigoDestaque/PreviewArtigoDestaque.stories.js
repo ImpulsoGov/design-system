@@ -4,6 +4,28 @@ import {PreviewArtigoDestaque} from './index'
 export default {
     title: "Componentes/PreviewArtigoDestaque",
     component: PreviewArtigoDestaque,
+    argTypes: {
+        tag: {
+            name:'tag',
+            description:'Tag do artigo: *string*'
+        },
+        titulo: {
+            name:'titulo',
+            description: 'Título do artigo *string*'
+        },
+        texto: {
+            name:'texto',
+            description:'Texto do artigo *string*'
+        },
+        autor:{
+            name: 'autor',
+            description: 'Descrição do autor do artigo \n\n **avatar:** Avatar do autor do artigo *URL* \n\n **nome:** Nome do autor do artigo *string* \n\n **data:** Data da publicação do artigo *string*'
+        },
+        imagem: {
+            name:'imagem',
+            description: 'Imagem do artigo *URL*'
+        },
+    }
 }
 
   

@@ -5,7 +5,21 @@ import { MenuMoblie } from './index'
 export default {
     title: "Componentes/MenuMoblie",
     component: MenuMoblie,
-}
+    argTypes: {
+        menus: {
+            name: 'menus',
+            description:'**label:** Rótulo dos campos do menu \n\n **URL:** URL da opção do menu *URL*'
+        },
+        LoggedIn: {
+            name: 'LoggedIn',
+            description: 'Função para login do usuário *func*'
+        },
+        LoggedOut:{
+            name:'LoggedOut',
+            description:'Função para logout do usuário *func*'
+        },
+    },
+};
 
 const menus = [
                     { label: "A Impulso Gov", url: "/impulsogov" },

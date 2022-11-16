@@ -7,6 +7,28 @@ const right = "Conheça e utilize nossas ferramentas e guias criados para apoiar
 export default {
   title: "Componentes/ToolsAndGuides",
   component: ToolsAndGuides,
+  argTypes: {
+    leftTitle: {
+      name: 'leftTitle',
+      description:'Título do lado esquerdo da seção *string*'
+    },
+    rightTitle: {
+      name: 'rightTitle',
+      description: 'Título do lado direito da seção *string*'
+    },
+    rightContent: {
+      name: 'rightContent',
+      description: 'Conteúdo do lado direito da página *obj/string*'
+    },
+    buttonTitle: {
+      name:'buttonTitle',
+      description: 'Título do botão *string*'
+    },
+    onClick:{
+      name: 'onClick',
+      description: 'Função de click do botão *func/obj*'
+    }
+  }
 };
 
 export const Default = () => {

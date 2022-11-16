@@ -5,12 +5,18 @@ export default {
     title: "Componentes/Login",
     component: Login,
     argTypes: {
+        titulo: {
+            name: 'título',
+            description: 'Título descritivo da página *string*'
+        },
         campos: {
-            description: 'demo description',
+            name: 'campos',
+            description: '**label:** rótulo dos campos *string*',
             control: { control: 'object' },
         },
         button: {
-            description: 'demo description',
+            name: 'button',
+            description: '**label:** rótulo do botão *string* \n\n **link:** URL do botão *URL*',
             control: { control: 'object' },
         },
       },

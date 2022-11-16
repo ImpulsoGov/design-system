@@ -4,8 +4,25 @@ import {FormConsultoria} from './index'
 export default {
   title: "Componentes/FormConsultoria",
   component: FormConsultoria,
-  argTypes: { label: { control: 'text' }}
-}
+  argTypes: { 
+    title: { 
+      name: "title",
+      description: "Título da página *string*"
+    },
+    mail: {
+      name: "mail",
+      description: "email de contato da impulso *string*"
+    },
+    link: {
+      name: "link",
+      description: "URL da página do formulário *URL*"
+    },
+    button: {
+      name: "button",
+      description: "botão para envio da solicitação *string/button*"
+    },
+  },
+};
 
 export const Default = () => {
   return <FormConsultoria

@@ -4,8 +4,17 @@ import {TextCol} from './index'
 export default {
   title: "Componentes/TextCol",
   component: TextCol,
-  argTypes: { label: { control: 'text' }}
-}
+  argTypes: { 
+    titulo: { 
+      name: 'titulo',
+      description:'Título da página *string*'
+    },
+    corpo: {
+      name: 'corpo',
+      description:'Texto descritivo *string*'
+    },
+  },
+};
 
 export const Default = () => {
   return <TextCol

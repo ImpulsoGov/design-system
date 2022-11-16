@@ -4,7 +4,33 @@ import { Footer } from './index'
 export default {
     title: "Componentes/Footer",
     component: Footer,
-}
+    argTypes: {
+        contactCopyright:{
+            name: "contactCopyright",
+            description:"**email:** email de contato da Impulso *string*, \n\n **copyright:** informações de copyright da Impulso *string*."
+        },
+        theme: {
+            name: "theme",
+            description: "**logoProjeto:** URL do logo do projeto referente *URL*, \n\n **logoImpulso:** URL do logo da Impulso *URL*, \n\n **cor:** sigla referente ao tema do projeto *string*."
+        },
+        menu: {
+            name: "menu",
+            description: "**label:** rótulo da opção *string*, \n\n **url:** URL da opção *URL*."
+        },
+        links: {
+            name: "links",
+            description: "**label:** rótulo do link *string*, \n\n **url:** URL da opção *URL*."
+        },
+        address: {
+            name: "addres",
+            description: "**first:** dados do endereço 1 *string*, \n\n **second:** dados do endereço 1 *string*."
+        },
+        socialMediaURLs: {
+            name: "socialMediaURLs",
+            description: "**url:** URL da rede social *URL*, \n\n **logo:** URL contendo logo da rede social *URL*."
+        },
+    },
+};
 const Template = (args) => <Footer {...args}/>
 export const IP = Template.bind({});
 IP.args={

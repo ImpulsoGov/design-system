@@ -11,10 +11,21 @@ const paragraphList = [
   "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary,",
   ];
 
-export default {
-  title: "Componentes/AboutSection",
-  component: AboutSection,
-};
+  export default {
+    title: "Componentes/AboutSection",
+    component: AboutSection,
+    argTypes: {
+      paragraphsList:{
+        name: "paragraphList",
+        description: "Parágrafo com texto descritivo \n\n**ler mais** : Botão que mostra toda extensão do texto contido no parágrago *button*\n\n**ler menos** : Botão queoculta parte do texto contido no parágrago *button*"
+      },
+      link: {
+        name: "link",
+        description: "Link para imagem *URL*"
+      },
+    },
+  };
+    
 const Template = (args) => <AboutSection {...args}/>
 
 export const Default = Template.bind({});
