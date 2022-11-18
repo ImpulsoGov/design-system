@@ -3,10 +3,11 @@ import React from "react";
 // import "./ButtonLogin.css";
 
 const ButtonLogin = ({
+  label
   }) => {
     return (
       <div>
-        <button className="ButtonLogin">Entrar</button>
+        <button className="ButtonLogin">{label}</button>
         <style jsx>{`
           .ButtonLogin{
             background-color: #145C56;

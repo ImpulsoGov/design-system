@@ -5,3 +5,7 @@ html, body{
 * {
     box-sizing: border-box;
   }
+
+#storybook-explorer-tree .sidebar-item svg {
+    color: #008000;
+}

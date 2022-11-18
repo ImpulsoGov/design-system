@@ -57,10 +57,12 @@
     "@storybook/addon-essentials": "^6.5.9",
     "@storybook/addon-interactions": "^6.5.9",
     "@storybook/addon-links": "^6.5.9",
+    "@storybook/addons": "^6.5.13",
     "@storybook/builder-webpack4": "^6.5.9",
     "@storybook/manager-webpack4": "^6.5.9",
     "@storybook/react": "^6.5.9",
     "@storybook/testing-library": "^0.0.13",
+    "@storybook/theming": "^6.5.13",
     "babel-loader": "^8.2.5",
     "classnames": "^2.3.1",
     "storybook-css-modules": "^1.0.8"
