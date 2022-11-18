@@ -17,6 +17,13 @@ const dsLinkBuscaAtiva =[
     "https://aps.saude.gov.br/gestor/financiamento"
   ]
 ]
+const dsLinkBuscaAtivaEquipe =[
+    [
+      "https://www.impulsogov.org/",
+      "https://saude.sp.gov.br/"
+    ],
+  ]
+  
 const labels = [
   {
     label: "Indicadores de Desempenho",
@@ -46,7 +53,14 @@ const labelsBuscaAtiva = [
     },
   ]
 ]
-
+const labelsBuscaAtivaEquipe = [
+    [
+      {
+        label: "Coordenação de Equipe",
+      },
+    ],
+  ]
+  
 const titlesBuscaAtiva = [
   {
     label: "Indicadores Gestantes",
@@ -55,7 +69,12 @@ const titlesBuscaAtiva = [
     label: "Cadastros - Gestantes",
   },
 ]
-
+const titlesBuscaAtivaEquipe = [
+    {
+      label: "Indicadores Gestantes",
+    },
+  ]
+  
 const titles = [
   {
     label: "Análises",
@@ -292,41 +311,8 @@ export const Analises = () => {
 
   return (
     <>
-        <NavBar
-            user={
-                {                  
-                    nome: null,
-                    cargo :"Coordenadora APS",
-                    button : {label:"sair",link:""},
-                    label : "e",
-                    login : ()=> console.log('logado')
-                }
-            }
-            municipio={state}
-            setMunicipio={setState}
-            data={data}
-            theme={{
-                logoProjeto: "https://media.graphassets.com/Kal4aulRmYkqd0L6RBAd",
-                cor: "ColorIP"
-            }}
-            menu={
-                [
-                    { label: "A Impulso Gov", url: "/impulsogov" },
-                    { label: "Resultados do Município", url: "analise" },
-                    { label: "Busca Ativa", url: "/busca-ativa-gestantes" },
-                    { label: "Consultoria", url: "/consultoria" }
-                ]
-            }
-            subtitles={[
-                { label: "Indicadores de Desempenho", url: "/indicadores" },
-                { label: "Capitação Ponderada", url: "/capitacao" },
-                { label: "Ações Estratégicas", url: "/acoes-estrategicas" },
-            ]}
-            NavBarIconBranco="https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconBranco.svg"
-            NavBarIconDark="https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconDark.svg"
-        />
         <PanelSelector
-            panel={1}
+            panel={2}
             links = {[dsLink]}
             list={[labels]}
             titles={titles}
@@ -345,3 +331,13 @@ export const BuscaAtiva = () => {
   />
   );
 };
+
+export const BuscaAtivaEquipe = () => {
+    return (
+      <PanelSelector
+        links = {dsLinkBuscaAtiva}
+        list={labelsBuscaAtivaEquipe}
+        titles={titlesBuscaAtivaEquipe}
+    />
+    );
+  };

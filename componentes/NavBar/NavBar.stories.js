@@ -31,11 +31,34 @@ export default {
       },
 }
 const Template = (args) => {
-    const [municipio, setMunicipio] = useState("São Felipe D'Oeste - RO")
+    const [municipio, setMunicipio] = useState("Recife - PE")
     args["municipio"] = municipio
     args["setMunicipio"] = setMunicipio 
-    return <NavBar {...args}/>
+    return (
+        <>
+            <NavBar {...args}/>
+            <p>{municipio}</p>
+            <p>{municipio}</p>
+            <p>{municipio}</p>
+
+        </>
+    )
 }
+
+const dataSM =[
+    {
+        "nome": "Aracaju",
+        "uf": "SE"
+    },
+    {
+        "nome": "Aparecida de Goiânia",
+        "uf": "GO"
+    },
+    {
+        "nome": "Recife",
+        "uf": "PE"
+    },
+]
 const data = [
     {
         "nome": "Maraã",
@@ -258,15 +281,83 @@ const data = [
 const subMenus =  [
     {
       "label": "Acompanhamento dos serviços CAPS",
-      "url": "/caps"
+      "url": "/caps",
+      "item": [
+        {
+            "label": "Resumo",
+            "url": "/paineis?painel=1"
+        },
+        {
+            "label": "Perfil de Usuários",
+            "url": "/paineis?painel=2"
+        },
+        {
+            "label": "Novos Usuários",
+            "url": "/paineis?painel=3"
+        },
+        {
+            "label": "Taxa de Abandono",
+            "url": "/paineis?painel=4"
+        },
+        {
+            "label": "Atendimentos Individuais",
+            "url": "/paineis?painel=5"
+        },
+        {
+            "label": "Procedimentos por Usuário",
+            "url": "/paineis?painel=6"
+        },
+        {
+            "label": "Produção",
+            "url": "/paineis?painel=7"
+        },
+
+      ]
     },
     {
       "label": "Outros serviços RAPS",
-      "url": "/outros-raps"
+      "url": "/outros-raps",
+      "item":[
+        {
+            "label": "Resumo",
+            "url": "/paineis?painel=1"
+        },
+        {
+            "label": "Ambulatório de Saúde Mental",
+            "url": "/paineis?painel=2"
+        },
+        {
+            "label": "Consultório na Rua",
+            "url": "/paineis?painel=3"
+        },
+        {
+            "label": "Redução de Danos",
+            "url": "/paineis?painel=4"
+        },
+      ]
     },
     {
       "label": "Cuidado compartilhado de saúde mental",
-      "url": "/cuidado-compartilhado"
+      "url": "/cuidado-compartilhado",
+      "item":[
+        {
+            "label": "Resumo",
+            "url": "/paineis?painel=1"
+        },
+        {
+            "label": "APS e CAPS",
+            "url": "/paineis?painel=2"
+        },
+        {
+            "label": "APS e Ambulatório",
+            "url": "/paineis?painel=3"
+        },
+        {
+            "label": "RAPS e Atenção Hospitalar",
+            "url": "/paineis?painel=4"
+        },
+
+      ]
     }
   ]
 
@@ -356,10 +447,38 @@ ColorAGP.args = {
 export const ColorSM = Template.bind({});
 ColorSM.args ={
     user: null,
-        data:data,
+        data:dataSM,
         theme:{
             logoProjeto: "https://media.graphassets.com/Xvh8jUvxTiaimkk4AD75",
             cor: "ColorSM"
+        },
+        menu:
+            [
+                { label: "A Impulso Gov", url: "/impulsogov" },
+                { label: "O Previne Brasil", url: "/previnebrasil" },
+                {
+                    label: "Análise",
+                    url: "analise" ,
+                    sub : subMenus
+                },
+                { label: "Consultoria", url: "/consultoria" }
+            ],
+        subtitles:[
+            { label: "Indicadores de Desempenho", url: "/indicadores" },
+            { label: "Capitação Ponderada", url: "/capitacao" },
+            { label: "Ações Estratégicas", url: "/acoes-estrategicas" },
+        ],
+        SeletorTipo:1,
+        NavBarIconBranco:"https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconBranco.svg",
+        NavBarIconDark:"https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconDark.svg"
+}
+export const WhiteSM = Template.bind({});
+WhiteSM.args ={
+    user: null,
+        data:dataSM,
+        theme:{
+            logoProjeto: "https://media.graphassets.com/Xvh8jUvxTiaimkk4AD75",
+            cor: "WhiteSM"
         },
         menu:
             [
@@ -373,9 +492,11 @@ ColorSM.args ={
             { label: "Capitação Ponderada", url: "/capitacao" },
             { label: "Ações Estratégicas", url: "/acoes-estrategicas" },
         ],
+        SeletorTipo:1,
         NavBarIconBranco:"https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconBranco.svg",
         NavBarIconDark:"https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconDark.svg"
 }
+
 export const White = Template.bind({});
 White.args={
     user:
@@ -408,47 +529,5 @@ White.args={
         NavBarIconBranco:"https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconBranco.svg",
         NavBarIconDark:"https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconDark.svg"
 }
-export const SubMenu = () => {
-    const [state, setState] = useState("São Felipe D'Oeste - RO");
-    return (
-        <NavBar
-            user={
-                {                  
-                    nome: "Camila Alves",
-                    cargo :"Coordenadora APS",
-                    button : {label:"sair",link:""},
-                    label : "e",
-                    equipe : "000003456",
-                    login : ()=> console.log('logado'),
-                    logout : ()=> console.log('deslogado')
-                }
-            }
 
-            municipio={state}
-            setMunicipio={setState}
-            data={data}
-            theme={{
-                logoProjeto: "https://media.graphassets.com/0q9BBD4xRCivV24aSg80",
-                cor: "ColorAGP"
-            }}
-            menu={
-                [
-                    { label: "A Impulso Gov", url: "/impulsogov" },
-                    { label: "O Previne Brasil", url: "/previnebrasil" },
-                    {
-                        label: "Análise",
-                        url: "analise" ,
-                        sub : subMenus
-                        
-                    },
-                    { label: "Consultoria", url: "/consultoria" }
-                ]
-            }
-            submenu={subMenus}
-            links
-            NavBarIconBranco="https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconBranco.svg"
-            NavBarIconDark="https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconDark.svg"
-        />
-    )
-}
 

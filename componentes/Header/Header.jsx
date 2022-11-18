@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import { sanitize } from "../sanitize";
 import cx from "classnames";
 
@@ -26,8 +27,22 @@ const Header = ({
               }}            
             ></div>
         {(botao.label || chamada.label) && <div className={style.conteinerChamadasHeader}>
-            {botao.label && <a className={cx(style.buttonHeader,style["buttonHeader"+theme])} href={botao.url}>{botao.label.toUpperCase()}</a>}
-            {chamada.label && <a className={cx(style.consultoriaHeader, style["consultoriaHeader"+theme])} href={chamada.url}>{chamada.label.toUpperCase()}</a>}
+            {
+                botao.label && 
+                <Link href={botao.url}>
+                    <a className={cx(style.buttonHeader,style["buttonHeader"+theme])}>
+                        {botao.label.toUpperCase()}
+                    </a>
+                </Link>
+            }
+            {
+                chamada.label && 
+                <Link href={chamada.url}>
+                    <a className={cx(style.consultoriaHeader, style["consultoriaHeader"+theme])}>
+                        {chamada.label.toUpperCase()}
+                    </a>
+                </Link>
+            }
         </div>}
     </div>
 )};

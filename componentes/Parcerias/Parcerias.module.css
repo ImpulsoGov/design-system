@@ -1,7 +1,6 @@
 .container_parceiros {
-  border-radius: 0px 15px 15px 0px;
   display: flex;
-  width: 98%;
+  width: 100%;
   padding: 64px;
 }
 
@@ -55,7 +54,6 @@
 
   .container_parceiros {
     flex-direction: column;
-    width: 98%;
   }
 }
 
