@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 252">
+<style>
+.cls-1,.cls-55{fill:#231f20;}
+.cls-2{font-size:24px;fill:#fff;font-family:Arvo;letter-spacing:0.1em;}
+.cls-3,.cls-8,.cls-9{fill:none;}
+.cls-3,.cls-5,.cls-8,.cls-9{stroke:#fff;}
+.cls-3,.cls-5,.cls-8{stroke-linecap:round;stroke-linejoin:round;}
+.cls-3,.cls-5,.cls-9{stroke-width:2.25px;}
+.cls-8{stroke-width:2.07px;}
+.cls-9{stroke-miterlimit:10;}
+
+circle:not(#bigCircle) {
+  animation: drawSmall 2s ease-in-out 0s forwards;
+  animation-delay: 2.5s;
+  stroke-dasharray:50;
+  stroke-dashoffset:50;
+  fill: none;
+}
+#fire {
+  animation: drawMed 3s ease-in-out 0s forwards;
+  animation-delay: 1s;
+  stroke-dasharray:200;
+  stroke-dashoffset:200;
+  fill: none;
+}
+
+text, #border {
+  animation: fadeIn 2s ease-in-out 0s forwards;
+  animation-delay: 3s;
+  opacity: 0;
+}
+
+@keyframes drawSmall {
+  0% {
+    stroke-dashoffset: 50;
+    opacity: 0;
+    fill:#231f20;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    fill:#231f20;
+    opacity: 1;
+  }
+}
+@keyframes drawMed {
+  0% {
+    stroke-dashoffset: 200;
+    opacity: 0;
+    fill:#231f20;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    fill:#231f20;
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+</style>
+<rect class="cls-1" width="180" height="252"/>
+<text class="cls-2" transform="translate(17.39 225.23) scale(0.95 1)">ELEMENTS</text>
+
+ <ellipse class="cls-3" cx="90" cy="108" rx="27" ry="81" 
+ stroke-dasharray="500" stroke-dashoffset="0">
+	<animate
+		attributeName="stroke-dashoffset"
+		values="500;0"
+		dur="5s"
+		calcMode="linear"
+	/>
+</ellipse>
+
+
+<ellipse class="cls-3" cx="90" cy="108" rx="81" ry="27" transform="translate(-41.94 59.47) rotate(-30)"
+ stroke-dasharray="500" stroke-dashoffset="0">
+	<animate
+		attributeName="stroke-dashoffset"
+		values="500;0"
+		dur="5s"
+		calcMode="linear"
+	/>
+</ellipse>
+
+<ellipse class="cls-3" cx="90" cy="108" rx="27" ry="81" transform="translate(-48.53 131.94) rotate(-60)"
+ stroke-dasharray="500" stroke-dashoffset="0">
+	<animate
+		attributeName="stroke-dashoffset"
+		values="500;0"
+		dur="5s"
+		calcMode="linear"
+	/>
+</ellipse>
+
+<circle id="bigCircle" class="cls-1" cx="90" cy="108" r="36"/>
+<circle class="cls-5" cx="43.23" cy="62.08" r="4.5"/>
+<circle class="cls-5" cx="153.47" cy="90.31" r="4.5"/>
+<circle class="cls-5" cx="74.05" cy="171.55" r="4.5"/>
+<path id="fire" class="cls-8" d="M86.69,76.31c2.06.37,11.78,6.37,13.58,26.54a0,0,0,0,0,0,0c1.51-.44,3.68-4.9,1.62-11.41,0,0,0-.08,0,0,2.65,2.76,11.81,13.58,3.57,23.48v0c.18.74,2.39,1.73,3.71-.81,0,0,.08,0,.08,0-1.18,32.62-51.28,20.62-37.33-9.64,5.89-11.08,17.34-4,14.65-28.16C86.62,76.35,86.65,76.31,86.69,76.31Z"/>
+
+<rect id="border" class="cls-9" x="9" y="9" width="162" height="234"/>
+</svg>
