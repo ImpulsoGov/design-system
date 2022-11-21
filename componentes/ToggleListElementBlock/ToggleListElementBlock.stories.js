@@ -15,7 +15,7 @@ export default {
   argTypes: {
     item: {
       name:'item',
-      description:'Item da toggle list \n\n**titulo:** Título do item *string* \n\n**subTiTle:** Subtítulo do item *string* \n\n**description:** Descrição do Item *string* \n\n **source:** Fonte da informação *string*'
+      description:'Objeto contendo informações dos itens da toggle list *object* \n\n**titulo:** Título do item *string* \n\n**subTiTle:** Subtítulo do item *string* \n\n**description:** Descrição do Item *string* \n\n **source:** Fonte da informação *string*'
     },
   },
 };

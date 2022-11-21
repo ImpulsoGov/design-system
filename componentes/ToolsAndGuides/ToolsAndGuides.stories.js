@@ -18,15 +18,15 @@ export default {
     },
     rightContent: {
       name: 'rightContent',
-      description: 'Conteúdo do lado direito da página *obj/string*'
+      description: 'Objeto contendo o conteúdo do lado direito da página *object/string*'
     },
     buttonTitle: {
       name:'buttonTitle',
-      description: 'Título do botão *string*'
+      description: 'Rótulo do botão *string*'
     },
     onClick:{
       name: 'onClick',
-      description: 'Função de click do botão *func/obj*'
+      description: 'Função de click do botão *function*'
     }
   }
 };

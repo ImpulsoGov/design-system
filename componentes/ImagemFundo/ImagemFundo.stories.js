@@ -15,7 +15,7 @@ export default {
         },
         chamadacolor: {
             name: 'chamadacolor',
-            description: ''
+            description: 'Código de cor da chamada *string*'
         },
         subtexto: {
             name:'subtexto',
@@ -23,11 +23,11 @@ export default {
         },
         cards: {
             name:'cards',
-            description:' Blocos de texto da página \n\n **title:** Título do bloco de texto *string* \n\n **body:** Corpo de texto do bloco *string*'
+            description:' Array de objetos contendo os dados dos blocos de texto da página *array* \n\n **title:** Título do bloco de texto *string* \n\n **body:** Corpo de texto do bloco *string*'
         },
         botao: {
             name:'botao',
-            description: '**label: ** Rótulo do botão *string* \n\n **URL:** URL do botão *URL* '
+            description: 'Dicionário contendo dados do botão **label: ** Rótulo do botão *string* \n\n **URL:** URL do botão *URL* '
         },
     },
 };

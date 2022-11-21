@@ -8,7 +8,7 @@ export default {
   argTypes: {
     parceiros:{
       name: 'parceiros',
-      description: 'Lista contendo os parceiros *lista*'
+      description: 'Array de objetos contendo informações dos parceiros *array* \n\n **alt**: nome do parceiro *string* \n\n **src:** link da logo do parceiro *URL*'
     },
     theme: {
       name:'theme',

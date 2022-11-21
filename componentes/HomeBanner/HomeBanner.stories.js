@@ -6,8 +6,20 @@ export default {
   component: HomeBanner,
   argTypes: { 
     titulo: { 
-      name: 'label' ,
-      description: '**título:** Título da página *string*, \n\n **tituloDestaque:** Título em destaque da página *string*, **texto:** Texto da página *string*, \n\n**theme:** Tema referente ao produto *string*.'
+      name: 'titulo' ,
+      description: 'Título da página *string*'
+    },
+    tituloDestaque : {
+      name:'tituloDestaque',
+      description:'Título em destaque da página *string*'
+    },
+    texto : {
+      name:'texto',
+      description:'Texto da página *string*',
+    },
+    theme: {
+      name:'theme',
+      description:'Tema referente ao projuto *string*'
     },
   },
 };

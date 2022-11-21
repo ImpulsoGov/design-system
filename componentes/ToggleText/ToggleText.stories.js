@@ -33,13 +33,25 @@ export default {
   title: "Componentes/ToggleText",
   component: ToggleText,
   argTypes: {
-    Default: {
-      name: 'Default',
-      description:'Item da toggle list \n\n **title:** Título do toggle *string* \n\n **list:** Lista contendo as siglas suas explicações *list/*string* \n\n **rightSubtitle:** Subtítulo do lado direito do item *string* \n\n **leftSubtitle**: Título do lado esquerdo do item *string* \n\n **imgLink:** Imagem do item *URL*'
+    title: {
+      name:'title',
+      description:'Título do texto *string*'
     },
-    lista: {
-      name: 'lista',
-      description: 'Lista contendo explicações sobre as siglas utilizadas \n\n **initials:** rótulo da sigla *string* \n\n **label:** explicação da sigla *string* '
+    list: {
+      name: 'list',
+      description:'Array de objetos contendo siglas e suas respectivas explicações *array*\n\n **initials:** rótulo da sigla *string* \n\n **label:** explicação da sigla *string* '
+    },
+    rightSubtitle:{
+      name: 'rightSubtitle',
+      description: 'Subtítulo do lado direito do item *string* \n\n **leftSubtitle**: Título do lado esquerdo do item *string* \n\n **imgLink:** Imagem do item *URL*'
+    },
+    leftSubtitle:{
+      name: 'leftSubtitle',
+      description: 'Subtítulo do lado esquerdo do item *string*' 
+    },
+    imgLink: {
+      name:'imgLink',
+      description:'Link da imagem do item *URL*'
     },
   },
 };

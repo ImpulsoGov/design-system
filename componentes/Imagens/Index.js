@@ -1,1 +1,1 @@
-export { ImagensFull, ImagensFull2 } from "./ImagensFull";
+export { ImagensFull, ImagensFull2, ImagensFull3 } from "./ImagensFull";

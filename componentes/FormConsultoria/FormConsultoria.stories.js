@@ -19,7 +19,7 @@ export default {
     },
     button: {
       name: "button",
-      description: "botão para envio da solicitação *string/button*"
+      description: "Rótulo dobotão *string*"
     },
   },
 };

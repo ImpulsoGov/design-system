@@ -12,15 +12,15 @@ export default {
      },
      texto: {
       name: "texto",
-      description: "Bloco de texto *string*"
+      description: "Parágrafo de texto *string*"
      },
      capa: {
       name: "capa",
-      description: "URL da imagem de capa *URL*",
+      description: "Link da imagem de capa *URL*",
      },
      autor: {
       name: "autor",
-      description: "**avatar:** URL da imagem do autor da postagem *URL*, \n\n **nome:** nome do autor da postagem *string*, \n\n **data:** data da postagem do conteúdo *string*."
+      description: "Array de objetos contendo informações sobre o autor do texto *array* \n\n **avatar:** URL da imagem do autor da postagem *URL*, \n\n **nome:** nome do autor da postagem *string*, \n\n **data:** data da postagem do conteúdo *string*."
      },    
   },
 };

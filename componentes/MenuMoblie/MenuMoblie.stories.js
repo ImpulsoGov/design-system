@@ -8,16 +8,32 @@ export default {
     argTypes: {
         menus: {
             name: 'menus',
-            description:'**label:** Rótulo dos campos do menu \n\n **URL:** URL da opção do menu *URL*'
+            description:'Array de objetos contendo os dados do menu *array* \n\n **label:** Rótulo dos campos do menu \n\n **URL:** URL da opção do menu *URL*'
         },
         LoggedIn: {
             name: 'LoggedIn',
-            description: 'Função para login do usuário *func*'
+            description: 'Função para login do usuário *function*'
         },
         LoggedOut:{
             name:'LoggedOut',
-            description:'Função para logout do usuário *func*'
+            description:'Função para logout do usuário *function*'
         },
+        setEtapa: {
+            name:'setEtapa',
+            description:'Função que define as etapas do login *function*'
+        },
+        etapa: {
+            name:'etapa',
+            description:'Objeto que indica as etapas do login. Se possui o valor 0 indica a etapa de logout. Se possui o valor 1 a etapa de login *int*'
+        },
+        logged : {
+            name:'logged',
+            description: 'Objeto que recebe os valores True quando o usuário está logado e False quando não está. *boolean*'
+        },
+        user: {
+            name:'user',
+            description:'Array d eobjetos contendo dados do usuário *array* \n\n **label:** Primeira letra do nome do usuário *string* \n\n **nome:** Nome do usuário *string* \n\n **cargo:** Cargo do usuário *string*'
+        }
     },
 };
 

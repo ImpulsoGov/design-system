@@ -63,10 +63,7 @@ const titles = [
 ]
 
 
-export default {
-  title: "Componentes/PanelSelector",
-  component: PanelSelector,
-};
+
 const data = [
   {
       "nome": "Maraã",
@@ -285,6 +282,30 @@ const data = [
       "uf": "RO"
   },
 ]
+
+export default {
+    title: "Componentes/PanelSelector",
+    component: PanelSelector,
+    argTypes: {
+        panel:{
+            name:'panel',
+            description:''
+        },
+        links:{
+            name:'links',
+            description:''
+        },
+        list:{
+            name:'list',
+            description:''
+        },
+        titles:{
+            name:'titles',
+            description:''
+        },
+    },
+  };
+
 
 import { useState } from "react";
 export const Analises = () => {

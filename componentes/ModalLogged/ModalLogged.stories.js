@@ -5,12 +5,32 @@ export default {
     title: "Componentes/ModalLogged",
     component: ModalLogged,
     argTypes:{
-        Default: {
-            name: 'Default',
-            description: 'Página logada do usuário \n\n **nome:** Nome do usuário *string* \n\n **label:** Rótulo do usuário (primeira letra do nome) *string* \n\n **cargo:** Cargo do usuário *string* \n\n **equipe:** Código da equipe do profissional *string* \n\n **Butotn:** botão de logout \n\n **-label:** rótulo do botão *string* \n\n **-link:** URL do botão *URL* \n\n **logout:** Função de logout do botão *func*'
-        }
-    }
-}
+        nome: {
+            name: 'name',
+            description: '**nome:** Nome do usuário *string* \n\n  '
+        },
+        label: {
+            name:'label',
+            description:'Primeira letra do nome do usuário *string*'
+        },
+        cargo: {
+            name:'cargo',
+            description:'Cargo do usuário *string*'
+        },
+        equipe: {
+            name:'equipe',
+            description:'Código da equipe do usuário *string*'
+        },
+        button: {
+            name:'button',
+            description:'Objeto que recebe duas chaves referentes ao botão \n\n *object* **-label:** rótulo do botão *string* \n\n **-link:** URL do botão *URL*'
+        },
+        label: {
+            name:'loggout',
+            description:'O'
+        },
+    },
+};
 const sout = ()=> console.log("logout")
 
 export const Default = () => {

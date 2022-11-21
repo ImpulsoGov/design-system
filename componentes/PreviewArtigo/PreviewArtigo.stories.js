@@ -23,7 +23,7 @@ export default {
         },
         autor:{
             name: 'autor',
-            description: 'Descrição do autor do artigo \n\n **avatar:** Avatar do autor do artigo *URL* \n\n **nome:** Nome do autor do artigo *string* \n\n **data:** Data da publicação do artigo *string*'
+            description: 'Objeto contendo informações do autor do artigo *object* \n\n **avatar:** Avatar do autor do artigo *URL* \n\n **nome:** Nome do autor do artigo *string* \n\n **data:** Data da publicação do artigo *string*'
         },
         imagem: {
             name:'imagem',

@@ -17,7 +17,7 @@ const paragraphList = [
     argTypes: {
       paragraphsList:{
         name: "paragraphList",
-        description: "Parágrafo com texto descritivo \n\n**ler mais** : Botão que mostra toda extensão do texto contido no parágrago *button*\n\n**ler menos** : Botão queoculta parte do texto contido no parágrago *button*"
+        description: "Lista cujos itens são os parágrafos do texto *lista/string* \n\n**ler mais** : Botão que mostra toda extensão do texto contido no parágrago *button*\n\n**ler menos** : Botão queoculta parte do texto contido no parágrago *button*"
       },
       link: {
         name: "link",

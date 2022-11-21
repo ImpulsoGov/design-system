@@ -7,15 +7,15 @@ export default {
     argTypes: {
         artigos: {
             name: 'artigo',
-            description:' **id:** Id do artigo *string* \n\n **tag:** Tags do artigo *string*,\n\n **título:** Yítulo do artigo *string* \n\n **texto:** Texto do artigo *string* \n\n **autor:** Autor do artigo *string* \n\n **avatar:** Avatar do autor do artigo *URL* \n\n **data:** Data de publicação do artigo *string* \n\n **imagem:** Imagem do artigo *URL*'
+            description:'Array de objetos contendo os artigos e suas informações *array* **id:** Id do artigo *string* \n\n **tag:** Tags do artigo *string*,\n\n **título:** Yítulo do artigo *string* \n\n **texto:** Texto do artigo *string* \n\n **autor:** Autor do artigo *string* \n\n **avatar:** Avatar do autor do artigo *URL* \n\n **data:** Data de publicação do artigo *string* \n\n **imagem:** Imagem do artigo *URL*'
         },
         ListaResumo: {
             name: 'ListaResumo',
-            description: '**resumo:** Lista resumo com os artigos *Lista/Func* \n\n **artigos:** Lista contendo os artigos *Lista/Func*  \n\n **título:** Título da lista *string*\n\n **btn:** Botão da lista de artigos \n\n **-label:** rótulo do botão *string* \n\n **-link:** link do botão *URL*'
+            description: 'Função que retorna uma lista com os artigos resumidos *function ***resumo:** Booleano que retorna a o resumo dos artigos quando recebe o valor "True". Quando recebe o valor "False" retorna a lista completa *boolean* \n\n **artigos:** Lista contendo os artigos *Lista*  \n\n **título:** Título da lista *string*\n\n **btn:** Botão da lista de artigos \n\n **-label:** rótulo do botão *string* \n\n **-link:** link do botão *URL*'
         },
         ListaCompleta: {
             name: 'ListaCompleta',
-            description: '**resumo:** Lista resumo com os artigos *Lista/Func* \n\n **artigos:** Lista contendo os artigos *Lista/Func* \n\n **título:** Título da lista *string*\n\n **btn:** Botão da lista de artigos \n\n **-label:** rótulo do botão *string* \n\n **-link:** link do botão *URL*'
+            description: 'Função que retorna a lista com os artigos completos *function ***resumo:** Booleano que retorna a o resumo dos artigos quando recebe o valor "True". Quando recebe o valor "False" retorna a lista completa  *boolean** \n\n **artigos:** Lista contendo os artigos *Lista* \n\n **título:** Título da lista *string*\n\n **btn:** Botão da lista de artigos \n\n **-label:** rótulo do botão *string* \n\n **-link:** link do botão *URL*'
         },
     },
 };

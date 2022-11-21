@@ -19,11 +19,11 @@ export default {
     },
     botao: {
       name: "botao",
-      description: "**label:** rótulo do botão *string*, \n\n **URL**: URL do botão *URL*"
+      description: "Objeto contendo informações do botão *object*\n\n**label:** rótulo do botão *string*, \n\n **URL**: URL do botão *URL*"
     },
     chamada: {
       name: "chamada",
-      description: "**label:** rótulo da chamada *string*, \n\n **URL:** URL da chamada *URL*."
+      description: "Objeto contendo informações de chamada *object*\n\n **label:** rótulo da chamada *string*, \n\n **URL:** URL da chamada *URL*."
     },
     theme: {
       name: "theme",

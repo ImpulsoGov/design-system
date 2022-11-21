@@ -11,12 +11,12 @@ export default {
         },
         campos: {
             name: 'campos',
-            description: '**label:** rótulo dos campos *string*',
+            description: 'Array de objetos contendo rótulos dos campos de login *array* \n\n**label:** rótulo dos campos *string*',
             control: { control: 'object' },
         },
         button: {
             name: 'button',
-            description: '**label:** rótulo do botão *string* \n\n **link:** URL do botão *URL*',
+            description: 'Objeto contendo informações do botão \n\n**label:** rótulo do botão *string* \n\n **link:** URL do botão *URL*',
             control: { control: 'object' },
         },
       },

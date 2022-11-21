@@ -5,11 +5,15 @@ export default {
     title: "Componentes/SearchBar",
     component: SearchBar,
     argTypes: {
-      Default: {
-        name:'Default',
-        description:'Barra de pesquisa da página \n\n **data:** lista contendo o nome dos países e seu continente *lista* \n\n **municipio:** Municípios do país selecionado *string*'
+      data: {
+        name:'data',
+        description:'Array de objetos contendo os nomes dos países e seu respectivo continente *Array* \n\n **name:** nome do país *string*\n\n **continent:** continente do país *string*'
     },
-  }
+    municipio: {
+      name:'municipio',
+      description:'Nome do país selecionado *string*'
+  },
+  },
 };
 const data = [
     { name: "Belgium", continent: "Europe" },
