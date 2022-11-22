@@ -11,7 +11,7 @@ export default {
         },
         chamadacolor: {
             name: 'chamadacolor',
-            description:'Código de cor do tema *string*'
+            description:'Texto descritivo da chamada com outra cor *string*'
         },
         subtexto: {
             name: 'subtexto',
@@ -19,18 +19,18 @@ export default {
         },
         cards: {
             name: 'cards',
-            description:'Array de objetos contendo informações dos cards *array*'
+            description:'Array de objetos contendo informações dos cards *array/object* \n\n **title**: Título do card *string* \n\n **body:** Corpo do card *string*'
         },
     },
 };
 
-const cards = [ { alt:'card', desc:'texto'}]
+const cards = [ { title:'titulo', body:'corpo'}]
 
 const Template = (args) => <Banner2col {...args}/>
 export const Default = Template.bind({});
 Default.args={
-    chamada: "",
-    chamadacolor:"",
-    subtexto:"",
-    cards:{cards},
+    chamada: "chamada",
+    chamadacolor:"chamada color",
+    subtexto:"subtexto",
+    cards:cards,
 }
