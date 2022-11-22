@@ -1,6 +1,5 @@
 import React from "react";
 import { PanelSelector } from "./index";
-import { NavBar } from "../NavBar";
 
 const dsLink = [
   "https://datastudio.google.com/embed/reporting/12fb288f-4955-4930-b091-63da3f846c51/page/p_1i1fd8auvc?params=%7B%22df58%22:%22include%25EE%2580%25800%25EE%2580%2580IN%25EE%2580%2580Santo%2520Andr%25C3%25A9%2520-%2520SP%22%7D",
@@ -82,283 +81,44 @@ const titles = [
 ]
 
 
-
-const data = [
-  {
-      "nome": "Maraã",
-      "uf": "AM"
-  },
-  {
-      "nome": "Uruará",
-      "uf": "PA"
-  },
-  {
-      "nome": "Icó",
-      "uf": "CE"
-  },
-  {
-      "nome": "Mãe d'Água",
-      "uf": "PB"
-  },
-  {
-      "nome": "Lapão",
-      "uf": "BA"
-  },
-  {
-      "nome": "Cândido Mota",
-      "uf": "SP"
-  },
-  {
-      "nome": "Terra Roxa",
-      "uf": "PR"
-  },
-  {
-      "nome": "Castanheiras",
-      "uf": "RO"
-  },
-  {
-      "nome": "Chupinguaia",
-      "uf": "RO"
-  },
-  {
-      "nome": "Cujubim",
-      "uf": "RO"
-  },
-  {
-      "nome": "Bragança",
-      "uf": "PA"
-  },
-  {
-      "nome": "Brasil Novo",
-      "uf": "PA"
-  },
-  {
-      "nome": "Alta Floresta D'Oeste",
-      "uf": "RO"
-  },
-  {
-      "nome": "Ariquemes",
-      "uf": "RO"
-  },
-  {
-      "nome": "Cabixi",
-      "uf": "RO"
-  },
-  {
-      "nome": "Cacoal",
-      "uf": "RO"
-  },
-  {
-      "nome": "Cerejeiras",
-      "uf": "RO"
-  },
-  {
-      "nome": "Colorado do Oeste",
-      "uf": "RO"
-  },
-  {
-      "nome": "Corumbiara",
-      "uf": "RO"
-  },
-  {
-      "nome": "Costa Marques",
-      "uf": "RO"
-  },
-  {
-      "nome": "Espigão D'Oeste",
-      "uf": "RO"
-  },
-  {
-      "nome": "Guajará-Mirim",
-      "uf": "RO"
-  },
-  {
-      "nome": "Jaru",
-      "uf": "RO"
-  },
-  {
-      "nome": "Ji-Paraná",
-      "uf": "RO"
-  },
-  {
-      "nome": "Machadinho D'Oeste",
-      "uf": "RO"
-  },
-  {
-      "nome": "Nova Brasilândia D'Oeste",
-      "uf": "RO"
-  },
-  {
-      "nome": "Ouro Preto do Oeste",
-      "uf": "RO"
-  },
-  {
-      "nome": "Pimenta Bueno",
-      "uf": "RO"
-  },
-  {
-      "nome": "Presidente Médici",
-      "uf": "RO"
-  },
-  {
-      "nome": "Rio Crespo",
-      "uf": "RO"
-  },
-  {
-      "nome": "Rolim de Moura",
-      "uf": "RO"
-  },
-  {
-      "nome": "Santa Luzia D'Oeste",
-      "uf": "RO"
-  },
-  {
-      "nome": "Vilhena",
-      "uf": "RO"
-  },
-  {
-      "nome": "São Miguel do Guaporé",
-      "uf": "RO"
-  },
-  {
-      "nome": "Bagre",
-      "uf": "PA"
-  },
-  {
-      "nome": "Nova Mamoré",
-      "uf": "RO"
-  },
-  {
-      "nome": "Alvorada D'Oeste",
-      "uf": "RO"
-  },
-  {
-      "nome": "Alto Alegre dos Parecis",
-      "uf": "RO"
-  },
-  {
-      "nome": "Alto Paraíso",
-      "uf": "RO"
-  },
-  {
-      "nome": "Buritis",
-      "uf": "RO"
-  },
-  {
-      "nome": "Novo Horizonte do Oeste",
-      "uf": "RO"
-  },
-  {
-      "nome": "Cacaulândia",
-      "uf": "RO"
-  },
-  {
-      "nome": "Campo Novo de Rondônia",
-      "uf": "RO"
-  },
-  {
-      "nome": "Candeias do Jamari",
-      "uf": "RO"
-  },
-  {
-      "nome": "Governador Jorge Teixeira",
-      "uf": "RO"
-  },
-  {
-      "nome": "Itapuã do Oeste",
-      "uf": "RO"
-  },
-  {
-      "nome": "Ministro Andreazza",
-      "uf": "RO"
-  },
-  {
-      "nome": "Mirante da Serra",
-      "uf": "RO"
-  },
-  {
-      "nome": "Monte Negro",
-      "uf": "RO"
-  },
-  {
-      "nome": "Nova União",
-      "uf": "RO"
-  },
-  {
-      "nome": "Parecis",
-      "uf": "RO"
-  },
-  {
-      "nome": "Pimenteiras do Oeste",
-      "uf": "RO"
-  },
-  {
-      "nome": "Primavera de Rondônia",
-      "uf": "RO"
-  },
-  {
-      "nome": "São Felipe D'Oeste",
-      "uf": "RO"
-  },
-]
-
 export default {
     title: "Componentes/PanelSelector",
     component: PanelSelector,
     argTypes: {
-        panel:{
-            name:'panel',
-            description:''
-        },
         links:{
             name:'links',
-            description:''
+            description:'Array de arrays contendo os links utilizados no painel *array* \n\n **dsLink:** links dos painéis do data studio *array/URL* **\n\n **dsLinkBuscaAtiva** e **dsLinkBuscaAtivaEquipe:** links das organizações de saúde e da Impulso *array/URL*'
         },
         list:{
             name:'list',
-            description:''
+            description:'Array de objetos contento os rótulos das abas *array/object* \n\n **labels:** Rótulos das sub abas dos paineis do Impulso Previne "Análises" \n\n **labelsBuscaAtiva** e **labelsBuscaAtivaEquipe:** Rótulos das sub abas do painel de busca ativa'
         },
         titles:{
             name:'titles',
-            description:''
+            description:'Array de objetos contento os rótulos das abas *array/object* \n\n **titles:** Rótulos da aba "Análises" dos paineis do Impulso Previne  \n\n **titlesBuscaAtiva** e **titlesBuscaAtivaEquipe:** Rótulos das abas do painel de busca ativa'
         },
     },
   };
 
+const Template = (args) => <PanelSelector {...args}/>
+export const BuscaAtiva = Template.bind({});
+BuscaAtiva.args={
+  links: dsLinkBuscaAtiva,
+  list: labelsBuscaAtiva,
+  titles: titlesBuscaAtiva
+}
 
-import { useState } from "react";
-export const Analises = () => {
-  const [state, setState] = useState("São Felipe D'Oeste - RO");
+export const BuscaAtivaEquipe = Template.bind({});
+BuscaAtivaEquipe.args={
+  links: dsLinkBuscaAtivaEquipe,
+  list: labelsBuscaAtivaEquipe,
+  titles: titlesBuscaAtivaEquipe
+}
 
-  return (
-    <>
-        <PanelSelector
-            panel={2}
-            links = {[dsLink]}
-            list={[labels]}
-            titles={titles}
-        />
-
-    </>
-  );
-};
-
-export const BuscaAtiva = () => {
-  return (
-    <PanelSelector
-      links = {dsLinkBuscaAtiva}
-      list={labelsBuscaAtiva}
-      titles={titlesBuscaAtiva}
-  />
-  );
-};
-
-export const BuscaAtivaEquipe = () => {
-    return (
-      <PanelSelector
-        links = {dsLinkBuscaAtiva}
-        list={labelsBuscaAtivaEquipe}
-        titles={titlesBuscaAtivaEquipe}
-    />
-    );
-  };
+export const Analises = Template.bind({});
+Analises.args={
+  links: [dsLink],
+  list: [labels],
+  titles: titles
+}
+  

@@ -6,26 +6,10 @@ export default {
   title: "Componentes/InfoTab",
   component: InfoTab,
   argTypes : {
-    leftTitle: {
-      name: 'leftTitle',
-      description: 'Título descritivo da página contendo o nome do projuto *string*'
+    contentList :{
+      name:'contentList',
+      description:  'Array de objetos com os conteúdos da contentList *array/object* \n\n **leftTitle:** Título descritivo da página contendo o nome do projuto *string* \n\n **rightTitle**: Título descritivo sobre o que é a plataforma *string* \n\n**rightContent:** Texto explicativo sobre a plataforma *string* \n\n**buttonTitle:** Rótulo do botão *string* \n\n**buttonLink:** Link do botão *URL*'
     },
-    rightTitle: {
-      name: 'rightTitle',
-      description: 'Título descritivo sobre o que é a plataforma *string*'
-    },
-    rightContent: {
-      name: 'rightContent',
-      description: 'Texto explicativo sobre a plataforma *string*'
-    },
-    buttonTitle: {
-      name: 'buttonTitle',
-      description: 'Rótulo do botão *string*'
-    },
-    buttonLink: {
-      name:'buttonLink',
-      description: 'Link do botão *URL*'
-    }
   },
 }
 const props = [
@@ -46,10 +30,8 @@ const props = [
 ]
 
 
-export const Default = () => {
-  return (
-    <InfoTab
-      contentList={props}
-    />
-  )
-};
+const Template = (args) => <InfoTab {...args}/>
+export const Default = Template.bind({});
+Default.args={
+  contentList: props
+}
