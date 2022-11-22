@@ -31,6 +31,12 @@
   color: #1F1F1F;
   text-decoration: none;
 }
+.themeWhiteSM{
+  background-color: #FFFFFF;
+  color: #1F1F1F;
+  text-decoration: none;
+}
+
 .themeWhite a{
   text-decoration: none;
 }
@@ -62,14 +68,15 @@
     color: #F4CCAB;
   }
 
-
   .themeColorSM a:hover{
     color: #5367C9;
   }
   .themeWhite a:hover{
     color: #1D856C;
   }
-
+  .themeWhiteSM a:hover{
+    color: #5367C9;
+  }
   .logoWrapper_navbar {
     height: 30px;
     width: 200px;
@@ -233,15 +240,54 @@
   }
   
   .NavBarSubMenuAnchor:hover {
-    color: white;
+    color: white !important;
   }
-  
+  .NavBarSubMenuAnchor:hover  .NavBarSubMenuItem{
+    visibility: visible;
+    display: block !important;
+  }
+
+  .NavBarSubMenuContainer:hover + .NavBarSubMenuItemContainer{
+    visibility: visible;
+  }
   
   .NavBarSubMenuContainer:hover {
-    opacity: .8;
-  
+    background-color: #7579EA;
   }
-  
+  .NavBarSubMenuItemContainer{
+    position: absolute;
+    width: fit-content;
+    height: fit-content;
+    left: 278px;
+    background-color: #5367C9;
+    color: #FFFFFF;
+    visibility: hidden;
+  }
+
+  .NavBarSubMenuItem{
+    padding: 5px;
+  }
+  .NavBarSubMenuItem:hover{
+    background-color: #7579EA;
+  }
+  .NavBarSubMenuItemContainer:hover{
+    visibility: visible;
+  }
+  .NavBarSubMenuItemContainer a{
+    text-decoration: none;
+    color: #FFF;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 40;
+    font-size: 14px;
+  }
+  .NavBarSubMenuItemContainer a:hover{
+    text-decoration: none;
+    color: #FFF;
+  }
+  .NavBarSubMenuItemContainer div:hover{
+    background-color: #7579EA;
+  }
   .NavBarSubMapMobileContainer {
     position: absolute;
     display: flex;
@@ -314,6 +360,72 @@
     font-style: normal;
     font-weight: 40;
   }
+  .NavBarSeletorMunicipiosContainer{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  .NavBarSeletorMunicipios{
+    text-align: center;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    position: relative;
+    border-radius: 80px;
+    border: solid 1px #fff;
+    color: #fff;
+    padding: 6px;
+    width:250px;
+  }
+  .NavBarSeletorMunicipiosWhite{
+    text-align: center;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    position: relative;
+    border-radius: 80px;
+    border: solid 1px #1F1F1F;
+    color: #1F1F1F;
+    padding: 6px;
+    width:250px;
+  }
+  .NavBarSeletorMunicipiosLista{
+    top: 52px;
+    position: absolute;
+    background-color: #5367C9;
+    height: fit-content;
+  }
+  .NavBarSeletorMunicipiosItem{
+    border-bottom: solid 1px rgba(255, 255, 255, 0.2);
+    color: #FFF;
+    padding: 10px;
+    animation: growDown 200ms ease-in-out forwards;
+  }
+  .NavBarSeletorMunicipiosItemGrowUp{
+    animation: growUp 200ms ease-in-out forwards;
+  }
+  @keyframes growDown {
+    from {
+      height: 0px;
+    }
+    to {
+      height: fit-content;
+    }
+  }
+  @keyframes growUp {
+    from {height: fit-content;}
+    to {height: 0px;}
+  }
+
+  
+  .NavBarSeletorMunicipiosItem:hover{
+    background-color: #1B2D82;
+    opacity: 0.3;
+    cursor: pointer;
+  }
+
 
   .citySelect_navbar select {
     display: none; /*hide original SELECT element:*/
@@ -329,6 +441,9 @@
     display: none;
   }
   .buttonMoblieWhite{
+    display: none;
+  }
+  .buttonMoblieWhiteSM{
     display: none;
   }
   
@@ -439,6 +554,14 @@
       border-radius: 50%;
       padding: 8px;
     }
+    .buttonMoblieWhiteSM{
+      display: block;
+      margin-left: auto;
+      border: 1px solid #1F1F1F;
+      border-radius: 50%;
+      padding: 8px;
+    }
+
     .buttonMoblieWhite:hover{
       cursor: pointer;
     }
@@ -455,8 +578,8 @@
       display: none;
     }
 
-    .linksNavBarMoblieColorSM{
-      background-color: #5367C9;
+    .linksNavBarMoblieColorSM a:hover{
+      color: #5367C9 !important;
     }
 
     .linksNavBarMoblieColorSM a{
@@ -510,7 +633,21 @@
     .containerCidadeLogin_navbar {
       display: none;
     }
+    .NavBarSeletorMunicipios{
+      width: 200px;
+      font-size: 12px;
+    }
+    .NavBarSeletorMunicipiosWhite{
+      width: 200px;
+      font-size: 12px;
+    }
 
+    .NavBarSeletorMunicipiosLista{
+      top: 55px;
+    }
+    .NavBarSeletorMunicipiosItem{
+      font-size: 12px;
+    }
     .ButtonLoginBox_navbar {
       height: 30px;
       margin-right: 0px;

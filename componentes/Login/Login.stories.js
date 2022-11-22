@@ -34,3 +34,13 @@ Default.args ={
     button : {label:"entrar",link:""}
 }
 
+export const Default2 = Template.bind({});
+
+Default2.args ={
+    titulo: "Faça o login para ver o painel de busca ativa",
+    campos:[
+        {label:"E-mail"},
+        {label:"Senha"},
+    ],
+    button : {label:"entrar",link:""}
+}

@@ -20,7 +20,7 @@ const InfoTab = ({contentList}) => {
           <p className={styles.InfoTabTitleBlack}>{contentList[1].rightTitle}</p>
           <p className={styles.InfoTabContentBlack}>{contentList[1].rightContent}</p>
           <Link href={contentList[1].buttonLink}>
-            <a className={styles.InfoTabBlackButton}>{contentList[1].buttonTitle.toLocaleUpperCase()} ➔</a>
+            <a className={styles.InfoTabBlackButton}>{contentList[1].buttonTitle.toLocaleUpperCase()} ➔</a> 
           </Link>
         </div>
       </div>

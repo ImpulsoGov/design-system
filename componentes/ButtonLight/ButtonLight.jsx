@@ -1,17 +1,17 @@
 import React from "react";
 import style from "./ButtonLight.module.css"
+import Link from "next/link"
 
 const ButtonLight = ({
     label,
     link
 })=>{
     return(
-        <a 
-            className={style.ButtonLightContainer}
+        <Link
             href={link}
         >
-            {label}
-        </a>
+            <a className={style.ButtonLightContainer}>{label}</a>
+        </Link>
     )
 }
 
