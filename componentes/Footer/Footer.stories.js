@@ -7,24 +7,24 @@ export default {
     argTypes: {
         contactCopyright:{
             name: "contactCopyright",
-            description:"Array de objetos contendo informações de contato *array* \n\n**email:** email de contato da Impulso *string*, \n\n **copyright:** informações de copyright da Impulso *string*."
+            description:"Objeto contendo informações de contato *object* \n\n**email:** email de contato da Impulso *string*, \n\n **copyright:** informações de copyright da Impulso *string*."
         },
         theme: {
             name: "theme",
-            description: "Array de objetos contendo informações sobre o tema *array* \n\n**logoProjeto:** URL do logo do projeto referente *URL*, \n\n **logoImpulso:** URL do logo da Impulso *URL*, \n\n **cor:** sigla referente ao tema do projeto *string*."
+            description: "Ojeto contendo informações sobre o tema *object* \n\n**logoProjeto:** URL do logo do projeto referente *URL*, \n\n **logoImpulso:** URL do logo da Impulso *URL*, \n\n **cor:** sigla referente ao tema do projeto *string*."
         },
 
         links: {
             name: "links",
-            description: "Array de objetos contendo links e seus rótulos *array* \n\n**label:** rótulo do link *string*, \n\n **url:** URL da opção *URL*."
+            description: "Array de objetos contendo links e rótulos do menu da primeira seção do footer *array/object* \n\n**label:** rótulo do link *string*, \n\n **url:** URL da opção *URL*."
         },
         address: {
-            name: "addres",
-            description: "Array de objetos contendo informações de endereço *array* \n\n**first:** dados do endereço 1 *string*, \n\n **second:** dados do endereço 1 *string*."
+            name: "address",
+            description: "Objeto contendo informações de endereço *object* \n\n**first:** dados do endereço que aparece na primeira linha *string*, \n\n **second:** dados do endereço que aparece na segunda linha *string*."
         },
         socialMediaURLs: {
             name: "socialMediaURLs",
-            description: "Array de objetos contendo informações sobre as mídias sociais *array* \n\n**url:** URL da rede social *URL*, \n\n **logo:** URL contendo logo da rede social *URL*."
+            description: "Array de objetos contendo informações sobre as mídias sociais *array/object* \n\n**url:** URL da rede social *URL*, \n\n **logo:** URL contendo logo da rede social *URL*."
         },
     },
 };
@@ -40,13 +40,6 @@ IP.args={
         logoImpulso: "https://media.graphassets.com/TqQYycQISEOiq0g2bOv0?_gl=1*z5qtb6*_ga*MzY0MzkwNjMwLjE2NTg1OTU1NjU.*_ga_G6FYGSYGZ4*MTY2NzUzMjc3OS4xMDUuMS4xNjY3NTMyODg0LjI1LjAuMA..",
         cor: "IP"
     },
-    menu:
-        [
-            { label: "A Impulso Gov", url: "/impulsogov" },
-            { label: "O Previne Brasil", url: "/previnebrasil" },
-            { label: "Análise", url: "" },
-            { label: "Consultoria", url: "/consultoria" }
-        ],
     links:[
         {
             label: "Sobre", url: "/sobre"

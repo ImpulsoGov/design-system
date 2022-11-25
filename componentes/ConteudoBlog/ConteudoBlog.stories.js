@@ -20,7 +20,7 @@ export default {
      },
      autor: {
       name: "autor",
-      description: "Array de objetos contendo informações sobre o autor do texto *array* \n\n **avatar:** URL da imagem do autor da postagem *URL*, \n\n **nome:** nome do autor da postagem *string*, \n\n **data:** data da postagem do conteúdo *string*."
+      description: "Objeto contendo informações sobre o autor do texto *object* \n\n **avatar:** URL da imagem do autor da postagem *URL*, \n\n **nome:** nome do autor da postagem *string*, \n\n **data:** data da postagem do conteúdo *string*."
      },    
   },
 };

@@ -12,16 +12,16 @@ export default {
     },
     child1: {
         name: "child1",
-        description:"Bloco de conteúdo \n\n **título:** Título do bloco *string*\n\n **corpo:** Conteúdo em texto do bloco *string*"
+        description:"Componente react. *componente react*"
     },
     child2: {
         name: "child2",
-        description: "Bloco de conteúdo \n\n **título:** Título do bloco *string*\n\n **corpo:** Conteúdo em texto do bloco *string*"
+        description: "Componente react. *componente react*"
 
     },
     child3: {
         name: "child3",
-        description: "Bloco de conteúdo \n\n **título:** Título do bloco *string*\n\n **corpo:** Conteúdo em texto do bloco *string*"
+        description: "Componente react. *componente react*"
     },
 },
 };

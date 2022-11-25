@@ -7,31 +7,28 @@ export default {
   argTypes: { 
     title: { 
       name: "title",
-      description: "Título da página *string*"
+      description: "Título do componente *string*"
     },
     mail: {
       name: "mail",
-      description: "email de contato da impulso *string*"
+      description: "Texto em destaque *string*"
     },
     link: {
       name: "link",
-      description: "URL da página do formulário *URL*"
+      description: "URL acionada após o click no botão *URL*"
     },
     button: {
       name: "button",
-      description: "Rótulo dobotão *string*"
+      description: "Rótulo do botão *string*"
     },
   },
 };
 
-export const Default = () => {
-  return <FormConsultoria
-  title="Se interessou pela nossa consultoria? Preencha o formulário abaixo para fazer sua inscrição.Em caso de dúvidas, escreva para "
-  mail="previne@impulsogov.org"
-  link="https://docs.google.com/forms/d/e/1FAIpQLSce3dYZO3tdRmNq-Oy8Z_0IFu5RXtwDDsSw6BXLaWx7BBfv_Q/viewform?embedded=true"
-  button="enviar"
-/>  
-
+const Template = (args) => <FormConsultoria {...args}/>
+export const Default = Template.bind({});
+Default.args={
+  title:"Se interessou pela nossa consultoria? Preencha o formulário abaixo para fazer sua inscrição.Em caso de dúvidas, escreva para ",
+  mail:"previne@impulsogov.org",
+  link:"https://docs.google.com/forms/d/e/1FAIpQLSce3dYZO3tdRmNq-Oy8Z_0IFu5RXtwDDsSw6BXLaWx7BBfv_Q/viewform?embedded=true",
+  button:"enviar"
 }
-
-

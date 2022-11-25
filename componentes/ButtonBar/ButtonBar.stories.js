@@ -9,15 +9,15 @@ export default {
   argTypes: { 
     child1: { 
       name: "child1",
-      description: "Botão para o painel Indicadores de Desempenho *function* \n\n**label**: rótulo do botão *string* \n\n **link** Url da página do painel de indicadores *URL*"
+      description: "Recebe componete react *componente react*"
     },
     child2:{
       name: "child2",
-      description: "Botão para o painel Capitação Ponderada *function* \n\n**label**: rótulo do botão *string* \n\n **link** Url da página do painel de capitação ponderada *URL*"
+      description: "Recebe componete react *componente react*"
     },
     child3: {
       name: "child3",
-      description: "Botão para o painel Incentivo a Ações Estratégicas *function* \n\n**label**: rótulo do botão *string* \n\n **link** Url da página do painel de ações estratégicas *URL*"
+      description: "Recebe componete react *componente react*"
     },
   },
 };

@@ -17,11 +17,11 @@ const paragraphList = [
     argTypes: {
       paragraphsList:{
         name: "paragraphList",
-        description: "Lista cujos itens são os parágrafos do texto *lista/string* \n\n**ler mais** : Botão que mostra toda extensão do texto contido no parágrago *button*\n\n**ler menos** : Botão queoculta parte do texto contido no parágrago *button*"
+        description: "Array cujos itens são os parágrafos do texto *array/string*"
       },
       link: {
         name: "link",
-        description: "Link para imagem *URL*"
+        description: "Link para iframe *URL*"
       },
     },
   };

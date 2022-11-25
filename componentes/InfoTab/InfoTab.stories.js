@@ -8,7 +8,7 @@ export default {
   argTypes : {
     contentList :{
       name:'contentList',
-      description:  'Array de objetos com os conteúdos da contentList *array/object* \n\n **leftTitle:** Título descritivo da página contendo o nome do projuto *string* \n\n **rightTitle**: Título descritivo sobre o que é a plataforma *string* \n\n**rightContent:** Texto explicativo sobre a plataforma *string* \n\n**buttonTitle:** Rótulo do botão *string* \n\n**buttonLink:** Link do botão *URL*'
+      description:  'Array de objetos com os conteúdos da contentList *array/object* \n\n **leftTitle:** Título descritivo do componente contendo *string* \n\n **rightTitle**: Título descritivo do lado direito *string* \n\n**rightContent:** Texto explicativo  do lado direito *string* \n\n**buttonTitle:** Rótulo do botão *string* \n\n**buttonLink:** Link do botão *URL*'
     },
   },
 }
