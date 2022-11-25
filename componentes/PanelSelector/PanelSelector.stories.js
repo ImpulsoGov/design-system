@@ -305,10 +305,7 @@ const data = [
   },
 ]
 
-import { useState } from "react";
 export const Analises = () => {
-  const [state, setState] = useState("São Felipe D'Oeste - RO");
-
   return (
     <>
         <PanelSelector
