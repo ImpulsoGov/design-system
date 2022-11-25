@@ -17,20 +17,18 @@ export default {
   },
 };
 
-export const Default = () => {
-  return (
-    <Parcerias
-      parceiros={parceiros}
-      theme="ColorIP"
-    />
-  );
-};
+const Template = (args) => <Parcerias {...args}/>
 
-export const AGP = () => {
-  return (
-    <Parcerias
-      parceiros={parceiros}
-      theme="ColorAGP"
-    />
-  );
-};
+export const Default = Template.bind({});
+Default.args={
+  parceiros:parceiros,
+  theme:"ColorIP"
+}
+
+export const AGP = Template.bind({});
+AGP.args={
+  parceiros:parceiros,
+  theme:"ColorIP"
+}
+
+

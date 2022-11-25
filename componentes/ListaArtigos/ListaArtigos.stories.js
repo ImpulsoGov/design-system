@@ -7,16 +7,20 @@ export default {
     argTypes: {
         artigos: {
             name: 'artigo',
-            description:'Array de objetos contendo os artigos e suas informações *array* **id:** Id do artigo *string* \n\n **tag:** Tags do artigo *string*,\n\n **título:** Yítulo do artigo *string* \n\n **texto:** Texto do artigo *string* \n\n **autor:** Autor do artigo *string* \n\n **avatar:** Avatar do autor do artigo *URL* \n\n **data:** Data de publicação do artigo *string* \n\n **imagem:** Imagem do artigo *URL*'
+            description:'Array de objetos contendo os artigos e suas informações *array/object* **id:** Id do artigo *string* \n\n **tag:** Tags do artigo *string*,\n\n **título:** Yítulo do artigo *string* \n\n **texto:** Texto do artigo *string* \n\n **autor:** Autor do artigo *string* \n\n **avatar:** Avatar do autor do artigo *URL* \n\n **data:** Data de publicação do artigo *string* \n\n **imagem:** Imagem do artigo *URL*'
         },
-        ListaResumo: {
-            name: 'ListaResumo',
-            description: 'Função que retorna uma lista com os artigos resumidos *function ***resumo:** Booleano que retorna a o resumo dos artigos quando recebe o valor "True". Quando recebe o valor "False" retorna a lista completa *boolean* \n\n **artigos:** Lista contendo os artigos *Lista*  \n\n **título:** Título da lista *string*\n\n **btn:** Botão da lista de artigos \n\n **-label:** rótulo do botão *string* \n\n **-link:** link do botão *URL*'
+        resumo: {
+            name:'resumo',
+            description: 'Booleano que retorna a o resumo dos artigos quando recebe o valor "True". Quando recebe o valor "False" retorna a lista completa boolean'
         },
-        ListaCompleta: {
-            name: 'ListaCompleta',
-            description: 'Função que retorna a lista com os artigos completos *function ***resumo:** Booleano que retorna a o resumo dos artigos quando recebe o valor "True". Quando recebe o valor "False" retorna a lista completa  *boolean** \n\n **artigos:** Lista contendo os artigos *Lista* \n\n **título:** Título da lista *string*\n\n **btn:** Botão da lista de artigos \n\n **-label:** rótulo do botão *string* \n\n **-link:** link do botão *URL*'
+        titulo: {
+            name:'titulo',
+            description: "'Título do componente *string*"
         },
+        btn: {
+            name:'btn',
+            description: 'Botão que retorna a lista completa de artigos *object* \n\n **label:** rótulo do botão *string* \n\n **link:** link do botão *URL*'
+        }
     },
 };
 
@@ -113,19 +117,20 @@ const artigos = [
     },
 ]
   
-export const ListaResumo = () => <ListaArtigos
-                                    resumo = {true}
-                                    artigos = {artigos}
-                                    titulo = "Outros artigos"
-                                    btn = {{label : "ver todos" , link: "artigos"}}
-                                />
+const Template = (args) => <ListaArtigos {...args}/>
 
+export const ListaResumo = Template.bind({});
+ListaResumo.args={
+    resumo : true,
+    artigos : artigos,
+    titulo : "Outros artigos",
+    btn : {label : "ver todos" , link: "artigos"},
+}
 
-export const ListaCompleta = () =>  <ListaArtigos
-                                    resumo = {false}
-                                    artigos = {artigos}
-                                    titulo = "Outros artigo"
-                                    btn = {{label : "ver todos" , link: "artigos"}}
-                                    />
-  
-  
+export const ListaCompleta = Template.bind({});
+ListaCompleta.args={
+    resumo : false,
+    artigos : artigos,
+    titulo : "Outros artigos",
+    btn : {label : "ver todos" , link: "artigos"},
+}

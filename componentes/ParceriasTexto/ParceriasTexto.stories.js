@@ -9,28 +9,26 @@ export default {
   argTypes: {
     text: {
         name:'text',
-        description:'Texto descritivo da página *string*'
+        description:'Texto descritivo *string*'
       },
     label: {
         name:'label',
-        description:'Texto descritivo apresentando os parceiros *string*'
+        description:'Texto descritivo *string*'
     },
     parceiros:{
       name: 'parceiros',
-      description: 'Array de objetos contendo informações sobre os parceiros *lista* \n\n **alt:** nome do parceiro *string* \n\n **src:** link do logo do parceiro *URL*'
+      description: 'Array de objetos contendo informações sobre os parceiros *array/object* \n\n **alt:** nome do parceiro *string* \n\n **src:** link do logo do parceiro *URL*'
     },
     
   },
 };
+const Template = (args) => <ParceriasTexto {...args}/>
 
-export const Default = () => {
-  return (
-    <ParceriasTexto
-    text="O Impulso Previne é uma realização da ImpulsoGov, uma organização brasileira de saúde pública, sem fins lucrativos, que trabalha ao lado de gestores municipais e estaduais para impulsionar o uso de dados e tecnologia no setor público"
-    label="Junto à Impulso Gov, o projeto conta com uma rede de apoio institucional e financiadores:"
-    parceiros={parceiros}
-      
-    />
-  );
-};
+export const Default = Template.bind({});
+Default.args={
+  text:"O Impulso Previne é uma realização da ImpulsoGov, uma organização brasileira de saúde pública, sem fins lucrativos, que trabalha ao lado de gestores municipais e estaduais para impulsionar o uso de dados e tecnologia no setor público",
+  label:"Junto à Impulso Gov, o projeto conta com uma rede de apoio institucional e financiadores:",
+  parceiros:parceiros
+}
+
 
