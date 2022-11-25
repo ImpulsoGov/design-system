@@ -16,20 +16,20 @@ const Template = (args) => <ImagensFull {...args}/>
 
 export const Default = Template.bind({});
 Default.args={
-  imagem : 'link imagem'
+  imagem : 'https://media.graphassets.com/wOdRiF1HQ2azIVk9iCxI'
 }
 
 const Template2 = (args) => <ImagensFull2 {...args}/>
 
 export const Default2 = Template2.bind({});
 Default.args={
-  imagem : 'link imagem'
+  imagem : 'https://media.graphassets.com/wOdRiF1HQ2azIVk9iCxI'
 }
 
 const Template3 = (args) => <ImagensFull3 {...args}/>
 
 export const Default3 = Template3.bind({});
 Default.args={
-  imagem : 'link imagem'
+  imagem : 'https://media.graphassets.com/wOdRiF1HQ2azIVk9iCxI'
 }
 
