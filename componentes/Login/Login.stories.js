@@ -7,16 +7,16 @@ export default {
     argTypes: {
         titulo: {
             name: 'título',
-            description: 'Título descritivo da página *string*'
+            description: 'Título da página *string*'
         },
         campos: {
             name: 'campos',
-            description: 'Array de objetos contendo rótulos dos campos de login *array* \n\n**label:** rótulo dos campos *string*',
+            description: 'Array de objetos contendo rótulos dos campos de login *array/object* \n\n**label:** rótulo dos campos *string*',
             control: { control: 'object' },
         },
         button: {
             name: 'button',
-            description: 'Objeto contendo informações do botão \n\n**label:** rótulo do botão *string* \n\n **link:** URL do botão *URL*',
+            description: 'Objeto contendo informações do botão *objectF*\n\n**label:** rótulo do botão *string* \n\n **link:** URL do botão *URL*',
             control: { control: 'object' },
         },
       },

@@ -8,7 +8,7 @@ export default {
     argTypes: {
         menus: {
             name: 'menus',
-            description:'Array de objetos contendo os dados do menu *array* \n\n **label:** Rótulo dos campos do menu \n\n **URL:** URL da opção do menu *URL*'
+            description:'Array de objetos contendo os dados do menu *array/object* \n\n **label:** Rótulo dos campos do menu \n\n **URL:** URL da opção do menu *URL*'
         },
         LoggedIn: {
             name: 'LoggedIn',
@@ -32,7 +32,7 @@ export default {
         },
         user: {
             name:'user',
-            description:'Array d eobjetos contendo dados do usuário *array* \n\n **label:** Primeira letra do nome do usuário *string* \n\n **nome:** Nome do usuário *string* \n\n **cargo:** Cargo do usuário *string*'
+            description:'Objeto contendo dados do usuário *object* \n\n **label:** Primeira letra do nome do usuário *string* \n\n **nome:** Nome do usuário *string* \n\n **cargo:** Cargo do usuário *string*'
         }
     },
 };
@@ -72,3 +72,4 @@ export const LoggedOut = () => {
                 logged={false}
             />
 }
+

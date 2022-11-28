@@ -10,11 +10,11 @@ export default {
   argTypes: {
     leftTitle: {
       name: 'leftTitle',
-      description:'Título do lado esquerdo da seção *string*'
+      description:'Título do lado esquerdo*string*'
     },
     rightTitle: {
       name: 'rightTitle',
-      description: 'Título do lado direito da seção *string*'
+      description: 'Título do lado direito *string*'
     },
     rightContent: {
       name: 'rightContent',
@@ -31,14 +31,14 @@ export default {
   }
 };
 
-export const Default = () => {
-  return (
-    <ToolsAndGuides 
-      leftTitle="Competências e Soluções"
-      rightTitle="Ferramentas e Guias"
-      rightContent={right}
-      buttonTitle="Ver Todos"
-      onClick={()=> console.log("click do botão")}
-    />
-  )
-};
+
+const Template = (args) => <ToolsAndGuides {...args}/>
+
+export const Default = Template.bind({});
+Default.args={
+  leftTitle : "Competências e Soluções",
+  rightTitle : "Ferramentas e Guias",
+  rightContent : right,
+  buttonTitle : "Ver Todos",
+  onClick : ()=> console.log("click do botão")
+}

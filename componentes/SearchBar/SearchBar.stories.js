@@ -42,13 +42,13 @@ const data = [
     { name: "Pakistan", continent:"Asia" },
 ];
 
-  
-export const Default = () =>{
-  return(
-    <SearchBar
-        data={data}
-        municipio = "Brazil"
-    />
-  )
+
+const Template = (args) => <SearchBar {...args}/>
+
+export const Default = Template.bind({});
+Default.args={
+  data : data,
+  municipio : "Brazil"
 }
+
 

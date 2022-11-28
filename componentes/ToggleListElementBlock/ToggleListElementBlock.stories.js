@@ -20,8 +20,9 @@ export default {
   },
 };
 
-export const Default = () => {
-  return (
-    <ToggleListElementBlock title={item.title} subTitle={item.subTitle} description={item.description} />
-  )
+const Template = (args) => <ToggleListElementBlock {...args}/>
+
+export const Default = Template.bind({});
+Default.args={
+  item : item
 }

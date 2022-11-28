@@ -39,15 +39,15 @@ export default {
     },
     list: {
       name: 'list',
-      description:'Array de objetos contendo siglas e suas respectivas explicações *array*\n\n **initials:** rótulo da sigla *string* \n\n **label:** explicação da sigla *string* '
+      description:'Array de objetos contendo siglas e suas respectivas explicações *array/object*\n\n **initials:** rótulo da sigla *string* \n\n **label:** explicação da sigla *string* '
     },
     rightSubtitle:{
       name: 'rightSubtitle',
-      description: 'Subtítulo do lado direito do item *string* \n\n **leftSubtitle**: Título do lado esquerdo do item *string* \n\n **imgLink:** Imagem do item *URL*'
+      description: 'Subtítulo do lado direito  *string* \n\n **leftSubtitle**: Título do lado esquerdo *string* \n\n **imgLink:** Imagem do item *URL*'
     },
     leftSubtitle:{
       name: 'leftSubtitle',
-      description: 'Subtítulo do lado esquerdo do item *string*' 
+      description: 'Subtítulo do lado esquerdo *string*' 
     },
     imgLink: {
       name:'imgLink',
@@ -56,15 +56,18 @@ export default {
   },
 };
 
-export const Default = () => {
-  return (
-    <ToggleText
-      title="Entenda como interpretar os indicadores Impulso"
-      list={list}
-      rightSubtitle="Siglas"
-      leftSubtitle="Glossário"
-      imgLink={"https://media.graphassets.com/WRihknmuQGKEPw9xmMOy"}
-    />
-  )
-};
+
+const Template = (args) => <ToggleText {...args}/>
+
+export const Default = Template.bind({});
+Default.args={
+  title:"Entenda como interpretar os indicadores Impulso",
+  list:list,
+  rightSubtitle:"Siglas",
+  leftSubtitle:"Glossário",
+  imgLink:"https://media.graphassets.com/WRihknmuQGKEPw9xmMOy"
+}
+
+
+
 

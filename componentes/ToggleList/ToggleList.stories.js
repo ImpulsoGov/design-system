@@ -96,8 +96,9 @@ const list = [
 
 
 
-export const Default = () => {
-  return (
-    <ToggleList list={list} />
-  )
+const Template = (args) => <ToggleList {...args}/>
+
+export const Default = Template.bind({});
+Default.args={
+  list :  list
 }

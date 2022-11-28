@@ -7,7 +7,7 @@ export default {
   argTypes: { 
     titulo: { 
       name: 'titulo',
-      description:'Título da página *string*'
+      description:'Título do componente *string*'
     },
     corpo: {
       name: 'corpo',
@@ -16,12 +16,12 @@ export default {
   },
 };
 
-export const Default = () => {
-  return <TextCol
-  titulo = "Como funciona?"
-  corpo = "Três encontros gratuitos com nosso time de especialistas, que preparam diagnóstico, plano de ação e acompanhamento de resultados personalizados para o seu município."
-/>
+const Template = (args) => <TextCol {...args}/>
 
+export const Default = Template.bind({});
+Default.args={
+  titulo :  "Como funciona?",
+  corpo : "Três encontros gratuitos com nosso time de especialistas, que preparam diagnóstico, plano de ação e acompanhamento de resultados personalizados para o seu município."
 }
 
 
