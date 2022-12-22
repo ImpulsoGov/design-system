@@ -20,11 +20,11 @@ export default {
         },
         setEtapa: {
             name:'setEtapa',
-            description:'Função que define as etapas do login *function*'
+            description:'Função de estado que define as etapas do login *function*'
         },
         etapa: {
             name:'etapa',
-            description:'Objeto que indica as etapas do login. Se possui o valor 0 indica a etapa de logout. Se possui o valor 1 a etapa de login *int*'
+            description:'Estado que indica as etapas do login. Se possui o valor 0 indica a etapa de logout. Se possui o valor 1 a etapa de login *int*'
         },
         logged : {
             name:'logged',
@@ -44,32 +44,32 @@ const menus = [
                     { label: "Consultoria", url: "/consultoria" }
                 ]
 
-
-export const LoggedIn = () => {
+const Template = (args) => {
     const [etapa, setEtapa] = useState(0)
+    args["setEtapa"] = etapa
+    args["etapa"] = setEtapa
 
-    return <MenuMoblie
-                menus={menus}
-                setEtapa={setEtapa}
-                etapa={etapa}
-                logged={true}
-                user={{
-                    label:"C",
-                    nome: "Camila Alves",
-                    cargo: "Impulser"
-                }}
-
-            />
+    return <MenuMoblie {...args}/>
+}
+export const LoggedIn = Template.bind({});
+LoggedIn.args={
+    menus:menus,
+    logged:true,
+    user:{
+        label:"C",
+        nome: "Camila Alves",
+        cargo: "Impulser"
+    }
 }
 
-export const LoggedOut = () => {
-    const [etapa, setEtapa] = useState(0)
-
-    return <MenuMoblie
-                menus={menus}
-                setEtapa={setEtapa}
-                etapa={etapa}
-                logged={false}
-            />
+export const LoggedOut = Template.bind({});
+LoggedOut.args={
+    menus:menus,
+    logged:false,
+    user:{
+        label:"C",
+        nome: "Camila Alves",
+        cargo: "Impulser"
+    }
 }
 

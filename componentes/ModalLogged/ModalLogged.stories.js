@@ -25,21 +25,20 @@ export default {
             name:'button',
             description:'Objeto que recebe duas chaves referentes ao botão \n\n *object* **-label:** rótulo do botão *string* \n\n **-link:** URL do botão *URL*'
         },
-        label: {
-            name:'loggout',
-            description:'O'
+        logout: {
+            name:'logout',
+            description:'Função para logout do usuário *function*'
         },
     },
 };
 const sout = ()=> console.log("logout")
-
-export const Default = () => {
-    return <ModalLogged
-                nome = "Camila Alves"
-                label = "C"
-                cargo = "Coordenadora APS"
-                equipe = "00003287"
-                button = {{label:"sair",link:""}}
-                logout = {sout}
-            />
+const Template = (args) => <ModalLogged {...args}/>
+export const Default = Template.bind({});
+Default.args={
+    nome : "Camila Alves",
+    label : "C",
+    cargo : "Coordenadora APS",
+    equipe : "00003287",
+    button : {label:"sair",link:""},
+    logout : sout
 }
