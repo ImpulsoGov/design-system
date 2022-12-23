@@ -11,5 +11,8 @@ module.exports = {
     "@storybook/addon-interactions",
     "storybook-css-modules"
   ],
-  "framework": "@storybook/react"
+  "framework": "@storybook/react",
+  features: {
+    postcss: false,
+  },
 }
