@@ -5,12 +5,12 @@
 /dist
 /.pnp
 .pnp.js
-/storybook-static
 # testing
 /coverage
 
 # production
 /build
+/storybook-static
 
 # misc
 .DS_Store
