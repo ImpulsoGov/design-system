@@ -6,8 +6,21 @@ import { ButtonLight } from '../ButtonLight/index'
 export default {
   title: "Componentes/ButtonBar",
   component: ButtonBar,
-  argTypes: { label: { control: 'text' }}
-}
+  argTypes: { 
+    child1: { 
+      name: "child1",
+      description: "Recebe componete react *componente react*"
+    },
+    child2:{
+      name: "child2",
+      description: "Recebe componete react *componente react*"
+    },
+    child3: {
+      name: "child3",
+      description: "Recebe componete react *componente react*"
+    },
+  },
+};
 const Template = (args) => <ButtonBar {...args}/>
 export const Default = Template.bind({});
 Default.args={

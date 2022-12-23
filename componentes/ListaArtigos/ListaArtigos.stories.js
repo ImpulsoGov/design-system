@@ -4,7 +4,25 @@ import {ListaArtigos} from './index'
 export default {
     title: "Componentes/ListaArtigos",
     component: ListaArtigos,
-}
+    argTypes: {
+        artigos: {
+            name: 'artigo',
+            description:'Array de objetos contendo os artigos e suas informações *array/object* **id:** Id do artigo *string* \n\n **tag:** Tags do artigo *string*,\n\n **título:** Yítulo do artigo *string* \n\n **texto:** Texto do artigo *string* \n\n **autor:** Autor do artigo *string* \n\n **avatar:** Avatar do autor do artigo *URL* \n\n **data:** Data de publicação do artigo *string* \n\n **imagem:** Imagem do artigo *URL*'
+        },
+        resumo: {
+            name:'resumo',
+            description: 'Booleano que retorna a o resumo dos artigos quando recebe o valor "True". Quando recebe o valor "False" retorna a lista completa boolean'
+        },
+        titulo: {
+            name:'titulo',
+            description: "'Título do componente *string*"
+        },
+        btn: {
+            name:'btn',
+            description: 'Botão que retorna a lista completa de artigos *object* \n\n **label:** rótulo do botão *string* \n\n **link:** link do botão *URL*'
+        }
+    },
+};
 
 const artigos = [
     {
@@ -99,19 +117,20 @@ const artigos = [
     },
 ]
   
-export const ListaResumo = () => <ListaArtigos
-                                    resumo = {true}
-                                    artigos = {artigos}
-                                    titulo = "Outros artigos"
-                                    btn = {{label : "ver todos" , link: "artigos"}}
-                                />
+const Template = (args) => <ListaArtigos {...args}/>
 
+export const ListaResumo = Template.bind({});
+ListaResumo.args={
+    resumo : true,
+    artigos : artigos,
+    titulo : "Outros artigos",
+    btn : {label : "ver todos" , link: "artigos"},
+}
 
-export const ListaCompleta = () =>  <ListaArtigos
-                                    resumo = {false}
-                                    artigos = {artigos}
-                                    titulo = "Outros artigo"
-                                    btn = {{label : "ver todos" , link: "artigos"}}
-                                    />
-  
-  
+export const ListaCompleta = Template.bind({});
+ListaCompleta.args={
+    resumo : false,
+    artigos : artigos,
+    titulo : "Outros artigos",
+    btn : {label : "ver todos" , link: "artigos"},
+}

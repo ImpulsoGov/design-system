@@ -4,7 +4,17 @@ import { SearchBar } from './index'
 export default {
     title: "Componentes/SearchBar",
     component: SearchBar,
-}
+    argTypes: {
+      data: {
+        name:'data',
+        description:'Array de objetos contendo os nomes dos países e seu respectivo continente *Array* \n\n **name:** nome do país *string*\n\n **continent:** continente do país *string*'
+    },
+    municipio: {
+      name:'municipio',
+      description:'Nome do país selecionado *string*'
+  },
+  },
+};
 const data = [
     { name: "Belgium", continent: "Europe" },
     { name: "India", continent: "Asia" },
@@ -32,13 +42,13 @@ const data = [
     { name: "Pakistan", continent:"Asia" },
 ];
 
-  
-export const Default = () =>{
-  return(
-    <SearchBar
-        data={data}
-        municipio = "Brazil"
-    />
-  )
+
+const Template = (args) => <SearchBar {...args}/>
+
+export const Default = Template.bind({});
+Default.args={
+  data : data,
+  municipio : "Brazil"
 }
+
 

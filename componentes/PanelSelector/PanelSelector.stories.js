@@ -1,3 +1,129 @@
+<<<<<<< HEAD
+import React from "react";
+import { PanelSelector } from "./index";
+
+const dsLink = [
+  "https://datastudio.google.com/embed/reporting/12fb288f-4955-4930-b091-63da3f846c51/page/p_1i1fd8auvc?params=%7B%22df58%22:%22include%25EE%2580%25800%25EE%2580%2580IN%25EE%2580%2580Santo%2520Andr%25C3%25A9%2520-%2520SP%22%7D",
+  "https://datastudio.google.com/embed/reporting/12fb288f-4955-4930-b091-63da3f846c51/page/p_8qgdgiz2xc?params=%7B%22df56%22:%22include%25EE%2580%25800%25EE%2580%2580IN%25EE%2580%2580Abadi%25C3%25A2nia%2520-%2520GO%22%7D",
+  "https://datastudio.google.com/embed/reporting/12fb288f-4955-4930-b091-63da3f846c51/page/p_1i1fd8auvc?params=%7B%22df58%22:%22include%25EE%2580%25800%25EE%2580%2580IN%25EE%2580%2580Santo%2520Andr%25C3%25A9%2520-%2520SP%22%7D",
+]
+const dsLinkBuscaAtiva =[
+  [
+    "https://www.impulsogov.org/",
+    "https://saude.sp.gov.br/"
+  ],
+  [
+    "http://cnes.datasus.gov.br/",
+    "https://aps.saude.gov.br/gestor/financiamento"
+  ]
+]
+const dsLinkBuscaAtivaEquipe =[
+    [
+      "https://www.impulsogov.org/",
+      "https://saude.sp.gov.br/"
+    ],
+  ]
+  
+const labels = [
+  {
+    label: "Indicadores de Desempenho",
+  },
+  {
+    label: "Captação Ponderada",
+  },
+  {
+    label: "Incentivos a Ações Estratégicas",
+  },
+]
+const labelsBuscaAtiva = [
+  [
+    {
+      label: "Coordenação APS",
+    },
+    {
+      label: "Coordenação de Equipe",
+    },
+  ],
+  [
+    {
+      label: "Coordenação APS2",
+    },
+    {
+      label: "Coordenação de Equipe2",
+    },
+  ]
+]
+const labelsBuscaAtivaEquipe = [
+    [
+      {
+        label: "Coordenação de Equipe",
+      },
+    ],
+  ]
+  
+const titlesBuscaAtiva = [
+  {
+    label: "Indicadores Gestantes",
+  },
+  {
+    label: "Cadastros - Gestantes",
+  },
+]
+const titlesBuscaAtivaEquipe = [
+    {
+      label: "Indicadores Gestantes",
+    },
+  ]
+  
+const titles = [
+  {
+    label: "Análises",
+  }
+]
+
+
+export default {
+    title: "Componentes/PanelSelector",
+    component: PanelSelector,
+    argTypes: {
+        links:{
+            name:'links',
+            description:'Array de arrays contendo os links utilizados no painel *array* \n\n **dsLink:** links dos painéis do data studio *array/URL* **\n\n **dsLinkBuscaAtiva** e **dsLinkBuscaAtivaEquipe:** links das organizações de saúde e da Impulso *array/URL*'
+        },
+        list:{
+            name:'list',
+            description:'Array de objetos contento os rótulos das abas *array/object* \n\n **labels:** Rótulos das sub abas dos paineis do Impulso Previne "Análises" \n\n **labelsBuscaAtiva** e **labelsBuscaAtivaEquipe:** Rótulos das sub abas do painel de busca ativa'
+        },
+        titles:{
+            name:'titles',
+            description:'Array de objetos contento os rótulos das abas *array/object* \n\n **titles:** Rótulos da aba "Análises" dos paineis do Impulso Previne  \n\n **titlesBuscaAtiva** e **titlesBuscaAtivaEquipe:** Rótulos das abas do painel de busca ativa'
+        },
+    },
+  };
+
+const Template = (args) => <PanelSelector {...args}/>
+export const BuscaAtiva = Template.bind({});
+BuscaAtiva.args={
+  links: dsLinkBuscaAtiva,
+  list: labelsBuscaAtiva,
+  titles: titlesBuscaAtiva
+}
+
+export const BuscaAtivaEquipe = Template.bind({});
+BuscaAtivaEquipe.args={
+  links: dsLinkBuscaAtivaEquipe,
+  list: labelsBuscaAtivaEquipe,
+  titles: titlesBuscaAtivaEquipe
+}
+
+export const Analises = Template.bind({});
+Analises.args={
+  links: [dsLink],
+  list: [labels],
+  titles: titles
+}
+  
+=======
 import React from "react";
 import { PanelSelector } from "./index";
 import { NavBar } from "../NavBar";
@@ -338,3 +464,4 @@ export const BuscaAtivaEquipe = () => {
     />
     );
   };
+>>>>>>> 04e838f9ee8b9e24b07ac96ab03dda6239f7680b

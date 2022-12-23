@@ -7,16 +7,38 @@ const right = "Conheça e utilize nossas ferramentas e guias criados para apoiar
 export default {
   title: "Componentes/ToolsAndGuides",
   component: ToolsAndGuides,
+  argTypes: {
+    leftTitle: {
+      name: 'leftTitle',
+      description:'Título do lado esquerdo*string*'
+    },
+    rightTitle: {
+      name: 'rightTitle',
+      description: 'Título do lado direito *string*'
+    },
+    rightContent: {
+      name: 'rightContent',
+      description: 'Objeto contendo o conteúdo do lado direito da página *object/string*'
+    },
+    buttonTitle: {
+      name:'buttonTitle',
+      description: 'Rótulo do botão *string*'
+    },
+    onClick:{
+      name: 'onClick',
+      description: 'Função de click do botão *function*'
+    }
+  }
 };
 
-export const Default = () => {
-  return (
-    <ToolsAndGuides 
-      leftTitle="Competências e Soluções"
-      rightTitle="Ferramentas e Guias"
-      rightContent={right}
-      buttonTitle="Ver Todos"
-      onClick={()=> console.log("click do botão")}
-    />
-  )
-};
+
+const Template = (args) => <ToolsAndGuides {...args}/>
+
+export const Default = Template.bind({});
+Default.args={
+  leftTitle : "Competências e Soluções",
+  rightTitle : "Ferramentas e Guias",
+  rightContent : right,
+  buttonTitle : "Ver Todos",
+  onClick : ()=> console.log("click do botão")
+}

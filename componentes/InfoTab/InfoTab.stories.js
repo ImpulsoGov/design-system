@@ -2,6 +2,16 @@ import React from "react";
 
 import { InfoTab } from "./index";
 
+export default {
+  title: "Componentes/InfoTab",
+  component: InfoTab,
+  argTypes : {
+    contentList :{
+      name:'contentList',
+      description:  'Array de objetos com os conteúdos da contentList *array/object* \n\n **leftTitle:** Título descritivo do componente contendo *string* \n\n **rightTitle**: Título descritivo do lado direito *string* \n\n**rightContent:** Texto explicativo  do lado direito *string* \n\n**buttonTitle:** Rótulo do botão *string* \n\n**buttonLink:** Link do botão *URL*'
+    },
+  },
+}
 const props = [
   {
     leftTitle: "Saúde Mental",
@@ -18,15 +28,10 @@ const props = [
     buttonLink: "/2"
   },
 ]
-export default {
-  title: "Componentes/InfoTab",
-  component: InfoTab,
-};
 
-export const Default = () => {
-  return (
-    <InfoTab
-      contentList={props}
-    />
-  )
-};
+
+const Template = (args) => <InfoTab {...args}/>
+export const Default = Template.bind({});
+Default.args={
+  contentList: props
+}

@@ -12,10 +12,17 @@ const item = {
 export default {
   title: "Componentes/ToggleListElementBlock",
   component: ToggleListElementBlock,
+  argTypes: {
+    item: {
+      name:'item',
+      description:'Objeto contendo informações dos itens da toggle list *object* \n\n**titulo:** Título do item *string* \n\n**subTiTle:** Subtítulo do item *string* \n\n**description:** Descrição do Item *string* \n\n **source:** Fonte da informação *string*'
+    },
+  },
 };
 
-export const Default = () => {
-  return (
-    <ToggleListElementBlock title={item.title} subTitle={item.subTitle} description={item.description} />
-  )
+const Template = (args) => <ToggleListElementBlock {...args}/>
+
+export const Default = Template.bind({});
+Default.args={
+  item : item
 }

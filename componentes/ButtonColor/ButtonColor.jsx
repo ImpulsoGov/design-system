@@ -33,7 +33,6 @@ const ButtonColorSubmit = ({
 const ButtonColorSubmitMultiple = ({
     label,
     submit,
-    arg
 })=>{
     return(
         <button 

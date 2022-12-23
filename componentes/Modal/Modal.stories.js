@@ -6,7 +6,21 @@ import { Modal } from './index'
 export default {
     title: "Componentes/Modal",
     component: Modal,
-}
+    argTypes: {
+        show:{
+            name: 'show',
+            description:'State retornando True ou False *state*'
+        },
+        child: {
+            name:'child',
+            description: 'Componente react *componente react*'
+        },
+        setModal: {
+            name: 'setModal',
+            description:'Função de callback que altera a propriedade show *function*'
+        },
+    },
+};
 const Template = (args) => <Modal {...args}/>
 
 const Logged = <ModalLogged

@@ -5,12 +5,18 @@ export default {
     title: "Componentes/Login",
     component: Login,
     argTypes: {
+        titulo: {
+            name: 'título',
+            description: 'Título da página *string*'
+        },
         campos: {
-            description: 'demo description',
+            name: 'campos',
+            description: 'Array de objetos contendo rótulos dos campos de login *array/object* \n\n**label:** rótulo dos campos *string*',
             control: { control: 'object' },
         },
         button: {
-            description: 'demo description',
+            name: 'button',
+            description: 'Objeto contendo informações do botão *objectF*\n\n**label:** rótulo do botão *string* \n\n **link:** URL do botão *URL*',
             control: { control: 'object' },
         },
       },

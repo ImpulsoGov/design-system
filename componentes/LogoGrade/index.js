@@ -1,0 +1,1 @@
+export { LogoGrade } from "./LogoGrade";
