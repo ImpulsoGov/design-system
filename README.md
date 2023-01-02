@@ -8,18 +8,62 @@ A iniciativa potencializa a eficiência e a eficácia dos usuários na utilizaç
 
 Instale pela linha de comando:
 ```
-npm install @impulsogov/designsystem@0.0.0
+npm i @impulsogov/designsystem
 ```
 ou
 ```
 yarn add @impulsogov/designsystem
 ```
 
-Ou via via package.json:
+## Execução em ambiente local 
 
 ```
-"@impulsogov/designsystem": "0.0.0"
+yarn sb
 ```
 
-Substitua 0.0.0 pela versão desejada.
-Acompanhe o histórico de versões por [aqui](https://www.npmjs.com/package/@impulsogov/design-system);
+## Execução em produção
+
+```
+yarn start
+```
+
+## Build componentes
+
+```
+yarn build
+```
+
+## Build aplicação story-book
+
+```
+yarn build-storybook
+```
+
+## Versionamento
+
+O design-system segue as praticas de versionamento semantico e adota as seguintes convenções:
+
+### Patch
+
+- Alterações de componentes sem mudanças nas propriedades (Mantém retro-compatibilidade)
+
+### Minor
+
+- Adiciona novos compomentes
+
+### Major
+
+- Mudanças estruturais, como mudança de tecnologia, ferramentas, estrutura de diretório e retro-compatibilidade.
+
+## Documentação
+
+A [documentação](https://designsystem.impulsogov.org/?path=/story/docs-introdu%C3%A7%C3%A3o--page) foi implementada com o [storybook](https://storybook.js.org/), nela você encontra:
+- lista de componentes disponiveis
+- pre-visualização
+- exemplo de consumo
+- descrição e orientações das propriedades de cada componente
+- fundamentos visuais :
+  - paleta de cores
+  - tipografia
+  - espaçamentos
+  - logos
