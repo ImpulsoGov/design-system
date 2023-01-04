@@ -123,6 +123,8 @@ const NavBar = (props) => {
                   titulo= "Faça o login para ver o painel de busca ativa"
                   button = {{label:"entrar"}}
                   entrar = {props?.user?.login}
+                  validarCredencial = {props?.user?.validarCredencial}
+                  validacao = {props?.user?.validacao}
                 />
   const ModalChildren = [Logged,login]
   return (
@@ -236,6 +238,9 @@ const NavBar = (props) => {
           user={props?.user}
           login={props?.user?.login}
           logout={props?.user?.logout}
+          validarCredencial = {props?.user?.validarCredencial}
+          validacao = {props?.user?.validacao}
+
         />
       </div>
     </div>

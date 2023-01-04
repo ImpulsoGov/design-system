@@ -46,7 +46,9 @@ const MenuMoblie = ({
     login,
     logout,
     logged,
-    user
+    user,
+    validarCredencial,
+    validacao
 })=>{
     const [etapa, setEtapa] = useState(0)
     return(
@@ -86,6 +88,8 @@ const MenuMoblie = ({
                             titulo= "Faça o login para ver o painel de busca ativa"
                             button = {{label:"entrar"}}
                             entrar = {login}
+                            validarCredencial = {validarCredencial}
+                            validacao = {validacao}
                         />
                         <div 
                             className={style.MenuMoblieBack}

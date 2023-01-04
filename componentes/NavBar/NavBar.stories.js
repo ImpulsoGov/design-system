@@ -388,14 +388,22 @@ ColorIPLogin.args = {
     NavBarIconBranco:"https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconBranco.svg",
     NavBarIconDark:"https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconDark.svg"
 }
+const entrar = ()=> {
+    const res1 = {
+        "detail": "E-mail Incorreto"
+    }
+    return res1
+    
 
+}
 export const ColorIPLogout = Template.bind({});
 ColorIPLogout.args = {
     user:{
             button : {label:"sair",link:""},
             label : "ENTRAR",
             login : ()=> console.log('logado'),
-            logout : ()=> console.log('deslogado')
+            logout : ()=> console.log('deslogado'),
+            validarCredencial : entrar
         },
     data:data,
     theme:{

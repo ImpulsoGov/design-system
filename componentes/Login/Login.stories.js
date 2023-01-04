@@ -23,24 +23,24 @@ export default {
 }
 const Template = (args) => <Login {...args}/>
 
+const entrar = ()=> {
+    const res = {
+        "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJpbXB1bHNlckBpbXB1bHNvZ292Lm9yZyIsImV4cCI6MTY3MTgzNzIyN30.a1nX2_2vPONoYX_oRX79fmUGcrKj6WudHKXsYTMAWT4",
+        "token_type": "bearer"
+    }
+    const res1 = {
+        "detail": "E-mail Incorreto"
+    }
+    return res
+    
+
+}
+
 export const Default = Template.bind({});
 
 Default.args ={
     titulo: "Faça o login para ver o painel de busca ativa",
-    campos:[
-        {label:"E-mail"},
-        {label:"Senha"},
-    ],
-    button : {label:"entrar",link:""}
-}
-
-export const Default2 = Template.bind({});
-
-Default2.args ={
-    titulo: "Faça o login para ver o painel de busca ativa",
-    campos:[
-        {label:"E-mail"},
-        {label:"Senha"},
-    ],
-    button : {label:"entrar",link:""}
+    button : {label:"entrar",link:""},
+    entrar : entrar,
+    validarCredencial : entrar
 }

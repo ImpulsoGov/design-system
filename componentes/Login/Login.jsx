@@ -1,12 +1,12 @@
 import React from "react";
 import { useState } from "react";
 import style from "./Login.module.css"
-import { ButtonColor } from "../ButtonColor";
-
 
 const Login = (props)=>{
     const [senha, setSenha] = useState("");
     const [mail, setMail] = useState("");
+    const [resposta,setResposta] = useState()
+
     return(
         <div className={style.LoginConteiner}>
             <div className={style.LoginTitulo}>{props.titulo}</div>
@@ -25,11 +25,14 @@ const Login = (props)=>{
                     value={senha}
                     onChange={(e) => {setSenha(e.target.value);}}
                 />
+                
+                {resposta && <div className={style.LoginResposta}>{resposta}</div>
+}
             </div>
             <div className={style.LoginCampoButton}>
             <button 
                 className={style.LoginButton}
-                onClick={() => props.entrar('credentials', { redirect: true,username:mail, password: senha })}
+                onClick={() => props.validacao(setResposta,props.validarCredencial,props.entrar,mail,senha)}
             >{props.button.label.toUpperCase()}</button>
             </div>
         </div>
