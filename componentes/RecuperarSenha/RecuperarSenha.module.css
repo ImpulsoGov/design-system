@@ -1,0 +1,154 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@40;500&display=swap");
+
+.RecuperarSenhaConteiner{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+    padding: 15px 30px;
+    gap: 24px;
+}
+
+.RecuperarSenhaTitulo{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 130%;
+    color: #1F1F1F;
+}
+
+.RecuperarSenhaChamada{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 130%;
+    color: #1F1F1F;
+}
+
+.RecuperarSenhaInput{
+    width: 98%;
+    height: 56px;
+    border: 1px solid #EFF5F9;
+    border-radius: 8px;
+    padding: 0px 24px 2px;
+
+    color: #1F1F1F;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 100%;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.RecuperarSenhaInput:focus{
+    outline: none !important;
+    border: #2EB280 solid 1px;
+}
+
+.RecuperarSenhaInputErro{
+    width: 98%;
+    height: 56px;
+    border: 1px solid #EFF5F9;
+    border-radius: 8px;
+    padding: 0px 24px 2px;
+
+    background-color:#FCFFE9;
+    color: #1F1F1F;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 100%;
+
+    display: flex;
+    flex-direction: column;
+}
+.RecuperarSenhaInputErro:focus{
+    outline: none !important;
+    border: #E95F3A solid 1px;
+}
+
+
+.RecuperarSenhaMensagem{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px 16px;
+    background: #E95F3A;
+    border-radius: 8px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 150%;
+    color: #FFFFFF;
+}
+
+.RecuperarSenhaButtonConteiner{
+    display: flex;
+    flex-direction: row;
+    gap: 28px;
+}
+
+.RecuperarSenhaBotaoVoltar{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 130%;
+    color: #1F1F1F;
+    background: #FFFFFF;
+    border: 1px solid rgba(96, 110, 120, 0.15);
+    border-radius: 100px;
+    padding: 16px 24px;
+}
+
+.RecuperarSenhaBotaoVoltar:hover{
+    cursor: pointer;
+}
+
+.RecuperarSenhaBotaoProximo{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 130%;
+    color: #fff;
+    background: #1D856C;
+    border-radius: 100px;
+    padding: 16px 24px;
+}
+
+.RecuperarSenhaBotaoProximo:hover{
+    cursor: pointer;
+}
+
+.RecuperarSenhaBotaoProximoInativo{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 130%;
+    color: #fff;
+    background: #A6B5BE;
+    border-radius: 100px;
+    padding: 16px 24px;
+}
+
+
+
+.RecuperarSenhaValidacao{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 150%;
+    color: #606E78;
+}

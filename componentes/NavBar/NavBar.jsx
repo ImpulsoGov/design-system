@@ -7,6 +7,7 @@ import { Modal } from "../Modal";
 import { ModalLogged } from "../ModalLogged";
 import { Login } from "../Login";
 import { MenuMoblie } from "../MenuMoblie";
+import { RecuperarSenha } from "../RecuperarSenha/RecuperarSenha";
 
 const NavBarMenu = (tema, NavBarIconBranco, NavBarIconDark) => {
   let theme = (tema == "ColorIP" || tema == "ColorAGP" || tema == "ColorSM") ? NavBarIconBranco : NavBarIconDark
@@ -107,6 +108,8 @@ const DropdownMenuMoblie = (attr) => {
 const NavBar = (props) => {
   const [active, setMode] = useState(true)
   const [modal, setModal] = useState(false)
+  const [showEsqueciSenha, setShowEsqueciSenha] = useState(false)
+  
   const menuVisible = () => {
     setMode(!active)
     return active
@@ -125,8 +128,35 @@ const NavBar = (props) => {
                   entrar = {props?.user?.login}
                   validarCredencial = {props?.user?.validarCredencial}
                   validacao = {props?.user?.validacao}
+                  showEsqueciSenha = {setShowEsqueciSenha}
                 />
-  const ModalChildren = [Logged,login]
+  
+  const EsqueciMinhaSenha = <RecuperarSenha
+                              titulos = { {
+                                senha : "Recuperação de senha",
+                                sucesso : "Nova senha criada com sucesso!"
+                              }}
+                              chamadas={{
+                              mail : "Digite o email cadastrado para receber um código de autorização de recuperação da senha.Caso não lembre o e-mail cadastrado, entre em contato conosco pelo grupo de mensagens do seu município com a Impulso Gov",
+                              codigo : "Digite abaixo o código recebido no e-mail cadastrado",
+                              senha : "Escolha uma nova senha",
+                              sucesso : "Agora é só entrar na área restrita com seu email e a nova senha.",
+                              }}
+                              botaoVoltar = {{label:"voltar",function : ""}}
+                              botaoProximo = {{label:"proximo",function : ""}}
+                              showEsqueciSenha = {setShowEsqueciSenha}
+                              reqs = {props.esqueciMinhaSenha.reqs}
+                              ProximaEtapa = {props.esqueciMinhaSenha.ProximaEtapa}
+                            />   
+  
+  const ModalChildren = ()=>{
+    if (showEsqueciSenha){
+      return EsqueciMinhaSenha
+    }else{
+      return props?.user.nome ? Logged : login
+    }
+  }
+  
   return (
     <>
     <div>
@@ -240,7 +270,6 @@ const NavBar = (props) => {
           logout={props?.user?.logout}
           validarCredencial = {props?.user?.validarCredencial}
           validacao = {props?.user?.validacao}
-
         />
       </div>
     </div>
@@ -249,7 +278,7 @@ const NavBar = (props) => {
       <Modal
           show = {modal}
           setModal = {setModal}
-          child={props?.user.nome ? ModalChildren[0] : ModalChildren[1]}
+          child={ModalChildren()}
       />
     </div>}
     </>

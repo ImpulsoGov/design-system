@@ -386,7 +386,21 @@ ColorIPLogin.args = {
             { label: "Consultoria", url: "/consultoria" }
         ],
     NavBarIconBranco:"https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconBranco.svg",
-    NavBarIconDark:"https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconDark.svg"
+    NavBarIconDark:"https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconDark.svg",
+    esqueciMinhaSenha : {
+        reqs : {
+            mail : async()=> {
+                            const aguarde = async()=> await new Promise(r => setTimeout(r, 1000));
+                            const res = aguarde().then(async(res)=>{
+                                return true;
+                })
+                return await res
+            },
+            codigo : ()=> true,
+            alterarSenha : ()=> true
+        },
+    }
+
 }
 const entrar = ()=> {
     const res1 = {
@@ -418,7 +432,34 @@ ColorIPLogout.args = {
             { label: "Consultoria", url: "/consultoria" }
         ],
     NavBarIconBranco:"https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconBranco.svg",
-    NavBarIconDark:"https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconDark.svg"
+    NavBarIconDark:"https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconDark.svg",
+    esqueciMinhaSenha : {
+        reqs : {
+            mail : async(mail)=> {
+                            const aguarde = async()=> await new Promise(r => setTimeout(r, 2000));
+                            const res = aguarde().then(async(res)=>{
+                                if (mail == 'danilo') return true
+                                return false 
+                })
+                return await res
+            },
+            codigo : async(mail,codigo)=>{
+                const aguarde = async()=> await new Promise(r => setTimeout(r, 2000));
+                const res = aguarde().then(async(res)=>{
+                    if (codigo.toString() == '123') return true
+                    return false;
+                })
+                return await res
+            },
+            alterarSenha : async()=>{
+                const aguarde = async()=> await new Promise(r => setTimeout(r, 2000));
+                const res = aguarde().then(async(res)=>{
+                    return true
+                })
+                return await res
+            },
+        },
+    }
 }
 export const ColorAGP = Template.bind({});
 ColorAGP.args = {

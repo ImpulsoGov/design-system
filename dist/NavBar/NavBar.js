@@ -27,6 +27,8 @@ var _Login = require("../Login");
 
 var _MenuMoblie = require("../MenuMoblie");
 
+var _RecuperarSenha = require("../RecuperarSenha/RecuperarSenha");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
@@ -129,6 +131,7 @@ const NavBar = props => {
 
   const [active, setMode] = (0, _react.useState)(true);
   const [modal, setModal] = (0, _react.useState)(false);
+  const [showEsqueciSenha, setShowEsqueciSenha] = (0, _react.useState)(false);
 
   const menuVisible = () => {
     setMode(!active);
@@ -151,10 +154,42 @@ const NavBar = props => {
     },
     entrar: props === null || props === void 0 ? void 0 : (_props$user7 = props.user) === null || _props$user7 === void 0 ? void 0 : _props$user7.login,
     validarCredencial: props === null || props === void 0 ? void 0 : (_props$user8 = props.user) === null || _props$user8 === void 0 ? void 0 : _props$user8.validarCredencial,
-    validacao: props === null || props === void 0 ? void 0 : (_props$user9 = props.user) === null || _props$user9 === void 0 ? void 0 : _props$user9.validacao
+    validacao: props === null || props === void 0 ? void 0 : (_props$user9 = props.user) === null || _props$user9 === void 0 ? void 0 : _props$user9.validacao,
+    showEsqueciSenha: setShowEsqueciSenha
   });
 
-  const ModalChildren = [Logged, login];
+  const EsqueciMinhaSenha = /*#__PURE__*/_react.default.createElement(_RecuperarSenha.RecuperarSenha, {
+    titulos: {
+      senha: "Recuperação de senha",
+      sucesso: "Nova senha criada com sucesso!"
+    },
+    chamadas: {
+      mail: "Digite o email cadastrado para receber um código de autorização de recuperação da senha.Caso não lembre o e-mail cadastrado, entre em contato conosco pelo grupo de mensagens do seu município com a Impulso Gov",
+      codigo: "Digite abaixo o código recebido no e-mail cadastrado",
+      senha: "Escolha uma nova senha",
+      sucesso: "Agora é só entrar na área restrita com seu email e a nova senha."
+    },
+    botaoVoltar: {
+      label: "voltar",
+      function: ""
+    },
+    botaoProximo: {
+      label: "proximo",
+      function: ""
+    },
+    showEsqueciSenha: setShowEsqueciSenha,
+    reqs: props.esqueciMinhaSenha.reqs,
+    ProximaEtapa: props.esqueciMinhaSenha.ProximaEtapa
+  });
+
+  const ModalChildren = () => {
+    if (showEsqueciSenha) {
+      return EsqueciMinhaSenha;
+    } else {
+      return props !== null && props !== void 0 && props.user.nome ? Logged : login;
+    }
+  };
+
   return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("div", {
     className: (0, _classnames.default)(_NavBarModule.default.container_navbar, _NavBarModule.default["theme" + props.theme.cor])
   }, /*#__PURE__*/_react.default.createElement("div", {
@@ -238,7 +273,7 @@ const NavBar = props => {
   }, /*#__PURE__*/_react.default.createElement(_Modal.Modal, {
     show: modal,
     setModal: setModal,
-    child: props !== null && props !== void 0 && props.user.nome ? ModalChildren[0] : ModalChildren[1]
+    child: ModalChildren()
   })));
 };
 

@@ -6,7 +6,6 @@ const Login = (props)=>{
     const [senha, setSenha] = useState("");
     const [mail, setMail] = useState("");
     const [resposta,setResposta] = useState()
-
     return(
         <div className={style.LoginConteiner}>
             <div className={style.LoginTitulo}>{props.titulo}</div>
@@ -25,7 +24,12 @@ const Login = (props)=>{
                     value={senha}
                     onChange={(e) => {setSenha(e.target.value);}}
                 />
-                
+                <div 
+                    className={style.LoginEsqueciMinhaSenha}
+                    onClick={()=>props.showEsqueciSenha(true)}
+                >
+                    Esqueceu sua senha?
+                </div>
                 {resposta && <div className={style.LoginResposta}>{resposta}</div>
 }
             </div>
