@@ -2,9 +2,11 @@ import React from "react";
 import style from "./ButtonColor.module.css"
 
 const ButtonColor = ({
+    icone,
     label,
     link
 })=>{
+    if (icone === undefined) {
     return(
         <a 
             className={style.ButtonColorContainer}
@@ -13,6 +15,22 @@ const ButtonColor = ({
             {label}
         </a>
     )
+    }else if (icone.posicao=='left'){
+        return(
+            <a href={link} className={style.ButtonColorIconContainer}> 
+                {label} 
+                <img className={style.IconeLeft} src={icone.url} />
+            </a>
+        )
+    }
+    else{
+        return(
+            <a className={style.ButtonColorIconContainer} href={link}> 
+                <img className={style.IconeRight} src={icone.url} />
+                {label}
+            </a>
+        )
+      }
 }
 
 const ButtonColorSubmit = ({
