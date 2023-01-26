@@ -1,0 +1,71 @@
+.ModalInicioContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 27px;
+    padding: 20px 40px;
+}
+
+.ModalInicioTitulo{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 130%;
+    letter-spacing: -0.02em;
+    color: #1F1F1F;
+    margin-top: 25px;
+}
+
+.ModalInicioChamada{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 130%;
+    letter-spacing: -0.02em;
+    color: #1F1F1F;
+}
+
+.ModalInicioButtonContainer{
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    margin-top: 40px;
+}
+
+.ModalInicioButtonContainerMobile{
+    display: none;
+}
+.ModalInicioChamadaMobile{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 130%;
+    letter-spacing: -0.02em;
+    color: #1F1F1F;
+    display: none;
+}
+
+@media screen and (max-width: 1000px) {
+    .ModalInicioTitulo{
+        display: none;
+    }
+    .ModalInicioChamada{
+        display: none;
+    }
+    .ModalInicioButtonContainer{
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 0px;
+        display: none;
+    }
+    .ModalInicioButtonContainerMobile{
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+    }
+    .ModalInicioChamadaMobile{
+        display: block;
+    }
+}

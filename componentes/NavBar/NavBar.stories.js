@@ -376,7 +376,8 @@ ColorIPLogin.args = {
     data:data,
     theme:{
         logoProjeto: "https://media.graphassets.com/Kal4aulRmYkqd0L6RBAd",
-        cor: "ColorIP"
+        cor: "ColorIP",
+        logoLink: "/"
     },
     menu:
         [
@@ -386,7 +387,60 @@ ColorIPLogin.args = {
             { label: "Consultoria", url: "/consultoria" }
         ],
     NavBarIconBranco:"https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconBranco.svg",
-    NavBarIconDark:"https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconDark.svg"
+    NavBarIconDark:"https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconDark.svg",
+    esqueciMinhaSenha : {
+        reqs : {
+            mail : async()=> {
+                            const aguarde = async()=> await new Promise(r => setTimeout(r, 1000));
+                            const res = aguarde().then(async(res)=>{
+                                return true;
+                })
+                return await res
+            },
+            codigo : ()=> true,
+            alterarSenha : ()=> true
+        },
+    },
+    ModalInicio:{
+        titulo: "Faça o login para ver os dados restritos.",
+        chamada: "Se esse é o seu primeiro acesso e sua senha ainda não foi criada, clique abaixo em ‘primeiro acesso’. Se você já possui uma senha, clique em ‘entrar’.",
+        botaoPrincipal : {
+            label: "entrar",
+            submit: ()=>console.log("teste")
+        },
+        botaoSecundario : {
+            label: "primeiro acesso",
+            submit: ()=>console.log("teste")
+        }
+    },
+    primeiroAcesso:{
+        reqs:{
+            mail : async(mail)=> {
+                const aguarde = async()=> await new Promise(r => setTimeout(r, 2000));
+                const res = aguarde().then(async(res)=>{
+                    if (mail == 'danilo') return true
+                    return false 
+                })
+                return await res
+            },
+            codigo : async(mail,codigo)=>{
+                const aguarde = async()=> await new Promise(r => setTimeout(r, 2000));
+                const res = aguarde().then(async(res)=>{
+                    if (codigo.toString() == '123') return true
+                    return false;
+                })
+                return await res
+            },
+            alterarSenha : async()=>{
+                const aguarde = async()=> await new Promise(r => setTimeout(r, 2000));
+                const res = aguarde().then(async(res)=>{
+                    return true
+                })
+                return await res
+            },
+        }
+    }
+
 }
 const entrar = ()=> {
     const res1 = {
@@ -408,8 +462,10 @@ ColorIPLogout.args = {
     data:data,
     theme:{
         logoProjeto: "https://media.graphassets.com/Kal4aulRmYkqd0L6RBAd",
-        cor: "ColorIP"
+        cor: "ColorIP",
+        logoLink: "/inicio"
     },
+    seletorMunicipios: true,
     menu:
         [
             { label: "A Impulso Gov", url: "/impulsogov" },
@@ -418,7 +474,74 @@ ColorIPLogout.args = {
             { label: "Consultoria", url: "/consultoria" }
         ],
     NavBarIconBranco:"https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconBranco.svg",
-    NavBarIconDark:"https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconDark.svg"
+    NavBarIconDark:"https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconDark.svg",
+    esqueciMinhaSenha : {
+        reqs : {
+            mail : async(mail)=> {
+                            const aguarde = async()=> await new Promise(r => setTimeout(r, 2000));
+                            const res = aguarde().then(async(res)=>{
+                                if (mail == 'danilo') return true
+                                return false 
+                })
+                return await res
+            },
+            codigo : async(mail,codigo)=>{
+                const aguarde = async()=> await new Promise(r => setTimeout(r, 2000));
+                const res = aguarde().then(async(res)=>{
+                    if (codigo.toString() == '123') return true
+                    return false;
+                })
+                return await res
+            },
+            alterarSenha : async()=>{
+                const aguarde = async()=> await new Promise(r => setTimeout(r, 2000));
+                const res = aguarde().then(async(res)=>{
+                    return true
+                })
+                return await res
+            },
+        },
+    },
+    ModalInicio:{
+        titulo: "Faça o login para ver os dados restritos.",
+        chamada: "Se esse é o seu primeiro acesso e sua senha ainda não foi criada, clique abaixo em ‘primeiro acesso’. Se você já possui uma senha, clique em ‘entrar’.",
+        botaoPrincipal : {
+            label: "entrar",
+            submit: ()=>console.log("teste")
+        },
+        botaoSecundario : {
+            label: "primeiro acesso",
+            submit: ()=>console.log("teste")
+        }
+    },
+    primeiroAcesso:{
+        reqs:{
+            mail : async(mail)=> {
+                const aguarde = async()=> await new Promise(r => setTimeout(r, 2000));
+                const res = aguarde().then(async(res)=>{
+                    if (mail == 'danilo') return true
+                    return false 
+                })
+                return await res
+            },
+            codigo : async(mail,codigo)=>{
+                const aguarde = async()=> await new Promise(r => setTimeout(r, 2000));
+                const res = aguarde().then(async(res)=>{
+                    if (codigo.toString() == '123') return true
+                    return false;
+                })
+                return await res
+            },
+            alterarSenha : async()=>{
+                const aguarde = async()=> await new Promise(r => setTimeout(r, 2000));
+                const res = aguarde().then(async(res)=>{
+                    return true
+                })
+                return await res
+            },
+        }
+    }
+
 }
 export const ColorAGP = Template.bind({});
 ColorAGP.args = {

@@ -1,0 +1,57 @@
+.Greeting{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
+    color: #1F1F1F;
+    margin: 45px 80px;
+}
+
+.GreetingcargoMunicipio{
+    font-size: 16px;
+}
+
+.GreetingNome{
+    font-size: 42px;
+}
+
+.GreetingTexto{
+    font-size: 20px;
+}
+
+@media screen and (max-width: 1023px) {
+    .Greeting{
+        gap: 45px;
+        color: #1F1F1F;
+        margin: 45px 16px;
+    }
+    
+    .GreetingcargoMunicipio{
+        font-size: 14px;
+    }
+    
+    .GreetingNome{
+        font-size: 38px;
+    }
+    
+    .GreetingTexto{
+        font-size: 16px;
+    }
+    
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1439px){
+    .GreetingcargoMunicipio{
+        font-size: 14px;
+    }
+    
+    .GreetingNome{
+        font-size: 28px;
+    }
+    
+    .GreetingTexto{
+        font-size: 18px;
+    }
+}

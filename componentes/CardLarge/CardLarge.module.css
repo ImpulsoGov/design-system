@@ -1,0 +1,115 @@
+.CardLargeContainer{
+    background-color:#EFF5F9;
+    border-radius: 20px;
+    width: auto;
+    height: 478px;
+    padding: 60px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    color: #1F1F1F;
+}
+.CardLargeContainer a{
+    color: #1F1F1F;
+}
+.CardLargeContainer:hover{
+    background-color: #2EB380;
+    color: #fff;
+}
+.CardLargeContainer:hover .CardLargeLink{
+    color: #fff;
+}
+
+.CardLargeContainer:hover .CardLargeListIcon{
+    border: #FFF 1px solid;
+}
+
+.CardLargeContainer:hover .CardLargeIcon{
+    filter: invert(100%) sepia(0%) saturate(7482%) hue-rotate(260deg) brightness(106%) contrast(102%);
+}
+
+.CardLargeTitulo{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 130%;
+}
+
+.CardLargeTexto{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 130%;
+}
+.CardLargeLinks{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.CardLargeListIcon{
+    border: #1F1F1F 1px solid;
+    border-radius: 100%;
+    width: 22px;
+    height: 22px;
+    padding: 1px 8px;
+    margin-right: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.CardLargeLink{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 130%;
+    text-decoration: none;
+    width: fit-content;
+}
+
+.CardLargeLink:hover{
+    text-decoration: underline;
+}
+
+.CardLargeGrid{
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 24px;
+    margin: 45px 80px;
+}
+
+.CardLargeLinksMobile{
+    display: none;
+}
+
+@media screen and (max-width: 1023px) {
+    .CardLargeContainer:hover{
+        background-color:#EFF5F9;
+        color: #1F1F1F;
+    }    
+    .CardLargeContainer:hover .CardLargeLink{
+        color: #1F1F1F;
+    }    
+    .CardLargeContainer:hover .CardLargeIcon{
+        filter: invert(5%) sepia(13%) saturate(30%) hue-rotate(314deg) brightness(88%) contrast(83%)
+    }
+    .CardLargeGrid{
+        display: grid;
+        grid-template-columns: auto;
+        row-gap: 18px;
+        margin: 45px 15px;
+    }
+    .CardLargeLinksMobile{
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    .CardLargeLinks{
+        display: none;
+    }
+    
+}
+
