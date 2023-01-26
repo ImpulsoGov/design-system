@@ -1,0 +1,1 @@
+export { CardTrilha } from "./CardTrilha";

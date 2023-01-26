@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap");
+
+.CardTrilha{
+    height: fit-content;
+    flex-direction: column;
+    padding: 25px;
+    gap: 20px;
+    width: 621px;
+    height: 255px;
+    background: #EFF5F9;
+    border-radius: 20px;
+}
+
+.CardTrilhaTitulo{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 130%;
+    letter-spacing: -0.02em;
+    color: #1F1F1F;
+    padding-bottom: 40px;
+}
+
+.CardTrilhaProgressoTitulo{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 150%;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    color: #1F1F1F;
+    padding-bottom: 50px;
+}
+
+.ButoesCardTrilha{
+    display: -webkit-inline-flex;
+}
