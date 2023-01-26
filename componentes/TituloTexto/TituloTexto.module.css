@@ -20,6 +20,8 @@
     color: #2EB280;
     text-decoration: underline;
 }
+
+
 /* SMALL */
 @media screen and (max-width: 1023px) {
     .containerTexto{
