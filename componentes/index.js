@@ -4,10 +4,13 @@ export { ButtonBar } from "./ButtonBar/ButtonBar";
 export { ButtonColor } from "./ButtonColor/ButtonColor";
 export { ButtonLight } from "./ButtonLight/ButtonLight";
 export { ButtonLogin } from "./ButtonLogin/ButtonLogin";
+export { CardAlert} from "./CardAlert/CardAlert"
+export { CardLarge,CardLargeGrid } from "./CardLarge/CardLarge"
 export { Content3Col } from "./Content3Col/Content3Col";
 export { ConteudoBlog } from "./ConteudoBlog/ConteudoBlog";
 export { Footer } from "./Footer/Footer";
 export { FormConsultoria } from "./FormConsultoria/FormConsultoria";
+export { Greeting } from "./Greeting/Greeting"
 export { Header } from "./Header/Header";
 export { HomeBanner } from "./HomeBanner/HomeBanner";
 export { IFrame } from "./IFrame/IFrame"
@@ -23,6 +26,7 @@ export { Parcerias } from "./Parcerias/Parcerias";
 export { ParceriasTexto } from "./ParceriasTexto/ParceriasTexto";
 export { PreviewArtigo } from "./PreviewArtigo/PreviewArtigo";
 export { PreviewArtigoDestaque } from "./PreviewArtigoDestaque/PreviewArtigoDestaque";
+export { RecuperarSenha } from "./RecuperarSenha/RecuperarSenha"
 export { Slider } from "./Slider/Slider";
 export { TextCol } from "./TextCol/TextCol";
 export { TituloTexto } from "./TituloTexto/TituloTexto";
