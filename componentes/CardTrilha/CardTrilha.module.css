@@ -1,0 +1,95 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap");
+
+
+
+.DivTrilha{
+    background-color: #FFF;
+    padding: 30px 80px 30px 80px;
+}
+
+.CardTrilha{
+    height: fit-content;
+    flex-direction: column;
+    padding: 25px;
+    gap: 20px;
+    width: 621px;
+    background: #EFF5F9;
+    border-radius: 20px;
+}
+
+.CardTrilhaTitulo{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 130%;
+    letter-spacing: -0.02em;
+    color: #1F1F1F;
+    padding-bottom: 40px;
+}
+
+.CardTrilhaProgressoTitulo{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 150%;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    color: #1F1F1F;
+    padding-bottom: 50px;
+}
+
+.ButoesCardTrilha{
+    display: -webkit-inline-flex;
+}
+
+
+
+/* XLARGE */
+@media screen and (min-width: 1920px) {
+    .DivTrilha{
+        padding: 30px 80px 30px 125px;
+    }
+}
+
+/* LARGE */
+@media screen and (min-width: 1440px) and (max-width: 1919px) {
+}
+
+/* REGULAR */
+@media screen and (min-width: 1024px)and (max-width: 1439px) {
+}
+
+/* MEDIUM */
+@media screen and (min-width: 768px)and (max-width: 1023px) {
+    .CardTrilha{
+        width: 100%;
+    }
+}
+
+/* SMALL */
+@media screen and (min-width: 375px)and (max-width: 767px) {
+    .DivTrilha{
+        padding: 30px 40px 30px 40px;
+    }
+    
+    .CardTrilha{
+        width: 100%;
+    }
+}
+
+/* XSMALL */
+@media screen and (max-width: 374px) {
+    .DivTrilha{
+        padding: 30px 16px 30px 16px;
+    }
+    
+    .CardTrilha{
+        width: 100%;
+    }
+    
+    .ButoesCardTrilha{
+        display: inline-block;
+    }
+}

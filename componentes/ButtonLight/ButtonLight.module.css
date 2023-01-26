@@ -1,7 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@40;500&display=swap");
 
+.IconeLeft{
+    padding-left: 8px;
+}
+
+.IconeRight{
+    padding-right: 8px;
+}
+
 .ButtonLightContainer{
-    border: 1px solid rgba(96, 110, 120, 0.15);
+    margin-right: 10px;
+    margin-top: 10px;
+    border: 1px solid rgba(96, 110, 120, 0.50);
     background-color: #fff;
     color: #1F1F1F;
     border-radius: 100px;
@@ -20,9 +30,45 @@
 }
 
 .ButtonLightContainer:hover{
+    border: 1px solid rgba(31, 31, 31, 1);
+    background-color: #fff;
+}
+
+.ButtonLightIconContainer{
     border: 1px solid rgba(96, 110, 120, 0.50);
     background-color: #fff;
-    cursor: pointer;
+    color: #1F1F1F;
+    border-radius: 100px;
+    padding: 0px 30px;
+    font-size: 15px;
+    font-family: 'inter';
+    font-weight: 500;
+    line-height: 100%;
+    box-sizing: border-box;
+    width: fit-content;
+    height: 64px;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.ButtonLightIconContainer:hover{
+    border: 1px solid rgba(31, 31, 31, 1);
+    background-color: #fff;
+}
+
+/* SMALL */
+@media(max-width: 780px) {
+    .ButtonLightIconContainer{
+        font-size: 0px;
+    }
+    .IconeLeft{
+        padding-left: 0px;
+    }
+    .IconeRight{
+        padding-right: 0px;
+    }
 }
 
 .ButtonLightMobile{
