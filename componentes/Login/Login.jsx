@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import style from "./Login.module.css"
+import { ButtonLightSubmit } from "../ButtonLight";
 
 const Login = (props)=>{
     const [senha, setSenha] = useState("");
@@ -34,10 +35,23 @@ const Login = (props)=>{
 }
             </div>
             <div className={style.LoginCampoButton}>
-            <button 
-                className={style.LoginButton}
-                onClick={() => props.validacao(setResposta,props.validarCredencial,props.entrar,mail,senha)}
-            >{props.button.label.toUpperCase()}</button>
+                <button 
+                    className={
+                        (mail.length>0 && senha.length>0)?
+                        style.LoginButton:
+                        style.LoginButtonInativo
+                    }
+                    onClick={() => {
+                        if (mail.length>0 && senha.length>0){
+                            props.botaoPrincipal.submit(true)
+                            props.validacao(setResposta,props.validarCredencial,props.entrar,mail,senha)
+                        }
+                    }}
+                >{props.botaoPrincipal.label.toUpperCase()}</button>
+                <ButtonLightSubmit
+                    label={props.botaoSecundario.label}
+                    submit={props.botaoSecundario.submit}
+                />
             </div>
         </div>
     )

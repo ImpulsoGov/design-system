@@ -5,8 +5,9 @@ import style from "./PanelSelector.module.css";
 
 const PanelSelector = (props) => {
   const initialPanel = (typeof(props?.panel)!='undefined') ? props.panel : 0
+  const initialTitle = (typeof(props?.initialTitle)!='undefined') ? props.initialTitle : 0
   const [activeTabIndex, setActiveTabIndex] = useState(initialPanel);
-  const [activeTitleTabIndex, setActiveTitleTabIndex] = useState(0);
+  const [activeTitleTabIndex, setActiveTitleTabIndex] = useState(initialTitle);
   return (
     <div style={{zIndex:90,position:'relative',width:'100%'}}>
       <div className={style.PanelSelectorMain}>

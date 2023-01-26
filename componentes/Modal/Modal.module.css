@@ -26,3 +26,9 @@
     cursor: pointer;
     padding:0.5em;
 }
+
+@media screen and (min-width: 1000px) {
+    .ModalContainer{
+        width: 400px;
+    }
+}

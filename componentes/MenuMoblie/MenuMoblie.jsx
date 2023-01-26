@@ -1,7 +1,7 @@
 import React, { useState} from "react";
 import style from './MenuMoblie.module.css'
-import { Login } from "../Login";
 import { UserAvatar } from "../ModalLogged";
+import { ButtonColorSubmitMobile } from "../ButtonColor";
 import Link from "next/link";
 
 const Menus = ({menus})=>{
@@ -43,12 +43,11 @@ const Logout = ({
 
 const MenuMoblie = ({
     menus,
-    login,
     logout,
     logged,
     user,
-    validarCredencial,
-    validacao
+    children,
+    showModalInicio
 })=>{
     const [etapa, setEtapa] = useState(0)
     return(
@@ -74,29 +73,9 @@ const MenuMoblie = ({
                 </>
             }
             {!logged &&
-            <>
-                {etapa == 0 &&
-                    <Logout 
-                        menus={menus}
-                        setEtapa={setEtapa}
-                        login={login}
-                    />
-                }
-                {etapa == 1 &&
-                    <div className={style.MenuMoblieContainer}>
-                        <Login
-                            titulo= "Faça o login para ver o painel de busca ativa"
-                            button = {{label:"entrar"}}
-                            entrar = {login}
-                            validarCredencial = {validarCredencial}
-                            validacao = {validacao}
-                        />
-                        <div 
-                            className={style.MenuMoblieBack}
-                            onClick={() => setEtapa(0)}
-                        >Voltar</div>
-                    </div>
-                }
+            <>  
+                {showModalInicio && <Menus menus={menus}/>}
+                {children}
             </>}
         </>
     )

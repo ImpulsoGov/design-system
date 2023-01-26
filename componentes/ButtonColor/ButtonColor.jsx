@@ -30,6 +30,21 @@ const ButtonColorSubmit = ({
     )
 }
 
+const ButtonColorSubmitMobile = ({
+    label,
+    submit,
+    arg
+})=>{
+    return(
+        <button 
+            className={style.ButtonColorMobile}
+            onClick={()=>submit(arg)}
+        >
+            {label.toUpperCase()}
+        </button>
+    )
+}
+
 const ButtonColorSubmitMultiple = ({
     label,
     submit,
@@ -44,4 +59,4 @@ const ButtonColorSubmitMultiple = ({
     )
 }
 
-export {ButtonColor,ButtonColorSubmit,ButtonColorSubmitMultiple}
+export {ButtonColor,ButtonColorSubmit,ButtonColorSubmitMultiple,ButtonColorSubmitMobile}

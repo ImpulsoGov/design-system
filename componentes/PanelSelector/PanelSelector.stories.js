@@ -105,7 +105,8 @@ export const BuscaAtiva = Template.bind({});
 BuscaAtiva.args={
   links: dsLinkBuscaAtiva,
   list: labelsBuscaAtiva,
-  titles: titlesBuscaAtiva
+  titles: titlesBuscaAtiva,
+  initialTitle: 1
 }
 
 export const BuscaAtivaEquipe = Template.bind({});

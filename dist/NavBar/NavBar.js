@@ -29,6 +29,8 @@ var _MenuMoblie = require("../MenuMoblie");
 
 var _RecuperarSenha = require("../RecuperarSenha/RecuperarSenha");
 
+var _ModalInicio = require("../ModalInicio");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
@@ -127,11 +129,13 @@ const DropdownMenuMoblie = attr => {
 };
 
 const NavBar = props => {
-  var _props$user, _props$user2, _props$user3, _props$user4, _props$user5, _props$user6, _props$user7, _props$user8, _props$user9, _props$user10, _props$user10$label, _props$user11, _props$user12, _props$user13, _props$user14, _props$user15;
+  var _props$user, _props$user2, _props$user3, _props$user4, _props$user5, _props$user6, _props$user7, _props$user8, _props$user9, _props$user10, _props$user10$label, _props$user11, _props$user12;
 
   const [active, setMode] = (0, _react.useState)(true);
   const [modal, setModal] = (0, _react.useState)(false);
   const [showEsqueciSenha, setShowEsqueciSenha] = (0, _react.useState)(false);
+  const [showPrimeiroAcesso, setShowPrimeiroAcesso] = (0, _react.useState)(false);
+  const [showModalInicio, setShowModalInicio] = (0, _react.useState)(true);
 
   const menuVisible = () => {
     setMode(!active);
@@ -149,8 +153,13 @@ const NavBar = props => {
 
   const login = /*#__PURE__*/_react.default.createElement(_Login.Login, {
     titulo: "Fa\xE7a o login para ver o painel de busca ativa",
-    button: {
-      label: "entrar"
+    botaoPrincipal: {
+      label: "entrar",
+      submit: () => setShowModalInicio(false)
+    },
+    botaoSecundario: {
+      label: "voltar",
+      submit: () => setShowModalInicio(true)
     },
     entrar: props === null || props === void 0 ? void 0 : (_props$user7 = props.user) === null || _props$user7 === void 0 ? void 0 : _props$user7.login,
     validarCredencial: props === null || props === void 0 ? void 0 : (_props$user8 = props.user) === null || _props$user8 === void 0 ? void 0 : _props$user8.validarCredencial,
@@ -160,30 +169,85 @@ const NavBar = props => {
 
   const EsqueciMinhaSenha = /*#__PURE__*/_react.default.createElement(_RecuperarSenha.RecuperarSenha, {
     titulos: {
+      mail: "Recuperação de senha",
       senha: "Recuperação de senha",
+      codigo: "Recuperação de senha",
       sucesso: "Nova senha criada com sucesso!"
     },
     chamadas: {
-      mail: "Digite o email cadastrado para receber um código de autorização de recuperação da senha.Caso não lembre o e-mail cadastrado, entre em contato conosco pelo grupo de mensagens do seu município com a Impulso Gov",
+      mail: "Digite o e-mail cadastrado para receber um código de autorização de recuperação da senha.",
+      aviso: "Caso não lembre o e-mail cadastrado, entre em contato conosco pelo grupo de mensagens do seu município com a Impulso Gov.",
       codigo: "Digite abaixo o código recebido no e-mail cadastrado",
       senha: "Escolha uma nova senha",
-      sucesso: "Agora é só entrar na área restrita com seu email e a nova senha."
+      sucesso: "Agora é só entrar na área restrita com seu e-mail e a nova senha."
     },
     botaoVoltar: {
       label: "voltar",
       function: ""
     },
     botaoProximo: {
-      label: "proximo",
+      label: "próximo",
       function: ""
     },
+    botaoSucesso: "Entrar",
     showEsqueciSenha: setShowEsqueciSenha,
-    reqs: props.esqueciMinhaSenha.reqs,
-    ProximaEtapa: props.esqueciMinhaSenha.ProximaEtapa
+    reqs: props.esqueciMinhaSenha.reqs
+  });
+
+  const PrimeiroAcesso = /*#__PURE__*/_react.default.createElement(_RecuperarSenha.RecuperarSenha, {
+    titulos: {
+      mail: "Bem vindo(a)! Precisamos que você crie uma senha para acessar os dados.",
+      codigo: "Validação do e-mail",
+      senha: "Crie sua senha de acesso",
+      sucesso: "Senha criada com sucesso!"
+    },
+    chamadas: {
+      mail: "Digite o e-mail cadastrado para receber um código de autorização de criação da senha.",
+      aviso: "Caso não lembre o e-mail cadastrado, entre em contato conosco pelo grupo de mensagens do seu município com a Impulso Gov.",
+      codigo: "Digite abaixo o código recebido no e-mail cadastrado",
+      senha: "Crie sua senha de acesso",
+      sucesso: "Agora é só entrar na área restrita com seu e-mail e a senha criada."
+    },
+    botaoVoltar: {
+      label: "voltar",
+      function: ""
+    },
+    botaoProximo: {
+      label: "próximo",
+      function: ""
+    },
+    botaoSucesso: "Inicio",
+    showEsqueciSenha: arg => {
+      setShowModalInicio(!arg);
+      setShowPrimeiroAcesso(arg);
+    },
+    reqs: props.primeiroAcesso.reqs
+  });
+
+  const ModalInicioChild = /*#__PURE__*/_react.default.createElement(_ModalInicio.ModalInicio, {
+    titulo: props.ModalInicio.titulo,
+    chamada: props.ModalInicio.chamada,
+    botaoPrincipal: {
+      label: props.ModalInicio.botaoPrincipal.label,
+      submit: () => setShowModalInicio(false)
+    },
+    botaoSecundario: {
+      label: props.ModalInicio.botaoSecundario.label,
+      submit: () => {
+        setShowModalInicio(false);
+        setShowPrimeiroAcesso(true);
+      }
+    }
   });
 
   const ModalChildren = () => {
-    if (showEsqueciSenha) {
+    if (props !== null && props !== void 0 && props.user.nome) {
+      return Logged;
+    } else if (showModalInicio) {
+      return ModalInicioChild;
+    } else if (showPrimeiroAcesso) {
+      return PrimeiroAcesso;
+    } else if (showEsqueciSenha) {
       return EsqueciMinhaSenha;
     } else {
       return props !== null && props !== void 0 && props.user.nome ? Logged : login;
@@ -197,14 +261,14 @@ const NavBar = props => {
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: _NavBarModule.default.logo_navbar
   }, /*#__PURE__*/_react.default.createElement(_link.default, {
-    href: "/"
+    href: props.theme.logoLink
   }, /*#__PURE__*/_react.default.createElement("a", null, /*#__PURE__*/_react.default.createElement("img", {
     className: _NavBarModule.default.logoWrapper_navbar,
     alt: "impulso-previne-logo_navbar",
     src: String(props.theme.logoProjeto)
   }))))), /*#__PURE__*/_react.default.createElement("div", {
     className: _NavBarModule.default.NavBarSearchConteinerMoblie
-  }, /*#__PURE__*/_react.default.createElement(SeletorMunicipios, {
+  }, props.seletorMunicipios && /*#__PURE__*/_react.default.createElement(SeletorMunicipios, {
     parentProps: props
   })), /*#__PURE__*/_react.default.createElement("div", {
     className: _NavBarModule.default.links_navbar
@@ -246,7 +310,7 @@ const NavBar = props => {
     })));
   }), /*#__PURE__*/_react.default.createElement("div", {
     className: _NavBarModule.default.NavBarSearchConteiner
-  }, /*#__PURE__*/_react.default.createElement(SeletorMunicipios, {
+  }, props.seletorMunicipios && /*#__PURE__*/_react.default.createElement(SeletorMunicipios, {
     parentProps: props
   })), (props === null || props === void 0 ? void 0 : props.user) != null && /*#__PURE__*/_react.default.createElement("div", {
     className: (0, _classnames.default)(_NavBarModule.default.NavBarLogin, _NavBarModule.default['NavBarLogin' + props.theme.cor], _NavBarModule.default[(props === null || props === void 0 ? void 0 : (_props$user10 = props.user) === null || _props$user10 === void 0 ? void 0 : (_props$user10$label = _props$user10.label) === null || _props$user10$label === void 0 ? void 0 : _props$user10$label.length) == 1 ? 'NavBarLogged' : 'NavBarLogOut']),
@@ -264,10 +328,9 @@ const NavBar = props => {
     menus: props.menu,
     logged: props !== null && props !== void 0 && (_props$user11 = props.user) !== null && _props$user11 !== void 0 && _props$user11.nome ? true : false,
     user: props === null || props === void 0 ? void 0 : props.user,
-    login: props === null || props === void 0 ? void 0 : (_props$user12 = props.user) === null || _props$user12 === void 0 ? void 0 : _props$user12.login,
-    logout: props === null || props === void 0 ? void 0 : (_props$user13 = props.user) === null || _props$user13 === void 0 ? void 0 : _props$user13.logout,
-    validarCredencial: props === null || props === void 0 ? void 0 : (_props$user14 = props.user) === null || _props$user14 === void 0 ? void 0 : _props$user14.validarCredencial,
-    validacao: props === null || props === void 0 ? void 0 : (_props$user15 = props.user) === null || _props$user15 === void 0 ? void 0 : _props$user15.validacao
+    logout: props === null || props === void 0 ? void 0 : (_props$user12 = props.user) === null || _props$user12 === void 0 ? void 0 : _props$user12.logout,
+    children: ModalChildren(),
+    showModalInicio: showModalInicio
   }))), modal && /*#__PURE__*/_react.default.createElement("div", {
     className: _NavBarModule.default.NavBarModalContainer
   }, /*#__PURE__*/_react.default.createElement(_Modal.Modal, {

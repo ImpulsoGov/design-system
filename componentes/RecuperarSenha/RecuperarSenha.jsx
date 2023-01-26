@@ -17,8 +17,10 @@ const validacaoSenha = (senha)=>{
 const InserirInfo = ({
     titulo,
     chamada,
+    aviso,
     botaoVoltar,
     botaoProximo,
+    botaoSucesso,
     alert,
     setAlert,
     alertMsg,
@@ -35,7 +37,7 @@ const InserirInfo = ({
     const [value, setValue] = useState('');
     const [novaSenhaConfirmacao,setNovaSenhaConfirmacao] = useState('')
     const ProximaEtapa = ()=> {
-        if(etapa==0){
+        if(etapa==0 && value.length > 0){
             req(value).then((response)=>{
                 if (response==true && value.length>0){
                     setEtapa(etapa+1) 
@@ -45,10 +47,11 @@ const InserirInfo = ({
                     setAlert('')
                 }else{
                     setAlert(alertMsg)
+                    setValue('')
                 }
             })
         }
-        if(etapa==1){
+        if(etapa==1 && value.length > 0){
             req(alterarSenhaArgs.mail,value).then((response)=>{
                 if (response==true && value.length>0){
                     setEtapa(etapa+1)
@@ -63,7 +66,7 @@ const InserirInfo = ({
                 }
             })
         }
-        if(etapa==2 && value == novaSenhaConfirmacao && validacaoSenha(novaSenhaConfirmacao).validacao){
+        if(etapa==2 && value.length > 0 && value == novaSenhaConfirmacao && validacaoSenha(novaSenhaConfirmacao).validacao){
             req(alterarSenhaArgs.mail,alterarSenhaArgs.codigo,value)
             .then((response)=>{
                 if (response==true){
@@ -85,10 +88,11 @@ const InserirInfo = ({
         <div className={style.RecuperarSenhaConteiner}>
             <div className={style.RecuperarSenhaTitulo}>{titulo}</div>
             <div className={style.RecuperarSenhaChamada}>{chamada}</div>
+            {aviso && <div className={style.RecuperarSenhaChamada}>{aviso}</div>}
             {   !sucesso &&
                 <>
                     <input 
-                        className={(alert.length>0) ? style.RecuperarSenhaInputErro : style.RecuperarSenhaInput}
+                        className={(alert.length>0 && value==0) ? style.RecuperarSenhaInputErro : style.RecuperarSenhaInput}
                         type={(etapa==0) ? 'text' : 'password'}
                         placeholder={placeholder}
                         value={value}
@@ -101,7 +105,7 @@ const InserirInfo = ({
                             setNovaSenhaConfirmacao = {setNovaSenhaConfirmacao}
                         />
                     }
-                    {alert && etapa != 2 && <div className={style.RecuperarSenhaMensagem}>{alert}</div>}
+                    {alert && etapa != 2 && value.length==0 && <div className={style.RecuperarSenhaMensagem}>{alert}</div>}
                     <div className={style.RecuperarSenhaButtonConteiner}>
                         <div 
                             className={style.RecuperarSenhaBotaoVoltar}
@@ -123,7 +127,7 @@ const InserirInfo = ({
                 <div 
                     className={style.RecuperarSenhaBotaoProximo}
                     onClick={()=>showEsqueciSenha(false)}
-                >Entrar</div>
+                >{botaoSucesso.toUpperCase()}</div>
             }
         </div>
     )
@@ -134,11 +138,11 @@ const ValidarSenha = ({novaSenha,novaSenhaConfirmacao,setNovaSenhaConfirmacao})=
     const senhaAlertMsg = "As senhas digitadas não são iguais";
     let validacao = validacaoSenha(novaSenha)
     let validacoes = [
-        {restricao:'tamanho',descricao:' Mínimo de 8 caractéres'},
+        {restricao:'tamanho',descricao:' Mínimo de 8 caracteres'},
         {restricao:'numeros',descricao:' Pelo menos um número'},
-        {restricao:'maiuscula',descricao:' Pelo menos uma letra maiscula'},
-        {restricao:'minuscula',descricao:' Pelo menos uma letra minuscula'},
-        {restricao:'especiais',descricao:' Pelo menos um caractére especial (ex: @ ! “ +)'},
+        {restricao:'maiuscula',descricao:' Pelo menos uma letra maiúscula'},
+        {restricao:'minuscula',descricao:' Pelo menos uma letra minúscula'},
+        {restricao:'especiais',descricao:' Pelo menos um caractere especial (ex: @ ! “ +)'},
     ]
     return(
         <>
@@ -177,6 +181,7 @@ const RecuperarSenha = ({
     chamadas,
     botaoVoltar,
     botaoProximo,
+    botaoSucesso,
     reqs,
     showEsqueciSenha
 })=>{
@@ -186,7 +191,7 @@ const RecuperarSenha = ({
     const [senhaAlert, setSenhaAlert] = useState('');
     const [alterarSenhaArgs, setAlterarSenhaArgs] = useState();
 
-    const mailAlertMsg = "O e-mail digitado não é o cadastrado.";
+    const mailAlertMsg = "E-mail invalido.";
     const codigoAlertMsg = "Código digitado é invalido";
     const senhaAlertMsg = "Falha na requisição"
     return(
@@ -194,8 +199,9 @@ const RecuperarSenha = ({
             {
                 etapa == 0 &&
                 <InserirInfo
-                    titulo = {titulos.senha}
+                    titulo = {titulos.mail}
                     chamada = {chamadas.mail}
+                    aviso = {chamadas.aviso}
                     botaoVoltar = {botaoVoltar}
                     botaoProximo ={botaoProximo}
                     alert = {mailAlert}
@@ -214,7 +220,7 @@ const RecuperarSenha = ({
             {
                 etapa == 1 &&
                 <InserirInfo
-                    titulo = {titulos.senha}
+                    titulo = {titulos.codigo}
                     chamada = {chamadas.codigo}
                     botaoVoltar = {botaoVoltar}
                     botaoProximo ={botaoProximo}
@@ -256,6 +262,7 @@ const RecuperarSenha = ({
                     chamada = {chamadas.sucesso}
                     botaoVoltar = {botaoVoltar}
                     botaoProximo ={botaoProximo}
+                    botaoSucesso = {botaoSucesso}
                     etapa = {etapa}
                     req = {true}
                     sucesso = {true}
@@ -272,4 +279,4 @@ const RecuperarSenha = ({
     )
 }
 
-export {RecuperarSenha}
+export {RecuperarSenha,InserirInfo}

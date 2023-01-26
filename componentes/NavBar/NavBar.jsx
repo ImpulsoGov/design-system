@@ -8,6 +8,7 @@ import { ModalLogged } from "../ModalLogged";
 import { Login } from "../Login";
 import { MenuMoblie } from "../MenuMoblie";
 import { RecuperarSenha } from "../RecuperarSenha/RecuperarSenha";
+import { ModalInicio } from "../ModalInicio";
 
 const NavBarMenu = (tema, NavBarIconBranco, NavBarIconDark) => {
   let theme = (tema == "ColorIP" || tema == "ColorAGP" || tema == "ColorSM") ? NavBarIconBranco : NavBarIconDark
@@ -26,7 +27,6 @@ const Menu = ({
     </Link>
   )
 }
-
 
 const SeletorMunicipios = ({parentProps})=>{
   const [display, setDisplay] = useState(false)
@@ -109,7 +109,8 @@ const NavBar = (props) => {
   const [active, setMode] = useState(true)
   const [modal, setModal] = useState(false)
   const [showEsqueciSenha, setShowEsqueciSenha] = useState(false)
-  
+  const [showPrimeiroAcesso, setShowPrimeiroAcesso] = useState(false)
+  const [showModalInicio, setShowModalInicio] = useState(true)
   const menuVisible = () => {
     setMode(!active)
     return active
@@ -123,8 +124,15 @@ const NavBar = (props) => {
                   equipe = {props?.user?.equipe}
                 />
   const login = <Login
-                  titulo= "Faça o login para ver o painel de busca ativa"
-                  button = {{label:"entrar"}}
+                  titulo = "Faça o login para ver o painel de busca ativa"
+                  botaoPrincipal = {{
+                    label:"entrar",
+                    submit:()=>setShowModalInicio(false)
+                  }}
+                  botaoSecundario = {{
+                    label:"voltar",
+                    submit:()=> setShowModalInicio(true)
+                  }}
                   entrar = {props?.user?.login}
                   validarCredencial = {props?.user?.validarCredencial}
                   validacao = {props?.user?.validacao}
@@ -133,24 +141,72 @@ const NavBar = (props) => {
   
   const EsqueciMinhaSenha = <RecuperarSenha
                               titulos = { {
+                                mail : "Recuperação de senha",
                                 senha : "Recuperação de senha",
+                                codigo : "Recuperação de senha",
                                 sucesso : "Nova senha criada com sucesso!"
                               }}
                               chamadas={{
-                              mail : "Digite o email cadastrado para receber um código de autorização de recuperação da senha.Caso não lembre o e-mail cadastrado, entre em contato conosco pelo grupo de mensagens do seu município com a Impulso Gov",
+                              mail : "Digite o e-mail cadastrado para receber um código de autorização de recuperação da senha.",
+                              aviso : "Caso não lembre o e-mail cadastrado, entre em contato conosco pelo grupo de mensagens do seu município com a Impulso Gov.",
                               codigo : "Digite abaixo o código recebido no e-mail cadastrado",
                               senha : "Escolha uma nova senha",
-                              sucesso : "Agora é só entrar na área restrita com seu email e a nova senha.",
+                              sucesso : "Agora é só entrar na área restrita com seu e-mail e a nova senha.",
                               }}
                               botaoVoltar = {{label:"voltar",function : ""}}
-                              botaoProximo = {{label:"proximo",function : ""}}
+                              botaoProximo = {{label:"próximo",function : ""}}
+                              botaoSucesso = "Entrar"
                               showEsqueciSenha = {setShowEsqueciSenha}
                               reqs = {props.esqueciMinhaSenha.reqs}
-                              ProximaEtapa = {props.esqueciMinhaSenha.ProximaEtapa}
                             />   
-  
+  const PrimeiroAcesso = <RecuperarSenha
+                                titulos = { {
+                                  mail : "Bem vindo(a)! Precisamos que você crie uma senha para acessar os dados.",
+                                  codigo : "Validação do e-mail",
+                                  senha: "Crie sua senha de acesso",
+                                  sucesso : "Senha criada com sucesso!"
+                                }}
+                                chamadas={{
+                                mail : "Digite o e-mail cadastrado para receber um código de autorização de criação da senha.",
+                                aviso : "Caso não lembre o e-mail cadastrado, entre em contato conosco pelo grupo de mensagens do seu município com a Impulso Gov.",
+                                codigo : "Digite abaixo o código recebido no e-mail cadastrado",
+                                senha : "Crie sua senha de acesso",
+                                sucesso : "Agora é só entrar na área restrita com seu e-mail e a senha criada.",
+                                }}
+                                botaoVoltar = {{label:"voltar",function : ""}}
+                                botaoProximo = {{label:"próximo",function : ""}}
+                                botaoSucesso = "Inicio"
+                                showEsqueciSenha = {(arg)=>{
+                                  setShowModalInicio(!arg)
+                                  setShowPrimeiroAcesso(arg)
+                                }}
+                                reqs = {props.primeiroAcesso.reqs}
+                              />   
+                              
+  const ModalInicioChild = <ModalInicio
+                              titulo = {props.ModalInicio.titulo}
+                              chamada = {props.ModalInicio.chamada}
+                              botaoPrincipal = {{
+                                label : props.ModalInicio.botaoPrincipal.label,
+                                submit : ()=>setShowModalInicio(false)
+                              }}
+                              botaoSecundario = {{
+                                label : props.ModalInicio.botaoSecundario.label,
+                                submit : ()=>{
+                                  setShowModalInicio(false)
+                                  setShowPrimeiroAcesso(true)
+                                }
+                              }}
+                            />
+
   const ModalChildren = ()=>{
-    if (showEsqueciSenha){
+    if(props?.user.nome){
+      return Logged
+    }else if (showModalInicio){
+      return ModalInicioChild
+    }else if(showPrimeiroAcesso){
+      return PrimeiroAcesso
+    }else if (showEsqueciSenha){
       return EsqueciMinhaSenha
     }else{
       return props?.user.nome ? Logged : login
@@ -163,7 +219,7 @@ const NavBar = (props) => {
       <div className={cx(style.container_navbar, style["theme" + props.theme.cor])}>
         <div className={style.logoWrapper_navbar}>
           <div className={style.logo_navbar}>
-            <Link href="/">
+            <Link href={props.theme.logoLink}>
               <a>
                 <img
                   className={style.logoWrapper_navbar}
@@ -175,7 +231,7 @@ const NavBar = (props) => {
           </div>
         </div>
         <div className={style.NavBarSearchConteinerMoblie}>
-          <SeletorMunicipios parentProps={props}/>
+          {props.seletorMunicipios && <SeletorMunicipios parentProps={props}/>}
         </div>
         
         <div className={style.links_navbar}>
@@ -234,7 +290,7 @@ const NavBar = (props) => {
             })}
 
           <div className={style.NavBarSearchConteiner}>
-            <SeletorMunicipios parentProps={props}/>
+            {props.seletorMunicipios && <SeletorMunicipios parentProps={props}/>}
           </div>
           {
             props?.user != null &&
@@ -266,10 +322,9 @@ const NavBar = (props) => {
           menus={props.menu}
           logged={props?.user?.nome ? true : false}
           user={props?.user}
-          login={props?.user?.login}
           logout={props?.user?.logout}
-          validarCredencial = {props?.user?.validarCredencial}
-          validacao = {props?.user?.validacao}
+          children = {ModalChildren()}
+          showModalInicio = {showModalInicio}
         />
       </div>
     </div>
