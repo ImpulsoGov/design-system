@@ -39,46 +39,51 @@ const CardTrilha = ({
 })=>{
     if (progressao > 0) {
         return(
-            <div className={style.CardTrilha}>
-                <div className={style.CardTrilhaTitulo}>
-                    {titulo}
+            <div className={style.DivTrilha}>
+                <div className={style.CardTrilha}>
+                    <div className={style.CardTrilhaTitulo}>
+                        {titulo}
+                    </div>
+                    <ProgressBar bgcolor="#1D856C" progress={progressao} />
+                    <div className={style.CardTrilhaProgressoTitulo}>
+                        {progressao}% da capacitação completa
+                    </div>
+                    <div className={style.ButoesCardTrilha}>
+                        <ButtonColor
+                            label="CONTINUAR DE ONDE PAREI"
+                            link={linkTrilha}
+                        />
+                        <ButtonLight
+                            label="VER CONTEÚDO"
+                            link={linkSobre}
+                        />
+                    </div>
                 </div>
-                <ProgressBar bgcolor="#1D856C" progress={progressao} />
-                <div className={style.CardTrilhaProgressoTitulo}>
-                    {progressao}% da capacitação completa
-                </div>
-                <div className={style.ButoesCardTrilha}>
-                    <ButtonColor
-                        label="INICIAR CAPACITAÇÃO"
-                        link={linkTrilha}
-                    />
-                    <ButtonLight
-                        label="VER CONTEÚDO"
-                        link={linkSobre}
-                    />
-                </div>
+
             </div>
         )
       }
       else{
         return(
-            <div className={style.CardTrilha}>
-                <div className={style.CardTrilhaTitulo}>
-                    {titulo}
-                </div>
-                <ProgressBar bgcolor="#1D856C" progress='0' />
-                <div className={style.CardTrilhaProgressoTitulo}>
-                    {progressao}% da capacitação completa
-                </div>
-                <div className={style.ButoesCardTrilha}>
-                    <ButtonColor
-                        label="INICIAR CAPACITAÇÃO"
-                        link={linkTrilha}
-                    />
-                    <ButtonLight
-                        label="VER CONTEÚDO"
-                        link={linkSobre}
-                    />
+            <div className={style.DivTrilha}>
+                <div className={style.CardTrilha}>
+                    <div className={style.CardTrilhaTitulo}>
+                        {titulo}
+                    </div>
+                    <ProgressBar bgcolor="#1D856C" progress='0' />
+                    <div className={style.CardTrilhaProgressoTitulo}>
+                        {progressao}% da capacitação completa
+                    </div>
+                    <div className={style.ButoesCardTrilha}>
+                        <ButtonColor
+                            label="INICIAR CAPACITAÇÃO"
+                            link={linkTrilha}
+                        />
+                        <ButtonLight
+                            label="VER CONTEÚDO"
+                            link={linkSobre}
+                        />
+                    </div>
                 </div>
             </div>
         )
