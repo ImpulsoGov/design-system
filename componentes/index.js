@@ -1,8 +1,8 @@
 export { AboutSection } from "./AboutSection/AboutSection";
 export { Banner2Col } from "./Banner2col/Banner2col"
 export { ButtonBar } from "./ButtonBar/ButtonBar";
-export { ButtonColor } from "./ButtonColor/ButtonColor";
-export { ButtonLight } from "./ButtonLight/ButtonLight";
+export { ButtonColor,ButtonColorSubmit,ButtonColorSubmitMultiple,ButtonColorSubmitMobile } from "./ButtonColor/ButtonColor";
+export { ButtonLight,ButtonLightSubmit,ButtonLightSubmitMobile,ButtonLightMobile } from "./ButtonLight/ButtonLight";
 export { ButtonLogin } from "./ButtonLogin/ButtonLogin";
 export { CardAlert} from "./CardAlert/CardAlert";
 export { CardLarge,CardLargeGrid } from "./CardLarge/CardLarge";
