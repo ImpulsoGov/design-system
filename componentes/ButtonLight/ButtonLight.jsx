@@ -32,5 +32,43 @@ const ButtonLight = ({
   }
 }
 
+const ButtonLightMobile = ({
+    label,
+    link
+})=>{
+    return(
+        <Link
+            href={link}
+        >
+            <a className={style.ButtonLightMobile}>{label}</a>
+        </Link>
+    )
+}
 
-export {ButtonLight}
+
+const ButtonLightSubmit = ({
+    label,
+    submit,
+})=>{
+    return(
+        <button 
+            className={style.ButtonLightContainer}
+            onClick={submit}
+        >{label.toUpperCase()}</button>
+    )
+}
+
+const ButtonLightSubmitMobile = ({
+    label,
+    submit,
+})=>{
+    return(
+        <button 
+            className={style.ButtonLightMobile}
+            onClick={submit}
+        >{label.toUpperCase()}</button>
+    )
+}
+
+
+export {ButtonLight,ButtonLightSubmit,ButtonLightSubmitMobile,ButtonLightMobile}

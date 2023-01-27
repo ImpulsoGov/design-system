@@ -1,1 +1,1 @@
-export { ButtonColor,ButtonColorSubmit,ButtonColorSubmitMultiple } from "./ButtonColor";
+export { ButtonColor,ButtonColorSubmit,ButtonColorSubmitMultiple,ButtonColorSubmitMobile } from "./ButtonColor";

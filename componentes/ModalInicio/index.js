@@ -1,0 +1,1 @@
+export { ModalInicio } from "./ModalInicio"
