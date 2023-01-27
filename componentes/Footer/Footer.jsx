@@ -8,11 +8,12 @@ const Footer = ({
   address,
   contactCopyright,
   links,
-  socialMediaURLs
+  socialMediaURLs,
+  logoLink
 }) => {
   return (
     <div className={cx(style["containerFooter"], style["theme"+theme.cor+"Footer"])}>
-      <Link href="/">
+      <Link href={logoLink}>
         <a>
           <img
             className={style.logoWrapperFooter}

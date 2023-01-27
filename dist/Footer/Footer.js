@@ -21,12 +21,13 @@ const Footer = _ref => {
     address,
     contactCopyright,
     links,
-    socialMediaURLs
+    socialMediaURLs,
+    logoLink
   } = _ref;
   return /*#__PURE__*/_react.default.createElement("div", {
     className: (0, _classnames.default)(_FooterModule.default["containerFooter"], _FooterModule.default["theme" + theme.cor + "Footer"])
   }, /*#__PURE__*/_react.default.createElement(_link.default, {
-    href: "/"
+    href: logoLink
   }, /*#__PURE__*/_react.default.createElement("a", null, /*#__PURE__*/_react.default.createElement("img", {
     className: _FooterModule.default.logoWrapperFooter,
     alt: "impulso-previne-logo",
