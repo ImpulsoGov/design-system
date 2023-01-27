@@ -7,6 +7,10 @@
     outline: none;
     width: 140px;
     padding: 8px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;  
+    text-align: center;
 }
 .SearchBarInputColorSM{
     margin-left: auto;
@@ -17,6 +21,10 @@
     outline: none;
     width: 140px;
     padding: 8px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;  
+    text-align: center;
 }
 
 .SearchBarInputColorAGP{
@@ -28,6 +36,11 @@
     outline: none;
     width: 140px;
     padding: 8px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;  
+    text-align: center;
+
 }
 
 
@@ -39,6 +52,10 @@
     outline: none;
     width: 140px;
     padding: 10px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;  
+    text-align: center;
 }
 
 .SearchBarInputColorIP::placeholder{
