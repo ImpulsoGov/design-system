@@ -1,0 +1,1 @@
+export { ModulosTrilha } from "./ModulosTrilha";

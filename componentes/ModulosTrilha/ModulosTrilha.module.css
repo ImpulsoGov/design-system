@@ -1,0 +1,192 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap");
+
+.ModulosTrilha{
+    padding: 30px 80px 30px 80px;
+}
+
+.PastaModulo{
+    /* Auto layout */
+    text-decoration: none;
+    height: fit-content;
+    display: flex;
+    align-items: flex-start;
+    padding: 25px;
+    gap: 15px;
+
+    margin-bottom: 10px;
+
+    background: #EFF5F9;
+    border-radius: 20px;
+
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: -0.01em;
+    color: #1F1F1F;
+}
+
+.PastaModulo:hover{
+    background: #EFF5F9;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 20px;
+}
+
+.PastaModuloAtual{
+    /* Auto layout */
+    text-decoration: none;
+    height: fit-content;
+    display: flex;
+    align-items: flex-start;
+    padding: 25px;
+    gap: 15px;
+    
+    margin-bottom: 10px;
+
+    background: #2EB380;
+    border-radius: 20px;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: -0.01em;
+    color: #FFFFFF;
+}
+
+.Butoes{
+    display: -webkit-inline-flex;
+}
+
+.tituloTexto{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    width: 70%;
+    font-size: 42px;  
+    padding-bottom: 30px;
+    padding-top: 70px;
+}
+
+.divModulos{
+    display: inline-block;
+    vertical-align: top;
+    width: 30%;
+}
+
+.divConteudo{
+    display: inline-block;
+    padding: 30px;
+    margin-left: 20px;
+    background: #EFF5F9;
+    border-radius: 20px;
+    width: 65%;
+}
+
+.Conteudo{
+    /* Auto layout */
+    vertical-align: top;
+    text-decoration: none;
+    height: fit-content;
+    display: flex;
+    align-items: flex-start;
+    padding: 25px;
+    gap: 15px;
+    width: 100%;
+
+    margin-bottom: 10px;
+
+    background: #FFFFFF;
+    border-radius: 20px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: -0.01em;
+    color: #1F1F1F;
+}
+
+.idModulo{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    padding-bottom: 15px;
+}
+
+.tituloModulo{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 130%;
+    letter-spacing: -0.02em;
+    color: #1F1F1F;
+    padding-bottom: 50px;
+}
+
+/* XLARGE */
+@media screen and (min-width: 1920px) {
+    .ModulosTrilha{
+        padding: 30px 80px 30px 125px;
+        padding-right: 125px;
+    }
+    
+    .tituloTexto{
+        font-size: 64px;
+    }
+}
+
+/* LARGE */
+@media screen and (min-width: 1440px) and (max-width: 1919px) {
+}
+
+/* REGULAR */
+@media screen and (min-width: 1025px)and (max-width: 1439px) {
+}
+
+/* MEDIUM */
+@media screen and (min-width: 768px)and (max-width: 1024px) {
+    .divModulos{
+        width: 40%;
+    }
+    .divConteudo{
+        width: 55%;
+    }
+}
+
+/* SMALL */
+@media screen and (min-width: 375px)and (max-width: 767px) {
+    .divModulos{
+        width: 100%;
+    }
+    .divConteudo{
+        display: none;
+    }
+}
+
+/* XSMALL */
+@media screen and (max-width: 374px) {
+    .divModulos{
+        width: 100%;
+    }
+    .divConteudo{
+        display: none;
+    }
+}
