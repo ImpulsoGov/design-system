@@ -41,7 +41,7 @@
 }
 
 .ButoesCardTrilha{
-    display: -webkit-inline-flex;
+    display: inline-flex;
 }
 
 
@@ -77,6 +77,11 @@
     .CardTrilha{
         width: 100%;
     }
+    
+    .ButoesCardTrilha{
+        display: inline-block;
+    }   
+
 }
 
 /* XSMALL */
