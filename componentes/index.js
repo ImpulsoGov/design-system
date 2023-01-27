@@ -4,8 +4,9 @@ export { ButtonBar } from "./ButtonBar/ButtonBar";
 export { ButtonColor } from "./ButtonColor/ButtonColor";
 export { ButtonLight } from "./ButtonLight/ButtonLight";
 export { ButtonLogin } from "./ButtonLogin/ButtonLogin";
-export { CardAlert} from "./CardAlert/CardAlert"
-export { CardLarge,CardLargeGrid } from "./CardLarge/CardLarge"
+export { CardAlert} from "./CardAlert/CardAlert";
+export { CardLarge,CardLargeGrid } from "./CardLarge/CardLarge";
+export { CardTrilha} from "./CardTrilha/CardTrilha";
 export { Content3Col } from "./Content3Col/Content3Col";
 export { ConteudoBlog } from "./ConteudoBlog/ConteudoBlog";
 export { Footer } from "./Footer/Footer";
@@ -20,6 +21,7 @@ export { ListaArtigos } from "./ListaArtigos/ListaArtigos";
 export { Login } from "./Login/Login";
 export { Modal } from "./Modal/Modal";
 export { ModalLogged } from "./ModalLogged/ModalLogged";
+export { ModulosTrilha } from "./ModulosTrilha/ModulosTrilha";
 export { NavBar } from "./NavBar/NavBar";
 export { PanelSelector } from "./PanelSelector/PanelSelector"
 export { Parcerias } from "./Parcerias/Parcerias";
@@ -28,6 +30,7 @@ export { PreviewArtigo } from "./PreviewArtigo/PreviewArtigo";
 export { PreviewArtigoDestaque } from "./PreviewArtigoDestaque/PreviewArtigoDestaque";
 export { RecuperarSenha } from "./RecuperarSenha/RecuperarSenha"
 export { Slider } from "./Slider/Slider";
+export { SobreTrilha } from "./SobreTrilha/SobreTrilha";
 export { TextCol } from "./TextCol/TextCol";
 export { TituloTexto } from "./TituloTexto/TituloTexto";
 export { ToggleList } from "./ToggleList/ToggleList";
