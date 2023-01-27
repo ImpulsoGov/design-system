@@ -33,7 +33,7 @@ const SobreTrilha = ({
                     <div className={style.tituloTexto}>
                         Sobre
                     </div>
-                    <p>{sobre}</p>
+                    <div className={style.Texto}>{sobre}</div>
                 </div>
                 <div className={style.divConteudo}>
                     <div className={style.tituloTexto}>
@@ -41,7 +41,7 @@ const SobreTrilha = ({
                     </div>
                     {conteudo.map((item) => {
                             return(
-                                <p><li>{item.titulo}</li></p>
+                                <div className={style.Texto}><li>{item.titulo}</li></div>
                             );
                     })}
                 <ButtonColor
