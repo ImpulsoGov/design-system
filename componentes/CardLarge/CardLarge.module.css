@@ -71,7 +71,15 @@
 }
 
 .CardLargeLink:hover{
-    text-decoration: underline;
+    text-decoration: underline !important;
+}
+.CardLargeOBS{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 130%;
+    margin: 0px 80px;
 }
 
 .CardLargeGrid{

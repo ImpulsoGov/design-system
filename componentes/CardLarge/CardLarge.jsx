@@ -7,7 +7,7 @@ const CardLarge = ({
     icon,
     titulo,
     texto,
-    links
+    links,
 })=>{
     return(
         <div className={style.CardLargeContainer}>
@@ -42,20 +42,24 @@ const CardLarge = ({
     )
 }
 
-const CardLargeGrid = ({cards})=>{
+const CardLargeGrid = ({cards,obs})=>{
     return(
-        <div className={style.CardLargeGrid}>
-                {cards.map((card)=>{
-                    return(
-                        <CardLarge
-                            icon = {card.icon}
-                            titulo = {card.titulo}
-                            texto = {card.texto}
-                            links = {card.links}
-                        />
-                    )
-                })}
-        </div>
+        <>
+            <div className={style.CardLargeGrid}>
+                    {cards.map((card)=>{
+                        return(
+                            <CardLarge
+                                icon = {card.icon}
+                                titulo = {card.titulo}
+                                texto = {card.texto}
+                                links = {card.links}
+                            />
+                        )
+                    })}
+            </div>
+            <p className={style.CardLargeOBS}>{obs}</p>
+        </>
+
     )
 }
 
