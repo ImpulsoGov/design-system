@@ -49,7 +49,7 @@
 /* XLARGE */
 @media screen and (min-width: 1920px) {
     .DivTrilha{
-        padding: 30px 80px 30px 125px;
+        padding-right: 125px;
     }
 }
 
