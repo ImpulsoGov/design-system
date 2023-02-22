@@ -184,14 +184,15 @@ const NavBar = (props) => {
                               />   
                               
   const ModalInicioChild = <ModalInicio
-                              titulo = {props.ModalInicio.titulo}
-                              chamada = {props.ModalInicio.chamada}
+                              titulo = {props?.ModalInicio.titulo}
+                              chamada = {props?.ModalInicio.chamada}
+                              cardAlert = {props?.ModalInicio.cardAlert}
                               botaoPrincipal = {{
-                                label : props.ModalInicio.botaoPrincipal.label,
+                                label : props?.ModalInicio.botaoPrincipal.label,
                                 submit : ()=>setShowModalInicio(false)
                               }}
                               botaoSecundario = {{
-                                label : props.ModalInicio.botaoSecundario.label,
+                                label : props?.ModalInicio.botaoSecundario.label,
                                 submit : ()=>{
                                   setShowModalInicio(false)
                                   setShowPrimeiroAcesso(true)

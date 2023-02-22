@@ -1,0 +1,121 @@
+.ConteudoTrilha{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 45px;
+    justify-content: center;
+    align-items: center;
+    padding-top: 30px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    padding-bottom: 80px;
+    color: #1F1F1F;
+}
+.ConteudoTrilhaButtonBar{
+    display: flex;
+    width: 95%;
+    justify-content: space-between;
+}
+.ConteudoTrilhaVideoAvaliacaoVideo{
+    display: flex;
+    flex-direction: row;
+    width: 95%;
+    height: fit-content;
+    align-content: center;
+    justify-content: center;
+    gap: 10vw;
+    background: #EFF5F9;
+    border-radius: 20px;
+    padding: 25px;
+}
+.ConteudoTrilhaVideoAvaliacaoPDF{
+    display: flex;
+    flex-direction: column-reverse;
+    width: 95%;
+    height: fit-content;
+    align-content: center;
+    justify-content: center;
+    gap: 3vw;
+    background: #EFF5F9;
+    border-radius: 20px;
+    padding: 25px;
+}
+
+.ConteudoTrilhaVideo iframe{
+    height: 30vw;
+    width: 50vw;
+}
+.ConteudoTrilhaAvaliacaoConclusao{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.ConteudoTrilhaEstrelas{
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.ConteudoTrilhaDescricao{
+    background: #EFF5F9;
+    border-radius: 20px;
+    padding: 25px;
+    width: 95%;
+}
+.ConteudoTrilhaDescricaoTexto{
+    height: 125px;
+    overflow: hidden;
+    margin-bottom: 0;
+}
+.ConteudoTrilhaDescricaoTextoDegrade{
+    background-image: linear-gradient(rgba(255, 0, 0, 0), #EFF5F9);
+    width: 90%;
+    height: 125px;
+    position: absolute;
+}
+.ConteudoTrilhaMaterialComplementar{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+}
+.ConteudoTrilhaMaterialComplementarCard{
+    background: #EFF5F9;
+    border-radius: 20px;
+    padding: 12px 25px;
+    width: fit-content;
+    height: auto;
+    font-size: 12px;
+}
+.ConteudoTrilhaMaterialComplementarCard a{
+    text-decoration: none;
+    color: #1F1F1F;
+}
+@media screen and (min-width: 1365px) {
+    .ConteudoTrilhaVideoAvaliacao{
+        width: 85%;
+    }
+    .ConteudoTrilhaDescricao{
+        width: 85%;
+    }
+    .ConteudoTrilhaDescricaoTextoDegrade{
+        width: 83%;
+    }
+    .ConteudoTrilhaMaterialComplementar{
+        width: 85%;
+    }
+    .ConteudoTrilhaButtonBar{
+        width: 85%;
+    }
+}
+@media screen and (max-width: 1023px) {
+    .ConteudoTrilhaVideoAvaliacao{
+        flex-direction: column;
+    }
+    .ConteudoTrilhaVideo iframe{
+        height: auto;
+        width: 100%;
+    }
+    
+}

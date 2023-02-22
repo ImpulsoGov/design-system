@@ -20,9 +20,9 @@ const CardLarge = ({
             <div className={style.CardLargeTitulo}>{titulo}</div>
             <div className={style.CardLargeTexto}>{texto}</div>
             <div className={style.CardLargeLinks}>
-                {links.map((item)=>{
+                {links.map((item,index)=>{
                     return(
-                        <Link href={item.link}>
+                        <Link href={item.link} key={index}>
                             <a className={style.CardLargeLink}><span className={style.CardLargeListIcon}>›</span>{item.label}</a>
                         </Link>
                     )
@@ -31,7 +31,7 @@ const CardLarge = ({
             <div className={style.CardLargeLinksMobile}>
                 {links.map((item)=>{
                     return(
-                        <ButtonLightMobile
+                        <ButtonLightMobile key={item.label}
                             link={item.link}
                             label = {item.label}
                         />
@@ -46,9 +46,9 @@ const CardLargeGrid = ({cards,obs})=>{
     return(
         <>
             <div className={style.CardLargeGrid}>
-                    {cards.map((card)=>{
+                    {cards.map((card,index)=>{
                         return(
-                            <CardLarge
+                            <CardLarge key={index}
                                 icon = {card.icon}
                                 titulo = {card.titulo}
                                 texto = {card.texto}

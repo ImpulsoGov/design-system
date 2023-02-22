@@ -5,7 +5,6 @@
 }
 
 .PastaModulo{
-    /* Auto layout */
     text-decoration: none;
     height: fit-content;
     display: flex;
@@ -35,6 +34,7 @@
     background: #EFF5F9;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
     border-radius: 20px;
+    cursor: pointer;
 }
 
 .PastaModuloAtual{
@@ -65,8 +65,9 @@
     color: #FFFFFF;
 }
 
-.Butoes{
-    display: -webkit-inline-flex;
+.Botoes{
+    display: inline-flex;
+    gap: 15px;
 }
 
 .tituloTexto{
@@ -118,7 +119,9 @@
     letter-spacing: -0.01em;
     color: #1F1F1F;
 }
-
+.Conteudo:hover{
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+}
 .idModulo{
     font-family: 'Inter';
     font-style: normal;
@@ -172,21 +175,21 @@
 }
 
 /* SMALL */
-@media screen and (min-width: 375px)and (max-width: 767px) {
+@media screen and (max-width: 767px) {
     .divModulos{
         width: 100%;
     }
     .divConteudo{
-        display: none;
+        width: 100%;
+        margin: 0;
     }
+    .tituloTexto{
+        font-size: 28px;
+        width: 100%;
+    }
+    .ModulosTrilha{
+        padding: 30px 15px 30px 15px;
+    }
+    
 }
 
-/* XSMALL */
-@media screen and (max-width: 374px) {
-    .divModulos{
-        width: 100%;
-    }
-    .divConteudo{
-        display: none;
-    }
-}

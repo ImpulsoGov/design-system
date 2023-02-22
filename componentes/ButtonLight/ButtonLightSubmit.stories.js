@@ -21,3 +21,9 @@ Default.args={
   label : "Entrar",
   submit : ()=> console.log("logado")
 }
+export const Icon = Template.bind({});
+Icon.args={
+  label : "",
+  submit : ()=> console.log("logado"),
+  icon : "https://media.graphassets.com/8NbkQQkyRSiouNfFpLOG"
+}

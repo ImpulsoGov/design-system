@@ -1,132 +1,165 @@
-import React from "react";
+import React, { useState,useEffect } from "react";
 import style from "./ModulosTrilha.module.css"
-import { ButtonLight } from "../ButtonLight/ButtonLight"
+import { ButtonLight,ButtonLightSubmit } from "../ButtonLight/ButtonLight"
 import { ButtonColor } from "../ButtonColor/ButtonColor"
+import Link from "next/link"
 
-const PastaModulo = ({id,titulo,status,link}) => {  
-    if (status == true) {
+
+const PastaModulo = ({
+    id,
+    titulo,
+    link,
+    ativo,
+    click
+}) => {  
         return (
-        <a href={link} className={style.PastaModuloAtual}>
-            <div>
-                <img src="https://media.graphassets.com/hdhX6nuoS8esvmyxBHMk"></img>
-            </div>
-            <div>
+            <div 
+                href={link} 
+                className={
+                    ativo?
+                    style.PastaModuloAtual:
+                    style.PastaModulo
+                }
+                onClick={()=>click(id)}
+            >
+                <img 
+                    src={
+                        ativo?
+                        "https://media.graphassets.com/hdhX6nuoS8esvmyxBHMk":
+                        "https://media.graphassets.com/W8ChKPCTdCiQFTCGU8sB"
+                    }
+                ></img>
                 <div>
-                    MÓDULO {id}
-                </div>
-                <div>
-                    {titulo}
+                    <div>MÓDULO {id}</div>
+                    <div>{titulo}</div>
                 </div>
             </div>
-        </a>
         )
-    }else if (status == false) {
-        return (
-        <a href={link} className={style.PastaModulo}>
-             <div>
-                <img src="https://media.graphassets.com/W8ChKPCTdCiQFTCGU8sB"></img>
-            </div>
-            <div>
-                <div>
-                    MÓDULO {id}
-                </div>
-                <div>
-                    {titulo}
-                </div>
-            </div>
-        </a>
-        )
-    }
 }
 
-const Conteudo = ({id,formato,titulo,status,link}) => {  
-    if (status == true) {
+const Conteudo = ({
+    id,
+    formato,
+    titulo,
+    concluido,
+    link
+}) => {  
+        const Icon = {
+            "VIDEO" : "https://media.graphassets.com/CEN9z38RyKNwf3dTrpVd",
+            "PDF" : "https://media.graphassets.com/CEN9z38RyKNwf3dTrpVd",
+            "PPT" : "https://media.graphassets.com/CEN9z38RyKNwf3dTrpVd",
+            "QUIZ" : "https://media.graphassets.com/CEN9z38RyKNwf3dTrpVd"
+        }
         return (
-        <a href={link} className={style.Conteudo}>
-            <div>
-                <img src="https://media.graphassets.com/CEN9z38RyKNwf3dTrpVd"></img>
-            </div>
-            <div>
-                <div>
-                    {id}. {titulo}
-                </div>
-            </div>
-            <div>
-                <img src="https://media.graphassets.com/wwr70QThSTGWkqmbR0Mt"></img>
-            </div>
-        </a>
+            <Link href={link}>
+                <a  className={style.Conteudo}>
+                    <img 
+                        src={Icon[formato]}
+                    ></img>
+                    <div>{id}. {titulo}</div>
+                    <div>
+                        <img src={
+                                    concluido ?
+                                    "https://media.graphassets.com/wwr70QThSTGWkqmbR0Mt":
+                                    "https://media.graphassets.com/bhs7XtqTQWuEdi2mPWmD"
+                            }
+                        ></img>
+                    </div>
+                </a>
+            </Link>
         )
-    }else if (status == false) {
-        return (
-        <a href={link} className={style.Conteudo}>
-             <div>
-                <img src="https://media.graphassets.com/CEN9z38RyKNwf3dTrpVd"></img>
-            </div>
-            <div>
-                <div>
-                    {id}. {titulo}
-                </div>
-            </div>
-            <div>
-                <img src="https://media.graphassets.com/bhs7XtqTQWuEdi2mPWmD"></img>
-            </div>
-        </a>
-        )
-    }
 }
 
 const ModulosTrilha = ({
     tituloTrilha,
-    linkVoltar,
-    linkWhatsapp,
+    botaoVoltar,
+    botaoWhatsapp,
     modulos,
-    moduloAtual,
-    conteudosModuloAtual
+    modulo,
+    ultimoModulo,
+    mobile
 })=>{
+    const [moduloAtivo,setModuloAtivo] = useState(mobile ? 0 : ultimoModulo)
+    const showModulos = ()=>{
+        if(!mobile) return true
+        if(moduloAtivo == 0) return true
+        return false
+    }
     return(
         <div className={style.ModulosTrilha}>
-           <div className={style.Butoes}>
-                <ButtonLight
-                    icone={{
-                        posicao: 'right',
-                        url: 'https://media.graphassets.com/8NbkQQkyRSiouNfFpLOG'
-                    }}
-                    label="VOLTAR"
-                    link={linkVoltar}
-                />
+           <div className={style.Botoes}>
+                {
+                    showModulos() &&
+                    <ButtonLight
+                        icone={{
+                            posicao: 'right',
+                            url: 'https://media.graphassets.com/8NbkQQkyRSiouNfFpLOG'
+                        }}
+                        label={botaoVoltar.label}
+                        link={botaoVoltar.url}
+                    />
+                }
+                {
+                    moduloAtivo > 0 && mobile &&
+                    <ButtonLightSubmit
+                        label = ""
+                        submit={()=>setModuloAtivo(0)}
+                        icon = "https://media.graphassets.com/8NbkQQkyRSiouNfFpLOG"
+                    />
+                }
                 <ButtonColor
                     icone={{
                         posicao: 'right',
-                        url: 'https://media.graphassets.com/M6WOlS0QYt4dEpwPrerQ'
+                        url: 'https://media.graphassets.com/JFNSZopRIORoy8FnmQlw'
                     }}
-                    label="ENTRAR NO GRUPO DO WHATSAPP"
-                    link={linkWhatsapp}
-                    />
+                    label={botaoWhatsapp.label}
+                    link={botaoWhatsapp.url}
+                />
            </div>
-           <div className={style.tituloTexto}>
-                {tituloTrilha}
-           </div>
+           <div className={style.tituloTexto}>{tituloTrilha}</div>
            <div>
-            <div className={style.divModulos}>
+            {
+                showModulos() &&
+                <div className={style.divModulos}>
                     {modulos.map((modulo) => {
                             return(
-                                <PastaModulo id={modulo.id} titulo={modulo.titulo} status={modulo.status} link={modulo.link} />
+                                <PastaModulo key={modulo.id}
+                                    id={modulo.id} 
+                                    titulo={modulo.titulo} 
+                                    ativo={moduloAtivo == modulo.id} 
+                                    link={modulo.link} 
+                                    click={setModuloAtivo}
+                                />
                             );
                     })}
-            </div>
-            <div className={style.divConteudo}>
-                    <div className={style.idModulo}>
-                        Módulo {moduloAtual.id}
-                    </div>
-                    <div className={style.tituloModulo}>
-                        {moduloAtual.titulo}
-                    </div>
-                    {conteudosModuloAtual.map((conteudo) => {
-                            return(
-                                <Conteudo id={conteudo.id}  formato={conteudo.formato} titulo={conteudo.titulo} status={conteudo.status} link={conteudo.link} />
-                            );
-                    })}
-            </div>
+                </div>
+            }
+            {
+                moduloAtivo > 0 &&
+                <div className={style.divConteudo}>
+                <div className={style.idModulo}>Módulo {moduloAtivo}</div>
+                {
+                    modulos.map((modulo,index)=>{
+                        if(modulo.id==moduloAtivo) return <div className={style.tituloModulo} key={index}>{modulo.titulo}</div>
+                    })
+                }
+                
+                {modulo.map((conteudo,index) => {
+                        return(
+                                conteudo.moduloID == moduloAtivo &&
+                                <>
+                                    <Conteudo key={index}
+                                        id={conteudo.id}  
+                                        formato={conteudo.formato} 
+                                        titulo={conteudo.titulo} 
+                                        concluido={conteudo.concluido} 
+                                        link={conteudo.link} 
+                                    />
+                                </>
+                        );
+                })}
+                </div>
+            }
            </div>
         </div>
     )
