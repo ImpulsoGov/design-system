@@ -2,6 +2,7 @@ import React from "react";
 import style from "./SobreTrilha.module.css"
 import { ButtonLight, ButtonLightMobile } from "../ButtonLight/ButtonLight"
 import { ButtonColor, ButtonColorMobile } from "../ButtonColor";
+import { sanitize } from "../sanitize";
 
 const NossoTime = ({
     titulo,
@@ -78,15 +79,24 @@ const SobreTrilha = ({
             <div className={style.tituloTexto}>{tituloTrilha}</div>
             <div className={style.divTexto}>
                     <div className={style.divSobre}>
-                        <div className={style.tituloTexto}>Sobre</div>
-                        <div className={style.Texto}>{sobre}</div>
+                        <div className={style.tituloTexto}>{sobre.titulo}</div>
+                        <div 
+                            className={style.Texto}
+                            dangerouslySetInnerHTML={{
+                                __html: sanitize(sobre.texto)
+                            }} 
+                        ></div>
                     </div>
                     <div className={style.divConteudo}>
-                        <div className={style.tituloTexto}>Conteúdo</div>
+                        <div className={style.tituloTexto}>{conteudo.titulo}</div>
                         <div className={style.Texto}>
-                            {conteudo.map((item) => {
+                            {conteudo.texto.map((item) => {
                                     return(
-                                        <li>{item.titulo}</li>
+                                        <li
+                                            dangerouslySetInnerHTML={{
+                                                __html: sanitize(item.titulo)
+                                            }} 
+                                        ></li>
                                     );
                             })}
                         </div>
