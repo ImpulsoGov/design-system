@@ -145,8 +145,6 @@ const ModulosTrilha = ({
                 }
                 
                 {modulo.map((conteudo,index) => {
-                    console.log(conteudo.moduloID,moduloAtivo)
-                    console.log(conteudo.moduloID == moduloAtivo)
                         return(
                                 conteudo.moduloID == moduloAtivo &&
                                 <>
