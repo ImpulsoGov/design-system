@@ -121,9 +121,9 @@ const ModulosTrilha = ({
             {
                 showModulos() &&
                 <div className={style.divModulos}>
-                    {modulos.map((modulo) => {
+                    {modulos.map((modulo,index) => {
                             return(
-                                <PastaModulo key={modulo.id}
+                                <PastaModulo key={index}
                                     id={modulo.id} 
                                     titulo={modulo.titulo} 
                                     ativo={moduloAtivo == modulo.id} 

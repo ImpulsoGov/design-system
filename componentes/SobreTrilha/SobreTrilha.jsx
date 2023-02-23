@@ -13,8 +13,8 @@ const NossoTime = ({
             <div className={style.NossoTimeTitulo}>{titulo}</div>
             <div className={style.NossoTimeMembrosGrid}>
                 {
-                    membros.map((membro)=>{
-                        return <MembroTime membro={membro} />
+                    membros.map((membro,index)=>{
+                        return <MembroTime membro={membro} key={index}/>
                     })
                 }
             </div>
