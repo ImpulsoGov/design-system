@@ -90,9 +90,9 @@ const SobreTrilha = ({
                     <div className={style.divConteudo}>
                         <div className={style.tituloTexto}>{conteudo.titulo}</div>
                         <div className={style.Texto}>
-                            {conteudo.texto.map((item) => {
+                            {conteudo.texto.map((item,index) => {
                                     return(
-                                        <li
+                                        <li key={index}
                                             dangerouslySetInnerHTML={{
                                                 __html: sanitize(item.texto)
                                             }} 
