@@ -94,6 +94,7 @@
 }
 @media screen and (min-width: 1365px) {
     .ConteudoTrilhaVideoAvaliacao{
+        flex-direction: column-reverse;
         width: 85%;
     }
     .ConteudoTrilhaDescricao{
@@ -110,7 +111,7 @@
     }
 }
 @media screen and (max-width: 1023px) {
-    .ConteudoTrilhaVideoAvaliacao{
+    .ConteudoTrilhaVideoAvaliacaoVideo{
         flex-direction: column;
     }
     .ConteudoTrilhaVideo iframe{
