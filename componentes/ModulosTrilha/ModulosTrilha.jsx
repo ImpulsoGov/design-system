@@ -79,10 +79,10 @@ const ModulosTrilha = ({
     ultimoModulo,
     mobile
 })=>{
-    const [moduloAtivo,setModuloAtivo] = useState(mobile ? 0 : ultimoModulo)
+    const [moduloAtivo,setModuloAtivo] = useState(mobile ? -1 : ultimoModulo)
     const showModulos = ()=>{
         if(!mobile) return true
-        if(moduloAtivo == 0) return true
+        if(moduloAtivo < 0) return true
         return false
     }
     return(
@@ -100,10 +100,10 @@ const ModulosTrilha = ({
                     />
                 }
                 {
-                    moduloAtivo > 0 && mobile &&
+                    moduloAtivo >= 0 && mobile &&
                     <ButtonLightSubmit
                         label = ""
-                        submit={()=>setModuloAtivo(0)}
+                        submit={()=>setModuloAtivo(-1)}
                         icon = "https://media.graphassets.com/8NbkQQkyRSiouNfFpLOG"
                     />
                 }
@@ -135,7 +135,7 @@ const ModulosTrilha = ({
                 </div>
             }
             {
-                moduloAtivo > 0 &&
+                moduloAtivo >= 0 &&
                 <div className={style.divConteudo}>
                 <div className={style.idModulo}>Módulo {moduloAtivo}</div>
                 {
