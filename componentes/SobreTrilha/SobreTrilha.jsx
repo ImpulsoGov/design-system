@@ -94,7 +94,7 @@ const SobreTrilha = ({
                                     return(
                                         <li
                                             dangerouslySetInnerHTML={{
-                                                __html: sanitize(item.titulo)
+                                                __html: sanitize(item.texto)
                                             }} 
                                         ></li>
                                     );
