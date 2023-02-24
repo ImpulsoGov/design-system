@@ -18,7 +18,7 @@
 .tituloHeader{
     line-height: 110%;
     letter-spacing: -0.04em;
-    font-size: 128px;
+    font-size: 92px;
     padding-right: 10%;
     color: #FFF;
 }
@@ -33,7 +33,7 @@
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
-    font-size: 42px;
+    font-size: 24px;
     line-height: 150%;
     margin-top: 60px;
     margin-bottom: 60px;
@@ -133,11 +133,11 @@
         padding: 200px 72px 148px 90px;
     }
     .tituloHeader{
-        font-size: 128px;
+        font-size: 102px;
         padding-right: 0;
     }
     .textoHeader{
-        font-size: 32px;
+        font-size: 28px;
         padding-right: 44%;
         margin-top: 80px;
         margin-bottom: 80px;
