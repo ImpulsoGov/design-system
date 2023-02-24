@@ -553,8 +553,8 @@ ColorIPLogout.args = {
     }
 
 }
-export const ColorAGP = Template.bind({});
-ColorAGP.args = {
+export const ColorAGPLogin = Template.bind({});
+ColorAGPLogin.args = {
     user:{
             nome: "Camila Alves",
             cargo :"Coordenadora APS",
@@ -570,7 +570,8 @@ ColorAGP.args = {
     data:data,
     theme:{
         logoProjeto: "https://media.graphassets.com/0q9BBD4xRCivV24aSg80",
-        cor: "ColorAGP"
+        cor: "ColorAGP",
+        logoLink: "/"
     },
     menu:
         [
@@ -586,42 +587,170 @@ ColorAGP.args = {
         { label: "Ações Estratégicas", url: "/acoes-estrategicas" },
     ],
     NavBarIconBranco:"https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconBranco.svg",
-    NavBarIconDark:"https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconDark.svg"
+    NavBarIconDark:"https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconDark.svg",
+    esqueciMinhaSenha : {
+        reqs : {
+            mail : async()=> {
+                            const aguarde = async()=> await new Promise(r => setTimeout(r, 1000));
+                            const res = aguarde().then(async(res)=>{
+                                return true;
+                })
+                return await res
+            },
+            codigo : ()=> true,
+            alterarSenha : ()=> true
+        },
+    },
+    ModalInicio:{
+        titulo: "Faça o login para ver os dados restritos.",
+        chamada: "Se esse é o seu primeiro acesso e sua senha ainda não foi criada, clique abaixo em ‘primeiro acesso’. Se você já possui uma senha, clique em ‘entrar’.",
+        botaoPrincipal : {
+            label: "entrar",
+            submit: ()=>console.log("teste")
+        },
+        botaoSecundario : {
+            label: "primeiro acesso",
+            submit: ()=>console.log("teste")
+        }
+    },
+    primeiroAcesso:{
+        reqs:{
+            mail : async(mail)=> {
+                const aguarde = async()=> await new Promise(r => setTimeout(r, 2000));
+                const res = aguarde().then(async(res)=>{
+                    if (mail == 'danilo') return true
+                    return false 
+                })
+                return await res
+            },
+            codigo : async(mail,codigo)=>{
+                const aguarde = async()=> await new Promise(r => setTimeout(r, 2000));
+                const res = aguarde().then(async(res)=>{
+                    if (codigo.toString() == '123') return true
+                    return false;
+                })
+                return await res
+            },
+            alterarSenha : async()=>{
+                const aguarde = async()=> await new Promise(r => setTimeout(r, 2000));
+                const res = aguarde().then(async(res)=>{
+                    return true
+                })
+                return await res
+            },
+        }
+    }
 }
-export const ColorSM = Template.bind({});
-ColorSM.args ={
-    user: null,
-        login: {
-            titulo: "Faça o login para ver o painel de busca ativa"
-        },
-        data:dataSM,
-        theme:{
-            logoProjeto: "https://media.graphassets.com/Xvh8jUvxTiaimkk4AD75",
-            cor: "ColorSM"
-        },
-        menu:
-            [
-                { label: "A Impulso Gov", url: "/impulsogov" },
-                { label: "O Previne Brasil", url: "/previnebrasil" },
-                {
-                    label: "Análise",
-                    url: "analise" ,
-                    sub : subMenus
-                },
-                { label: "Consultoria", url: "/consultoria" }
-            ],
-        subtitles:[
-            { label: "Indicadores de Desempenho", url: "/indicadores" },
-            { label: "Capitação Ponderada", url: "/capitacao" },
-            { label: "Ações Estratégicas", url: "/acoes-estrategicas" },
+export const ColorSMLogout = Template.bind({});
+ColorSMLogout.args ={
+    user: {
+        button : {label:"sair",link:""},
+        label : "ENTRAR",
+        login : ()=> console.log('logado'),
+        logout : ()=> console.log('deslogado'),
+        validarCredencial : entrar
+    },
+    login: {
+        titulo: "Faça o login para ver os indicadores do seu município."
+    },
+    data:dataSM,
+    theme:{
+        logoProjeto: "https://media.graphassets.com/Xvh8jUvxTiaimkk4AD75",
+        cor: "ColorSM",
+        logoLink: "/inicio"
+    },
+    menu:
+        [
+            { label: "Início", url: "/" },
+            { label: "Sobre", url: "/sobre" },
+            // {
+            //     label: "Análise",
+            //     url: "analise" ,
+            //     sub : subMenus
+            // },
+            { label: "Glossário", url: "/glossario" }
         ],
-        SeletorTipo:1,
-        NavBarIconBranco:"https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconBranco.svg",
-        NavBarIconDark:"https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconDark.svg"
+    subtitles:[
+        { label: "Indicadores de Desempenho", url: "/indicadores" },
+        { label: "Capitação Ponderada", url: "/capitacao" },
+        { label: "Ações Estratégicas", url: "/acoes-estrategicas" },
+    ],
+    seletorMunicipios: true,
+    NavBarIconBranco:"https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconBranco.svg",
+    NavBarIconDark:"https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconDark.svg",
+    esqueciMinhaSenha : {
+        reqs : {
+            mail : async(mail)=> {
+                            const aguarde = async()=> await new Promise(r => setTimeout(r, 2000));
+                            const res = aguarde().then(async(res)=>{
+                                if (mail == 'danilo') return true
+                                return false 
+                })
+                return await res
+            },
+            codigo : async(mail,codigo)=>{
+                const aguarde = async()=> await new Promise(r => setTimeout(r, 2000));
+                const res = aguarde().then(async(res)=>{
+                    if (codigo.toString() == '123') return true
+                    return false;
+                })
+                return await res
+            },
+            alterarSenha : async()=>{
+                const aguarde = async()=> await new Promise(r => setTimeout(r, 2000));
+                const res = aguarde().then(async(res)=>{
+                    return true
+                })
+                return await res
+            },
+        },
+    },
+    ModalInicio:{
+        titulo: "Faça o login para ver os indicadores do seu município.",
+        chamada: "Se você já possui uma senha, clique em ENTRAR. Caso o seu município seja parceiro e seu acesso já foi autorizado, clique em PRIMEIRO ACESSO para criar a sua senha.",
+        botaoPrincipal : {
+            label: "entrar",
+            submit: ()=>console.log("teste")
+        },
+        botaoSecundario : {
+            label: "primeiro acesso",
+            submit: ()=>console.log("teste")
+        }
+    },
+    primeiroAcesso:{
+        reqs:{
+            mail : async(mail)=> {
+                const aguarde = async()=> await new Promise(r => setTimeout(r, 2000));
+                const res = aguarde().then(async(res)=>{
+                    if (mail == 'danilo') return true
+                    return false 
+                })
+                return await res
+            },
+            codigo : async(mail,codigo)=>{
+                const aguarde = async()=> await new Promise(r => setTimeout(r, 2000));
+                const res = aguarde().then(async(res)=>{
+                    if (codigo.toString() == '123') return true
+                    return false;
+                })
+                return await res
+            },
+            alterarSenha : async()=>{
+                const aguarde = async()=> await new Promise(r => setTimeout(r, 2000));
+                const res = aguarde().then(async(res)=>{
+                    return true
+                })
+                return await res
+            },
+        }
+    }
 }
 export const WhiteSM = Template.bind({});
 WhiteSM.args ={
     user: null,
+        login: {
+            titulo: "Faça o login para ver os indicadores do seu município."
+        },
         data:dataSM,
         theme:{
             logoProjeto: "https://media.graphassets.com/Xvh8jUvxTiaimkk4AD75",
@@ -655,6 +784,9 @@ White.args={
             equipe : "000003456",
             login : ()=> console.log('logado'),
             logout : ()=> console.log('deslogado')
+        },
+        login: {
+            titulo: "Faça o login para ver o painel de busca ativa"
         },
         data:data,
         theme:{
