@@ -124,7 +124,7 @@ const NavBar = (props) => {
                   equipe = {props?.user?.equipe}
                 />
   const login = <Login
-                  titulo = "Faça o login para ver o painel de busca ativa"
+                  titulo = {props.login.titulo}
                   botaoPrincipal = {{
                     label:"entrar",
                     submit:()=>setShowModalInicio(false)

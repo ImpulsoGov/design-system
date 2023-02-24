@@ -10,6 +10,10 @@ export default {
             name: "Dados do Usuário",
             description: "Dados do usuário autenticado, utilizado pelo modal.\n\n**nome** : nome do usuário *string*,\n\n**cargo**: Cargo do usuário *string*,\n\n**button**: Rótulo do botão de sair *object*,\n\n**label**: Letra do botão de usuário quando autenticado *string*, \n\n**equipe**: Código INE *string*,\n\n**login**: Função de login *function*,\n\n**logout**: Função de logout *function* "
         },
+        login: {
+            name: "Área de login",
+            description: "Informações exibidas na área de login.\n\n**titulo**: texto convidando usuário a fazer login *string*"
+        },
         data:{
             name: "Lista de Municípios",
             description: "Lista de municípios do auto-complete no seletor de municípios *object array*.\n\n**nome**: Nome do município *string*,\n\n**uf**: Sigla da Unidade Federativa *string*"
@@ -373,6 +377,9 @@ ColorIPLogin.args = {
             login : ()=> console.log('logado'),
             logout : ()=> console.log('deslogado')
         },
+    login: {
+        titulo: "Faça o login para ver o painel de busca ativa"
+    },
     data:data,
     theme:{
         logoProjeto: "https://media.graphassets.com/Kal4aulRmYkqd0L6RBAd",
@@ -459,6 +466,9 @@ ColorIPLogout.args = {
             logout : ()=> console.log('deslogado'),
             validarCredencial : entrar
         },
+    login: {
+        titulo: "Faça o login para ver o painel de busca ativa"
+    },
     data:data,
     theme:{
         logoProjeto: "https://media.graphassets.com/Kal4aulRmYkqd0L6RBAd",
@@ -554,6 +564,9 @@ ColorAGP.args = {
             login : ()=> console.log('logado'),
             logout : ()=> console.log('deslogado')
         },
+    login: {
+        titulo: "Faça o login para ver o painel de busca ativa"
+    },
     data:data,
     theme:{
         logoProjeto: "https://media.graphassets.com/0q9BBD4xRCivV24aSg80",
@@ -578,6 +591,9 @@ ColorAGP.args = {
 export const ColorSM = Template.bind({});
 ColorSM.args ={
     user: null,
+        login: {
+            titulo: "Faça o login para ver o painel de busca ativa"
+        },
         data:dataSM,
         theme:{
             logoProjeto: "https://media.graphassets.com/Xvh8jUvxTiaimkk4AD75",
