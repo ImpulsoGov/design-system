@@ -10,8 +10,21 @@ const PastaModulo = ({
     titulo,
     link,
     ativo,
-    click
+    click,
+    liberado
 }) => {  
+        const pastaLogo = (liberado)=>{
+            let logo
+            if(liberado){
+                logo = ativo?
+                "https://media.graphassets.com/hdhX6nuoS8esvmyxBHMk":
+                "https://media.graphassets.com/W8ChKPCTdCiQFTCGU8sB"
+
+            }else{
+                logo = "https://media.graphassets.com/SEwi8ASvT6mAxuwFL6cA"
+            }
+            return logo
+        }
         return (
             <div 
                 href={link} 
@@ -20,14 +33,10 @@ const PastaModulo = ({
                     style.PastaModuloAtual:
                     style.PastaModulo
                 }
-                onClick={()=>click(id)}
+                onClick={()=>{if(liberado) click(id)}}
             >
                 <img 
-                    src={
-                        ativo?
-                        "https://media.graphassets.com/hdhX6nuoS8esvmyxBHMk":
-                        "https://media.graphassets.com/W8ChKPCTdCiQFTCGU8sB"
-                    }
+                    src={pastaLogo(liberado)}
                 ></img>
                 <div>
                     <div>MÓDULO {id}</div>
@@ -46,9 +55,9 @@ const Conteudo = ({
 }) => {  
         const Icon = {
             "VIDEO" : "https://media.graphassets.com/CEN9z38RyKNwf3dTrpVd",
-            "PDF" : "https://media.graphassets.com/CEN9z38RyKNwf3dTrpVd",
-            "PPT" : "https://media.graphassets.com/CEN9z38RyKNwf3dTrpVd",
-            "QUIZ" : "https://media.graphassets.com/CEN9z38RyKNwf3dTrpVd"
+            "PDF" : "https://media.graphassets.com/FbnwvteSyzLB9mVSSy3w",
+            "PPT" : "https://media.graphassets.com/FbnwvteSyzLB9mVSSy3w",
+            "QUIZ" : "https://media.graphassets.com/qEhLR01jTpGY97RbAOrc"
         }
         return (
             <Link href={link}>
@@ -129,6 +138,7 @@ const ModulosTrilha = ({
                                     ativo={moduloAtivo == modulo.id} 
                                     link={modulo.link} 
                                     click={setModuloAtivo}
+                                    liberado={modulo.liberado}
                                 />
                             );
                     })}
