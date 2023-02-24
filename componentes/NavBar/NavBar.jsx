@@ -188,7 +188,8 @@ const NavBar = (props) => {
                               chamada = {props.ModalInicio.chamada}
                               botaoPrincipal = {{
                                 label : props.ModalInicio.botaoPrincipal.label,
-                                submit : ()=>setShowModalInicio(false)
+                                submit : ()=>setShowModalInicio(false),
+                                theme: props.theme.cor
                               }}
                               botaoSecundario = {{
                                 label : props.ModalInicio.botaoSecundario.label,

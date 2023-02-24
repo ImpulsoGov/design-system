@@ -1,5 +1,6 @@
 import React from "react";
-import style from "./ButtonColor.module.css"
+import style from "./ButtonColor.module.css";
+import PropTypes from 'prop-types';
 
 const ButtonColor = ({
     icone,
@@ -36,11 +37,12 @@ const ButtonColor = ({
 const ButtonColorSubmit = ({
     label,
     submit,
-    arg
+    arg,
+    theme
 })=>{
     return(
         <button 
-            className={style.ButtonColorContainer}
+            className={style[`ButtonColorContainer${theme}`]}
             onClick={()=>submit(arg)}
         >
             {label.toUpperCase()}
@@ -51,11 +53,12 @@ const ButtonColorSubmit = ({
 const ButtonColorSubmitMobile = ({
     label,
     submit,
-    arg
+    arg,
+    theme
 })=>{
     return(
         <button 
-            className={style.ButtonColorMobile}
+            className={style[`ButtonColorMobile${theme}`]}
             onClick={()=>submit(arg)}
         >
             {label.toUpperCase()}
@@ -75,6 +78,22 @@ const ButtonColorSubmitMultiple = ({
             {label.toUpperCase()}
         </button>
     )
+}
+
+ButtonColorSubmit.defaultProps = {
+    theme: 'ColorIP'
+}
+
+ButtonColorSubmitMobile.defaultProps = {
+    theme: 'ColorIP'
+}
+
+ButtonColorSubmit.propTypes = {
+    theme: PropTypes.string
+}
+
+ButtonColorSubmitMobile.propTypes = {
+    theme: PropTypes.string
 }
 
 export {ButtonColor,ButtonColorSubmit,ButtonColorSubmitMultiple,ButtonColorSubmitMobile}
