@@ -81,7 +81,7 @@
     text-transform: uppercase;
     gap: 15px;
 }
-.LoginButton{
+.LoginButtonColorIP{
     border: 1px solid rgba(96, 110, 120, 0.15);
     background-color: #1D856C;
     color: #fff;
@@ -118,11 +118,37 @@
     text-decoration: none;
 }
 
-.LoginButton:hover{
+.LoginButtonColorIP:hover{
     border: 1px solid rgba(96, 110, 120, 0.50);
     background-color: #1d856df0;
     cursor: pointer;
 }
+
+.LoginButtonColorSM{
+    border: none;
+    background-color: #5367C9;
+    color: #fff;
+    border-radius: 100px;
+    padding: 0px 30px;
+    font-size: 15px;
+    font-family: 'inter';
+    font-weight: 500;
+    line-height: 100%;
+    box-sizing: border-box;
+    width: fit-content;
+    height: 64px;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.LoginButtonColorSM:hover{
+    /* border: 1px solid rgba(96, 110, 120, 0.50); */
+    background-color: #1B2D82;
+    cursor: pointer;
+}
+
 @media screen and (max-width: 1023px) {
     .LoginTitulo{
         font-size: 24px;

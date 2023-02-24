@@ -6,7 +6,9 @@ import { ButtonLightSubmit } from "../ButtonLight";
 const Login = (props)=>{
     const [senha, setSenha] = useState("");
     const [mail, setMail] = useState("");
-    const [resposta,setResposta] = useState()
+    const [resposta,setResposta] = useState();
+    const color = props.botaoPrincipal.theme ? props.botaoPrincipal.theme : 'ColorIP';
+
     return(
         <div className={style.LoginConteiner}>
             <div className={style.LoginTitulo}>{props.titulo}</div>
@@ -38,7 +40,7 @@ const Login = (props)=>{
                 <button 
                     className={
                         (mail.length>0 && senha.length>0)?
-                        style.LoginButton:
+                        style[`LoginButton${color}`]:
                         style.LoginButtonInativo
                     }
                     onClick={() => {

@@ -127,7 +127,8 @@ const NavBar = (props) => {
                   titulo = {props.login.titulo}
                   botaoPrincipal = {{
                     label:"entrar",
-                    submit:()=>setShowModalInicio(false)
+                    submit:()=>setShowModalInicio(false),
+                    theme: props.theme.cor
                   }}
                   botaoSecundario = {{
                     label:"voltar",
