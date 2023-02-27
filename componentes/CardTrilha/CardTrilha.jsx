@@ -37,6 +37,7 @@ const CardTrilha = ({
     linkTrilha,
     linkSobre
 })=>{
+    if (progressao > 0) {
         return(
             <div className={style.DivTrilha}>
                 <div className={style.CardTrilha}>
@@ -47,30 +48,38 @@ const CardTrilha = ({
                     <div className={style.CardTrilhaProgressoTitulo}>
                         {progressao}% da capacitação completa
                     </div>
-                    <div className={style.BotoesCardTrilha}>
+                    <div className={style.ButoesCardTrilha}>
                         <ButtonColor
-                            label={progressao > 0 ? "CONTINUAR DE ONDE PAREI" : "INICIAR CAPACITAÇÃO"}
+                            label="CONTINUAR DE ONDE PAREI"
                             link={linkTrilha}
-                        />
-                        <ButtonLight
-                            label="VER CONTEÚDO"
-                            link={linkSobre}
-                        />
-                    </div>
-                    <div className={style.BotoesCardTrilhaMobile}>
-                        <ButtonColorMobile
-                            label={progressao > 0 ? "CONTINUAR DE ONDE PAREI" : "INICIAR CAPACITAÇÃO"}
-                            link={linkTrilha}
-                        />
-                        <ButtonLightMobile
-                            label="VER CONTEÚDO"
-                            link={linkSobre}
                         />
                     </div>
                 </div>
 
             </div>
         )
+      }
+      else{
+        return(
+            <div className={style.DivTrilha}>
+                <div className={style.CardTrilha}>
+                    <div className={style.CardTrilhaTitulo}>
+                        {titulo}
+                    </div>
+                    <ProgressBar bgcolor="#1D856C" progress='0' />
+                    <div className={style.CardTrilhaProgressoTitulo}>
+                        {progressao}% da capacitação completa
+                    </div>
+                    <div className={style.ButoesCardTrilha}>
+                        <ButtonColor
+                            label="INICIAR CAPACITAÇÃO"
+                            link={linkSobre}
+                        />
+                    </div>
+                </div>
+            </div>
+        )
+      }    
 }
 
 

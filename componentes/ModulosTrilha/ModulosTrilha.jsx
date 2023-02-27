@@ -153,7 +153,18 @@ const ModulosTrilha = ({
                         if(modulo.id==moduloAtivo) return <div className={style.tituloModulo} key={index}>{modulo.titulo}</div>
                     })
                 }
-                
+                {
+                    moduloAtivo == 0 &&
+                    <>
+                        <Conteudo key=""
+                            id="0"
+                            formato="PDF"
+                            titulo="Sobre esse curso | Agenda"
+                            concluido="true"
+                            link="/conteudo-programatico"
+                        />
+                    </>
+                }
                 {modulo.map((conteudo,index) => {
                         return(
                                 conteudo.moduloID == moduloAtivo &&
