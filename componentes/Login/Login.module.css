@@ -144,7 +144,6 @@
 }
 
 .LoginButtonColorSM:hover{
-    /* border: 1px solid rgba(96, 110, 120, 0.50); */
     background-color: #1B2D82;
     cursor: pointer;
 }

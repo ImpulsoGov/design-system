@@ -152,7 +152,7 @@ const NavBar = (props) => {
                               aviso : "Caso não lembre o e-mail cadastrado, entre em contato conosco pelo grupo de mensagens do seu município com a Impulso Gov.",
                               codigo : "Digite abaixo o código recebido no e-mail cadastrado",
                               senha : "Escolha uma nova senha",
-                              sucesso : "Agora é só entrar na área restrita com seu e-mail e a nova senha.",
+                              sucesso : props.esqueciMinhaSenha.chamadas.sucesso,
                               }}
                               botaoVoltar = {{label:"voltar",function : ""}}
                               botaoProximo = {{label:"próximo",function : ""}}
@@ -173,7 +173,7 @@ const NavBar = (props) => {
                                 aviso : "Caso não lembre o e-mail cadastrado, entre em contato conosco pelo grupo de mensagens do seu município com a Impulso Gov.",
                                 codigo : "Digite abaixo o código recebido no e-mail cadastrado",
                                 senha : "Crie sua senha de acesso",
-                                sucesso : "Agora é só entrar na área restrita com seu e-mail e a senha criada.",
+                                sucesso : props.primeiroAcesso.chamadas.sucesso,
                                 }}
                                 botaoVoltar = {{label:"voltar",function : ""}}
                                 botaoProximo = {{label:"próximo",function : ""}}
