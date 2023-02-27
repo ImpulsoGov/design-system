@@ -407,6 +407,9 @@ ColorIPLogin.args = {
             codigo : ()=> true,
             alterarSenha : ()=> true
         },
+        chamadas: {
+            sucesso: "Agora é só entrar na área restrita com seu e-mail e a senha criada."
+        }
     },
     ModalInicio:{
         titulo: "Faça o login para ver os dados restritos.",
@@ -445,6 +448,9 @@ ColorIPLogin.args = {
                 })
                 return await res
             },
+        },
+        chamadas: {
+            sucesso: "Agora é só entrar na área restrita com seu e-mail e a senha criada."
         }
     }
 
@@ -511,6 +517,9 @@ ColorIPLogout.args = {
                 return await res
             },
         },
+        chamadas: {
+            sucesso: "Agora é só entrar na área restrita com seu e-mail e a senha criada."
+        }
     },
     ModalInicio:{
         titulo: "Faça o login para ver os dados restritos.",
@@ -549,6 +558,9 @@ ColorIPLogout.args = {
                 })
                 return await res
             },
+        },
+        chamadas: {
+            sucesso: "Agora é só entrar na área restrita com seu e-mail e a senha criada."
         }
     }
 
@@ -600,6 +612,9 @@ ColorAGPLogin.args = {
             codigo : ()=> true,
             alterarSenha : ()=> true
         },
+        chamadas: {
+            sucesso: "Agora é só clicar no botão ENTRAR com seu e-mail e a senha criada."
+        }
     },
     ModalInicio:{
         titulo: "Faça o login para ver os dados restritos.",
@@ -638,6 +653,9 @@ ColorAGPLogin.args = {
                 })
                 return await res
             },
+        },
+        chamadas: {
+            sucesso: "Agora é só clicar no botão ENTRAR com seu e-mail e a senha criada."
         }
     }
 }
@@ -704,6 +722,9 @@ ColorSMLogout.args ={
                 return await res
             },
         },
+        chamadas: {
+            sucesso: "Agora é só clicar no botão ENTRAR com seu e-mail e a senha criada."
+        }
     },
     ModalInicio:{
         titulo: "Faça o login para ver os indicadores do seu município.",
@@ -742,6 +763,9 @@ ColorSMLogout.args ={
                 })
                 return await res
             },
+        },
+        chamadas: {
+            sucesso: "Agora é só clicar no botão ENTRAR com seu e-mail e a senha criada."
         }
     }
 }
