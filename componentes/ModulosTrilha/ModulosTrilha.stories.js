@@ -50,5 +50,6 @@ Desktop.args={
             {id: 2, moduloID: 2, formato:"QUIZ", titulo:"Quizz de avaliação desses conteúdos", concluido: false, link:"/"}
       ],
       ultimoModulo: 0,
-      mobile: false
+      mobile: false,
+      checkSobre: true
 }
