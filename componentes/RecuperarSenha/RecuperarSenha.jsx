@@ -32,7 +32,8 @@ const InserirInfo = ({
     sucesso,
     showEsqueciSenha,
     setAlterarSenhaArgs,
-    alterarSenhaArgs
+    alterarSenhaArgs,
+    theme
 })=>{
     const [value, setValue] = useState('');
     const [novaSenhaConfirmacao,setNovaSenhaConfirmacao] = useState('')
@@ -92,7 +93,7 @@ const InserirInfo = ({
             {   !sucesso &&
                 <>
                     <input 
-                        className={(alert.length>0 && value==0) ? style.RecuperarSenhaInputErro : style.RecuperarSenhaInput}
+                        className={(alert.length>0 && value==0) ? style.RecuperarSenhaInputErro : style[`RecuperarSenhaInput${theme}`]}
                         type={(etapa==0) ? 'text' : 'password'}
                         placeholder={placeholder}
                         value={value}
@@ -114,7 +115,7 @@ const InserirInfo = ({
                         <div 
                             className={
                                 (AtivarBotao())?
-                                style.RecuperarSenhaBotaoProximo:
+                                style[`RecuperarSenhaBotaoProximo${theme}`]:
                                 style.RecuperarSenhaBotaoProximoInativo
                             }
                             onClick={ProximaEtapa}
@@ -125,7 +126,7 @@ const InserirInfo = ({
             {
                 sucesso &&
                 <div 
-                    className={style.RecuperarSenhaBotaoProximo}
+                    className={style[`RecuperarSenhaBotaoProximo${theme}`]}
                     onClick={()=>showEsqueciSenha(false)}
                 >{botaoSucesso.toUpperCase()}</div>
             }
@@ -183,7 +184,8 @@ const RecuperarSenha = ({
     botaoProximo,
     botaoSucesso,
     reqs,
-    showEsqueciSenha
+    showEsqueciSenha,
+    theme
 })=>{
     const [etapa, setEtapa] = useState(0);
     const [mailAlert, setMailAlert,] = useState('');
@@ -214,7 +216,7 @@ const RecuperarSenha = ({
                     showEsqueciSenha = {showEsqueciSenha}
                     setAlterarSenhaArgs = {setAlterarSenhaArgs}
                     alterarSenhaArgs = {alterarSenhaArgs}
-
+                    theme = {theme}
                 />
             }
             {
@@ -233,7 +235,7 @@ const RecuperarSenha = ({
                     placeholder = "Código de Recuperação"
                     setAlterarSenhaArgs = {setAlterarSenhaArgs}
                     alterarSenhaArgs = {alterarSenhaArgs}
-
+                    theme = {theme}
                 />
             }
             {
@@ -253,6 +255,7 @@ const RecuperarSenha = ({
                     placeholder = "Nova Senha"
                     setAlterarSenhaArgs = {setAlterarSenhaArgs}
                     alterarSenhaArgs = {alterarSenhaArgs}
+                    theme = {theme}
                 />
             }
             {
@@ -272,7 +275,7 @@ const RecuperarSenha = ({
                     showEsqueciSenha = {showEsqueciSenha}
                     setAlterarSenhaArgs = {setAlterarSenhaArgs}
                     alterarSenhaArgs = {alterarSenhaArgs}
-
+                    theme = {theme}
                 />
             }                
         </>

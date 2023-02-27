@@ -159,6 +159,7 @@ const NavBar = (props) => {
                               botaoSucesso = "Entrar"
                               showEsqueciSenha = {setShowEsqueciSenha}
                               reqs = {props.esqueciMinhaSenha.reqs}
+                              theme = {props.theme.cor}
                             />   
   const PrimeiroAcesso = <RecuperarSenha
                                 titulos = { {
@@ -182,6 +183,7 @@ const NavBar = (props) => {
                                   setShowPrimeiroAcesso(arg)
                                 }}
                                 reqs = {props.primeiroAcesso.reqs}
+                                theme = {props.theme.cor}
                               />   
                               
   const ModalInicioChild = <ModalInicio
