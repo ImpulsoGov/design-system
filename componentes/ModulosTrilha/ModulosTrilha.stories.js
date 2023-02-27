@@ -13,11 +13,11 @@ Mobile.args={
       botaoVoltar: {label: "VOLTAR",url:"/"},
       botaoWhatsapp: {label: "ENTRAR NO GRUPO DO WHATSAPP",url:"/"},
       modulos:[
-            {id: 0, titulo: "Introdução aos indicadores de Hipertensão e Diabetes na APS"},
-            {id: 1, titulo: "Introdução aos indicadores de Hipertensão e Diabetes na APS"},
-            {id: 2, titulo: "Qualificação do registro e monitoramento de dados"},
-            {id: 3, titulo: "Qualificação do cuidado"},
-            {id: 4, titulo: "Gestão de processos de trabalho"}
+            {id: 0, titulo: "Introdução a capacitação",liberado:true},
+            {id: 1, titulo: "Introdução aos indicadores de Hipertensão e Diabetes na APS",liberado:true},
+            {id: 2, titulo: "Qualificação do registro e monitoramento de dados",liberado:true},
+            {id: 3, titulo: "Qualificação do cuidado",liberado:false},
+            {id: 4, titulo: "Gestão de processos de trabalho",liberado:false}
       ],
       modulo:[
             {id: 0, moduloID: 0, formato:"VIDEO", titulo:"Introdução sobre a Capacitação", concluido: true, link:"/"},
@@ -49,6 +49,6 @@ Desktop.args={
             {id: 1, moduloID: 2, formato:"PDF", titulo:"Introdução ao Previne Brasil", concluido: false, link:"/"},
             {id: 2, moduloID: 2, formato:"QUIZ", titulo:"Quizz de avaliação desses conteúdos", concluido: false, link:"/"}
       ],
-      ultimoModulo: 1,
+      ultimoModulo: 0,
       mobile: false
 }

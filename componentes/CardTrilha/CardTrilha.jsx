@@ -52,20 +52,26 @@ const CardTrilha = ({
                             label={progressao > 0 ? "CONTINUAR DE ONDE PAREI" : "INICIAR CAPACITAÇÃO"}
                             link={linkTrilha}
                         />
-                        <ButtonLight
+                        {
+                            linkSobre &&
+                            <ButtonLight
                             label="VER CONTEÚDO"
                             link={linkSobre}
-                        />
+                            />
+                        }
                     </div>
                     <div className={style.BotoesCardTrilhaMobile}>
                         <ButtonColorMobile
                             label={progressao > 0 ? "CONTINUAR DE ONDE PAREI" : "INICIAR CAPACITAÇÃO"}
                             link={linkTrilha}
                         />
-                        <ButtonLightMobile
-                            label="VER CONTEÚDO"
-                            link={linkSobre}
-                        />
+                        {
+                            linkSobre &&
+                            <ButtonLightMobile
+                                label="VER CONTEÚDO"
+                                link={linkSobre}
+                            />
+                        }
                     </div>
                 </div>
 

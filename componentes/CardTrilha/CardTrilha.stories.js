@@ -12,7 +12,7 @@ CronicosNaoIniciado.args={
     titulo:"Hipertensão e Diabetes",
     progressao:0,
     linkTrilha:"/",
-    linkSobre:"/",
+    //linkSobre:"/",
 }
 
 export const CronicosIniciado = Template.bind({});
@@ -20,5 +20,5 @@ CronicosIniciado.args={
     titulo:"Hipertensão e Diabetes",
     progressao:10,
     linkTrilha:"/",
-    linkSobre:"/",
+    //linkSobre:"/",
 }
