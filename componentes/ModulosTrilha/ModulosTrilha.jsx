@@ -58,7 +58,7 @@ const Conteudo = ({
             "video" : "https://media.graphassets.com/CEN9z38RyKNwf3dTrpVd",
             "pdf" : "https://media.graphassets.com/FbnwvteSyzLB9mVSSy3w",
             "ppt" : "https://media.graphassets.com/FbnwvteSyzLB9mVSSy3w",
-            "quiz" : "https://media.graphassets.com/qEhLR01jTpGY97RbAOrc"
+            "quizz" : "https://media.graphassets.com/qEhLR01jTpGY97RbAOrc"
         }
         return (
             <Link href={link}>
