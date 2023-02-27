@@ -11,14 +11,15 @@ const PastaModulo = ({
     link,
     ativo,
     click,
-    liberado
+    liberado,
+    concluido
 }) => {  
-        const pastaLogo = (liberado)=>{
+        const pastaLogo = (liberado,concluido)=>{
             let logo
             if(liberado){
                 logo = ativo?
-                "https://media.graphassets.com/hdhX6nuoS8esvmyxBHMk":
-                "https://media.graphassets.com/W8ChKPCTdCiQFTCGU8sB"
+                "https://media.graphassets.com/hdhX6nuoS8esvmyxBHMk" :
+                concluido ? "https://media.graphassets.com/2NeDNsVGTpa5AESs9MCB" : "https://media.graphassets.com/W8ChKPCTdCiQFTCGU8sB"
 
             }else{
                 logo = "https://media.graphassets.com/SEwi8ASvT6mAxuwFL6cA"
@@ -36,7 +37,7 @@ const PastaModulo = ({
                 onClick={()=>{if(liberado) click(id)}}
             >
                 <img 
-                    src={pastaLogo(liberado)}
+                    src={pastaLogo(liberado,concluido)}
                 ></img>
                 <div>
                     <div>MÓDULO {id}</div>
@@ -54,10 +55,10 @@ const Conteudo = ({
     link
 }) => {  
         const Icon = {
-            "VIDEO" : "https://media.graphassets.com/CEN9z38RyKNwf3dTrpVd",
-            "PDF" : "https://media.graphassets.com/FbnwvteSyzLB9mVSSy3w",
-            "PPT" : "https://media.graphassets.com/FbnwvteSyzLB9mVSSy3w",
-            "QUIZ" : "https://media.graphassets.com/qEhLR01jTpGY97RbAOrc"
+            "video" : "https://media.graphassets.com/CEN9z38RyKNwf3dTrpVd",
+            "pdf" : "https://media.graphassets.com/FbnwvteSyzLB9mVSSy3w",
+            "ppt" : "https://media.graphassets.com/FbnwvteSyzLB9mVSSy3w",
+            "quiz" : "https://media.graphassets.com/qEhLR01jTpGY97RbAOrc"
         }
         return (
             <Link href={link}>
@@ -139,6 +140,7 @@ const ModulosTrilha = ({
                                     link={modulo.link} 
                                     click={setModuloAtivo}
                                     liberado={modulo.liberado}
+                                    concluido={modulo.concluido}
                                 />
                             );
                     })}

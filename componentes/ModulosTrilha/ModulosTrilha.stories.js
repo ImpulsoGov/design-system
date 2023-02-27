@@ -36,11 +36,11 @@ Desktop.args={
       botaoVoltar: {label: "VOLTAR",url:"/"},
       botaoWhatsapp: {label: "ENTRAR NO GRUPO DO WHATSAPP",url:"/"},
       modulos:[
-            {id: 0, titulo: "Introdução aos indicadores de Hipertensão e Diabetes na APS",liberado:true},
-            {id: 1, titulo: "Introdução aos indicadores de Hipertensão e Diabetes na APS",liberado:true},
-            {id: 2, titulo: "Qualificação do registro e monitoramento de dados",liberado:true},
-            {id: 3, titulo: "Qualificação do cuidado",liberado:false},
-            {id: 4, titulo: "Gestão de processos de trabalho",liberado:false}
+            {id: 0, titulo: "Introdução aos indicadores de Hipertensão e Diabetes na APS",liberado:true,concluido:true},
+            {id: 1, titulo: "Introdução aos indicadores de Hipertensão e Diabetes na APS",liberado:true,concluido:true},
+            {id: 2, titulo: "Qualificação do registro e monitoramento de dados",liberado:true,concluido:false},
+            {id: 3, titulo: "Qualificação do cuidado",liberado:false,concluido:false},
+            {id: 4, titulo: "Gestão de processos de trabalho",liberado:false,concluido:false}
       ],
       modulo:[
             {id: 1, moduloID: 0, formato:"VIDEO", titulo:"Introdução sobre a Capacitação", concluido: true, link:"/"},
