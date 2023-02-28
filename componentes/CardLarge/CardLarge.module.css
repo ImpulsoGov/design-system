@@ -23,7 +23,7 @@
 }
 
 .ColorSM {
-    height: 535px;
+    height: auto;
 }
 
 .ColorSM:hover {
@@ -98,19 +98,13 @@
 
 .CardLargeGrid{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(272px, 1fr));
     column-gap: 24px;
     margin: 45px 80px;
 }
 
 .CardLargeLinksMobile{
     display: none;
-}
-
-@media screen and (min-width: 1024px) and (max-width: 1439px){
-    .ColorSM{
-        height: 593px;
-    }
 }
 
 @media screen and (max-width: 1023px) {
