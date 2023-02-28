@@ -4,15 +4,18 @@ import { ButtonColorSubmit } from "../ButtonColor";
 import { ButtonColorSubmitMobile } from "../ButtonColor";
 import { ButtonLightSubmit } from "../ButtonLight";
 import { ButtonLightSubmitMobile } from "../ButtonLight";
+import { CardAlertChild } from "../CardAlert/CardAlert";
 const ModalInicio = ({
     titulo,
     chamada,
+    cardAlert,
     botaoPrincipal,
     botaoSecundario
 })=>{
     return(
         <div className={style.ModalInicioContainer}>
             <div className={style.ModalInicioTitulo}>{titulo}</div>
+            { cardAlert && <CardAlertChild msg={cardAlert}/>}
             <div className={style.ModalInicioChamada}>{chamada}</div>
             <div className={style.ModalInicioButtonContainer}>
                 <ButtonColorSubmit

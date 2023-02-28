@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import style from "./ButtonColor.module.css";
 import PropTypes from 'prop-types';
@@ -8,31 +9,30 @@ const ButtonColor = ({
     label,
     link
 })=>{
-    if (icone === undefined) {
     return(
-        <a 
-            className={style.ButtonColorContainer}
-            href={link}
-        >
-            {label}
-        </a>
-    )
-    }else if (icone.posicao=='left'){
-        return(
-            <a href={link} className={style.ButtonColorIconContainer}> 
+        <Link href={link}>
+            <a  className={style.ButtonColorIconContainer}> 
+                {icone?.posicao=='right' && <img className={style.IconeRight} src={icone?.url} />}
                 {label} 
-                <img className={style.IconeLeft} src={icone.url} />
+                {icone?.posicao=='left' && <img className={style.IconeLeft} src={icone?.url} />}
             </a>
-        )
-    }
-    else{
-        return(
-            <a className={style.ButtonColorIconContainer} href={link}> 
-                <img className={style.IconeRight} src={icone.url} />
-                {label}
+        </Link>
+    )
+}
+const ButtonColorMobile = ({
+    icone,
+    label,
+    link
+})=>{
+    return(
+        <Link href={link}>
+            <a  className={style.ButtonColorIconContainerMobile}> 
+                {icone?.posicao=='right' && <img className={style.IconeRight} src={icone?.url} />}
+                {label} 
+                {icone?.posicao=='left' && <img className={style.IconeLeft} src={icone?.url} />}
             </a>
-        )
-      }
+        </Link>
+    )
 }
 
 const ButtonColorSubmit = ({
@@ -40,13 +40,32 @@ const ButtonColorSubmit = ({
     submit,
     arg,
     theme
+    icon
 })=>{
     return(
         <button 
             className={cx(style.ButtonColorContainer, style[`${theme}`])}
             onClick={()=>submit(arg)}
         >
-            {label.toUpperCase()}
+            {icon && <img className={style.IconeRight} src={icon} />}
+            {label?.toUpperCase()}
+        </button>
+    )
+}
+const ButtonColorSubmitIcon = ({
+    label,
+    submit,
+    icon,
+    disable
+})=>{
+    return(
+        <button 
+            className={style.ButtonColorContainer}
+            onClick={()=>{if(!disable) submit()}}
+            style={(disable) ? {cursor:"default"} : {cursor:"pointer"}}
+        >
+            {icon && <img className={style.IconeRight} src={icon} />}
+            {label?.toUpperCase()}
         </button>
     )
 }
@@ -97,4 +116,4 @@ ButtonColorSubmitMobile.propTypes = {
     theme: PropTypes.string
 }
 
-export {ButtonColor,ButtonColorSubmit,ButtonColorSubmitMultiple,ButtonColorSubmitMobile}
+export {ButtonColor,ButtonColorSubmit,ButtonColorSubmitMultiple,ButtonColorSubmitMobile,ButtonColorMobile,ButtonColorSubmitIcon}

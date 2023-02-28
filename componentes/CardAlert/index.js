@@ -1,1 +1,1 @@
-export {CardAlert} from "./CardAlert"
+export {CardAlert,CardAlertChild} from "./CardAlert"

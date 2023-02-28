@@ -1,7 +1,7 @@
 export { AboutSection } from "./AboutSection/AboutSection";
 export { Banner2Col } from "./Banner2col/Banner2col"
 export { ButtonBar } from "./ButtonBar/ButtonBar";
-export { ButtonColor,ButtonColorSubmit,ButtonColorSubmitMultiple,ButtonColorSubmitMobile } from "./ButtonColor/ButtonColor";
+export { ButtonColor,ButtonColorSubmit,ButtonColorSubmitMultiple,ButtonColorSubmitMobile,ButtonColorMobile } from "./ButtonColor/ButtonColor";
 export { ButtonLight,ButtonLightSubmit,ButtonLightSubmitMobile,ButtonLightMobile } from "./ButtonLight/ButtonLight";
 export { ButtonLogin } from "./ButtonLogin/ButtonLogin";
 export { CardAlert} from "./CardAlert/CardAlert";
@@ -9,6 +9,7 @@ export { CardLarge,CardLargeGrid } from "./CardLarge/CardLarge";
 export { CardTrilha} from "./CardTrilha/CardTrilha";
 export { Content3Col } from "./Content3Col/Content3Col";
 export { ConteudoBlog } from "./ConteudoBlog/ConteudoBlog";
+export { ConteudoTrilha } from "./ConteudoTrilha/ConteudoTrilha"
 export { Footer } from "./Footer/Footer";
 export { FormConsultoria } from "./FormConsultoria/FormConsultoria";
 export { Greeting } from "./Greeting/Greeting"

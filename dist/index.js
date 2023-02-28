@@ -27,6 +27,12 @@ Object.defineProperty(exports, "ButtonColor", {
     return _ButtonColor.ButtonColor;
   }
 });
+Object.defineProperty(exports, "ButtonColorMobile", {
+  enumerable: true,
+  get: function get() {
+    return _ButtonColor.ButtonColorMobile;
+  }
+});
 Object.defineProperty(exports, "ButtonColorSubmit", {
   enumerable: true,
   get: function get() {
@@ -109,6 +115,12 @@ Object.defineProperty(exports, "ConteudoBlog", {
   enumerable: true,
   get: function get() {
     return _ConteudoBlog.ConteudoBlog;
+  }
+});
+Object.defineProperty(exports, "ConteudoTrilha", {
+  enumerable: true,
+  get: function get() {
+    return _ConteudoTrilha.ConteudoTrilha;
   }
 });
 Object.defineProperty(exports, "Footer", {
@@ -301,6 +313,8 @@ var _CardTrilha = require("./CardTrilha/CardTrilha");
 var _Content3Col = require("./Content3Col/Content3Col");
 
 var _ConteudoBlog = require("./ConteudoBlog/ConteudoBlog");
+
+var _ConteudoTrilha = require("./ConteudoTrilha/ConteudoTrilha");
 
 var _Footer = require("./Footer/Footer");
 

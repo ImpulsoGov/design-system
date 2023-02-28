@@ -67,8 +67,8 @@ const Footer = ({
           <div className={style.socialMediasFooter}>
             {socialMediaURLs.map((socialMedia)=>{
               return(
-                <Link href={socialMedia.url}>
-                  <a className={style.socialMediaFooter}  key={socialMedia.url}>
+                <Link href={socialMedia.url} key={socialMedia.url}>
+                  <a className={style.socialMediaFooter}  >
                     <img
                       className={style.socialMediaFooter}
                       alt={socialMedia.url}

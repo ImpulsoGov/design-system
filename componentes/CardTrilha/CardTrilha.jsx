@@ -1,7 +1,7 @@
 import React from "react";
 import style from "./CardTrilha.module.css"
-import { ButtonLight } from "../ButtonLight/ButtonLight"
-import { ButtonColor } from "../ButtonColor/ButtonColor"
+import { ButtonLight, ButtonLightMobile } from "../ButtonLight/ButtonLight"
+import { ButtonColor, ButtonColorMobile } from "../ButtonColor/ButtonColor"
 
 
 const ProgressBar = ({bgcolor,progress}) => {
@@ -37,7 +37,6 @@ const CardTrilha = ({
     linkTrilha,
     linkSobre
 })=>{
-    if (progressao > 0) {
         return(
             <div className={style.DivTrilha}>
                 <div className={style.CardTrilha}>
@@ -48,46 +47,37 @@ const CardTrilha = ({
                     <div className={style.CardTrilhaProgressoTitulo}>
                         {progressao}% da capacitação completa
                     </div>
-                    <div className={style.ButoesCardTrilha}>
+                    <div className={style.BotoesCardTrilha}>
                         <ButtonColor
-                            label="CONTINUAR DE ONDE PAREI"
+                            label={progressao > 0 ? "CONTINUAR DE ONDE PAREI" : "INICIAR CAPACITAÇÃO"}
                             link={linkTrilha}
                         />
-                        <ButtonLight
+                        {
+                            linkSobre &&
+                            <ButtonLight
                             label="VER CONTEÚDO"
                             link={linkSobre}
+                            />
+                        }
+                    </div>
+                    <div className={style.BotoesCardTrilhaMobile}>
+                        <ButtonColorMobile
+                            label={progressao > 0 ? "CONTINUAR DE ONDE PAREI" : "INICIAR CAPACITAÇÃO"}
+                            link={linkTrilha}
                         />
+                        {
+                            linkSobre &&
+                            <ButtonLightMobile
+                                label="VER CONTEÚDO"
+                                link={linkSobre}
+                            />
+                        }
                     </div>
                 </div>
 
             </div>
         )
-      }
-      else{
-        return(
-            <div className={style.DivTrilha}>
-                <div className={style.CardTrilha}>
-                    <div className={style.CardTrilhaTitulo}>
-                        {titulo}
-                    </div>
-                    <ProgressBar bgcolor="#1D856C" progress='0' />
-                    <div className={style.CardTrilhaProgressoTitulo}>
-                        {progressao}% da capacitação completa
-                    </div>
-                    <div className={style.ButoesCardTrilha}>
-                        <ButtonColor
-                            label="INICIAR CAPACITAÇÃO"
-                            link={linkTrilha}
-                        />
-                        <ButtonLight
-                            label="VER CONTEÚDO"
-                            link={linkSobre}
-                        />
-                    </div>
-                </div>
-            </div>
-        )
-      }    
 }
+
 
 export {CardTrilha}

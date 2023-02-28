@@ -9,8 +9,8 @@ const Menus = ({menus})=>{
         <div className={style.MenuMoblieMenus}>
         { menus.map((menu)=>{
                 return (
-                        <Link href={menu.url}>
-                            <a key={menu.label}>{menu.label}</a> 
+                        <Link href={menu.url} key={menu.label}>
+                            <a>{menu.label}</a> 
                         </Link>
                     )
             })}

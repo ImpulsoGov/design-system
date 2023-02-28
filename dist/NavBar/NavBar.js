@@ -225,14 +225,15 @@ const NavBar = props => {
   });
 
   const ModalInicioChild = /*#__PURE__*/_react.default.createElement(_ModalInicio.ModalInicio, {
-    titulo: props.ModalInicio.titulo,
-    chamada: props.ModalInicio.chamada,
+    titulo: props === null || props === void 0 ? void 0 : props.ModalInicio.titulo,
+    chamada: props === null || props === void 0 ? void 0 : props.ModalInicio.chamada,
+    cardAlert: props === null || props === void 0 ? void 0 : props.ModalInicio.cardAlert,
     botaoPrincipal: {
-      label: props.ModalInicio.botaoPrincipal.label,
+      label: props === null || props === void 0 ? void 0 : props.ModalInicio.botaoPrincipal.label,
       submit: () => setShowModalInicio(false)
     },
     botaoSecundario: {
-      label: props.ModalInicio.botaoSecundario.label,
+      label: props === null || props === void 0 ? void 0 : props.ModalInicio.botaoSecundario.label,
       submit: () => {
         setShowModalInicio(false);
         setShowPrimeiroAcesso(true);

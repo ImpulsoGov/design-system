@@ -13,7 +13,6 @@
     line-height: 130%;
     letter-spacing: -0.02em;
     color: #1F1F1F;
-    margin-top: 25px;
 }
 
 .ModalInicioChamada{
@@ -30,7 +29,6 @@
     display: flex;
     flex-direction: row;
     gap: 15px;
-    margin-top: 40px;
 }
 
 .ModalInicioButtonContainerMobile{

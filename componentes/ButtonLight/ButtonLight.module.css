@@ -7,15 +7,21 @@
 .IconeRight{
     padding-right: 8px;
 }
+.IconeLeftMobile{
+    padding-left: 8px;
+}
+
+.IconeRightMobile{
+    padding-right: 8px;
+}
+
 
 .ButtonLightContainer{
-    margin-right: 10px;
-    margin-top: 10px;
     border: 1px solid rgba(96, 110, 120, 0.50);
     background-color: #fff;
     color: #1F1F1F;
     border-radius: 100px;
-    padding: 0px 25px;
+    padding: 0px 23px;
     font-size: 15px;
     font-family: 'inter';
     font-weight: 500;
@@ -32,6 +38,7 @@
 .ButtonLightContainer:hover{
     border: 1px solid rgba(31, 31, 31, 1);
     background-color: #fff;
+    cursor: pointer;
 }
 
 .ButtonLightIconContainer{
@@ -39,7 +46,7 @@
     background-color: #fff;
     color: #1F1F1F;
     border-radius: 100px;
-    padding: 0px 30px;
+    padding: 0px 23px;
     font-size: 15px;
     font-family: 'inter';
     font-weight: 500;
@@ -59,7 +66,7 @@
 }
 
 /* SMALL */
-@media(max-width: 780px) {
+@media(max-width: 1023px) {
     .ButtonLightIconContainer{
         font-size: 0px;
     }
@@ -69,9 +76,10 @@
     .IconeRight{
         padding-right: 0px;
     }
+    
 }
 
-.ButtonLightMobile{
+.ButtonLightContainerMobile{
     border: 1px solid rgba(96, 110, 120, 0.15);
     background-color: #fff;
     color: #1F1F1F;

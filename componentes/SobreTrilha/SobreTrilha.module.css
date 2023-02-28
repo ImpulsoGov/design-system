@@ -1,7 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap");
 
 .SobreTrilha{
-    padding: 30px 80px 30px 80px;
+    padding: 30px 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
 }
 
 .Texto{
@@ -15,17 +18,20 @@
 }
 
 .divTexto{
-    display: inline-flex;
-    vertical-align: top;
+    display: flex;
+    gap: 60px;
 }
 
 .divSobre{
-    width: 40%;
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
 }
 
 .divConteudo{
-    padding-left: 100px;
-    width: 40%;
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
 }
 
 
@@ -40,12 +46,7 @@
     font-weight: 400;
     width: 70%;
     font-size: 42px;  
-    padding-bottom: 30px;
-    padding-top: 70px;
 }
-
-
-
 .tituloModulo{
     font-family: 'Inter';
     font-style: normal;
@@ -56,7 +57,81 @@
     color: #1F1F1F;
     padding-bottom: 50px;
 }
+.NossotimeContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
+}
+.NossoTimeTitulo{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;  
+}
+.NossoTimeMembrosGrid{
+    display: grid;
+    grid-template-columns: auto auto;
+    width: fit-content;
+    column-gap: 87px;
+    row-gap: 54px;
+}
+.MembroTimeContainer{
+    display: flex;
+    flex-direction: row;
+}
 
+.MembroTimeFotoContainer{
+    width: 75px;
+    height: 75px;
+}
+.MembroTimeFoto{
+    width: 75px;
+    height: 75px;
+    border: solid 5px rgba(0, 0, 0, 0.15);
+    border-radius: 100%;
+}
+.MembroTimeTextoContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-left: 10px;
+}
+.MembroTimeNome{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;  
+}
+
+.MembroTimeTitulo{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;  
+}
+.buttonWPDesktop{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.buttonWPMobile{
+    display: none;
+}
+
+.realizacaoContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 100px;
+}
+.realizacaoTitulo{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;  
+    color: #606E78;
+}
 /* XLARGE */
 @media screen and (min-width: 1920px) {
     .SobreTrilha{
@@ -69,22 +144,47 @@
     }
 }
 
-/* LARGE */
-@media screen and (min-width: 1440px) and (max-width: 1919px) {
-}
 
-/* REGULAR */
-@media screen and (min-width: 1025px)and (max-width: 1439px) {
-}
-
-/* MEDIUM */
-@media screen and (min-width: 768px)and (max-width: 1024px) {
-}
-
-/* SMALL */
-@media screen and (min-width: 375px)and (max-width: 767px) {
-}
-
-/* XSMALL */
-@media screen and (max-width: 374px) {
+/* SMALL*/
+@media screen and (max-width: 1023px) {
+    .tituloTexto{
+        width: 100%;
+        font-size: 32px;  
+        padding-bottom: 0;
+    }
+    .divTexto{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        vertical-align: baseline;
+    }
+    .divSobre{
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        width: 100%;
+    }
+    .divConteudo{
+        gap: 45px;
+        padding-left: 0px;
+        width: 100%;
+    }
+    
+    .NossoTimeMembrosGrid{
+        grid-template-columns: auto;
+        column-gap: 0;
+    }
+    .SobreTrilha{
+        padding: 30px 30px;
+    }
+    .buttonWPDesktop{
+        display: none;
+    }
+    .buttonWPMobile{
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    
 }
