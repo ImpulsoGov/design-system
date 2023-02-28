@@ -14,7 +14,7 @@
     background-color:#EFF5F9;
     border-radius: 20px;
     width: auto;
-    height: 593px;
+    height: 535px;
     padding: 60px 30px;
     display: flex;
     flex-direction: column;
@@ -116,6 +116,12 @@
     display: none;
 }
 
+@media screen and (min-width: 1024px) and (max-width: 1439px){
+    .CardLargeContainerColorSM{
+        height: 593px;
+    }
+}
+
 @media screen and (max-width: 1023px) {
     .CardLargeContainerColorIP, .CardLargeContainerColorSM{
         height: fit-content;
@@ -146,6 +152,5 @@
     .CardLargeLinks{
         display: none;
     }
-    
 }
 
