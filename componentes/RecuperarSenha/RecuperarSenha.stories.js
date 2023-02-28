@@ -4,7 +4,40 @@ import { RecuperarSenha } from './index'
 export default {
     title: "Componentes/RecuperarSenha",
     component: RecuperarSenha,
+    argTypes: {
+        theme: {
+            name: 'theme',
+            description: 'Tema de cor aplicado ao componente *string* \n\n Valores aceitos: ColorIP, ColorSM'
+        }
+    }
 }
+
+const reqs = {
+    mail : async(mail)=> {
+        const aguarde = async()=> await new Promise(r => setTimeout(r, 2000));
+        const res = aguarde().then(async(res)=>{
+            if (mail == 'danilo') return true
+            return false 
+        })
+        return await res
+    },
+    codigo : async(mail,codigo)=>{
+        const aguarde = async()=> await new Promise(r => setTimeout(r, 2000));
+        const res = aguarde().then(async(res)=>{
+            if (codigo.toString() == '123') return true
+            return false;
+        })
+        return await res
+    },
+    alterarSenha : async()=>{
+        const aguarde = async()=> await new Promise(r => setTimeout(r, 2000));
+        const res = aguarde().then(async(res)=>{
+            return true
+        })
+        return await res
+    },
+};
+
 const Template = (args) => <RecuperarSenha {...args}/>
 
 export const ColorIP = Template.bind({});
@@ -27,31 +60,7 @@ ColorIP.args ={
     botaoProximo : {label:"proximo",function : ""},
     botaoSucesso : "Inicio",
     showEsqueciSenha : ()=>{console.log("teste")},
-    reqs:{
-        mail : async(mail)=> {
-            const aguarde = async()=> await new Promise(r => setTimeout(r, 2000));
-            const res = aguarde().then(async(res)=>{
-                if (mail == 'danilo') return true
-                return false 
-            })
-            return await res
-        },
-        codigo : async(mail,codigo)=>{
-            const aguarde = async()=> await new Promise(r => setTimeout(r, 2000));
-            const res = aguarde().then(async(res)=>{
-                if (codigo.toString() == '123') return true
-                return false;
-            })
-            return await res
-        },
-        alterarSenha : async()=>{
-            const aguarde = async()=> await new Promise(r => setTimeout(r, 2000));
-            const res = aguarde().then(async(res)=>{
-                return true
-            })
-            return await res
-        },
-    },
+    reqs,
     theme : "ColorIP",
 }
 
@@ -75,30 +84,6 @@ ColorSM.args ={
     botaoProximo : {label:"proximo",function : ""},
     botaoSucesso : "Inicio",
     showEsqueciSenha : ()=>{console.log("teste")},
-    reqs:{
-        mail : async(mail)=> {
-            const aguarde = async()=> await new Promise(r => setTimeout(r, 2000));
-            const res = aguarde().then(async(res)=>{
-                if (mail == 'danilo') return true
-                return false 
-            })
-            return await res
-        },
-        codigo : async(mail,codigo)=>{
-            const aguarde = async()=> await new Promise(r => setTimeout(r, 2000));
-            const res = aguarde().then(async(res)=>{
-                if (codigo.toString() == '123') return true
-                return false;
-            })
-            return await res
-        },
-        alterarSenha : async()=>{
-            const aguarde = async()=> await new Promise(r => setTimeout(r, 2000));
-            const res = aguarde().then(async(res)=>{
-                return true
-            })
-            return await res
-        },
-    },
+    reqs,
     theme : "ColorSM",
 }
