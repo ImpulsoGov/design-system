@@ -65,10 +65,10 @@ const Footer = _ref => {
     className: _FooterModule.default.socialMediasFooter
   }, socialMediaURLs.map(socialMedia => {
     return /*#__PURE__*/_react.default.createElement(_link.default, {
-      href: socialMedia.url
-    }, /*#__PURE__*/_react.default.createElement("a", {
-      className: _FooterModule.default.socialMediaFooter,
+      href: socialMedia.url,
       key: socialMedia.url
+    }, /*#__PURE__*/_react.default.createElement("a", {
+      className: _FooterModule.default.socialMediaFooter
     }, /*#__PURE__*/_react.default.createElement("img", {
       className: _FooterModule.default.socialMediaFooter,
       alt: socialMedia.url,

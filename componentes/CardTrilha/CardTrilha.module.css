@@ -40,8 +40,12 @@
     padding-bottom: 50px;
 }
 
-.ButoesCardTrilha{
+.BotoesCardTrilha{
     display: inline-flex;
+    gap: 15px;
+}
+.BotoesCardTrilhaMobile{
+    display: none;
 }
 
 
@@ -66,6 +70,16 @@
     .CardTrilha{
         width: 100%;
     }
+    .BotoesCardTrilha{
+        display: none;
+    }   
+    .BotoesCardTrilhaMobile{
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+
+    }
+
 }
 
 /* SMALL */
@@ -78,10 +92,16 @@
         width: 100%;
     }
     
-    .ButoesCardTrilha{
-        display: inline-block;
+    .BotoesCardTrilha{
+        display: none;
     }   
+    .BotoesCardTrilhaMobile{
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
 
+    }
+    
 }
 
 /* XSMALL */
@@ -94,7 +114,14 @@
         width: 100%;
     }
     
-    .ButoesCardTrilha{
-        display: inline-block;
+    .BotoesCardTrilha{
+        display: none;
     }
+    .BotoesCardTrilhaMobile{
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+    }
+    
 }
