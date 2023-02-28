@@ -81,9 +81,7 @@
     text-transform: uppercase;
     gap: 15px;
 }
-.LoginButtonColorIP{
-    border: 1px solid rgba(96, 110, 120, 0.15);
-    background-color: #1D856C;
+.LoginButton{
     color: #fff;
     border-radius: 100px;
     padding: 0px 30px;
@@ -99,6 +97,7 @@
     align-items: center;
     text-decoration: none;
 }
+
 .LoginButtonInativo{
     border: 1px solid rgba(96, 110, 120, 0.15);
     background-color: #A6B5BE;
@@ -118,32 +117,23 @@
     text-decoration: none;
 }
 
-.LoginButtonColorIP:hover{
+.ColorIP {
+    border: 1px solid rgba(96, 110, 120, 0.15);
+    background-color: #1D856C;
+}
+
+.ColorIP:hover{
     border: 1px solid rgba(96, 110, 120, 0.50);
     background-color: #1d856df0;
     cursor: pointer;
 }
 
-.LoginButtonColorSM{
+.ColorSM{
     border: none;
     background-color: #5367C9;
-    color: #fff;
-    border-radius: 100px;
-    padding: 0px 30px;
-    font-size: 15px;
-    font-family: 'inter';
-    font-weight: 500;
-    line-height: 100%;
-    box-sizing: border-box;
-    width: fit-content;
-    height: 64px;
-    white-space: nowrap;
-    display: flex;
-    align-items: center;
-    text-decoration: none;
 }
 
-.LoginButtonColorSM:hover{
+.ColorSM:hover{
     background-color: #1B2D82;
     cursor: pointer;
 }

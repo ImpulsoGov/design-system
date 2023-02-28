@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import style from "./Login.module.css"
 import { ButtonLightSubmit } from "../ButtonLight";
+import cx from 'classnames';
 
 const Login = (props)=>{
     const [senha, setSenha] = useState("");
@@ -40,7 +41,7 @@ const Login = (props)=>{
                 <button 
                     className={
                         (mail.length>0 && senha.length>0)?
-                        style[`LoginButton${color}`]:
+                        cx(style.LoginButton, style[`${color}`]):
                         style.LoginButtonInativo
                     }
                     onClick={() => {
