@@ -39,7 +39,7 @@ const ButtonColorSubmit = ({
     label,
     submit,
     arg,
-    theme
+    theme,
     icon
 })=>{
     return(
