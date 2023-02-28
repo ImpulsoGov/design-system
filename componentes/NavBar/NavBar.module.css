@@ -341,7 +341,7 @@
     font-style: normal;
     font-weight: 40;
   }
-  .citySelect_navbarWhite{
+  .citySelect_navbarWhite, .citySelect_navbarWhiteSM{
     background-color: #FFF;
     color: #1F1F1F;
     border: none;
@@ -378,7 +378,7 @@
     padding: 6px;
     width:250px;
   }
-  .NavBarSeletorMunicipiosWhite{
+  .NavBarSeletorMunicipiosWhite, .NavBarSeletorMunicipiosWhiteSM{
     text-align: center;
     font-family: 'Inter';
     font-style: normal;
@@ -478,7 +478,7 @@
     text-transform: uppercase;
     cursor: pointer;
   }
-  .NavBarLoginWhite{
+  .NavBarLoginWhite, .NavBarLoginWhiteSM{
     border: 1px solid rgba(96, 110, 120, 0.25);
     color: #1F1F1F;
   }
@@ -562,7 +562,7 @@
       padding: 8px;
     }
 
-    .buttonMoblieWhite:hover{
+    .buttonMoblieWhite:hover, .buttonMoblieWhiteSM:hover{
       cursor: pointer;
     }
     .buttonMoblieColorIP:hover{
@@ -637,7 +637,7 @@
       width: 200px;
       font-size: 12px;
     }
-    .NavBarSeletorMunicipiosWhite{
+    .NavBarSeletorMunicipiosWhite, .NavBarSeletorMunicipiosWhiteSM{
       width: 200px;
       font-size: 12px;
     }
