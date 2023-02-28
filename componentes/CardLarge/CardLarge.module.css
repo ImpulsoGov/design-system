@@ -1,4 +1,4 @@
-.CardLargeContainerColorIP{
+.CardLargeContainer{
     background-color:#EFF5F9;
     border-radius: 20px;
     width: auto;
@@ -10,44 +10,35 @@
     color: #1F1F1F;
 }
 
-.CardLargeContainerColorSM{
-    background-color:#EFF5F9;
-    border-radius: 20px;
-    width: auto;
-    height: 535px;
-    padding: 60px 30px;
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
+.CardLargeContainer a{
     color: #1F1F1F;
 }
 
-.CardLargeContainerColorIP a, .CardLargeContainerColorSM a{
-    color: #1F1F1F;
+.CardLargeContainer:hover{
+    color: #fff;
 }
 
-.CardLargeContainerColorIP:hover{
+.ColorIP:hover {
     background-color: #2EB380;
-    color: #fff;
 }
 
-.CardLargeContainerColorSM:hover{
+.ColorSM {
+    height: 535px;
+}
+
+.ColorSM:hover {
     background-color: #5367C9;
+}
+
+.CardLargeContainer:hover .CardLargeLink{
     color: #fff;
 }
 
-.CardLargeContainerColorIP:hover .CardLargeLink,
-.CardLargeContainerColorSM:hover .CardLargeLink{
-    color: #fff;
-}
-
-.CardLargeContainerColorIP:hover .CardLargeListIcon,
-.CardLargeContainerColorSM:hover .CardLargeListIcon{
+.CardLargeContainer:hover .CardLargeListIcon{
     border: #FFF 1px solid;
 }
 
-.CardLargeContainerColorIP:hover .CardLargeIcon,
-.CardLargeContainerColorSM:hover .CardLargeIcon{
+.CardLargeContainer:hover .CardLargeIcon{
     filter: invert(100%) sepia(0%) saturate(7482%) hue-rotate(260deg) brightness(106%) contrast(102%);
 }
 
@@ -117,25 +108,23 @@
 }
 
 @media screen and (min-width: 1024px) and (max-width: 1439px){
-    .CardLargeContainerColorSM{
+    .ColorSM{
         height: 593px;
     }
 }
 
 @media screen and (max-width: 1023px) {
-    .CardLargeContainerColorIP, .CardLargeContainerColorSM{
+    .CardLargeContainer{
         height: fit-content;
     }
-    .CardLargeContainerColorIP:hover, .CardLargeContainerColorSM:hover{
+    .CardLargeContainer:hover{
         background-color:#EFF5F9;
         color: #1F1F1F;
     }
-    .CardLargeContainerColorIP:hover .CardLargeLink,
-    .CardLargeContainerColorSM:hover .CardLargeLink{
+    .CardLargeContainer:hover .CardLargeLink{
         color: #1F1F1F;
     }
-    .CardLargeContainerColorIP:hover .CardLargeIcon,
-    .CardLargeContainerColorSM:hover .CardLargeIcon{
+    .CardLargeContainer:hover .CardLargeIcon{
         filter: invert(5%) sepia(13%) saturate(30%) hue-rotate(314deg) brightness(88%) contrast(83%)
     }
     .CardLargeGrid{

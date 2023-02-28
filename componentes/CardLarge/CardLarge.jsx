@@ -2,6 +2,7 @@ import React from "react";
 import style from "./CardLarge.module.css"
 import Link from "next/link";
 import { ButtonLightMobile } from "../ButtonLight";
+import cx from 'classnames';
 
 const CardLarge = ({
     icon,
@@ -11,7 +12,7 @@ const CardLarge = ({
     theme
 })=>{
     return(
-        <div className={style[`CardLargeContainer${theme}`]}>
+        <div className={cx(style.CardLargeContainer, style[`${theme}`])}>
             <div>
                 <img 
                     className={style.CardLargeIcon}
