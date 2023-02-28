@@ -15,7 +15,7 @@ export default {
     },
     botaoPrincipal: {
         name: "botaoPrincipal",
-        description: "**submit** Função executada ao clickar no botão *função*\n\n **label** Rótulo do botão *string*"
+        description: "**submit** Função executada ao clickar no botão *função*\n\n **label** Rótulo do botão *string* \n\n **theme**: tema de cor aplicado ao botão *string*"
     },
     botaoSecundario: {
     name: "botaoSecundario",
@@ -31,7 +31,8 @@ Default.args={
     chamada : "Se esse é o seu primeiro acesso e sua senha ainda não foi criada, clique abaixo em ‘primeiro acesso’. Se você já possui uma senha, clique em ‘entrar’.",
     botaoPrincipal : {
         submit: ()=>console.log("entrar"),
-        label: "entrar"
+        label: "entrar",
+        theme: "ColorIP"
     },
     botaoSecundario : {
         submit:()=>console.log("teste"),
