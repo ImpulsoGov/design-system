@@ -1,6 +1,7 @@
 import React from "react";
 import style from "./ButtonColor.module.css";
 import PropTypes from 'prop-types';
+import cx from 'classnames';
 
 const ButtonColor = ({
     icone,
@@ -42,7 +43,7 @@ const ButtonColorSubmit = ({
 })=>{
     return(
         <button 
-            className={style[`ButtonColorContainer${theme}`]}
+            className={cx(style.ButtonColorContainer, style[`${theme}`])}
             onClick={()=>submit(arg)}
         >
             {label.toUpperCase()}
@@ -58,7 +59,7 @@ const ButtonColorSubmitMobile = ({
 })=>{
     return(
         <button 
-            className={style[`ButtonColorMobile${theme}`]}
+            className={cx(style.ButtonColorMobile, style[`${theme}Mobile`])}
             onClick={()=>submit(arg)}
         >
             {label.toUpperCase()}
