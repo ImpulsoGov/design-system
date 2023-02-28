@@ -28,7 +28,7 @@
     color: #1F1F1F;
 }
 
-.RecuperarSenhaInputColorIP, .RecuperarSenhaInputColorSM{
+.RecuperarSenhaInput{
     width: 98%;
     height: 56px;
     border: 1px solid #EFF5F9;
@@ -46,12 +46,12 @@
     flex-direction: column;
 }
 
-.RecuperarSenhaInputColorIP:focus{
+.InputColorIP:focus{
     outline: none !important;
     border: #2EB280 solid 1px;
 }
 
-.RecuperarSenhaInputColorSM:focus{
+.InputColorSM:focus{
     outline: none !important;
     border: #5367C9 solid 1px;
 }
@@ -119,35 +119,30 @@
     cursor: pointer;
 }
 
-.RecuperarSenhaBotaoProximoColorIP{
+.RecuperarSenhaBotaoProximo{
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
     line-height: 130%;
     color: #fff;
-    background: #1D856C;
     border-radius: 100px;
     padding: 16px 24px;
 }
 
-.RecuperarSenhaBotaoProximoColorIP:hover{
+.RecuperarSenhaBotaoProximo:hover{
     cursor: pointer;
 }
 
-.RecuperarSenhaBotaoProximoColorSM{
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 130%;
-    color: #fff;
-    background: #5367C9;
-    border-radius: 100px;
-    padding: 16px 24px;
+.ColorIP {
+    background: #1D856C;
 }
 
-.RecuperarSenhaBotaoProximoColorSM:hover{
+.ColorSM {
+    background: #5367C9;
+}
+
+.ColorSM:hover {
     background-color: #1B2D82;
     cursor: pointer;
 }

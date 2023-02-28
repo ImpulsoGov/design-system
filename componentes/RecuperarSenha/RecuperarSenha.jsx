@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
-import style from "./RecuperarSenha.module.css"
+import style from "./RecuperarSenha.module.css";
+import cx from "classnames";
 
 const validacaoSenha = (senha)=>{
     let restricoes ={}
@@ -93,7 +94,7 @@ const InserirInfo = ({
             {   !sucesso &&
                 <>
                     <input 
-                        className={(alert.length>0 && value==0) ? style.RecuperarSenhaInputErro : style[`RecuperarSenhaInput${theme}`]}
+                        className={(alert.length>0 && value==0) ? style.RecuperarSenhaInputErro : cx(style.RecuperarSenhaInput, style[`Input${theme}`])}
                         type={(etapa==0) ? 'text' : 'password'}
                         placeholder={placeholder}
                         value={value}
@@ -115,7 +116,7 @@ const InserirInfo = ({
                         <div 
                             className={
                                 (AtivarBotao())?
-                                style[`RecuperarSenhaBotaoProximo${theme}`]:
+                                cx(style.RecuperarSenhaBotaoProximo, style[`${theme}`]):
                                 style.RecuperarSenhaBotaoProximoInativo
                             }
                             onClick={ProximaEtapa}
@@ -126,7 +127,7 @@ const InserirInfo = ({
             {
                 sucesso &&
                 <div 
-                    className={style[`RecuperarSenhaBotaoProximo${theme}`]}
+                    className={cx(style.RecuperarSenhaBotaoProximo, style[`${theme}`])}
                     onClick={()=>showEsqueciSenha(false)}
                 >{botaoSucesso.toUpperCase()}</div>
             }
