@@ -3,6 +3,7 @@ import style from './MenuMoblie.module.css'
 import { UserAvatar } from "../ModalLogged";
 import { ButtonColorSubmitMobile } from "../ButtonColor";
 import Link from "next/link";
+import cx from "classnames";
 
 const Menus = ({menus})=>{
     return(
@@ -47,7 +48,8 @@ const MenuMoblie = ({
     logged,
     user,
     children,
-    showModalInicio
+    showModalInicio,
+    theme
 })=>{
     const [etapa, setEtapa] = useState(0)
     return(
@@ -66,7 +68,7 @@ const MenuMoblie = ({
                         menus={menus}
                     />
                     <button 
-                        className={style.MenuMoblieLoginOut}
+                        className={cx(style.MenuMoblieLoginOut, style[`${theme}`])}
                         onClick={() => logout()}
                     >SAIR</button>
 
