@@ -4,15 +4,23 @@ import style from "./Parcerias.module.css";
 
 const Parcerias = ({
     parceiros,
-    theme
+    theme,
+    titulo
 }) => {
   return (
     <div className={cx(style.container_parceiros,style["theme"+theme])}>
-        <div className={style.parceirosLabel}>Parceiros</div>
+        <div className={style.parceirosLabel}>{titulo}</div>
         <div className={style.gridContainer}>
                 {parceiros.map((parceiro,index)=>{
                     return(
-                        <div className={style.logo_parceiros} key={index}>
+                        <div className={style.info_parceiro} key={index}>
+                            {
+                                parceiro.titulo && (
+                                    <p className={style.tituloParceiro}>
+                                        {parceiro.titulo}
+                                    </p>
+                                )
+                            }
                             <img className={style.imageContainer}
                             alt= {parceiro.alt}
                             src= {parceiro.src}
