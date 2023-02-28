@@ -7,9 +7,9 @@ export default {
 }
 const Template = (args) => <CardLargeGrid {...args}/>
 
-export const Grid = Template.bind({});
+export const ColorIP = Template.bind({});
 
-Grid.args ={
+ColorIP.args ={
     cards:[
         {
             icon : "https://media.graphassets.com/6cOfkxeyT7245Fn19kgU",
@@ -30,5 +30,48 @@ Grid.args ={
             ],
         },
     ],
-    obs:"Para sair da área logada, basta ir no seu usuário no menu superior e clicar em ‘SAIR’."
+    obs:"Para sair da área logada, basta ir no seu usuário no menu superior e clicar em ‘SAIR’.",
+    theme: "ColorIP"
+}
+
+export const ColorSM = Template.bind({});
+
+ColorSM.args ={
+    cards:[
+        {
+            icon : "https://media.graphassets.com/6cOfkxeyT7245Fn19kgU",
+            titulo: "Acompanhamento dos serviços CAPS",
+            links : [
+                {label:"Resumo",link : ""},
+                {label:"Perfil dos usuários",link : ""},
+                {label:"Novos usuários",link : ""},
+                {label:"Taxa de abandono",link : ""},
+                {label:"Atendimentos individuais",link : ""},
+                {label:"Procedimento por usuário",link : ""},
+                {label:"Produção",link : ""},
+            ],
+        },
+        {
+            icon : "https://media.graphassets.com/6cOfkxeyT7245Fn19kgU",
+            titulo: "Outros serviços RAPS",
+            links : [
+                {label:"Resumo",link : ""},
+                {label:"Ambulatório de Saúde Mental",link : ""},
+                {label:"Consultório na Rua",link : ""},
+                {label:"Redução de Danos", link : ""},
+            ],
+        },
+        {
+            icon : "https://media.graphassets.com/6cOfkxeyT7245Fn19kgU",
+            titulo: "Cuidado compartilhado de saúde mental",
+            links : [
+                {label:"Resumo",link : ""},
+                {label:"Cuidado compartilhado entre APS e CAPS",link : ""},
+                {label:"Cuidado compartilhado entre APS e Ambulatório",link : ""},
+                {label:"Cuidado compartilhado de Saúde Mental com a rede de Urgência  e Emergência",link : ""},
+            ],
+        },
+    ],
+    obs:"Para sair da área logada, basta ir no seu usuário no menu superior e clicar em ‘SAIR’.",
+    theme: "ColorSM"
 }
