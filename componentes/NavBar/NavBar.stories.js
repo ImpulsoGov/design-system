@@ -365,18 +365,91 @@ const subMenus =  [
     }
   ]
 
+const loggedUser = {
+    nome: "Camila Alves",
+    cargo :"Coordenadora APS",
+    button : {label:"sair"},
+    label : "e",
+    equipe : "000003456",
+    login : ()=> console.log('logado'),
+    logout : ()=> console.log('deslogado')
+};
+
+const notLoggedUser = {
+    button : {label:"sair",link:""},
+    label : "ENTRAR",
+    login : ()=> console.log('logado'),
+    logout : ()=> console.log('deslogado'),
+    validarCredencial : entrar
+};
+
+const loggedReqsEsqueciSenha = {
+    mail : async()=> {
+                    const aguarde = async()=> await new Promise(r => setTimeout(r, 1000));
+                    const res = aguarde().then(async(res)=>{
+                        return true;
+        })
+        return await res
+    },
+    codigo : ()=> true,
+    alterarSenha : ()=> true
+};
+
+const notLoggedReqsEsqueciSenha = {
+    mail : async(mail)=> {
+                    const aguarde = async()=> await new Promise(r => setTimeout(r, 2000));
+                    const res = aguarde().then(async(res)=>{
+                        if (mail == 'danilo') return true
+                        return false 
+        })
+        return await res
+    },
+    codigo : async(mail,codigo)=>{
+        const aguarde = async()=> await new Promise(r => setTimeout(r, 2000));
+        const res = aguarde().then(async(res)=>{
+            if (codigo.toString() == '123') return true
+            return false;
+        })
+        return await res
+    },
+    alterarSenha : async()=>{
+        const aguarde = async()=> await new Promise(r => setTimeout(r, 2000));
+        const res = aguarde().then(async(res)=>{
+            return true
+        })
+        return await res
+    }
+};
+
+const reqsPrimeiroAcesso = {
+    mail : async(mail)=> {
+        const aguarde = async()=> await new Promise(r => setTimeout(r, 2000));
+        const res = aguarde().then(async(res)=>{
+            if (mail == 'danilo') return true
+            return false 
+        })
+        return await res
+    },
+    codigo : async(mail,codigo)=>{
+        const aguarde = async()=> await new Promise(r => setTimeout(r, 2000));
+        const res = aguarde().then(async(res)=>{
+            if (codigo.toString() == '123') return true
+            return false;
+        })
+        return await res
+    },
+    alterarSenha : async()=>{
+        const aguarde = async()=> await new Promise(r => setTimeout(r, 2000));
+        const res = aguarde().then(async(res)=>{
+            return true
+        })
+        return await res
+    }
+};
 
 export const ColorIPLogin = Template.bind({});
 ColorIPLogin.args = {
-    user:{
-            nome: "Camila Alves",
-            cargo :"Coordenadora APS",
-            button : {label:"sair"},
-            label : "e",
-            equipe : "000003456",
-            login : ()=> console.log('logado'),
-            logout : ()=> console.log('deslogado')
-        },
+    user: loggedUser,
     login: {
         titulo: "Faça o login para ver o painel de busca ativa"
     },
@@ -396,17 +469,7 @@ ColorIPLogin.args = {
     NavBarIconBranco:"https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconBranco.svg",
     NavBarIconDark:"https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconDark.svg",
     esqueciMinhaSenha : {
-        reqs : {
-            mail : async()=> {
-                            const aguarde = async()=> await new Promise(r => setTimeout(r, 1000));
-                            const res = aguarde().then(async(res)=>{
-                                return true;
-                })
-                return await res
-            },
-            codigo : ()=> true,
-            alterarSenha : ()=> true
-        },
+        reqs : loggedReqsEsqueciSenha,
         chamadas: {
             sucesso: "Agora é só entrar na área restrita com seu e-mail e a senha criada."
         }
@@ -424,31 +487,7 @@ ColorIPLogin.args = {
         }
     },
     primeiroAcesso:{
-        reqs:{
-            mail : async(mail)=> {
-                const aguarde = async()=> await new Promise(r => setTimeout(r, 2000));
-                const res = aguarde().then(async(res)=>{
-                    if (mail == 'danilo') return true
-                    return false 
-                })
-                return await res
-            },
-            codigo : async(mail,codigo)=>{
-                const aguarde = async()=> await new Promise(r => setTimeout(r, 2000));
-                const res = aguarde().then(async(res)=>{
-                    if (codigo.toString() == '123') return true
-                    return false;
-                })
-                return await res
-            },
-            alterarSenha : async()=>{
-                const aguarde = async()=> await new Promise(r => setTimeout(r, 2000));
-                const res = aguarde().then(async(res)=>{
-                    return true
-                })
-                return await res
-            },
-        },
+        reqs: reqsPrimeiroAcesso,
         chamadas: {
             sucesso: "Agora é só entrar na área restrita com seu e-mail e a senha criada."
         }
@@ -465,13 +504,7 @@ const entrar = ()=> {
 }
 export const ColorIPLogout = Template.bind({});
 ColorIPLogout.args = {
-    user:{
-            button : {label:"sair",link:""},
-            label : "ENTRAR",
-            login : ()=> console.log('logado'),
-            logout : ()=> console.log('deslogado'),
-            validarCredencial : entrar
-        },
+    user: notLoggedUser,
     login: {
         titulo: "Faça o login para ver o painel de busca ativa"
     },
@@ -492,31 +525,7 @@ ColorIPLogout.args = {
     NavBarIconBranco:"https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconBranco.svg",
     NavBarIconDark:"https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconDark.svg",
     esqueciMinhaSenha : {
-        reqs : {
-            mail : async(mail)=> {
-                            const aguarde = async()=> await new Promise(r => setTimeout(r, 2000));
-                            const res = aguarde().then(async(res)=>{
-                                if (mail == 'danilo') return true
-                                return false 
-                })
-                return await res
-            },
-            codigo : async(mail,codigo)=>{
-                const aguarde = async()=> await new Promise(r => setTimeout(r, 2000));
-                const res = aguarde().then(async(res)=>{
-                    if (codigo.toString() == '123') return true
-                    return false;
-                })
-                return await res
-            },
-            alterarSenha : async()=>{
-                const aguarde = async()=> await new Promise(r => setTimeout(r, 2000));
-                const res = aguarde().then(async(res)=>{
-                    return true
-                })
-                return await res
-            },
-        },
+        reqs : notLoggedReqsEsqueciSenha,
         chamadas: {
             sucesso: "Agora é só entrar na área restrita com seu e-mail e a senha criada."
         }
@@ -534,31 +543,7 @@ ColorIPLogout.args = {
         }
     },
     primeiroAcesso:{
-        reqs:{
-            mail : async(mail)=> {
-                const aguarde = async()=> await new Promise(r => setTimeout(r, 2000));
-                const res = aguarde().then(async(res)=>{
-                    if (mail == 'danilo') return true
-                    return false 
-                })
-                return await res
-            },
-            codigo : async(mail,codigo)=>{
-                const aguarde = async()=> await new Promise(r => setTimeout(r, 2000));
-                const res = aguarde().then(async(res)=>{
-                    if (codigo.toString() == '123') return true
-                    return false;
-                })
-                return await res
-            },
-            alterarSenha : async()=>{
-                const aguarde = async()=> await new Promise(r => setTimeout(r, 2000));
-                const res = aguarde().then(async(res)=>{
-                    return true
-                })
-                return await res
-            },
-        },
+        reqs: reqsPrimeiroAcesso,
         chamadas: {
             sucesso: "Agora é só entrar na área restrita com seu e-mail e a senha criada."
         }
@@ -567,15 +552,7 @@ ColorIPLogout.args = {
 }
 export const ColorAGPLogin = Template.bind({});
 ColorAGPLogin.args = {
-    user:{
-            nome: "Camila Alves",
-            cargo :"Coordenadora APS",
-            button : {label:"sair",link:""},
-            label : "e",
-            equipe : "000003456",
-            login : ()=> console.log('logado'),
-            logout : ()=> console.log('deslogado')
-        },
+    user: loggedUser,
     login: {
         titulo: "Faça o login para ver o painel de busca ativa"
     },
@@ -601,17 +578,7 @@ ColorAGPLogin.args = {
     NavBarIconBranco:"https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconBranco.svg",
     NavBarIconDark:"https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconDark.svg",
     esqueciMinhaSenha : {
-        reqs : {
-            mail : async()=> {
-                            const aguarde = async()=> await new Promise(r => setTimeout(r, 1000));
-                            const res = aguarde().then(async(res)=>{
-                                return true;
-                })
-                return await res
-            },
-            codigo : ()=> true,
-            alterarSenha : ()=> true
-        },
+        reqs : loggedReqsEsqueciSenha,
         chamadas: {
             sucesso: "Agora é só clicar no botão ENTRAR com seu e-mail e a senha criada."
         }
@@ -629,31 +596,7 @@ ColorAGPLogin.args = {
         }
     },
     primeiroAcesso:{
-        reqs:{
-            mail : async(mail)=> {
-                const aguarde = async()=> await new Promise(r => setTimeout(r, 2000));
-                const res = aguarde().then(async(res)=>{
-                    if (mail == 'danilo') return true
-                    return false 
-                })
-                return await res
-            },
-            codigo : async(mail,codigo)=>{
-                const aguarde = async()=> await new Promise(r => setTimeout(r, 2000));
-                const res = aguarde().then(async(res)=>{
-                    if (codigo.toString() == '123') return true
-                    return false;
-                })
-                return await res
-            },
-            alterarSenha : async()=>{
-                const aguarde = async()=> await new Promise(r => setTimeout(r, 2000));
-                const res = aguarde().then(async(res)=>{
-                    return true
-                })
-                return await res
-            },
-        },
+        reqs: reqsPrimeiroAcesso,
         chamadas: {
             sucesso: "Agora é só clicar no botão ENTRAR com seu e-mail e a senha criada."
         }
@@ -661,13 +604,7 @@ ColorAGPLogin.args = {
 }
 export const ColorSMLogout = Template.bind({});
 ColorSMLogout.args ={
-    user: {
-        button : {label:"sair",link:""},
-        label : "ENTRAR",
-        login : ()=> console.log('logado'),
-        logout : ()=> console.log('deslogado'),
-        validarCredencial : entrar
-    },
+    user: notLoggedUser,
     login: {
         titulo: "Faça o login para ver os indicadores do seu município."
     },
@@ -681,11 +618,6 @@ ColorSMLogout.args ={
         [
             { label: "Início", url: "/" },
             { label: "Sobre", url: "/sobre" },
-            // {
-            //     label: "Análise",
-            //     url: "analise" ,
-            //     sub : subMenus
-            // },
             { label: "Glossário", url: "/glossario" }
         ],
     subtitles:[
@@ -697,31 +629,7 @@ ColorSMLogout.args ={
     NavBarIconBranco:"https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconBranco.svg",
     NavBarIconDark:"https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconDark.svg",
     esqueciMinhaSenha : {
-        reqs : {
-            mail : async(mail)=> {
-                            const aguarde = async()=> await new Promise(r => setTimeout(r, 2000));
-                            const res = aguarde().then(async(res)=>{
-                                if (mail == 'danilo') return true
-                                return false 
-                })
-                return await res
-            },
-            codigo : async(mail,codigo)=>{
-                const aguarde = async()=> await new Promise(r => setTimeout(r, 2000));
-                const res = aguarde().then(async(res)=>{
-                    if (codigo.toString() == '123') return true
-                    return false;
-                })
-                return await res
-            },
-            alterarSenha : async()=>{
-                const aguarde = async()=> await new Promise(r => setTimeout(r, 2000));
-                const res = aguarde().then(async(res)=>{
-                    return true
-                })
-                return await res
-            },
-        },
+        reqs : notLoggedReqsEsqueciSenha,
         chamadas: {
             sucesso: "Agora é só clicar no botão ENTRAR com seu e-mail e a senha criada."
         }
@@ -739,31 +647,7 @@ ColorSMLogout.args ={
         }
     },
     primeiroAcesso:{
-        reqs:{
-            mail : async(mail)=> {
-                const aguarde = async()=> await new Promise(r => setTimeout(r, 2000));
-                const res = aguarde().then(async(res)=>{
-                    if (mail == 'danilo') return true
-                    return false 
-                })
-                return await res
-            },
-            codigo : async(mail,codigo)=>{
-                const aguarde = async()=> await new Promise(r => setTimeout(r, 2000));
-                const res = aguarde().then(async(res)=>{
-                    if (codigo.toString() == '123') return true
-                    return false;
-                })
-                return await res
-            },
-            alterarSenha : async()=>{
-                const aguarde = async()=> await new Promise(r => setTimeout(r, 2000));
-                const res = aguarde().then(async(res)=>{
-                    return true
-                })
-                return await res
-            },
-        },
+        reqs: reqsPrimeiroAcesso,
         chamadas: {
             sucesso: "Agora é só clicar no botão ENTRAR com seu e-mail e a senha criada."
         }
@@ -771,66 +655,107 @@ ColorSMLogout.args ={
 }
 export const WhiteSM = Template.bind({});
 WhiteSM.args ={
-    user: null,
-        login: {
-            titulo: "Faça o login para ver os indicadores do seu município."
-        },
-        data:dataSM,
-        theme:{
-            logoProjeto: "https://media.graphassets.com/Xvh8jUvxTiaimkk4AD75",
-            cor: "WhiteSM"
-        },
-        menu:
-            [
-                { label: "A Impulso Gov", url: "/impulsogov" },
-                { label: "O Previne Brasil", url: "/previnebrasil" },
-                { label: "Análise", url: "analise" },
-                { label: "Consultoria", url: "/consultoria" }
-            ],
-        subtitles:[
-            { label: "Indicadores de Desempenho", url: "/indicadores" },
-            { label: "Capitação Ponderada", url: "/capitacao" },
-            { label: "Ações Estratégicas", url: "/acoes-estrategicas" },
+    user: loggedUser,
+    login: {
+        titulo: "Faça o login para ver os indicadores do seu município."
+    },
+    data:dataSM,
+    theme:{
+        logoProjeto: "https://media.graphassets.com/4vNw6WPEQwq0PvwCaW8D",
+        cor: "WhiteSM",
+        logoLink: "/inicio"
+    },
+    menu:
+        [
+            { label: "Início", url: "/" },
+            { label: "Sobre", url: "/sobre" },
+            { label: "Glossário", url: "/glossario" }
         ],
-        SeletorTipo:1,
-        NavBarIconBranco:"https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconBranco.svg",
-        NavBarIconDark:"https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconDark.svg"
+    subtitles:[
+        { label: "Indicadores de Desempenho", url: "/indicadores" },
+        { label: "Capitação Ponderada", url: "/capitacao" },
+        { label: "Ações Estratégicas", url: "/acoes-estrategicas" },
+    ],
+    seletorMunicipios: true,
+    NavBarIconBranco:"https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconBranco.svg",
+    NavBarIconDark:"https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconDark.svg",
+    esqueciMinhaSenha : {
+        reqs : loggedReqsEsqueciSenha,
+        chamadas: {
+            sucesso: "Agora é só clicar no botão ENTRAR com seu e-mail e a senha criada."
+        }
+    },
+    ModalInicio:{
+        titulo: "Faça o login para ver os dados restritos.",
+        chamada: "Se esse é o seu primeiro acesso e sua senha ainda não foi criada, clique abaixo em ‘primeiro acesso’. Se você já possui uma senha, clique em ‘entrar’.",
+        botaoPrincipal : {
+            label: "entrar",
+            submit: ()=>console.log("teste")
+        },
+        botaoSecundario : {
+            label: "primeiro acesso",
+            submit: ()=>console.log("teste")
+        }
+    },
+    primeiroAcesso:{
+        reqs: reqsPrimeiroAcesso,
+        chamadas: {
+            sucesso: "Agora é só clicar no botão ENTRAR com seu e-mail e a senha criada."
+        }
+    }
 }
 
 export const White = Template.bind({});
 White.args={
-    user:
-        {                  
-            nome: "Camila Alves",
-            cargo :"Coordenadora APS",
-            button : {label:"sair",link:""},
-            label : "e",
-            equipe : "000003456",
-            login : ()=> console.log('logado'),
-            logout : ()=> console.log('deslogado')
-        },
-        login: {
-            titulo: "Faça o login para ver o painel de busca ativa"
-        },
-        data:data,
-        theme:{
-            logoProjeto: "https://media.graphassets.com/3Vvlszx1RraNWFWyfgaT",
-            cor: "White"
-        },
-        menu:
-            [
-                { label: "A Impulso Gov", url: "/impulsogov" },
+    user: loggedUser,
+    login: {
+        titulo: "Faça o login para ver o painel de busca ativa"
+    },
+    data:data,
+    theme:{
+        logoProjeto: "https://media.graphassets.com/3Vvlszx1RraNWFWyfgaT",
+            cor: "White",
+        logoLink: "/inicio"
+    },
+    menu:
+        [
+            { label: "A Impulso Gov", url: "/impulsogov" },
                 { label: "O Previne Brasil", url: "/previnebrasil" },
                 { label: "Análise", url: "analise" },
                 { label: "Consultoria", url: "/consultoria" }
-            ],
-        subtitles:[
-            { label: "Indicadores de Desempenho", url: "/indicadores" },
-            { label: "Capitação Ponderada", url: "/capitacao" },
-            { label: "Ações Estratégicas", url: "/acoes-estrategicas" },
         ],
-        NavBarIconBranco:"https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconBranco.svg",
-        NavBarIconDark:"https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconDark.svg"
+    subtitles:[
+        { label: "Indicadores de Desempenho", url: "/indicadores" },
+        { label: "Capitação Ponderada", url: "/capitacao" },
+        { label: "Ações Estratégicas", url: "/acoes-estrategicas" },
+    ],
+    seletorMunicipios: true,
+    NavBarIconBranco:"https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconBranco.svg",
+    NavBarIconDark:"https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconDark.svg",
+    esqueciMinhaSenha : {
+        reqs : loggedReqsEsqueciSenha,
+        chamadas: {
+            sucesso: "Agora é só clicar no botão ENTRAR com seu e-mail e a senha criada."
+        }
+    },
+    ModalInicio:{
+        titulo: "Faça o login para ver os dados restritos.",
+        chamada: "Se esse é o seu primeiro acesso e sua senha ainda não foi criada, clique abaixo em ‘primeiro acesso’. Se você já possui uma senha, clique em ‘entrar’.",
+        botaoPrincipal : {
+            label: "entrar",
+            submit: ()=>console.log("teste")
+        },
+        botaoSecundario : {
+            label: "primeiro acesso",
+            submit: ()=>console.log("teste")
+        }
+    },
+    primeiroAcesso:{
+        reqs: reqsPrimeiroAcesso,
+        chamadas: {
+            sucesso: "Agora é só clicar no botão ENTRAR com seu e-mail e a senha criada."
+        }
+    }
 }
 
 
