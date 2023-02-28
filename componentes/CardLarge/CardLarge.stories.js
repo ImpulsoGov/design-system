@@ -3,7 +3,21 @@ import { CardLargeGrid } from './index'
 
 export default {
     title: "Componentes/CardLarge",
-    component: CardLargeGrid
+    component: CardLargeGrid,
+    argTypes: {
+        cards: {
+            name: "cards",
+            description: "Lista de cards exibidos no grid. \n\n Propriedades de cada card:\n\n **icon**: ícone exibido no card *URL* \n\n **titulo**: título do card *string* \n\n **texto**: descrição do tema abordado pelo card *string* \n\n **links**: lista de links exibidos no card *array*"
+        },
+        obs: {
+            name: 'obs',
+            description: 'Mensagem de observação para usuário *string*'
+        },
+        theme: {
+            name: 'theme',
+            description: 'Tema de cor aplicado aos cards *string* \n\n Valores aceitos: ColorIP, ColorSM'
+        }
+    }
 }
 const Template = (args) => <CardLargeGrid {...args}/>
 
