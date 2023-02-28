@@ -10,6 +10,10 @@ export default {
       name:'list',
       description:'Array de objetos com os conteúdos da toggle list *array* \n\n **Título:** Título do item da lista *string* \n\n **blocks:** Array de objetos contendo informações do item da lista *array*\n\n **-subTitle:** Subtítulo do item da lista *string* \n\n **-description:** Descrição do item *string* \n\n **-source:** Fonte dos dados *string* \n\n **concept:** Array de objetos contendo informações dos conceitos do subitem da lista *string* \n\n **-título:** Título do bloco de conceitos *string* \n\n **elements:** Array de elementos referentes aos conceitos *array*'
     },
+    title: {
+      name: 'title',
+      description: 'Título da seção *string*'
+    }
   },
 };
 
@@ -100,5 +104,6 @@ const Template = (args) => <ToggleList {...args}/>
 
 export const Default = Template.bind({});
 Default.args={
-  list :  list
+  list :  list,
+  title: "Indicadores"
 }
