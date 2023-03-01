@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@40;500&display=swap");
 .themeColorIP{
   background-color: #145C56;
-  color: #FFFFFF;
+  color: rgba(255, 255, 255, 0.5);
   text-decoration: none;
 }
 .themeColorIP a{
@@ -10,7 +10,7 @@
 
 .themeColorAGP{
   background-color: #6A2914;
-  color: #FFFFFF;
+  color: rgba(255, 255, 255, 0.5);
   text-decoration: none;
 }
 .themeColorAGP a{
@@ -19,7 +19,7 @@
 
 .themeColorSM{
   background-color: #1B2D82;
-  color: #FFFFFF;
+  color: rgba(255, 255, 255, 0.5);
   text-decoration: none;
 }
 .themeColorSM a{
@@ -28,12 +28,12 @@
 
 .themeWhite{
   background-color: #FFFFFF;
-  color: #1F1F1F;
+  color: #606E78;
   text-decoration: none;
 }
 .themeWhiteSM{
   background-color: #FFFFFF;
-  color: #1F1F1F;
+  color: #606E78;
   text-decoration: none;
 }
 
@@ -49,7 +49,7 @@
     margin: 0;
     font-family: 'Inter';
     font-style: normal;
-    font-weight: 40;
+    font-weight: 400;
     position: fixed;
     z-index: 100;
     width: 100%;
@@ -58,24 +58,24 @@
   .container_navbar a{
     font-family: 'Inter';
     font-style: normal;
-    font-weight: 40;
+    font-weight: 400;
   }
   .themeColorIP a:hover{
-    color: #1D856C;
+    color: #FFFFFF;
   }
 
   .themeColorAGP a:hover{
-    color: #F4CCAB;
+    color: #FFFFFF;
   }
 
   .themeColorSM a:hover{
-    color: #5367C9;
+    color: #FFFFFF;
   }
   .themeWhite a:hover{
-    color: #1D856C;
+    color: #1F1F1F;
   }
   .themeWhiteSM a:hover{
-    color: #5367C9;
+    color: #1F1F1F;
   }
   .logoWrapper_navbar {
     height: 30px;
@@ -212,25 +212,66 @@
     position: absolute;
     top: 120%;
     visibility: hidden;
-  
     transition: .3s;
     color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 278px;
+    white-space: normal;
   }
   
   .link_navbar:hover .NavBarSubMapContainer {
     visibility: visible;
   
   }
-  
+
   .NavBarSubMenuContainer {
-    background-color: #5367C9;
-    padding: 5px;
-  
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px 15px;
+    width: 100%;
+    white-space: normal;
   }
   
-  .NavBarSubMenuContainer:hover {
-    color: white;
-  
+  .NavBarSubMenuContainerColorSM {
+    background-color: #5367C9;
+  }
+
+  .NavBarSubMenuContainerColorSM:hover {
+    background-color: #7579EA;
+  }
+
+  .NavBarSubMenuContainerColorIP {
+    background-color: #2EB380;
+  }
+
+  .NavBarSubMenuContainerColorIP:hover {
+    background-color: #55D499;
+  }
+
+  .NavBarSubMenuContainerWhite, .NavBarSubMenuContainerWhiteSM {
+    background: #FFFFFF;
+  }
+
+  .NavBarSubMenuContainerWhite:hover, .NavBarSubMenuContainerWhiteSM:hover {
+    color: #1F1F1F;
+    background-color: #EFF5F9;
+  }
+
+  .NavBarSubMenuContainerWhite .NavBarSubMenuAnchor,
+  .NavBarSubMenuContainerWhiteSM .NavBarSubMenuAnchor {
+    color: #606E78;
+  }
+
+  .NavBarSubMenuContainerWhite .NavBarSubMenuAnchor:hover,
+  .NavBarSubMenuContainerWhiteSM .NavBarSubMenuAnchor:hover {
+    color: #1F1F1F;
   }
   
   .NavBarSubMenuAnchor {
@@ -240,7 +281,7 @@
   }
   
   .NavBarSubMenuAnchor:hover {
-    color: white !important;
+    color: white;
   }
   .NavBarSubMenuAnchor:hover  .NavBarSubMenuItem{
     visibility: visible;
@@ -250,26 +291,68 @@
   .NavBarSubMenuContainer:hover + .NavBarSubMenuItemContainer{
     visibility: visible;
   }
-  
-  .NavBarSubMenuContainer:hover {
-    background-color: #7579EA;
-  }
+
   .NavBarSubMenuItemContainer{
     position: absolute;
     width: fit-content;
     height: fit-content;
     left: 278px;
-    background-color: #5367C9;
     color: #FFFFFF;
     visibility: hidden;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 278px;
+    white-space: normal;
   }
 
   .NavBarSubMenuItem{
-    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px 15px;
+    width: 100%;
+    white-space: normal;
   }
-  .NavBarSubMenuItem:hover{
+
+  .NavBarSubMenuItemColorSM {
+    background-color: #5367C9;
+  }
+
+  .NavBarSubMenuItemColorSM:hover{
     background-color: #7579EA;
   }
+
+  .NavBarSubMenuItemColorIP {
+    background-color: #2EB380;
+  }
+
+  .NavBarSubMenuItemColorIP:hover {
+    background-color: #55D499;
+  }
+
+  .NavBarSubMenuItemWhite, .NavBarSubMenuItemWhiteSM {
+    background-color: #FFFFFF;
+  }
+
+  .NavBarSubMenuItemWhite:hover,
+  .NavBarSubMenuItemWhiteSM:hover {
+    background-color: #EFF5F9;
+  }
+
+  .NavBarSubMenuItemWhite .NavBarSubMenuItemAnchor,
+  .NavBarSubMenuItemWhiteSM .NavBarSubMenuItemAnchor {
+    color: #606E78;
+  }
+
+  .NavBarSubMenuItemWhite .NavBarSubMenuItemAnchor:hover,
+  .NavBarSubMenuItemWhiteSM .NavBarSubMenuItemAnchor:hover {
+    color: #1F1F1F;
+  }
+
   .NavBarSubMenuItemContainer:hover{
     visibility: visible;
   }
@@ -278,16 +361,10 @@
     color: #FFF;
     font-family: 'Inter';
     font-style: normal;
-    font-weight: 40;
+    font-weight: 400;
     font-size: 14px;
   }
-  .NavBarSubMenuItemContainer a:hover{
-    text-decoration: none;
-    color: #FFF;
-  }
-  .NavBarSubMenuItemContainer div:hover{
-    background-color: #7579EA;
-  }
+
   .NavBarSubMapMobileContainer {
     position: absolute;
     display: flex;
@@ -339,7 +416,7 @@
     text-align: center;
     font-family: 'Inter';
     font-style: normal;
-    font-weight: 40;
+    font-weight: 400;
   }
   .citySelect_navbarWhite, .citySelect_navbarWhiteSM{
     background-color: #FFF;
@@ -348,7 +425,7 @@
     text-align: center;
     font-family: 'Inter';
     font-style: normal;
-    font-weight: 40;
+    font-weight: 400;
   }
 
   .citySelect_navbarColorSM {
@@ -358,7 +435,7 @@
     text-align: center;
     font-family: 'Inter';
     font-style: normal;
-    font-weight: 40;
+    font-weight: 400;
   }
   .NavBarSeletorMunicipiosContainer{
     display: flex;
@@ -607,7 +684,7 @@
       color: #fff;
       font-family: 'Inter';
       font-style: normal;
-      font-weight: 40;
+      font-weight: 400;
       font-size: 18px;
       margin-right: 18px;
       text-decoration: none;

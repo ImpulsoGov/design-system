@@ -457,7 +457,7 @@ ColorIPLogin.args = {
             { label: "A Impulso Gov", url: "/impulsogov" },
             { label: "Resultados", url: "analise" },
             { label: "Busca Ativa", url: "/busca-ativa-gestantes" },
-            { label: "Consultoria", url: "/consultoria" }
+            { label: "Consultoria", url: "/consultoria" },
         ],
     NavBarIconBranco:"https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconBranco.svg",
     NavBarIconDark:"https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconDark.svg",
@@ -495,6 +495,7 @@ const entrar = ()=> {
     
 
 }
+
 export const ColorIPLogout = Template.bind({});
 ColorIPLogout.args = {
     user: notLoggedUser,
@@ -513,7 +514,12 @@ ColorIPLogout.args = {
             { label: "A Impulso Gov", url: "/impulsogov" },
             { label: "Resultados", url: "analise" },
             { label: "Busca Ativa", url: "/busca-ativa-gestantes" },
-            { label: "Consultoria", url: "/consultoria" }
+            { label: "Consultoria", url: "/consultoria" },
+            {
+                label: "Análise",
+                url: "analise" ,
+                sub : subMenus
+            },
         ],
     NavBarIconBranco:"https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconBranco.svg",
     NavBarIconDark:"https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconDark.svg",
@@ -612,7 +618,12 @@ ColorSMLogout.args ={
         [
             { label: "Início", url: "/" },
             { label: "Sobre", url: "/sobre" },
-            { label: "Glossário", url: "/glossario" }
+            { label: "Glossário", url: "/glossario" },
+            {
+                label: "Análise",
+                url: "analise" ,
+                sub : subMenus
+            },
         ],
     subtitles:[
         { label: "Indicadores de Desempenho", url: "/indicadores" },
@@ -663,7 +674,12 @@ WhiteSM.args ={
         [
             { label: "Início", url: "/" },
             { label: "Sobre", url: "/sobre" },
-            { label: "Glossário", url: "/glossario" }
+            { label: "Glossário", url: "/glossario" },
+            {
+                label: "Análise",
+                url: "analise" ,
+                sub : subMenus
+            },
         ],
     subtitles:[
         { label: "Indicadores de Desempenho", url: "/indicadores" },
@@ -714,9 +730,13 @@ White.args={
     menu:
         [
             { label: "A Impulso Gov", url: "/impulsogov" },
-                { label: "O Previne Brasil", url: "/previnebrasil" },
-                { label: "Análise", url: "analise" },
-                { label: "Consultoria", url: "/consultoria" }
+            { label: "O Previne Brasil", url: "/previnebrasil" },
+            { label: "Consultoria", url: "/consultoria" },
+            {
+                label: "Análise",
+                url: "analise" ,
+                sub : subMenus
+            },
         ],
     subtitles:[
         { label: "Indicadores de Desempenho", url: "/indicadores" },

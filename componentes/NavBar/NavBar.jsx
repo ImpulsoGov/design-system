@@ -260,7 +260,7 @@ const NavBar = (props) => {
                             }
                             return(
                               <>
-                                <div className={style.NavBarSubMenuContainer} key={subContent.label} >
+                                <div className={cx(style.NavBarSubMenuContainer, style[`NavBarSubMenuContainer${props.theme.cor}`])} key={subContent.label} >
                                   <Link href={subContent.url}>
                                     <a className={style.NavBarSubMenuAnchor}>
                                       {subContent.label} 
@@ -272,7 +272,7 @@ const NavBar = (props) => {
                                       {
                                         subContent.item.map((subcontent, index) => {
                                           return(
-                                            <div  className={style.NavBarSubMenuItem} key={subcontent.label}>
+                                            <div  className={cx(style.NavBarSubMenuItem, style[`NavBarSubMenuItem${props.theme.cor}`])} key={subcontent.label}>
                                               <Link href={subcontent.url}>
                                                 <a className={style.NavBarSubMenuItemAnchor}>
                                                   {subcontent.label} 
@@ -330,6 +330,7 @@ const NavBar = (props) => {
           logout={props?.user?.logout}
           children = {ModalChildren()}
           showModalInicio = {showModalInicio}
+          theme = {props.theme.cor}
         />
       </div>
     </div>
