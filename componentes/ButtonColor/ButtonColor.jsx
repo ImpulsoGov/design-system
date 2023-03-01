@@ -56,11 +56,12 @@ const ButtonColorSubmitIcon = ({
     label,
     submit,
     icon,
-    disable
+    disable,
+    theme
 })=>{
     return(
         <button 
-            className={style.ButtonColorContainer}
+            className={cx(style.ButtonColorContainer, style[`${theme}`])}
             onClick={()=>{if(!disable) submit()}}
             style={(disable) ? {cursor:"default"} : {cursor:"pointer"}}
         >
@@ -89,10 +90,11 @@ const ButtonColorSubmitMobile = ({
 const ButtonColorSubmitMultiple = ({
     label,
     submit,
+    theme
 })=>{
     return(
         <button 
-            className={style.ButtonColorContainer}
+            className={cx(style.ButtonColorContainer, style[`${theme}`])}
             onClick={()=>submit[1]()}
         >
             {label.toUpperCase()}
@@ -108,11 +110,27 @@ ButtonColorSubmitMobile.defaultProps = {
     theme: 'ColorIP'
 }
 
+ButtonColorSubmitIcon.defaultProps = {
+    theme: 'ColorIP'
+}
+
+ButtonColorSubmitMultiple.defaultProps = {
+    theme: 'ColorIP'
+}
+
 ButtonColorSubmit.propTypes = {
     theme: PropTypes.string
 }
 
 ButtonColorSubmitMobile.propTypes = {
+    theme: PropTypes.string
+}
+
+ButtonColorSubmitIcon.propTypes = {
+    theme: PropTypes.string
+}
+
+ButtonColorSubmitMultiple.propTypes = {
     theme: PropTypes.string
 }
 

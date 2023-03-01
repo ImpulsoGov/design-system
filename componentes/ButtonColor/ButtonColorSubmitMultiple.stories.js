@@ -13,6 +13,10 @@ export default {
       name: "submit",
       description: "Função de callback executada quando é realizado o click no botão *function*"
     },
+    theme: {
+      name: "theme",
+      description: "Nome do tema de cor aplicado ao botão *string*\n\nValores aceitos: *ColorSM* ou *ColorIP*"
+    }
   },
 };
 const Template = (args) => <ButtonColorSubmitMultiple {...args}/>
