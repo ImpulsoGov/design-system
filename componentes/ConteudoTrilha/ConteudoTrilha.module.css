@@ -65,14 +65,14 @@
     width: 95%;
 }
 .ConteudoTrilhaDescricaoTexto{
-    height: 125px;
+    height: 80px;
     overflow: hidden;
     margin-bottom: 0;
 }
 .ConteudoTrilhaDescricaoTextoDegrade{
     background-image: linear-gradient(rgba(255, 0, 0, 0), #EFF5F9);
     width: 90%;
-    height: 125px;
+    height: 80px;
     position: absolute;
 }
 .ConteudoTrilhaMaterialComplementar{
