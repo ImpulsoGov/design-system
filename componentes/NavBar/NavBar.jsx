@@ -256,7 +256,7 @@ const NavBar = (props) => {
                       {   link.sub &&
                           link.sub.map((subContent, index) => {
                             const NavBarSubMenuContainerPosition = {
-                              top : (index * 30).toString()+'px',
+                              top : (index * 64).toString()+'px',
                             }
                             return(
                               <>
