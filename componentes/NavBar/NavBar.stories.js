@@ -379,8 +379,6 @@ ColorIPLogin.args = {
             { label: "Busca Ativa", url: "/busca-ativa-gestantes" },
             { label: "Consultoria", url: "/consultoria" }
         ],
-    NavBarIconBranco:"https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconBranco.svg",
-    NavBarIconDark:"https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconDark.svg",
     esqueciMinhaSenha : {
         reqs : {
             mail : async()=> {
@@ -432,8 +430,9 @@ ColorIPLogin.args = {
                 return await res
             },
         }
-    }
-
+    },
+    NavBarIconBranco:"https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconBranco.svg",
+    NavBarIconDark:"https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconDark.svg",
 }
 const entrar = ()=> {
     const res1 = {
@@ -571,10 +570,16 @@ ColorAGP.args = {
 }
 export const ColorSM = Template.bind({});
 ColorSM.args ={
-    user: null,
-        data:dataSM,
+    user:{
+        button : {label:"sair",link:""},
+        label : "ENTRAR",
+        login : ()=> console.log('logado'),
+        logout : ()=> console.log('deslogado'),
+        validarCredencial : entrar
+    },
+    data:dataSM,
         theme:{
-            logoProjeto: "https://media.graphassets.com/Xvh8jUvxTiaimkk4AD75",
+            logoLink: "https://media.graphassets.com/Xvh8jUvxTiaimkk4AD75",
             cor: "ColorSM"
         },
         menu:
@@ -593,7 +598,74 @@ ColorSM.args ={
             { label: "Capitação Ponderada", url: "/capitacao" },
             { label: "Ações Estratégicas", url: "/acoes-estrategicas" },
         ],
-        SeletorTipo:1,
+        esqueciMinhaSenha : {
+            reqs : {
+                mail : async(mail)=> {
+                                const aguarde = async()=> await new Promise(r => setTimeout(r, 2000));
+                                const res = aguarde().then(async(res)=>{
+                                    if (mail == 'danilo') return true
+                                    return false 
+                    })
+                    return await res
+                },
+                codigo : async(mail,codigo)=>{
+                    const aguarde = async()=> await new Promise(r => setTimeout(r, 2000));
+                    const res = aguarde().then(async(res)=>{
+                        if (codigo.toString() == '123') return true
+                        return false;
+                    })
+                    return await res
+                },
+                alterarSenha : async()=>{
+                    const aguarde = async()=> await new Promise(r => setTimeout(r, 2000));
+                    const res = aguarde().then(async(res)=>{
+                        return true
+                    })
+                    return await res
+                },
+            },
+        },
+        ModalInicio:{
+            titulo: "Faça o login para ver os dados restritos.",
+            chamada: "Se esse é o seu primeiro acesso e sua senha ainda não foi criada, clique abaixo em ‘primeiro acesso’. Se você já possui uma senha, clique em ‘entrar’.",
+            cardAlert: "<p style='font-size:14px;'>A área logada é de acesso exclusivo para municípios parceiros. Para ver os resultados públicos do seu município, do Q3/22, <a href='analise'>clique aqui.</a></p>",
+            botaoPrincipal : {
+                label: "entrar",
+                submit: ()=>console.log("teste")
+            },
+            botaoSecundario : {
+                label: "primeiro acesso",
+                submit: ()=>console.log("teste")
+            }
+        },
+        primeiroAcesso:{
+            reqs:{
+                mail : async(mail)=> {
+                    const aguarde = async()=> await new Promise(r => setTimeout(r, 2000));
+                    const res = aguarde().then(async(res)=>{
+                        if (mail == 'danilo') return true
+                        return false 
+                    })
+                    return await res
+                },
+                codigo : async(mail,codigo)=>{
+                    const aguarde = async()=> await new Promise(r => setTimeout(r, 2000));
+                    const res = aguarde().then(async(res)=>{
+                        if (codigo.toString() == '123') return true
+                        return false;
+                    })
+                    return await res
+                },
+                alterarSenha : async()=>{
+                    const aguarde = async()=> await new Promise(r => setTimeout(r, 2000));
+                    const res = aguarde().then(async(res)=>{
+                        return true
+                    })
+                    return await res
+                },
+            }
+        },
+        //SeletorTipo:1,
         NavBarIconBranco:"https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconBranco.svg",
         NavBarIconDark:"https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconDark.svg"
 }
