@@ -109,6 +109,10 @@ A [documentação](https://designsystem.impulsogov.org/?path=/story/docs-introdu
 
 <div id='contribua'/>  
 
+## Publicação
+
+- Publicar pacote apenas a partir da branch main.
+
 ## :left_speech_bubble: Contribua
 Sinta-se à vontade para contribuir em nosso projeto! Abra uma issue ou envie PRs.
 
