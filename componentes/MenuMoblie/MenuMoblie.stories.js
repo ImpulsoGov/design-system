@@ -55,8 +55,8 @@ const Template = (args) => {
 
     return <MenuMoblie {...args}/>
 }
-export const Default = Template.bind({});
-Default.args={
+export const LoggedInDefault = Template.bind({});
+LoggedInDefault.args={
     menus:menus,
     logged:true,
     user:{
@@ -66,8 +66,8 @@ Default.args={
     }
 }
 
-export const ColorIP = Template.bind({});
-ColorIP.args={
+export const LoggedInColorIP = Template.bind({});
+LoggedInColorIP.args={
     menus:menus,
     logged:true,
     user:{
@@ -78,3 +78,13 @@ ColorIP.args={
     theme: "ColorIP"
 }
 
+export const LoggedOut = Template.bind({});
+LoggedOut.args={
+    menus:menus,
+    logged:false,
+    user:{
+        label:"C",
+        nome: "Camila Alves",
+        cargo: "Impulser"
+    }
+}
