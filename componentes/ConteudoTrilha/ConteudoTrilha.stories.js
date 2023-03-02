@@ -7,6 +7,9 @@ export default {
 }
 const Template = (args) =>{
     const [concluido,setConcluido] = useState(args.avaliacao.states.concluido);
+    const [Avaliacao,setAvaliacao] = useState(args.avaliacao?.states.Avaliacao ? args.avaliacao?.states.Avaliacao : 0)
+    args.avaliacao.states.Avaliacao = Avaliacao
+    args.avaliacao.states.setAvaliacao = setAvaliacao
     args.avaliacao.states.concluido = concluido
     args.avaliacao.states.setConcluido = setConcluido
     return <ConteudoTrilha {...args}/>
@@ -69,8 +72,7 @@ Concluido.args ={
             submit:(a,b,c)=>console.log(a,b,c),
             arg:['a','b','c']},
         botaoConcluido:{label:"CONCLUÍDA",submit:""},
-        states : {concluido : true},
-        nota:4,
+        states : {concluido : true, Avaliacao : 4},
         chamadaAvaliacao:"Como você avalia esse conteúdo?",
     },
     descricao: {
@@ -119,8 +121,7 @@ ConcluidoPDF.args ={
             submit:(a,b,c)=>console.log(a,b,c),
             arg:['a','b','c']},
         botaoConcluido:{label:"CONCLUÍDA",submit:""},
-        states : {concluido : true},
-        nota:4,
+        states : {concluido : true, Avaliacao : 4},
         chamadaAvaliacao:"Como você avalia esse conteúdo?",
     },
     descricao: {
@@ -169,7 +170,7 @@ ConcluidoQuizz.args ={
             submit:(a,b,c)=>console.log(a,b,c),
             arg:['a','b','c']},
         botaoConcluido:{label:"CONCLUÍDA",submit:""},
-        states : {concluido : true},
+        states : {concluido : true, Avaliacao : 4},
         nota:4,
         chamadaAvaliacao:"Como você avalia esse conteúdo?",
     },
