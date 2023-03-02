@@ -95,7 +95,6 @@
 }
 @media screen and (min-width: 1365px) {
     .ConteudoTrilhaVideoAvaliacaoVideo{
-        flex-direction: column-reverse;
         width: 85%;
     }
     .ConteudoTrilhaVideoAvaliacaoPDF{
