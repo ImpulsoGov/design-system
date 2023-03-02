@@ -9,14 +9,11 @@ const ConteudoVideoPPT = ({
     avaliacao,
     conteudo,
 })=>{
-    const [starHover,setStarHover] = useState(avaliacao?.nota)
-    const [Avaliacao,setAvaliacao] = useState(avaliacao?.nota)
-    const [concluido,setConcluido] = useState(avaliacao?.concluido)
     const estrelas = [1,2,3,4,5]
     function concluir(arg){
-        if(!concluido){
+        if(!avaliacao.states.concluido){
             avaliacao?.botaoConcluir.submit(...arg);
-            setConcluido(true);
+            avaliacao.states.setConcluido(true);
         }}
     return(
         <div className={
@@ -41,7 +38,7 @@ const ConteudoVideoPPT = ({
             <div className={style.ConteudoTrilhaAvaliacaoConclusao}>
                 <div className={style.ConteudoTrilhaConclusao}>
                     {
-                        !concluido &&
+                        !avaliacao.states.concluido &&
                         <ButtonLightSubmit
                             icon='https://media.graphassets.com/DkcNDm4QteY5Gjst9XsC'
                             label={avaliacao?.botaoConcluir.label}
@@ -50,7 +47,7 @@ const ConteudoVideoPPT = ({
                         />
                     }
                     {
-                        concluido &&
+                        avaliacao.states.concluido &&
                         <ButtonColorSubmitIcon
                             icon='https://media.graphassets.com/ItjNUt1ZQKekAzwmKxxJ'
                             label={avaliacao?.botaoConcluido.label}
@@ -65,13 +62,13 @@ const ConteudoVideoPPT = ({
                             estrelas.map((estrela)=>{
                                 return(
                                     <img key={estrela}
-                                        src={estrela <= starHover ? "https://media.graphassets.com/VXmCLpFCSQymMFSJKmQP":"https://media.graphassets.com/JteHCpjJTPes0RyFcgEU"}
-                                        onMouseEnter={()=>{if(!Avaliacao) setStarHover(estrela)}}
-                                        onMouseLeave={()=>{if(!Avaliacao) setStarHover(false)}}
+                                        src={estrela <= avaliacao.states.starHover ? "https://media.graphassets.com/VXmCLpFCSQymMFSJKmQP":"https://media.graphassets.com/JteHCpjJTPes0RyFcgEU"}
+                                        onMouseEnter={()=>{if(!avaliacao.states.Avaliacao) avaliacao.states.setStarHover(estrela)}}
+                                        onMouseLeave={()=>{if(!avaliacao.states.Avaliacao) avaliacao.states.setStarHover(false)}}
                                         onClick={()=>{
-                                            if(!Avaliacao){
-                                                setAvaliacao(estrela);
-                                                setStarHover(estrela);
+                                            if(!avaliacao.states.Avaliacao){
+                                                avaliacao.states.setAvaliacao(estrela);
+                                                avaliacao.states.setStarHover(estrela);
                                                 avaliacao.req(
                                                     avaliacao.botaoConcluir.arg[0],
                                                     avaliacao.botaoConcluir.arg[1],
@@ -101,16 +98,33 @@ const ConteudoDescricao = ({
             <span> • {descricao.modulo} • </span>
             <span>{descricao.moduloTitulo}</span>
             <p style={{fontSize:"32px"}}>{descricao.titulo}</p>
-            <div style={{height:"fit-content"}}>
-                {
-                    descricao.texto.length > 300
-                    ? <> 
-                        <div className={
-                            !verMais ?
-                            style.ConteudoTrilhaDescricaoTextoDegrade:
-                            style.ConteudoTrilhaDescricaoTextoDegradeFull
-                        }></div>
-                        <div  
+            {    
+                descricao?.texto &&       
+                <div style={{height:"fit-content"}}>
+                    {
+                        descricao?.texto.length > 300
+                        ? <> 
+                            <div className={
+                                !verMais ?
+                                style.ConteudoTrilhaDescricaoTextoDegrade:
+                                style.ConteudoTrilhaDescricaoTextoDegradeFull
+                            }></div>
+                            <div  
+                                className={
+                                    !verMais ?
+                                    style.ConteudoTrilhaDescricaoTexto:
+                                    style.ConteudoTrilhaDescricaoTextoFull
+                                }
+                                dangerouslySetInnerHTML={{
+                                    __html: sanitize(descricao.texto),
+                                }}
+                            ></div>
+                        <p 
+                            style={{textDecoration:"underline",cursor:"pointer",color:"#2EB380",marginTop:0}}
+                            onClick={()=>setVerMais(!verMais)}
+                        >{!verMais ? "ver mais" : "ver menos"}</p>
+                    </>
+                    : <div  
                             className={
                                 !verMais ?
                                 style.ConteudoTrilhaDescricaoTexto:
@@ -120,23 +134,9 @@ const ConteudoDescricao = ({
                                 __html: sanitize(descricao.texto),
                             }}
                         ></div>
-                    <p 
-                        style={{textDecoration:"underline",cursor:"pointer",color:"#2EB380",marginTop:0}}
-                        onClick={()=>setVerMais(!verMais)}
-                    >{!verMais ? "ver mais" : "ver menos"}</p>
-                </>
-                : <div  
-                        className={
-                            !verMais ?
-                            style.ConteudoTrilhaDescricaoTexto:
-                            style.ConteudoTrilhaDescricaoTextoFull
-                        }
-                        dangerouslySetInnerHTML={{
-                            __html: sanitize(descricao.texto),
-                        }}
-                    ></div>
-                }
-            </div>
+                    }
+                </div>
+            }
         </div>
     </div>
 )

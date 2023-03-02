@@ -36,6 +36,8 @@ export default {
 }
 const Template = (args) => {
     const [municipio, setMunicipio] = useState("Recife - PE")
+    const [active, setMode] = useState(true)
+    args["showMenuMobile"] = {states:{active : active, setMode : setMode}}
     args["municipio"] = municipio
     args["setMunicipio"] = setMunicipio 
     return <NavBar {...args}/>
@@ -459,8 +461,6 @@ ColorIPLogin.args = {
             { label: "Busca Ativa", url: "/busca-ativa-gestantes" },
             { label: "Consultoria", url: "/consultoria" },
         ],
-    NavBarIconBranco:"https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconBranco.svg",
-    NavBarIconDark:"https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconDark.svg",
     esqueciMinhaSenha : {
         reqs : loggedReqsEsqueciSenha,
         chamadas: {
@@ -484,16 +484,15 @@ ColorIPLogin.args = {
         chamadas: {
             sucesso: "Agora é só entrar na área restrita com seu e-mail e a senha criada."
         }
-    }
-
+    },
+    NavBarIconBranco:"https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconBranco.svg",
+    NavBarIconDark:"https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconDark.svg",
 }
 const entrar = ()=> {
     const res1 = {
         "detail": "E-mail Incorreto"
     }
     return res1
-    
-
 }
 
 export const ColorIPLogout = Template.bind({});

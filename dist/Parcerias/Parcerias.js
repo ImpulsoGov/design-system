@@ -16,19 +16,22 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 const Parcerias = _ref => {
   let {
     parceiros,
-    theme
+    theme,
+    titulo
   } = _ref;
   return /*#__PURE__*/_react.default.createElement("div", {
     className: (0, _classnames.default)(_ParceriasModule.default.container_parceiros, _ParceriasModule.default["theme" + theme])
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: _ParceriasModule.default.parceirosLabel
-  }, "Parceiros"), /*#__PURE__*/_react.default.createElement("div", {
+  }, titulo), /*#__PURE__*/_react.default.createElement("div", {
     className: _ParceriasModule.default.gridContainer
   }, parceiros.map((parceiro, index) => {
     return /*#__PURE__*/_react.default.createElement("div", {
-      className: _ParceriasModule.default.logo_parceiros,
+      className: _ParceriasModule.default.info_parceiro,
       key: index
-    }, /*#__PURE__*/_react.default.createElement("img", {
+    }, parceiro.titulo && /*#__PURE__*/_react.default.createElement("p", {
+      className: _ParceriasModule.default.tituloParceiro
+    }, parceiro.titulo), /*#__PURE__*/_react.default.createElement("img", {
       className: _ParceriasModule.default.imageContainer,
       alt: parceiro.alt,
       src: parceiro.src
