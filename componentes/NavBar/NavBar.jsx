@@ -111,7 +111,7 @@ const NavBar = (props) => {
   const [showPrimeiroAcesso, setShowPrimeiroAcesso] = useState(false)
   const [showModalInicio, setShowModalInicio] = useState(true)
   const menuVisible = () => {
-    setMode(!props.showMenuMobile.states.active)
+    props.showMenuMobile.states.setMode(!props.showMenuMobile.states.active)
     return props.showMenuMobile.states.active
   }
   const Logged = <ModalLogged

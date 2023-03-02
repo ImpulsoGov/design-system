@@ -137,7 +137,7 @@ const NavBar = props => {
   const [showModalInicio, setShowModalInicio] = (0, _react.useState)(true);
 
   const menuVisible = () => {
-    setMode(!props.showMenuMobile.states.active);
+    props.showMenuMobile.states.setMode(!props.showMenuMobile.states.active);
     return props.showMenuMobile.states.active;
   };
 
