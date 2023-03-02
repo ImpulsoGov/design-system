@@ -8,6 +8,9 @@ export default {
 const Template = (args) =>{
     const [concluido,setConcluido] = useState(args.avaliacao.states.concluido);
     const [Avaliacao,setAvaliacao] = useState(args.avaliacao?.states.Avaliacao ? args.avaliacao?.states.Avaliacao : 0)
+    const [starHover,setStarHover] = useState(args.avaliacao?.states.Avaliacao ? args.avaliacao?.states.Avaliacao : 0)
+    args.avaliacao.states.starHover = starHover
+    args.avaliacao.states.setStarHover = setStarHover
     args.avaliacao.states.Avaliacao = Avaliacao
     args.avaliacao.states.setAvaliacao = setAvaliacao
     args.avaliacao.states.concluido = concluido

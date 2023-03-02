@@ -9,7 +9,6 @@ const ConteudoVideoPPT = ({
     avaliacao,
     conteudo,
 })=>{
-    const [starHover,setStarHover] = useState(avaliacao.states.Avaliacao)
     const estrelas = [1,2,3,4,5]
     function concluir(arg){
         if(!avaliacao.states.concluido){
@@ -63,13 +62,13 @@ const ConteudoVideoPPT = ({
                             estrelas.map((estrela)=>{
                                 return(
                                     <img key={estrela}
-                                        src={estrela <= starHover ? "https://media.graphassets.com/VXmCLpFCSQymMFSJKmQP":"https://media.graphassets.com/JteHCpjJTPes0RyFcgEU"}
-                                        onMouseEnter={()=>{if(!avaliacao.states.Avaliacao) setStarHover(estrela)}}
-                                        onMouseLeave={()=>{if(!avaliacao.states.Avaliacao) setStarHover(false)}}
+                                        src={estrela <= avaliacao.states.starHover ? "https://media.graphassets.com/VXmCLpFCSQymMFSJKmQP":"https://media.graphassets.com/JteHCpjJTPes0RyFcgEU"}
+                                        onMouseEnter={()=>{if(!avaliacao.states.Avaliacao) avaliacao.states.setStarHover(estrela)}}
+                                        onMouseLeave={()=>{if(!avaliacao.states.Avaliacao) avaliacao.states.setStarHover(false)}}
                                         onClick={()=>{
                                             if(!avaliacao.states.Avaliacao){
                                                 avaliacao.states.setAvaliacao(estrela);
-                                                setStarHover(estrela);
+                                                avaliacao.states.setStarHover(estrela);
                                                 avaliacao.req(
                                                     avaliacao.botaoConcluir.arg[0],
                                                     avaliacao.botaoConcluir.arg[1],
