@@ -9,13 +9,27 @@
     gap: 40px;
     color: #1F1F1F;
 }
+
 .CardLargeContainer a{
     color: #1F1F1F;
 }
+
 .CardLargeContainer:hover{
-    background-color: #2EB380;
     color: #fff;
 }
+
+.ColorIP:hover {
+    background-color: #2EB380;
+}
+
+.ColorSM {
+    height: auto;
+}
+
+.ColorSM:hover {
+    background-color: #5367C9;
+}
+
 .CardLargeContainer:hover .CardLargeLink{
     color: #fff;
 }
@@ -84,7 +98,7 @@
 
 .CardLargeGrid{
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     column-gap: 24px;
     margin: 45px 80px;
 }
@@ -94,13 +108,16 @@
 }
 
 @media screen and (max-width: 1023px) {
+    .CardLargeContainer{
+        height: fit-content;
+    }
     .CardLargeContainer:hover{
         background-color:#EFF5F9;
         color: #1F1F1F;
-    }    
+    }
     .CardLargeContainer:hover .CardLargeLink{
         color: #1F1F1F;
-    }    
+    }
     .CardLargeContainer:hover .CardLargeIcon{
         filter: invert(5%) sepia(13%) saturate(30%) hue-rotate(314deg) brightness(88%) contrast(83%)
     }
@@ -118,6 +135,5 @@
     .CardLargeLinks{
         display: none;
     }
-    
 }
 

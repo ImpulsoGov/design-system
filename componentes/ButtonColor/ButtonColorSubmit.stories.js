@@ -17,6 +17,10 @@ export default {
         name:'arg',
         description: "Argumento passado para função de callback através da prop submit *argumento*"
     },
+    theme: {
+      name: "theme",
+      description: "Nome do tema de cor aplicado ao botão *string*\n\nValores aceitos: *ColorSM* ou *ColorIP*"
+    }
   },
 };
 const Template = (args) => <ButtonColorSubmit {...args}/>
@@ -24,5 +28,13 @@ export const Default = Template.bind({});
 Default.args={
   label :"INDICADORES DE DESEMPENHO",
   submit : (arg)=>console.log(arg),
-  arg : "teste"
-} 
+  arg : "teste",
+}
+
+export const ColorSM = Template.bind({});
+ColorSM.args={
+  label :"INDICADORES DE DESEMPENHO",
+  submit : (arg)=>console.log(arg),
+  arg : "teste",
+  theme: "ColorSM"
+}

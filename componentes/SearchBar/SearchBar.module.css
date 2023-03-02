@@ -44,7 +44,7 @@
 }
 
 
-.SearchBarInputWhite{
+.SearchBarInputWhite, .SearchBarInputWhiteSM{
     border-radius: 80px;
     color: #1F1F1F;
     background-color: rgba(255, 255, 255, 0);
@@ -61,7 +61,7 @@
 .SearchBarInputColorIP::placeholder{
     text-align: center;
 }
-.SearchBarInputWhite::placeholder{
+.SearchBarInputWhite::placeholder, .SearchBarInputWhiteSM::placeholder{
     text-align: center;
 }
 
@@ -69,7 +69,7 @@
     border: solid 1px #fff;
 }
 
-.SearchBarInputWhite:focus{
+.SearchBarInputWhite:focus, .SearchBarInputWhiteSM:focus{
     border: solid 1px #606E78;
 }
 
@@ -82,7 +82,7 @@
     .SearchBarInputColorIP{
         width: 180px;
     }
-    .SearchBarInputWhite{
+    .SearchBarInputWhite, .SearchBarInputWhiteSM{
         width: 180px;
     }
 }
@@ -91,7 +91,7 @@
     .SearchBarInputColorIP{
         width: 240px;
     }
-    .SearchBarInputWhite{
+    .SearchBarInputWhite, .SearchBarInputWhiteSM{
         width: 240px;
     }
 }

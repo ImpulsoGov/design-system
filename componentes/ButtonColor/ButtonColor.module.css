@@ -9,8 +9,6 @@
 }
 
 .ButtonColorContainer{
-    border: 1px solid rgba(96, 110, 120, 0.15);
-    background-color: #2EB280;
     color: #fff;
     border-radius: 100px;
     padding: 0px 30px;
@@ -27,7 +25,22 @@
     text-decoration: none;
 }
 
-.ButtonColorContainer:hover{
+.ColorSM {
+    background-color: #5367C9;
+    border: none;
+}
+
+.ColorSM:hover {
+    background-color: #1B2D82;
+    cursor: pointer;
+}
+
+.ColorIP {
+    border: 1px solid rgba(96, 110, 120, 0.15);
+    background-color: #2EB280;
+}
+
+.ColorIP:hover{
     border: 1px solid rgba(96, 110, 120, 0.50);
     background-color: #1D856C;
     cursor: pointer;
@@ -95,9 +108,8 @@
         padding-right: 0px;
     }
 }
+
 .ButtonColorMobile{
-    border: 1px solid rgba(96, 110, 120, 0.15);
-    background-color: #1D856C;
     color: #fff;
     border-radius: 100px;
     padding: 0px 30px;
@@ -115,8 +127,23 @@
     text-decoration: none;
 }
 
-.ButtonColorMobile:hover{
+.ColorIPMobile {
+    border: 1px solid rgba(96, 110, 120, 0.15);
+    background-color: #1D856C;
+}
+
+.ColorIPMobile:hover{
     border: 1px solid rgba(96, 110, 120, 0.50);
     background-color: #1d856df0;
+    cursor: pointer;
+}
+
+.ColorSMMobile {
+    border: none;
+    background-color: #5367C9;
+}
+
+.ColorSMMobile:hover{
+    background-color: #1B2D82;
     cursor: pointer;
 }

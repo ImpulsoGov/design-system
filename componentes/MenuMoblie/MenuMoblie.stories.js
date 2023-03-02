@@ -33,16 +33,20 @@ export default {
         user: {
             name:'user',
             description:'Objeto contendo dados do usuário *object* \n\n **label:** Primeira letra do nome do usuário *string* \n\n **nome:** Nome do usuário *string* \n\n **cargo:** Cargo do usuário *string*'
+        },
+        theme: {
+            name: 'theme',
+            description: 'Tema de cor aplicado ao componente *string*'
         }
     },
 };
 
 const menus = [
-                    { label: "A Impulso Gov", url: "/impulsogov" },
-                    { label: "Resultados", url: "analise" },
-                    { label: "Busca Ativa", url: "/busca-ativa-gestantes" },
-                    { label: "Consultoria", url: "/consultoria" }
-                ]
+    { label: "A Impulso Gov", url: "/impulsogov" },
+    { label: "Resultados", url: "analise" },
+    { label: "Busca Ativa", url: "/busca-ativa-gestantes" },
+    { label: "Consultoria", url: "/consultoria" }
+]
 
 const Template = (args) => {
     const [etapa, setEtapa] = useState(0)
@@ -51,8 +55,8 @@ const Template = (args) => {
 
     return <MenuMoblie {...args}/>
 }
-export const LoggedIn = Template.bind({});
-LoggedIn.args={
+export const LoggedInDefault = Template.bind({});
+LoggedInDefault.args={
     menus:menus,
     logged:true,
     user:{
@@ -60,6 +64,18 @@ LoggedIn.args={
         nome: "Camila Alves",
         cargo: "Impulser"
     }
+}
+
+export const LoggedInColorIP = Template.bind({});
+LoggedInColorIP.args={
+    menus:menus,
+    logged:true,
+    user:{
+        label:"C",
+        nome: "Camila Alves",
+        cargo: "Impulser"
+    },
+    theme: "ColorIP"
 }
 
 export const LoggedOut = Template.bind({});
@@ -72,4 +88,3 @@ LoggedOut.args={
         cargo: "Impulser"
     }
 }
-
