@@ -131,15 +131,14 @@ const DropdownMenuMoblie = attr => {
 const NavBar = props => {
   var _props$user, _props$user2, _props$user3, _props$user4, _props$user5, _props$user6, _props$user7, _props$user8, _props$user9, _props$user10, _props$user10$label, _props$user11, _props$user12;
 
-  const [active, setMode] = (0, _react.useState)(true);
   const [modal, setModal] = (0, _react.useState)(false);
   const [showEsqueciSenha, setShowEsqueciSenha] = (0, _react.useState)(false);
   const [showPrimeiroAcesso, setShowPrimeiroAcesso] = (0, _react.useState)(false);
   const [showModalInicio, setShowModalInicio] = (0, _react.useState)(true);
 
   const menuVisible = () => {
-    setMode(!active);
-    return active;
+    setMode(!props.showMenuMobile.states.active);
+    return props.showMenuMobile.states.active;
   };
 
   const Logged = /*#__PURE__*/_react.default.createElement(_ModalLogged.ModalLogged, {
@@ -328,7 +327,7 @@ const NavBar = props => {
     alt: "NavBarIcon",
     src: NavBarMenu(props.theme.cor, props.NavBarIconBranco, props.NavBarIconDark)
   }))), /*#__PURE__*/_react.default.createElement("div", {
-    className: active ? (0, _classnames.default)(_NavBarModule.default["linksNavBarMoblie"]) : (0, _classnames.default)(_NavBarModule.default["linksNavBarMoblie"], _NavBarModule.default["linksNavBarMoblieVisible"], _NavBarModule.default["linksNavBarMoblie" + props.theme.cor])
+    className: props.showMenuMobile.states.active ? (0, _classnames.default)(_NavBarModule.default["linksNavBarMoblie"]) : (0, _classnames.default)(_NavBarModule.default["linksNavBarMoblie"], _NavBarModule.default["linksNavBarMoblieVisible"], _NavBarModule.default["linksNavBarMoblie" + props.theme.cor])
   }, /*#__PURE__*/_react.default.createElement(_MenuMoblie.MenuMoblie, {
     menus: props.menu,
     logged: props !== null && props !== void 0 && (_props$user11 = props.user) !== null && _props$user11 !== void 0 && _props$user11.nome ? true : false,

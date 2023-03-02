@@ -106,14 +106,13 @@ const DropdownMenuMoblie = (attr) => {
 
 
 const NavBar = (props) => {
-  const [active, setMode] = useState(true)
   const [modal, setModal] = useState(false)
   const [showEsqueciSenha, setShowEsqueciSenha] = useState(false)
   const [showPrimeiroAcesso, setShowPrimeiroAcesso] = useState(false)
   const [showModalInicio, setShowModalInicio] = useState(true)
   const menuVisible = () => {
-    setMode(!active)
-    return active
+    setMode(!props.showMenuMobile.states.active)
+    return props.showMenuMobile.states.active
   }
   const Logged = <ModalLogged
                   nome = {props?.user?.nome}
@@ -322,7 +321,7 @@ const NavBar = (props) => {
           />
         </div>
       </div>
-      <div className={active ? cx(style["linksNavBarMoblie"]) : cx(style["linksNavBarMoblie"], style["linksNavBarMoblieVisible"], style["linksNavBarMoblie" + props.theme.cor])}>
+      <div className={props.showMenuMobile.states.active ? cx(style["linksNavBarMoblie"]) : cx(style["linksNavBarMoblie"], style["linksNavBarMoblieVisible"], style["linksNavBarMoblie" + props.theme.cor])}>
         <MenuMoblie
           menus={props.menu}
           logged={props?.user?.nome ? true : false}

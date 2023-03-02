@@ -36,6 +36,8 @@ export default {
 }
 const Template = (args) => {
     const [municipio, setMunicipio] = useState("Recife - PE")
+    const [active, setMode] = useState(true)
+    args["showMenuMobile"] = {states:{active : active, setMode : setMode}}
     args["municipio"] = municipio
     args["setMunicipio"] = setMunicipio 
     return <NavBar {...args}/>
