@@ -2,15 +2,17 @@ import React from "react";
 import style from "./CardLarge.module.css"
 import Link from "next/link";
 import { ButtonLightMobile } from "../ButtonLight";
+import cx from 'classnames';
 
 const CardLarge = ({
     icon,
     titulo,
     texto,
     links,
+    theme
 })=>{
     return(
-        <div className={style.CardLargeContainer}>
+        <div className={cx(style.CardLargeContainer, style[`${theme}`])}>
             <div>
                 <img 
                     className={style.CardLargeIcon}
@@ -18,7 +20,7 @@ const CardLarge = ({
                 />
             </div>
             <div className={style.CardLargeTitulo}>{titulo}</div>
-            <div className={style.CardLargeTexto}>{texto}</div>
+            {texto && <div className={style.CardLargeTexto}>{texto}</div>}
             <div className={style.CardLargeLinks}>
                 {links.map((item,index)=>{
                     return(
@@ -42,7 +44,7 @@ const CardLarge = ({
     )
 }
 
-const CardLargeGrid = ({cards,obs})=>{
+const CardLargeGrid = ({cards, obs, theme})=>{
     return(
         <>
             <div className={style.CardLargeGrid}>
@@ -53,6 +55,7 @@ const CardLargeGrid = ({cards,obs})=>{
                                 titulo = {card.titulo}
                                 texto = {card.texto}
                                 links = {card.links}
+                                theme = {theme}
                             />
                         )
                     })}

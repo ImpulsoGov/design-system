@@ -22,8 +22,8 @@
 .MenuMoblieLoginOut{
     border: 1px solid rgba(96, 110, 120, 0.15);
     background-color: #fff;
-    color: #1D856C;
     border-radius: 100px;
+    color: #1F1F1F;
     padding: 0px 30px;
     font-size: 15px;
     font-family: 'inter';
@@ -43,6 +43,10 @@
 
 .MenuMoblieLoginOut:hover{
     border: 1px solid rgba(96, 110, 120, 0.50);
+}
+
+.ColorIP {
+    color: #1D856C;
 }
 
 .LoginButton{

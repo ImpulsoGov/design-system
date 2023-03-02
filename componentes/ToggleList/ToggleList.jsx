@@ -2,12 +2,12 @@ import React from "react";
 import styles from "./ToggleList.module.css";
 import { ToggleListElementBlock } from "../ToggleListElementBlock/ToggleListElementBlock"
 
-const ToggleList = ({ list }) => {
+const ToggleList = ({ list, title }) => {
 
   return (
     <div className={styles.ToggleListContainer}>
       <div className={styles.ToggleListLeftBlock}>
-        <p>Indicadores</p>
+        <p>{title}</p>
       </div>
 
       <div className={styles.ToggleListRightBlock}>

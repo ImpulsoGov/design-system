@@ -102,26 +102,41 @@ const ConteudoDescricao = ({
             <span>{descricao.moduloTitulo}</span>
             <p style={{fontSize:"32px"}}>{descricao.titulo}</p>
             <div style={{height:"fit-content"}}>
-                <div className={
-                    !verMais ?
-                    style.ConteudoTrilhaDescricaoTextoDegrade:
-                    style.ConteudoTrilhaDescricaoTextoDegradeFull
-                }></div>
-                <div  
-                    className={
-                        !verMais ?
-                        style.ConteudoTrilhaDescricaoTexto:
-                        style.ConteudoTrilhaDescricaoTextoFull
-                    }
-                    dangerouslySetInnerHTML={{
-                        __html: sanitize(descricao.texto),
-                    }} 
-                ></div>
+                {
+                    descricao.texto.length > 300
+                    ? <> 
+                        <div className={
+                            !verMais ?
+                            style.ConteudoTrilhaDescricaoTextoDegrade:
+                            style.ConteudoTrilhaDescricaoTextoDegradeFull
+                        }></div>
+                        <div  
+                            className={
+                                !verMais ?
+                                style.ConteudoTrilhaDescricaoTexto:
+                                style.ConteudoTrilhaDescricaoTextoFull
+                            }
+                            dangerouslySetInnerHTML={{
+                                __html: sanitize(descricao.texto),
+                            }}
+                        ></div>
+                    <p 
+                        style={{textDecoration:"underline",cursor:"pointer",color:"#2EB380",marginTop:0}}
+                        onClick={()=>setVerMais(!verMais)}
+                    >{!verMais ? "ver mais" : "ver menos"}</p>
+                </>
+                : <div  
+                        className={
+                            !verMais ?
+                            style.ConteudoTrilhaDescricaoTexto:
+                            style.ConteudoTrilhaDescricaoTextoFull
+                        }
+                        dangerouslySetInnerHTML={{
+                            __html: sanitize(descricao.texto),
+                        }}
+                    ></div>
+                }
             </div>
-            <p 
-                style={{textDecoration:"underline",cursor:"pointer",color:"#2EB380",marginTop:0}}
-                onClick={()=>setVerMais(!verMais)}
-            >{!verMais ? "ver mais" : "ver menos"}</p>
         </div>
     </div>
 )
@@ -134,8 +149,8 @@ const MaterialCompletar = ({materialComplementar})=>{
             <p>{materialComplementar.card.titulo}</p>
             <span>
                 <img style={{marginRight:"8px"}} src={materialComplementar.card.icon}/>
-                <Link href={materialComplementar?.card?.url}>
-                    <a>{materialComplementar.card.arquivo}</a>
+                <Link target="_blank" href={materialComplementar?.card?.url}>
+                    <a target="_blank">{materialComplementar.card.arquivo}</a>
                 </Link>
             </span>
         </div>
@@ -186,6 +201,9 @@ const ConteudoTrilha = ({
     return(
         <div className={style.ConteudoTrilha}>
             <ButtonBar buttonBar={buttonBar} />
+            <ConteudoDescricao
+                    descricao={descricao}
+                />
             {
                 conteudo &&
                 <ConteudoVideoPPT
@@ -196,9 +214,6 @@ const ConteudoTrilha = ({
             {
                 conteudo.tipo != 'quizz' && conteudo.tipo != 'pdf' &&
                 <>
-                    <ConteudoDescricao
-                        descricao={descricao}
-                    />
                     <MaterialCompletar
                         materialComplementar={materialComplementar}
                     />

@@ -46,9 +46,14 @@
     flex-direction: column;
 }
 
-.RecuperarSenhaInput:focus{
+.InputColorIP:focus{
     outline: none !important;
     border: #2EB280 solid 1px;
+}
+
+.InputColorSM:focus{
+    outline: none !important;
+    border: #5367C9 solid 1px;
 }
 
 .RecuperarSenhaInputErro{
@@ -121,12 +126,24 @@
     font-size: 14px;
     line-height: 130%;
     color: #fff;
-    background: #1D856C;
     border-radius: 100px;
     padding: 16px 24px;
 }
 
 .RecuperarSenhaBotaoProximo:hover{
+    cursor: pointer;
+}
+
+.ColorIP {
+    background: #1D856C;
+}
+
+.ColorSM {
+    background: #5367C9;
+}
+
+.ColorSM:hover {
+    background-color: #1B2D82;
     cursor: pointer;
 }
 

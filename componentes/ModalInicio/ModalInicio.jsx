@@ -21,6 +21,7 @@ const ModalInicio = ({
                 <ButtonColorSubmit
                     label={botaoPrincipal.label}
                     submit={botaoPrincipal.submit}
+                    theme={botaoPrincipal.theme}
                 />
                 <ButtonLightSubmit
                     label={botaoSecundario.label}
@@ -31,6 +32,7 @@ const ModalInicio = ({
                 <ButtonColorSubmitMobile
                     label={botaoPrincipal.label}
                     submit={botaoPrincipal.submit}
+                    theme={botaoPrincipal.theme}
                 />
                 <ButtonLightSubmitMobile
                     label={botaoSecundario.label}

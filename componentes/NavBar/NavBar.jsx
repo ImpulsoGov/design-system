@@ -124,10 +124,11 @@ const NavBar = (props) => {
                   equipe = {props?.user?.equipe}
                 />
   const login = <Login
-                  titulo = "Faça o login para ver o painel de busca ativa"
+                  titulo = {props.login.titulo}
                   botaoPrincipal = {{
                     label:"entrar",
-                    submit:()=>setShowModalInicio(false)
+                    submit:()=>setShowModalInicio(false),
+                    theme: props.theme.cor
                   }}
                   botaoSecundario = {{
                     label:"voltar",
@@ -151,13 +152,14 @@ const NavBar = (props) => {
                               aviso : "Caso não lembre o e-mail cadastrado, entre em contato conosco pelo grupo de mensagens do seu município com a Impulso Gov.",
                               codigo : "Digite abaixo o código recebido no e-mail cadastrado",
                               senha : "Escolha uma nova senha",
-                              sucesso : "Agora é só entrar na área restrita com seu e-mail e a nova senha.",
+                              sucesso : props.esqueciMinhaSenha.chamadas.sucesso,
                               }}
                               botaoVoltar = {{label:"voltar",function : ""}}
                               botaoProximo = {{label:"próximo",function : ""}}
                               botaoSucesso = "Entrar"
                               showEsqueciSenha = {setShowEsqueciSenha}
                               reqs = {props.esqueciMinhaSenha.reqs}
+                              theme = {props.theme.cor}
                             />   
   const PrimeiroAcesso = <RecuperarSenha
                                 titulos = { {
@@ -171,7 +173,7 @@ const NavBar = (props) => {
                                 aviso : "Caso não lembre o e-mail cadastrado, entre em contato conosco pelo grupo de mensagens do seu município com a Impulso Gov.",
                                 codigo : "Digite abaixo o código recebido no e-mail cadastrado",
                                 senha : "Crie sua senha de acesso",
-                                sucesso : "Agora é só entrar na área restrita com seu e-mail e a senha criada.",
+                                sucesso : props.primeiroAcesso.chamadas.sucesso,
                                 }}
                                 botaoVoltar = {{label:"voltar",function : ""}}
                                 botaoProximo = {{label:"próximo",function : ""}}
@@ -181,6 +183,7 @@ const NavBar = (props) => {
                                   setShowPrimeiroAcesso(arg)
                                 }}
                                 reqs = {props.primeiroAcesso.reqs}
+                                theme = {props.theme.cor}
                               />   
                               
   const ModalInicioChild = <ModalInicio
@@ -188,8 +191,9 @@ const NavBar = (props) => {
                               chamada = {props?.ModalInicio.chamada}
                               cardAlert = {props?.ModalInicio.cardAlert}
                               botaoPrincipal = {{
-                                label : props?.ModalInicio.botaoPrincipal.label,
-                                submit : ()=>setShowModalInicio(false)
+                                label : props.ModalInicio.botaoPrincipal.label,
+                                submit : ()=>setShowModalInicio(false),
+                                theme: props.theme.cor
                               }}
                               botaoSecundario = {{
                                 label : props?.ModalInicio.botaoSecundario.label,
@@ -252,11 +256,11 @@ const NavBar = (props) => {
                       {   link.sub &&
                           link.sub.map((subContent, index) => {
                             const NavBarSubMenuContainerPosition = {
-                              top : (index * 30).toString()+'px',
+                              top : (index * 64).toString()+'px',
                             }
                             return(
                               <>
-                                <div className={style.NavBarSubMenuContainer} key={subContent.label} >
+                                <div className={cx(style.NavBarSubMenuContainer, style[`NavBarSubMenuContainer${props.theme.cor}`])} key={subContent.label} >
                                   <Link href={subContent.url}>
                                     <a className={style.NavBarSubMenuAnchor}>
                                       {subContent.label} 
@@ -268,7 +272,7 @@ const NavBar = (props) => {
                                       {
                                         subContent.item.map((subcontent, index) => {
                                           return(
-                                            <div  className={style.NavBarSubMenuItem} key={subcontent.label}>
+                                            <div  className={cx(style.NavBarSubMenuItem, style[`NavBarSubMenuItem${props.theme.cor}`])} key={subcontent.label}>
                                               <Link href={subcontent.url}>
                                                 <a className={style.NavBarSubMenuItemAnchor}>
                                                   {subcontent.label} 
@@ -326,6 +330,7 @@ const NavBar = (props) => {
           logout={props?.user?.logout}
           children = {ModalChildren()}
           showModalInicio = {showModalInicio}
+          theme = {props.theme.cor}
         />
       </div>
     </div>

@@ -15,7 +15,7 @@ export default {
     },
     botaoPrincipal: {
         name: "botaoPrincipal",
-        description: "**submit** Função executada ao clickar no botão *função*\n\n **label** Rótulo do botão *string*"
+        description: "**submit** Função executada ao clickar no botão *função*\n\n **label** Rótulo do botão *string* \n\n **theme**: tema de cor aplicado ao botão *string*"
     },
     botaoSecundario: {
     name: "botaoSecundario",
@@ -32,7 +32,8 @@ Default.args={
     cardAlert: "<p style='font-size:12px;'>A área logada é de acesso exclusivo para municípios parceiros. Para ver os resultados públicos do seu município, do Q3/22, <a href='analise'>clique aqui.</a></p>",
     botaoPrincipal : {
         submit: ()=>console.log("entrar"),
-        label: "entrar"
+        label: "entrar",
+        theme: "ColorIP"
     },
     botaoSecundario : {
         submit:()=>console.log("teste"),

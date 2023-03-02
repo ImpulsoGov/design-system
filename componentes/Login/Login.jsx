@@ -2,11 +2,14 @@ import React from "react";
 import { useState } from "react";
 import style from "./Login.module.css"
 import { ButtonLightSubmit } from "../ButtonLight";
+import cx from 'classnames';
 
 const Login = (props)=>{
     const [senha, setSenha] = useState("");
     const [mail, setMail] = useState("");
-    const [resposta,setResposta] = useState()
+    const [resposta,setResposta] = useState();
+    const color = props.botaoPrincipal.theme ? props.botaoPrincipal.theme : 'ColorIP';
+
     return(
         <div className={style.LoginConteiner}>
             <div className={style.LoginTitulo}>{props.titulo}</div>
@@ -38,7 +41,7 @@ const Login = (props)=>{
                 <button 
                     className={
                         (mail.length>0 && senha.length>0)?
-                        style.LoginButton:
+                        cx(style.LoginButton, style[`${color}`]):
                         style.LoginButtonInativo
                     }
                     onClick={() => {
