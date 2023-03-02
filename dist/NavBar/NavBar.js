@@ -152,10 +152,11 @@ const NavBar = props => {
   });
 
   const login = /*#__PURE__*/_react.default.createElement(_Login.Login, {
-    titulo: "Fa\xE7a o login para ver o painel de busca ativa",
+    titulo: props.login.titulo,
     botaoPrincipal: {
       label: "entrar",
-      submit: () => setShowModalInicio(false)
+      submit: () => setShowModalInicio(false),
+      theme: props.theme.cor
     },
     botaoSecundario: {
       label: "voltar",
@@ -179,7 +180,7 @@ const NavBar = props => {
       aviso: "Caso não lembre o e-mail cadastrado, entre em contato conosco pelo grupo de mensagens do seu município com a Impulso Gov.",
       codigo: "Digite abaixo o código recebido no e-mail cadastrado",
       senha: "Escolha uma nova senha",
-      sucesso: "Agora é só entrar na área restrita com seu e-mail e a nova senha."
+      sucesso: props.esqueciMinhaSenha.chamadas.sucesso
     },
     botaoVoltar: {
       label: "voltar",
@@ -191,7 +192,8 @@ const NavBar = props => {
     },
     botaoSucesso: "Entrar",
     showEsqueciSenha: setShowEsqueciSenha,
-    reqs: props.esqueciMinhaSenha.reqs
+    reqs: props.esqueciMinhaSenha.reqs,
+    theme: props.theme.cor
   });
 
   const PrimeiroAcesso = /*#__PURE__*/_react.default.createElement(_RecuperarSenha.RecuperarSenha, {
@@ -206,7 +208,7 @@ const NavBar = props => {
       aviso: "Caso não lembre o e-mail cadastrado, entre em contato conosco pelo grupo de mensagens do seu município com a Impulso Gov.",
       codigo: "Digite abaixo o código recebido no e-mail cadastrado",
       senha: "Crie sua senha de acesso",
-      sucesso: "Agora é só entrar na área restrita com seu e-mail e a senha criada."
+      sucesso: props.primeiroAcesso.chamadas.sucesso
     },
     botaoVoltar: {
       label: "voltar",
@@ -221,7 +223,8 @@ const NavBar = props => {
       setShowModalInicio(!arg);
       setShowPrimeiroAcesso(arg);
     },
-    reqs: props.primeiroAcesso.reqs
+    reqs: props.primeiroAcesso.reqs,
+    theme: props.theme.cor
   });
 
   const ModalInicioChild = /*#__PURE__*/_react.default.createElement(_ModalInicio.ModalInicio, {
@@ -229,8 +232,9 @@ const NavBar = props => {
     chamada: props === null || props === void 0 ? void 0 : props.ModalInicio.chamada,
     cardAlert: props === null || props === void 0 ? void 0 : props.ModalInicio.cardAlert,
     botaoPrincipal: {
-      label: props === null || props === void 0 ? void 0 : props.ModalInicio.botaoPrincipal.label,
-      submit: () => setShowModalInicio(false)
+      label: props.ModalInicio.botaoPrincipal.label,
+      submit: () => setShowModalInicio(false),
+      theme: props.theme.cor
     },
     botaoSecundario: {
       label: props === null || props === void 0 ? void 0 : props.ModalInicio.botaoSecundario.label,
@@ -285,10 +289,10 @@ const NavBar = props => {
       key: index
     }, link.sub && link.sub.map((subContent, index) => {
       const NavBarSubMenuContainerPosition = {
-        top: (index * 30).toString() + 'px'
+        top: (index * 64).toString() + 'px'
       };
       return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", {
-        className: _NavBarModule.default.NavBarSubMenuContainer,
+        className: (0, _classnames.default)(_NavBarModule.default.NavBarSubMenuContainer, _NavBarModule.default["NavBarSubMenuContainer".concat(props.theme.cor)]),
         key: subContent.label
       }, /*#__PURE__*/_react.default.createElement(_link.default, {
         href: subContent.url
@@ -300,7 +304,7 @@ const NavBar = props => {
         key: subContent.item
       }, subContent.item.map((subcontent, index) => {
         return /*#__PURE__*/_react.default.createElement("div", {
-          className: _NavBarModule.default.NavBarSubMenuItem,
+          className: (0, _classnames.default)(_NavBarModule.default.NavBarSubMenuItem, _NavBarModule.default["NavBarSubMenuItem".concat(props.theme.cor)]),
           key: subcontent.label
         }, /*#__PURE__*/_react.default.createElement(_link.default, {
           href: subcontent.url
@@ -331,7 +335,8 @@ const NavBar = props => {
     user: props === null || props === void 0 ? void 0 : props.user,
     logout: props === null || props === void 0 ? void 0 : (_props$user12 = props.user) === null || _props$user12 === void 0 ? void 0 : _props$user12.logout,
     children: ModalChildren(),
-    showModalInicio: showModalInicio
+    showModalInicio: showModalInicio,
+    theme: props.theme.cor
   }))), modal && /*#__PURE__*/_react.default.createElement("div", {
     className: _NavBarModule.default.NavBarModalContainer
   }, /*#__PURE__*/_react.default.createElement(_Modal.Modal, {

@@ -11,12 +11,11 @@ const ConteudoVideoPPT = ({
 })=>{
     const [starHover,setStarHover] = useState(avaliacao?.nota)
     const [Avaliacao,setAvaliacao] = useState(avaliacao?.nota)
-    const [concluido,setConcluido] = useState(avaliacao?.concluido)
     const estrelas = [1,2,3,4,5]
     function concluir(arg){
-        if(!concluido){
+        if(!avaliacao.states.concluido){
             avaliacao?.botaoConcluir.submit(...arg);
-            setConcluido(true);
+            avaliacao.states.setConcluido(true);
         }}
     return(
         <div className={
@@ -41,7 +40,7 @@ const ConteudoVideoPPT = ({
             <div className={style.ConteudoTrilhaAvaliacaoConclusao}>
                 <div className={style.ConteudoTrilhaConclusao}>
                     {
-                        !concluido &&
+                        !avaliacao.states.concluido &&
                         <ButtonLightSubmit
                             icon='https://media.graphassets.com/DkcNDm4QteY5Gjst9XsC'
                             label={avaliacao?.botaoConcluir.label}
@@ -50,7 +49,7 @@ const ConteudoVideoPPT = ({
                         />
                     }
                     {
-                        concluido &&
+                        avaliacao.states.concluido &&
                         <ButtonColorSubmitIcon
                             icon='https://media.graphassets.com/ItjNUt1ZQKekAzwmKxxJ'
                             label={avaliacao?.botaoConcluido.label}

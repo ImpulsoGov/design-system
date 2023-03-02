@@ -1,12 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { ConteudoTrilha } from './index'
 
 export default {
     title: "Componentes/ConteudoTrilha",
     component: ConteudoTrilha,
 }
-const Template = (args) => <ConteudoTrilha {...args}/>
-
+const Template = (args) =>{
+    const [concluido,setConcluido] = useState(args.avaliacao.states.concluido);
+    args.avaliacao.states.concluido = concluido
+    args.avaliacao.states.setConcluido = setConcluido
+    return <ConteudoTrilha {...args}/>
+}
 
 export const NaoConcluido = Template.bind({});
 function teste(a,b,c,d){console.log(a,b,c,d)}
@@ -16,6 +20,7 @@ NaoConcluido.args ={
         botaoConcluir:{label:"MARCAR COMO CONCLUÍDA",submit:teste,arg:['a','b','c']},
         botaoConcluido:{label:"CONCLUÍDA",submit:()=>console.log('')},
         concluido:false,
+        states : {concluido : false},
         chamadaAvaliacao:"Como você avalia esse conteúdo?",
         req:teste
     },
@@ -64,7 +69,7 @@ Concluido.args ={
             submit:(a,b,c)=>console.log(a,b,c),
             arg:['a','b','c']},
         botaoConcluido:{label:"CONCLUÍDA",submit:""},
-        concluido:true,
+        states : {concluido : true},
         nota:4,
         chamadaAvaliacao:"Como você avalia esse conteúdo?",
     },
@@ -114,7 +119,7 @@ ConcluidoPDF.args ={
             submit:(a,b,c)=>console.log(a,b,c),
             arg:['a','b','c']},
         botaoConcluido:{label:"CONCLUÍDA",submit:""},
-        concluido:true,
+        states : {concluido : true},
         nota:4,
         chamadaAvaliacao:"Como você avalia esse conteúdo?",
     },
@@ -164,7 +169,7 @@ ConcluidoQuizz.args ={
             submit:(a,b,c)=>console.log(a,b,c),
             arg:['a','b','c']},
         botaoConcluido:{label:"CONCLUÍDA",submit:""},
-        concluido:true,
+        states : {concluido : true},
         nota:4,
         chamadaAvaliacao:"Como você avalia esse conteúdo?",
     },
