@@ -102,7 +102,7 @@ const ConteudoDescricao = ({
             <p style={{fontSize:"32px"}}>{descricao.titulo}</p>
             <div style={{height:"fit-content"}}>
                 {
-                    descricao.texto.length > 300
+                    descricao?.texto.length > 300
                     ? <> 
                         <div className={
                             !verMais ?

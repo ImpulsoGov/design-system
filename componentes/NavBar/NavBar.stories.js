@@ -491,8 +491,6 @@ const entrar = ()=> {
         "detail": "E-mail Incorreto"
     }
     return res1
-    
-
 }
 
 export const ColorIPLogout = Template.bind({});
