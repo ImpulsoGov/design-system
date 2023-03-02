@@ -65,6 +65,7 @@
     width: 95%;
 }
 .ConteudoTrilhaDescricaoTexto{
+    width : 95%;
     height: 80px;
     overflow: hidden;
     margin-bottom: 0;
@@ -93,7 +94,11 @@
     color: #1F1F1F;
 }
 @media screen and (min-width: 1365px) {
-    .ConteudoTrilhaVideoAvaliacao{
+    .ConteudoTrilhaVideoAvaliacaoVideo{
+        flex-direction: column-reverse;
+        width: 85%;
+    }
+    .ConteudoTrilhaVideoAvaliacaoPDF{
         flex-direction: column-reverse;
         width: 85%;
     }
@@ -118,5 +123,4 @@
         height: auto;
         width: 100%;
     }
-    
 }
