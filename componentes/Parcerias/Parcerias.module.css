@@ -1,5 +1,8 @@
 .container_parceiros {
   display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 80px;
   width: 100%;
   padding: 64px;
 }
@@ -16,14 +19,13 @@
 
 .parceirosLabel {
   margin-left: 45px;
-  margin-right: 45px;
-  text-align: center;
   font-family: 'Inter';
   font-style: normal;
-  font-weight: 1px;
+  font-weight: 400;
   font-size: 32px;
-  line-height: 42px;
+  line-height: 130%;
   letter-spacing: -0.02em;
+  width: 30%;
 }
 
 .tituloParceiro {
@@ -38,11 +40,20 @@
 }
 
 .gridContainer {
-  column-gap: 30px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 100px;
+  flex-wrap: wrap;
+}
+
+.info_parceiro {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  display: grid;
-  grid-template-columns: auto auto auto auto;
-  width: 100%;
+  align-items: center;
+  gap: 24px;
+  width: fit-content;
 }
 
 .imageContainer {
@@ -51,10 +62,28 @@
   max-width: 110px;
 }
 
+@media screen and (min-width: 741px) and (max-width: 1024px) {
+  .container_parceiros {
+    gap: 60px;
+  }
+
+  .parceirosLabel {
+    width: 40%;
+  }
+
+  .gridContainer {
+    gap: 80px;
+  }
+}
+
 @media screen and (max-width: 740px) {
+  .parceirosLabel {
+    width: 100%;
+    text-align: center;
+    margin-left: 0;
+  }
+
   .info_parceiro {
-    display: flex;
-    justify-content: center;
     width: 100%;
   }
 
@@ -64,6 +93,8 @@
 
   .container_parceiros {
     flex-direction: column;
+    align-items: center;
+    gap: 60px;
   }
 }
 
