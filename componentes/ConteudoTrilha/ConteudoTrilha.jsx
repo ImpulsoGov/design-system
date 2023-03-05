@@ -23,11 +23,11 @@ const ConteudoVideoPPT = ({
         }>
             {
                 conteudo.tipo == "pdf" &&
-                    <embed src={conteudo.url} allowFullScreen type="application/pdf" width="100%" height="1200vh"/>
+                    <iframe src={conteudo.url} allowFullScreen type="application/pdf" width="100%" height="1200vh"/>
             }
             {
                 conteudo.tipo == "quizz" &&
-                    <embed src={conteudo.url} allowFullScreen type="application/pdf" width="100%" height="1200vh"/>
+                    <iframe src={conteudo.url} allowFullScreen type="application/pdf" width="100%" height="1200vh"/>
             }
             {
                 conteudo.tipo == "video" &&
