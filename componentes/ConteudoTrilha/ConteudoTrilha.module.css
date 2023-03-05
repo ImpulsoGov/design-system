@@ -122,4 +122,8 @@
         height: auto;
         width: 100%;
     }
+    .ConteudoTrilhaVideoAvaliacaoPDF{
+        width: 100%;
+        padding: 25px 0;
+    }
 }
