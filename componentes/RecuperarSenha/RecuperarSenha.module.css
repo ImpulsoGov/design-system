@@ -46,12 +46,12 @@
     flex-direction: column;
 }
 
-.InputColorIP:focus{
+.InputColorIP:focus, .InputWhite:focus{
     outline: none !important;
     border: #2EB280 solid 1px;
 }
 
-.InputColorSM:focus{
+.InputColorSM:focus, .InputWhiteSM:focus{
     outline: none !important;
     border: #5367C9 solid 1px;
 }
@@ -134,15 +134,15 @@
     cursor: pointer;
 }
 
-.ColorIP {
+.ColorIP, .White {
     background: #1D856C;
 }
 
-.ColorSM {
+.ColorSM, .WhiteSM {
     background: #5367C9;
 }
 
-.ColorSM:hover {
+.ColorSM:hover, .WhiteSM:hover {
     background-color: #1B2D82;
     cursor: pointer;
 }
