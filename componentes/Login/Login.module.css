@@ -117,23 +117,23 @@
     text-decoration: none;
 }
 
-.ColorIP {
+.ColorIP, .White {
     border: 1px solid rgba(96, 110, 120, 0.15);
     background-color: #1D856C;
 }
 
-.ColorIP:hover{
+.ColorIP:hover, .White:hover {
     border: 1px solid rgba(96, 110, 120, 0.50);
     background-color: #1d856df0;
     cursor: pointer;
 }
 
-.ColorSM{
+.ColorSM, .WhiteSM {
     border: none;
     background-color: #5367C9;
 }
 
-.ColorSM:hover{
+.ColorSM:hover, .WhiteSM:hover{
     background-color: #1B2D82;
     cursor: pointer;
 }

@@ -15,7 +15,7 @@ export default {
     },
     theme: {
       name: "theme",
-      description: "Nome do tema de cor aplicado ao botão *string*\n\nValores aceitos: *ColorSM* ou *ColorIP*"
+      description: "Nome do tema de cor aplicado ao botão *string*\n\nValores aceitos: *ColorSM*, *ColorIP*, *WhiteSM*, *White*"
     }
   },
 };
