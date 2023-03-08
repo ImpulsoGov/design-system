@@ -8,8 +8,8 @@ const ButtonLight = ({
     link
 })=>{
     return(
-          <Link href={link}>
-            <a className={style.ButtonLightIconContainer}>
+          <Link target="_blank" href={link}>
+            <a target="_blank" className={style.ButtonLightIconContainer}>
                 {icone?.posicao=='right' && <img className={style.IconeRight} src={icone?.url} />}
                 {label} 
                 {icone?.posicao=='left' && <img className={style.IconeLeft} src={icone?.url} />}
@@ -24,8 +24,8 @@ const ButtonLightLarge = ({
     link
 })=>{
     return(
-          <Link href={link}>
-            <a className={style.ButtonLightLarge}>
+          <Link target="_blank" href={link}>
+            <a target="_blank" className={style.ButtonLightLarge}>
                 {label} 
             </a>
           </Link>
