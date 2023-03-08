@@ -201,6 +201,10 @@ const NavBar = (props) => {
                                   setShowPrimeiroAcesso(true)
                                 }
                               }}
+                              botaoAjuda={{
+                                label: props?.ModalInicio.botaoAjuda.label,
+                                link: props?.ModalInicio.botaoAjuda.link,
+                              }}
                             />
 
   const ModalChildren = ()=>{
