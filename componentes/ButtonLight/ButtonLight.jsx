@@ -18,6 +18,20 @@ const ButtonLight = ({
     )
   }
 
+
+const ButtonLightLarge = ({
+    label,
+    link
+})=>{
+    return(
+          <Link href={link}>
+            <a className={style.ButtonLightLarge}>
+                {label} 
+            </a>
+          </Link>
+    )
+  }
+
 const ButtonLightMobile = ({
     icone,
     label,
@@ -74,4 +88,4 @@ const ButtonLightSubmitMobile = ({
 }
 
 
-export {ButtonLight,ButtonLightSubmit,ButtonLightSubmitMobile,ButtonLightMobile}
+export {ButtonLight,ButtonLightSubmit,ButtonLightSubmitMobile,ButtonLightMobile, ButtonLightLarge}

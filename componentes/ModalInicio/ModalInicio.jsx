@@ -2,15 +2,18 @@ import React from "react";
 import style from "./ModalInicio.module.css"
 import { ButtonColorSubmit } from "../ButtonColor";
 import { ButtonColorSubmitMobile } from "../ButtonColor";
+import { ButtonLightLarge } from "../ButtonLight";
 import { ButtonLightSubmit } from "../ButtonLight";
 import { ButtonLightSubmitMobile } from "../ButtonLight";
 import { CardAlertChild } from "../CardAlert/CardAlert";
+
 const ModalInicio = ({
     titulo,
     chamada,
     cardAlert,
     botaoPrincipal,
-    botaoSecundario
+    botaoSecundario,
+    botaoAjuda
 })=>{
     return(
         <div className={style.ModalInicioContainer}>
@@ -39,6 +42,10 @@ const ModalInicio = ({
                     submit={botaoSecundario.submit}
                 />
             </div>
+            <ButtonLightLarge
+                    label={botaoAjuda.label}
+                    link={botaoAjuda.link}
+                />
             <div className={style.ModalInicioChamadaMobile}>{chamada}</div>
         </div>
     )

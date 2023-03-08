@@ -7,6 +7,11 @@ export default {
     title: "Componentes/Modal",
     component: Modal,
     argTypes: {
+        theme : {
+            logoProjeto : "https://media.graphassets.com/Kal4aulRmYkqd0L6RBAd",
+            cor : "ColorIP",
+            logoLink : "/"
+            },
         show:{
             name: 'show',
             description:'State retornando True ou False *state*'
