@@ -60,11 +60,68 @@ const CardLargeGrid = ({cards, obs, theme})=>{
                         )
                     })}
             </div>
+            {obs && <p className={style.CardLargeOBS}>{obs}</p>}
+        </>
+
+    )
+}
+
+const CardLargeGridInicioSM = ({cards, cardsExtra, obs, theme})=>{
+    var theme = theme;
+    return(
+        <>
+            <div className={style.CardLargeGrid}>
+                    <a href={cards[0].link}>
+                        <div style={{height: '100%'}} className={cx(style.CardLargeContainer, style[`${theme}`])}>
+                            <div className={style.CardLargeTitulo}>
+                                <img 
+                                    className={style.CardLargeIcon}
+                                    src={cards[0].icon}
+                                /> 
+                                <div>{cards[0].titulo}</div>
+                            </div>
+                            <div className={style.CardLargeTexto}>{cards[0].texto}</div>
+                        </div>
+                    </a>
+                    <a href={cards[1].link}>
+                        <div style={{height: '100%'}} className={cx(style.CardLargeContainer, style[`${theme}`])}>
+                            <div className={style.CardLargeTitulo}>
+                                <img 
+                                    className={style.CardLargeIcon}
+                                    src={cards[1].icon}
+                                />
+                                <div>{cards[1].titulo}</div>
+                            </div>
+                            <div className={style.CardLargeTexto}>{cards[1].texto}</div>
+                        </div>
+                    </a>
+                    <div>
+                        <a href={cardsExtra[0].link} >
+                            <div className={cx(style.CardLargeContainer, style[`${theme}`])}>
+                                <div className={style.CardLargeTitulo}>
+                                    <img 
+                                        className={style.CardLargeIcon}
+                                        src={cardsExtra[0].icon}
+                                    /> {cardsExtra[0].titulo}
+                                </div>
+                            </div>
+                        </a>
+                        <a href={cardsExtra[1].link} >
+                            <div style={{marginTop: 20}} className={cx(style.CardLargeContainer, style[`${theme}`])}>
+                                <div className={style.CardLargeTitulo}>
+                                    <img 
+                                        className={style.CardLargeIcon}
+                                        src={cardsExtra[1].icon}
+                                    /> {cardsExtra[1].titulo}
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+            </div>
             <p className={style.CardLargeOBS}>{obs}</p>
         </>
 
     )
 }
 
-
-export {CardLarge,CardLargeGrid}
+export {CardLarge,CardLargeGrid,CardLargeGridInicioSM}

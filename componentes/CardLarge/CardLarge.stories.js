@@ -19,10 +19,10 @@ export default {
         }
     }
 }
+
 const Template = (args) => <CardLargeGrid {...args}/>
 
 export const ColorIP = Template.bind({});
-
 ColorIP.args ={
     cards:[
         {
@@ -49,7 +49,6 @@ ColorIP.args ={
 }
 
 export const ColorSM = Template.bind({});
-
 ColorSM.args ={
     cards:[
         {
