@@ -1,1 +1,1 @@
-export { ModulosTrilha } from "./ModulosTrilha";
+export { ModulosTrilha, MateriaisComplementares } from "./ModulosTrilha";

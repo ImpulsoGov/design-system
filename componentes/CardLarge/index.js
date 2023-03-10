@@ -1,1 +1,1 @@
-export { CardLarge,CardLargeGrid } from "./CardLarge";
+export { CardLarge,CardLargeGrid,CardLargeGridInicioSM } from "./CardLarge";
