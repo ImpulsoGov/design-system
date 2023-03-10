@@ -14,6 +14,11 @@
     color: #1F1F1F;
 }
 
+.CardLargeGrid a{
+    color: #1F1F1F;
+    text-decoration: none;
+}
+
 .CardLargeContainer:hover{
     color: #fff;
 }
