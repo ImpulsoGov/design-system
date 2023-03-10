@@ -20,6 +20,10 @@ export default {
       name: "link",
       description: "URL do botão *URL*"
     },
+    disabled: {
+      name: "disabled",
+      description: "Define se o botão está desabilitado ou não *boolean*"
+    }
   },
 };
 const Template = (args) => <ButtonLight {...args}/>
@@ -57,4 +61,11 @@ ComIconeDireitaDuvidas.args={
   },
   label : "DÚVIDAS E SUGESTÕES",
   link : "/"
+}
+
+export const Desabilitado = Template.bind({});
+Desabilitado.args={
+  label : "INDICADORES DE DESEMPENHO",
+  link : "indicadores",
+  disabled: true
 }

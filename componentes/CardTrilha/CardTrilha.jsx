@@ -37,6 +37,8 @@ const CardTrilha = ({
     linkTrilha,
     linkSobre
 })=>{
+    const isCertificateButtonDisabled = progressao < 50 ? true : false;
+
         return(
             <div className={style.DivTrilha}>
                 <div className={style.CardTrilha}>
@@ -59,6 +61,11 @@ const CardTrilha = ({
                             link={linkSobre}
                             />
                         }
+                        <ButtonLight
+                            label="RETIRE SEU CERTIFICADO"
+                            link=""
+                            disabled={isCertificateButtonDisabled}
+                        />
                     </div>
                     <div className={style.BotoesCardTrilhaMobile}>
                         <ButtonColorMobile
@@ -72,6 +79,11 @@ const CardTrilha = ({
                                 link={linkSobre}
                             />
                         }
+                        <ButtonLightMobile
+                            label="RETIRE SEU CERTIFICADO"
+                            link=""
+                            disabled={isCertificateButtonDisabled}
+                        />
                     </div>
                 </div>
 
