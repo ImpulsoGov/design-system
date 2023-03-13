@@ -39,10 +39,9 @@ const CardTrilha = ({
     progressao,
     linkTrilha,
     linkSobre,
-    linkCertificado
+    linkCertificado,
+    certificadoLiberado
 })=>{
-    const isCertificateButtonDisabled = progressao < 50 ? true : false;
-
         return(
             <div className={style.DivTrilha}>
                 <div className={style.CardTrilha}>
@@ -67,7 +66,7 @@ const CardTrilha = ({
                         }
                         <Tippy
                             content="O certificado ficará acessível com 50% do curso completo."
-                            disabled={!isCertificateButtonDisabled}
+                            disabled={certificadoLiberado}
                             className={style.Tooltip}
                             theme="light"
                         >
@@ -75,7 +74,7 @@ const CardTrilha = ({
                                 <ButtonLight
                                     label="RETIRE SEU CERTIFICADO"
                                     link={linkCertificado}
-                                    disabled={isCertificateButtonDisabled}
+                                    disabled={!certificadoLiberado}
                                 />
                             </div>
                         </Tippy>
@@ -94,7 +93,7 @@ const CardTrilha = ({
                         }
                         <Tippy
                             content="O certificado ficará acessível com 50% do curso completo."
-                            disabled={!isCertificateButtonDisabled}
+                            disabled={certificadoLiberado}
                             className={style.Tooltip}
                             theme="light"
                         >
@@ -102,7 +101,7 @@ const CardTrilha = ({
                                 <ButtonLightMobile
                                     label="RETIRE SEU CERTIFICADO"
                                     link={linkCertificado}
-                                    disabled={isCertificateButtonDisabled}
+                                    disabled={!certificadoLiberado}
                                 />
                             </div>
                         </Tippy>
