@@ -1,15 +1,14 @@
 .CardInfo{
     border: solid 1px #9494946b;
     width: 100%;
-    font-size: 14px;
+    font-size: 16px;
     font-family: 'Inter';
     font-style: normal;
-    font-weight: 40;
-    padding: 15px;
+    font-weight: 400;
+    padding: 25px;
     border-radius: 5px;
 }
 .CardInfoTitulo{
-    font-size: 12px;
     color: #9ba4a5;
     margin-bottom: 8px;
 }
@@ -18,8 +17,6 @@
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
-    line-height: 130%;
-    letter-spacing: -0.01em;
     text-align: center;
 }
 .CardInfoSymbol{
@@ -36,18 +33,18 @@
     align-items: flex-end;
 }
 .CardInfoIndicador{
-    font-size: 18px;
+    font-size: 32px;
     font-weight: bold;
 }
 .CardInfoIndicadorDescricao{
     color: #9ba4a5;
-    font-size: 11px;
+    font-size: 14px;
 }
 .CardInfoIndiceContainer{
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-bottom: 8px;
+    margin-bottom: 16px;
 }
 .CardInfoSymbolUp{
     font-size: 32px;
@@ -72,7 +69,6 @@
 }
 
 .CardInfoIndiceDescricao{
-    font-size: 12px;
     color: #9ba4a5;
 }
 .CardInfoLink{
@@ -80,7 +76,7 @@
     color: #75b2ed;
 }
 .CardInfoFonte{
-    font-size: 10px;
+    font-size: 14px;
     color: #9ba4a5;
     margin-top: 5px;
 }
