@@ -20,9 +20,9 @@ export default {
       name: "descricao",
       description: "Descrição do gráfico *string*",
     },
-    linkMaisInfo: {
-      name: "linkMaisInfo",
-      description: "Link para mais informações *URL*",
+    link: {
+      name: "link",
+      description: "Link exibido no gráfico *object*\n\n url: URL do link *string*\n\n label: label do link *string*",
     },
   }
 }
@@ -33,7 +33,10 @@ export const Default = Template.bind({});
 Default.args={
   titulo: "Taxa de abandono",
   descricao: "Conjunto de usuários com 1º procedimento em Março/2022 e abandono até Agosto/2022",
-  fonte: "RAAS/SIASUS - Elaboração Impulso Gov",
-  linkMaisInfo: "/",
+  fonte: "Fonte: RAAS/SIASUS - Elaboração Impulso Gov",
+  link: {
+    url: "/",
+    label: "Mais informações"
+  },
   tooltip: "Este gráfico diz respeito à taxa de abandono"
 }
