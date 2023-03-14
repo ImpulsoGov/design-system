@@ -37,6 +37,10 @@
     font-size: 11px;
 }
 
+.InfoSimbolo:hover {
+    cursor: default;
+}
+
 .InfoContainer {
     color: #9ba4a5;
     grid-column: 1/2;
