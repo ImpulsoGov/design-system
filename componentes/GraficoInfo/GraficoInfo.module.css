@@ -9,19 +9,18 @@
     display: grid;
     grid-template-columns: 2fr 1fr;
     column-gap: 20px;
-    row-gap: 6px;
+    row-gap: 10px;
 }
 
 .TituloContainer {
     display: flex;
     gap: 8px;
-    margin-bottom: 5px;
 }
 
 .Titulo {
     margin: 0;
     font-size: 32px;
-    line-height:  130%;
+    line-height: 130%;
 }
 
 .Tooltip {
@@ -31,13 +30,13 @@
     font-weight: 400;
     text-align: center;
     letter-spacing: 0;
-    line-height:  150%;
+    line-height: 150%;
 }
 
 .InfoSimbolo {
     color: #9ba4a5;
     font-size: 16px;
-    line-height:  150%;
+    line-height: 150%;
     font-weight: bolder;
 }
 
@@ -48,6 +47,9 @@
 .InfoContainer {
     color: #9ba4a5;
     grid-column: 1/2;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
 
 .InfoContainer p {
@@ -70,4 +72,25 @@
     line-height:  150%;
     justify-self: flex-end;
     height: fit-content;
+}
+
+/* SMALL */
+@media(max-width: 780px) {
+    .GraficoInfo {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .Titulo {
+        font-size: 24px;
+    }
+
+    .Descricao {
+        font-size: 16px;
+    }
+
+    .InfoSimbolo, .Fonte, .Link {
+        font-size: 14px;
+    }
 }
