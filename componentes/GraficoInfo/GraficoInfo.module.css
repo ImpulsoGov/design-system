@@ -1,0 +1,62 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@40;500&display=swap");
+
+.GraficoInfoContainer {
+    font-family: 'Inter';
+    font-weight: 400;
+    font-style: normal;
+    line-height:  130%;
+    letter-spacing: -0.01em;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    column-gap: 20px;
+}
+
+.TituloContainer {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 5px;
+}
+
+.Titulo {
+    margin: 0;
+    font-size: 14px;
+}
+
+.Tooltip {
+    font-family: 'Inter';
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height:  130%;
+    letter-spacing: -0.01em;
+}
+
+.InfoSimbolo {
+    color: #9ba4a5;
+    font-size: 11px;
+}
+
+.InfoContainer {
+    color: #9ba4a5;
+    grid-column: 1/2;
+}
+
+.InfoContainer p {
+    margin: 0;
+}
+
+.Descricao {
+    font-size: 12px;
+}
+
+.Fonte {
+    font-size: 10px;
+}
+
+.MaisInfo {
+    color: #4294D8;
+    font-size: 14px;
+    justify-self: flex-end;
+    height: fit-content;
+}
