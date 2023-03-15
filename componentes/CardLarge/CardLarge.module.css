@@ -47,7 +47,55 @@
     filter: invert(100%) sepia(0%) saturate(7482%) hue-rotate(260deg) brightness(106%) contrast(102%);
 }
 
+.CardLargeClickableInfoContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.CardLargeClickableInfo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+}
+
+/* .CardLargeContainer:hover .CardLargeClickableInfo img {
+    filter: invert(100%) sepia(0%) saturate(7482%) hue-rotate(260deg) brightness(106%) contrast(102%);
+} */
+
+.CardLargeContainer .CardLargeClickableInfo span {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: -0.01em;
+    color: #1F1F1F;
+}
+
+.CardLargeContainer:hover .CardLargeClickableInfo span {
+    color: #fff;
+}
+
+.CardLargeGridToggleList {
+    display: grid;
+    grid-template-columns: 4.5fr 2fr;
+    column-gap: 24px;
+}
+
+.CardLargeGridToggleListCards {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
 .CardLargeTitulo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;

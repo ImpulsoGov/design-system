@@ -3,6 +3,7 @@ import style from "./CardLarge.module.css"
 import Link from "next/link";
 import { ButtonLightMobile } from "../ButtonLight";
 import cx from 'classnames';
+import { ToggleList } from "../ToggleList";
 
 const CardLarge = ({
     icon,
@@ -124,4 +125,62 @@ const CardLargeGridInicioSM = ({cards, cardsExtra, obs, theme})=>{
     )
 }
 
-export {CardLarge,CardLargeGrid,CardLargeGridInicioSM}
+const CardLargeClickable = ({ link, icon, titulo, theme, infos }) => {
+    return (
+        <a href={link} style={{textDecoration: "none"}} >
+            <div className={cx(style.CardLargeContainer, style[`${theme}`])}>
+                <div className={style.CardLargeTitulo}>
+                    <img
+                        className={style.CardLargeIcon}
+                        src={icon}
+                        alt="Ícone"
+                    />
+                    {titulo}
+                </div>
+
+                {infos && (
+                    <div className={style.CardLargeClickableInfoContainer}>
+                        {infos.map((info) => (
+                            <div className={style.CardLargeClickableInfo}>
+                                <img
+                                    style={{width: "18px", height: "18px"}}
+                                    src={info.icon}
+                                    alt="Ícone"
+                                />
+                                <span>{info.content}</span>
+                            </div>
+                        ))}
+                    </div>
+                )}
+            </div>
+        </a>
+    );
+}
+
+const CardLargeGridToggleList = ({ togglelist, cards, theme }) => {
+    return (
+        <div className={style.CardLargeGridToggleList}>
+            <ToggleList
+                direction="Column"
+                icon={togglelist.icon}
+                list={togglelist.cards}
+                theme="LightGrey"
+                title={togglelist.title}
+            />
+
+            <div className={style.CardLargeGridToggleListCards}>
+                {cards.map((card) => (
+                    <CardLargeClickable
+                        link={card.link}
+                        icon={card.icon}
+                        titulo={card.titulo}
+                        infos={card.infos}
+                        theme={theme}
+                    />
+                ))}
+            </div>
+        </div>
+    );
+}
+
+export {CardLarge,CardLargeGrid,CardLargeGridInicioSM, CardLargeGridToggleList}
