@@ -3,6 +3,7 @@
 .ToggleListContainerBase {
   display: flex;
   width: 90%;
+  height: fit-content;
 }
 
 .ToggleListContainerRow {
