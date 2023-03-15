@@ -10,8 +10,8 @@ const ButtonLight = ({
     disabled
 })=>{
     return(
-          <Link target="_blank" href={link}>
-            <a target="_blank" className={disabled ? style.ButtonLightDisabled : style.ButtonLightIconContainer}>
+          <Link href={link}>
+            <a className={disabled ? style.ButtonLightDisabled : style.ButtonLightIconContainer}>
                 {icone?.posicao=='right' && <img className={style.IconeRight} src={icone?.url} />}
                 {label} 
                 {icone?.posicao=='left' && <img className={style.IconeLeft} src={icone?.url} />}
