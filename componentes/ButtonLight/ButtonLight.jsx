@@ -1,15 +1,17 @@
 import React from "react";
-import style from "./ButtonLight.module.css"
-import Link from "next/link"
+import style from "./ButtonLight.module.css";
+import Link from "next/link";
+import PropTypes from "prop-types";
 
 const ButtonLight = ({
     icone,
     label,
-    link
+    link,
+    disabled
 })=>{
     return(
           <Link href={link}>
-            <a className={style.ButtonLightIconContainer}>
+            <a className={disabled ? style.ButtonLightDisabled : style.ButtonLightIconContainer}>
                 {icone?.posicao=='right' && <img className={style.IconeRight} src={icone?.url} />}
                 {label} 
                 {icone?.posicao=='left' && <img className={style.IconeLeft} src={icone?.url} />}
@@ -35,13 +37,14 @@ const ButtonLightLarge = ({
 const ButtonLightMobile = ({
     icone,
     label,
-    link
+    link,
+    disabled
 })=>{
     return(
         <Link
             href={link}
         >
-            <a className={style.ButtonLightMobile}>
+            <a className={disabled ? style.ButtonLightDisabled : style.ButtonLightMobile}>
                 {icone?.posicao=='right' && <img className={style.IconeRightMobile} src={icone?.url} />}
                 {label} 
                 {icone?.posicao=='left' && <img className={style.IconeLeftMobile} src={icone?.url} />}
@@ -87,5 +90,20 @@ const ButtonLightSubmitMobile = ({
     )
 }
 
+ButtonLight.defaultProps = {
+    disabled: false
+}
+
+ButtonLight.propTypes = {
+    disabled: PropTypes.bool,
+}
+
+ButtonLightMobile.defaultProps = {
+    disabled: false
+}
+
+ButtonLightMobile.propTypes = {
+    disabled: PropTypes.bool,
+}
 
 export {ButtonLight,ButtonLightSubmit,ButtonLightSubmitMobile,ButtonLightMobile, ButtonLightLarge}
