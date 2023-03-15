@@ -1,13 +1,33 @@
 import React from "react";
 import styles from "./ToggleList.module.css";
-import { ToggleListElementBlock } from "../ToggleListElementBlock/ToggleListElementBlock"
+import { ToggleListElementBlock } from "../ToggleListElementBlock/ToggleListElementBlock";
+import PropTypes from "prop-types";
+import cx from "classnames";
 
-const ToggleList = ({ list, title }) => {
+const ToggleList = ({ list, title, direction, icon, theme }) => {
 
   return (
-    <div className={styles.ToggleListContainer}>
-      <div className={styles.ToggleListLeftBlock}>
-        <p>{title}</p>
+    <div
+      className={cx(
+        styles.ToggleListContainerBase,
+        styles[`ToggleListContainer${direction}`],
+        styles[theme]
+      )}
+    >
+      <div
+        className={cx(
+          styles.ToggleListLeftBlockBase,
+          styles[`ToggleListLeftBlock${direction}`]
+        )}
+      >
+        {icon && (
+          <img
+            className={styles.ToggleListIcon}
+            alt="Ícone toggle list"
+            src={icon}
+          />
+        )}
+        <h3 className={styles.ToggleListTitle}>{title}</h3>
       </div>
 
       <div className={styles.ToggleListRightBlock}>
@@ -27,6 +47,16 @@ const ToggleList = ({ list, title }) => {
       </div>
     </div>
   )
+}
+
+ToggleList.defaultProps = {
+  direction: "Row",
+  theme: "Light"
+}
+
+ToggleList.propTypes = {
+  direction: PropTypes.string,
+  theme: PropTypes.string
 }
 
 export { ToggleList }

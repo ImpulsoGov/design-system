@@ -13,6 +13,18 @@ export default {
     title: {
       name: 'title',
       description: 'Título da seção *string*'
+    },
+    direction: {
+      name: "direction",
+      description: "Direção em que os elementos do componente são exibidos *string* \n\n Valores aceitos: *Row* ou *Column*"
+    },
+    icon: {
+      name: "icon",
+      description: "Ícone exibido no componente *string*"
+    },
+    theme: {
+      name: "theme",
+      description: "Tema de cor aplicado ao componente *string* \n\n Valores aceitos: *Light*, *LightGrey*"
     }
   },
 };
@@ -102,8 +114,17 @@ const list = [
 
 const Template = (args) => <ToggleList {...args}/>
 
-export const Default = Template.bind({});
-Default.args={
+export const RowLight = Template.bind({});
+RowLight.args={
   list :  list,
   title: "Indicadores"
+}
+
+export const ColumnLightGrey = Template.bind({});
+ColumnLightGrey.args={
+  list :  list,
+  title: "Perguntas frequentes",
+  direction: "Column",
+  icon: "https://media.graphassets.com/Eu5DAy5SnCFbpRetwKSl",
+  theme: "LightGrey"
 }
