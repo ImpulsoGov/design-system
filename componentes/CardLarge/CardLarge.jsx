@@ -174,4 +174,4 @@ const CardLargeGridToggleList = ({ togglelist, cards, theme }) => {
     );
 }
 
-export {CardLarge,CardLargeGrid,CardLargeGridInicioSM, CardLargeGridToggleList}
+export {CardLarge,CardLargeGrid,CardLargeGridInicioSM,CardLargeGridToggleList,CardLargeClickable}
