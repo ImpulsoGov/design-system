@@ -45,6 +45,40 @@ const CardLarge = ({
     )
 }
 
+const CardLargeClickable = ({ link, icon, titulo, theme, infos }) => {
+    return (
+        <a href={link} className={style.CardLargeClickable} >
+            <div className={cx(style.CardLargeContainer, style[`${theme}`])}>
+                <div className={style.CardLargeTitulo}>
+                    <img
+                        className={style.CardLargeIcon}
+                        src={icon}
+                        alt="Ícone"
+                    />
+                    {titulo}
+                </div>
+
+                {infos && (
+                    <div className={style.CardLargeClickableInfosContainer}>
+                        {infos.map((info) => (
+                            <div className={style.CardLargeClickableInfo}>
+                                {info.icon && <img
+                                    className={style.CardLargeClickableInfoIcon}
+                                    src={info.icon}
+                                    alt="Ícone"
+                                />}
+                                <span className={style.CardLargeClickableInfoContent}>
+                                    {info.content}
+                                </span>
+                            </div>
+                        ))}
+                    </div>
+                )}
+            </div>
+        </a>
+    );
+}
+
 const CardLargeGrid = ({cards, obs, theme})=>{
     return(
         <>
@@ -114,40 +148,6 @@ const CardLargeGridInicioSM = ({cards, cardsExtra, obs, theme})=>{
     )
 }
 
-const CardLargeClickable = ({ link, icon, titulo, theme, infos }) => {
-    return (
-        <a href={link} className={style.CardLargeClickable} >
-            <div className={cx(style.CardLargeContainer, style[`${theme}`])}>
-                <div className={style.CardLargeTitulo}>
-                    <img
-                        className={style.CardLargeIcon}
-                        src={icon}
-                        alt="Ícone"
-                    />
-                    {titulo}
-                </div>
-
-                {infos && (
-                    <div className={style.CardLargeClickableInfosContainer}>
-                        {infos.map((info) => (
-                            <div className={style.CardLargeClickableInfo}>
-                                {info.icon && <img
-                                    className={style.CardLargeClickableInfoIcon}
-                                    src={info.icon}
-                                    alt="Ícone"
-                                />}
-                                <span className={style.CardLargeClickableInfoContent}>
-                                    {info.content}
-                                </span>
-                            </div>
-                        ))}
-                    </div>
-                )}
-            </div>
-        </a>
-    );
-}
-
 const CardLargeGridToggleList = ({ togglelist, cards, theme }) => {
     return (
         <div className={style.CardLargeGridToggleList}>
@@ -155,7 +155,7 @@ const CardLargeGridToggleList = ({ togglelist, cards, theme }) => {
                 direction="Column"
                 icon={togglelist.icon}
                 list={togglelist.list}
-                theme="LightGrey"
+                theme={togglelist.theme ? togglelist.theme : "LightGrey"}
                 title={togglelist.title}
             />
 
