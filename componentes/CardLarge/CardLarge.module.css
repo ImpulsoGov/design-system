@@ -212,12 +212,18 @@
 
 @media screen and (max-width: 768px) {
     .CardLargeGridToggleList {
-        margin: 45px 15px;
+        margin: 45px 40px;
         grid-template-columns: auto;
         row-gap: 24px;
     }
 
     .CardLargeContainer:hover .CardLargeClickableInfoContent {
         color: #1F1F1F;
+    }
+}
+
+@media screen and (max-width: 390px) {
+    .CardLargeGridToggleList {
+       margin: 45px 15px;
     }
 }
