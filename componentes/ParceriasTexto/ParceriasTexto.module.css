@@ -35,7 +35,48 @@
     margin-top: 30px;
     max-width: 110px;
   }
-
+  @media screen and (min-width: 1210px) and (max-width: 1360px) {
+    .gridContainer {
+      grid-template-columns: auto auto auto auto auto auto auto auto;
+    }
+  }
+  @media screen and (min-width: 1070px) and (max-width: 1209px) {
+    .gridContainer {
+      grid-template-columns: auto auto auto auto auto auto auto ;
+    }
+  }
+  @media screen and (min-width: 1000px) and (max-width: 1069px) {
+    .gridContainer {
+      grid-template-columns: auto auto auto auto auto auto;
+    }
+  }
+  @media screen and (min-width: 880px) and (max-width: 999px) {
+    .gridContainer {
+      grid-template-columns: auto auto auto auto auto;
+    }
+  }
+  
+  @media screen and (min-width: 700px) and (max-width: 879px) {
+    .gridContainer {
+      grid-template-columns: auto auto auto auto;
+    }
+  }
+  @media screen and (min-width: 650px) and (max-width: 699px) {
+    .gridContainer {
+      grid-template-columns: auto auto auto auto;
+    }
+  }
+  @media screen and (min-width: 500px) and (max-width: 649px) {
+    .gridContainer {
+      grid-template-columns: auto auto auto;
+    }
+  }
+  @media screen and (max-width: 499px) {
+    .gridContainer {
+      grid-template-columns: auto auto;
+    }
+  }
+  
 @media screen and (max-width: 1023px) {
   .container_parceiros {
     flex-direction: column;
@@ -58,8 +99,5 @@
       display: flex;
       justify-content: center;
       width: 100%;
-  }
-  .gridContainer {
-    grid-template-columns: auto auto;
   }
 }
