@@ -96,27 +96,16 @@ const CardLargeGridInicioSM = ({cards, cardsExtra, obs, theme})=>{
                             <div className={style.CardLargeTexto}>{cards[1].texto}</div>
                         </div>
                     </a>
-                    <div>
-                        <a href={cardsExtra[0].link} >
-                            <div className={cx(style.CardLargeContainer, style[`${theme}`])}>
-                                <div className={style.CardLargeTitulo}>
-                                    <img 
-                                        className={style.CardLargeIcon}
-                                        src={cardsExtra[0].icon}
-                                    /> {cardsExtra[0].titulo}
-                                </div>
-                            </div>
-                        </a>
-                        <a href={cardsExtra[1].link} >
-                            <div style={{marginTop: 20}} className={cx(style.CardLargeContainer, style[`${theme}`])}>
-                                <div className={style.CardLargeTitulo}>
-                                    <img 
-                                        className={style.CardLargeIcon}
-                                        src={cardsExtra[1].icon}
-                                    /> {cardsExtra[1].titulo}
-                                </div>
-                            </div>
-                        </a>
+                    <div className={style.CardLargeGridRightCards}>
+                        {cardsExtra.map((card) => (
+                            <CardLargeClickable
+                                link={card.link}
+                                icon={card.icon}
+                                titulo={card.titulo}
+                                infos={card.infos}
+                                theme={theme}
+                            />
+                        ))}
                     </div>
             </div>
             <p className={style.CardLargeOBS}>{obs}</p>
@@ -127,7 +116,7 @@ const CardLargeGridInicioSM = ({cards, cardsExtra, obs, theme})=>{
 
 const CardLargeClickable = ({ link, icon, titulo, theme, infos }) => {
     return (
-        <a href={link} style={{textDecoration: "none"}} >
+        <a href={link} className={style.CardLargeClickable} >
             <div className={cx(style.CardLargeContainer, style[`${theme}`])}>
                 <div className={style.CardLargeTitulo}>
                     <img
@@ -139,15 +128,17 @@ const CardLargeClickable = ({ link, icon, titulo, theme, infos }) => {
                 </div>
 
                 {infos && (
-                    <div className={style.CardLargeClickableInfoContainer}>
+                    <div className={style.CardLargeClickableInfosContainer}>
                         {infos.map((info) => (
                             <div className={style.CardLargeClickableInfo}>
-                                <img
-                                    style={{width: "18px", height: "18px"}}
+                                {info.icon && <img
+                                    className={style.CardLargeClickableInfoIcon}
                                     src={info.icon}
                                     alt="Ícone"
-                                />
-                                <span>{info.content}</span>
+                                />}
+                                <span className={style.CardLargeClickableInfoContent}>
+                                    {info.content}
+                                </span>
                             </div>
                         ))}
                     </div>
@@ -163,12 +154,12 @@ const CardLargeGridToggleList = ({ togglelist, cards, theme }) => {
             <ToggleList
                 direction="Column"
                 icon={togglelist.icon}
-                list={togglelist.cards}
+                list={togglelist.list}
                 theme="LightGrey"
                 title={togglelist.title}
             />
 
-            <div className={style.CardLargeGridToggleListCards}>
+            <div className={style.CardLargeGridRightCards}>
                 {cards.map((card) => (
                     <CardLargeClickable
                         link={card.link}

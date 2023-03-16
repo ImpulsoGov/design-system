@@ -9,7 +9,7 @@ export default {
 
 const Template = (args) => <CardLargeGridToggleList {...args}/>
 
-const toggleListCards = [
+const list = [
   {
     title: "Serviços do CAPS",
     blocks:[
@@ -94,17 +94,16 @@ const cards =[
   {
       icon : "https://media.graphassets.com/6cOfkxeyT7245Fn19kgU",
       titulo: "Sobre os indicadores",
-      link: ""
+      link: "/"
   },
   {
       icon : "https://media.graphassets.com/6cOfkxeyT7245Fn19kgU",
       titulo: "Solicitar ajuda",
-      link: ""
+      link: "/"
   },
   {
       icon : "https://media.graphassets.com/6cOfkxeyT7245Fn19kgU",
       titulo: "Contato",
-      link: "",
       infos: [
         {
           icon: "https://media.graphassets.com/6cOfkxeyT7245Fn19kgU",
@@ -121,7 +120,7 @@ const cards =[
 export const ColorSM = Template.bind({});
 ColorSM.args ={
   togglelist: {
-    cards: toggleListCards,
+    list,
     title: "Perguntas frequentes",
     icon: "https://media.graphassets.com/Eu5DAy5SnCFbpRetwKSl",
   },
