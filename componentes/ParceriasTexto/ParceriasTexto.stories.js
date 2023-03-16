@@ -1,7 +1,45 @@
 import React from "react";
 import { ParceriasTexto } from "./index";
 
-const parceiros = [{ alt: "parceiros", src: "https://media.graphassets.com/ekDlCVRsRQuxlx6F5KUK" }]
+const parceiros = [
+  { 
+    alt: "parceiros",
+    src: "https://media.graphassets.com/ekDlCVRsRQuxlx6F5KUK"
+  },
+  { 
+    alt: "parceiros",
+    src: "https://media.graphassets.com/ekDlCVRsRQuxlx6F5KUK"
+  },
+  { 
+    alt: "parceiros",
+    src: "https://media.graphassets.com/ekDlCVRsRQuxlx6F5KUK"
+  },
+  { 
+    alt: "parceiros",
+    src: "https://media.graphassets.com/ekDlCVRsRQuxlx6F5KUK"
+  },
+  { 
+    alt: "parceiros",
+    src: "https://media.graphassets.com/ekDlCVRsRQuxlx6F5KUK"
+  },
+  { 
+    alt: "parceiros",
+    src: "https://media.graphassets.com/ekDlCVRsRQuxlx6F5KUK"
+  },
+  { 
+    alt: "parceiros",
+    src: "https://media.graphassets.com/ekDlCVRsRQuxlx6F5KUK"
+  },
+  { 
+    alt: "parceiros",
+    src: "https://media.graphassets.com/ekDlCVRsRQuxlx6F5KUK"
+  },
+  { 
+    alt: "parceiros",
+    src: "https://media.graphassets.com/ekDlCVRsRQuxlx6F5KUK"
+  },
+  
+]
 
 export default {
   title: "Componentes/ParceriasTexto",
