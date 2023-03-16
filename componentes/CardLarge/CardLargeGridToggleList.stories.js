@@ -3,8 +3,20 @@ import { CardLargeGridToggleList } from "./index";
 export default {
   title: "Componentes/CardLargeGridToggleList",
   component: CardLargeGridToggleList,
-  // argTypes: {
-  // }
+  argTypes: {
+    togglelist: {
+      name: "togglelist",
+      description: "Objeto com propriedades referentes a toggle list exibida no grid \n\n Propriedades do objeto:\n\n  **list**: Array de objetos com os conteúdos da toggle list *array* \n\n **icon**: Ícone exibido na toggle list *string* \n\n **title**: Título da toggle list *string* \n\n **theme**: Tema de cor da toggle list *string (Light ou LightGrey)*",
+    },
+    cards: {
+      name: "cards",
+      description: "Lista de cards exibidos no grid \n\n Propriedades de cada card:\n\n **icon**: ícone exibido no card *URL* \n\n **titulo**: título do card *string* \n\n **texto**: descrição do tema abordado pelo card *string* \n\n **links**: lista de links exibidos no card *array*",
+    },
+    theme: {
+      name: "theme",
+      description: "Tema de cor aplicado aos cards *string* \n\n Valores aceitos: ColorIP, ColorSM",
+    },
+  }
 }
 
 const Template = (args) => <CardLargeGridToggleList {...args}/>
@@ -123,6 +135,7 @@ ColorSM.args ={
     list,
     title: "Perguntas frequentes",
     icon: "https://media.graphassets.com/Eu5DAy5SnCFbpRetwKSl",
+    theme: "LightGrey"
   },
   cards,
   theme: "ColorSM"
