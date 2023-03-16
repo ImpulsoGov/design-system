@@ -46,7 +46,6 @@
 .CardLargeContainer:hover .CardLargeIcon{
     filter: invert(100%) sepia(0%) saturate(7482%) hue-rotate(260deg) brightness(106%) contrast(102%);
 }
-
 .CardLargeTitulo{
     font-family: 'Inter';
     font-style: normal;
@@ -159,6 +158,10 @@
 
 .CardLargeContainer:hover .CardLargeClickableInfoContent {
     color: #fff;
+}
+
+.CardLargeContainer:hover .CardLargeClickableInfoIcon {
+    filter: brightness(0) invert(1);
 }
 
 .CardLargeGridToggleList {
