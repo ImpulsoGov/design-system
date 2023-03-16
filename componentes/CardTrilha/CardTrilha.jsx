@@ -1,7 +1,10 @@
 import React from "react";
-import style from "./CardTrilha.module.css"
-import { ButtonLight, ButtonLightMobile } from "../ButtonLight/ButtonLight"
-import { ButtonColor, ButtonColorMobile } from "../ButtonColor/ButtonColor"
+import style from "./CardTrilha.module.css";
+import { ButtonLight, ButtonLightMobile } from "../ButtonLight/ButtonLight";
+import { ButtonColor, ButtonColorMobile } from "../ButtonColor/ButtonColor";
+import Tippy from '@tippyjs/react';
+import 'tippy.js/dist/tippy.css';
+import 'tippy.js/themes/light.css';
 
 
 const ProgressBar = ({bgcolor,progress}) => {
@@ -35,7 +38,9 @@ const CardTrilha = ({
     titulo,
     progressao,
     linkTrilha,
-    linkSobre
+    linkSobre,
+    linkCertificado,
+    certificadoLiberado
 })=>{
         return(
             <div className={style.DivTrilha}>
@@ -59,6 +64,20 @@ const CardTrilha = ({
                             link={linkSobre}
                             />
                         }
+                        <Tippy
+                            content="O certificado ficará acessível com 50% do curso completo."
+                            disabled={certificadoLiberado}
+                            className={style.Tooltip}
+                            theme="light"
+                        >
+                            <div>
+                                <ButtonLight
+                                    label="RETIRE SEU CERTIFICADO"
+                                    link={linkCertificado}
+                                    disabled={!certificadoLiberado}
+                                />
+                            </div>
+                        </Tippy>
                     </div>
                     <div className={style.BotoesCardTrilhaMobile}>
                         <ButtonColorMobile
@@ -72,6 +91,20 @@ const CardTrilha = ({
                                 link={linkSobre}
                             />
                         }
+                        <Tippy
+                            content="O certificado ficará acessível com 50% do curso completo."
+                            disabled={certificadoLiberado}
+                            className={style.Tooltip}
+                            theme="light"
+                        >
+                            <div>
+                                <ButtonLightMobile
+                                    label="RETIRE SEU CERTIFICADO"
+                                    link={linkCertificado}
+                                    disabled={!certificadoLiberado}
+                                />
+                            </div>
+                        </Tippy>
                     </div>
                 </div>
 

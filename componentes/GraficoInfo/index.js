@@ -1,0 +1,1 @@
+export { GraficoInfo } from "./GraficoInfo";

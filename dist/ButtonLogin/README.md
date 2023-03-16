@@ -1,6 +1,0 @@
-```react
-responsive: true
-
----
-   <ButtonLogin/>
-```
