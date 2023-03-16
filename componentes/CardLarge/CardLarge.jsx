@@ -49,7 +49,7 @@ const CardLargeClickable = ({ link, icon, titulo, theme, infos }) => {
     return (
         <a href={link} className={style.CardLargeClickable} >
             <div className={cx(style.CardLargeContainer, style[`${theme}`])}>
-                <div className={style.CardLargeTitulo}>
+                <div className={style.CardLargeClickableTitulo}>
                     <img
                         className={style.CardLargeIcon}
                         src={icon}
