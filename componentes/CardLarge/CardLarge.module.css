@@ -205,6 +205,14 @@
     .CardLargeLinks{
         display: none;
     }
+
+    .CardLargeContainer:hover .CardLargeClickableInfoContent {
+        color: #1F1F1F;
+    }
+
+    .CardLargeContainer:hover .CardLargeClickableInfoIcon {
+        filter: none;
+    }
 }
 
 @media screen and (min-width: 769px) and (max-width: 1024px) {
@@ -218,10 +226,6 @@
         margin: 45px 40px;
         grid-template-columns: auto;
         row-gap: 24px;
-    }
-
-    .CardLargeContainer:hover .CardLargeClickableInfoContent {
-        color: #1F1F1F;
     }
 }
 
