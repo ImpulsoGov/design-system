@@ -1,0 +1,113 @@
+.GraficoGrid {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin: 45px 200px;
+}
+
+.GraficoGridCards {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-auto-rows: max-content;
+    gap: 24px;
+}
+
+.Proporcao6-6:nth-child(odd) {
+    /* grid-template-columns: 6fr 6fr; */
+    grid-column: 1/7;
+}
+
+.Proporcao6-6:nth-child(even) {
+    /* grid-template-columns: 6fr 6fr; */
+    grid-column: 7/13;
+}
+
+.Proporcao5-7:nth-child(odd) {
+    /* grid-template-columns: 5fr 7fr; */
+    grid-column: 1/6;
+}
+
+.Proporcao5-7:nth-child(even) {
+    /* grid-template-columns: 5fr 7fr; */
+    grid-column: 6/13;
+}
+
+.Proporcao4-8:nth-child(odd) {
+    /* grid-template-columns: 4fr 8fr; */
+    grid-column: 1/5;
+}
+
+.Proporcao4-8:nth-child(even) {
+    /* grid-template-columns: 4fr 8fr; */
+    grid-column: 5/13;
+}
+
+.Proporcao3-9:nth-child(odd) {
+    /* grid-template-columns: 3fr 9fr; */
+    grid-column: 1/4;
+}
+
+.Proporcao3-9:nth-child(even) {
+    /* grid-template-columns: 3fr 9fr; */
+    grid-column: 4/13;
+}
+
+/* REGULAR */
+@media screen and (min-width: 1025px) and (max-width: 1366px) {
+    .GraficoGrid {
+        margin: 45px 80px;
+    }
+}
+
+/* MEDIUM */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .GraficoGrid {
+        margin: 45px 80px;
+    }
+
+    .Proporcao6-6:nth-child(odd),
+    .Proporcao6-6:nth-child(even) {
+        grid-column: 1/13;
+    }
+}
+
+/* SMALL */
+@media screen and (min-width: 376px) and (max-width: 768px) {
+    .GraficoGrid {
+        margin: 45px 40px;
+    }
+
+    .Proporcao6-6:nth-child(odd),
+    .Proporcao6-6:nth-child(even),
+    .Proporcao5-7:nth-child(odd),
+    .Proporcao5-7:nth-child(even),
+    .Proporcao4-8:nth-child(odd),
+    .Proporcao4-8:nth-child(even),
+    .Proporcao3-9:nth-child(odd),
+    .Proporcao3-9:nth-child(even) {
+        grid-column: 1/13;
+    }
+}
+
+/* XSMALL */
+@media screen and (max-width: 375px) {
+    .GraficoGrid {
+        margin: 45px 15px;
+        gap: 15px;
+    }
+
+    .GraficoGridCards {
+        gap: 15px;
+    }
+
+    .Proporcao6-6:nth-child(odd),
+    .Proporcao6-6:nth-child(even),
+    .Proporcao5-7:nth-child(odd),
+    .Proporcao5-7:nth-child(even),
+    .Proporcao4-8:nth-child(odd),
+    .Proporcao4-8:nth-child(even),
+    .Proporcao3-9:nth-child(odd),
+    .Proporcao3-9:nth-child(even) {
+        grid-column: 1/13;
+    }
+}
