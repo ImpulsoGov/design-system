@@ -3,7 +3,8 @@ import PropTypes from "prop-types";
 import { CardInfo } from "../CardInfo/CardInfo";
 import { GraficoInfo } from "../GraficoInfo/GraficoInfo";
 import styles from "./GraficoGrid.module.css";
-// import cx from "classnames";
+
+const PROPORCOES_ACEITAS = ["6-6", "5-7", "4-8", "3-9", "4-4-4", "2-5-5", "3-3-3-3", "2-2-4-4"];
 
 const GraficoGrid = ({ info, cards, proporcao }) => {
   return (
@@ -20,7 +21,11 @@ const GraficoGrid = ({ info, cards, proporcao }) => {
 
       <div className={styles.GraficoGridCards}>
         {cards.map((card) => (
-          <div className={styles[`GraficoGridCard${proporcao}`]}>
+          <div className={styles[`GraficoGridCard${
+            PROPORCOES_ACEITAS.includes(proporcao)
+              ? proporcao
+              : "6-6"
+          }`]}>
             <CardInfo
               titulo={card.titulo}
               indicador={card.indicador}
