@@ -20,7 +20,7 @@ const GraficoGrid = ({ info, cards, proporcao }) => {
 
       <div className={styles.GraficoGridCards}>
         {cards.map((card) => (
-          <div className={styles[`Proporcao${proporcao}`]}>
+          <div className={styles[`GraficoGridCard${proporcao}`]}>
             <CardInfo
               titulo={card.titulo}
               indicador={card.indicador}
