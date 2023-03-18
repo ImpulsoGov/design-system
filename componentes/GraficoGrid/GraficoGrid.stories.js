@@ -62,32 +62,28 @@ const Template = (args) => <GraficoGrid {...args}/>
 export const Proporcao66 = Template.bind({});
 Proporcao66.args ={
   info,
-  cards: [cardACompleto, cardATipo1, cardATipo3, cardACompleto, cardATipo4, cardATipo2],
-  // colunas: 2,
+  cards: [cardACompleto, cardATipo1, cardATipo3, cardATipo2],
   proporcao: "6-6"
 }
 
 export const Proporcao57 = Template.bind({});
 Proporcao57.args ={
   info,
-  cards: [cardACompleto, cardATipo1, cardATipo3, cardACompleto, cardATipo4, cardATipo2],
-  // colunas: 2,
+  cards: [cardACompleto, cardATipo1, cardATipo3, cardATipo2],
   proporcao: "5-7"
 }
 
 export const Proporcao48 = Template.bind({});
 Proporcao48.args ={
   info,
-  cards: [cardACompleto, cardATipo1, cardATipo3, cardACompleto, cardATipo4, cardATipo2],
-  // colunas: 2,
+  cards: [cardACompleto, cardATipo1, cardATipo3, cardATipo2],
   proporcao: "4-8"
 }
 
 export const Proporcao39 = Template.bind({});
 Proporcao39.args ={
   info,
-  cards: [cardACompleto, cardATipo1, cardATipo3, cardACompleto, cardATipo4, cardATipo2],
-  // colunas: 2,
+  cards: [cardACompleto, cardATipo1, cardATipo3, cardATipo2],
   proporcao: "3-9"
 }
 
@@ -95,7 +91,6 @@ export const Proporcao444 = Template.bind({});
 Proporcao444.args ={
   info,
   cards: [cardACompleto, cardATipo1, cardATipo3, cardACompleto, cardATipo4, cardATipo2],
-  // colunas: 2,
   proporcao: "4-4-4"
 }
 
@@ -103,6 +98,19 @@ export const Proporcao255 = Template.bind({});
 Proporcao255.args ={
   info,
   cards: [cardATipo3, cardATipo1, cardACompleto, cardATipo2, cardACompleto, cardATipo4],
-  // colunas: 2,
   proporcao: "2-5-5"
+}
+
+export const Proporcao3333 = Template.bind({});
+Proporcao3333.args ={
+  info,
+  cards: [cardACompleto, cardATipo1, cardATipo3, cardACompleto, cardATipo4, cardATipo2, cardACompleto, cardATipo1],
+  proporcao: "3-3-3-3"
+}
+
+export const Proporcao2244 = Template.bind({});
+Proporcao2244.args ={
+  info,
+  cards: [cardATipo3, cardATipo1, cardACompleto, cardATipo2, cardACompleto, cardATipo4, cardACompleto, cardATipo1],
+  proporcao: "2-2-4-4"
 }

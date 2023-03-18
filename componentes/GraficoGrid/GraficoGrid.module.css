@@ -12,66 +12,101 @@
     gap: 24px;
 }
 
-.Proporcao6-6:nth-child(odd) {
+/* Seleciona os cards ímpares */
+.GraficoGridCard6-6:nth-child(odd) {
     grid-column: 1/7;
 }
 
-.Proporcao6-6:nth-child(even) {
+/* Seleciona os cards pares */
+.GraficoGridCard6-6:nth-child(even) {
     grid-column: 7/13;
 }
 
-.Proporcao5-7:nth-child(odd) {
+.GraficoGridCard5-7:nth-child(odd) {
     grid-column: 1/6;
 }
 
-.Proporcao5-7:nth-child(even) {
+.GraficoGridCard5-7:nth-child(even) {
     grid-column: 6/13;
 }
 
-.Proporcao4-8:nth-child(odd) {
+.GraficoGridCard4-8:nth-child(odd) {
     grid-column: 1/5;
 }
 
-.Proporcao4-8:nth-child(even) {
+.GraficoGridCard4-8:nth-child(even) {
     grid-column: 5/13;
 }
 
-.Proporcao3-9:nth-child(odd) {
+.GraficoGridCard3-9:nth-child(odd) {
     grid-column: 1/4;
 }
 
-.Proporcao3-9:nth-child(even) {
+.GraficoGridCard3-9:nth-child(even) {
     grid-column: 4/13;
 }
 
 /* Seleciona os cards número 1, 4, 7... */
-.Proporcao4-4-4:nth-child(3n+1) {
+.GraficoGridCard4-4-4:nth-child(3n+1) {
     grid-column: 1/5;
 }
 
 /* Seleciona os cards número 2, 5, 8... */
-.Proporcao4-4-4:nth-child(3n+2) {
+.GraficoGridCard4-4-4:nth-child(3n+2) {
     grid-column: 5/9;
 }
 
 /* Seleciona os cards número 3, 6, 9... */
-.Proporcao4-4-4:nth-child(3n+3) {
+.GraficoGridCard4-4-4:nth-child(3n+3) {
     grid-column: 9/13;
 }
 
-/* Seleciona os cards número 1, 4, 7... */
-.Proporcao2-5-5:nth-child(3n+1) {
+.GraficoGridCard2-5-5:nth-child(3n+1) {
     grid-column: 1/3;
 }
 
-/* Seleciona os cards número 2, 5, 8... */
-.Proporcao2-5-5:nth-child(3n+2) {
+.GraficoGridCard2-5-5:nth-child(3n+2) {
     grid-column: 3/8;
 }
 
-/* Seleciona os cards número 3, 6, 9... */
-.Proporcao2-5-5:nth-child(3n+3) {
+.GraficoGridCard2-5-5:nth-child(3n+3) {
     grid-column: 8/13;
+}
+
+/* Seleciona os cards número 1, 5, 9... */
+.GraficoGridCard3-3-3-3:nth-child(4n+1) {
+    grid-column: 1/4;
+}
+
+/* Seleciona os cards número 2, 6, 10... */
+.GraficoGridCard3-3-3-3:nth-child(4n+2) {
+    grid-column: 4/7;
+}
+
+/* Seleciona os cards número 3, 7, 11... */
+.GraficoGridCard3-3-3-3:nth-child(4n+3) {
+    grid-column: 7/10;
+}
+
+/* Seleciona os cards número 4, 8, 12... */
+.GraficoGridCard3-3-3-3:nth-child(4n+4) {
+    grid-column: 10/13;
+}
+
+.GraficoGridCard2-2-4-4:nth-child(4n+1) {
+    grid-column: 1/3;
+}
+
+.GraficoGridCard2-2-4-4:nth-child(4n+2) {
+    grid-column: 3/5;
+}
+
+.GraficoGridCard2-2-4-4:nth-child(4n+3) {
+    grid-column: 5/9;
+}
+
+.GraficoGridCard2-2-4-4:nth-child(4n+4) {
+    grid-column: 9/13;
 }
 
 /* REGULAR */
@@ -83,25 +118,31 @@
 
 /* MEDIUM */
 @media screen and (max-width: 1024px) {
-    /* .GraficoGrid {
-        margin: 45px 80px;
-    } */
-
-    .Proporcao6-6:nth-child(odd),
-    .Proporcao6-6:nth-child(even) {
+    /* Seleciona todos os cards */
+    .GraficoGridCard6-6:nth-child(n) {
         grid-column: 1/13;
     }
 
-    .Proporcao2-5-5:nth-child(3n+1) {
+    .GraficoGridCard2-5-5:nth-child(3n+1) {
         grid-column: 1/5;
     }
 
-    .Proporcao2-5-5:nth-child(3n+2) {
+    .GraficoGridCard2-5-5:nth-child(3n+2) {
         grid-column: 5/9;
     }
 
-    .Proporcao2-5-5:nth-child(3n+3) {
+    .GraficoGridCard2-5-5:nth-child(3n+3) {
         grid-column: 9/13;
+    }
+
+    .GraficoGridCard3-3-3-3:nth-child(odd),
+    .GraficoGridCard2-2-4-4:nth-child(odd) {
+        grid-column: 1/7;
+    }
+
+    .GraficoGridCard3-3-3-3:nth-child(even),
+    .GraficoGridCard2-2-4-4:nth-child(even) {
+        grid-column: 7/13;
     }
 }
 
@@ -111,12 +152,9 @@
         margin: 45px 40px;
     }
 
-    .Proporcao5-7:nth-child(odd),
-    .Proporcao5-7:nth-child(even),
-    .Proporcao4-8:nth-child(odd),
-    .Proporcao4-8:nth-child(even),
-    .Proporcao3-9:nth-child(odd),
-    .Proporcao3-9:nth-child(even) {
+    .GraficoGridCard5-7:nth-child(n),
+    .GraficoGridCard4-8:nth-child(n),
+    .GraficoGridCard3-9:nth-child(n) {
         grid-column: 1/13;
     }
 }
@@ -132,12 +170,10 @@
         gap: 15px;
     }
 
-    .Proporcao4-4-4:nth-child(3n+1),
-    .Proporcao4-4-4:nth-child(3n+2),
-    .Proporcao4-4-4:nth-child(3n+3),
-    .Proporcao2-5-5:nth-child(3n+1),
-    .Proporcao2-5-5:nth-child(3n+2),
-    .Proporcao2-5-5:nth-child(3n+3) {
+    .GraficoGridCard4-4-4:nth-child(n),
+    .GraficoGridCard2-5-5:nth-child(n),
+    .GraficoGridCard3-3-3-3:nth-child(n),
+    .GraficoGridCard2-2-4-4:nth-child(n) {
         grid-column: 1/13;
     }
 }
