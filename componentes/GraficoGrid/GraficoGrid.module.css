@@ -13,72 +13,104 @@
 }
 
 .Proporcao6-6:nth-child(odd) {
-    /* grid-template-columns: 6fr 6fr; */
     grid-column: 1/7;
 }
 
 .Proporcao6-6:nth-child(even) {
-    /* grid-template-columns: 6fr 6fr; */
     grid-column: 7/13;
 }
 
 .Proporcao5-7:nth-child(odd) {
-    /* grid-template-columns: 5fr 7fr; */
     grid-column: 1/6;
 }
 
 .Proporcao5-7:nth-child(even) {
-    /* grid-template-columns: 5fr 7fr; */
     grid-column: 6/13;
 }
 
 .Proporcao4-8:nth-child(odd) {
-    /* grid-template-columns: 4fr 8fr; */
     grid-column: 1/5;
 }
 
 .Proporcao4-8:nth-child(even) {
-    /* grid-template-columns: 4fr 8fr; */
     grid-column: 5/13;
 }
 
 .Proporcao3-9:nth-child(odd) {
-    /* grid-template-columns: 3fr 9fr; */
     grid-column: 1/4;
 }
 
 .Proporcao3-9:nth-child(even) {
-    /* grid-template-columns: 3fr 9fr; */
     grid-column: 4/13;
 }
 
+/* Seleciona os cards número 1, 4, 7... */
+.Proporcao4-4-4:nth-child(3n+1) {
+    grid-column: 1/5;
+}
+
+/* Seleciona os cards número 2, 5, 8... */
+.Proporcao4-4-4:nth-child(3n+2) {
+    grid-column: 5/9;
+}
+
+/* Seleciona os cards número 3, 6, 9... */
+.Proporcao4-4-4:nth-child(3n+3) {
+    grid-column: 9/13;
+}
+
+/* Seleciona os cards número 1, 4, 7... */
+.Proporcao2-5-5:nth-child(3n+1) {
+    grid-column: 1/3;
+}
+
+/* Seleciona os cards número 2, 5, 8... */
+.Proporcao2-5-5:nth-child(3n+2) {
+    grid-column: 3/8;
+}
+
+/* Seleciona os cards número 3, 6, 9... */
+.Proporcao2-5-5:nth-child(3n+3) {
+    grid-column: 8/13;
+}
+
 /* REGULAR */
-@media screen and (min-width: 1025px) and (max-width: 1366px) {
+@media screen and (max-width: 1366px) {
     .GraficoGrid {
         margin: 45px 80px;
     }
 }
 
 /* MEDIUM */
-@media screen and (min-width: 769px) and (max-width: 1024px) {
-    .GraficoGrid {
+@media screen and (max-width: 1024px) {
+    /* .GraficoGrid {
         margin: 45px 80px;
-    }
+    } */
 
     .Proporcao6-6:nth-child(odd),
     .Proporcao6-6:nth-child(even) {
         grid-column: 1/13;
     }
+
+    .Proporcao2-5-5:nth-child(3n+1) {
+        grid-column: 1/5;
+    }
+
+    .Proporcao2-5-5:nth-child(3n+2) {
+        grid-column: 5/9;
+    }
+
+    .Proporcao2-5-5:nth-child(3n+3) {
+        grid-column: 9/13;
+    }
 }
 
 /* SMALL */
-@media screen and (min-width: 376px) and (max-width: 768px) {
+@media screen and (max-width: 768px) {
     .GraficoGrid {
         margin: 45px 40px;
     }
 
-    .Proporcao6-6:nth-child(odd),
-    .Proporcao6-6:nth-child(even),
     .Proporcao5-7:nth-child(odd),
     .Proporcao5-7:nth-child(even),
     .Proporcao4-8:nth-child(odd),
@@ -100,14 +132,12 @@
         gap: 15px;
     }
 
-    .Proporcao6-6:nth-child(odd),
-    .Proporcao6-6:nth-child(even),
-    .Proporcao5-7:nth-child(odd),
-    .Proporcao5-7:nth-child(even),
-    .Proporcao4-8:nth-child(odd),
-    .Proporcao4-8:nth-child(even),
-    .Proporcao3-9:nth-child(odd),
-    .Proporcao3-9:nth-child(even) {
+    .Proporcao4-4-4:nth-child(3n+1),
+    .Proporcao4-4-4:nth-child(3n+2),
+    .Proporcao4-4-4:nth-child(3n+3),
+    .Proporcao2-5-5:nth-child(3n+1),
+    .Proporcao2-5-5:nth-child(3n+2),
+    .Proporcao2-5-5:nth-child(3n+3) {
         grid-column: 1/13;
     }
 }

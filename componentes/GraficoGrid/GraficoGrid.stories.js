@@ -90,3 +90,19 @@ Proporcao39.args ={
   // colunas: 2,
   proporcao: "3-9"
 }
+
+export const Proporcao444 = Template.bind({});
+Proporcao444.args ={
+  info,
+  cards: [cardACompleto, cardATipo1, cardATipo3, cardACompleto, cardATipo4, cardATipo2],
+  // colunas: 2,
+  proporcao: "4-4-4"
+}
+
+export const Proporcao255 = Template.bind({});
+Proporcao255.args ={
+  info,
+  cards: [cardATipo3, cardATipo1, cardACompleto, cardATipo2, cardACompleto, cardATipo4],
+  // colunas: 2,
+  proporcao: "2-5-5"
+}
