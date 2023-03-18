@@ -23,7 +23,7 @@ const CardInfo = ({
                 {tooltip && (
                     <Tippy
                         content={tooltip}
-                        placement="auto"
+                        placement="right"
                         className={style.CardInfoTooltip}
                         theme="light"
                     >

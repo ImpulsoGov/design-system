@@ -19,7 +19,7 @@ const GraficoInfo = ({
             {tooltip && (
                 <Tippy
                     content={tooltip}
-                    placement="auto"
+                    placement="right"
                     className={style.Tooltip}
                     theme="light"
                 >
