@@ -109,14 +109,12 @@
     grid-column: 9/13;
 }
 
-/* REGULAR */
-@media screen and (max-width: 1366px) {
+@media screen and (max-width: 1367px) {
     .GraficoGrid {
         margin: 45px 80px;
     }
 }
 
-/* MEDIUM */
 @media screen and (max-width: 1024px) {
     /* Seleciona todos os cards */
     .GraficoGridCard6-6:nth-child(n) {
@@ -146,7 +144,6 @@
     }
 }
 
-/* SMALL */
 @media screen and (max-width: 768px) {
     .GraficoGrid {
         margin: 45px 40px;
@@ -159,7 +156,6 @@
     }
 }
 
-/* XSMALL */
 @media screen and (max-width: 375px) {
     .GraficoGrid {
         margin: 45px 15px;
