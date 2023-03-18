@@ -4,6 +4,40 @@ import { CardInfo } from './index'
 export default {
   title: "Componentes/CardInfo",
   component: CardInfo,
+  argTypes: {
+    titulo: {
+        name: "titulo",
+        description: "Titulo do card *string*"
+    },
+    indicador: {
+        name: "indicador",
+        description: "Valor do indicador do card *string*"
+    },
+    indicadorDescricao: {
+        name: "indicadorDescricao",
+        description: "Descrição do indicador do card *string*"
+    },
+    indice: {
+        name: "indice",
+        description: "Índice do indicador do card *string*"
+    },
+    indiceDescricao: {
+        name: "indiceDescricao",
+        description: "Descrição do índice do card *string*"
+    },
+    link: {
+        name: "link",
+        description: "Link exibido no card *object* \n\n **label**: label do link *string* \n\n **url**: url do link *string*"
+    },
+    tooltip: {
+        name: "tooltip",
+        description: "Mensagem do tooltip do card *string*"
+    },
+    fonte: {
+        name: "fonte",
+        description: "Fonte de dados do card *string*"
+    },
+  }
 }
 const Template = (args) => <CardInfo {...args}/>
 export const Completo = Template.bind({});
