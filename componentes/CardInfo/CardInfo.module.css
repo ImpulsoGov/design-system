@@ -2,6 +2,7 @@
     border: solid 1px #9494946b;
     color: #9ba4a5;
     display: flex;
+    flex-direction: column;
     width: 100%;
     height: 100%;
     font-size: 16px;
@@ -11,8 +12,18 @@
     padding: 25px;
     border-radius: 5px;
 }
-.Coluna{
-    flex-direction: column;
+.TipoB{
+    flex-direction: row;
+    gap: 40px;
+}
+.TipoB .CardInfoDireita {
+    width: 60%;
+}
+.TipoB .CardInfoEsquerda {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
 }
 .TipoC{
     gap: 20px;
@@ -42,6 +53,7 @@
 }
 
 .TipoC .CardInfoIndicadorContainer{
+    flex-direction: column;
     align-items: flex-start;
 }
 .CardInfoIndicador{
@@ -95,4 +107,15 @@
 }
 .CardInfoStatusSymbol{
     font-size: 18px;
+}
+
+@media screen and (max-width: 360px) {
+    .TipoB {
+        flex-direction: column;
+    }
+
+    .TipoB .CardInfoDireita,
+    .TipoB .CardInfoEsquerda {
+        width: 100%;
+    }
 }

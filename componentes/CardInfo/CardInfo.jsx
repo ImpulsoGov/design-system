@@ -5,79 +5,69 @@ import style from "./CardInfo.module.css"
 import cx from "classnames";
 import "tippy.js/themes/light.css";
 
-const CardInfoTipoA = ({
-    titulo,
-    indicador,
-    indicadorDescricao,
-    indice,
-    indiceDescricao,
-    link,
-    fonte,
-    tooltip,
-})=>{
-    return(
-        <div className={cx(style.CardInfo, style.Coluna)}>
+const CardInfoTitulo = ({ titulo, tooltip }) => {
+    return (
+        <div className={style.CardInfoTitulo}>
+            {titulo}
 
-            <div className={style.CardInfoTitulo}>
-                {titulo}
-
-                {tooltip && (
-                    <Tippy
-                        content={tooltip}
-                        placement="auto"
-                        className={style.CardInfoTooltip}
-                        theme="light"
-                    >
-                        <span className={style.CardInfoSymbol}>
-                            <strong>ⓘ</strong>
-                        </span>
-                    </Tippy>
-                )}
-            </div>
-
-            <div className={style.CardInfoIndicadorContainer}>
-                <span className={style.CardInfoIndicador}>{indicador}</span>
-
-                {indicadorDescricao && (
-                    <span className={style.CardInfoIndicadorDescricao}>
-                        {indicadorDescricao}
+            {tooltip && (
+                <Tippy
+                    content={tooltip}
+                    placement="auto"
+                    className={style.CardInfoTooltip}
+                    theme="light"
+                >
+                    <span className={style.CardInfoSymbol}>
+                        <strong>ⓘ</strong>
                     </span>
-                )}
-            </div>
-
-            {indice && (
-                <div className={style.CardInfoIndiceContainer}>
-                    <span className={
-                        indice.trim().startsWith("-")
-                            ? cx(style.CardInfoSymbolDown, style.TextoVermelho)
-                            : cx(style.CardInfoSymbolUp, style.TextoVerde)
-                    }>
-                        »
-                    </span>
-
-                    <span className={cx(
-                        style.CardInfoIndice,
-                        indice.trim().startsWith("-")
-                            ? style.TextoVermelho
-                            : style.TextoVerde
-                    )}>
-                        {indice}
-                    </span>
-
-                    {indiceDescricao && <span>{indiceDescricao}</span>}
-                </div>
+                </Tippy>
             )}
-
-            {link && (
-                <Link href={link.url}>
-                    <a className={style.CardInfoLink}>
-                        {link.label}
-                    </a>
-                </Link>
-            )}
-
-            {fonte && <div className={style.CardInfoFonte}>{fonte}</div>}
         </div>
+    )
+}
+
+const CardInfoIndicador = ({ indicador, descricao }) => {
+    return (
+        <>
+            <span className={style.CardInfoIndicador}>{indicador}</span>
+
+            {descricao && (
+                <span className={style.CardInfoIndicadorDescricao}>
+                    {descricao}
+                </span>
+            )}
+        </>
+    )
+}
+
+const CardInfoIndice = ({ indice, descricao }) => {
+    return (
+        <div className={style.CardInfoIndiceContainer}>
+            <span className={
+                indice.trim().startsWith("-")
+                    ? cx(style.CardInfoSymbolDown, style.TextoVermelho)
+                    : cx(style.CardInfoSymbolUp, style.TextoVerde)
+            }>
+                »
+            </span>
+
+            <span className={cx(
+                style.CardInfoIndice,
+                indice.trim().startsWith("-")
+                    ? style.TextoVermelho
+                    : style.TextoVerde
+            )}>
+                {indice}
+            </span>
+
+            {descricao && <span>{descricao}</span>}
+        </div>
+    )
+}
+
+const CardInfoDescricao = ({ descricao }) => {
+    return (
+        <p className={style.CardInfoDescricao}>{descricao}</p>
     )
 }
 
@@ -96,6 +86,95 @@ const CardInfoStatus = ({ descricao, status }) => {
     )
 }
 
+const CardInfoFonte = ({ fonte }) => {
+    return (
+        <div className={style.CardInfoFonte}>{fonte}</div>
+    )
+}
+
+const CardInfoTipoA = ({
+    titulo,
+    indicador,
+    indicadorDescricao,
+    indice,
+    indiceDescricao,
+    link,
+    fonte,
+    tooltip,
+})=>{
+    return(
+        <div className={style.CardInfo}>
+            <CardInfoTitulo
+                titulo={titulo}
+                tooltip={tooltip}
+            />
+
+            <div className={style.CardInfoIndicadorContainer}>
+                <CardInfoIndicador
+                    indicador={indicador}
+                    descricao={indicadorDescricao}
+                />
+            </div>
+
+            {indice && (
+                <CardInfoIndice
+                    indice={indice}
+                    descricao={indiceDescricao}
+                />
+            )}
+
+            {link && (
+                <Link href={link.url}>
+                    <a className={style.CardInfoLink}>
+                        {link.label}
+                    </a>
+                </Link>
+            )}
+
+            {fonte && <CardInfoFonte fonte={fonte} />}
+        </div>
+    )
+}
+
+const CardInfoTipoB = ({
+    titulo,
+    tooltip,
+    indicador,
+    indicadorDescricao,
+    indice,
+    indiceDescricao,
+    descricao,
+}) => {
+    return (
+        <div className={cx(style.CardInfo, style.TipoB)}>
+            <div className={style.CardInfoDireita}>
+                <CardInfoTitulo
+                    titulo={titulo}
+                    tooltip={tooltip}
+                />
+
+                <div className={style.CardInfoIndicadorContainer}>
+                    <CardInfoIndicador
+                        indicador={indicador}
+                        descricao={indicadorDescricao}
+                    />
+                </div>
+
+                {indice && (
+                    <CardInfoIndice
+                        indice={indice}
+                        descricao={indiceDescricao}
+                    />
+                )}
+
+                {descricao && <CardInfoDescricao descricao={descricao} />}
+            </div>
+
+            <div className={style.CardInfoEsquerda}>Gráfico</div>
+        </div>
+    )
+}
+
 const CardInfoTipoC = ({
     descricao,
     indicador,
@@ -104,20 +183,15 @@ const CardInfoTipoC = ({
     statusDepois
 }) => {
     return (
-        <div className={cx(style.CardInfo, style.Coluna, style.TipoC)}>
-            <div className={cx(style.CardInfoIndicadorContainer, style.Coluna)}>
-                <span className={style.CardInfoIndicador}>{indicador}</span>
-
-                {indicadorDescricao && (
-                    <span className={style.CardInfoIndicadorDescricao}>
-                        {indicadorDescricao}
-                    </span>
-                )}
+        <div className={cx(style.CardInfo, style.TipoC)}>
+            <div className={style.CardInfoIndicadorContainer}>
+                <CardInfoIndicador
+                    indicador={indicador}
+                    descricao={indicadorDescricao}
+                />
             </div>
 
-            {descricao && (
-                <p className={style.CardInfoDescricao}>{descricao}</p>
-            )}
+            {descricao && <CardInfoDescricao descricao={descricao} />}
 
             <div className={style.CardInfoStatusContainer}>
                 {statusAntes
@@ -134,4 +208,4 @@ const CardInfoTipoC = ({
     )
 }
 
-export { CardInfoTipoA, CardInfoTipoC }
+export { CardInfoTipoA, CardInfoTipoB, CardInfoTipoC }
