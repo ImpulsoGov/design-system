@@ -1,5 +1,7 @@
 .CardInfo{
     border: solid 1px #9494946b;
+    color: #9ba4a5;
+    display: flex;
     width: 100%;
     height: 100%;
     font-size: 16px;
@@ -9,8 +11,13 @@
     padding: 25px;
     border-radius: 5px;
 }
+.Coluna{
+    flex-direction: column;
+}
+.TipoC{
+    gap: 20px;
+}
 .CardInfoTitulo{
-    color: #9ba4a5;
     margin-bottom: 8px;
 }
 .CardInfoTooltip {
@@ -33,12 +40,16 @@
     height: fit-content;
     align-items: flex-end;
 }
+
+.TipoC .CardInfoIndicadorContainer{
+    align-items: flex-start;
+}
 .CardInfoIndicador{
+    color: black;
     font-size: 32px;
     font-weight: bold;
 }
-.CardInfoIndicadorDescricao{
-    color: #9ba4a5;
+.CardInfoIndicadorDescricao, .CardInfoDescricao{
     font-size: 14px;
 }
 .CardInfoIndiceContainer{
@@ -47,30 +58,23 @@
     align-items: center;
     margin-bottom: 16px;
 }
+.TextoVerde{
+    color: #7ab37d;
+}
+.TextoVermelho{
+    color: #cf6868;
+}
 .CardInfoSymbolUp{
     font-size: 32px;
     transform: rotate(-90deg);
-    color: #7ab37d;
 }
 .CardInfoSymbolDown{
     font-size: 32px;
     transform: rotate(90deg);
-    color: #cf6868;
 }
-
-.CardInfoIndicePositivo{
+.CardInfoIndice{
     margin-left: 8px;
     margin-right: 8px;
-    color: #7ab37d;
-}
-.CardInfoIndiceNegativo{
-    margin-left: 8px;
-    margin-right: 8px;
-    color: #cf6868;
-}
-
-.CardInfoIndiceDescricao{
-    color: #9ba4a5;
 }
 .CardInfoLink{
     text-decoration: none;
@@ -78,6 +82,17 @@
 }
 .CardInfoFonte{
     font-size: 14px;
-    color: #9ba4a5;
     margin-top: 5px;
+}
+.CardInfoStatusContainer{
+    display: flex;
+    justify-content: space-between;
+}
+.CardInfoStatus{
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+.CardInfoStatusSymbol{
+    font-size: 18px;
 }

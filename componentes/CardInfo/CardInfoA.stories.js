@@ -1,9 +1,9 @@
-import React from 'react'
-import { CardInfo } from './index'
+import React from 'react';
+import { CardInfoTipoA } from './index';
 
 export default {
-  title: "Componentes/CardInfo",
-  component: CardInfo,
+  title: "Componentes/CardInfoTipoA",
+  component: CardInfoTipoA,
   argTypes: {
     titulo: {
         name: "titulo",
@@ -39,7 +39,7 @@ export default {
     },
   }
 }
-const Template = (args) => <CardInfo {...args}/>
+const Template = (args) => <CardInfoTipoA {...args}/>
 export const Completo = Template.bind({});
 Completo.args={
     titulo:"Usuários que frequentaram",
