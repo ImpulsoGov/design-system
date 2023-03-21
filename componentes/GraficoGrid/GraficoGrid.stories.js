@@ -1,5 +1,6 @@
 import React from "react";
 import { GraficoGrid } from "./index";
+import { CardInfoTipoA, CardInfoTipoB, CardInfoTipoC } from "../CardInfo";
 
 export default {
   title: "Componentes/GraficoGrid",
@@ -11,7 +12,7 @@ export default {
     },
     cards: {
       name: "cards",
-      description: "Array de objetos com as informações de cada card \n\n Propriedades de cada card: \n\n **titulo**: Titulo do card *string* \n\n **indicador**: Valor do indicador do card *string* \n\n **indicadorDescricao**: Descrição do indicador do card *string* \n\n **indice**: Índice do indicador do card *string* \n\n **indiceDescricao**: Descrição do índice do card *string* \n\n **link**: Objeto com a label e url do link exibido no card *object* \n\n **tooltip**: Mensagem do tooltip do card *string* \n\n **fonte**: Fonte de dados do card *string*"
+      description: "Array de componentes CardInfo *array* \n\n Valores aceitos **CardInfoTipoA**, **CardInfoTipoB** ou **CardInfoTipoC**"
     },
     proporcao: {
       name: "proporcao",
@@ -31,98 +32,231 @@ const info = {
   tooltip: "Este gráfico diz respeito à taxa de abandono"
 };
 
-const cardACompleto = {
-  titulo: "Usuários que frequentaram",
-  indicador: "692",
-  indice: "-141",
-  indiceDescricao: "últ. mês",
-  link: {
-    label: "Mais Informações",
-    url: "/"
+const cardsDataTipoA = [
+  {
+    titulo: "Usuários que frequentaram",
+    indicador: "692",
+    indice: "-141",
+    indiceDescricao: "últ. mês",
+    link: {
+      label: "Mais Informações",
+      url: "/"
+    },
+    fonte: "Fonte: BPA-i e RAAS/SIASUS - Elaboração Impulso Gov",
+    tooltip: "Dados de usuários ativos"
   },
-  fonte: "Fonte: BPA-i e RAAS/SIASUS - Elaboração Impulso Gov",
-  tooltip: "Dados de usuários ativos"
-};
+  {
+    titulo: "Total de atendimentos em Julho",
+    indicador: "637",
+    indice: "637",
+    indiceDescricao: "últ. mês",
+  },
+  {
+    titulo: "Boa Vista",
+    indicador: "0,15",
+    indicadorDescricao: "procedimentos/hora",
+    indice: "-11.8%",
+    indiceDescricao: "últ. mês",
+  },
+  {
+    titulo: "Boa Vista",
+    indicador: "83,3%",
+  },
+  {
+    titulo: "Usuários que frequentaram",
+    indicador: "692",
+    indice: "-141",
+    indiceDescricao: "últ. mês",
+    link: {
+      label: "Mais Informações",
+      url: "/"
+    },
+    fonte: "Fonte: BPA-i e RAAS/SIASUS - Elaboração Impulso Gov",
+    tooltip: "Dados de usuários ativos"
+  },
+  {
+    titulo: "Total de atendimentos em Julho",
+    indicador: "637",
+    indice: "637",
+    indiceDescricao: "últ. mês",
+  },
+  {
+    titulo: "Boa Vista",
+    indicador: "0,15",
+    indicadorDescricao: "procedimentos/hora",
+    indice: "-11.8%",
+    indiceDescricao: "últ. mês",
+  },
+  {
+    titulo: "Boa Vista",
+    indicador: "83,3%",
+  }
+];
 
-const cardATipo1 = {
-  titulo: "Total de atendimentos em Julho",
-  indicador: "637",
-  indice: "637",
-  indiceDescricao: "últ. mês",
-};
+const cardsDataTipoB = [
+  {
+    titulo:"Encaminhamentos para CAPS no mês de Junho",
+    tooltip: "Dados de usuários ativos",
+    indicador:"692",
+    indice:"-141",
+    indiceDescricao:"últ. mês",
+    descricao: "Não foram atendidos na RAPS nos 6 meses anteriores à internação nem até o mês após a alta",
+  },
+  {
+    titulo:"Encaminhamentos para CAPS no mês de Junho",
+    indicador:"692",
+    indice:"-141",
+    indiceDescricao:"últ. mês",
+    descricao: "Não foram atendidos na RAPS nos 6 meses anteriores à internação nem até o mês após a alta",
+  },
+  {
+    titulo:"Encaminhamentos para CAPS no mês de Junho",
+    tooltip: "Dados de usuários ativos",
+    indicador:"692",
+    indice:"-141",
+    descricao: "Não foram atendidos na RAPS nos 6 meses anteriores à internação nem até o mês após a alta",
+  },
+  {
+    titulo:"Encaminhamentos para CAPS no mês de Junho",
+    tooltip: "Dados de usuários ativos",
+    indicador:"692",
+    indice:"-141",
+    indiceDescricao:"últ. mês",
+  },
+];
 
-const cardATipo2 = {
-  titulo: "Boa Vista",
-  indicador: "0,15",
-  indicadorDescricao: "procedimentos/hora",
-  indice: "-11.8%",
-  indiceDescricao: "últ. mês",
-};
+const cardsDataTipoC = [
+  {
+    indicador:"692",
+    indicadorDescricao: "Usuários",
+    descricao: "Não foram atendidos na RAPS nos 6 meses anteriores à internação nem até o mês após a alta",
+    statusAntes: false,
+    statusDepois: true,
+  },
+  {
+    indicador:"692",
+    indicadorDescricao: "Usuários",
+    descricao: "Não foram atendidos na RAPS nos 6 meses anteriores à internação nem até o mês após a alta",
+    statusAntes: true,
+    statusDepois: false,
+  },
+  {
+    indicador:"692",
+    indicadorDescricao: "Usuários",
+    descricao: "Não foram atendidos na RAPS nos 6 meses anteriores à internação nem até o mês após a alta",
+    statusAntes: false,
+    statusDepois: true,
+  },
+  {
+    indicador:"692",
+    indicadorDescricao: "Usuários",
+    descricao: "Não foram atendidos na RAPS nos 6 meses anteriores à internação nem até o mês após a alta",
+    statusAntes: true,
+    statusDepois: false,
+  },
+  {
+    indicador:"692",
+    indicadorDescricao: "Usuários",
+    descricao: "Não foram atendidos na RAPS nos 6 meses anteriores à internação nem até o mês após a alta",
+    statusAntes: true,
+    statusDepois: true,
+  },
+  {
+    indicador:"692",
+    indicadorDescricao: "Usuários",
+    descricao: "Não foram atendidos na RAPS nos 6 meses anteriores à internação nem até o mês após a alta",
+    statusAntes: false,
+    statusDepois: false,
+  },
+];
 
-const cardATipo3 = {
-  titulo: "Boa Vista",
-  indicador: "83,3%",
-};
+const cardsTipoA = cardsDataTipoA.map((card) => (
+  <CardInfoTipoA
+    titulo={card.titulo}
+    indicador={card.indicador}
+    indice={card.indice}
+    indiceDescricao={card.indiceDescricao}
+    link={card.link}
+    fonte={card.fonte}
+    tooltip={card.tooltip}
+  />
+));
 
-const cardATipo4 = {
-  titulo: "Total de atendimentos pela APS em Junho",
-  indicador: "5.254",
-};
+const cardsTipoC = cardsDataTipoC.map((card) => (
+  <CardInfoTipoC
+    descricao={card.descricao}
+    indicador={card.indicador}
+    indicadorDescricao={card.indicadorDescricao}
+    statusAntes={card.statusAntes}
+    statusDepois={card.statusDepois}
+  />
+));
+
+const cardsTipoB = cardsDataTipoB.map((card) => (
+  <CardInfoTipoB
+    descricao={card.descricao}
+    indicador={card.indicador}
+    indice={card.indice}
+    indiceDescricao={card.indiceDescricao}
+    titulo={card.titulo}
+    tooltip={card.tooltip}
+  />
+));
 
 const Template = (args) => <GraficoGrid { ...args } />;
 
 export const Proporcao66 = Template.bind({});
 Proporcao66.args = {
   info,
-  cards: [cardACompleto, cardATipo1, cardATipo3, cardATipo2],
+  cards: cardsTipoB,
   proporcao: "6-6"
 };
 
 export const Proporcao57 = Template.bind({});
 Proporcao57.args = {
   info,
-  cards: [cardACompleto, cardATipo1, cardATipo3, cardATipo2],
+  cards: cardsTipoB,
   proporcao: "5-7"
 };
 
 export const Proporcao48 = Template.bind({});
 Proporcao48.args = {
   info,
-  cards: [cardACompleto, cardATipo1, cardATipo3, cardATipo2],
+  cards: cardsTipoB,
   proporcao: "4-8"
 };
 
 export const Proporcao39 = Template.bind({});
 Proporcao39.args = {
   info,
-  cards: [cardACompleto, cardATipo1, cardATipo3, cardATipo2],
+  cards: cardsTipoB,
   proporcao: "3-9"
 };
 
 export const Proporcao444 = Template.bind({});
 Proporcao444.args = {
   info,
-  cards: [cardACompleto, cardATipo1, cardATipo3, cardACompleto, cardATipo4, cardATipo2],
+  cards: cardsTipoC,
   proporcao: "4-4-4"
 };
 
 export const Proporcao255 = Template.bind({});
 Proporcao255.args = {
   info,
-  cards: [cardATipo3, cardATipo1, cardACompleto, cardATipo2, cardACompleto, cardATipo4],
+  cards: cardsTipoC,
   proporcao: "2-5-5"
 };
 
 export const Proporcao3333 = Template.bind({});
 Proporcao3333.args = {
   info,
-  cards: [cardACompleto, cardATipo1, cardATipo3, cardACompleto, cardATipo4, cardATipo2, cardACompleto, cardATipo1],
+  cards: cardsTipoA,
   proporcao: "3-3-3-3"
 };
 
 export const Proporcao2244 = Template.bind({});
 Proporcao2244.args = {
   info,
-  cards: [cardATipo3, cardATipo1, cardACompleto, cardATipo2, cardACompleto, cardATipo4, cardACompleto, cardATipo1],
+  cards: cardsTipoA,
   proporcao: "2-2-4-4"
 };

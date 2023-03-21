@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { CardInfoTipoA } from "../CardInfo/CardInfo";
 import { GraficoInfo } from "../GraficoInfo/GraficoInfo";
 import styles from "./GraficoGrid.module.css";
 
@@ -26,15 +25,7 @@ const GraficoGrid = ({ info, cards, proporcao }) => {
               ? proporcao
               : "6-6"
           }`]}>
-            <CardInfoTipoA
-              titulo={card.titulo}
-              indicador={card.indicador}
-              indice={card.indice}
-              indiceDescricao={card.indiceDescricao}
-              link={card.link}
-              fonte={card.fonte}
-              tooltip={card.tooltip}
-            />
+            {card}
           </div>
         ))}
       </div>
