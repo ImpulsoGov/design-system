@@ -1,1 +1,0 @@
-export { GraficoGrid } from "./GraficoGrid";

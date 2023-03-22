@@ -1,35 +1,20 @@
 import React from "react";
-import { GraficoGrid } from "./index";
+import { Grid12Col } from "./index";
 import { CardInfoTipoA, CardInfoTipoB, CardInfoTipoC } from "../CardInfo";
 
 export default {
-  title: "Componentes/GraficoGrid",
-  component: GraficoGrid,
+  title: "Componentes/Grid12Col",
+  component: Grid12Col,
   argTypes: {
-    info: {
-      name: "info",
-      description: "Objeto com as informações do gráfico \n\n Propriedades do objeto: \n\n **titulo**: Titulo do gráfico *string* \n\n **descricao**: Descrição do gráfico *string* \n\n **fonte**: Fonte de dados do gráfico *string* \n\n **link**: objeto com a label e url do link exibido no gráfico *object* \n\n **tooltip**: Mensagem do tooltip do gráfico *string*"
-    },
-    cards: {
-      name: "cards",
-      description: "Array de componentes CardInfo *array* \n\n Valores aceitos **CardInfoTipoA**, **CardInfoTipoB** ou **CardInfoTipoC**"
+    items: {
+      name: "items",
+      description: "Array de componentes React *array*"
     },
     proporcao: {
       name: "proporcao",
-      description: "Proporção dos cards no grid *string* \n\n Valores aceitos: **6-6**, **5-7**, **4-8**, **3-9**, **4-4-4**, **2-5-5**, **3-3-3-3** ou **2-2-4-4**"
+      description: "Proporção dos itens no grid *string* \n\n Valores aceitos: **6-6**, **5-7**, **4-8**, **3-9**, **4-4-4**, **2-5-5**, **3-3-3-3** ou **2-2-4-4**"
     },
   }
-};
-
-const info = {
-  titulo: "Taxa de abandono",
-  descricao: "Conjunto de usuários com 1º procedimento em Março/2022 e abandono até Agosto/2022",
-  fonte: "Fonte: RAAS/SIASUS - Elaboração Impulso Gov",
-  link: {
-    url: "/",
-    label: "Mais informações"
-  },
-  tooltip: "Este gráfico diz respeito à taxa de abandono"
 };
 
 const cardsDataTipoA = [
@@ -217,60 +202,52 @@ const cardsTipoB = cardsDataTipoB.map((card) => (
   />
 ));
 
-const Template = (args) => <GraficoGrid { ...args } />;
+const Template = (args) => <Grid12Col { ...args } />;
 
 export const Proporcao66 = Template.bind({});
 Proporcao66.args = {
-  info,
-  cards: cardsTipoB,
+  items: cardsTipoB,
   proporcao: "6-6"
 };
 
 export const Proporcao57 = Template.bind({});
 Proporcao57.args = {
-  info,
-  cards: cardsTipoB,
+  items: cardsTipoB,
   proporcao: "5-7"
 };
 
 export const Proporcao48 = Template.bind({});
 Proporcao48.args = {
-  info,
-  cards: cardsTipoB,
+  items: cardsTipoB,
   proporcao: "4-8"
 };
 
 export const Proporcao39 = Template.bind({});
 Proporcao39.args = {
-  info,
-  cards: cardsTipoB,
+  items: cardsTipoB,
   proporcao: "3-9"
 };
 
 export const Proporcao444 = Template.bind({});
 Proporcao444.args = {
-  info,
-  cards: cardsTipoC,
+  items: cardsTipoC,
   proporcao: "4-4-4"
 };
 
 export const Proporcao255 = Template.bind({});
 Proporcao255.args = {
-  info,
-  cards: cardsTipoC,
+  items: cardsTipoC,
   proporcao: "2-5-5"
 };
 
 export const Proporcao3333 = Template.bind({});
 Proporcao3333.args = {
-  info,
-  cards: cardsTipoA,
+  items: cardsTipoA,
   proporcao: "3-3-3-3"
 };
 
 export const Proporcao2244 = Template.bind({});
 Proporcao2244.args = {
-  info,
-  cards: cardsTipoA,
+  items: cardsTipoA,
   proporcao: "2-2-4-4"
 };
