@@ -171,15 +171,6 @@ const CardInfoTipoB = ({
                 },
                 emphasis: {
                     disabled: true
-                    // label: {
-                    //     show: true,
-                    //     fontSize: 14,
-                    //     color: "black",
-                    //     fontWeight: 'bold',
-                    //     formatter: "{d}%",
-                    //     backgroundColor: "white",
-                    //     padding: 3
-                    // }
                 },
                 data: [
                     {
