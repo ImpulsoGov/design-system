@@ -31,6 +31,9 @@
 }
 .CardInfoTitulo{
     margin-bottom: 8px;
+    white-space: normal;
+    display: flex;
+    flex-wrap: wrap;
 }
 .CardInfoTooltip {
     font-family: 'Inter';
@@ -100,11 +103,13 @@
 .CardInfoStatusContainer{
     display: flex;
     justify-content: space-between;
+    gap: 10px;
 }
 .CardInfoStatus{
     display: flex;
     align-items: center;
     gap: 4px;
+    flex-wrap: wrap;
 }
 .CardInfoStatusSymbol{
     font-size: 18px;
