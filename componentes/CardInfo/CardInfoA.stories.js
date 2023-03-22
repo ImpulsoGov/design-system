@@ -43,8 +43,8 @@ const Template = (args) => <CardInfoTipoA {...args}/>
 export const Completo = Template.bind({});
 Completo.args={
     titulo:"Usuários que frequentaram",
-    indicador:"692",
-    indice:"-141",
+    indicador:692,
+    indice:-141,
     indiceDescricao:"últ. mês",
     link:{
         label:"Mais Informações",
@@ -57,22 +57,24 @@ Completo.args={
 export const Tipo1 = Template.bind({});
 Tipo1.args={
     titulo:"Total de atendimentos em Julho",
-    indicador:"637",
-    indice:"637",
+    indicador:637,
+    indice:637,
     indiceDescricao:"últ. mês",
 }
 
 export const Tipo2 = Template.bind({});
 Tipo2.args={
     titulo:"Boa Vista",
-    indicador:"0,15",
+    indicador:0.15,
     indicadorDescricao: "procedimentos/hora",
-    indice:"-11.8%",
+    indice:-11.8,
+    indiceSimbolo: "%",
     indiceDescricao:"últ. mês",
 }
 
 export const Tipo3 = Template.bind({});
 Tipo3.args={
     titulo:"Boa Vista",
-    indicador:"83,3%",
+    indicador:83.3,
+    indicadorSimbolo:"%"
 }

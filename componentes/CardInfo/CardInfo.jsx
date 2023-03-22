@@ -26,10 +26,12 @@ const CardInfoTitulo = ({ titulo, tooltip }) => {
     )
 }
 
-const CardInfoIndicador = ({ indicador, descricao }) => {
+const CardInfoIndicador = ({ indicador, simbolo, descricao }) => {
     return (
         <>
-            <span className={style.CardInfoIndicador}>{indicador}</span>
+            <span className={style.CardInfoIndicador}>
+                {`${indicador}${simbolo ? simbolo : ""}`}
+            </span>
 
             {descricao && (
                 <span className={style.CardInfoIndicadorDescricao}>
@@ -40,11 +42,11 @@ const CardInfoIndicador = ({ indicador, descricao }) => {
     )
 }
 
-const CardInfoIndice = ({ indice, descricao }) => {
+const CardInfoIndice = ({ indice, simbolo, descricao }) => {
     return (
         <div className={style.CardInfoIndiceContainer}>
             <span className={
-                indice.trim().startsWith("-")
+                indice < 0
                     ? cx(style.CardInfoSymbolDown, style.TextoVermelho)
                     : cx(style.CardInfoSymbolUp, style.TextoVerde)
             }>
@@ -53,11 +55,9 @@ const CardInfoIndice = ({ indice, descricao }) => {
 
             <span className={cx(
                 style.CardInfoIndice,
-                indice.trim().startsWith("-")
-                    ? style.TextoVermelho
-                    : style.TextoVerde
+                indice < 0 ? style.TextoVermelho : style.TextoVerde
             )}>
-                {indice}
+                {`${indice}${simbolo ? simbolo : ""}`}
             </span>
 
             {descricao && <span>{descricao}</span>}
@@ -95,8 +95,10 @@ const CardInfoFonte = ({ fonte }) => {
 const CardInfoTipoA = ({
     titulo,
     indicador,
+    indicadorSimbolo,
     indicadorDescricao,
     indice,
+    indiceSimbolo,
     indiceDescricao,
     link,
     fonte,
@@ -113,6 +115,7 @@ const CardInfoTipoA = ({
                 <CardInfoIndicador
                     indicador={indicador}
                     descricao={indicadorDescricao}
+                    simbolo={indicadorSimbolo}
                 />
             </div>
 
@@ -120,6 +123,7 @@ const CardInfoTipoA = ({
                 <CardInfoIndice
                     indice={indice}
                     descricao={indiceDescricao}
+                    simbolo={indiceSimbolo}
                 />
             )}
 
@@ -140,8 +144,11 @@ const CardInfoTipoB = ({
     titulo,
     tooltip,
     indicador,
+    indicadorSimbolo,
     indicadorDescricao,
+    indicadorTotal,
     indice,
+    indiceSimbolo,
     indiceDescricao,
     descricao,
 }) => {
@@ -157,6 +164,7 @@ const CardInfoTipoB = ({
                     <CardInfoIndicador
                         indicador={indicador}
                         descricao={indicadorDescricao}
+                        simbolo={indicadorSimbolo}
                     />
                 </div>
 
@@ -164,6 +172,7 @@ const CardInfoTipoB = ({
                     <CardInfoIndice
                         indice={indice}
                         descricao={indiceDescricao}
+                        simbolo={indiceSimbolo}
                     />
                 )}
 
@@ -178,6 +187,7 @@ const CardInfoTipoB = ({
 const CardInfoTipoC = ({
     descricao,
     indicador,
+    indicadorSimbolo,
     indicadorDescricao,
     statusAntes,
     statusDepois
@@ -188,6 +198,7 @@ const CardInfoTipoC = ({
                 <CardInfoIndicador
                     indicador={indicador}
                     descricao={indicadorDescricao}
+                    simbolo={indicadorSimbolo}
                 />
             </div>
 

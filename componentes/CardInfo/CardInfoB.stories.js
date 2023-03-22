@@ -10,9 +10,10 @@ const Template = (args) => <CardInfoTipoB {...args}/>
 export const Completo = Template.bind({});
 Completo.args={
   titulo:"Encaminhamentos para CAPS no mês de Junho",
-  tooltip: "Dados de usuários ativos",
-  indicador:"692",
-  indice:"-141",
+  tooltip: "Dados sobre encaminhamentos para CAPS no mês de Junho",
+  indicador:640,
+  indicadorTotal: 4823,
+  indice:-4,
   indiceDescricao:"últ. mês",
-  descricao: "Não foram atendidos na RAPS nos 6 meses anteriores à internação nem até o mês após a alta",
+  descricao: "de 4823 atendimentos em saúde mental na APS",
 }

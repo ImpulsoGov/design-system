@@ -35,8 +35,8 @@ const info = {
 const cardsDataTipoA = [
   {
     titulo: "Usuários que frequentaram",
-    indicador: "692",
-    indice: "-141",
+    indicador: 692,
+    indice: -141,
     indiceDescricao: "últ. mês",
     link: {
       label: "Mais Informações",
@@ -47,25 +47,27 @@ const cardsDataTipoA = [
   },
   {
     titulo: "Total de atendimentos em Julho",
-    indicador: "637",
-    indice: "637",
+    indicador: 637,
+    indice: 637,
     indiceDescricao: "últ. mês",
   },
   {
     titulo: "Boa Vista",
-    indicador: "0,15",
+    indicador: 0.15,
     indicadorDescricao: "procedimentos/hora",
-    indice: "-11.8%",
+    indice: -11.8,
+    indiceSimbolo: "%",
     indiceDescricao: "últ. mês",
   },
   {
     titulo: "Boa Vista",
-    indicador: "83,3%",
+    indicador: 83.3,
+    indicadorSimbolo: "%"
   },
   {
     titulo: "Usuários que frequentaram",
-    indicador: "692",
-    indice: "-141",
+    indicador: 692,
+    indice: -141,
     indiceDescricao: "últ. mês",
     link: {
       label: "Mais Informações",
@@ -76,93 +78,97 @@ const cardsDataTipoA = [
   },
   {
     titulo: "Total de atendimentos em Julho",
-    indicador: "637",
-    indice: "637",
+    indicador: 637,
+    indice: 637,
     indiceDescricao: "últ. mês",
   },
   {
     titulo: "Boa Vista",
-    indicador: "0,15",
+    indicador: 0.15,
     indicadorDescricao: "procedimentos/hora",
-    indice: "-11.8%",
+    indice: -11.8,
+    indiceSimbolo: "%",
     indiceDescricao: "últ. mês",
   },
   {
     titulo: "Boa Vista",
-    indicador: "83,3%",
+    indicador: 83.3,
+    indicadorSimbolo: "%"
   }
 ];
 
 const cardsDataTipoB = [
   {
     titulo:"Encaminhamentos para CAPS no mês de Junho",
-    tooltip: "Dados de usuários ativos",
-    indicador:"692",
-    indice:"-141",
+    tooltip: "Dados sobre encaminhamentos para CAPS no mês de Junho",
+    indicador:18,
+    indicadorTotal: 4823,
+    indice:-4,
     indiceDescricao:"últ. mês",
-    descricao: "Não foram atendidos na RAPS nos 6 meses anteriores à internação nem até o mês após a alta",
+    descricao: "de 4823 atendimentos em saúde mental na APS",
   },
   {
     titulo:"Encaminhamentos para CAPS no mês de Junho",
-    indicador:"692",
-    indice:"-141",
-    indiceDescricao:"últ. mês",
-    descricao: "Não foram atendidos na RAPS nos 6 meses anteriores à internação nem até o mês após a alta",
+    tooltip: "Dados sobre encaminhamentos para CAPS no mês de Junho",
+    indicador:18,
+    indicadorTotal: 4823,
+    descricao: "de 4823 atendimentos em saúde mental na APS",
   },
   {
     titulo:"Encaminhamentos para CAPS no mês de Junho",
-    tooltip: "Dados de usuários ativos",
-    indicador:"692",
-    indice:"-141",
-    descricao: "Não foram atendidos na RAPS nos 6 meses anteriores à internação nem até o mês após a alta",
+    indicador:18,
+    indicadorTotal: 4823,
+    indice:-4,
+    descricao: "de 4823 atendimentos em saúde mental na APS",
   },
   {
     titulo:"Encaminhamentos para CAPS no mês de Junho",
-    tooltip: "Dados de usuários ativos",
-    indicador:"692",
-    indice:"-141",
+    tooltip: "Dados sobre encaminhamentos para CAPS no mês de Junho",
+    indicador:18,
+    indicadorTotal: 4823,
+    indice:-4,
     indiceDescricao:"últ. mês",
   },
 ];
 
 const cardsDataTipoC = [
   {
-    indicador:"692",
+    indicador:692,
     indicadorDescricao: "Usuários",
     descricao: "Não foram atendidos na RAPS nos 6 meses anteriores à internação nem até o mês após a alta",
     statusAntes: false,
     statusDepois: true,
   },
   {
-    indicador:"692",
+    indicador:692,
     indicadorDescricao: "Usuários",
     descricao: "Não foram atendidos na RAPS nos 6 meses anteriores à internação nem até o mês após a alta",
     statusAntes: true,
     statusDepois: false,
   },
   {
-    indicador:"692",
+    indicador:692,
     indicadorDescricao: "Usuários",
     descricao: "Não foram atendidos na RAPS nos 6 meses anteriores à internação nem até o mês após a alta",
     statusAntes: false,
     statusDepois: true,
   },
   {
-    indicador:"692",
+    indicador:692,
     indicadorDescricao: "Usuários",
     descricao: "Não foram atendidos na RAPS nos 6 meses anteriores à internação nem até o mês após a alta",
     statusAntes: true,
     statusDepois: false,
   },
   {
-    indicador:"692",
+    indicador:692,
     indicadorDescricao: "Usuários",
     descricao: "Não foram atendidos na RAPS nos 6 meses anteriores à internação nem até o mês após a alta",
     statusAntes: true,
     statusDepois: true,
   },
   {
-    indicador:"692",
+    indicador:692,
     indicadorDescricao: "Usuários",
     descricao: "Não foram atendidos na RAPS nos 6 meses anteriores à internação nem até o mês após a alta",
     statusAntes: false,
@@ -174,8 +180,11 @@ const cardsTipoA = cardsDataTipoA.map((card) => (
   <CardInfoTipoA
     titulo={card.titulo}
     indicador={card.indicador}
+    indicadorDescricao={card.indicadorDescricao}
+    indicadorSimbolo={card.indicadorSimbolo}
     indice={card.indice}
     indiceDescricao={card.indiceDescricao}
+    indiceSimbolo={card.indiceSimbolo}
     link={card.link}
     fonte={card.fonte}
     tooltip={card.tooltip}
@@ -187,6 +196,7 @@ const cardsTipoC = cardsDataTipoC.map((card) => (
     descricao={card.descricao}
     indicador={card.indicador}
     indicadorDescricao={card.indicadorDescricao}
+    indicadorSimbolo={card.indicadorSimbolo}
     statusAntes={card.statusAntes}
     statusDepois={card.statusDepois}
   />
@@ -196,7 +206,11 @@ const cardsTipoB = cardsDataTipoB.map((card) => (
   <CardInfoTipoB
     descricao={card.descricao}
     indicador={card.indicador}
+    indicadorSimbolo={card.indicadorSimbolo}
+    indicadorDescricao={card.indicadorDescricao}
+    indicadorTotal={card.indicadorTotal}
     indice={card.indice}
+    indiceSimbolo={card.indiceSimbolo}
     indiceDescricao={card.indiceDescricao}
     titulo={card.titulo}
     tooltip={card.tooltip}
