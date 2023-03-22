@@ -1,7 +1,7 @@
+import React from "react";
 import Link from "next/link";
 import Tippy from "@tippyjs/react";
-import React from "react";
-import style from "./CardInfo.module.css"
+import style from "./CardInfo.module.css";
 import cx from "classnames";
 import ReactEcharts from "echarts-for-react";
 import "tippy.js/themes/light.css";
@@ -266,4 +266,8 @@ const CardInfoTipoC = ({
     )
 }
 
-export { CardInfoTipoA, CardInfoTipoB, CardInfoTipoC }
+export {
+    CardInfoTipoA,
+    CardInfoTipoB,
+    CardInfoTipoC,
+}
