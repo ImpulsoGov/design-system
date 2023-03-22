@@ -11,19 +11,27 @@ export default {
     },
     indicador: {
         name: "indicador",
-        description: "Valor do indicador do card *string*"
+        description: "Valor do indicador do card *number*"
     },
     indicadorDescricao: {
         name: "indicadorDescricao",
         description: "Descrição do indicador do card *string*"
     },
+    indicadorSimbolo: {
+        name: "indicadorSimbolo",
+        description: "Símbolo associado ao indicador *string* \n\n Exemplo: %"
+    },
     indice: {
         name: "indice",
-        description: "Índice do indicador do card *string*"
+        description: "Índice do indicador do card *number*"
     },
     indiceDescricao: {
         name: "indiceDescricao",
         description: "Descrição do índice do card *string*"
+    },
+    indiceSimbolo: {
+        name: "indiceSimbolo",
+        description: "Símbolo associado ao índice *string* \n\n Exemplo: %"
     },
     link: {
         name: "link",
