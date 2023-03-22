@@ -16,14 +16,15 @@
     flex-direction: row;
     gap: 40px;
 }
-.TipoB .CardInfoDireita {
+.TipoB .CardInfoDireita{
     width: 60%;
 }
-.TipoB .CardInfoEsquerda {
+.TipoB .CardInfoEsquerda{
     display: flex;
     justify-content: center;
     align-items: center;
     width: 40%;
+    height: 100%;
 }
 .TipoC{
     gap: 20px;
@@ -112,6 +113,7 @@
 @media screen and (max-width: 360px) {
     .TipoB {
         flex-direction: column;
+        gap: 15px;
     }
 
     .TipoB .CardInfoDireita,

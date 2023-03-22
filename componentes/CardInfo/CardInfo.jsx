@@ -3,6 +3,7 @@ import Tippy from "@tippyjs/react";
 import React from "react";
 import style from "./CardInfo.module.css"
 import cx from "classnames";
+import ReactEcharts from "echarts-for-react";
 import "tippy.js/themes/light.css";
 
 const CardInfoTitulo = ({ titulo, tooltip }) => {
@@ -152,6 +153,40 @@ const CardInfoTipoB = ({
     indiceDescricao,
     descricao,
 }) => {
+    const echartsOptions = {
+        series: [
+            {
+                type: 'pie',
+                radius: ['60%', '80%'],
+                avoidLabelOverlap: false,
+                percentPrecision: 2,
+                label: {
+                    show: true,
+                    fontSize: 14,
+                    color: "black",
+                    fontWeight: 'bold',
+                    formatter: "{d}%",
+                    position: 'center',
+                },
+                emphasis: {
+                    label: {
+                        show: true,
+                        fontSize: 14,
+                        color: "black",
+                        fontWeight: 'bold',
+                        formatter: "{d}%",
+                        backgroundColor: "white",
+                        padding: 3
+                    }
+                },
+                data: [
+                    { value: indicador / indicadorTotal },
+                    { value: (indicadorTotal - indicador) / indicadorTotal },
+                ]
+            }
+        ]
+    };
+
     return (
         <div className={cx(style.CardInfo, style.TipoB)}>
             <div className={style.CardInfoDireita}>
@@ -179,7 +214,12 @@ const CardInfoTipoB = ({
                 {descricao && <CardInfoDescricao descricao={descricao} />}
             </div>
 
-            <div className={style.CardInfoEsquerda}>Gráfico</div>
+            <div className={style.CardInfoEsquerda}>
+                <ReactEcharts
+                    option={echartsOptions}
+                    style={{ width: "100%", height: "100%" }}
+                />
+            </div>
         </div>
     )
 }
