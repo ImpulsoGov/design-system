@@ -160,6 +160,7 @@ const CardInfoTipoB = ({
                 radius: ['60%', '80%'],
                 avoidLabelOverlap: false,
                 percentPrecision: 2,
+                cursor: "default",
                 label: {
                     show: true,
                     fontSize: 14,
@@ -169,19 +170,25 @@ const CardInfoTipoB = ({
                     position: 'center',
                 },
                 emphasis: {
-                    label: {
-                        show: true,
-                        fontSize: 14,
-                        color: "black",
-                        fontWeight: 'bold',
-                        formatter: "{d}%",
-                        backgroundColor: "white",
-                        padding: 3
-                    }
+                    disabled: true
+                    // label: {
+                    //     show: true,
+                    //     fontSize: 14,
+                    //     color: "black",
+                    //     fontWeight: 'bold',
+                    //     formatter: "{d}%",
+                    //     backgroundColor: "white",
+                    //     padding: 3
+                    // }
                 },
                 data: [
-                    { value: indicador / indicadorTotal },
-                    { value: (indicadorTotal - indicador) / indicadorTotal },
+                    {
+                        value: indicador / indicadorTotal
+                    },
+                    {
+                        value: (indicadorTotal - indicador) / indicadorTotal,
+                        label: { show: false }
+                    },
                 ]
             }
         ]
