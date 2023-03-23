@@ -1,3 +1,4 @@
+import React from "react";
 import Tippy from "@tippyjs/react";
 import Link from "next/link";
 import style from "./GraficoInfo.module.css";
