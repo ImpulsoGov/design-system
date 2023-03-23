@@ -31,7 +31,6 @@ const GraficoInfo = ({
 
         <div className={style.InfoContainer}>
             {descricao && <p className={style.Descricao}>{descricao}</p>}
-
             {fonte && <p className={style.Fonte}>{fonte}</p>}
         </div>
 

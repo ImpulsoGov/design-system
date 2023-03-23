@@ -19,7 +19,7 @@
 
 .Titulo {
     margin: 0;
-    font-size: 32px;
+    font-size: 20px;
     line-height: 130%;
 }
 
@@ -57,18 +57,18 @@
 }
 
 .Descricao {
-    font-size: 24px;
+    font-size: 18px;
     line-height: 150%;
 }
 
 .Fonte {
-    font-size: 16px;
+    font-size: 14px;
     line-height: 150%;
 }
 
 .Link {
     color: #4294D8;
-    font-size: 16px;
+    font-size: 14px;
     line-height:  150%;
     justify-self: flex-end;
     height: fit-content;
@@ -83,14 +83,14 @@
     }
 
     .Titulo {
-        font-size: 24px;
+        font-size: 18px;
     }
 
     .Descricao {
-        font-size: 16px;
+        font-size: 14px;
     }
 
     .InfoSimbolo, .Fonte, .Link {
-        font-size: 14px;
+        font-size: 12px;
     }
 }
