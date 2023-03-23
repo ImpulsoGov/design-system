@@ -36,7 +36,7 @@ export { RecuperarSenha } from "./RecuperarSenha/RecuperarSenha";
 export { Slider } from "./Slider/Slider";
 export { SobreTrilha } from "./SobreTrilha/SobreTrilha";
 export { TextCol } from "./TextCol/TextCol";
-export { TituloTexto } from "./TituloTexto/TituloTexto";
+export { TituloTexto, TituloSmallTexto } from "./TituloTexto/TituloTexto";
 export { ToggleList } from "./ToggleList/ToggleList";
 export { ToggleListElementBlock } from "./ToggleListElementBlock/ToggleListElementBlock";
 export { ToggleText } from "./ToggleText/ToggleText";

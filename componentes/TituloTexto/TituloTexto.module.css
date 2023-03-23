@@ -10,6 +10,13 @@
     font-size: 64px;  
     padding-bottom: 30px;
 }
+
+.tituloSmall{
+    width: 70%;
+    font-size: 32px;  
+    padding-bottom: 30px;
+}
+
 .corpoTexto{
     text-align: justify;
     font-size: 24px;  
@@ -32,14 +39,15 @@
         padding: 30px 40px 30px 40px;
     }
 }
-
-
 /* SMALL */
 @media screen and (max-width: 1023px) {
     .containerTexto{
     }
     .tituloTexto{
         font-size: 32px;  
+    }
+    .tituloSmall{
+        font-size: 16px;  
     }
     .corpoTexto{
         font-size: 14px;  

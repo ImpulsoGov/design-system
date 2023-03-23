@@ -1,5 +1,5 @@
 import React from 'react'
-import {TituloTexto} from './index'
+import {TituloTexto, TituloSmallTexto} from './index'
 
 export default {
   component: TituloTexto,
@@ -34,6 +34,7 @@ export default {
 
 const Default = ({...args}) => <TituloTexto {...args} />;
 
+const Small = ({...args}) => <TituloSmallTexto {...args} />;
 
 export const Standart = Default.bind({});
 Standart.args = {
@@ -45,3 +46,13 @@ Standart.args = {
   texto : "Impulso Gov, uma organização sem fins lucrativos e suprapartidária que apoia profissionais do SUS no aprimoramento das políticas públicas por meio do uso de dados e tecnologia, para que todas as pessoas no Brasil tenham acesso a serviços de saúde de qualidade.<br/><br/><b>Quer saber mais sobre a Impulso Gov Acesse o nosso <a style='text-decoration: none' href='impulsogov.org'>site.</a> </b>"
 };
 
+
+export const TituloPequeno = Small.bind({});
+TituloPequeno.args = {
+  imagem : {
+    posicao: null,
+    url: ''
+  },
+  titulo : "A Impulso Gov",
+  texto : "Impulso Gov, uma organização sem fins lucrativos e suprapartidária que apoia profissionais do SUS no aprimoramento das políticas públicas por meio do uso de dados e tecnologia, para que todas as pessoas no Brasil tenham acesso a serviços de saúde de qualidade.<br/><br/><b>Quer saber mais sobre a Impulso Gov Acesse o nosso <a style='text-decoration: none' href='impulsogov.org'>site.</a> </b>"
+};

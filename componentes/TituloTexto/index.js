@@ -1,1 +1,1 @@
-export { TituloTexto } from "./TituloTexto"
+export { TituloTexto, TituloSmallTexto} from "./TituloTexto"

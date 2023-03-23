@@ -46,6 +46,49 @@ const ImageTop = ({
   }
 }
 
+const ImageTopTitutloSmall = ({
+  top,
+  link,
+  titulo,
+}) => {
+  if (top==true) {
+    return(
+      <div>
+        <ImagensFull2 imagem={link} />
+        <div 
+          className={style.tituloSmall}
+          dangerouslySetInnerHTML={{
+            __html: sanitize(titulo),
+          }}        
+        ></div>
+  </div>
+    )
+  }else if (top==false) {
+    return(
+      <div>
+        <div 
+          className={style.tituloSmall}
+          dangerouslySetInnerHTML={{
+            __html: sanitize(titulo),
+          }}        
+        ></div>
+        <ImagensFull2 imagem={link} />
+      </div>
+    )
+  }else{
+    return(
+      <div>
+        <div 
+          className={style.tituloSmall}
+          dangerouslySetInnerHTML={{
+            __html: sanitize(titulo),
+          }}        
+        ></div>
+      </div>
+    )
+  }
+}
+
 const TituloTexto = ({
   titulo,
   texto,
@@ -67,4 +110,25 @@ const TituloTexto = ({
       </div>
 )};
 
-export {TituloTexto};
+const TituloSmallTexto = ({
+  titulo,
+  texto,
+  imagem,
+}) => {
+  return (
+      <div className={style.containerTexto}>
+        <ImageTopTitutloSmall
+         top = {imagem.posicao}
+         link = {imagem.url}
+         titulo = {titulo}
+         />
+        <div 
+          className={style.corpoTexto}
+          dangerouslySetInnerHTML={{
+            __html: sanitize(texto),
+          }}        
+        ></div>
+      </div>
+)};
+
+export {TituloTexto, TituloSmallTexto};
