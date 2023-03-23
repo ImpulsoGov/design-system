@@ -3,6 +3,7 @@ import style from "./CardLarge.module.css"
 import Link from "next/link";
 import { ButtonLightMobile } from "../ButtonLight";
 import cx from 'classnames';
+import { ToggleList } from "../ToggleList";
 
 const CardLarge = ({
     icon,
@@ -42,6 +43,40 @@ const CardLarge = ({
             </div>
         </div>
     )
+}
+
+const CardLargeClickable = ({ link, icon, titulo, theme, infos }) => {
+    return (
+        <a href={link} className={style.CardLargeClickable} >
+            <div className={cx(style.CardLargeContainer, style[`${theme}`])}>
+                <div className={style.CardLargeClickableTitulo}>
+                    <img
+                        className={style.CardLargeIcon}
+                        src={icon}
+                        alt="Ícone"
+                    />
+                    {titulo}
+                </div>
+
+                {infos && (
+                    <div className={style.CardLargeClickableInfosContainer}>
+                        {infos.map((info) => (
+                            <div className={style.CardLargeClickableInfo}>
+                                {info.icon && <img
+                                    className={style.CardLargeClickableInfoIcon}
+                                    src={info.icon}
+                                    alt="Ícone"
+                                />}
+                                <span className={style.CardLargeClickableInfoContent}>
+                                    {info.content}
+                                </span>
+                            </div>
+                        ))}
+                    </div>
+                )}
+            </div>
+        </a>
+    );
 }
 
 const CardLargeGrid = ({cards, obs, theme})=>{
@@ -95,27 +130,16 @@ const CardLargeGridInicioSM = ({cards, cardsExtra, obs, theme})=>{
                             <div className={style.CardLargeTexto}>{cards[1].texto}</div>
                         </div>
                     </a>
-                    <div>
-                        <a href={cardsExtra[0].link} >
-                            <div className={cx(style.CardLargeContainer, style[`${theme}`])}>
-                                <div className={style.CardLargeTitulo}>
-                                    <img 
-                                        className={style.CardLargeIcon}
-                                        src={cardsExtra[0].icon}
-                                    /> {cardsExtra[0].titulo}
-                                </div>
-                            </div>
-                        </a>
-                        <a href={cardsExtra[1].link} >
-                            <div style={{marginTop: 20}} className={cx(style.CardLargeContainer, style[`${theme}`])}>
-                                <div className={style.CardLargeTitulo}>
-                                    <img 
-                                        className={style.CardLargeIcon}
-                                        src={cardsExtra[1].icon}
-                                    /> {cardsExtra[1].titulo}
-                                </div>
-                            </div>
-                        </a>
+                    <div className={style.CardLargeGridRightCards}>
+                        {cardsExtra.map((card) => (
+                            <CardLargeClickable
+                                link={card.link}
+                                icon={card.icon}
+                                titulo={card.titulo}
+                                infos={card.infos}
+                                theme={theme}
+                            />
+                        ))}
                     </div>
             </div>
             <p className={style.CardLargeOBS}>{obs}</p>
@@ -124,4 +148,30 @@ const CardLargeGridInicioSM = ({cards, cardsExtra, obs, theme})=>{
     )
 }
 
-export {CardLarge,CardLargeGrid,CardLargeGridInicioSM}
+const CardLargeGridToggleList = ({ togglelist, cards, theme }) => {
+    return (
+        <div className={style.CardLargeGridToggleList}>
+            <ToggleList
+                direction="Column"
+                icon={togglelist.icon}
+                list={togglelist.list}
+                theme={togglelist.theme ? togglelist.theme : "LightGrey"}
+                title={togglelist.title}
+            />
+
+            <div className={style.CardLargeGridRightCards}>
+                {cards.map((card) => (
+                    <CardLargeClickable
+                        link={card.link}
+                        icon={card.icon}
+                        titulo={card.titulo}
+                        infos={card.infos}
+                        theme={theme}
+                    />
+                ))}
+            </div>
+        </div>
+    );
+}
+
+export {CardLarge,CardLargeGrid,CardLargeGridInicioSM,CardLargeGridToggleList,CardLargeClickable}

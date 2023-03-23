@@ -6,7 +6,7 @@ export { ButtonLight, ButtonLightMobile, ButtonLightSubmit, ButtonLightSubmitMob
 export { ButtonLogin } from "./ButtonLogin/ButtonLogin";
 export { CardAlert } from "./CardAlert/CardAlert";
 export { CardInfoTipoA, CardInfoTipoB, CardInfoTipoC } from "./CardInfo";
-export { CardLarge, CardLargeGrid, CardLargeGridInicioSM } from "./CardLarge/CardLarge";
+export { CardLarge, CardLargeGrid, CardLargeGridInicioSM, CardLargeGridToggleList } from "./CardLarge/CardLarge";
 export { CardTrilha } from "./CardTrilha/CardTrilha";
 export { Content3Col } from "./Content3Col/Content3Col";
 export { ConteudoBlog } from "./ConteudoBlog/ConteudoBlog";

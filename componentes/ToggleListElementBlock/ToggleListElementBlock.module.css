@@ -129,7 +129,7 @@
 @media(max-width: 360px) {
   .ToggleListElementBlock p:nth-child(1) {
     font-weight: 400;
-    font-size: 20px;
+    font-size: 24px;
     line-height: 130%;
 
     letter-spacing: -0.02em;
