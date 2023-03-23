@@ -1,1 +1,5 @@
-export { CardInfo } from "./CardInfo";
+export {
+  CardInfoTipoA,
+  CardInfoTipoB,
+  CardInfoTipoC,
+} from "./CardInfo";
