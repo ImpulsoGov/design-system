@@ -3,6 +3,7 @@ import Tippy from "@tippyjs/react";
 import Link from "next/link";
 import style from "./GraficoInfo.module.css";
 import "tippy.js/themes/light.css";
+import { sanitize } from "../sanitize";
 
 const GraficoInfo = ({
     titulo,
@@ -30,7 +31,7 @@ const GraficoInfo = ({
         </div>
 
         <div className={style.InfoContainer}>
-            {descricao && <p className={style.Descricao}>{descricao}</p>}
+            {descricao && <p className={style.Descricao} dangerouslySetInnerHTML={{__html: sanitize(descricao)}}></p>}
             {fonte && <p className={style.Fonte}>{fonte}</p>}
         </div>
 
