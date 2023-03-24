@@ -1,5 +1,5 @@
 .GridContainer {
-    margin: 45px 200px;
+    margin: 45px 125px;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-auto-rows: max-content;
@@ -103,7 +103,7 @@
     grid-column: 9/13;
 }
 
-@media screen and (max-width: 1367px) {
+@media screen and (max-width: 1440px) {
     .GridContainer {
         margin: 45px 80px;
     }
@@ -152,8 +152,8 @@
 
 @media screen and (max-width: 375px) {
     .GridContainer {
-        margin: 45px 15px;
-        gap: 15px;
+        margin: 45px 16px;
+        gap: 16px;
     }
 
     .GridItem4-4-4:nth-child(n),
