@@ -116,6 +116,17 @@
     font-size: 18px;
 }
 
+/* MEDIUM */
+@media(max-width: 780px) {
+    .CardInfo {
+        font-size: 14px;
+    }
+
+    .CardInfoFonte {
+        font-size: 12px;
+    }
+}
+
 @media screen and (max-width: 360px) {
     .TipoB {
         flex-direction: column;
