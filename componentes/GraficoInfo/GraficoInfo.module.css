@@ -10,6 +10,7 @@
     grid-template-columns: 2fr 1fr;
     column-gap: 20px;
     row-gap: 10px;
+    padding: 30px 80px;
 }
 
 .TituloContainer {
@@ -19,7 +20,7 @@
 
 .Titulo {
     margin: 0;
-    font-size: 20px;
+    font-size: 24px;
     line-height: 130%;
 }
 
@@ -57,7 +58,7 @@
 }
 
 .Descricao {
-    font-size: 18px;
+    font-size: 16px;
     line-height: 150%;
 }
 
@@ -74,23 +75,50 @@
     height: fit-content;
 }
 
-/* SMALL */
+/* XLARGE */
+@media screen and (min-width: 1920px) {
+    .GraficoInfo {
+        padding: 30px 125px;
+    }
+
+    .Titulo {
+        font-size: 32px;
+    }
+
+    .Descricao {
+        font-size: 24px;
+    }
+
+    .InfoSimbolo, .Fonte, .Link {
+        font-size: 16px;
+    }
+}
+
+/* MEDIUM */
 @media(max-width: 780px) {
     .GraficoInfo {
         display: flex;
         flex-direction: column;
         gap: 12px;
+        padding: 30px 40px;
     }
 
     .Titulo {
-        font-size: 18px;
+        font-size: 16px;
     }
 
-    .Descricao {
+    .Descricao, .InfoSimbolo {
         font-size: 14px;
     }
 
-    .InfoSimbolo, .Fonte, .Link {
+    .Fonte, .Link {
         font-size: 12px;
+    }
+}
+
+/* SMALL */
+@media(max-width: 360px) {
+    .GraficoInfo {
+        padding: 30px 16px;
     }
 }
