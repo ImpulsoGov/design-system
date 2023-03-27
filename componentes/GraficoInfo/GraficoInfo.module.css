@@ -93,6 +93,13 @@
 }
 
 /* MEDIUM */
+@media(max-width: 1366px) {
+    .Titulo {
+        font-size: 18px;
+    }
+}
+
+/* MEDIUM */
 @media(max-width: 780px) {
     .GraficoInfo {
         display: flex;
