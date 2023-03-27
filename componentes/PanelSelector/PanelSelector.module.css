@@ -143,6 +143,10 @@
   cursor: pointer;
 }
 
+.PanelSelectorComponents {
+  padding: 0 9%;
+}
+
 @media(max-width: 639px){
   .PanelSelectorMain{
     display: flex;

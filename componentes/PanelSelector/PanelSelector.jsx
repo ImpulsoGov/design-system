@@ -53,4 +53,56 @@ const PanelSelector = (props) => {
   );
 };
 
-export { PanelSelector };
+const PanelSelectorSM = (props) => {
+  const initialPanel = (typeof(props?.panel)!='undefined') ? props.panel : 0
+  const initialTitle = (typeof(props?.initialTitle)!='undefined') ? props.initialTitle : 0
+  const [activeTabIndex, setActiveTabIndex] = useState(initialPanel);
+  const [activeTitleTabIndex, setActiveTitleTabIndex] = useState(initialTitle);
+  return (
+    <div style={{zIndex:90,position:'relative',width:'100%'}}>
+      <div className={style.PanelSelectorMain}>
+        <div className={style.PanelSelectorTitles}>
+          {props.titles.map((title, index) => (
+            <div
+              onClick={() => {
+                setActiveTitleTabIndex(index);
+              }}
+              key={index}
+              className={
+                activeTitleTabIndex === index
+                  ? style.PanelSelectorTitleButtonSelected
+                  : style.PanelSelectorTitleButton
+              }
+            >
+              {title.label}
+            </div>
+          ))}
+        </div>
+
+        <div className={cx(style.PanelSelectorContainer,style["PanelSelectorContainerPosition"+activeTitleTabIndex.toString()])}>
+          {props.subtitles[activeTitleTabIndex].map((subtitle, index) => (
+            <div
+              onClick={() => {
+                setActiveTabIndex(index);
+              }}
+              key={index}
+              className={
+                activeTabIndex === index
+                  ? style.PanelSelectorButtonSelected
+                  : style.PanelSelectorButton
+              }
+            >
+              {subtitle.label}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className={style.PanelSelectorComponents}>
+        {props.components[activeTitleTabIndex][activeTabIndex]}
+      </div>
+    </div>
+  );
+};
+
+export { PanelSelector, PanelSelectorSM };
