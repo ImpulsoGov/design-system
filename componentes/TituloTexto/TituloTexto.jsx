@@ -116,7 +116,7 @@ const TituloSmallTexto = ({
   imagem,
 }) => {
   return (
-      <div className={style.containerTexto}>
+      <div className={style.containerTextoSmall}>
         <ImageTopTitutloSmall
          top = {imagem.posicao}
          link = {imagem.url}
