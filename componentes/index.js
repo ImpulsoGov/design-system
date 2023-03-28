@@ -28,7 +28,7 @@ export { ModalAlert, Alert } from "./ModalAlert/ModalAlert";
 export { ModalLogged } from "./ModalLogged/ModalLogged";
 export { MateriaisComplementares, ModulosTrilha } from "./ModulosTrilha/ModulosTrilha";
 export { NavBar } from "./NavBar/NavBar";
-export { PanelSelector } from "./PanelSelector/PanelSelector";
+export { PanelSelector, PanelSelectorSM } from "./PanelSelector/PanelSelector";
 export { Parcerias } from "./Parcerias/Parcerias";
 export { ParceriasTexto } from "./ParceriasTexto/ParceriasTexto";
 export { PreviewArtigo } from "./PreviewArtigo/PreviewArtigo";
