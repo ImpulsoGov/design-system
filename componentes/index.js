@@ -24,6 +24,7 @@ export { InfoTab } from "./InfoTab/InfoTab";
 export { ListaArtigos } from "./ListaArtigos/ListaArtigos";
 export { Login } from "./Login/Login";
 export { Modal } from "./Modal/Modal";
+export { ModalAlert, Alert } from "./ModalAlert/ModalAlert";
 export { ModalLogged } from "./ModalLogged/ModalLogged";
 export { MateriaisComplementares, ModulosTrilha } from "./ModulosTrilha/ModulosTrilha";
 export { NavBar } from "./NavBar/NavBar";
