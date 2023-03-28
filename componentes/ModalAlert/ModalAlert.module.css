@@ -4,6 +4,9 @@
     background-color: rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
+    position: fixed;
+    top: 0;
+    z-index: 9000;
 }
 .Alert{
     display: flex;
