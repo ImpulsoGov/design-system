@@ -1,1 +1,1 @@
-export {PanelSelector} from "./PanelSelector";
+export { PanelSelector, PanelSelectorSM } from "./PanelSelector";

@@ -10,6 +10,7 @@
     grid-template-columns: 2fr 1fr;
     column-gap: 20px;
     row-gap: 10px;
+    padding: 30px 0;
 }
 
 .TituloContainer {
@@ -19,7 +20,7 @@
 
 .Titulo {
     margin: 0;
-    font-size: 20px;
+    font-size: 32px;
     line-height: 130%;
 }
 
@@ -29,13 +30,12 @@
     font-style: normal;
     font-weight: 400;
     text-align: center;
-    letter-spacing: 0;
     line-height: 150%;
 }
 
 .InfoSimbolo {
     color: #9ba4a5;
-    font-size: 16px;
+    font-size: 18px;
     line-height: 150%;
     font-weight: bolder;
 }
@@ -57,24 +57,58 @@
 }
 
 .Descricao {
-    font-size: 18px;
+    font-size: 24px;
     line-height: 150%;
 }
 
 .Fonte {
-    font-size: 14px;
+    font-size: 18px;
     line-height: 150%;
 }
 
 .Link {
     color: #4294D8;
-    font-size: 14px;
-    line-height:  150%;
+    font-size: 18px;
+    line-height: 150%;
     justify-self: flex-end;
     height: fit-content;
 }
 
-/* SMALL */
+/* LARGE */
+@media(max-width: 1440px) {
+    .Titulo {
+        font-size: 24px;
+    }
+
+    .Descricao {
+        font-size: 18px;
+    }
+
+    .InfoSimbolo,
+    .Fonte,
+    .Link {
+        font-size: 16px;
+    }
+}
+
+/* MEDIUM */
+@media(max-width: 1366px) {
+    .Titulo {
+        font-size: 18px;
+    }
+
+    .Descricao {
+        font-size: 16px;
+    }
+
+    .InfoSimbolo,
+    .Fonte,
+    .Link {
+        font-size: 14px;
+    }
+}
+
+/* MEDIUM */
 @media(max-width: 780px) {
     .GraficoInfo {
         display: flex;
@@ -83,14 +117,16 @@
     }
 
     .Titulo {
-        font-size: 18px;
+        font-size: 16px;
     }
 
-    .Descricao {
+    .Descricao,
+    .InfoSimbolo {
         font-size: 14px;
     }
 
-    .InfoSimbolo, .Fonte, .Link {
+    .Fonte,
+    .Link {
         font-size: 12px;
     }
 }

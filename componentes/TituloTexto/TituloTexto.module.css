@@ -5,6 +5,13 @@
     font-style: normal;
     font-weight: 400;
 }
+.containerTextoSmall{
+    background-color: #FFF;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    padding: 30px 0;
+}
 .tituloTexto{
     width: 70%;
     font-size: 64px;  
@@ -47,7 +54,7 @@
         font-size: 32px;  
     }
     .tituloSmall{
-        font-size: 16px;  
+        font-size: 18px;  
     }
     .corpoTexto{
         font-size: 14px;  
@@ -92,5 +99,8 @@
     }
     .corpoTexto{
         font-size: 32px;  
+    }
+    .tituloSmall{
+        font-size: 48px;
     }
 }
