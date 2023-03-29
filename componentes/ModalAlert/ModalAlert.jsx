@@ -1,6 +1,6 @@
 import React, {useState,useRef,useEffect} from "react";
 import style from "./ModalAlert.module.css";
-import { ButtonColor,ButtonColorMobile } from "../ButtonColor";
+import { ButtonColorMobileTarget, ButtonColorTarget } from "../ButtonColor/ButtonColor";
 
 const CardProfissional = ({cardProfissional})=>{
     return(
@@ -50,8 +50,8 @@ const Alert = ({
                     })
                 }
             </div>
-            <div className={style.botaoDesktop}><ButtonColor label={props.botao.label} link={props.botao.url} /></div>
-            <div className={style.botaoMobile}><ButtonColorMobile label={props.botao.label} link={props.botao.url} /></div>
+            <div className={style.botaoDesktop}><ButtonColorTarget label={props.botao.label} link={props.botao.url} /></div>
+            <div className={style.botaoMobile}><ButtonColorMobileTarget label={props.botao.label} link={props.botao.url} /></div>
         </div>
     )
 }

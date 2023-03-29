@@ -19,6 +19,22 @@ const ButtonColor = ({
         </Link>
     )
 }
+const ButtonColorTarget = ({
+    icone,
+    label,
+    link
+})=>{
+    return(
+        <Link href={link}>
+            <a  className={style.ButtonColorIconContainer} target="_blank"> 
+                {icone?.posicao=='right' && <img className={style.IconeRight} src={icone?.url} />}
+                {label} 
+                {icone?.posicao=='left' && <img className={style.IconeLeft} src={icone?.url} />}
+            </a>
+        </Link>
+    )
+}
+
 const ButtonColorMobile = ({
     icone,
     label,
@@ -34,6 +50,22 @@ const ButtonColorMobile = ({
         </Link>
     )
 }
+const ButtonColorMobileTarget = ({
+    icone,
+    label,
+    link
+})=>{
+    return(
+        <Link href={link}>
+            <a  className={style.ButtonColorIconContainerMobile} target="_blank"> 
+                {icone?.posicao=='right' && <img className={style.IconeRight} src={icone?.url} />}
+                {label} 
+                {icone?.posicao=='left' && <img className={style.IconeLeft} src={icone?.url} />}
+            </a>
+        </Link>
+    )
+}
+
 
 const ButtonColorSubmit = ({
     label,
@@ -134,4 +166,4 @@ ButtonColorSubmitMultiple.propTypes = {
     theme: PropTypes.string
 }
 
-export {ButtonColor,ButtonColorSubmit,ButtonColorSubmitMultiple,ButtonColorSubmitMobile,ButtonColorMobile,ButtonColorSubmitIcon}
+export {ButtonColor,ButtonColorTarget,ButtonColorSubmit,ButtonColorSubmitMultiple,ButtonColorSubmitMobile,ButtonColorMobile,ButtonColorMobileTarget,ButtonColorSubmitIcon}
