@@ -24,10 +24,6 @@ export default {
       name: "indicadorSimbolo",
       description: "Símbolo associado ao indicador *string* \n\n Exemplo: %"
     },
-    indicadorTotal: {
-      name: "indicadorTotal",
-      description: "Valor total do indicador exibido no card para calcular porcentagem exibida no gráfico *number*"
-    },
     indice: {
       name: "indice",
       description: "Índice do indicador do card *number*"
@@ -44,17 +40,26 @@ export default {
       name: "descricao",
       description: "Descrição do card *string*"
     },
+    porcentagemSim: {
+      name: "porcentagemSim",
+      description: "Porcentagem referente ao campo 'Sim' do gráfico do card *number*"
+    },
+    porcentagemNao: {
+      name: "porcentagemNao",
+      description: "Porcentagem referente ao campo 'Não' do gráfico do card  *number*"
+    },
   }
-}
+};
 
-const Template = (args) => <CardInfoTipoB {...args}/>
+const Template = (args) => <CardInfoTipoB { ...args } />;
 export const Completo = Template.bind({});
-Completo.args={
+Completo.args = {
   titulo: "Encaminhamentos para CAPS no mês de Junho",
   tooltip: "Dados sobre encaminhamentos para CAPS no mês de Junho",
   indicador: 18,
-  indicadorTotal: 4823,
   indice: -4,
   indiceDescricao: "últ. mês",
   descricao: "de 4823 atendimentos em saúde mental na APS",
-}
+  porcentagemSim: 7.72,
+  porcentagemNao: 92.28
+};
