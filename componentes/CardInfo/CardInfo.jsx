@@ -147,16 +147,17 @@ const CardInfoTipoB = ({
     indicador,
     indicadorSimbolo,
     indicadorDescricao,
-    indicadorTotal,
     indice,
     indiceSimbolo,
     indiceDescricao,
     descricao,
+    porcentagemSim,
+    porcentagemNao
 }) => {
     const echartsOptions = {
         tooltip: {
             trigger: 'item',
-            valueFormatter: (value) => `${(value * 100).toFixed(2)}%`
+            valueFormatter: (value) => `${value.toFixed(2)}%`
         },
         series: [
             {
@@ -183,14 +184,14 @@ const CardInfoTipoB = ({
                 },
                 data: [
                     {
-                        value: indicador / indicadorTotal,
+                        value: porcentagemSim,
                         name: "Sim",
                         itemStyle: {
                             color: "#5367C9"
                         }
                     },
                     {
-                        value: (indicadorTotal - indicador) / indicadorTotal,
+                        value: porcentagemNao,
                         label: { show: false },
                         name: "Não",
                         itemStyle: {
