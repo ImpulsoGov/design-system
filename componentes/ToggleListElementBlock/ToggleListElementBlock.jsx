@@ -1,5 +1,7 @@
 import React from "react";
 import { useState } from "react";
+import { sanitize } from "../sanitize";
+
 import styles from "./ToggleListElementBlock.module.css";
 
 const ToggleListElementBlock = (props) => {
@@ -25,7 +27,11 @@ const ToggleListElementBlock = (props) => {
                 return(
                   <div key={index} className={styles.ToggleListBlock}>
                     <strong>{block?.subTitle}</strong>
-                    <p>{block?.description}</p>
+                    <p
+                    dangerouslySetInnerHTML={{
+                      __html: sanitize(block?.description),
+                    }}   
+                    ></p>
                     <p>{block?.source}</p>
                     <p>{block?.concept?.title}</p>
                     {

@@ -35,7 +35,7 @@ const list = [
     blocks:[
       {
         subTitle: "Número de usuários ativos",
-        description: "Definição: que tiveram pelo menos um registro em ficha de ações psicossociais no mês de referência ou em um dos dois meses anteriores.",
+        description: "<b>Definição</b>: que tiveram pelo menos um registro em ficha de ações psicossociais no mês de referência ou em um dos dois meses anteriores.",
         source: "Fonte: RAAS/SIASUS",
         concept: {
           title:"Conceitos:",
@@ -93,7 +93,7 @@ const list = [
     blocks:[
       {
         subTitle: "Número de usuários ativos",
-        description: "Definição: que tiveram pelo menos um registro em ficha de ações psicossociais no mês de referência ou em um dos dois meses anteriores.",
+        description: "Definição: que tiveram pelo menos um <br>registro</br> em ficha de ações psicossociais no mês de referência ou em um dos dois meses anteriores.",
         source: "Fonte: RAAS/SIASUS"
       },
       {
