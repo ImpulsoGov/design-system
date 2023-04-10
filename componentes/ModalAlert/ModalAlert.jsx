@@ -56,6 +56,26 @@ const Alert = ({
     )
 }
 
+const CardAlert = ({
+    refModal,
+    props
+})=>{
+    return (
+        <div className={style.Alert} ref={refModal}>
+            <div className={style.close}>
+                <a 
+                    className={style.ModalExit}
+                    onClick={()=>props.setDisplay(false)}
+                ></a>
+            </div>
+            <div className={style.Container}>
+                <props.child props={{...props.childProps}} />
+            </div>
+        </div>
+    )
+}
+
+
 const ModalAlert= ({Child,childProps})=>{
     const [display, setDisplay] = useState(true)
     const refModal = useRef()
@@ -72,4 +92,20 @@ const ModalAlert= ({Child,childProps})=>{
     )
 }
 
-export {ModalAlert,Alert}
+const ModalAlertOff= ({Child,childProps,display,setDisplay})=>{
+    const refModal = useRef()
+    useEffect(() => {
+        const handleClick = e => {if (!display && !refModal?.current.contains(e.target)) setDisplay(false);}
+        document.addEventListener("click", handleClick);
+        return () => document.removeEventListener("click", handleClick);
+    },[display]);
+    console.log(display)
+        return(
+            display &&
+            <div className={style.ModalAlert}> 
+                <Child refModal={refModal} props={{...childProps,setDisplay : setDisplay}}/>
+            </div>
+    )
+}
+
+export {ModalAlert,Alert,CardAlert,ModalAlertOff}

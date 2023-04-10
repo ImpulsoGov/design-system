@@ -60,6 +60,7 @@ const ConteudoVideoPPT = ({
                     <div className={style.ConteudoTrilhaEstrelas}>
                         {
                             estrelas.map((estrela)=>{
+                                console.log(estrela)
                                 return(
                                     <img key={estrela}
                                         src={estrela <= avaliacao.states.starHover ? "https://media.graphassets.com/VXmCLpFCSQymMFSJKmQP":"https://media.graphassets.com/JteHCpjJTPes0RyFcgEU"}

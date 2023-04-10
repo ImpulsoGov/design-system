@@ -1,0 +1,57 @@
+.Titulo{
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 400;
+    padding: 20px 80px;
+    font-size: 32px;
+}
+.buttonShowModal{
+    background-color: #FFF;
+    border: none;
+}
+.buttonShowModal:hover{
+    cursor: pointer;
+}
+
+.conteinerAlterarCadastro{
+    display : flex;
+    flex-direction: column;
+    height: 380px;
+    width: 100%;
+    gap:30px;
+    align-items: center;
+}
+.TituloAlterarCadastro{
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    width: 100%;
+    text-align: center;
+    margin: 0;
+
+}
+.Campo{
+    width: 50%;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid rgba(113, 114, 119, 0.25);
+    border-radius: 8px;
+    box-sizing: border-box
+}
+
+.Campo:focus {
+    outline: 1px solid rgba(113, 114, 119, 0.5);
+}
+
+.containerCampo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+}
