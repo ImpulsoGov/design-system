@@ -202,8 +202,8 @@ const NavBar = (props) => {
                                 }
                               }}
                               botaoAjuda={{
-                                label: props?.ModalInicio.botaoAjuda.label,
-                                link: props?.ModalInicio.botaoAjuda.link,
+                                label: props?.ModalInicio.botaoAjuda?.label,
+                                link: props?.ModalInicio.botaoAjuda?.link,
                               }}
                             />
 
