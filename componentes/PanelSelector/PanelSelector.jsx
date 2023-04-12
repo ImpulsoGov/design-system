@@ -54,10 +54,6 @@ const PanelSelector = (props) => {
 };
 
 const PanelSelectorSM = (props) => {
-  const initialPanel = (typeof(props?.panel)!='undefined') ? props.panel : 0
-  const initialTitle = (typeof(props?.initialTitle)!='undefined') ? props.initialTitle : 0
-  const [activeTabIndex, setActiveTabIndex] = useState(initialPanel);
-  const [activeTitleTabIndex, setActiveTitleTabIndex] = useState(initialTitle);
   return (
     <div style={{zIndex:90,position:'relative',width:'100%'}}>
       <div className={style.PanelSelectorMain}>
@@ -65,11 +61,11 @@ const PanelSelectorSM = (props) => {
           {props.titles.map((title, index) => (
             <div
               onClick={() => {
-                setActiveTitleTabIndex(index);
+                props.states.setActiveTitleTabIndex(index);
               }}
               key={index}
               className={
-                activeTitleTabIndex === index
+                props.states.activeTitleTabIndex === index
                   ? style.PanelSelectorTitleButtonSelected
                   : style.PanelSelectorTitleButton
               }
@@ -79,15 +75,15 @@ const PanelSelectorSM = (props) => {
           ))}
         </div>
 
-        <div className={cx(style.PanelSelectorContainer,style["PanelSelectorContainerPosition"+activeTitleTabIndex.toString()])}>
-          {props.subtitles[activeTitleTabIndex].map((subtitle, index) => (
+        <div className={cx(style.PanelSelectorContainer,style["PanelSelectorContainerPosition"+props.states.activeTitleTabIndex.toString()])}>
+          {props.subtitles[props.states.activeTitleTabIndex].map((subtitle, index) => (
             <div
               onClick={() => {
-                setActiveTabIndex(index);
+                props.states.setActiveTabIndex(index);
               }}
               key={index}
               className={
-                activeTabIndex === index
+                props.states.activeTabIndex === index
                   ? style.PanelSelectorButtonSelected
                   : style.PanelSelectorButton
               }
@@ -99,7 +95,7 @@ const PanelSelectorSM = (props) => {
       </div>
 
       <div className={style.PanelSelectorComponents}>
-        {props.components[activeTitleTabIndex][activeTabIndex]}
+        {props.components[props.states.activeTitleTabIndex][props.states.activeTabIndex]}
       </div>
     </div>
   );
