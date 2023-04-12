@@ -46,7 +46,7 @@
     flex-direction: column;
 }
 
-.InputColorIP:focus, .InputWhite:focus{
+.InputColorIP:focus, .InputWhite:focus , .RecuperarSenhaInput:focus{
     outline: none !important;
     border: #2EB280 solid 1px;
 }
@@ -168,4 +168,32 @@
     font-size: 12px;
     line-height: 150%;
     color: #606E78;
+}
+.inputContainer{
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    width: 110%;
+}
+.buttonHidePassword{
+    height: 95%;
+    position: relative;
+    top:3px;
+    left: -65px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background-color: #fff;
+    font-size: xx-large;
+}
+
+.buttonHidePassword:hover{
+    cursor: pointer;
+}
+
+.showPassword{
+    height: 30px;
+    width: auto;
+    filter: invert(90%) sepia(15%) saturate(253%) hue-rotate(161deg) brightness(79%) contrast(84%);
 }

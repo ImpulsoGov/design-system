@@ -86,6 +86,11 @@ const InserirInfo = ({
         if (value.length>0 && value == novaSenhaConfirmacao && validacaoSenha(novaSenhaConfirmacao).validacao) return true
         return false
     }
+    const [mostrarSenha, setMostrarSenha] = useState(false);
+    const handleMostrarSenha = () => {
+        setMostrarSenha(!mostrarSenha);
+    };
+
     return(
         <div className={style.RecuperarSenhaConteiner}>
             <div className={style.RecuperarSenhaTitulo}>{titulo}</div>
@@ -93,13 +98,28 @@ const InserirInfo = ({
             {aviso && <div className={style.RecuperarSenhaChamada}>{aviso}</div>}
             {   !sucesso &&
                 <>
-                    <input 
-                        className={(alert.length>0 && value==0) ? style.RecuperarSenhaInputErro : cx(style.RecuperarSenhaInput, style[`Input${theme}`])}
-                        type={(etapa==0) ? 'text' : 'password'}
-                        placeholder={placeholder}
-                        value={value.replaceAll(" ","")}
-                        onChange={(e) => {setValue(e.target.value.replaceAll(" ",""));}}
-                    ></input>
+                    <div className={style.inputContainer}>
+                        <input 
+                            className={(alert.length>0 && value==0) ? style.RecuperarSenhaInputErro : cx(style.RecuperarSenhaInput, style[`Input${theme}`])}
+                            type={(etapa==0) || mostrarSenha ? 'text' : 'password'}
+                            placeholder={placeholder}
+                            value={value.replaceAll(" ","")}
+                            onChange={(e) => {setValue(e.target.value.replaceAll(" ",""));}}
+                        />
+                        {
+                            validarsenha && value.length>0 && 
+                            <button
+                                className={style.buttonHidePassword}
+                                onClick={handleMostrarSenha}
+                            >
+                                <img 
+                                    className={style.showPassword}
+                                    src={ mostrarSenha ? "https://media.graphassets.com/KQptzqZRo2anp1Gdm0Wg" : "https://media.graphassets.com/wQYJXFzUSpCMUMc6xp5J" }
+                                    alt="eye"
+                                />
+                            </button>
+                        }
+                    </div>
                     {   validarsenha && value.length>0 &&
                         <ValidarSenha
                             novaSenha={value.replaceAll(" ","")}
@@ -146,6 +166,10 @@ const ValidarSenha = ({novaSenha,novaSenhaConfirmacao,setNovaSenhaConfirmacao})=
         {restricao:'minuscula',descricao:' Pelo menos uma letra minúscula'},
         {restricao:'especiais',descricao:' Pelo menos um caractere especial (ex: @ ! “ +)'},
     ]
+    const [mostrarSenha, setMostrarSenha] = useState(false);
+    const handleMostrarSenha = () => {
+        setMostrarSenha(!mostrarSenha);
+    };
     return(
         <>
             <div className={style.RecuperarSenhaValidacaoConteiner}>
@@ -162,13 +186,25 @@ const ValidarSenha = ({novaSenha,novaSenhaConfirmacao,setNovaSenhaConfirmacao})=
                     )
                 })}
             </div>
-            <input
-                className={style.RecuperarSenhaInput}
-                type="password"
-                placeholder="Confirmar nova senha"
-                value={novaSenhaConfirmacao.replaceAll(" ","")}
-                onChange={(e) => {setNovaSenhaConfirmacao(e.target.value.replaceAll(" ",""));}}
-            />
+            <div className={style.inputContainer}>
+                <input
+                    className={style.RecuperarSenhaInput}
+                    type={ mostrarSenha ? "text" : "password"  }
+                    placeholder="Confirmar nova senha"
+                    value={novaSenhaConfirmacao.replaceAll(" ","")}
+                    onChange={(e) => {setNovaSenhaConfirmacao(e.target.value.replaceAll(" ",""));}}
+                />
+                <button
+                    className={style.buttonHidePassword}
+                    onClick={handleMostrarSenha}
+                >
+                    <img 
+                        className={style.showPassword}
+                        src={ mostrarSenha ? "https://media.graphassets.com/KQptzqZRo2anp1Gdm0Wg" : "https://media.graphassets.com/wQYJXFzUSpCMUMc6xp5J" }
+                        alt="eye"
+                    />
+                </button>
+            </div>
             
             {
                 novaSenha != novaSenhaConfirmacao && novaSenhaConfirmacao.length > 0 && 
