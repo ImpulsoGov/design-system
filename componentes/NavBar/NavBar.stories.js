@@ -420,6 +420,7 @@ const reqsPrimeiroAcesso = {
     mail : async(mail)=> {
         const aguarde = async()=> await new Promise(r => setTimeout(r, 2000));
         const res = aguarde().then(async(res)=>{
+            console.log(mail)
             if (mail == 'danilo') return true
             return false 
         })
@@ -428,6 +429,7 @@ const reqsPrimeiroAcesso = {
     codigo : async(mail,codigo)=>{
         const aguarde = async()=> await new Promise(r => setTimeout(r, 2000));
         const res = aguarde().then(async(res)=>{
+            console.log(codigo)
             if (codigo.toString() == '123') return true
             return false;
         })

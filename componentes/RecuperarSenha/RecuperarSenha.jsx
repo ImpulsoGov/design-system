@@ -97,13 +97,13 @@ const InserirInfo = ({
                         className={(alert.length>0 && value==0) ? style.RecuperarSenhaInputErro : cx(style.RecuperarSenhaInput, style[`Input${theme}`])}
                         type={(etapa==0) ? 'text' : 'password'}
                         placeholder={placeholder}
-                        value={value}
-                        onChange={(e) => {setValue(e.target.value);}}
+                        value={value.replaceAll(" ","")}
+                        onChange={(e) => {setValue(e.target.value.replaceAll(" ",""));}}
                     ></input>
                     {   validarsenha && value.length>0 &&
                         <ValidarSenha
-                            novaSenha={value}
-                            novaSenhaConfirmacao = {novaSenhaConfirmacao}
+                            novaSenha={value.replaceAll(" ","")}
+                            novaSenhaConfirmacao = {novaSenhaConfirmacao.replaceAll(" ","")}
                             setNovaSenhaConfirmacao = {setNovaSenhaConfirmacao}
                         />
                     }
@@ -166,8 +166,8 @@ const ValidarSenha = ({novaSenha,novaSenhaConfirmacao,setNovaSenhaConfirmacao})=
                 className={style.RecuperarSenhaInput}
                 type="password"
                 placeholder="Confirmar nova senha"
-                value={novaSenhaConfirmacao}
-                onChange={(e) => {setNovaSenhaConfirmacao(e.target.value);}}
+                value={novaSenhaConfirmacao.replaceAll(" ","")}
+                onChange={(e) => {setNovaSenhaConfirmacao(e.target.value.replaceAll(" ",""));}}
             />
             
             {
