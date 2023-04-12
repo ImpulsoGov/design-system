@@ -420,6 +420,7 @@ const reqsPrimeiroAcesso = {
     mail : async(mail)=> {
         const aguarde = async()=> await new Promise(r => setTimeout(r, 2000));
         const res = aguarde().then(async(res)=>{
+            console.log(mail)
             if (mail == 'danilo') return true
             return false 
         })
@@ -428,6 +429,7 @@ const reqsPrimeiroAcesso = {
     codigo : async(mail,codigo)=>{
         const aguarde = async()=> await new Promise(r => setTimeout(r, 2000));
         const res = aguarde().then(async(res)=>{
+            console.log(codigo)
             if (codigo.toString() == '123') return true
             return false;
         })
@@ -539,7 +541,14 @@ ColorIPLogout.args = {
         botaoSecundario : {
             label: "primeiro acesso",
             submit: ()=>console.log("teste")
-        }
+        },
+        botaoSecundario : {
+            label: "primeiro acesso",
+        },
+        botaoAjuda: {
+          label: 'ESTOU COM PROBLEMAS NO LOGIN',
+          link: 'https://docs.google.com/forms/d/e/1FAIpQLSe1i7zkVOz-T24xfD3F4XCM2J-hYnoTKYCMHG3EVMLUoBNpMg/viewform?usp=sf_link'
+        },
     },
     primeiroAcesso:{
         reqs: reqsPrimeiroAcesso,
@@ -761,7 +770,14 @@ White.args={
         botaoSecundario : {
             label: "primeiro acesso",
             submit: ()=>console.log("teste")
-        }
+        },
+        botaoSecundario : {
+            label: "primeiro acesso",
+        },
+        botaoAjuda: {
+          label: 'ESTOU COM PROBLEMAS NO LOGIN',
+          link: 'https://docs.google.com/forms/d/e/1FAIpQLSe1i7zkVOz-T24xfD3F4XCM2J-hYnoTKYCMHG3EVMLUoBNpMg/viewform?usp=sf_link'
+        },
     },
     primeiroAcesso:{
         reqs: reqsPrimeiroAcesso,

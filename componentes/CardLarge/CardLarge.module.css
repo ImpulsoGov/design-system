@@ -23,7 +23,10 @@
     color: #fff;
 }
 
-.ColorIP:hover {
+.ColorIP:hover{
+    background-color: #2EB380;
+}
+.White:hover{
     background-color: #2EB380;
 }
 
@@ -32,6 +35,9 @@
 }
 
 .ColorSM:hover {
+    background-color: #5367C9;
+}
+.WhiteSM:hover {
     background-color: #5367C9;
 }
 
