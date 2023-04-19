@@ -44,23 +44,29 @@ const CardInfoIndicador = ({ indicador, simbolo, descricao }) => {
 };
 
 const CardInfoIndice = ({ indice, simbolo, descricao }) => {
+    console.log(descricao)
     return (
         <div className={ style.CardInfoIndiceContainer }>
-            <span className={
-                indice < 0
-                    ? cx(style.CardInfoSymbolDown, style.TextoVermelho)
-                    : cx(style.CardInfoSymbolUp, style.TextoVerde)
-            }>
-                »
-            </span>
+            {
+                indice != 0 &&
+                <>
+                    <span className={
+                        indice < 0
+                            ? cx(style.CardInfoSymbolDown, style.TextoVermelho)
+                            : cx(style.CardInfoSymbolUp, style.TextoVerde)
+                    }>
+                        »
+                    </span>
 
-            <span className={ cx(
-                style.CardInfoIndice,
-                indice < 0 ? style.TextoVermelho : style.TextoVerde
-            ) }>
-                { `${indice}${simbolo ? simbolo : ""}` }
-            </span>
-
+                    <span className={ cx(
+                        style.CardInfoIndice,
+                        indice < 0 ? style.TextoVermelho : style.TextoVerde
+                    ) }>
+                        { `${indice}${simbolo ? simbolo : ""}` }
+                    </span>
+                </>
+            }
+            { indice === 0 && <span style={{marginRight:"10px"}}>igual</span>}
             { descricao && <span>{ descricao }</span> }
         </div>
     );
@@ -120,13 +126,15 @@ const CardInfoTipoA = ({
                 />
             </div>
 
-            { indice && (
+            { 
+                indice || indice === 0 ? (
                 <CardInfoIndice
                     indice={ indice }
                     descricao={ indiceDescricao }
                     simbolo={ indiceSimbolo }
                 />
-            ) }
+                ):null 
+            }
 
             { link && (
                 <Link href={ link.url }>

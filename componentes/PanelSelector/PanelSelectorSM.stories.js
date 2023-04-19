@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { PanelSelectorSM } from "./index";
 import { CardInfoTipoA, CardInfoTipoB } from "../CardInfo";
 import { Grid12Col } from "../Grid12Col";
@@ -75,10 +75,22 @@ const components = [
   />
 ];
 
-const Template = (args) => <PanelSelectorSM {...args}/>
+const Template = (args) => {
+  const initialPanel = (typeof(args?.panel)!='undefined') ? args.panel : 0
+  const [activeTabIndex, setActiveTabIndex] = useState(initialPanel);
+  const [activeTitleTabIndex, setActiveTitleTabIndex] = useState(0);
+  args["states"] = {
+    activeTabIndex : activeTabIndex,
+    setActiveTabIndex : setActiveTabIndex,
+    activeTitleTabIndex : activeTitleTabIndex,
+    setActiveTitleTabIndex : setActiveTitleTabIndex
+  }
+  return <PanelSelectorSM {...args}/>
+}
 
 export const Default = Template.bind({});
 Default.args = {
+  panel : 0 ,
   components: [components],
   subtitles: [[
     { label: "RESUMO" },
