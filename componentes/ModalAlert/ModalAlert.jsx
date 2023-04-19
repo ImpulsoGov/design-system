@@ -1,6 +1,6 @@
 import React, {useState,useRef,useEffect} from "react";
 import style from "./ModalAlert.module.css";
-import { ButtonColor,ButtonColorMobile } from "../ButtonColor";
+import { ButtonColor,ButtonColorMobile, ButtonColorSubmit } from "../ButtonColor";
 
 const CardProfissional = ({cardProfissional})=>{
     return(
@@ -58,6 +58,7 @@ const Alert = ({
 
 const NPS = ({props})=>{
     const [avaliacao,setAvaliacao] = useState(0)
+    const [avaliacaoHover,setAvaliacaoHover] = useState(0)
     const avaliacoes = [1,2,3,4,5]
     return(
         <div className={style.NPS}>
@@ -67,14 +68,14 @@ const NPS = ({props})=>{
                 return(
                     <div 
                         className={
-                            avaliacao <= item ?
-                            style.avaliacao :
+                            avaliacaoHover+1 <= item ?
+                            style.avaliacao : 
                             style.avaliacaoColor 
                         } 
                         key={item}
-                        onMouseEnter={()=>{setAvaliacao(item)}}
-                        onMouseLeave={()=>{setAvaliacao(0)}}
-                        onClick={()=>props.submit(props.user,item)}
+                        onMouseEnter={()=>{setAvaliacaoHover(item)}}
+                        onMouseLeave={()=>{setAvaliacaoHover(avaliacao==0 ? 0 : avaliacao)}}
+                        onClick={()=>setAvaliacao(item)}
     >{item}</div>
                 )
             })}
@@ -83,6 +84,12 @@ const NPS = ({props})=>{
             <div>Muito ruim</div>
             <div>Muito boa</div>
         </div>
+        <ButtonColorSubmit
+            label="Avaliar"
+            submit={props.submit}
+            arg={{"user":props.user,"avaliacao":avaliacao}}
+            disable={avaliacao==0}
+        />
         </div>
     )
 }

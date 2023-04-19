@@ -63,7 +63,10 @@
     align-items: center;
     text-decoration: none;
 }
-
+.disable{
+    background-color: rgba(96, 110, 120, 0.50);
+    border: none;
+}
 .ButtonColorIconContainerMobile{
     border: 1px solid rgba(96, 110, 120, 0.15);
     background-color: #2EB280;
