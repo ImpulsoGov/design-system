@@ -40,12 +40,13 @@ const ButtonColorSubmit = ({
     submit,
     arg,
     theme,
-    icon
+    icon,
+    disable
 })=>{
     return(
         <button 
-            className={cx(style.ButtonColorContainer, style[`${theme}`])}
-            onClick={()=>submit(arg)}
+            className={cx(style.ButtonColorContainer, style[`${!disable ? theme : "disable"}`])}
+            onClick={()=>{if(!disable)submit(arg)}}
         >
             {icon && <img className={style.IconeRight} src={icon} />}
             {label?.toUpperCase()}

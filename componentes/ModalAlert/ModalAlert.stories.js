@@ -1,6 +1,9 @@
 import React from 'react'
 import { Alert } from './index'
 import { ModalAlert } from './index'
+import { CardAlert } from './index'
+import { NPS } from './index'
+
 
 export default {
     title: "Componentes/ModalAlert",
@@ -10,8 +13,8 @@ export default {
 
 
 const Template = (args) => <ModalAlert {...args}/>
-export const Default = Template.bind({});
-Default.args ={
+export const Webnar = Template.bind({});
+Webnar.args ={
     Child : Alert,
     childProps : {
         titulos : {
@@ -45,6 +48,19 @@ Default.args ={
         botao : {
             label : "QUERO ME INSCREVER",
             url : "https://bit.ly/inscricao-webinar-9"
+        }
+    }
+}
+
+export const NPS_ = Template.bind({});
+NPS_.args ={
+    Child : CardAlert,
+    childProps : {
+        child : NPS,
+        childProps : {
+            titulo : "Como você avalia sua experiência na área logada até agora?",
+            user : "userID",
+            submit : (arg)=>console.log(arg)
         }
     }
 }
