@@ -39,6 +39,21 @@
   color: #606E78;
 }
 
+.tituloParceiroDescritivo {
+  font-size: 24px;
+  text-align: left;
+}
+
+.descricaoParceiro {
+  color: #1F1F1F;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: -0.01em;
+}
+
 .gridContainer {
   display: flex;
   flex-direction: row;
@@ -47,19 +62,32 @@
   flex-wrap: wrap;
 }
 
+.gridContainerDescritivo {
+  justify-content: center;
+}
+
 .info_parceiro {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 24px;
-  width: fit-content;
+}
+
+.info_parceiro_descritivo {
+  width: 25%;
+  align-items: flex-start;
 }
 
 .imageContainer {
   margin-bottom: 30px;
   margin-top: 0;
   max-width: 110px;
+}
+
+.imageContainerDescritivo {
+  height: 50px;
+  max-width: 180px;
 }
 
 @media screen and (min-width: 741px) and (max-width: 1024px) {
@@ -97,6 +125,3 @@
     gap: 60px;
   }
 }
-
-
-
