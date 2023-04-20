@@ -39,8 +39,12 @@ const ParceriasDescritivo = ({
     titulo,
 }) => {
     return (
-        <div className={ cx(style.container_parceiros, style["theme" + theme]) }>
-            { titulo && <div className={ style.parceirosLabel }>{ titulo }</div> }
+        <div className={ cx(
+            style.container_parceiros,
+            style["theme" + theme],
+            style.container_parceiros_descritivo
+        ) }>
+            { titulo && <div className={ style.parceirosLabelDescritivo }>{ titulo }</div> }
             <div className={ cx(style.gridContainer, style.gridContainerDescritivo) }>
                 { parceiros.map((parceiro, index) => {
                     return (
