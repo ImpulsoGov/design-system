@@ -44,4 +44,5 @@ ColorSM.args = {
     },
   ],
   theme: "ColorSM",
+  titulo: "Este projeto foi idealizado pela ImpulsoGov, em parceria com o Instituto Cactus"
 };
