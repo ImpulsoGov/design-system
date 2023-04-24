@@ -118,7 +118,7 @@ const ModalAlert= ({Child,childProps})=>{
     const [display, setDisplay] = useState(true)
     const refModal = useRef()
     useEffect(() => {
-      const handleClick = e => {if (display && !refModal?.current.contains(e.target)) setDisplay(false);}
+      const handleClick = e => {if (display && !refModal?.current?.contains(e.target)) setDisplay(false);}
       document.addEventListener("click", handleClick);
       return () => document.removeEventListener("click", handleClick);
     },[display]);
