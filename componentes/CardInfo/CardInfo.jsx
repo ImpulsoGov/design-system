@@ -44,7 +44,6 @@ const CardInfoIndicador = ({ indicador, simbolo, descricao }) => {
 };
 
 const CardInfoIndice = ({ indice, simbolo, descricao }) => {
-    console.log(descricao)
     return (
         <div className={ style.CardInfoIndiceContainer }>
             {
@@ -66,7 +65,7 @@ const CardInfoIndice = ({ indice, simbolo, descricao }) => {
                     </span>
                 </>
             }
-            { indice === 0 && <span style={{marginRight:"10px"}}>igual</span>}
+            { indice === 0 && <span style={ { marginRight: "10px" } }>igual</span> }
             { descricao && <span>{ descricao }</span> }
         </div>
     );
@@ -126,14 +125,14 @@ const CardInfoTipoA = ({
                 />
             </div>
 
-            { 
+            {
                 indice || indice === 0 ? (
-                <CardInfoIndice
-                    indice={ indice }
-                    descricao={ indiceDescricao }
-                    simbolo={ indiceSimbolo }
-                />
-                ):null 
+                    <CardInfoIndice
+                        indice={ indice }
+                        descricao={ indiceDescricao }
+                        simbolo={ indiceSimbolo }
+                    />
+                ) : null
             }
 
             { link && (
