@@ -93,7 +93,7 @@ const NPS = ({props})=>{
         </div>
     )
 }
-const CardAlert = ({
+const CardAlertModal = ({
     refModal,
     props
 })=>{
@@ -146,4 +146,4 @@ const ModalAlertOff= ({Child,childProps,display,setDisplay})=>{
     )
 }
 
-export {ModalAlert,Alert,CardAlert,ModalAlertOff,NPS}
+export {ModalAlert,Alert,CardAlertModal,ModalAlertOff,NPS}

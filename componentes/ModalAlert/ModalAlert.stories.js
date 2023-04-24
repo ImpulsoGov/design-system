@@ -1,7 +1,7 @@
 import React from 'react'
 import { Alert } from './index'
 import { ModalAlert } from './index'
-import { CardAlert } from './index'
+import { CardAlertModal } from './index'
 import { NPS } from './index'
 
 
@@ -54,7 +54,7 @@ Webnar.args ={
 
 export const NPS_ = Template.bind({});
 NPS_.args ={
-    Child : CardAlert,
+    Child : CardAlertModal,
     childProps : {
         child : NPS,
         childProps : {
