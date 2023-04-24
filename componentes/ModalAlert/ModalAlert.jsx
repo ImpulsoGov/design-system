@@ -87,7 +87,7 @@ const NPS = ({props})=>{
         <ButtonColorSubmit
             label="Avaliar"
             submit={props.submit}
-            arg={{"user":props.user,"avaliacao":avaliacao}}
+            arg={{"user":props.user,"avaliacao":avaliacao,"token":props.token}}
             disable={avaliacao==0}
         />
         </div>

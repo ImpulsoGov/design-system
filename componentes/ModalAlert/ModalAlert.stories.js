@@ -60,6 +60,7 @@ NPS_.args ={
         childProps : {
             titulo : "Como você avalia sua experiência na área logada até agora?",
             user : "userID",
+            token : "dsfsdfsfs",
             submit : (arg)=>console.log(arg)
         }
     }
