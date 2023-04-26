@@ -24,13 +24,17 @@ export default {
       name: "link",
       description: "Link exibido no gráfico *object*\n\n url: URL do link *string*\n\n label: label do link *string*",
     },
+    destaque: {
+      name: "destaque",
+      description: "Mensagem de destaque nas informações do gráfico *string*"
+    }
   }
-}
+};
 
-const Template = (args) => <GraficoInfo {...args}/>
+const Template = (args) => <GraficoInfo { ...args } />;
 
 export const Default = Template.bind({});
-Default.args={
+Default.args = {
   titulo: "Taxa de abandono",
   descricao: "Conjunto de usuários com 1º procedimento em Março/2022 e abandono até Agosto/2022",
   fonte: "Fonte: RAAS/SIASUS - Elaboração Impulso Gov",
@@ -38,5 +42,6 @@ Default.args={
     url: "/",
     label: "Mais informações"
   },
-  tooltip: "Este gráfico diz respeito à taxa de abandono"
-}
+  tooltip: "Este gráfico diz respeito à taxa de abandono",
+  destaque: "Por que esses valores são diferentes?"
+};
