@@ -1,1 +1,2 @@
-export {ConteudoTrilha} from "./ConteudoTrilha"
+export { ConteudoTrilha, ConteudoVideo } from "./ConteudoTrilha";
+

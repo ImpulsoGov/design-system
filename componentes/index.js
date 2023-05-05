@@ -10,7 +10,7 @@ export { CardLarge, CardLargeGrid, CardLargeGridInicioSM, CardLargeGridToggleLis
 export { CardTrilha } from "./CardTrilha/CardTrilha";
 export { Content3Col } from "./Content3Col/Content3Col";
 export { ConteudoBlog } from "./ConteudoBlog/ConteudoBlog";
-export { ConteudoTrilha } from "./ConteudoTrilha/ConteudoTrilha";
+export { ConteudoTrilha, ConteudoVideo } from "./ConteudoTrilha/ConteudoTrilha";
 export { Footer } from "./Footer/Footer";
 export { FormConsultoria } from "./FormConsultoria/FormConsultoria";
 export { GraficoInfo } from "./GraficoInfo/GraficoInfo";

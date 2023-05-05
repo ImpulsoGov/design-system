@@ -86,6 +86,29 @@ const ConteudoVideoPPT = ({
         </div>
 )
 }
+
+const ConteudoVideo = ({ url }) => {
+    return (
+        <div className={ style.ConteudoTrilhaVideoAvaliacaoVideo }>
+            <div className={ style.ConteudoTrilhaVideo }>
+                <iframe src={ url }
+                    allowFullScreen
+                    frameborder="0"
+                    allow="
+                        accelerometer;
+                        autoplay;
+                        clipboard-write;
+                        encrypted-media;
+                        gyroscope;
+                        picture-in-picture;
+                        web-share
+                    "
+                />
+            </div>
+        </div>
+    );
+};
+
 const ConteudoDescricao = ({
     descricao
 })=>{
@@ -223,4 +246,4 @@ const ConteudoTrilha = ({
     )
 }
 
-export {ConteudoTrilha}
+export { ConteudoTrilha, ConteudoVideo };
