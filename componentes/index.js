@@ -24,7 +24,7 @@ export { InfoTab } from "./InfoTab/InfoTab";
 export { ListaArtigos } from "./ListaArtigos/ListaArtigos";
 export { Login } from "./Login/Login";
 export { Modal } from "./Modal/Modal";
-export { Alert, ModalAlert , NPS } from "./ModalAlert/ModalAlert";
+export { Alert, ModalAlert, NPS } from "./ModalAlert/ModalAlert";
 export { ModalLogged } from "./ModalLogged/ModalLogged";
 export { MateriaisComplementares, ModulosTrilha } from "./ModulosTrilha/ModulosTrilha";
 export { NavBar } from "./NavBar/NavBar";
@@ -36,6 +36,7 @@ export { PreviewArtigoDestaque } from "./PreviewArtigoDestaque/PreviewArtigoDest
 export { RecuperarSenha } from "./RecuperarSenha/RecuperarSenha";
 export { Slider } from "./Slider/Slider";
 export { SobreTrilha } from "./SobreTrilha/SobreTrilha";
+export { Spinner } from "./Spinner";
 export { TextCol } from "./TextCol/TextCol";
 export { TituloSmallTexto, TituloTexto } from "./TituloTexto/TituloTexto";
 export { ToggleList } from "./ToggleList/ToggleList";
