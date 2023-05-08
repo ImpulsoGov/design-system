@@ -93,6 +93,18 @@
     text-decoration: none;
     color: #1F1F1F;
 }
+.ConteudoVideoContainer{
+    padding: 30px 80px 30px 80px;
+}
+.ConteudoVideo{
+    width: 100%;
+}
+@media screen and (min-width: 1920px) {
+    .ConteudoVideoContainer{
+        padding: 30px 80px 30px 125px;
+        padding-right: 125px;
+    }
+}
 @media screen and (min-width: 1365px) {
     .ConteudoTrilhaVideoAvaliacaoVideo{
         width: 85%;
@@ -100,6 +112,9 @@
     .ConteudoTrilhaVideoAvaliacaoPDF{
         flex-direction: column-reverse;
         width: 85%;
+    }
+    .ConteudoVideo{
+        width: 100%;
     }
     .ConteudoTrilhaDescricao{
         width: 85%;
@@ -125,5 +140,10 @@
     .ConteudoTrilhaVideoAvaliacaoPDF{
         width: 100%;
         padding: 25px 0;
+    }
+}
+@media screen and (max-width: 767px) {
+    .ConteudoVideoContainer{
+        padding: 30px 15px 30px 15px;
     }
 }

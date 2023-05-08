@@ -4,6 +4,7 @@ import { ButtonLightSubmit,ButtonLight } from "../ButtonLight/ButtonLight";
 import style from "./ConteudoTrilha.module.css"
 import { sanitize } from "../sanitize";
 import Link from "next/link";
+import cx from "classnames";
 
 const ConteudoVideoPPT = ({
     avaliacao,
@@ -89,21 +90,13 @@ const ConteudoVideoPPT = ({
 
 const ConteudoVideo = ({ url }) => {
     return (
-        <div className={ style.ConteudoTrilhaVideoAvaliacaoVideo }>
-            <div className={ style.ConteudoTrilhaVideo }>
-                <iframe src={ url }
-                    allowFullScreen
-                    frameborder="0"
-                    allow="
-                        accelerometer;
-                        autoplay;
-                        clipboard-write;
-                        encrypted-media;
-                        gyroscope;
-                        picture-in-picture;
-                        web-share
-                    "
-                />
+        <div className={style.ConteudoVideoContainer}>
+            <div className={ cx(style.ConteudoTrilhaVideoAvaliacaoVideo, style.ConteudoVideo) }>
+                <div className={ style.ConteudoTrilhaVideo }>
+                    <iframe src={ url }
+                        allowFullScreen
+                    />
+                </div>
             </div>
         </div>
     );
