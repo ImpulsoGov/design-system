@@ -193,7 +193,7 @@
 }
 
 .showPassword{
-    height: 30px;
+    height: 18px;
     width: auto;
     filter: invert(90%) sepia(15%) saturate(253%) hue-rotate(161deg) brightness(79%) contrast(84%);
 }
