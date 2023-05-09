@@ -125,6 +125,7 @@ const InserirInfo = ({
                             novaSenha={value.replaceAll(" ","")}
                             novaSenhaConfirmacao = {novaSenhaConfirmacao.replaceAll(" ","")}
                             setNovaSenhaConfirmacao = {setNovaSenhaConfirmacao}
+                            theme={theme}
                         />
                     }
                     {alert && etapa != 2 && value.length==0 && <div className={style.RecuperarSenhaMensagem}>{alert}</div>}
@@ -155,7 +156,7 @@ const InserirInfo = ({
     )
 }
 
-const ValidarSenha = ({novaSenha,novaSenhaConfirmacao,setNovaSenhaConfirmacao})=>{
+const ValidarSenha = ({novaSenha,novaSenhaConfirmacao,setNovaSenhaConfirmacao, theme})=>{
     const Symbol = (color)=> (color?.length>0 || typeof(color)!='undefined') ?  '✘' : '✓'
     const senhaAlertMsg = "As senhas digitadas não são iguais";
     let validacao = validacaoSenha(novaSenha)
@@ -188,7 +189,7 @@ const ValidarSenha = ({novaSenha,novaSenhaConfirmacao,setNovaSenhaConfirmacao})=
             </div>
             <div className={style.inputContainer}>
                 <input
-                    className={style.RecuperarSenhaInput}
+                    className={cx(style.RecuperarSenhaInput, style[`Input${theme}`])}
                     type={ mostrarSenha ? "text" : "password"  }
                     placeholder="Confirmar nova senha"
                     value={novaSenhaConfirmacao.replaceAll(" ","")}
