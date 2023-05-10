@@ -6,14 +6,12 @@
   width: 100%;
 }
 
-.ThemeGrey {
-  color: #A6B5BE;
-}
-
-.ThemeColorSM {
+.ThemeColorSM,
+.ThemeWhiteSM {
   color: #5367C9;
 }
 
-.ThemeColorIP {
+.ThemeColorIP,
+.ThemeWhite {
   color: #2EB280;
 }
