@@ -6,7 +6,7 @@ export default {
   argTypes: {
     theme: {
       name: "theme",
-      description: "Tema de cor do componente *string* \n\n Valores aceitos: *Grey*, *SM*, *IP*"
+      description: "Tema de cor do componente *string* \n\n Valores aceitos: *ColorSM*, *ColorIP*, *WhiteSM*, *White*"
     },
     height: {
       name: "height",
