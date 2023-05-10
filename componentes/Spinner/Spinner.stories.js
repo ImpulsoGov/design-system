@@ -7,6 +7,10 @@ export default {
     theme: {
       name: "theme",
       description: "Tema de cor do componente *string* \n\n Valores aceitos: *Grey*, *SM*, *IP*"
+    },
+    height: {
+      name: "height",
+      description: "Altura do container do spinner *string* ou *number*"
     }
   }
 };
@@ -16,12 +20,14 @@ const Template = (args) => <Spinner { ...args } />;
 export const Default = Template.bind({});
 Default.args = {};
 
-export const SM = Template.bind({});
-SM.args = {
-  theme: "SM"
+export const ColorSMComHeight = Template.bind({});
+ColorSMComHeight.args = {
+  theme: "ColorSM",
+  height: 100
 };
 
-export const IP = Template.bind({});
-IP.args = {
-  theme: "IP"
+export const ColorIPComHeight = Template.bind({});
+ColorIPComHeight.args = {
+  theme: "ColorIP",
+  height: "30vh"
 };
