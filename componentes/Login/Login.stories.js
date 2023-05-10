@@ -32,17 +32,8 @@ const entrar = async (mail, senha) => {
     return { "detail": "E-mail Incorreto" };
 };
 
-const Template = (args) => <Login { ...args } />;
-
-export const Default = Template.bind({});
-
-Default.args = {
+const args = {
     titulo: "Faça o login para ver o painel de busca ativa",
-    botaoPrincipal: {
-        label: "entrar",
-        submit: () => console.log(false),
-        theme: "ColorIP"
-    },
     botaoSecundario: {
         label: "voltar",
         submit: () => console.log(true)
@@ -67,4 +58,32 @@ Default.args = {
             }, 5000);
         }
     }
+};
+
+const botaoPrincipalIP = {
+    label: "entrar",
+    submit: () => console.log(false),
+    theme: "ColorIP"
+};
+
+const botaoPrincipalSM = {
+    label: "entrar",
+    submit: () => console.log(false),
+    theme: "ColorSM"
+};
+
+const Template = (args) => <Login { ...args } />;
+
+export const Default = Template.bind({});
+
+Default.args = {
+    ...args,
+    botaoPrincipal: botaoPrincipalIP
+};
+
+export const ColorSM = Template.bind({});
+
+ColorSM.args = {
+    ...args,
+    botaoPrincipal: botaoPrincipalSM
 };
