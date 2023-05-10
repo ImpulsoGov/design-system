@@ -4,17 +4,16 @@
   align-items: center;
   margin: 80px 0;
   width: 100%;
-  height: fit-content;
 }
 
 .ThemeGrey {
   color: #A6B5BE;
 }
 
-.ThemeSM {
+.ThemeColorSM {
   color: #5367C9;
 }
 
-.ThemeIP {
+.ThemeColorIP {
   color: #2EB280;
 }
