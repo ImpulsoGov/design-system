@@ -370,12 +370,39 @@ const loggedUser = {
     logout : ()=> console.log('deslogado')
 };
 
+const entrar = async (mail,senha)=> {
+    const numeroAleatorio = Math.round(Math.random() * 10);
+
+    if (numeroAleatorio % 2 === 0) {
+        return { "access_token": "token" }
+    }
+    return { "detail": "E-mail Incorreto" };
+}
+
 const notLoggedUser = {
     button : {label:"sair",link:""},
     label : "ENTRAR",
     login : ()=> console.log('logado'),
     logout : ()=> console.log('deslogado'),
-    validarCredencial : entrar
+    validarCredencial : entrar,
+    validacao: (setResposta,validarCredencial,entrar,mail,senha,setLoading) => {
+        if(mail.length < 1 || senha.length < 1){
+            const msg_campo_vazio = "Preencha todos os campos"
+            setResposta(msg_campo_vazio)
+        }else{
+            setTimeout(() => {
+                validarCredencial(mail,senha).then((response)=>{
+                if (typeof(response["access_token"]) !== "undefined"){
+                    setResposta("");
+                    setLoading(false);
+                }else{
+                    setResposta(response["detail"]);
+                    setLoading(false);
+                }
+                })
+            }, 5000)
+        }
+    }
 };
 
 const loggedReqsEsqueciSenha = {
@@ -489,12 +516,6 @@ ColorIPLogin.args = {
     },
     NavBarIconBranco:"https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconBranco.svg",
     NavBarIconDark:"https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconDark.svg",
-}
-const entrar = ()=> {
-    const res1 = {
-        "detail": "E-mail Incorreto"
-    }
-    return res1
 }
 
 export const ColorIPLogout = Template.bind({});

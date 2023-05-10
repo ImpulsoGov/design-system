@@ -1,5 +1,5 @@
-import React from 'react'
-import { Login } from './index'
+import React from 'react';
+import { Login } from './index';
 
 export default {
     title: "Componentes/Login",
@@ -19,28 +19,52 @@ export default {
             description: 'Objeto contendo informações do botão *objectF*\n\n**label:** rótulo do botão *string* \n\n **link:** URL do botão *URL*',
             control: { control: 'object' },
         },
-      },
-}
-const Template = (args) => <Login {...args}/>
+    },
+};
+const entrar = async (mail, senha) => {
+    const numeroAleatorio = Math.round(Math.random() * 10);
 
-const entrar = ()=> {
-    const res = {
-        "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJpbXB1bHNlckBpbXB1bHNvZ292Lm9yZyIsImV4cCI6MTY3MTgzNzIyN30.a1nX2_2vPONoYX_oRX79fmUGcrKj6WudHKXsYTMAWT4",
-        "token_type": "bearer"
-    }
-    const res1 = {
-        "detail": "E-mail Incorreto"
-    }
-    return res
-    
+    console.log(numeroAleatorio);
 
-}
+    if (numeroAleatorio % 2 === 0) {
+        return { "access_token": "token" };
+    }
+    return { "detail": "E-mail Incorreto" };
+};
+
+const Template = (args) => <Login { ...args } />;
 
 export const Default = Template.bind({});
 
-Default.args ={
+Default.args = {
     titulo: "Faça o login para ver o painel de busca ativa",
-    button : {label:"entrar",link:""},
-    entrar : entrar,
-    validarCredencial : entrar
-}
+    botaoPrincipal: {
+        label: "entrar",
+        submit: () => console.log(false),
+        theme: "ColorIP"
+    },
+    botaoSecundario: {
+        label: "voltar",
+        submit: () => console.log(true)
+    },
+    entrar: entrar,
+    validarCredencial: entrar,
+    validacao: (setResposta, validarCredencial, entrar, mail, senha, setLoading) => {
+        if (mail.length < 1 || senha.length < 1) {
+            const msg_campo_vazio = "Preencha todos os campos";
+            setResposta(msg_campo_vazio);
+        } else {
+            setTimeout(() => {
+                validarCredencial(mail, senha).then((response) => {
+                    if (typeof (response["access_token"]) !== "undefined") {
+                        setResposta("");
+                        setLoading(false);
+                    } else {
+                        setResposta(response["detail"]);
+                        setLoading(false);
+                    }
+                });
+            }, 5000);
+        }
+    }
+};
