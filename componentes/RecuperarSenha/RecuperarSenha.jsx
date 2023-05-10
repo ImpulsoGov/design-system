@@ -244,10 +244,12 @@ const RecuperarSenha = ({
     const mailAlertMsg = "E-mail invalido.";
     const codigoAlertMsg = "Código digitado é invalido";
     const senhaAlertMsg = "Falha na requisição"
+    const color = theme || 'ColorIP';
+
     return(
         <>
             {loading
-                ? <Spinner theme={theme} height={"50vh"} />
+                ? <Spinner theme={color} height={"50vh"} />
                 : <>
                     {
                         etapa == 0 &&
@@ -267,7 +269,7 @@ const RecuperarSenha = ({
                             showEsqueciSenha = {showEsqueciSenha}
                             setAlterarSenhaArgs = {setAlterarSenhaArgs}
                             alterarSenhaArgs = {alterarSenhaArgs}
-                            theme = {theme}
+                            theme = {color}
                             setLoading={setLoading}
                         />
                     }
@@ -287,7 +289,7 @@ const RecuperarSenha = ({
                             placeholder = "Código de Recuperação"
                             setAlterarSenhaArgs = {setAlterarSenhaArgs}
                             alterarSenhaArgs = {alterarSenhaArgs}
-                            theme = {theme}
+                            theme = {color}
                             setLoading={setLoading}
                         />
                     }
@@ -308,7 +310,7 @@ const RecuperarSenha = ({
                             placeholder = "Nova Senha"
                             setAlterarSenhaArgs = {setAlterarSenhaArgs}
                             alterarSenhaArgs = {alterarSenhaArgs}
-                            theme = {theme}
+                            theme = {color}
                             setLoading={setLoading}
                         />
                     }
@@ -329,7 +331,7 @@ const RecuperarSenha = ({
                             showEsqueciSenha = {showEsqueciSenha}
                             setAlterarSenhaArgs = {setAlterarSenhaArgs}
                             alterarSenhaArgs = {alterarSenhaArgs}
-                            theme = {theme}
+                            theme = {color}
                             setLoading={setLoading}
                         />
                     }

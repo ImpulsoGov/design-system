@@ -62,7 +62,6 @@ ColorIP.args ={
     botaoSucesso : "Inicio",
     showEsqueciSenha : ()=>{console.log("teste")},
     reqs,
-    theme : "ColorIP",
 }
 
 export const ColorSM = Template.bind({});
