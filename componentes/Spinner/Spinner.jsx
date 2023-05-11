@@ -19,7 +19,7 @@ const Spinner = ({ theme, height }) => {
 };
 
 Spinner.defaultProps = {
-  theme: 'Grey',
+  theme: 'ColorIP',
   height: 'fit-content'
 };
 
@@ -29,4 +29,3 @@ Spinner.propTypes = {
 };
 
 export { Spinner };
-
