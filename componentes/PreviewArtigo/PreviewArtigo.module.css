@@ -104,8 +104,6 @@
 
 @media screen and (max-width: 1023px){
     .PreviewArtigoContainer{
-        padding-left: 16px;
-        padding-right: 16px;
         padding-top: 50px;
     }
     #PreviewArtigoConteinerID{ order: 1;}
