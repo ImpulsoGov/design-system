@@ -33,7 +33,6 @@ const ListaResumo = ({
     const artigos5 = artigos.slice(0,6)
     return(
         <div>
-            <div className={style.ListaResumoTitulo}>{titulo}</div>
             {artigos5.map((artigo,index)=>{
                 return(
                     <div key={index}>

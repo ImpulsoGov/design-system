@@ -3,9 +3,8 @@
 .PreviewArtigoDestaqueContainer{
     display: flex;
     flex-direction: row;
-    padding-left: 50px;
-    padding-right: 50px;
-    margin-top: 15px;
+    padding: 0px 80px 30px 80px;
+    margin-top: 0px;
     height: fit-content;
 }
 
@@ -16,9 +15,11 @@
     gap: 45px;
     margin-right: 45px;
 }
+
 .ContainerDestaque a{
     text-decoration: none;
 }
+
 .PreviewArtigoDestaqueTag{
     display: flex;
     justify-content: center;
@@ -73,7 +74,6 @@
     color: #606E78;
 }
 
-
 .PreviewArtigoDestaqueAutorAvatar{
     margin-right: 10px;
 }
@@ -92,11 +92,22 @@
     position: relative;
 }
 
+/* XSMALL */
+@media screen and (max-width: 374px) {
+    .PreviewArtigoDestaqueContainer{
+        padding: 30px 16px 30px 16px;
+    }
+}
+/* SMALL */
+@media screen and (min-width: 375px)and (max-width: 767px) {
+    .PreviewArtigoDestaqueContainer{
+        padding: 30px 40px 30px 40px;
+    }
+}
 
 @media screen and (max-width: 1023px){
     .PreviewArtigoDestaqueContainer{
         flex-direction: column-reverse;
-        padding: 16px;
         gap: 45px;
     }
     .ContainerDestaque{
@@ -120,8 +131,7 @@
 @media screen and (min-width: 1023px) and (max-width: 1439px){
     .PreviewArtigoDestaqueContainer{
         flex-direction: column-reverse;
-        padding: 72px 82px 45px 82px;
-        gap: 45px;
+        gap: 15px;
     }
     .ContainerDestaque{
         width: 100%;
@@ -140,8 +150,10 @@
     }
     
 }
+
 @media screen and (min-width: 1920px) {
     .PreviewArtigoDestaqueImageContainer{
         position:static;
     }
 }
+
