@@ -101,7 +101,6 @@
 /* SMALL */
 @media screen and (min-width: 375px)and (max-width: 767px) {
     .PreviewArtigoContainer{
-<<<<<<< HEAD
         padding: 30px 40px 30px 40px;
     }
 }
@@ -110,8 +109,6 @@
     /* .PreviewArtigoContainer{
         padding-left: 16px;
         padding-right: 16px;
-=======
->>>>>>> e921de0458ef0aa5ffa5e257fb23f9c7dc77410f
         padding-top: 50px;
     } */
     #PreviewArtigoConteinerID{ order: 1;}
