@@ -10,7 +10,7 @@ export { CardLarge, CardLargeGrid, CardLargeGridInicioSM, CardLargeGridToggleLis
 export { CardTrilha } from "./CardTrilha/CardTrilha";
 export { Content3Col } from "./Content3Col/Content3Col";
 export { ConteudoBlog } from "./ConteudoBlog/ConteudoBlog";
-export { ConteudoTrilha } from "./ConteudoTrilha/ConteudoTrilha";
+export { ConteudoTrilha, ConteudoVideo } from "./ConteudoTrilha/ConteudoTrilha";
 export { Footer } from "./Footer/Footer";
 export { FormConsultoria } from "./FormConsultoria/FormConsultoria";
 export { GraficoInfo } from "./GraficoInfo/GraficoInfo";
@@ -36,6 +36,7 @@ export { PreviewArtigoDestaque } from "./PreviewArtigoDestaque/PreviewArtigoDest
 export { RecuperarSenha } from "./RecuperarSenha/RecuperarSenha";
 export { Slider } from "./Slider/Slider";
 export { SobreTrilha } from "./SobreTrilha/SobreTrilha";
+export { Spinner } from "./Spinner";
 export { TextCol } from "./TextCol/TextCol";
 export { TituloSmallTexto, TituloTexto } from "./TituloTexto/TituloTexto";
 export { ToggleList } from "./ToggleList/ToggleList";

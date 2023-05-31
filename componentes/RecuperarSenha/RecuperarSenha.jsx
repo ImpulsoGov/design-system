@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import style from "./RecuperarSenha.module.css";
 import cx from "classnames";
+import { Spinner } from "../Spinner";
 
 const validacaoSenha = (senha)=>{
     let restricoes ={}
@@ -34,22 +35,27 @@ const InserirInfo = ({
     showEsqueciSenha,
     setAlterarSenhaArgs,
     alterarSenhaArgs,
-    theme
+    theme,
+    setLoading
 })=>{
     const [value, setValue] = useState('');
     const [novaSenhaConfirmacao,setNovaSenhaConfirmacao] = useState('')
     const ProximaEtapa = ()=> {
+        setLoading(true);
+
         if(etapa==0 && value.length > 0){
             req(value).then((response)=>{
                 if (response==true && value.length>0){
-                    setEtapa(etapa+1) 
+                    setEtapa(etapa+1)
                     setAlterarSenhaArgs({
                         mail : value
                     })
                     setAlert('')
+                    setLoading(false);
                 }else{
                     setAlert(alertMsg)
                     setValue('')
+                    setLoading(false);
                 }
             })
         }
@@ -62,9 +68,11 @@ const InserirInfo = ({
                         codigo : value
                     })
                     setAlert('')
+                    setLoading(false);
                 }else{
                     setAlert(alertMsg)
                     setValue('')
+                    setLoading(false);
                 }
             })
         }
@@ -72,10 +80,12 @@ const InserirInfo = ({
             req(alterarSenhaArgs.mail,alterarSenhaArgs.codigo,value)
             .then((response)=>{
                 if (response==true){
-                    setEtapa(etapa+1) 
+                    setEtapa(etapa+1)
                     setAlert('')
+                    setLoading(false);
                 }else{
                     setAlert(alertMsg)
+                    setLoading(false);
                 }
             })
         }
@@ -125,6 +135,7 @@ const InserirInfo = ({
                             novaSenha={value.replaceAll(" ","")}
                             novaSenhaConfirmacao = {novaSenhaConfirmacao.replaceAll(" ","")}
                             setNovaSenhaConfirmacao = {setNovaSenhaConfirmacao}
+                            theme={theme}
                         />
                     }
                     {alert && etapa != 2 && value.length==0 && <div className={style.RecuperarSenhaMensagem}>{alert}</div>}
@@ -155,7 +166,7 @@ const InserirInfo = ({
     )
 }
 
-const ValidarSenha = ({novaSenha,novaSenhaConfirmacao,setNovaSenhaConfirmacao})=>{
+const ValidarSenha = ({novaSenha,novaSenhaConfirmacao,setNovaSenhaConfirmacao, theme})=>{
     const Symbol = (color)=> (color?.length>0 || typeof(color)!='undefined') ?  '✘' : '✓'
     const senhaAlertMsg = "As senhas digitadas não são iguais";
     let validacao = validacaoSenha(novaSenha)
@@ -188,7 +199,7 @@ const ValidarSenha = ({novaSenha,novaSenhaConfirmacao,setNovaSenhaConfirmacao})=
             </div>
             <div className={style.inputContainer}>
                 <input
-                    className={style.RecuperarSenhaInput}
+                    className={cx(style.RecuperarSenhaInput, style[`Input${theme}`])}
                     type={ mostrarSenha ? "text" : "password"  }
                     placeholder="Confirmar nova senha"
                     value={novaSenhaConfirmacao.replaceAll(" ","")}
@@ -205,9 +216,8 @@ const ValidarSenha = ({novaSenha,novaSenhaConfirmacao,setNovaSenhaConfirmacao})=
                     />
                 </button>
             </div>
-            
             {
-                novaSenha != novaSenhaConfirmacao && novaSenhaConfirmacao.length > 0 && 
+                novaSenha != novaSenhaConfirmacao && novaSenhaConfirmacao.length > 0 &&
                 <div className={style.RecuperarSenhaMensagem}>{senhaAlertMsg}</div>
             }
         </>
@@ -229,92 +239,104 @@ const RecuperarSenha = ({
     const [codigoAlert, setCodigoAlert] = useState('');
     const [senhaAlert, setSenhaAlert] = useState('');
     const [alterarSenhaArgs, setAlterarSenhaArgs] = useState();
+    const [loading, setLoading] = useState(false);
 
     const mailAlertMsg = "E-mail invalido.";
     const codigoAlertMsg = "Código digitado é invalido";
     const senhaAlertMsg = "Falha na requisição"
+    const color = theme || 'ColorIP';
+
     return(
         <>
-            {
-                etapa == 0 &&
-                <InserirInfo
-                    titulo = {titulos.mail}
-                    chamada = {chamadas.mail}
-                    aviso = {chamadas.aviso}
-                    botaoVoltar = {botaoVoltar}
-                    botaoProximo ={botaoProximo}
-                    alert = {mailAlert}
-                    setAlert = {setMailAlert}
-                    alertMsg = {mailAlertMsg}
-                    req = {reqs.mail}
-                    etapa = {etapa}
-                    setEtapa = {setEtapa}
-                    placeholder = "E-mail"
-                    showEsqueciSenha = {showEsqueciSenha}
-                    setAlterarSenhaArgs = {setAlterarSenhaArgs}
-                    alterarSenhaArgs = {alterarSenhaArgs}
-                    theme = {theme}
-                />
+            {loading
+                ? <Spinner theme={color} height={"50vh"} />
+                : <>
+                    {
+                        etapa == 0 &&
+                        <InserirInfo
+                            titulo = {titulos.mail}
+                            chamada = {chamadas.mail}
+                            aviso = {chamadas.aviso}
+                            botaoVoltar = {botaoVoltar}
+                            botaoProximo ={botaoProximo}
+                            alert = {mailAlert}
+                            setAlert = {setMailAlert}
+                            alertMsg = {mailAlertMsg}
+                            req = {reqs.mail}
+                            etapa = {etapa}
+                            setEtapa = {setEtapa}
+                            placeholder = "E-mail"
+                            showEsqueciSenha = {showEsqueciSenha}
+                            setAlterarSenhaArgs = {setAlterarSenhaArgs}
+                            alterarSenhaArgs = {alterarSenhaArgs}
+                            theme = {color}
+                            setLoading={setLoading}
+                        />
+                    }
+                    {
+                        etapa == 1 &&
+                        <InserirInfo
+                            titulo = {titulos.codigo}
+                            chamada = {chamadas.codigo}
+                            botaoVoltar = {botaoVoltar}
+                            botaoProximo ={botaoProximo}
+                            alert = {codigoAlert}
+                            setAlert = {setCodigoAlert}
+                            alertMsg = {codigoAlertMsg}
+                            req = {reqs.codigo}
+                            etapa = {etapa}
+                            setEtapa = {setEtapa}
+                            placeholder = "Código de Recuperação"
+                            setAlterarSenhaArgs = {setAlterarSenhaArgs}
+                            alterarSenhaArgs = {alterarSenhaArgs}
+                            theme = {color}
+                            setLoading={setLoading}
+                        />
+                    }
+                    {
+                        etapa == 2 &&
+                        <InserirInfo
+                            titulo = {titulos.senha}
+                            chamada = {chamadas.senha}
+                            botaoVoltar = {botaoVoltar}
+                            botaoProximo ={botaoProximo}
+                            alert = {senhaAlert}
+                            setAlert = {setSenhaAlert}
+                            alertMsg = {senhaAlertMsg}
+                            etapa = {etapa}
+                            req = {reqs.alterarSenha}
+                            setEtapa = {setEtapa}
+                            validarsenha = {true}
+                            placeholder = "Nova Senha"
+                            setAlterarSenhaArgs = {setAlterarSenhaArgs}
+                            alterarSenhaArgs = {alterarSenhaArgs}
+                            theme = {color}
+                            setLoading={setLoading}
+                        />
+                    }
+                    {
+                        etapa == 3 &&
+                        <InserirInfo
+                            titulo = {titulos.sucesso}
+                            chamada = {chamadas.sucesso}
+                            botaoVoltar = {botaoVoltar}
+                            botaoProximo ={botaoProximo}
+                            botaoSucesso = {botaoSucesso}
+                            etapa = {etapa}
+                            req = {true}
+                            sucesso = {true}
+                            setEtapa = {setEtapa}
+                            validarsenha = {true}
+                            placeholder = "Nova senha"
+                            showEsqueciSenha = {showEsqueciSenha}
+                            setAlterarSenhaArgs = {setAlterarSenhaArgs}
+                            alterarSenhaArgs = {alterarSenhaArgs}
+                            theme = {color}
+                            setLoading={setLoading}
+                        />
+                    }
+                </>
             }
-            {
-                etapa == 1 &&
-                <InserirInfo
-                    titulo = {titulos.codigo}
-                    chamada = {chamadas.codigo}
-                    botaoVoltar = {botaoVoltar}
-                    botaoProximo ={botaoProximo}
-                    alert = {codigoAlert}
-                    setAlert = {setCodigoAlert}
-                    alertMsg = {codigoAlertMsg}
-                    req = {reqs.codigo}
-                    etapa = {etapa}
-                    setEtapa = {setEtapa}
-                    placeholder = "Código de Recuperação"
-                    setAlterarSenhaArgs = {setAlterarSenhaArgs}
-                    alterarSenhaArgs = {alterarSenhaArgs}
-                    theme = {theme}
-                />
-            }
-            {
-                etapa == 2 &&
-                <InserirInfo
-                    titulo = {titulos.senha}
-                    chamada = {chamadas.senha}
-                    botaoVoltar = {botaoVoltar}
-                    botaoProximo ={botaoProximo}
-                    alert = {senhaAlert}
-                    setAlert = {setSenhaAlert}
-                    alertMsg = {senhaAlertMsg}
-                    etapa = {etapa}
-                    req = {reqs.alterarSenha}
-                    setEtapa = {setEtapa}
-                    validarsenha = {true}
-                    placeholder = "Nova Senha"
-                    setAlterarSenhaArgs = {setAlterarSenhaArgs}
-                    alterarSenhaArgs = {alterarSenhaArgs}
-                    theme = {theme}
-                />
-            }
-            {
-                etapa == 3 &&
-                <InserirInfo
-                    titulo = {titulos.sucesso}
-                    chamada = {chamadas.sucesso}
-                    botaoVoltar = {botaoVoltar}
-                    botaoProximo ={botaoProximo}
-                    botaoSucesso = {botaoSucesso}
-                    etapa = {etapa}
-                    req = {true}
-                    sucesso = {true}
-                    setEtapa = {setEtapa}
-                    validarsenha = {true}
-                    placeholder = "Nova senha"
-                    showEsqueciSenha = {showEsqueciSenha}
-                    setAlterarSenhaArgs = {setAlterarSenhaArgs}
-                    alterarSenhaArgs = {alterarSenhaArgs}
-                    theme = {theme}
-                />
-            }                
         </>
     )
 }

@@ -16,12 +16,24 @@
 .TituloContainer {
     display: flex;
     gap: 8px;
+    flex-wrap: wrap;
 }
 
 .Titulo {
     margin: 0;
     font-size: 32px;
     line-height: 130%;
+}
+
+.TituloMargem {
+    margin-right: 50px;
+}
+
+.Destaque {
+    color: #308be3;
+    font-size: 24px;
+    margin: 0;
+    line-height: 150%;
 }
 
 .Tooltip {
@@ -80,7 +92,8 @@
         font-size: 24px;
     }
 
-    .Descricao {
+    .Descricao,
+    .Destaque {
         font-size: 18px;
     }
 
@@ -97,7 +110,8 @@
         font-size: 18px;
     }
 
-    .Descricao {
+    .Descricao,
+    .Destaque {
         font-size: 16px;
     }
 
@@ -121,8 +135,13 @@
     }
 
     .Descricao,
-    .InfoSimbolo {
+    .InfoSimbolo,
+    .Destaque {
         font-size: 14px;
+    }
+
+    .TituloMargem {
+        margin-right: 20px;
     }
 
     .Fonte,

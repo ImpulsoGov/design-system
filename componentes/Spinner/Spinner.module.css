@@ -1,0 +1,17 @@
+.SpinnerContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 80px 0;
+  width: 100%;
+}
+
+.ThemeColorSM,
+.ThemeWhiteSM {
+  color: #5367C9;
+}
+
+.ThemeColorIP,
+.ThemeWhite {
+  color: #2EB280;
+}
