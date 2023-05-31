@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import style from "./Modal.module.css"
 
 const Modal= (props)=>{
+    console.log(props)
     return(
         <>
             {
@@ -11,7 +12,7 @@ const Modal= (props)=>{
                         className={style.ModalExit}
                         onClick={()=>props.setModal(false)}
                     ></a>
-                    {props.child}
+                    {props.children}
                 </div>
             }
         </>

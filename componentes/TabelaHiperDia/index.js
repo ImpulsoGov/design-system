@@ -1,0 +1,1 @@
+export { TabelaHiperDia } from "./TabelaHiperDia";

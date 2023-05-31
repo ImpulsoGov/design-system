@@ -1,0 +1,87 @@
+.containerOrdenar{
+    padding: 5px 40px;
+    display: flex;
+    flex-direction: column;
+    gap:15px;
+}
+.limparOrdenacao{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: #2EB380;
+    border-bottom: #2EB380 solid 1.5px;
+    width: fit-content;
+}
+.OrdenarPor{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 130%;
+    letter-spacing: -0.02em;
+    color: #1F1F1F;
+}
+.limparOrdenacao:hover{
+    cursor: pointer;
+}
+.ToolBar{
+    display: flex;
+    gap: 15px;
+    width: 100%;
+    padding: 0 30px 0 30px;
+}
+.SearchBar{
+    background: #EFF5F9;
+    border-radius: 100px;
+    border: none;
+    padding: 1px 25px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 150%;
+    width: 100%;
+}
+.SearchBar:focus { 
+    outline: none !important;
+    border-color: none;
+ }
+
+.ModalContainer{
+    display: flex;
+    justify-content: right;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: 200;
+  }
+.cardFiltro{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 150%;
+    background: #EFF5F9;
+    width: fit-content;
+    padding: 10px;
+    border-radius: 10px;
+}
+.cardFiltroSelected{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 150%;
+    background: #EFF5F9;
+    width: fit-content;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1.5px solid #2EB380;
+}
+.cardFiltro:hover{
+    border: 1.5px solid #2EB380;
+    cursor: pointer;
+}
+
