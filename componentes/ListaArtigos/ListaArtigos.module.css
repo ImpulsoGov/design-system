@@ -1,9 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@40;500&display=swap");
 
 .ListaArtigosContainer{
-    padding-top: 90px;
-    padding-bottom: 300px;
+    padding-top: 0px;
+    padding-bottom: 200px;
 }
+
 .ListaResumoTitulo{
     padding-left: 50px;
     padding-right: 50px;
@@ -12,8 +13,8 @@
     font-weight: 400;
     font-size: 64px;
     line-height: 120%;
-    margin-bottom: 139px;
-    margin-top: 139px;
+    margin-bottom: 30px;
+    margin-top: 30px;
 }
 
 .ListaResumoBtnContainer{

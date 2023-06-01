@@ -170,16 +170,16 @@
     color: #606E78;
 }
 .inputContainer{
+    position: relative;
     display: flex;
     flex-direction: row;
+    align-items: center;
     gap: 15px;
-    width: 110%;
+    width: 100%;
 }
 .buttonHidePassword{
-    height: 95%;
-    position: relative;
-    top:3px;
-    left: -65px;
+    position: absolute;
+    right: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -193,7 +193,7 @@
 }
 
 .showPassword{
-    height: 30px;
+    height: 18px;
     width: auto;
     filter: invert(90%) sepia(15%) saturate(253%) hue-rotate(161deg) brightness(79%) contrast(84%);
 }
