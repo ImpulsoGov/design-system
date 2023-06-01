@@ -30,7 +30,7 @@ const ListaResumo = ({
     titulo,
     btn
 })=>{
-    const artigos5 = artigos.slice(0,6)
+    const artigos5 = artigos.slice(0,10)
     return(
         <div>
             {artigos5.map((artigo,index)=>{
@@ -47,9 +47,9 @@ const ListaResumo = ({
                     </div>
                 )
             })}
-            <div className={style.ListaResumoBtnContainer}>
+            {/* <div className={style.ListaResumoBtnContainer}>
                 <ButtonLight label= {btn.label.toUpperCase()} link={btn.link} />
-            </div>
+            </div> */}
         </div>
     )
 }

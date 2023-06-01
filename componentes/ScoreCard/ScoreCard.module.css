@@ -1,0 +1,27 @@
+.ScoreCard{
+    background-color:#EFF5F9;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+    text-align: center;
+    width: fit-content;
+    padding: 25px 10px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+}
+
+p {
+    margin: 0;
+}
+
+.Grid{
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}

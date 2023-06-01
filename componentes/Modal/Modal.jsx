@@ -11,7 +11,7 @@ const Modal= (props)=>{
                         className={style.ModalExit}
                         onClick={()=>props.setModal(false)}
                     ></a>
-                    {props.child}
+                    {props.children}
                 </div>
             }
         </>

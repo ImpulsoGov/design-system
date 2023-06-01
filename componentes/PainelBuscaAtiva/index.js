@@ -1,0 +1,1 @@
+export { PainelBuscaAtiva } from "./PainelBuscaAtiva";
