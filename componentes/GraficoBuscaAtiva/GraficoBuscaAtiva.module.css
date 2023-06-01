@@ -1,0 +1,28 @@
+.GraficoBuscaAtiva{
+    display: flex;
+    flex-direction: row;
+    padding: 45px;
+    width: 100vw;
+}
+.Barra{
+    width: 70%;
+}
+.Rosca{
+    width: 30%;
+}
+
+@media screen and (max-width: 1023px) {
+    .GraficoBuscaAtiva{
+        display: flex;
+        flex-direction: column;
+        padding: 5px;
+        width: 100vw;
+    }
+    .Barra{
+        width: 100%;
+    }
+    .Rosca{
+        width: 100%;
+    }
+    
+    }
