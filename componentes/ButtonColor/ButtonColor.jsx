@@ -43,7 +43,6 @@ const ButtonColorSubmit = ({
     icon,
     disable
 })=>{
-    console.log(arg)
     return(
         <button 
             className={cx(style.ButtonColorContainer, style[`${!disable ? theme : "disable"}`])}
