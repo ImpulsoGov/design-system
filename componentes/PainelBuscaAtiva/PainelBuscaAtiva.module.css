@@ -84,4 +84,80 @@
     border: 1.5px solid #2EB380;
     cursor: pointer;
 }
+input[type="checkbox"]{
+    accent-color: #2EB280;
+    color: white;
+}
+input[type="checkbox"]:checked::before{
+    color: white !important;
+}
+.ConteinerFiltro{
+    display: flex;
+    font-family: 'Inter';
+    font-style: normal;
+    flex-direction: column;
+    width: 100%;
+}
+.ConteinerFiltros{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.tituloFiltro{
+    display: flex;
+    flex-direction: row;
+}
+.ShowFiltros{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    width: 20px;
+    height: 20px;
+    color : #2EB280;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+    border: solid 2px #2EB280;
+    background-color: white;
+    margin-left: auto;
+}
 
+.ShowFiltros:hover{
+    cursor: pointer;
+}
+
+.MarcarTodas{
+    font-family: 'Inter';
+    font-style: normal;
+    color : #2EB280;
+    font-size: 12px;
+}
+
+.MarcarTodas:hover{
+    cursor: pointer;
+}
+.FiltroCard{
+    display: flex;
+    flex-direction: row;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 150%;
+    gap: 10px;
+    background: #EFF5F9;
+    border-radius: 10px;
+    width: fit-content;
+    padding: 8px;
+    margin-left: 15px;
+}
+
+.Filtro{
+    display: flex;
+    flex-direction: column;
+    padding: 10% 15%;
+    gap: 45px;
+}

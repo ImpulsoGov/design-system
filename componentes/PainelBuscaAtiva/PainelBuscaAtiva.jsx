@@ -4,6 +4,7 @@ import { Modal } from "../Modal/Modal";
 import { ButtonLightSubmit } from "../ButtonLight/ButtonLight";
 import { ButtonColorSubmit } from "../ButtonColor/ButtonColor";
 import { TabelaHiperDia } from "../TabelaHiperDia";
+import { ScoreCard } from "../ScoreCard/ScoreCard"
 
 //Essa função considera que str esta no formato dd/mm/aa
 const stringToDate = (str)=>{
@@ -14,7 +15,6 @@ const stringToDate = (str)=>{
     const date = new Date(ano, mes ,dia);
     return date
 }
-
 const SortData = ({
     data,
     setData,
@@ -35,7 +35,12 @@ const SortData = ({
         setData(sortByString(data))
     }
 }
-
+const FilterData = (props)=>{
+    console.log(props)
+    props.setData(props.data.filter(item => {
+        return props.filtros.some(filter => filter[Object.keys(filter)[0]] === item[Object.keys(filter)[0]]);
+    }))
+}
 const ToolBar = ({
     showFiltros,
     showOrdenar,
@@ -86,7 +91,6 @@ const IDFiltrosDiabetes = {
     "NOMES DE A-Z": "nome",
     "DATA DA AFERIÇÃO DE HEMOGLOBINA GLICADA MAIS RECENTE" : "dt_afericao_pressao_mais_recente",
 }
-
 const CardFiltro = (props)=>{
     const OrdenarPor = ()=>{
         props.setOrdenar(props.ID[props.label])
@@ -102,7 +106,6 @@ const CardFiltro = (props)=>{
                 {props.label.toUpperCase()}
             </div>
 }
-
 const Ordenar = (props)=>{
     let filtros_painel
     if (props.painel == "hipertensao") filtros_painel = {
@@ -129,36 +132,106 @@ const Ordenar = (props)=>{
         </div>
     )
 }
-
-const rotulosFiltrosPorEquipe = [
-    "Filtrar por nome da equipe",
-    "Filtrar por INE da equipe",
-    "Filtrar por nome do ACS",
-    "Filtrar por tipo de diagnóstico",
-    "Filtrar por faixa etária"
-]
-const Filtro = ({
-    filtro
+const FiltroBody = ({
+    data,
+    chavesFiltros,
+    setChavesFiltros
 })=>{
     const [show,setShow] = useState(false)
     return(
         <>
-            <div>
-                <p>{filtro}</p>
-                <p>{show ? "+" : "-"}</p>
+            <div className={style.ConteinerFiltro}>
+                <div className={style.tituloFiltro}>
+                    <p>{data.rotulo}</p>
+                    <button
+                        className={style.ShowFiltros}
+                        onClick={()=>setShow(!show)}
+                    >
+                        {show ? "-" : "+"}
+                    </button>
             </div>
-            <p>Marcar Todas</p>
-        </>
+                {
+                    show &&
+                    <div className={style.ConteinerFiltros}>
+                        <div className={style.MarcarTodas}>Marcar Todas</div>
+                        {
+                            data.data.map((item)=>{
+                                return(
+                                    <FiltroCard 
+                                        label={item} 
+                                        filtroID={data.filtro}
+                                        chavesFiltros={chavesFiltros}
+                                        setChavesFiltros={setChavesFiltros}
+                                        filtro={data.filtro}
+                                    />
+                                )
+                            })
+                        }
+                    </div>
+                }
+
+            </div>
+    </>
+)
+}
+
+const Filtro = ({
+    data,
+    setData,
+    tabela
+})=>{
+    const [chavesFiltros,setChavesFiltros] = useState([])
+    return(
+        <div className={style.Filtro}>
+            {
+                data.map((filtro)=><FiltroBody
+                    data={filtro} 
+                    key={filtro.rotulo}
+                    chavesFiltros={chavesFiltros}
+                    setChavesFiltros={setChavesFiltros}
+                />)
+            }
+            <ButtonColorSubmit 
+                label="APLICAR FILTROS" 
+                submit={FilterData} 
+                arg={{
+                    data : tabela,
+                    setData : setData,
+                    filtros : chavesFiltros
+                }}
+            />            
+        </div>
     )
 }
 const FiltroCard = ({
-    label
+    label,
+    filtroID,
+    chavesFiltros,
+    setChavesFiltros
 })=>{
+    const [value,setValue] = useState()
+    const handleCheckbox = (event) => {
+        const { name, checked } = event.target;
+        setValue(checked)
+        setChavesFiltros(() => {
+            if (checked) return([
+                    ...chavesFiltros,
+                    {[name]: label}
+            ])
+            return chavesFiltros.filter(item=>item[name] !==  label)
+        });
+    };
     return(
-        <span>
-            <input type="checkbox"/>
+        <div className={style.FiltroCard}>
+            <input 
+                className={style.InputFiltroCard} 
+                type="checkbox"
+                onChange={handleCheckbox}
+                name={filtroID}
+                value={value}
+            />
             <p>{label}</p>
-        </span>
+        </div>
     )
 }
 
@@ -166,6 +239,7 @@ const PainelBuscaAtiva = ({
     cards,
     tabela,
     graficos,
+    dadosFiltros,
     painel,
     visualizacao
 })=>{
@@ -174,9 +248,8 @@ const PainelBuscaAtiva = ({
     const [showFiltrosModal,setShowFiltrosModal] = useState(false)
     const [ordenar,setOrdenar] = useState('1')
     const [modal,setModal] = useState(false)
-    const [child,setChild] = useState()
-
-    const showOrdenar = (ordenar)=>{
+    
+    const showOrdenar = ()=>{
         setModal(true)
         setShowOrdenarModal(true)
         setShowFiltrosModal(false)
@@ -206,10 +279,17 @@ const PainelBuscaAtiva = ({
                                 tabela={tabela.data}
                             />
                         }
+                        {
+                            showFiltrosModal &&
+                            <Filtro 
+                                data={dadosFiltros}
+                                setData={setData} 
+                                tabela={tabela.data}
+                            />
+                        }
                     </Modal>
                 </div>
             }
-
             <ToolBar 
                 showFiltros={showFiltros} 
                 showOrdenar={showOrdenar} 
@@ -222,10 +302,10 @@ const PainelBuscaAtiva = ({
             />
             {
                 visualizacao == "equipe" &&
-                <TabelaHiperDia 
-                    colunas={tabela.colunas} 
-                    data={data} 
-                />
+                    <TabelaHiperDia 
+                        colunas={tabela.colunas} 
+                        data={data} 
+                    />
             }
         </div>
     )

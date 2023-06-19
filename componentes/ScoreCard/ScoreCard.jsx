@@ -2,6 +2,7 @@ import React from "react";
 import style from "./ScoreCard.module.css"
 
 const ScoreCard = ({card})=>{
+    console.log(card)
     return(
         <div className={style.ScoreCard}>
             <p style={{width:"75%"}}>{card.descricao}</p>
@@ -13,6 +14,7 @@ const ScoreCard = ({card})=>{
 const ScoreCardGrid = ({
     valores
 })=>{
+    console.log(valores)
     return(
         <div className={style.Grid}>
             {

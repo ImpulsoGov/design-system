@@ -86,6 +86,39 @@ const colunas=[
     }
 ]
 
+const dadosFiltros = [
+  {
+    rotulo : "Filtrar por nome da equipe",
+    data :  ["equipe sol","equipe lua","equipe estrela"],
+    filtro : "nome_equipe"
+
+  },
+  {
+    rotulo : "Filtrar por INE da equipe",
+    data : ["12345678","87654321","18273645"],
+    filtro : "ine"
+
+  },
+  {
+    rotulo : "Filtrar por nome do ACS",
+    data : ["Luana", "Soraia", "Estela"],
+    filtro : "acs_nome_cadastro"
+
+  },
+  {
+    rotulo : "Filtrar por tipo de diagnóstico",
+    data : ["Diagnostico Clinico","Autorreferido"],
+    filtro : "identificacao_condicao"
+
+  },
+  {
+    rotulo : "Filtrar por faixa etária",
+    data : ["apenas em dia","consulta e aferição de PA em dia","apenas aferição de PA em dia","nada em dia"],
+    filtro : ""
+
+  },
+]
+
 const data=[
     {
       acs_nome_cadastro: 'Angelica Souza Toledo Andrade',
@@ -256,6 +289,7 @@ export const Equipe = Template.bind({});
 Equipe.args={
     painel : "hipertensao",
     visualizacao : "equipe",
+    dadosFiltros : dadosFiltros,
     tabela : {
         colunas : colunas,
         data : data
