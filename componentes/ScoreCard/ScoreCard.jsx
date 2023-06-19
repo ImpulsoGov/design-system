@@ -4,8 +4,8 @@ import style from "./ScoreCard.module.css"
 const ScoreCard = ({card})=>{
     return(
         <div className={style.ScoreCard}>
-            <p style={{width:"75%"}}>{card.descricao}</p>
-            <p style={{fontSize: "35px"}}>{card.valor}</p>
+            <p style={{width:"75%",margin : 0}}>{card.descricao}</p>
+            <p style={{fontSize: "35px",margin : 0}}>{card.valor}</p>
         </div>
     )
 }
