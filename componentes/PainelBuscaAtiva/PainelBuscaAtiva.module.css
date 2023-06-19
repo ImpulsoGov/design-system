@@ -84,11 +84,11 @@
     border: 1.5px solid #2EB380;
     cursor: pointer;
 }
-input[type="checkbox"]{
+.InputFiltroCard{
     accent-color: #2EB280;
     color: white;
 }
-input[type="checkbox"]:checked::before{
+.InputFiltroCard:checked::before{
     color: white !important;
 }
 .ConteinerFiltro{
