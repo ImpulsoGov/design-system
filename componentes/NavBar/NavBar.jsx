@@ -342,11 +342,10 @@ const NavBar = (props) => {
       <Modal
           show = {modal}
           setModal = {setModal}
-          child={ModalChildren()}
+          children={ModalChildren()}
       />
     </div>}
     </>
   )
 };
-
 export { NavBar };
