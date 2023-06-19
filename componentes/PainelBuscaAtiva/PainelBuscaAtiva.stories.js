@@ -280,8 +280,14 @@ const Template = (args) => <PainelBuscaAtiva {...args}/>
 export const APS = Template.bind({});
 
 APS.args={
-    painel : "hipertensao",
-    visualizacao : "APS"
+  painel : "hipertensao",
+  visualizacao : "equipe",
+  dadosFiltros : dadosFiltros,
+  tabela : {
+      colunas : colunas,
+      data : data
+  },
+  cards : cards
 }
 
 export const Equipe = Template.bind({});
@@ -296,3 +302,4 @@ Equipe.args={
     },
     cards : cards
 }
+

@@ -248,7 +248,6 @@ const PainelBuscaAtiva = ({
     const [showFiltrosModal,setShowFiltrosModal] = useState(false)
     const [ordenar,setOrdenar] = useState('1')
     const [modal,setModal] = useState(false)
-    
     const showOrdenar = ()=>{
         setModal(true)
         setShowOrdenarModal(true)
