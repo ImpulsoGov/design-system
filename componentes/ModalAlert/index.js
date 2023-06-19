@@ -1,1 +1,1 @@
-export { ModalAlert, Alert, CardAlert, NPS } from "./ModalAlert"
+export { ModalAlert, Alert, CardAlertModal, NPS } from "./ModalAlert"

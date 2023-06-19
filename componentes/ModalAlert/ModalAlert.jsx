@@ -87,13 +87,13 @@ const NPS = ({props})=>{
         <ButtonColorSubmit
             label="Avaliar"
             submit={props.submit}
-            arg={{"user":props.user,"avaliacao":avaliacao}}
+            arg={{"user":props.user,"avaliacao":avaliacao,"token":props.token}}
             disable={avaliacao==0}
         />
         </div>
     )
 }
-const CardAlert = ({
+const CardAlertModal = ({
     refModal,
     props
 })=>{
@@ -118,7 +118,7 @@ const ModalAlert= ({Child,childProps})=>{
     const [display, setDisplay] = useState(true)
     const refModal = useRef()
     useEffect(() => {
-      const handleClick = e => {if (display && !refModal?.current.contains(e.target)) setDisplay(false);}
+      const handleClick = e => {if (display && !refModal?.current?.contains(e.target)) setDisplay(false);}
       document.addEventListener("click", handleClick);
       return () => document.removeEventListener("click", handleClick);
     },[display]);
@@ -146,4 +146,4 @@ const ModalAlertOff= ({Child,childProps,display,setDisplay})=>{
     )
 }
 
-export {ModalAlert,Alert,CardAlert,ModalAlertOff,NPS}
+export {ModalAlert,Alert,CardAlertModal,ModalAlertOff,NPS}

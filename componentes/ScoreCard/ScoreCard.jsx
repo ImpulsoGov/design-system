@@ -14,7 +14,6 @@ const ScoreCard = ({card})=>{
 const ScoreCardGrid = ({
     valores
 })=>{
-    console.log(valores)
     return(
         <div className={style.Grid}>
             {

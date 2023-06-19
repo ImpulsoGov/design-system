@@ -28,7 +28,7 @@ const PreviewArtigo = ({
                     <Link href={"blog/artigos/"+id}>
                         <a><div className={style.PreviewArtigoTitulo}>{titulo}</div></a>
                     </Link>
-                    <div className={style.PreviewArtigoTexto}>{texto.slice(0,300)+"..."}</div>
+                    <div className={style.PreviewArtigoTexto}>{texto.slice(0,300)}</div>
                 </div>
                 <div className={style.PreviewArtigoImage}>
                     <Link href={"blog/artigos/"+id}>
