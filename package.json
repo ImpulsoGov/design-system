@@ -3,6 +3,7 @@
   "description": "Impulso Gov Design System",
   "version": "1.0.41",
   "private": false,
+  "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "files": [
