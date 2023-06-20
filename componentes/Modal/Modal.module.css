@@ -2,6 +2,7 @@
     width: 343px;
     height: 100vh;
     z-index: 200;
+    top:0;
     position: fixed;
     background-color: #fff;
     margin-left: auto;

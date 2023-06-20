@@ -31,6 +31,7 @@
     gap: 15px;
     width: 100%;
     padding: 0 30px 0 30px;
+    margin : 30px 80px 0px 45px;
 }
 .SearchBar{
     background: #EFF5F9;
@@ -42,7 +43,7 @@
     font-weight: 400;
     font-size: 12px;
     line-height: 150%;
-    width: 100%;
+    width: 70%;
 }
 .SearchBar:focus { 
     outline: none !important;
@@ -107,6 +108,7 @@
 .tituloFiltro{
     display: flex;
     flex-direction: row;
+    align-items: center;
 }
 .ShowFiltros{
     font-family: 'Inter';

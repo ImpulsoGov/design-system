@@ -23,7 +23,7 @@ const TabelaHiperDia = ({
                     }}                                
                     pageSizeOptions={[10, 30, 45, 90]}
                     rowsPerPageOptions={[]}
-                    getRowId={(row) => row.cpf}
+                    getRowId={(row) => row.cidadao_cpf}
                     rowHeight={35}
                     sx={{
                         '& .MuiDataGrid-columnHeaderTitle': {
