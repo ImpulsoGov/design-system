@@ -8,7 +8,8 @@ const TabelaHiperDia = ({
     const styles = {
         padding:40,
         height: "fitContent",
-        width: '100%',
+        width: '93%',
+        marginLeft : '45px'
     }
     const rowsID = data.map((row, index) => ({ ...row, id: index }));
     return (
