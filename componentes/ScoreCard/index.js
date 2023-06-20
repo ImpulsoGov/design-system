@@ -1,1 +1,1 @@
-export { ScoreCard } from "./ScoreCard";
+export { ScoreCard, ScoreCardGrid } from "./ScoreCard";
