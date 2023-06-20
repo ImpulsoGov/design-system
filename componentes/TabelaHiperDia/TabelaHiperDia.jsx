@@ -10,11 +10,12 @@ const TabelaHiperDia = ({
         height: "fitContent",
         width: '100%',
     }
+    const rowsID = data.map((row, index) => ({ ...row, id: index }));
     return (
         <>
             <div style={styles}>
                 <DataGrid
-                    rows={data}
+                    rows={rowsID}
                     columns={colunas}
                     disableColumnMenu
                     initialState={{
@@ -23,7 +24,7 @@ const TabelaHiperDia = ({
                     }}                                
                     pageSizeOptions={[10, 30, 45, 90]}
                     rowsPerPageOptions={[]}
-                    getRowId={(row) => row.cidadao_cpf}
+                    getRowId={(row) => row.id}
                     rowHeight={35}
                     sx={{
                         '& .MuiDataGrid-columnHeaderTitle': {
