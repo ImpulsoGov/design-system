@@ -1,7 +1,7 @@
 {
   "name": "@impulsogov/design-system",
   "description": "Impulso Gov Design System",
-  "version": "1.0.49",
+  "version": "1.0.50",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "files": [
