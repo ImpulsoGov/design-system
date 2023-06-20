@@ -18,7 +18,7 @@ CardGrid.args={
             valor : 102
         },   
         {
-            descricao : "Total de pessoas com Hipertensão",
+            descricao : "Total de pessoas com consulta e aferição de PA em dia",
             valor : 102
         },    
         {
