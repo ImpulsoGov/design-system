@@ -4,7 +4,6 @@ import { Modal } from "../Modal/Modal";
 import { ButtonLightSubmit } from "../ButtonLight/ButtonLight";
 import { ButtonColorSubmit } from "../ButtonColor/ButtonColor";
 import { TabelaHiperDia } from "../TabelaHiperDia";
-import { ScoreCard } from "../ScoreCard/ScoreCard"
 
 //Essa função considera que str esta no formato dd/mm/aa
 const stringToDate = (str)=>{
@@ -36,7 +35,6 @@ const SortData = ({
     }
 }
 const FilterData = (props)=>{
-    console.log(props)
     props.setData(props.data.filter(item => {
         return props.filtros.some(filter => filter[Object.keys(filter)[0]] === item[Object.keys(filter)[0]]);
     }))
@@ -80,15 +78,15 @@ const rotulosfiltrosDiabetes = [
     "DATA DA AFERIÇÃO DE HEMOGLOBINA GLICADA MAIS RECENTE",
 ]
 const IDFiltrosHipertensao = {
-    "DATA DA CONSULTA MAIS RECENTE" : "dt_consulta_mais_recente",
+    "DATA DA CONSULTA MAIS RECENTE" : "dt_ultima_consulta",
     "PRAZO PARA PRÓXIMA CONSULTA" : "prazo_proxima_consulta",
-    "NOMES DE A-Z": "nome",
+    "NOMES DE A-Z": "cidadao_nome",
     "DATA DA AFERIÇÃO DE PA MAIS RECENTE": "dt_afericao_pressao_mais_recente",
 }
 const IDFiltrosDiabetes = {
-    "DATA DA CONSULTA MAIS RECENTE" : "dt_consulta_mais_recente",
+    "DATA DA CONSULTA MAIS RECENTE" : "dt_ultima_consulta",
     "PRAZO PARA PRÓXIMA CONSULTA" : "prazo_proxima_consulta",
-    "NOMES DE A-Z": "nome",
+    "NOMES DE A-Z": "cidadao_nome",
     "DATA DA AFERIÇÃO DE HEMOGLOBINA GLICADA MAIS RECENTE" : "dt_afericao_pressao_mais_recente",
 }
 const CardFiltro = (props)=>{
@@ -236,9 +234,7 @@ const FiltroCard = ({
 }
 
 const PainelBuscaAtiva = ({
-    cards,
     tabela,
-    graficos,
     dadosFiltros,
     painel,
     visualizacao
