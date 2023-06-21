@@ -8,22 +8,24 @@ const TabelaHiperDia = ({
     const styles = {
         padding:40,
         height: "fitContent",
-        width: '100%',
+        width: '93%',
+        marginLeft : '45px'
     }
+    const rowsID = data.map((row, index) => ({ ...row, id: index }));
     return (
         <>
             <div style={styles}>
                 <DataGrid
-                    rows={data}
+                    rows={rowsID}
                     columns={colunas}
                     disableColumnMenu
                     initialState={{
                         ...data.initialState,
-                        pagination: { paginationModel: { pageSize: 90 } },
+                        pagination: { paginationModel: { pageSize: 100 } },
                     }}                                
-                    pageSizeOptions={[10, 30, 45, 90]}
+                    pageSizeOptions={[10, 30, 45, 100]}
                     rowsPerPageOptions={[]}
-                    getRowId={(row) => row.cpf}
+                    getRowId={(row) => row.id}
                     rowHeight={35}
                     sx={{
                         '& .MuiDataGrid-columnHeaderTitle': {

@@ -23,7 +23,7 @@ const PrazoProximaConsultaStyle = ({value})=> {
         padding: "2px",
         fontWeight : 550,
     }
-    const style = (value=="em dia") ? emDia : prazo
+    const style = (value=="Em dia") ? emDia : prazo
     return <div style={style}>{value}</div>
 }
 const columns = [

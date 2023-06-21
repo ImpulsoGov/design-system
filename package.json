@@ -1,8 +1,7 @@
 {
   "name": "@impulsogov/design-system",
   "description": "Impulso Gov Design System",
-  "version": "1.0.44",
-  "private": false,
+  "version": "1.0.59",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "files": [
@@ -29,7 +28,8 @@
     "form-data": "^4.0.0",
     "next": "^13.0.3",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-echarts-wrapper": "^1.0.3"
   },
   "scripts": {
     "start": "react-scripts start",

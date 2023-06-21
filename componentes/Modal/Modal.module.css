@@ -2,10 +2,12 @@
     width: 343px;
     height: 100vh;
     z-index: 200;
+    top:0;
     position: fixed;
     background-color: #fff;
     margin-left: auto;
     box-shadow: -10px 0px 10px -5px rgba(0, 0, 0, 0.2);
+    overflow-y: scroll;
 }
 .ModalExit{
     color:#fff;

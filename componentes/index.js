@@ -37,7 +37,7 @@ export { PreviewArtigo } from "./PreviewArtigo/PreviewArtigo";
 export { PreviewArtigoDestaque } from "./PreviewArtigoDestaque/PreviewArtigoDestaque";
 export { RecuperarSenha } from "./RecuperarSenha/RecuperarSenha";
 export { Slider } from "./Slider/Slider";
-export { ScoreCard } from "./ScoreCard/ScoreCard";
+export { ScoreCard, ScoreCardGrid } from "./ScoreCard/ScoreCard";
 export { SobreTrilha } from "./SobreTrilha/SobreTrilha";
 export { Spinner } from "./Spinner";
 export { TabelaHiperDia } from "./TabelaHiperDia/TabelaHiperDia";
