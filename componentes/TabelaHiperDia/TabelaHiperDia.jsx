@@ -21,9 +21,9 @@ const TabelaHiperDia = ({
                     disableColumnMenu
                     initialState={{
                         ...data.initialState,
-                        pagination: { paginationModel: { pageSize: 90 } },
+                        pagination: { paginationModel: { pageSize: 100 } },
                     }}                                
-                    pageSizeOptions={[10, 30, 45, 90]}
+                    pageSizeOptions={[10, 30, 45, 100]}
                     rowsPerPageOptions={[]}
                     getRowId={(row) => row.id}
                     rowHeight={35}

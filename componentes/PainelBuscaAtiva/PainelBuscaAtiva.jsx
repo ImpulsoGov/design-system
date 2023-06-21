@@ -7,7 +7,6 @@ import { TabelaHiperDia } from "../TabelaHiperDia";
 
 //Essa função considera que str esta no formato dd/mm/aa
 const stringToDate = (str)=>{
-    console.log(str)
     if(!str) return null
     const parts = str.split('/');
     const dia = parseInt(parts[0]);
@@ -32,8 +31,7 @@ const SortData = ({
         "dt_afericao_hemoglobina_glicada_mais_recente",
     ]
     if(datefiltros.includes(filtro)){ 
-        console.log(filtro)
-        setData(sortByDate(data)).then(()=>console.log("dados alterados"))
+        setData(sortByDate(data))
     }else{
         setData(sortByString(data))
     }
@@ -54,8 +52,10 @@ const ToolBar = ({
     tabela
 })=>{
     const [nome,setNome] =useState('')
-    const filterbyName = ()=>setData(tabela.filter(item=>item.nome.toUpperCase().includes(nome.toUpperCase())))
-    
+    const filterbyName = ()=>setData(tabela.filter(item=>item.cidadao_nome.toUpperCase().includes(nome.toUpperCase())))
+    useEffect(()=>{
+        if(nome.length<=0) setData(tabela)
+    },[nome])
     return(
         <div className={style.ToolBar}>
             <input 
