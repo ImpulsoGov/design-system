@@ -348,5 +348,4 @@ const NavBar = (props) => {
     </>
   )
 };
-
 export { NavBar };
