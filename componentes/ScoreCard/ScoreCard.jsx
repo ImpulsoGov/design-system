@@ -2,7 +2,6 @@ import React from "react";
 import style from "./ScoreCard.module.css"
 
 const ScoreCard = ({card})=>{
-    console.log(card)
     return(
         <div className={style.ScoreCard}>
             <p style={{width:"75%",margin:0}}>{card.descricao}</p>

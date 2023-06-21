@@ -123,7 +123,7 @@ const data=[
     {
       acs_nome_cadastro: 'Angelica Souza Toledo Andrade',
       cpf: '06385182604',
-      dt_afericao_pressao_mais_recente: '22/02/21',
+      dt_afericao_pressao_mais_recente: null,
       dt_consulta_mais_recente: '22/09/21',
       identificacao_condicao: 'Diagnostico Clinico',
       mail: 'aangelicasouza24@gmail.com',

@@ -7,6 +7,7 @@ import { TabelaHiperDia } from "../TabelaHiperDia";
 
 //Essa função considera que str esta no formato dd/mm/aa
 const stringToDate = (str)=>{
+    if(!str) return null
     const parts = str.split('/');
     const dia = parseInt(parts[0]);
     const mes = parseInt(parts[1]) -1;
@@ -25,7 +26,7 @@ const SortData = ({
     const sortByString = (data)=>[...data].sort((a,b) => a[filtro].localeCompare(b[filtro]) )
     const datefiltros = [
         "dt_afericao_pressao_mais_recente",
-        "dt_consulta_mais_recente",
+        "dt_ultima_consulta",
         "dt_afericao_hemoglobina_glicada_mais_recente",
     ]
     if(datefiltros.includes(filtro)){ 
