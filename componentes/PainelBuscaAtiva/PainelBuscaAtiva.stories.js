@@ -28,28 +28,28 @@ const cards = [
 const colunas=[
     {
       align: 'left',
-      field: 'nome',
+      field: 'cidadao_nome',
       headerAlign: 'center',
       headerName: 'NOME',
       width: 240
     },
     {
       align: 'center',
-      field: 'cpf',
+      field: 'cidadao_cpf',
       headerAlign: 'center',
       headerName: 'CPF',
       width: 130
     },
     {
       align: 'center',
-      field: 'identificacao_condicao',
+      field: 'identificacao_condicao_hipertensao',
       headerAlign: 'center',
       headerName: 'IDENTIFICAÇÃO DA CONDIÇÃO',
       width: 150
     },
     {
       align: 'center',
-      field: 'dt_consulta_mais_recente',
+      field: 'dt_ultima_consulta',
       headerAlign: 'center',
       headerName: 'DATA DA CONSULTA MAIS RECENTE',
       width: 120
@@ -120,160 +120,138 @@ const dadosFiltros = [
 ]
 
 const data=[
-    {
-      acs_nome_cadastro: 'Angelica Souza Toledo Andrade',
-      cpf: '06385182604',
-      dt_afericao_pressao_mais_recente: null,
-      dt_consulta_mais_recente: '22/09/21',
-      identificacao_condicao: 'Diagnostico Clinico',
-      mail: 'aangelicasouza24@gmail.com',
-      nome: 'Angelica Souza Toledo Andrade',
-      prazo_proxima_afericao_pa: 'em dia',
-      prazo_proxima_consulta: 'até 30/04/23'
-    },
-    {
-        acs_nome_cadastro: 'Angelica Souza Toledo Andrade',
-        cpf: '06385182214',
-        dt_afericao_pressao_mais_recente: '22/02/21',
-        dt_consulta_mais_recente: '01/01/21',
-        identificacao_condicao: 'diagnostico Clinico',
-        mail: 'aangelicasouza24@gmail.com',
-        nome: 'Danilo Lopes Neves',
-        prazo_proxima_afericao_pa: 'em dia',
-        prazo_proxima_consulta: 'em dia'
-    },  
-    {
-      acs_nome_cadastro: 'Angelica Souza Toledo Andrade',
-      cpf: '06385172614',
-      dt_afericao_pressao_mais_recente: '22/02/21',
-      dt_consulta_mais_recente: '22/09/21',
-      identificacao_condicao: 'diagnostico Clinico',
-      mail: 'aangelicasouza24@gmail.com',
-      nome: 'Angelica Souza Toledo Andrade',
-      prazo_proxima_afericao_pa: 'em dia',
-      prazo_proxima_consulta: 'em dia'
-    },
-    {
-      acs_nome_cadastro: 'Angelica Souza Toledo Andrade',
-      cpf: '06385582514',
-      dt_afericao_pressao_mais_recente: '22/02/21',
-      dt_consulta_mais_recente: '22/09/21',
-      identificacao_condicao: 'diagnostico Clinico',
-      mail: 'aangelicasouza24@gmail.com',
-      nome: 'Angelica Souza Toledo Andrade',
-      prazo_proxima_afericao_pa: 'em dia',
-      prazo_proxima_consulta: 'em dia'
-    },
-    {
-      acs_nome_cadastro: 'Angelica Souza Toledo Andrade',
-      cpf: '06385122814',
-      dt_afericao_pressao_mais_recente: '22/02/21',
-      dt_consulta_mais_recente: '22/09/21',
-      identificacao_condicao: 'diagnostico Clinico',
-      mail: 'aangelicasouza24@gmail.com',
-      nome: 'Angelica Souza Toledo Andrade',
-      prazo_proxima_afericao_pa: 'em dia',
-      prazo_proxima_consulta: 'em dia'
-    },
-    {
-      acs_nome_cadastro: 'Angelica Souza Toledo Andrade',
-      cpf: '06185182914',
-      dt_afericao_pressao_mais_recente: '22/02/21',
-      dt_consulta_mais_recente: '22/09/21',
-      identificacao_condicao: 'diagnostico Clinico',
-      mail: 'aangelicasouza24@gmail.com',
-      nome: 'Angelica Souza Toledo Andrade',
-      prazo_proxima_afericao_pa: 'em dia',
-      prazo_proxima_consulta: 'em dia'
-    },
-    {
-      acs_nome_cadastro: 'Angelica Souza Toledo Andrade',
-      cpf: '06185182014',
-      dt_afericao_pressao_mais_recente: '22/02/21',
-      dt_consulta_mais_recente: '22/09/21',
-      identificacao_condicao: 'diagnostico Clinico',
-      mail: 'aangelicasouza24@gmail.com',
-      nome: 'Angelica Souza Toledo Andrade',
-      prazo_proxima_afericao_pa: 'em dia',
-      prazo_proxima_consulta: 'em dia'
-    },
-    {
-      acs_nome_cadastro: 'Angelica Souza Toledo Andrade',
-      cpf: '06385182114',
-      dt_afericao_pressao_mais_recente: '01/02/21',
-      dt_consulta_mais_recente: '22/09/21',
-      identificacao_condicao: 'diagnostico Clinico',
-      mail: 'aangelicasouza24@gmail.com',
-      nome: 'Angelica Souza Toledo Andrade',
-      prazo_proxima_afericao_pa: 'em dia',
-      prazo_proxima_consulta: 'em dia'
-    },
-    {
-      acs_nome_cadastro: 'Angelica Souza Toledo Andrade',
-      cpf: '06885182319',
-      dt_afericao_pressao_mais_recente: '22/02/21',
-      dt_consulta_mais_recente: '22/09/21',
-      identificacao_condicao: 'diagnostico Clinico',
-      mail: 'aangelicasouza24@gmail.com',
-      nome: 'Angelica Souza Toledo Andrade',
-      prazo_proxima_afericao_pa: 'em dia',
-      prazo_proxima_consulta: 'em dia'
-    },
-    {
-      acs_nome_cadastro: 'Angelica Souza Toledo Andrade',
-      cpf: '04385182415',
-      dt_afericao_pressao_mais_recente: '22/02/21',
-      dt_consulta_mais_recente: '22/09/21',
-      identificacao_condicao: 'diagnostico Clinico',
-      mail: 'aangelicasouza24@gmail.com',
-      nome: 'Angelica Souza Toledo Andrade',
-      prazo_proxima_afericao_pa: 'em dia',
-      prazo_proxima_consulta: 'em dia'
-    },
-    {
-      acs_nome_cadastro: 'Angelica Souza Toledo Andrade',
-      cpf: '16385182514',
-      dt_afericao_pressao_mais_recente: '22/02/21',
-      dt_consulta_mais_recente: '22/09/21',
-      identificacao_condicao: 'diagnostico Clinico',
-      mail: 'aangelicasouza24@gmail.com',
-      nome: 'Angelica Souza Toledo Andrade',
-      prazo_proxima_afericao_pa: 'em dia',
-      prazo_proxima_consulta: 'em dia'
-    },
-    {
-      acs_nome_cadastro: 'Angelica Souza Toledo Andrade',
-      cpf: '06385182559',
-      dt_afericao_pressao_mais_recente: '22/02/21',
-      dt_consulta_mais_recente: '22/09/21',
-      identificacao_condicao: 'diagnostico Clinico',
-      mail: 'aangelicasouza24@gmail.com',
-      nome: 'Angelica Souza Toledo Andrade',
-      prazo_proxima_afericao_pa: 'em dia',
-      prazo_proxima_consulta: 'em dia'
-    },
-    {
-      acs_nome_cadastro: 'Angelica Souza Toledo Andrade',
-      cpf: '46385182664',
-      dt_afericao_pressao_mais_recente: '22/02/21',
-      dt_consulta_mais_recente: '22/09/21',
-      identificacao_condicao: 'diagnostico Clinico',
-      mail: 'aangelicasouza24@gmail.com',
-      nome: 'Angelica Souza Toledo Andrade',
-      prazo_proxima_afericao_pa: 'em dia',
-      prazo_proxima_consulta: 'em dia'
-    },
-    {
-      acs_nome_cadastro: 'Angelica Souza Toledo Andrade',
-      cpf: '56385182674',
-      dt_afericao_pressao_mais_recente: '22/02/21',
-      dt_consulta_mais_recente: '22/09/21',
-      identificacao_condicao: 'Diagnostico Clinico',
-      mail: 'aangelicasouza24@gmail.com',
-      nome: 'Angelica Souza Toledo Andrade',
-      prazo_proxima_afericao_pa: 'em dia',
-      prazo_proxima_consulta: 'em dia'
-    }
+  {
+      "cidadao_nome": "DAVIDSON MUSTAFA ZEHED",
+      "cidadao_cpf": "32702133878",
+      "identificacao_condicao_hipertensao": "Autorreferida",
+      "dt_ultima_consulta": "2020-09-23",
+      "prazo_proxima_consulta": "Até 31/Agosto",
+      "dt_afericao_pressao_mais_recente": null,
+      "prazo_proxima_afericao_pa": "Até 31/Agosto",
+      "acs_nome_cadastro": "Fernanda Soares Ferreira",
+      "equipe_ine_cadastro": "0001540971",
+      "equipe_nome_cadastro": "ESF GOIANA"
+  },
+  {
+      "cidadao_nome": "JOSE GALDINO ALVES DA PAZ",
+      "cidadao_cpf": "33343316873",
+      "identificacao_condicao_hipertensao": "Diagnóstico Clínico",
+      "dt_ultima_consulta": "2023-05-11",
+      "prazo_proxima_consulta": "Em dia",
+      "dt_afericao_pressao_mais_recente": "2023-05-11",
+      "prazo_proxima_afericao_pa": "Em dia",
+      "acs_nome_cadastro": "Fabiana Matias de Oliveira",
+      "equipe_ine_cadastro": "0001540971",
+      "equipe_nome_cadastro": "ESF GOIANA"
+  },
+  {
+      "cidadao_nome": "ACSA DOS SANTOS LOPES",
+      "cidadao_cpf": "32704359830",
+      "identificacao_condicao_hipertensao": "Diagnóstico Clínico",
+      "dt_ultima_consulta": "2023-05-12",
+      "prazo_proxima_consulta": "Até 31/Agosto",
+      "dt_afericao_pressao_mais_recente": null,
+      "prazo_proxima_afericao_pa": "Até 31/Agosto",
+      "acs_nome_cadastro": "Thais Jensen",
+      "equipe_ine_cadastro": "0001540971",
+      "equipe_nome_cadastro": "ESF GOIANA"
+  },
+  {
+      "cidadao_nome": "ANA PAULA DA SILVA SOARES",
+      "cidadao_cpf": "41364717859",
+      "identificacao_condicao_hipertensao": "Autorreferida",
+      "dt_ultima_consulta": "2022-11-23",
+      "prazo_proxima_consulta": "Até 31/Agosto",
+      "dt_afericao_pressao_mais_recente": null,
+      "prazo_proxima_afericao_pa": "Até 31/Agosto",
+      "acs_nome_cadastro": "Fernanda Soares Ferreira",
+      "equipe_ine_cadastro": "0001540971",
+      "equipe_nome_cadastro": "ESF GOIANA"
+  },
+  {
+      "cidadao_nome": "APARECIDA VANESSA DO AMARAL",
+      "cidadao_cpf": "35299537840",
+      "identificacao_condicao_hipertensao": "Diagnóstico Clínico",
+      "dt_ultima_consulta": "2023-05-26",
+      "prazo_proxima_consulta": "Até 31/Agosto",
+      "dt_afericao_pressao_mais_recente": null,
+      "prazo_proxima_afericao_pa": "Até 31/Agosto",
+      "acs_nome_cadastro": "Marco Alberto Costa Santi",
+      "equipe_ine_cadastro": "0001540971",
+      "equipe_nome_cadastro": "ESF GOIANA"
+  },
+  {
+      "cidadao_nome": "CLAUDINEI DO ROSARIO",
+      "cidadao_cpf": "34353421883",
+      "identificacao_condicao_hipertensao": "Diagnóstico Clínico",
+      "dt_ultima_consulta": "2015-07-24",
+      "prazo_proxima_consulta": "Até 31/Agosto",
+      "dt_afericao_pressao_mais_recente": null,
+      "prazo_proxima_afericao_pa": "Até 31/Agosto",
+      "acs_nome_cadastro": "Marco Alberto Costa Santi",
+      "equipe_ine_cadastro": "0001540971",
+      "equipe_nome_cadastro": "ESF GOIANA"
+  },
+  {
+      "cidadao_nome": "CRISTIANE DELGADO SEMO",
+      "cidadao_cpf": "42402357827",
+      "identificacao_condicao_hipertensao": "Autorreferida",
+      "dt_ultima_consulta": "2019-02-05",
+      "prazo_proxima_consulta": "Até 31/Agosto",
+      "dt_afericao_pressao_mais_recente": null,
+      "prazo_proxima_afericao_pa": "Até 31/Agosto",
+      "acs_nome_cadastro": "Fernanda Soares Ferreira",
+      "equipe_ine_cadastro": "0001540971",
+      "equipe_nome_cadastro": "ESF GOIANA"
+  },
+  {
+      "cidadao_nome": "DEBORA CAROLINA SOUZA",
+      "cidadao_cpf": "22910043878",
+      "identificacao_condicao_hipertensao": "Diagnóstico Clínico",
+      "dt_ultima_consulta": "2023-05-22",
+      "prazo_proxima_consulta": "Em dia",
+      "dt_afericao_pressao_mais_recente": "2023-05-22",
+      "prazo_proxima_afericao_pa": "Em dia",
+      "acs_nome_cadastro": "Marco Alberto Costa Santi",
+      "equipe_ine_cadastro": "0001540971",
+      "equipe_nome_cadastro": "ESF GOIANA"
+  },
+  {
+      "cidadao_nome": "FAUSTINO DA COSTA JUNIOR",
+      "cidadao_cpf": "34445553859",
+      "identificacao_condicao_hipertensao": "Diagnóstico Clínico",
+      "dt_ultima_consulta": "2022-12-19",
+      "prazo_proxima_consulta": "Até 31/Agosto",
+      "dt_afericao_pressao_mais_recente": null,
+      "prazo_proxima_afericao_pa": "Até 31/Agosto",
+      "acs_nome_cadastro": "Fernanda Soares Ferreira",
+      "equipe_ine_cadastro": "0001540971",
+      "equipe_nome_cadastro": "ESF GOIANA"
+  },
+  {
+      "cidadao_nome": "FRANCIELE DE DEUS BOA VENTURA",
+      "cidadao_cpf": "43656184828",
+      "identificacao_condicao_hipertensao": "Diagnóstico Clínico",
+      "dt_ultima_consulta": "2020-10-19",
+      "prazo_proxima_consulta": "Até 31/Agosto",
+      "dt_afericao_pressao_mais_recente": null,
+      "prazo_proxima_afericao_pa": "Até 31/Agosto",
+      "acs_nome_cadastro": "Raquel Nascimento da Silva",
+      "equipe_ine_cadastro": "0001540971",
+      "equipe_nome_cadastro": "ESF GOIANA"
+  },
+  {
+      "cidadao_nome": "GABRIEL DE ALMEIDA FERNANDES",
+      "cidadao_cpf": "44455263802",
+      "identificacao_condicao_hipertensao": "Diagnóstico Clínico",
+      "dt_ultima_consulta": "2022-09-27",
+      "prazo_proxima_consulta": "Até 31/Agosto",
+      "dt_afericao_pressao_mais_recente": null,
+      "prazo_proxima_afericao_pa": "Até 31/Agosto",
+      "acs_nome_cadastro": "Fernanda Soares Ferreira",
+      "equipe_ine_cadastro": "0001540971",
+      "equipe_nome_cadastro": "ESF GOIANA"
+  },
 ]
 const Template = (args) => <PainelBuscaAtiva {...args}/>
 
@@ -281,7 +259,6 @@ export const APS = Template.bind({});
 
 APS.args={
   painel : "hipertensao",
-  visualizacao : "equipe",
   dadosFiltros : dadosFiltros,
   tabela : {
       colunas : colunas,

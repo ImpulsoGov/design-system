@@ -7,6 +7,7 @@ import { TabelaHiperDia } from "../TabelaHiperDia";
 
 //Essa função considera que str esta no formato dd/mm/aa
 const stringToDate = (str)=>{
+    console.log(str)
     if(!str) return null
     const parts = str.split('/');
     const dia = parseInt(parts[0]);
@@ -20,6 +21,7 @@ const SortData = ({
     setData,
     filtro
 })=>{
+    console.log(filtro)
     const sortByDate = (data)=>{
         return [...data].sort((a,b) => stringToDate(a[filtro]) - stringToDate(b[filtro])
     )}
@@ -30,7 +32,8 @@ const SortData = ({
         "dt_afericao_hemoglobina_glicada_mais_recente",
     ]
     if(datefiltros.includes(filtro)){ 
-        setData(sortByDate(data))
+        console.log(filtro)
+        setData(sortByDate(data)).then(()=>console.log("dados alterados"))
     }else{
         setData(sortByString(data))
     }
@@ -238,7 +241,6 @@ const PainelBuscaAtiva = ({
     tabela,
     dadosFiltros,
     painel,
-    visualizacao
 })=>{
     const [data,setData] = useState(tabela.data)
     const [showOrdenarModal,setShowOrdenarModal] = useState(false)
@@ -296,13 +298,10 @@ const PainelBuscaAtiva = ({
                 setData={setData}
                 tabela={tabela.data}
             />
-            {
-                visualizacao == "equipe" &&
-                    <TabelaHiperDia 
-                        colunas={tabela.colunas} 
-                        data={data} 
-                    />
-            }
+            <TabelaHiperDia 
+                colunas={tabela.colunas} 
+                data={data} 
+            />
         </div>
     )
 }
