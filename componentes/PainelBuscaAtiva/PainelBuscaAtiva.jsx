@@ -15,27 +15,27 @@ const stringToDate = (str)=>{
     const date = new Date(ano, mes ,dia);
     return date
 }
-const SortData = ({
-    data,
-    setData,
-    filtro
-})=>{
-    console.log(filtro)
-    const sortByDate = (data)=>{
-        return [...data].sort((a,b) => stringToDate(a[filtro]) - stringToDate(b[filtro])
-    )}
-    const sortByString = (data)=>[...data].sort((a,b) => a[filtro].localeCompare(b[filtro]) )
-    const datefiltros = [
-        "dt_afericao_pressao_mais_recente",
-        "dt_ultima_consulta",
-        "dt_afericao_hemoglobina_glicada_mais_recente",
-    ]
-    if(datefiltros.includes(filtro)){ 
-        setData(sortByDate(data))
-    }else{
-        setData(sortByString(data))
-    }
-}
+// const SortData = ({
+//     data,
+//     setData,
+//     filtro
+// })=>{
+//     console.log(filtro)
+//     const sortByDate = (data)=>{
+//         return [...data].sort((a,b) => stringToDate(a[filtro]) - stringToDate(b[filtro])
+//     )}
+//     const sortByString = (data)=>[...data].sort((a,b) => a[filtro].localeCompare(b[filtro]) )
+//     const datefiltros = [
+//         "dt_afericao_pressao_mais_recente",
+//         "dt_ultima_consulta",
+//         "dt_afericao_hemoglobina_glicada_mais_recente",
+//     ]
+//     if(datefiltros.includes(filtro)){ 
+//         setData(sortByDate(data))
+//     }else{
+//         setData(sortByString(data))
+//     }
+// }
 const FilterData = (props)=>{
     props.setData(props.data.filter(item => {
         return props.filtros.some(filter => filter[Object.keys(filter)[0]] === item[Object.keys(filter)[0]]);
@@ -64,7 +64,7 @@ const ToolBar = ({
                 value={nome}
                 onChange={(e) => {setNome(e.target.value);filterbyName();}}
             />
-            <ButtonLightSubmit label="ORDENAÇÃO" submit={showOrdenar} arg={{painel,ordenar,setOrdenar,data,setData}}/>
+            {/* <ButtonLightSubmit label="ORDENAÇÃO" submit={showOrdenar} arg={{painel,ordenar,setOrdenar,data,setData}}/> */}
             <ButtonLightSubmit label="FILTROS" submit={showFiltros}/>
         </div>
     )
@@ -258,7 +258,7 @@ const PainelBuscaAtiva = ({
         setShowFiltrosModal(true)
     }
     return(
-        <div>
+        <div style={{marginTop : "30px"}}>
             {
                 modal && 
                 <div className={style.ModalContainer}> 
