@@ -588,6 +588,12 @@
     position: fixed;
     z-index: 200;
   }
+  .NavBarModalBlur{
+    height: 100vh;
+    z-index: 200;
+    width: 100%;
+    background-color: #1f1f1f95;
+  }
   @media screen and (max-width: 1000px) {
     .container_navbar {
       padding: 16px 24px 16px 24px;
