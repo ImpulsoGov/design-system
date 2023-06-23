@@ -339,6 +339,10 @@ const NavBar = (props) => {
     </div>
    {modal &&
     <div className={style.NavBarModalContainer}>
+      <div 
+        className={style.NavBarModalBlur}
+        onClick={()=>setModal(false)}
+      ></div>
       <Modal
           show = {modal}
           setModal = {setModal}

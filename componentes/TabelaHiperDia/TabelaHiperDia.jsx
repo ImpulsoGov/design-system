@@ -66,9 +66,6 @@ const TabelaHiperDia = ({
                         '& .MuiDataGrid-iconSeparator': {
                             display: 'none',
                         },
-                        '& .MuiDataGrid-iconButtonContainer': {
-                            display: 'none',
-                        },
                         '& .MuiToolbar-root': {
                             display: 'none',
                         },
