@@ -262,6 +262,10 @@ const PainelBuscaAtiva = ({
             {
                 modal && 
                 <div className={style.ModalContainer}> 
+                    <div 
+                        className={style.ModalBlur}
+                        onClick={()=>setModal(false)}
+                    ></div>
                     <Modal 
                         show={modal} 
                         setModal={setModal} 

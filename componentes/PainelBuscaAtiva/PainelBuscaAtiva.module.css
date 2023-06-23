@@ -56,7 +56,13 @@
     height: 100vh;
     position: fixed;
     z-index: 200;
-  }
+}
+.ModalBlur{
+    width: 100vw;
+    height: 100vh;
+    z-index: 200;
+    background-color: #1f1f1f95;
+}
 .cardFiltro{
     font-family: 'Inter';
     font-style: normal;
