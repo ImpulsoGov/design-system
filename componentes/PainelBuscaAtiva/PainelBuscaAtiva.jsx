@@ -80,7 +80,7 @@ const rotulosfiltrosDiabetes = [
     "DATA DA CONSULTA MAIS RECENTE",
     "PRAZO PARA PRÓXIMA CONSULTA",
     "NOMES DE A-Z",
-    "DATA DA AFERIÇÃO DE HEMOGLOBINA GLICADA MAIS RECENTE",
+    "DATA DE SOLICITAÇÃO DE HEMOGLOBINA GLICADA MAIS RECENTE",
 ]
 const IDFiltrosHipertensao = {
     "DATA DA CONSULTA MAIS RECENTE" : "dt_ultima_consulta",
@@ -92,7 +92,7 @@ const IDFiltrosDiabetes = {
     "DATA DA CONSULTA MAIS RECENTE" : "dt_ultima_consulta",
     "PRAZO PARA PRÓXIMA CONSULTA" : "prazo_proxima_consulta",
     "NOMES DE A-Z": "cidadao_nome",
-    "DATA DA AFERIÇÃO DE HEMOGLOBINA GLICADA MAIS RECENTE" : "dt_afericao_pressao_mais_recente",
+    "DATA DE SOLICITAÇÃO DE HEMOGLOBINA GLICADA MAIS RECENTE" : "dt_solicitacao_hemoglobina_glicada_mais_recente",
 }
 const CardFiltro = (props)=>{
     const OrdenarPor = ()=>{
@@ -220,8 +220,6 @@ const Filtro = ({
 const FiltroCard = ({
     label,
     filtroID,
-    chavesFiltros,
-    setChavesFiltros,
     value,
     handleCheckbox
 })=>{
