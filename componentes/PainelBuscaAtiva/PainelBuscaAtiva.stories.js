@@ -107,8 +107,8 @@ const dadosFiltros = [
   },
   {
     rotulo : "Filtrar por tipo de diagnóstico",
-    data : ["Diagnostico Clinico","Autorreferido"],
-    filtro : "identificacao_condicao"
+    data : ["Diagnóstico Clínico","Autorreferida"],
+    filtro : "identificacao_condicao_hipertensao"
 
   },
   {
@@ -243,7 +243,7 @@ const data=[
   {
       "cidadao_nome": "GABRIEL DE ALMEIDA FERNANDES",
       "cidadao_cpf": "44455263802",
-      "identificacao_condicao_hipertensao": "Diagnóstico Clínico",
+      "identificacao_condicao_hipertensao": "Diagnostico Clinico",
       "dt_ultima_consulta": "2022-09-27",
       "prazo_proxima_consulta": "Até 31/Agosto",
       "dt_afericao_pressao_mais_recente": null,
