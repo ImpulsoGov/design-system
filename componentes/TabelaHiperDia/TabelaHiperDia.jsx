@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { DataGrid } from '@mui/x-data-grid';
+import { DataGrid, ptBR } from '@mui/x-data-grid';
 
 const TabelaHiperDia = ({
   data,
@@ -27,6 +27,7 @@ const TabelaHiperDia = ({
                     rowsPerPageOptions={[30]}
                     getRowId={(row) => row.id}
                     rowHeight={35}
+                    localeText={ptBR.components.MuiDataGrid.defaultProps.localeText}
                     sx={{
                         '& .MuiDataGrid-columnHeaderTitle': {
                             textOverflow: "clip",
