@@ -40,6 +40,7 @@ const FilterData = (props)=>{
     props.setData(props.data.filter(item => {
         return props.filtros.some(filter => filter[Object.keys(filter)[0]] === item[Object.keys(filter)[0]]);
     }))
+    props.setModal(false)
 }
 const ToolBar = ({
     showFiltros,
@@ -188,7 +189,8 @@ const Filtro = ({
     value,
     handleCheckbox,
     chavesFiltros,
-    setChavesFiltros
+    setChavesFiltros,
+    setModal
 })=>{
     return(
         <div className={style.Filtro}>
@@ -208,7 +210,8 @@ const Filtro = ({
                 arg={{
                     data : tabela,
                     setData : setData,
-                    filtros : chavesFiltros
+                    filtros : chavesFiltros,
+                    setModal : setModal
                 }}
             />            
         </div>
@@ -310,7 +313,7 @@ const PainelBuscaAtiva = ({
                                 handleCheckbox={handleCheckbox}
                                 chavesFiltros={chavesFiltros}
                                 setChavesFiltros={setChavesFiltros}
-                            
+                                setModal={setModal}
                             />
                         }
                     </Modal>
