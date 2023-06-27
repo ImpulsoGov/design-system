@@ -137,7 +137,9 @@ const Ordenar = (props)=>{
 const FiltroBody = ({
     data,
     chavesFiltros,
-    setChavesFiltros
+    setChavesFiltros,
+    value,
+    handleCheckbox
 })=>{
     const [show,setShow] = useState(false)
     return(
@@ -155,7 +157,7 @@ const FiltroBody = ({
                 {
                     show &&
                     <div className={style.ConteinerFiltros}>
-                        <div className={style.MarcarTodas}>Marcar Todas</div>
+                        {/* <div className={style.MarcarTodas}>Marcar Todas</div> */}
                         {
                             data.data.map((item)=>{
                                 return(
@@ -165,6 +167,8 @@ const FiltroBody = ({
                                         chavesFiltros={chavesFiltros}
                                         setChavesFiltros={setChavesFiltros}
                                         filtro={data.filtro}
+                                        value={value}
+                                        handleCheckbox={handleCheckbox}
                                     />
                                 )
                             })
@@ -180,9 +184,12 @@ const FiltroBody = ({
 const Filtro = ({
     data,
     setData,
-    tabela
+    tabela,
+    value,
+    handleCheckbox,
+    chavesFiltros,
+    setChavesFiltros
 })=>{
-    const [chavesFiltros,setChavesFiltros] = useState([])
     return(
         <div className={style.Filtro}>
             {
@@ -191,6 +198,8 @@ const Filtro = ({
                     key={filtro.rotulo}
                     chavesFiltros={chavesFiltros}
                     setChavesFiltros={setChavesFiltros}
+                    value={value}
+                    handleCheckbox={handleCheckbox}
                 />)
             }
             <ButtonColorSubmit 
@@ -209,20 +218,10 @@ const FiltroCard = ({
     label,
     filtroID,
     chavesFiltros,
-    setChavesFiltros
+    setChavesFiltros,
+    value,
+    handleCheckbox
 })=>{
-    const [value,setValue] = useState()
-    const handleCheckbox = (event) => {
-        const { name, checked } = event.target;
-        setValue(checked)
-        setChavesFiltros(() => {
-            if (checked) return([
-                    ...chavesFiltros,
-                    {[name]: label}
-            ])
-            return chavesFiltros.filter(item=>item[name] !==  label)
-        });
-    };
     return(
         <div className={style.FiltroCard}>
             <input 
@@ -230,7 +229,8 @@ const FiltroCard = ({
                 type="checkbox"
                 onChange={handleCheckbox}
                 name={filtroID}
-                value={value}
+                checked={value[label]}
+                id={label}
             />
             <p>{label}</p>
         </div>
@@ -247,6 +247,8 @@ const PainelBuscaAtiva = ({
     const [showFiltrosModal,setShowFiltrosModal] = useState(false)
     const [ordenar,setOrdenar] = useState('1')
     const [modal,setModal] = useState(false)
+    const [chavesFiltros,setChavesFiltros] = useState([])
+
     const showOrdenar = ()=>{
         setModal(true)
         setShowOrdenarModal(true)
@@ -257,6 +259,23 @@ const PainelBuscaAtiva = ({
         setShowOrdenarModal(false)
         setShowFiltrosModal(true)
     }
+    let valores = {}
+    dadosFiltros.forEach((item)=>item.data.forEach((valor)=>valores[valor]=false))
+    const [value,setValue] = useState(valores)
+    const handleCheckbox = (event) => {
+        const { name, checked } = event.target;
+        const updateState = {...value}
+        updateState[event.target.id] = checked
+        setValue(updateState)
+        setChavesFiltros(() => {
+            if (checked) return([
+                    ...chavesFiltros,
+                    {[name]: event.target.id}
+            ])
+            return chavesFiltros.filter(item=>item[name] !==  event.target.id)
+        });
+    };
+
     return(
         <div style={{marginTop : "30px"}}>
             {
@@ -287,6 +306,11 @@ const PainelBuscaAtiva = ({
                                 data={dadosFiltros}
                                 setData={setData} 
                                 tabela={tabela.data}
+                                value={value}
+                                handleCheckbox={handleCheckbox}
+                                chavesFiltros={chavesFiltros}
+                                setChavesFiltros={setChavesFiltros}
+                            
                             />
                         }
                     </Modal>

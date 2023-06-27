@@ -24,7 +24,7 @@ const TabelaHiperDia = ({
                         pagination: { paginationModel: { pageSize: 100 } },
                     }}                                
                     pageSizeOptions={[10, 30, 45, 100]}
-                    rowsPerPageOptions={[]}
+                    rowsPerPageOptions={[30]}
                     getRowId={(row) => row.id}
                     rowHeight={35}
                     sx={{
@@ -66,10 +66,6 @@ const TabelaHiperDia = ({
                         '& .MuiDataGrid-iconSeparator': {
                             display: 'none',
                         },
-                        '& .MuiToolbar-root': {
-                            display: 'none',
-                        },
-
                         border : 0,
 
                     }}
