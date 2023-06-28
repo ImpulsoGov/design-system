@@ -4,6 +4,7 @@ export { ButtonBar } from "./ButtonBar/ButtonBar";
 export { ButtonColor, ButtonColorMobile, ButtonColorSubmit, ButtonColorSubmitMobile, ButtonColorSubmitMultiple } from "./ButtonColor/ButtonColor";
 export { ButtonLight, ButtonLightMobile, ButtonLightSubmit, ButtonLightSubmitMobile } from "./ButtonLight/ButtonLight";
 export { ButtonLogin } from "./ButtonLogin/ButtonLogin";
+export { ButtonPrint } from "./ButtonPrint/ButtonPrint";
 export { CardAlert } from "./CardAlert/CardAlert";
 export { CardInfoTipoA, CardInfoTipoB, CardInfoTipoC } from "./CardInfo";
 export { CardLarge, CardLargeGrid, CardLargeGridInicioSM, CardLargeGridToggleList } from "./CardLarge/CardLarge";
