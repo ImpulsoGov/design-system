@@ -20,7 +20,10 @@ const dataBarra = {
     },
     xAxis: {
       type: 'category',
-      data: ['equipe 1', 'equipe 2', 'equipe 3', 'equipe 4', 'equipe 5', 'equipe 6']
+      data: ['equipe 1', 'equipe 2', 'equipe 3', 'equipe 4', 'equipe 5', 'equipe 6'],
+      axisLabel: {
+        rotate: 45,
+      }
     },
     yAxis: {
       type: 'value'
