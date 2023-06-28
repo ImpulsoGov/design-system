@@ -42,7 +42,6 @@ const ButtonPrint = ({
                 icon="https://media.graphassets.com/3vsKrZXYT9CdxSSyhjhk"
                 submit={Imprimir}
             />
-            {child}
         </>
     )
 }
