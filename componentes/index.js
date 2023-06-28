@@ -41,7 +41,7 @@ export { Slider } from "./Slider/Slider";
 export { ScoreCard, ScoreCardGrid } from "./ScoreCard/ScoreCard";
 export { SobreTrilha } from "./SobreTrilha/SobreTrilha";
 export { Spinner } from "./Spinner";
-export { TabelaHiperDia } from "./TabelaHiperDia/TabelaHiperDia";
+export { TabelaHiperDia,TabelaHiperDiaImpressao } from "./TabelaHiperDia/TabelaHiperDia";
 export { TextCol } from "./TextCol/TextCol";
 export { TituloSmallTexto, TituloTexto } from "./TituloTexto/TituloTexto";
 export { ToggleList } from "./ToggleList/ToggleList";
