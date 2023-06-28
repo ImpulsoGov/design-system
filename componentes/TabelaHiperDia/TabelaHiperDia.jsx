@@ -149,7 +149,7 @@ const TabelaHiperDia = ({
 //             </div>
 //         </>
 // )})
-const PrazoProximaConsultaStyle = ({value})=> {
+const PrazoProximaConsultaStyle = (value)=> {
     const emDia = {
         backgroundColor: "#E7FBF3",
         border: "1px solid #9DEECD",
@@ -157,6 +157,7 @@ const PrazoProximaConsultaStyle = ({value})=> {
         color: "#1D856C",
         padding: "2px",
         fontWeight : 550,
+        width : "fit-content",
     }
     const prazo = {
         backgroundColor: "#FFF0E1",
@@ -165,6 +166,7 @@ const PrazoProximaConsultaStyle = ({value})=> {
         color: "#E98633",
         padding: "2px",
         fontWeight : 550,
+        width : "fit-content",
     }
     const style = (value=="Em dia") ? emDia : prazo
     return <div style={style}>{value}</div>
@@ -214,15 +216,36 @@ const TabelaHiperDiaImpressao = ({ data,colunas }) => {
                 borderRadius: "10px"
             }}>
             {colunas.map((coluna) => (
-              <th className={style.colunaTitulo}key={coluna.headerName}>{coluna.headerName}</th>
+              <th className={style.colunaTitulo} key={coluna.headerName}>{coluna.headerName}</th>
             ))}
           </tr>
         </thead>
         <tbody>
           {data.map((item) => (
-            <tr key={item.id}>
-              {colunas.map((coluna) => (
-                <td key={`${item.id}-${coluna}`}>{FormatarConteudo(item,coluna)}</td>
+            <tr 
+                key={item.id}
+                style={{
+                    backgroundColor : "#EFF5F9",
+                    border : "solid 4px white",
+                }}
+            >
+              {colunas.map((coluna,index) => (
+                <td 
+                    key={`${item.id}-${coluna}`}
+                    style={{
+                        borderTopLeftRadius: index!=0 ? "0" : "15px",
+                        borderBottomLeftRadius: index!=0 ? "0" : "15px",
+                        borderTopRightRadius: index!=7 ? "0" : "15px",
+                        borderBottomRightRadius: index!=7 ? "0" : "15px",
+                        display : index==4 || index==6 ? "flex" : "table cell",
+                        justifyContent : "center",
+                        alignItems : "center",
+                        marginTop : "4px"
+                    }}
+                >{ 
+                    coluna.field=="prazo_proxima_consulta" ||  coluna.field=="prazo_proxima_afericao_pa" || coluna.field=="prazo_proxima_solicitacao_hemoglobina"? 
+                    PrazoProximaConsultaStyle(item[coluna.field]) : 
+                    FormatarConteudo(item,coluna)}</td>
               ))}
             </tr>
           ))}
