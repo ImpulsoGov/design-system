@@ -15,7 +15,10 @@ const GraficoInfo = ({
     destaque
 }) => {
     return (
-        <div className={ style.GraficoInfo }>
+        <div className={ cx(
+            style.GraficoInfo,
+            link ? style.DuasColunas : style.UmaColuna
+        ) }>
 
             <div className={ style.TituloContainer }>
                 <h5 className={ cx(style.Titulo, destaque && style.TituloMargem) }>{ titulo }</h5>
