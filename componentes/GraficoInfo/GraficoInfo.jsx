@@ -15,7 +15,10 @@ const GraficoInfo = ({
     destaque
 }) => {
     return (
-        <div className={ style.GraficoInfo }>
+        <div className={ cx(
+            style.GraficoInfo,
+            link ? style.DuasColunas : style.UmaColuna
+        ) }>
 
             <div className={ style.TituloContainer }>
                 <h5 className={ cx(style.Titulo, destaque && style.TituloMargem) }>{ titulo }</h5>
@@ -36,7 +39,7 @@ const GraficoInfo = ({
 
             <div className={ style.InfoContainer }>
                 { descricao && <p className={ style.Descricao } dangerouslySetInnerHTML={ { __html: sanitize(descricao) } }></p> }
-                { fonte && <p className={ style.Fonte }>{ fonte }</p> }
+                { fonte && <p className={ style.Fonte } dangerouslySetInnerHTML={ { __html: sanitize(fonte) } }></p> }
             </div>
 
             { link && (
