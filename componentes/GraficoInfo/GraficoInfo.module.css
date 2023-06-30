@@ -17,7 +17,7 @@
 }
 
 .DuasColunas {
-    grid-template-columns: 2fr 0.5fr;
+    grid-template-columns: 2fr 1fr;
 }
 
 .TituloContainer {
