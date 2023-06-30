@@ -36,7 +36,7 @@ const GraficoInfo = ({
 
             <div className={ style.InfoContainer }>
                 { descricao && <p className={ style.Descricao } dangerouslySetInnerHTML={ { __html: sanitize(descricao) } }></p> }
-                { fonte && <p className={ style.Fonte }>{ fonte }</p> }
+                { fonte && <p className={ style.Fonte } dangerouslySetInnerHTML={ { __html: sanitize(fonte) } }></p> }
             </div>
 
             { link && (
