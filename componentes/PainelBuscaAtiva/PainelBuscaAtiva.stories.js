@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { PainelBuscaAtiva } from './index'
 
 export default {
@@ -431,7 +431,12 @@ const dataDiabetes=[
   },
 ]
 
-const Template = (args) => <PainelBuscaAtiva {...args}/>
+const Template = (args) =>{
+  const [data,setData]=useState(args.painel == "diabetes" ? dataDiabetes : data)
+  args["data"] = data
+  args["setData"] = setData
+  return <PainelBuscaAtiva {...args}/>
+}
 
 export const Diabetes = Template.bind({});
 
@@ -442,7 +447,7 @@ Diabetes.args={
       colunas : colunasDiabetes,
       data : dataDiabetes
   },
-  cards : cards
+  cards : cards,
 }
 
 export const Hipertensao = Template.bind({});

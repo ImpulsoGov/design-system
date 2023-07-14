@@ -242,14 +242,14 @@ const PainelBuscaAtiva = ({
     tabela,
     dadosFiltros,
     painel,
+    data,
+    setData
 })=>{
-    const [data,setData] = useState(tabela.data)
     const [showOrdenarModal,setShowOrdenarModal] = useState(false)
     const [showFiltrosModal,setShowFiltrosModal] = useState(false)
     const [ordenar,setOrdenar] = useState('1')
     const [modal,setModal] = useState(false)
     const [chavesFiltros,setChavesFiltros] = useState([])
-
     const showOrdenar = ()=>{
         setModal(true)
         setShowOrdenarModal(true)
