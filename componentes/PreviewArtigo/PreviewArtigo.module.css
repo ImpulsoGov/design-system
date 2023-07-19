@@ -17,6 +17,7 @@
 }
 .PreviewArtigoContainerTituloTexto{
     display: flex;
+    align-items: flex-start;
     flex-direction: column;
     margin-bottom: 10px;
     width: fit-content;
@@ -77,13 +78,14 @@
 .PreviewArtigoAutorAvatar{
     margin-right: 10px;
     border-radius: 100%;
-    background-color: #2EA6BC;
+    background-color:rgba(0, 0, 0, 0);
 }
 .PreviewArtigoImage{
     background-color: #606E78;
     border-radius: 20px;
     width: 140px;
     height: 140px;
+    margin-left: auto;
     object-fit: cover;
 }
 .PreviewArtigoLine{
@@ -94,17 +96,33 @@
 
 /* XSMALL */
 @media screen and (max-width: 374px) {
-    .PreviewArtigoContainer{
-        padding: 30px 16px 30px 16px;
+    .PreviewArtigoContainer {
+      padding: 30px 16px 30px 16px;
     }
-}
-/* SMALL */
-@media screen and (min-width: 375px)and (max-width: 767px) {
-    .PreviewArtigoContainer{
-        padding: 30px 40px 30px 40px;
+  
+    /* Add CSS to center the image */
+    .PreviewArtigoImage {
+      width: 100%;
+      height: auto;
+      margin: 0 auto;
+      float: none;
     }
-}
-
+  }
+  
+  /* SMALL */
+  @media screen and (min-width: 375px) and (max-width: 767px) {
+    .PreviewArtigoContainer {
+      padding: 30px 40px 30px 40px;
+    }
+  
+    /* Add CSS to center the image */
+    .PreviewArtigoImage {
+      width: 100%;
+      height: auto;
+      margin: 0 auto;
+      float: none;
+    }
+  }
 @media screen and (max-width: 1023px){
     /* .PreviewArtigoContainer{
         padding-left: 16px;
