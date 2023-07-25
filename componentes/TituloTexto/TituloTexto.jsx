@@ -112,6 +112,7 @@ const TituloTexto = ({
 )};
 
 const TituloSmallTexto = ({
+  supertitulo,
   titulo,
   texto,
   imagem,
@@ -119,6 +120,15 @@ const TituloSmallTexto = ({
 }) => {
   return (
       <div className={style.containerTextoSmall}>
+        { supertitulo && 
+          <div 
+            className={style.superTitulo}
+            dangerouslySetInnerHTML={{
+              __html: sanitize(supertitulo),
+            }}        
+          ></div>
+        }
+        
         <ImageTopTitutloSmall
          top = {imagem.posicao}
          link = {imagem.url}

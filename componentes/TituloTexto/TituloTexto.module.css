@@ -26,6 +26,11 @@
     padding-bottom: 30px;
 }
 
+.supertitulo{
+    width: 70%;
+    font-size: 48px;  
+}
+
 .corpoTexto{
     text-align: justify;
     font-size: 18px;  
@@ -40,6 +45,9 @@
 @media screen and (max-width: 374px) {
     .containerTexto{
         padding: 30px 16px 30px 16px;
+    }
+    .supertitulo{
+        font-size: 32px;  
     }
 }
 /* SMALL */

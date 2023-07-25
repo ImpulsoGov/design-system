@@ -49,6 +49,7 @@ Standart.args = {
 
 export const TituloPequeno = Small.bind({});
 TituloPequeno.args = {
+  supertitulo: "",
   imagem : {
     posicao: null,
     url: ''
