@@ -1,0 +1,32 @@
+.containerBanner4 {
+  display: flex;
+}
+
+.imageContainerBanner4{
+  height: 600px;
+  border-radius: 21px;
+}
+
+/* SMALL */
+@media screen and (max-width: 1024px) {
+  .imageContainerBanner4{
+    height: 400px;
+}  
+}
+
+/* MEDIUM */
+@media screen and (min-width: 1024px)and (max-width: 1400px) {
+.containerBanner4 {
+  height: 70%;
+}
+.imageContainerBanner4{
+  height: 500px;
+}
+}
+
+/* XLARGE */
+@media screen and (min-width: 1920px) {
+  .containerBanner4 {
+    height: 900px;
+  }
+}
