@@ -2,6 +2,7 @@ import React from "react";
 import { sanitize } from "../sanitize";
 import style from "./TituloTexto.module.css"
 import { ImagensFull2 } from "../Imagens/ImagensFull"
+import { ButtonColor } from "../ButtonColor/ButtonColor";
 
 const ImageTop = ({
   top,
@@ -114,6 +115,7 @@ const TituloSmallTexto = ({
   titulo,
   texto,
   imagem,
+  botao
 }) => {
   return (
       <div className={style.containerTextoSmall}>
@@ -128,6 +130,13 @@ const TituloSmallTexto = ({
             __html: sanitize(texto),
           }}        
         ></div>
+          {
+              botao.label && 
+              <ButtonColor
+                label="INDICADORES DE DESEMPENHO"
+                link="indicadores"
+              />
+          }
       </div>
 )};
 

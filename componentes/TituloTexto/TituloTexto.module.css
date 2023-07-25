@@ -4,6 +4,7 @@
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
+    line-height: 32px;
 }
 .containerTextoSmall{
     background-color: #FFF;
@@ -11,6 +12,7 @@
     font-style: normal;
     font-weight: 400;
     padding: 30px 0;
+    line-height: 32px;
 }
 .tituloTexto{
     width: 70%;
@@ -26,7 +28,7 @@
 
 .corpoTexto{
     text-align: justify;
-    font-size: 24px;  
+    font-size: 18px;  
 }
 .corpoTexto a{
     color: #2EB280;
