@@ -1,7 +1,8 @@
 import React from "react";
 import style from "./ParceriasTexto.module.css";
 import { sanitize } from "../sanitize";
-  
+import cx from "classnames";
+
 const ParceriasTexto = ({
     text,
     label,
