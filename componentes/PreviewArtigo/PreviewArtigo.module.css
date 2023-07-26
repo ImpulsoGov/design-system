@@ -104,7 +104,7 @@
     /* Add CSS to center the image */
     .PreviewArtigoImage {
       width: 100%;
-      height: auto;
+      height: 100%;
       margin: 0 auto;
       float: none;
     }
