@@ -5,7 +5,6 @@ import cx from "classnames";
 
 const ParceriasTexto = ({
     text,
-    label,
     parceiros
 }) => {
   return (
@@ -15,7 +14,6 @@ const ParceriasTexto = ({
             dangerouslySetInnerHTML={{
                 __html: sanitize(text),
               }}        ></div>
-        <div className={style.parceirosLabel}>{label}</div>
         <div className={style.gridContainer}>
                 {parceiros.map((parceiro,index)=>{
                     return(
