@@ -7,10 +7,10 @@ const TabelaHiperDia = ({
   colunas,
   }) => {
     const styles = {
-        padding:40,
-        height: "fitContent",
-        width: '93%',
-        marginLeft : '45px'
+      padding:40,
+      height: "80vh",
+      width: '93%',
+      marginLeft : '45px'
     }
     const rowsID = data.map((row, index) => ({ ...row, id: index }));
     return (
@@ -76,79 +76,6 @@ const TabelaHiperDia = ({
         </>
 )}
 
-// const TabelaHiperDiaImpressao = forwardRef(({
-//     data,
-//     colunas,
-//     ref
-// })=>{
-//     const styles = {
-//         padding:20,
-//         height: "fitContent",
-//         width: 'calc(100vw - 40px)',
-//     }
-//     const rowsID = data.map((row, index) => ({ ...row, id: index }));
-//     return (
-//         <>
-//             <div 
-//                 style={styles} 
-//                 ref={ref}
-//             >
-//                 <DataGrid
-//                     rows={rowsID}
-//                     columns={colunas}
-//                     pageSize={100000}
-//                     disableColumnMenu
-//                     getRowId={(row) => row.id}
-//                     rowHeight={35}
-//                     localeText={ptBR.components.MuiDataGrid.defaultProps.localeText}
-//                     sx={{
-//                         '& .MuiDataGrid-columnHeaderTitle': {
-//                             textOverflow: "clip",
-//                             whiteSpace: "break-spaces",
-//                             lineHeight: 1.2,
-//                             textAlign: "center",
-//                             fontFamily : "Inter !important",
-//                             fontSize : "12px !important",
-//                             fontWeight : 400,
-//                         },
-//                         '& .MuiDataGrid-columnHeaders': {
-//                             backgroundColor: "#C9D2D8",
-//                             marginBottom: "15px",
-//                             border: "none",
-//                             borderRadius: "10px",
-//                         },
-//                         '& .MuiDataGrid-withBorderColor': {
-//                             border: "none",
-//                         },
-//                         '& .MuiDataGrid-row': {
-//                             marginBottom: "5px",
-//                             fontFamily : "Inter !important",
-//                             fontSize : "14px !important",
-//                             backgroundColor : "#EFF5F9",
-//                             borderRadius: "10px",
-//                             padding: "4px",
-//                             height: "30px",
-//                             display: "flex",
-//                             justifyContent : "center",
-//                             alignItems: "center",
-//                             width: "98%"
-//                         },
-//                         '& .MuiDataGrid-root': {
-//                             border: "none",
-//                             borderWidth: "0px"
-//                         },
-//                         '& .MuiDataGrid-iconSeparator': {
-//                             display: 'none',
-//                         },
-//                         '& .MuiToolbar-root': {
-//                             display: 'none',
-//                         },
-//                         border : 0,
-//                     }}
-//                 />
-//             </div>
-//         </>
-// )})
 const PrazoProximaConsultaStyle = (value)=> {
     const emDia = {
         backgroundColor: "#E7FBF3",
