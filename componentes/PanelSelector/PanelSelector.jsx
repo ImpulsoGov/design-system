@@ -29,7 +29,7 @@ const PanelSelector = (props) => {
           ))}
         </div>
 
-        <div className={cx(style.PanelSelectorContainer,style["PanelSelectorContainerPosition"+activeTitleTabIndex.toString()])}>
+        <div className={cx(style.PanelSelectorContainerIP,style["PanelSelectorContainerPosition"+activeTitleTabIndex.toString()])}>
           {props.list[activeTitleTabIndex].map((item, index) => (
             
             <div
@@ -48,10 +48,22 @@ const PanelSelector = (props) => {
           ))}
         </div>
       </div>
-      <IFrame link={props.links[activeTitleTabIndex][activeTabIndex]} height="3650"/>
+      {props?.conteudo == "iframe" && <IFrame link={props.links[activeTitleTabIndex][activeTabIndex]} height="3650"/>}
+      {
+        props?.conteudo == "components" &&
+        <div className={style.PanelSelectorComponentsIP}>
+          {props.components[activeTitleTabIndex][activeTabIndex]}
+        </div>
+      }
+
     </div>
   );
 };
+
+PanelSelector.defaultProps = {
+  conteudo: 'iframe'
+}
+
 
 const PanelSelectorSM = (props) => {
   return (
