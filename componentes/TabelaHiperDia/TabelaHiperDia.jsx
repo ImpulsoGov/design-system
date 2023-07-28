@@ -125,6 +125,68 @@ const FormatarConteudo = (item,coluna)=>{
     if(coluna.field=="dt_ultima_consulta" || coluna.field=="dt_afericao_pressao_mais_recente" || coluna.field=="dt_solicitacao_hemoglobina_glicada_mais_recente") return FormatarData (item[coluna.field])
     return item[coluna.field]
 }
+
+const prazoStyle = (value)=>{
+  const check = {
+    backgroundColor: "#E7FBF3",
+    border: "1px solid #1D856C",
+    borderRadius: "5px",
+    color: "#1D856C",
+    padding: "2px",
+    fontWeight : 550,
+    width : "fit-content",
+    display : "flex",
+    gap : "5px",
+    alignItems: "center",
+    justifyContent : "center",
+    padding : "3px 10px"
+  }
+
+  const atencao = {
+    backgroundColor: "#F4CCAB",
+    border: "1px solid #E98633",
+    borderRadius: "5px",
+    color: "#E98633",
+    padding: "2px",
+    fontWeight : 550,
+    width : "fit-content",
+    display : "flex",
+    gap : "5px",
+    alignItems: "center",
+    justifyContent : "center",
+    padding : "3px 10px"
+  }
+  const atencaoSymbolStyle = {
+    border: "2px solid #E98633",
+    borderRadius : "100%",
+    width : "18px",
+    height : "18px",
+    fontSize : "8px",
+    fontWeight : "600",
+    display : "flex",
+    alignItems: "center",
+    justifyContent : "center"
+  }
+  const checkSymbolStyle = {
+    border: "2px solid #1D856C",
+    borderRadius : "100%",
+    width : "18px",
+    height : "18px",
+    fontSize : "8px",
+    fontWeight : "600",
+    display : "flex",
+    alignItems: "center",
+    justifyContent : "center"
+  }
+
+  return <div style={value != "Em dia" ? atencao : check}>
+      {value != "Em dia" && <span style={atencaoSymbolStyle}>!</span>} 
+      {value == "Em dia" && <span style={checkSymbolStyle}>✔</span>} 
+      {value}
+      </div>
+
+}
+
 const TabelaHiperDiaImpressao = ({ data,colunas }) => {
     return (
       <table style={{
@@ -180,4 +242,161 @@ const TabelaHiperDiaImpressao = ({ data,colunas }) => {
       </table>
     );
   };
-export {TabelaHiperDia, TabelaHiperDiaImpressao};
+const selecionar_status_usuario_descricao = (value,status_usuario_descricao)=> {
+    const alert = {
+      backgroundColor: "#F8BBAE",
+      border: "1px solid #EF565D",
+      borderRadius: "5px",
+      color: "#EF565D",
+      padding: "2px",
+      fontWeight : 550,
+      width : "90%",
+      display : "flex",
+      gap : "5px",
+      alignItems: "center",
+      justifyContent : "center",
+      padding : "3px 10px"
+    }
+    const atencao = {
+      backgroundColor: "#F4CCAB",
+      border: "1px solid #E98633",
+      borderRadius: "5px",
+      color: "#E98633",
+      padding: "2px",
+      fontWeight : 550,
+      width : "90%",
+      display : "flex",
+      gap : "5px",
+      alignItems: "center",
+      justifyContent : "center",
+      padding : "3px 10px"
+    }
+    const check = {
+        backgroundColor: "#E7FBF3",
+        border: "1px solid #1D856C",
+        borderRadius: "5px",
+        color: "#1D856C",
+        padding: "2px",
+        fontWeight : 550,
+        width : "90%",
+        display : "flex",
+        gap : "5px",
+        alignItems: "center",
+        justifyContent : "center",
+        padding : "3px 10px"
+      }
+  
+    const styleStatus = {
+      12 : check,  
+      13 : alert,
+      14 : alert,
+      15 : atencao,
+      16 : alert
+    }
+    const alertSymbolStyle = {
+      border: "2px solid #EF565D",
+      borderRadius : "100%",
+      width : "18px",
+      height : "18px",
+      fontSize : "8px",
+      fontWeight : "600",
+      display : "flex",
+      alignItems: "center",
+      justifyContent : "center"
+    }
+    const atencaoSymbolStyle = {
+      border: "2px solid #E98633",
+      borderRadius : "100%",
+      width : "18px",
+      height : "18px",
+      fontSize : "8px",
+      fontWeight : "600",
+      display : "flex",
+      alignItems: "center",
+      justifyContent : "center"
+    }
+    const checkSymbolStyle = {
+        border: "2px solid #1D856C",
+        borderRadius : "100%",
+        width : "18px",
+        height : "18px",
+        fontSize : "8px",
+        fontWeight : "600",
+        display : "flex",
+        alignItems: "center",
+        justifyContent : "center"
+      }
+  
+    const descricao = status_usuario_descricao.data.find(item => item?.id_status_usuario == value)?.status_usuario_descricao
+    return <div style={styleStatus[value]}> 
+      {[13,14,16].includes(value) &&  <span style={alertSymbolStyle}>✖</span>} 
+      {[15].includes(value) &&  <span style={atencaoSymbolStyle}>!</span>} 
+      {[12].includes(value) &&  <span style={checkSymbolStyle}>✔</span>} 
+      <span>{descricao}</span>
+      </div>
+  }
+
+  const TabelaCitoImpressao = ({ data,colunas,status_usuario_descricao}) => {
+    return (
+      <table style={{
+        borderCollapse: "collapse",
+        margin: "15px",
+        color:  "#1F1F1F",
+        textAlign: "center",
+        fontSize: "12px",
+        fontFamily: "Inter",
+        letterSpacing: "-0.12px",
+        textTransform: "uppercase",
+      }}>
+        <thead>
+          <tr style={{
+                backgroundColor: "#C9D2D8",
+                borderRadius: "10px"
+            }}>
+            {colunas.map((coluna) => (
+              <th className={style.colunaTitulo} key={coluna.headerName}>{coluna.headerName}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {data.map((item) => (
+            <tr 
+                key={item.id}
+                style={{
+                    backgroundColor : "#EFF5F9",
+                    border : "solid 4px white",
+                }}
+            >
+              {colunas.map((coluna,index) => (
+                <td 
+                    key={`${item.id}-${coluna}-${index}`}
+                    style={{
+                        borderTopLeftRadius: index!=0 ? "0" : "15px",
+                        borderBottomLeftRadius: index!=0 ? "0" : "15px",
+                        borderTopRightRadius: index!=7 ? "0" : "15px",
+                        borderBottomRightRadius: index!=7 ? "0" : "15px",
+                        display : index==4 || index==6 ? "flex" : "table cell",
+                        justifyContent : "center",
+                        alignItems : "center",
+                        marginTop : "4px"
+                    }}
+                >
+                  {
+                    coluna.field=="id_status_usuario" && selecionar_status_usuario_descricao(item[coluna.field],status_usuario_descricao)
+                  }
+                  { 
+                    coluna.field=="prazo_proxima_coleta"  && prazoStyle(item[coluna.field])
+                  }
+                  {
+                    coluna.field!="id_status_usuario" && coluna.field!="prazo_proxima_coleta" && item[coluna.field]
+                  }
+                  </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    );
+  };
+
+export {TabelaHiperDia, TabelaHiperDiaImpressao , TabelaCitoImpressao};
