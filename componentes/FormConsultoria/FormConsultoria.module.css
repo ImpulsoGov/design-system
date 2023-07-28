@@ -1,10 +1,15 @@
 .containerFormConsultoria{
-    background: #E6ECF0;
     height: 400px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+.containerFormConsultoriaIPCinza{
+    background: #E6ECF0;
+}
+.containerFormConsultoriaIPVerde{
+    background: #2EB280;
 }
 
 .titleFormConsultoria{
@@ -23,9 +28,7 @@
     color:#1D856C;
 }
 .buttonFormConsultoria{
-    background-color: #1D856C;
     border-radius: 100px;
-    color:#fff;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
@@ -37,9 +40,19 @@
     margin-bottom: 108px;
 }
 .buttonFormConsultoria:hover{
-    color:#fff;
+    color:#060404;
     opacity: 0.8;
 }
+
+.buttonFormConsultoriaIPCinza{
+    background-color: #1D856C;
+    color:#fff;
+}
+.buttonFormConsultoriaIPVerde{
+    background-color: #E6ECF0;
+    color:#1F1F1F;
+}
+
 @media screen and (max-width: 1023px) {
     .containerFormConsultoria{
         height: fit-content;

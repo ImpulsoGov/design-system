@@ -2,6 +2,7 @@ import React from "react";
 import { sanitize } from "../sanitize";
 import style from "./TituloTexto.module.css"
 import { ImagensFull2 } from "../Imagens/ImagensFull"
+import { ButtonColor } from "../ButtonColor/ButtonColor";
 
 const ImageTop = ({
   top,
@@ -110,13 +111,42 @@ const TituloTexto = ({
       </div>
 )};
 
+const NovoTituloTexto = ({
+  titulo,
+  texto,
+}) => {
+  return (
+      <div className={style.novoContainerTexto}>
+        <div className={style.novoTitulo}>
+          {titulo}
+        </div>
+        <div 
+          className={style.novoCorpoTexto}
+          dangerouslySetInnerHTML={{
+            __html: sanitize(texto),
+          }}        
+        ></div>
+      </div>
+)};
+
 const TituloSmallTexto = ({
+  supertitulo,
   titulo,
   texto,
   imagem,
+  botao
 }) => {
   return (
       <div className={style.containerTextoSmall}>
+        { supertitulo && 
+          <div 
+            className={style.superTitulo}
+            dangerouslySetInnerHTML={{
+              __html: sanitize(supertitulo),
+            }}        
+          ></div>
+        }
+        
         <ImageTopTitutloSmall
          top = {imagem.posicao}
          link = {imagem.url}
@@ -128,7 +158,14 @@ const TituloSmallTexto = ({
             __html: sanitize(texto),
           }}        
         ></div>
+          {
+              botao.label && 
+              <ButtonColor
+                label="INDICADORES DE DESEMPENHO"
+                link="indicadores"
+              />
+          }
       </div>
 )};
 
-export {TituloTexto, TituloSmallTexto};
+export {TituloTexto, TituloSmallTexto, NovoTituloTexto};

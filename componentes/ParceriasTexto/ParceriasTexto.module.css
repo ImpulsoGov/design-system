@@ -1,8 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap");
 .container_parceiros {
-    background: #FFFFFF;
+    background: #1D856C;
     border-radius: 0px 45px 0px 0px;
-    display: flex;
     flex-direction: column;
     width: 98%;
     padding: 82px;
@@ -11,19 +10,19 @@
     font-weight: 400;
   }
   .textoParcerias{
-    color: #1F1F1F;
+    color: #FFF;
     font-size: 32px;
     width: 844px;
+    text-align: center;
   }
   .parceirosLabel {
     color: #1F1F1F;
-    text-align: left;
     font-size: 16px;
     margin: 96px 0 0 0;
   }
   .gridContainer {
     column-gap: 30px;
-    justify-content:left;
+    justify-content:center;
     align-items: center;
     display: grid;
     grid-template-columns: auto auto auto auto auto auto auto auto auto;
@@ -87,13 +86,6 @@
   .textoParcerias{
     font-size: 24px;
     width: 100%;
-  }
-  .parceirosLabel {
-    color: #1F1F1F;
-    text-align: left;
-    line-height: 150%;
-    font-size: 16px;
-    margin: 48px 0 0 0;
   }
   .logo_parceiros{
       display: flex;
