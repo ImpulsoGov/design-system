@@ -6,6 +6,7 @@ export { ButtonLight, ButtonLightMobile, ButtonLightSubmit, ButtonLightSubmitMob
 export { ButtonLogin } from "./ButtonLogin/ButtonLogin";
 export { ButtonPrint } from "./ButtonPrint/ButtonPrint";
 export { CardAlert } from "./CardAlert/CardAlert";
+export { CardIP } from "./CardIP/CardIP"
 export { CardInfoTipoA, CardInfoTipoB, CardInfoTipoC } from "./CardInfo";
 export { CardLarge, CardLargeGrid, CardLargeGridInicioSM, CardLargeGridToggleList } from "./CardLarge/CardLarge";
 export { CardTrilha } from "./CardTrilha/CardTrilha";
@@ -41,7 +42,7 @@ export { Slider } from "./Slider/Slider";
 export { ScoreCard, ScoreCardGrid } from "./ScoreCard/ScoreCard";
 export { SobreTrilha } from "./SobreTrilha/SobreTrilha";
 export { Spinner } from "./Spinner";
-export { TabelaHiperDia,TabelaHiperDiaImpressao } from "./TabelaHiperDia/TabelaHiperDia";
+export { TabelaHiperDia,TabelaHiperDiaImpressao , TabelaCitoImpressao } from "./TabelaHiperDia/TabelaHiperDia";
 export { TextCol } from "./TextCol/TextCol";
 export { TituloSmallTexto, TituloTexto } from "./TituloTexto/TituloTexto";
 export { ToggleList } from "./ToggleList/ToggleList";

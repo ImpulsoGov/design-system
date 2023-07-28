@@ -1,21 +1,25 @@
 import React from "react";
 import Link from "next/link";
 import style from "./FormConsultoria.module.css"
+import cx from "classnames";
 
 const FormConsultoria = ({
     title,
     mail,
     link,
-    button
+    button,
+    theme
 })=>{
     return(
         <div id="formulario">
-            <div className={style.containerFormConsultoria}>
-                <div className={style.titleFormConsultoria}>{title}<span className={style.mailFormConsultoria}>{mail}</span></div>
+            <div className={cx(style.containerFormConsultoria, style["containerFormConsultoria" + theme])} >
+                <div className={style.titleFormConsultoria}>{title}
+                    <span className={style.mailFormConsultoria}>{mail}</span>
+                </div>
                 {
                     button != "" && 
                     <Link href={link}>
-                        <a className={style.buttonFormConsultoria}>
+                        <a className={cx(style.buttonFormConsultoria, style["buttonFormConsultoria" + theme])} >
                             {button.toUpperCase()}
                         </a>
                     </Link>

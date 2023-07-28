@@ -53,7 +53,7 @@ const ToolBar = ({
     tabela
 })=>{
     const [nome,setNome] =useState('')
-    const filterbyName = ()=>setData(tabela.filter(item=>item.cidadao_nome.toUpperCase().includes(nome.toUpperCase())))
+    const filterbyName = ()=>setData(tabela.filter(item=>item[item?.cidadao_nome ? "cidadao_nome" : "paciente_nome"].toUpperCase().includes(nome.toUpperCase())))
     useEffect(()=>{
         if(nome.length<=0) setData(tabela)
     },[nome])
