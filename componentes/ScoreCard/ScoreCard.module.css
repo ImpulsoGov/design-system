@@ -23,3 +23,14 @@
     justify-content: center;
     margin-top: 30px;
 }
+
+@media (max-width: 1000px){
+    .Grid{
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        justify-content: center;
+        align-items: center;
+        margin-top: 30px;
+    }
+    }
