@@ -533,8 +533,6 @@ ColorIPLogout.args = {
     seletorMunicipios: true,
     menu:
         [
-            { label: "A Impulso Gov", url: "/impulsogov" },
-            { label: "Resultados", url: "analise" },
             { label: "Busca Ativa", url: "/busca-ativa-gestantes" },
             { label: "Consultoria", url: "/consultoria" },
             {
@@ -759,7 +757,6 @@ White.args={
     menu:
         [
             { label: "A Impulso Gov", url: "/impulsogov" },
-            { label: "O Previne Brasil", url: "/previnebrasil" },
             { label: "Consultoria", url: "/consultoria" },
             {
                 label: "Análise",
@@ -823,7 +820,6 @@ WhiteLogout.args={
     menu:
         [
             { label: "A Impulso Gov", url: "/impulsogov" },
-            { label: "O Previne Brasil", url: "/previnebrasil" },
             { label: "Consultoria", url: "/consultoria" },
             {
                 label: "Análise",
