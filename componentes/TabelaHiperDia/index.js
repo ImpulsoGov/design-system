@@ -1,1 +1,1 @@
-export { TabelaHiperDia, TabelaHiperDiaImpressao } from "./TabelaHiperDia";
+export { TabelaHiperDia, TabelaHiperDiaImpressao , TabelaCitoImpressao } from "./TabelaHiperDia";
