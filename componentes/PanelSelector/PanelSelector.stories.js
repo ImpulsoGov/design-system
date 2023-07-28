@@ -100,6 +100,11 @@ export default {
     },
   };
 
+const Child_zero = ()=><div>Child 0</div>
+const Child_one = ()=><div>Child 1</div>
+const Child_two = ()=><div>Child 2</div>
+const children = [<Child_zero/>,<Child_one/>,<Child_two/>]
+
 const Template = (args) => <PanelSelector {...args}/>
 export const BuscaAtiva = Template.bind({});
 BuscaAtiva.args={
@@ -121,5 +126,13 @@ Analises.args={
   links: [dsLink],
   list: [labels],
   titles: titles
+}
+export const Componentes = Template.bind({});
+Componentes.args={
+  links: [dsLink],
+  list: [labels],
+  titles: titles,
+  conteudo : "components",
+  components : [children]
 }
   

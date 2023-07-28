@@ -36,6 +36,31 @@
     border-radius: 20px;
     cursor: pointer;
 }
+.PastaModuloDesativado{
+    text-decoration: none;
+    height: fit-content;
+    display: flex;
+    align-items: flex-start;
+    padding: 25px;
+    gap: 15px;
+
+    margin-bottom: 10px;
+
+    background: #EFF5F9;
+    border-radius: 20px;
+
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: -0.01em;
+    color: #606E78;
+}
 
 .PastaModuloAtual{
     /* Auto layout */

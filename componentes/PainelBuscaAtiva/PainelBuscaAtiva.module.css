@@ -26,6 +26,21 @@
 .limparOrdenacao:hover{
     cursor: pointer;
 }
+.LimparFiltros{
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; 
+    letter-spacing: -0.16px;
+    color: #A6B5BE;
+    text-decoration: underline;
+    width: fit-content;
+}
+.LimparFiltros:hover{
+    cursor: pointer;
+}
+
 .ToolBar{
     display: flex;
     gap: 15px;

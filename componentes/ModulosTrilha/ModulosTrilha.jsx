@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { ButtonColor } from "../ButtonColor/ButtonColor";
 import { ButtonLight, ButtonLightSubmit } from "../ButtonLight/ButtonLight";
 import style from "./ModulosTrilha.module.css";
-
+import classNames from 'classnames';
 
 const PastaModulo = ({
     id,
@@ -26,14 +26,15 @@ const PastaModulo = ({
         }
         return logo;
     };
+    const StyleAtivacaoLiberacao = classNames({
+        [style.PastaModuloAtual]: ativo && liberado,
+        [style.PastaModulo]: !ativo && liberado,
+        [style.PastaModuloDesativado]: !liberado,
+    });
     return (
         <div
             href={ link }
-            className={
-                ativo ?
-                    style.PastaModuloAtual :
-                    style.PastaModulo
-            }
+            className={StyleAtivacaoLiberacao}
             onClick={ () => { if (liberado) click(id); } }
         >
             <img

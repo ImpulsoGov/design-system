@@ -195,14 +195,17 @@ const ButtonBar = ({
                     label={buttonBar.botaoDuvidas.label}
                     link={buttonBar.botaoDuvidas.url}
                 />
-                <ButtonColor
-                    icone={{
-                        posicao: 'right',
-                        url: buttonBar.botaoProximo.icon
-                    }}
-                    label={buttonBar.botaoProximo.label}
-                    link={buttonBar.botaoProximo.url}
-                />
+                {
+                    buttonBar?.botaoProximo?.url &&
+                    <ButtonColor
+                        icone={{
+                            posicao: 'right',
+                            url: buttonBar.botaoProximo.icon
+                        }}
+                        label={buttonBar.botaoProximo.label}
+                        link={buttonBar.botaoProximo.url}
+                    />
+                }
             </div>
         </div>
     )

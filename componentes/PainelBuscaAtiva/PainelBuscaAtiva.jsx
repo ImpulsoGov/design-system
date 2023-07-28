@@ -38,7 +38,7 @@ const stringToDate = (str)=>{
 // }
 const FilterData = (props)=>{
     props.setData(props.data.filter(item => {
-        return props.filtros.some(filter => filter[Object.keys(filter)[0]] === item[Object.keys(filter)[0]]);
+        return props.filtros.every(filter => filter[Object.keys(filter)[0]] === item[Object.keys(filter)[0]]);
     }))
     props.setModal(false)
 }
@@ -53,7 +53,7 @@ const ToolBar = ({
     tabela
 })=>{
     const [nome,setNome] =useState('')
-    const filterbyName = ()=>setData(tabela.filter(item=>item.cidadao_nome.toUpperCase().includes(nome.toUpperCase())))
+    const filterbyName = ()=>setData(tabela.filter(item=>item[item?.cidadao_nome ? "cidadao_nome" : "paciente_nome"].toUpperCase().includes(nome.toUpperCase())))
     useEffect(()=>{
         if(nome.length<=0) setData(tabela)
     },[nome])
@@ -167,7 +167,7 @@ const FiltroBody = ({
                                         filtroID={data.filtro}
                                         chavesFiltros={chavesFiltros}
                                         setChavesFiltros={setChavesFiltros}
-                                        filtro={data.filtro}
+                                        labels={data?.labels ? data?.labels[item] : null}
                                         value={value}
                                         handleCheckbox={handleCheckbox}
                                     />
@@ -192,8 +192,14 @@ const Filtro = ({
     setChavesFiltros,
     setModal
 })=>{
+    const LimparFiltros = ()=>{
+        setData(tabela)
+        setChavesFiltros([])
+        setModal(false)
+    }
     return(
         <div className={style.Filtro}>
+            <div className={style.LimparFiltros} onClick={LimparFiltros}>Limpar Filtros</div>
             {
                 data.map((filtro)=><FiltroBody
                     data={filtro} 
@@ -220,7 +226,9 @@ const Filtro = ({
 const FiltroCard = ({
     label,
     filtroID,
+    chavesFiltros,
     value,
+    labels,
     handleCheckbox
 })=>{
     return(
@@ -233,7 +241,7 @@ const FiltroCard = ({
                 checked={value[label]}
                 id={label}
             />
-            <p>{label}</p>
+            <p>{labels ? labels : label}</p>
         </div>
     )
 }
@@ -242,14 +250,14 @@ const PainelBuscaAtiva = ({
     tabela,
     dadosFiltros,
     painel,
+    data,
+    setData
 })=>{
-    const [data,setData] = useState(tabela.data)
     const [showOrdenarModal,setShowOrdenarModal] = useState(false)
     const [showFiltrosModal,setShowFiltrosModal] = useState(false)
     const [ordenar,setOrdenar] = useState('1')
     const [modal,setModal] = useState(false)
     const [chavesFiltros,setChavesFiltros] = useState([])
-
     const showOrdenar = ()=>{
         setModal(true)
         setShowOrdenarModal(true)
@@ -271,12 +279,13 @@ const PainelBuscaAtiva = ({
         setChavesFiltros(() => {
             if (checked) return([
                     ...chavesFiltros,
-                    {[name]: event.target.id}
+                    {[name]: Number(event.target.id) ? Number(event.target.id) : event.target.id}
             ])
             return chavesFiltros.filter(item=>item[name] !==  event.target.id)
-        });
+        })
+        
     };
-
+    useEffect(()=>{console.log(chavesFiltros)},[chavesFiltros])
     return(
         <div style={{marginTop : "30px"}}>
             {

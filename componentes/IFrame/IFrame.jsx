@@ -7,7 +7,7 @@ const IFrame = ({
 }) => {
   return (
     <div className={style["iframe"]} align="center" id="formulario">
-      <iframe width="80%" height={height} src={link} allowFullScreen></iframe>
+      <iframe width="88%" height={height} src={link} allowFullScreen></iframe>
     </div>
   );
 };
