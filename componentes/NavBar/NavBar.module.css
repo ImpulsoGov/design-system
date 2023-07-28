@@ -31,6 +31,11 @@
   color: #606E78;
   text-decoration: none;
 }
+.themeCinza{
+  background-color: #E6ECF0;
+  color: #606E78;
+  text-decoration: none;
+}
 .themeWhiteSM{
   background-color: #FFFFFF;
   color: #606E78;
@@ -75,6 +80,9 @@
     color: #1F1F1F;
   }
   .themeWhiteSM a:hover{
+    color: #1F1F1F;
+  }
+  .themeCinza a:hover{
     color: #1F1F1F;
   }
   .logoWrapper_navbar {
@@ -563,6 +571,20 @@
     border: 1px solid rgba(96, 110, 120, 0.25);
     color: #1F1F1F;
   }
+  .NavBarLoginCinza{
+    display: flex;
+    height: 56px;
+    padding: 0px 20px;
+    justify-content: center;
+    align-items: center;
+
+    color: #fff;  
+
+    border-radius: 100px;
+    border: 1px solid var(--secondary-green-3, #2EB280);
+    background: var(--secondary-green-3, #2EB280);
+  }
+
   .NavBarLoginColorIP{
     border: 1px solid rgba(255, 255, 255, 0.25);
     color: #FFFF;
