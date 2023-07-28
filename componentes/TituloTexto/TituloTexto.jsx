@@ -111,6 +111,24 @@ const TituloTexto = ({
       </div>
 )};
 
+const NovoTituloTexto = ({
+  titulo,
+  texto,
+}) => {
+  return (
+      <div className={style.novoContainerTexto}>
+        <div className={style.novoTitulo}>
+          {titulo}
+        </div>
+        <div 
+          className={style.novoCorpoTexto}
+          dangerouslySetInnerHTML={{
+            __html: sanitize(texto),
+          }}        
+        ></div>
+      </div>
+)};
+
 const TituloSmallTexto = ({
   supertitulo,
   titulo,
@@ -150,4 +168,4 @@ const TituloSmallTexto = ({
       </div>
 )};
 
-export {TituloTexto, TituloSmallTexto};
+export {TituloTexto, TituloSmallTexto, NovoTituloTexto};

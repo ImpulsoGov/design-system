@@ -9,9 +9,11 @@ const CardIP = ({
 }) => {
     return (
         <div className={ style.CardInfo }>
-            <div className={ style.CardInfoTitulo }>
-                { titulo }
-            </div>
+            { titulo && 
+                <div className={ style.CardInfoTitulo }>
+                    { titulo }
+                </div>
+            }
 
             <div className={ style.CardInfoIndicadorContainer }>
                 <span className={ style.CardInfoIndicador }>
