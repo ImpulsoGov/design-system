@@ -32,7 +32,7 @@
   .imageContainer {
     margin-bottom: 30px;
     margin-top: 30px;
-    max-width: 110px;
+    max-width: 260px;
   }
   @media screen and (min-width: 1210px) and (max-width: 1360px) {
     .gridContainer {
