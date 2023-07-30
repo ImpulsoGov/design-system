@@ -22,7 +22,7 @@ export { Grid12Col } from "./Grid12Col/Grid12Col";
 export { Header } from "./Header/Header";
 export { HomeBanner } from "./HomeBanner/HomeBanner";
 export { IFrame } from "./IFrame/IFrame";
-export { ImagensFull, ImagensFull2, ImagensFull3 } from "./ImagensFull/ImagensFull";
+export { ImagensFull, ImagensFull2, ImagensFull3 } from "./Imagens/ImagensFull";
 export { ImagemFundo } from "./ImagemFundo/ImagemFundo";
 export { InfoTab } from "./InfoTab/InfoTab";
 export { ListaArtigos } from "./ListaArtigos/ListaArtigos";
