@@ -615,7 +615,7 @@
     width: 100%;
     background-color: #1f1f1f95;
   }
-  @media screen and (max-width: 1000px) {
+  @media screen and (max-width: 900px) {
     .container_navbar {
       padding: 16px 24px 16px 24px;
       align-items: center;
@@ -768,7 +768,7 @@
     }
   }
 
-  @media screen and (min-width: 1366px) {
+  @media screen and (min-width: 901px) {
     .logoWrapper_navbar{
       margin-right: 45px;
     }
