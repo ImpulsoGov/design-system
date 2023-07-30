@@ -11,6 +11,8 @@
     font-weight: 400;
     padding: 25px;
     border-radius: 5px;
+    background-color: #fff;
+    word-break: break-word;
 }
 .TipoB{
     flex-direction: row;
