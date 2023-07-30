@@ -7,9 +7,11 @@
 }
 .containerFormConsultoriaIPCinza{
     background: #E6ECF0;
+    color: #1F1F1F;
 }
 .containerFormConsultoriaIPVerde{
     background: #2EB280;
+    color: #fff;
 }
 
 .titleFormConsultoria{
@@ -22,7 +24,6 @@
     width: 851px;
     margin-bottom: 98px;
     margin-top: 123px;
-    color: #1F1F1F;
 }
 .mailFormConsultoria{
     color:#1D856C;
@@ -52,7 +53,6 @@
     background-color: #E6ECF0;
     color:#1F1F1F;
 }
-
 @media screen and (max-width: 1023px) {
     .containerFormConsultoria{
         height: fit-content;
