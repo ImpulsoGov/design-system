@@ -161,8 +161,8 @@ const TituloSmallTexto = ({
           {
               botao.label && 
               <ButtonColor
-                label="INDICADORES DE DESEMPENHO"
-                link="indicadores"
+                label={botao.label}
+                link={botao.url}
               />
           }
       </div>

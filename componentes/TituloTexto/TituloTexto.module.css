@@ -33,7 +33,6 @@
 
 
 .containerTexto{
-    background-color: #FFF;
     padding: 30px 80px 30px 80px;
     font-family: 'Inter';
     font-style: normal;
@@ -41,7 +40,6 @@
     line-height: 32px;
 }
 .containerTextoSmall{
-    background-color: #FFF;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
