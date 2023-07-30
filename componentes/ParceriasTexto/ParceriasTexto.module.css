@@ -8,6 +8,7 @@
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
+    text-align: center;
   }
   .textoParcerias{
     color: #FFF;
@@ -21,7 +22,7 @@
     margin: 96px 0 0 0;
   }
   .gridContainer {
-    column-gap: 30px;
+    /* column-gap: 30px; */
     justify-content:center;
     align-items: center;
     display: grid;

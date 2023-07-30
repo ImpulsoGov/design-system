@@ -3,7 +3,7 @@
   }
 
 .imageContainerBanner2{
-  height: 600px;
+  /* height: 600px; */
   width: 100%;
   border-radius: 21px;
   object-fit:cover;
@@ -11,21 +11,21 @@
 
 /* SMALL */
 @media screen and (max-width: 1023px) {
-  .imageContainerBanner2{
+  /* .imageContainerBanner2{
     height: 260px;
-  }  
+  }   */
 }
 
 /* MEDIUM */
 @media screen and (min-width: 1024px)and (max-width: 1400px) {
-  .imageContainerBanner2{
+  /* .imageContainerBanner2{
     height: 500px;
-  }
+  } */
 }
 
 /* XLARGE */
 @media screen and (min-width: 1920px) {
-  .imageContainerBanner2{
+  /* .imageContainerBanner2{
     height: 900px;
-  }
+  } */
 }
