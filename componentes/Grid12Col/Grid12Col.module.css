@@ -24,6 +24,14 @@
     grid-column: 6/13;
 }
 
+.GridItem7-5:nth-child(even) {
+    grid-column: 1/6;
+}
+
+.GridItem7-5:nth-child(odd) {
+    grid-column: 6/13;
+}
+
 .GridItem4-8:nth-child(odd) {
     grid-column: 1/5;
 }
@@ -133,6 +141,7 @@
 }
 
 @media screen and (max-width: 768px) {
+    .GridItem7-5:nth-child(n),
     .GridItem5-7:nth-child(n),
     .GridItem4-8:nth-child(n),
     .GridItem3-9:nth-child(n) {
