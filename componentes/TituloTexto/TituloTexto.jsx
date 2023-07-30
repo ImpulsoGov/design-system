@@ -146,18 +146,23 @@ const TituloSmallTexto = ({
             }}        
           ></div>
         }
-        
+        {
+          titulo && 
         <ImageTopTitutloSmall
          top = {imagem.posicao}
          link = {imagem.url}
          titulo = {titulo}
          />
-        <div 
-          className={style.corpoTexto}
-          dangerouslySetInnerHTML={{
-            __html: sanitize(texto),
-          }}        
-        ></div>
+        }
+         {
+          texto && 
+            <div 
+              className={style.corpoTexto}
+              dangerouslySetInnerHTML={{
+                __html: sanitize(texto),
+              }}        
+            ></div>
+            }
           {
               botao.label && 
               <ButtonColor
