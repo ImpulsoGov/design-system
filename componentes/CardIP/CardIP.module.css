@@ -85,6 +85,10 @@
     .CardInfoFonte {
         font-size: 12px;
     }
+
+    .CardInfoIndicador{
+        font-size: 25px;
+    }
 }
 
 @media screen and (max-width: 360px) {

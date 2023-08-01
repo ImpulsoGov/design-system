@@ -75,6 +75,9 @@
     .gridContainer {
       grid-template-columns: auto auto;
     }
+    .textoParcerias{
+      font-size: 14px;
+    }
   }
   
 @media screen and (max-width: 1023px) {

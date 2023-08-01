@@ -11,11 +11,21 @@ const ButtonColor = ({
 })=>{
     return(
         <Link href={link}>
-            <a  className={style.ButtonColorIconContainer}> 
-                {icone?.posicao=='right' && <img className={style.IconeRight} src={icone?.url} />}
-                {label} 
-                {icone?.posicao=='left' && <img className={style.IconeLeft} src={icone?.url} />}
-            </a>
+            <>
+            {icone && 
+                <a  className={style.ButtonColorIconContainer}>
+                    {icone?.posicao=='right' && <img className={style.IconeRight} src={icone?.url} />}
+                    {label} 
+                    {icone?.posicao=='left' && <img className={style.IconeLeft} src={icone?.url} />}
+                </a>
+            }
+            
+            {(icone == null) && 
+                <a  className={style.ButtonColorIconContainerTexto}>
+                    {label} 
+                </a>
+            }
+            </>
         </Link>
     )
 }
@@ -26,11 +36,11 @@ const ButtonColorMobile = ({
 })=>{
     return(
         <Link href={link}>
-            <a  className={style.ButtonColorIconContainerMobile}> 
-                {icone?.posicao=='right' && <img className={style.IconeRight} src={icone?.url} />}
-                {label} 
-                {icone?.posicao=='left' && <img className={style.IconeLeft} src={icone?.url} />}
-            </a>
+                <a  className={style.ButtonColorIconContainerMobile}>
+                    {icone?.posicao=='right' && <img className={style.IconeRight} src={icone?.url} />}
+                    {label} 
+                    {icone?.posicao=='left' && <img className={style.IconeLeft} src={icone?.url} />}
+                </a>
         </Link>
     )
 }

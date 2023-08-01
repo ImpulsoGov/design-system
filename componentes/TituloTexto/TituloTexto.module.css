@@ -78,7 +78,7 @@
     .containerTexto{
         padding: 30px 16px 30px 16px;
     }
-    .supertitulo{
+    .novoTitulo{
         font-size: 32px;  
     }
 }
@@ -96,7 +96,7 @@
         font-size: 32px;  
     }
     .tituloSmall{
-        font-size: 18px;  
+        font-size: 20px;  
     }
     .corpoTexto{
         font-size: 14px;  
@@ -144,5 +144,8 @@
     }
     .tituloSmall{
         font-size: 48px;
+    }
+    .supertitulo{
+        font-size: 32px;  
     }
 }
