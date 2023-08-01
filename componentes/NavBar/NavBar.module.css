@@ -535,6 +535,9 @@
   .buttonMoblieWhiteSM{
     display: none;
   }
+  .buttonMoblieCinza {
+    display: none;
+  }
   
   .NavBarSearchConteinerMoblie{
     display: none;
