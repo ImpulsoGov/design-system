@@ -12,7 +12,7 @@ export default {
     },
     proporcao: {
       name: "proporcao",
-      description: "Proporção dos itens no grid *string* \n\n Valores aceitos: **6-6**, **5-7**, **4-8**, **3-9**, **4-4-4**, **2-5-5**, **3-3-3-3** ou **2-2-4-4**"
+      description: "Proporção dos itens no grid *string* \n\n Valores aceitos: **6-6**, **5-7**, **7-5**, **4-8**, **3-9**, **4-4-4**, **2-5-5**, **3-3-3-3** ou **2-2-4-4**"
     },
   }
 };

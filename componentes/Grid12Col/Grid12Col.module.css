@@ -24,12 +24,12 @@
     grid-column: 6/13;
 }
 
-.GridItem7-5:nth-child(even) {
-    grid-column: 1/6;
+.GridItem7-5:nth-child(odd) {
+    grid-column: 1/8;
 }
 
-.GridItem7-5:nth-child(odd) {
-    grid-column: 6/13;
+.GridItem7-5:nth-child(even) {
+    grid-column: 8/13;
 }
 
 .GridItem4-8:nth-child(odd) {
@@ -112,6 +112,7 @@
 }
 
 @media screen and (max-width: 1024px) {
+
     /* Seleciona todos os cards */
     .GridItem6-6:nth-child(n) {
         grid-column: 1/13;
@@ -141,6 +142,7 @@
 }
 
 @media screen and (max-width: 768px) {
+
     .GridItem7-5:nth-child(n),
     .GridItem5-7:nth-child(n),
     .GridItem4-8:nth-child(n),
@@ -150,6 +152,7 @@
 }
 
 @media screen and (max-width: 375px) {
+
     .GridItem4-4-4:nth-child(n),
     .GridItem2-5-5:nth-child(n),
     .GridItem3-3-3-3:nth-child(n),
