@@ -157,7 +157,8 @@ const ModulosTrilha = ({
     modulo,
     ultimoModulo,
     mobile,
-    checkSobre
+    checkSobre,
+    trilhaID
 }) => {
     const [moduloAtivo, setModuloAtivo] = useState(mobile ? -1 : ultimoModulo);
     const showModulos = () => {
@@ -233,7 +234,7 @@ const ModulosTrilha = ({
                                     formato="PDF"
                                     titulo="Sobre esse curso | Agenda"
                                     concluido={ checkSobre }
-                                    link="/conteudo-programatico"
+                                    link={`/conteudo-programatico?trilha=${trilhaID}`}
                                 />
                             </>
                         }
