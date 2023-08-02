@@ -10,23 +10,26 @@ const ButtonColor = ({
     link
 })=>{
     return(
-        <Link href={link}>
-            <>
-            {icone && 
-                <a  className={style.ButtonColorIconContainer}>
-                    {icone?.posicao=='right' && <img className={style.IconeRight} src={icone?.url} />}
-                    {label} 
-                    {icone?.posicao=='left' && <img className={style.IconeLeft} src={icone?.url} />}
-                </a>
+        <>
+            {
+                icone &&
+                <Link href={link}>
+                    <a  className={style.ButtonColorIconContainer}>
+                        {icone?.posicao=='right' && <img className={style.IconeRight} src={icone?.url} />}
+                        {label} 
+                        {icone?.posicao=='left' && <img className={style.IconeLeft} src={icone?.url} />}
+                    </a>
+                </Link>
             }
-            
-            {(icone == null) && 
-                <a  className={style.ButtonColorIconContainerTexto}>
-                    {label} 
-                </a>
+            {
+                (icone == null) && 
+                <Link href={link}>
+                    <a  className={style.ButtonColorIconContainerTexto}>
+                        {label} 
+                    </a>
+                </Link>
             }
-            </>
-        </Link>
+        </>
     )
 }
 const ButtonColorMobile = ({
