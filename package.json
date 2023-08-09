@@ -1,7 +1,7 @@
 {
   "name": "@impulsogov/design-system",
   "description": "Impulso Gov Design System",
-  "version": "1.0.93",
+  "version": "1.0.96",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "files": [
@@ -35,7 +35,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "del -rf dist && babel componentes/ --out-dir dist --copy-files",
+    "build-for-windows": "del -rf dist && babel componentes/ --out-dir dist --copy-files",
+    "build": "rm -rf dist && NODE_ENV=production babel componentes/ --out-dir dist --copy-files",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "sb": "start-storybook -p 6006",
