@@ -3,23 +3,28 @@ import { IFrame } from "../IFrame/IFrame";
 import cx from "classnames";
 import style from "./PanelSelector.module.css";
 
-const PanelSelector = (props) => {
-  const initialPanel = (typeof(props?.panel)!='undefined') ? props.panel : 0
-  const initialTitle = (typeof(props?.initialTitle)!='undefined') ? props.initialTitle : 0
-  const [activeTabIndex, setActiveTabIndex] = useState(initialPanel);
-  const [activeTitleTabIndex, setActiveTitleTabIndex] = useState(initialTitle);
+const PanelSelector = ({
+  panel,
+  initialTitle,
+  titles,
+  list,
+  conteudo,
+  links,
+  components,
+  states
+}) => {
   return (
     <div style={{zIndex:90,width:'100%'}}>
       <div className={style.PanelSelectorMain}>
         <div className={style.PanelSelectorTitles}>
-          {props.titles.map((item, index) => (
+          {titles.map((item, index) => (
             <div
               onClick={() => {
-                setActiveTitleTabIndex(index);
+                states.setActiveTitleTabIndex(index);
               }}
               key={index}
               className={
-                activeTitleTabIndex === index
+                states.activeTitleTabIndex === index
                   ? style.PanelSelectorTitleButtonSelected
                   : style.PanelSelectorTitleButton
               }
@@ -29,16 +34,16 @@ const PanelSelector = (props) => {
           ))}
         </div>
 
-        <div className={cx(style.PanelSelectorContainerIP,style["PanelSelectorContainerPosition"+activeTitleTabIndex.toString()])}>
-          {props.list[activeTitleTabIndex].map((item, index) => (
+        <div className={cx(style.PanelSelectorContainerIP,style["PanelSelectorContainerPosition"+states.activeTitleTabIndex.toString()])}>
+          {list[states.activeTitleTabIndex].map((item, index) => (
             
             <div
               onClick={() => {
-                setActiveTabIndex(index);
+                states.setActiveTabIndex(index);
               }}
               key={index}
               className={
-                activeTabIndex === index
+                states.activeTabIndex === index
                   ? style.PanelSelectorButtonSelected
                   : style.PanelSelectorButton
               }
@@ -48,11 +53,11 @@ const PanelSelector = (props) => {
           ))}
         </div>
       </div>
-      {props?.conteudo == "iframe" && <IFrame link={props.links[activeTitleTabIndex][activeTabIndex]} height="3650"/>}
+      {conteudo == "iframe" && <IFrame link={links[states.activeTitleTabIndex][states.activeTabIndex]} height="3650"/>}
       {
-        props?.conteudo == "components" &&
+        conteudo == "components" &&
         <div className={style.PanelSelectorComponentsIP}>
-          {props.components[activeTitleTabIndex][activeTabIndex]}
+          {components[states.activeTitleTabIndex][states.activeTabIndex]}
         </div>
       }
 
