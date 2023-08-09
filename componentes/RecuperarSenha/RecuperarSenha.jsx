@@ -41,7 +41,7 @@ const InserirInfo = ({
     const [value, setValue] = useState('');
     const [novaSenhaConfirmacao,setNovaSenhaConfirmacao] = useState('')
     const ProximaEtapa = ()=> {
-        setLoading(true);
+        value.length > 0 && setLoading(true);
 
         if(etapa==0 && value.length > 0){
             req(value).then((response)=>{
