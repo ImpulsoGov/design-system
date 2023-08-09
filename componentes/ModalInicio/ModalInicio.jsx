@@ -13,7 +13,6 @@ const ModalInicio = ({
     cardAlert,
     botaoPrincipal,
     botaoSecundario,
-    botaoAjuda
 })=>{
     return(
         <div className={style.ModalInicioContainer}>
@@ -42,10 +41,6 @@ const ModalInicio = ({
                     submit={botaoSecundario.submit}
                 />
             </div>
-            <ButtonLightLarge
-                    label={botaoAjuda.label}
-                    link={botaoAjuda.link}
-                />
             <div className={style.ModalInicioChamadaMobile}>{chamada}</div>
         </div>
     )

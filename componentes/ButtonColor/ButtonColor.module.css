@@ -35,7 +35,7 @@
     cursor: pointer;
 }
 
-.ColorIP, .White {
+.ColorIP, .White , .Cinza{
     border: 1px solid rgba(96, 110, 120, 0.15);
     background-color: #2EB280;
 }
