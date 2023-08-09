@@ -17,6 +17,10 @@ export default {
         name: "indicador",
         description: "Valor do indicador do card *number*"
     },
+    height: {
+      name: "height",
+      description: "Altura atribuída ao card *string* ou *number*"
+  },
   }
 }
 const Template = (args) => <CardIP {...args}/>
