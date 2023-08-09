@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { PanelSelector } from "./index";
 
 const dsLink = [
@@ -105,7 +105,17 @@ const Child_one = ()=><div>Child 1</div>
 const Child_two = ()=><div>Child 2</div>
 const children = [<Child_zero/>,<Child_one/>,<Child_two/>]
 
-const Template = (args) => <PanelSelector {...args}/>
+const Template = (args) => {
+  const [activeTabIndex, setActiveTabIndex] = useState(0);
+  const [activeTitleTabIndex, setActiveTitleTabIndex] = useState(0);
+  args["states"] = {
+    activeTabIndex : activeTabIndex,
+    setActiveTabIndex : setActiveTabIndex,
+    activeTitleTabIndex : activeTitleTabIndex,
+    setActiveTitleTabIndex : setActiveTitleTabIndex
+  }
+  return <PanelSelector {...args}/>
+}
 export const BuscaAtiva = Template.bind({});
 BuscaAtiva.args={
   links: dsLinkBuscaAtiva,
