@@ -87,6 +87,9 @@
     .containerTexto{
         padding: 30px 40px 30px 40px;
     }
+    .novoTitulo{
+        font-size: 32px;  
+    }
 }
 /* SMALL */
 @media screen and (max-width: 1023px) {
