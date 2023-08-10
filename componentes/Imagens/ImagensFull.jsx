@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import style from "./ImagensFull.module.css";
 import style2 from "./ImagensFull2.module.css";
@@ -18,7 +19,8 @@ const ImagensFull = ({
   )};
 
   const ImagensFull2 = ({
-    imagem
+    imagem,
+    width
     }) => {
       return (
         <div className={style2.containerBanner2}>
@@ -26,6 +28,7 @@ const ImagensFull = ({
               className={style2.imageContainerBanner2}
               alt="BannerImage1"
               src= {String(imagem)}
+              style={{ width }}
             />
         </div>
     )};
@@ -41,5 +44,16 @@ const ImagensFull = ({
               />
           </div>
       )};
-    
-  export {ImagensFull, ImagensFull2,ImagensFull3};
+
+ImagensFull2.defaultProps = {
+  width: "100%"
+}
+
+ImagensFull2.propTypes = {
+  width: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ])
+}
+
+export {ImagensFull, ImagensFull2,ImagensFull3};

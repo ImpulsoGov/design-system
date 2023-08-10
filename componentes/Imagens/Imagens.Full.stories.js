@@ -9,6 +9,10 @@ export default {
       name: 'imagem' ,
       description: 'Link da imagem *URL*'
     },
+    width: {
+      name: 'width',
+      description: 'Largura da imagem *string* ou *number*'
+    },
   },
 };
 
