@@ -51,11 +51,12 @@ const ImageTopTitutloSmall = ({
   top,
   link,
   titulo,
+  width
 }) => {
   if (top==true) {
     return(
       <div>
-        <ImagensFull2 imagem={link} />
+        <ImagensFull2 imagem={link} width={width} />
         <div 
           className={style.tituloSmall}
           dangerouslySetInnerHTML={{
@@ -73,7 +74,7 @@ const ImageTopTitutloSmall = ({
             __html: sanitize(titulo),
           }}        
         ></div>
-        <ImagensFull2 imagem={link} />
+        <ImagensFull2 imagem={link} width={width} />
       </div>
     )
   }else{
@@ -152,6 +153,7 @@ const TituloSmallTexto = ({
          top = {imagem.posicao}
          link = {imagem.url}
          titulo = {titulo}
+         width = {imagem.width}
          />
         }
          {

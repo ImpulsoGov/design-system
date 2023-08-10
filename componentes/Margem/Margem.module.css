@@ -1,0 +1,10 @@
+.Margem {
+  margin: 0 80px;
+}
+
+/* SMALL */
+@media(max-width: 768px) {
+  .Margem {
+    margin: 0 16px;
+  }
+}

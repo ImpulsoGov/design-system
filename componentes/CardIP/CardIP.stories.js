@@ -10,12 +10,16 @@ export default {
       description: "Descrição do card *string*"
     },
     titulo: {
-        name: "titulo",
-        description: "Titulo do card *string*"
+      name: "titulo",
+      description: "Titulo do card *string*"
     },
     indicador: {
-        name: "indicador",
-        description: "Valor do indicador do card *number*"
+      name: "indicador",
+      description: "Valor do indicador do card *number*"
+    },
+    height: {
+      name: "height",
+      description: "Altura atribuída ao card *string* ou *number*"
     },
   }
 }

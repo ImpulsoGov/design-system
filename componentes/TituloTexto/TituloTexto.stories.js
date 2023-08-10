@@ -16,9 +16,12 @@ export default {
       imagem : {
         posicao : { 
           control : 'text',
-      },
+        },
         url : { control : 'text' },
-        description: 'Insere Imagem no Texto',
+        width: {
+          control : 'text'
+        },
+        description: 'Insere imagem no texto e possui as seguintes opções: \n\n **posição**: determina se a imagem fica acima ou abaixo do título *true*, *false* ou *null* \n\n **url**: url da imagem a ser exibida *string* \n\n **width**: largura da imagem *string* ou *number* (valor padrão igual a 100%)',
       },
       posicao : {
         control : 'select',
