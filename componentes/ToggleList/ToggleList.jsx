@@ -3,6 +3,7 @@ import styles from "./ToggleList.module.css";
 import { ToggleListElementBlock } from "../ToggleListElementBlock/ToggleListElementBlock";
 import PropTypes from "prop-types";
 import cx from "classnames";
+import { sanitize } from "../sanitize";
 
 const ToggleList = ({ list, title, direction, icon, theme }) => {
 
@@ -27,7 +28,12 @@ const ToggleList = ({ list, title, direction, icon, theme }) => {
             src={icon}
           />
         )}
-        <h3 className={styles.ToggleListTitle}>{title}</h3>
+        <h3
+          className={styles.ToggleListTitle}
+          dangerouslySetInnerHTML={{
+            __html: sanitize(title),
+          }}
+        />
       </div>
 
       <div className={styles.ToggleListRightBlock}>
