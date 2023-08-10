@@ -27,6 +27,7 @@ export { ImagemFundo } from "./ImagemFundo/ImagemFundo";
 export { InfoTab } from "./InfoTab/InfoTab";
 export { ListaArtigos } from "./ListaArtigos/ListaArtigos";
 export { Login } from "./Login/Login";
+export { Margem } from "./Margem/Margem"
 export { Modal } from "./Modal/Modal";
 export { Alert, ModalAlert , NPS , CardAlertModal } from "./ModalAlert/ModalAlert";
 export { ModalLogged } from "./ModalLogged/ModalLogged";
