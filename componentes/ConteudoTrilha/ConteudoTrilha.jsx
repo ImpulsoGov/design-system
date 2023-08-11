@@ -162,8 +162,7 @@ const MaterialCompletar = ({materialComplementar})=>{
         <div className={style.ConteudoTrilhaMaterialComplementar}>
         <p style={{fontSize:"20px"}}>{materialComplementar.titulo}</p>
         <div className={style.ConteudoTrilhaMaterialComplementarCard}>
-            <p>{materialComplementar.card.titulo}</p>
-            <span>
+            <span style={{display : "flex",alignItems : "center"}}>
                 <img style={{marginRight:"8px"}} src={materialComplementar.card.icon}/>
                 <Link target="_blank" href={materialComplementar?.card?.url}>
                     <a target="_blank">{materialComplementar.card.arquivo}</a>
