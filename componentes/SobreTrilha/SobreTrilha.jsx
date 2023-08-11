@@ -90,7 +90,7 @@ const SobreTrilha = ({
                     <div className={style.divConteudo}>
                         <div className={style.tituloTexto}>{conteudo.titulo}</div>
                         <div className={style.Texto}>
-                            {conteudo.texto.map((item,index) => {
+                            {conteudo?.texto.map((item,index) => {
                                     return(
                                         <li key={index}
                                             dangerouslySetInnerHTML={{
@@ -101,10 +101,13 @@ const SobreTrilha = ({
                             })}
                         </div>
                     <div className={style.buttonWPDesktop}>
-                        <ButtonColor
+                        {
+                            botaoIniciar.label &&
+                            <ButtonColor
                             label={botaoIniciar.label}
                             link={botaoIniciar.url}
-                        />
+                            />
+                        }
                         <ButtonLight
                             icone={{
                                 posicao: 'right',
