@@ -111,7 +111,7 @@ const Conteudo = ({
                     src={ Icon[formato] }
                 ></img>
                 <div>{ id }. { titulo }</div>
-                <div>
+                <div style={{marginLeft : "auto"}}>
                     <img src={
                         concluido ?
                             "https://media.graphassets.com/wwr70QThSTGWkqmbR0Mt" :
