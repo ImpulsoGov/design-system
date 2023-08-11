@@ -102,7 +102,7 @@ const SobreTrilha = ({
                         </div>
                     <div className={style.buttonWPDesktop}>
                         {
-                            botaoIniciar.label &&
+                            botaoIniciar?.label &&
                             <ButtonColor
                             label={botaoIniciar.label}
                             link={botaoIniciar.url}
