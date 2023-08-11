@@ -102,7 +102,6 @@ const CardLargeGrid = ({cards, obs, theme})=>{
 }
 
 const CardLargeGridInicioSM = ({cards, cardsExtra, obs, theme})=>{
-    var theme = theme;
     return(
         <>
             <div className={style.CardLargeGrid}>
