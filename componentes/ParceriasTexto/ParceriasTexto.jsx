@@ -9,11 +9,12 @@ const ParceriasTexto = ({
 }) => {
   return (
     <div className={style.container_parceiros}>
-        <div 
-            className={style.textoParcerias}
-            dangerouslySetInnerHTML={{
-                __html: sanitize(text),
-              }}        ></div>
+        <div className={style.gridContainer}>
+            <div className={style.textoParcerias}
+                dangerouslySetInnerHTML={{
+                    __html: sanitize(text),
+            }}></div>
+        </div>
         <div className={style.gridContainer}>
                 {parceiros.map((parceiro,index)=>{
                     return(
