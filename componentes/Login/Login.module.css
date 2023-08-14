@@ -146,12 +146,12 @@
     filter: invert(90%) sepia(15%) saturate(253%) hue-rotate(161deg) brightness(79%) contrast(84%);
 }
 
-.ColorIP, .White {
+.ColorIP, .White, .Cinza {
     border: 1px solid rgba(96, 110, 120, 0.15);
     background-color: #1D856C;
 }
 
-.ColorIP:hover, .White:hover {
+.ColorIP:hover, .White:hover, .Cinza:hover {
     border: 1px solid rgba(96, 110, 120, 0.50);
     background-color: #1d856df0;
     cursor: pointer;
