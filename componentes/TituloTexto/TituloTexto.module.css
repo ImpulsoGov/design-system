@@ -118,6 +118,7 @@
 @media screen and (min-width: 1024px)and (max-width: 1400px) {
     .tituloTexto{
         font-size: 48px;  
+        line-height: 60px;
     }
     .corpoTexto{
         font-size: 16px;  
