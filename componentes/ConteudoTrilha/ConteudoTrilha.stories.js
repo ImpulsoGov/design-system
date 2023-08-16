@@ -37,15 +37,6 @@ NaoConcluido.args ={
         titulo: "Introdução aos Indicadores de Hipertensão e Diabetes",
         texto: "s nisi ut aliquip ex ea commodo consequat. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat adipiscing elit, sed dosiih ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo:s nisi ut aliquip ex ea commodo consequat. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat adipiscing elit, sed dosiih ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo:s nisi ut aliquip ex ea commodo consequat. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat adipiscing elit, sed dosiih ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo:s nisi ut aliquip ex ea commodo consequat. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat adipiscing elit, sed dosiih ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo:s nisi ut aliquip ex ea commodo consequat. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat adipiscing elit, sed dosiih ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo:s nisi ut aliquip ex ea commodo consequat. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat adipiscing elit, sed dosiih ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo:s nisi ut aliquip ex ea commodo consequat. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat adipiscing elit, sed dosiih ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo:"
     },
-    materialComplementar:{
-        titulo: "Material Complementar",
-        card:{
-            titulo: "Manual Impulso Previne",
-            arquivo: "manual_impulso_previne.pdf",
-            url: "https://media.graphassets.com/6cOfkxeyT7245Fn19kgU",
-            icon: "https://media.graphassets.com/aFcM8jxSSyStgrfCL8Uw"
-        }
-    },
     buttonBar:{
         botaoVoltar:{
             label:"VOLTAR",
@@ -87,12 +78,26 @@ Concluido.args ={
     },
     materialComplementar:{
         titulo: "Material Complementar",
-        card:{
+        card:[
+            {
             titulo: "Manual Impulso Previne",
             arquivo: "manual_impulso_previne.pdf",
             icon: "https://media.graphassets.com/aFcM8jxSSyStgrfCL8Uw",
             url: "https://media.graphassets.com/6cOfkxeyT7245Fn19kgU"
-        },
+            },
+            {
+                titulo: "Manual Impulso Previne",
+                arquivo: "manual_impulso_previne_1.pdf",
+                icon: "https://media.graphassets.com/aFcM8jxSSyStgrfCL8Uw",
+                url: "https://media.graphassets.com/6cOfkxeyT7245Fn19kgU"
+            },
+            {
+                titulo: "Manual Impulso Previne",
+                arquivo: "manual_impulso_previne_2.pdf",
+                icon: "https://media.graphassets.com/aFcM8jxSSyStgrfCL8Uw",
+                url: "https://media.graphassets.com/6cOfkxeyT7245Fn19kgU"
+            },
+        ]
     },
     buttonBar:{
         botaoVoltar:{
@@ -136,12 +141,26 @@ ConcluidoFinal.args ={
     },
     materialComplementar:{
         titulo: "Material Complementar",
-        card:{
+        card:[
+            {
             titulo: "Manual Impulso Previne",
             arquivo: "manual_impulso_previne.pdf",
             icon: "https://media.graphassets.com/aFcM8jxSSyStgrfCL8Uw",
             url: "https://media.graphassets.com/6cOfkxeyT7245Fn19kgU"
-        },
+            },
+            {
+                titulo: "Manual Impulso Previne",
+                arquivo: "manual_impulso_previne_1.pdf",
+                icon: "https://media.graphassets.com/aFcM8jxSSyStgrfCL8Uw",
+                url: "https://media.graphassets.com/6cOfkxeyT7245Fn19kgU"
+            },
+            {
+                titulo: "Manual Impulso Previne",
+                arquivo: "manual_impulso_previne_2.pdf",
+                icon: "https://media.graphassets.com/aFcM8jxSSyStgrfCL8Uw",
+                url: "https://media.graphassets.com/6cOfkxeyT7245Fn19kgU"
+            },
+        ]
     },
     buttonBar:{
         botaoVoltar:{
@@ -186,12 +205,26 @@ ConcluidoPDF.args ={
     },
     materialComplementar:{
         titulo: "Material Complementar",
-        card:{
+        card:[
+            {
             titulo: "Manual Impulso Previne",
             arquivo: "manual_impulso_previne.pdf",
             icon: "https://media.graphassets.com/aFcM8jxSSyStgrfCL8Uw",
             url: "https://media.graphassets.com/6cOfkxeyT7245Fn19kgU"
-        },
+            },
+            {
+                titulo: "Manual Impulso Previne",
+                arquivo: "manual_impulso_previne_1.pdf",
+                icon: "https://media.graphassets.com/aFcM8jxSSyStgrfCL8Uw",
+                url: "https://media.graphassets.com/6cOfkxeyT7245Fn19kgU"
+            },
+            {
+                titulo: "Manual Impulso Previne",
+                arquivo: "manual_impulso_previne_2.pdf",
+                icon: "https://media.graphassets.com/aFcM8jxSSyStgrfCL8Uw",
+                url: "https://media.graphassets.com/6cOfkxeyT7245Fn19kgU"
+            },
+        ]
     },
     buttonBar:{
         botaoVoltar:{
@@ -236,12 +269,26 @@ ConcluidoQuizz.args ={
     },
     materialComplementar:{
         titulo: "Material Complementar",
-        card:{
+        card:[
+            {
             titulo: "Manual Impulso Previne",
             arquivo: "manual_impulso_previne.pdf",
             icon: "https://media.graphassets.com/aFcM8jxSSyStgrfCL8Uw",
             url: "https://media.graphassets.com/6cOfkxeyT7245Fn19kgU"
-        },
+            },
+            {
+                titulo: "Manual Impulso Previne",
+                arquivo: "manual_impulso_previne_1.pdf",
+                icon: "https://media.graphassets.com/aFcM8jxSSyStgrfCL8Uw",
+                url: "https://media.graphassets.com/6cOfkxeyT7245Fn19kgU"
+            },
+            {
+                titulo: "Manual Impulso Previne",
+                arquivo: "manual_impulso_previne_2.pdf",
+                icon: "https://media.graphassets.com/aFcM8jxSSyStgrfCL8Uw",
+                url: "https://media.graphassets.com/6cOfkxeyT7245Fn19kgU"
+            },
+        ]
     },
     buttonBar:{
         botaoVoltar:{

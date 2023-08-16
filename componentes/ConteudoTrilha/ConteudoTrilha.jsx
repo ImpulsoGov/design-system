@@ -157,21 +157,26 @@ const ConteudoDescricao = ({
     </div>
 )
 }
-const MaterialCompletar = ({materialComplementar})=>{
+const MaterialCompletar = ({materiaisComplementar})=>{
     return(
-        <div className={style.ConteudoTrilhaMaterialComplementar}>
-        <p style={{fontSize:"20px"}}>{materialComplementar.titulo}</p>
-        <div className={style.ConteudoTrilhaMaterialComplementarCard}>
-            <span style={{display : "flex",alignItems : "center"}}>
-                <img style={{marginRight:"8px"}} src={materialComplementar.card.icon}/>
-                <Link target="_blank" href={materialComplementar?.card?.url}>
-                    <a target="_blank">{materialComplementar.card.arquivo}</a>
-                </Link>
-            </span>
-        </div>
-    </div>
-)
-}
+            <div className={style.ConteudoTrilhaMaterialComplementar}>
+                <p style={{fontSize:"20px"}}>{materiaisComplementar?.titulo}</p>
+                <div className={style.ConteudoTrilhaMaterialComplementarCard}>
+                {
+                    materiaisComplementar?.card?.map((materialComplementar)=>{
+                        return(
+                            <span style={{display : "flex",alignItems : "center"}}>
+                                <img style={{marginRight:"8px"}} src={materialComplementar?.icon}/>
+                                <Link target="_blank" href={materialComplementar?.url}>
+                                    <a target="_blank">{materialComplementar?.arquivo}</a>
+                                </Link>
+                            </span>
+                    )})
+                }
+                </div>
+
+            </div>
+    )}
 const ButtonBar = ({
     buttonBar
 })=>{
@@ -230,10 +235,10 @@ const ConteudoTrilha = ({
                 />
             }
             {
-                conteudo.tipo != 'quizz' && conteudo.tipo != 'pdf' &&
+                materialComplementar &&
                 <>
                     <MaterialCompletar
-                        materialComplementar={materialComplementar}
+                        materiaisComplementar={materialComplementar}
                     />
                 </>
             }
