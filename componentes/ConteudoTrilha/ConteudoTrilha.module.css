@@ -82,6 +82,9 @@
     width: 90%;
 }
 .ConteudoTrilhaMaterialComplementarCard{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
     background: #EFF5F9;
     border-radius: 20px;
     padding: 12px 25px;
