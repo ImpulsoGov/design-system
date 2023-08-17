@@ -132,8 +132,15 @@
         width: 900px;
         height: auto;
     }
-
 }
+
+/* LARGE */
+@media screen and (max-width: 1440px) {
+    .tituloSmall {
+        line-height: 40px;
+    }
+}
+
 /* XLARGE */
 @media screen and (min-width: 1920px) {
     .containerTexto{
@@ -143,12 +150,14 @@
         font-size: 80px;  
         width: 60%;
         text-align: left;
+        line-height: 95px;
     }
     .corpoTexto{
         font-size: 32px;  
     }
     .tituloSmall{
         font-size: 48px;
+        line-height: 60px;
     }
     .supertitulo{
         font-size: 32px;  
