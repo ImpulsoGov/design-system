@@ -247,13 +247,11 @@ const CardInfoTipoB = ({
     );
 };
 
-const CardInfoTipoC = ({
+const CardIndicadorDescricao = ({
     descricao,
     indicador,
     indicadorSimbolo,
-    indicadorDescricao,
-    statusAntes,
-    statusDepois
+    indicadorDescricao
 }) => {
     return (
         <div className={ cx(style.CardInfo, style.TipoC) }>
@@ -266,6 +264,26 @@ const CardInfoTipoC = ({
             </div>
 
             { descricao && <CardInfoDescricao descricao={ descricao } /> }
+        </div>
+    );
+};
+
+const CardInfoTipoC = ({
+    descricao,
+    indicador,
+    indicadorSimbolo,
+    indicadorDescricao,
+    statusAntes,
+    statusDepois
+}) => {
+    return (
+        <div className={ cx(style.CardInfo, style.TipoC) }>
+            <CardIndicadorDescricao
+                descricao={ descricao }
+                indicador={ indicador }
+                indicadorSimbolo={ indicadorSimbolo }
+                indicadorDescricao={ indicadorDescricao }
+            />
 
             <div className={ style.CardInfoStatusContainer }>
                 { statusAntes
@@ -282,9 +300,19 @@ const CardInfoTipoC = ({
     );
 };
 
+const ContainerCards = () => {
+    return (
+        <div style={ style.ContainerCards }>
+            Oi
+        </div>
+    );
+};
+
 export {
+    CardIndicadorDescricao,
     CardInfoTipoA,
     CardInfoTipoB,
     CardInfoTipoC,
+    ContainerCards
 };
 
