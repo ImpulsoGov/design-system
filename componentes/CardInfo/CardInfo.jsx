@@ -278,12 +278,15 @@ const CardInfoTipoC = ({
 }) => {
     return (
         <div className={ cx(style.CardInfo, style.TipoC) }>
-            <CardIndicadorDescricao
-                descricao={ descricao }
-                indicador={ indicador }
-                indicadorSimbolo={ indicadorSimbolo }
-                indicadorDescricao={ indicadorDescricao }
-            />
+            <div className={ style.CardInfoIndicadorContainer }>
+                <CardInfoIndicador
+                    indicador={ indicador }
+                    descricao={ indicadorDescricao }
+                    simbolo={ indicadorSimbolo }
+                />
+            </div>
+
+            { descricao && <CardInfoDescricao descricao={ descricao } /> }
 
             <div className={ style.CardInfoStatusContainer }>
                 { statusAntes
