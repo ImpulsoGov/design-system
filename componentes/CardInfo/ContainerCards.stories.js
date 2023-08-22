@@ -9,5 +9,5 @@ export default {
 
 const Template = (args) => <ContainerCards { ...args } />;
 export const Completo = Template.bind({});
-// Completo.args = {
-// };
+Completo.args = {
+};

@@ -302,8 +302,138 @@ const CardInfoTipoC = ({
 
 const ContainerCards = () => {
     return (
-        <div style={ style.ContainerCards }>
-            Oi
+        <div className={ style.ContainerCards }>
+            <div className={ style.PrimeiraColuna }></div>
+
+            <div className={ style.SegundaColuna }>
+                <CardInfoTipoC
+                    descricao={'Não foram atendidos na RAPS nos 6 meses anteriores à internação nem até o mês após a alta'}
+                    indicador={692}
+                    indicadorDescricao={'Usuários'}
+                    statusAntes={true}
+                    statusDepois={false}
+                />
+            </div>
+
+            <div className={ style.TerceiraColuna }>
+                <CardInfoTipoC
+                    descricao={'Não foram atendidos na RAPS nos 6 meses anteriores à internação nem até o mês após a alta'}
+                    indicador={692}
+                    indicadorDescricao={'Usuários'}
+                    statusAntes={true}
+                    statusDepois={false}
+                />
+            </div>
+
+            <div className={ style.QuartaColuna }>
+                <CardInfoTipoC
+                    descricao={'Não foram atendidos na RAPS nos 6 meses anteriores à internação nem até o mês após a alta'}
+                    indicador={692}
+                    indicadorDescricao={'Usuários'}
+                    statusAntes={true}
+                    statusDepois={false}
+                />
+            </div>
+
+            <div className={ style.QuintaColuna }>
+                <CardInfoTipoC
+                    descricao={'Não foram atendidos na RAPS nos 6 meses anteriores à internação nem até o mês após a alta'}
+                    indicador={692}
+                    indicadorDescricao={'Usuários'}
+                    statusAntes={true}
+                    statusDepois={false}
+                />
+            </div>
+
+            <div className={ style.PrimeiraColuna }>
+                <CardIndicadorDescricao
+                    // descricao={ 'descricao' }
+                    indicador={ 5 }
+                    // indicadorSimbolo={ indicadorSimbolo }
+                    indicadorDescricao={ 'indicadorDescricao' }
+                />
+            </div>
+
+            <div className={ style.SegundaColuna }>
+                <CardIndicadorDescricao
+                    // descricao={ 'descricao' }
+                    indicador={ 5 }
+                    // indicadorSimbolo={ indicadorSimbolo }
+                    indicadorDescricao={ 'indicadorDescricao' }
+                />
+            </div>
+
+            <div className={ style.TerceiraColuna }>
+                <CardIndicadorDescricao
+                    // descricao={ 'descricao' }
+                    indicador={ 5 }
+                    // indicadorSimbolo={ indicadorSimbolo }
+                    indicadorDescricao={ 'indicadorDescricao' }
+                />
+            </div>
+
+            <div className={ style.QuartaColuna }>
+                <CardIndicadorDescricao
+                    // descricao={ 'descricao' }
+                    indicador={ 5 }
+                    // indicadorSimbolo={ indicadorSimbolo }
+                    indicadorDescricao={ 'indicadorDescricao' }
+                />
+            </div>
+
+            <div className={ style.QuintaColuna }>
+                <CardIndicadorDescricao
+                    // descricao={ 'descricao' }
+                    indicador={ 5 }
+                    // indicadorSimbolo={ indicadorSimbolo }
+                    indicadorDescricao={ 'indicadorDescricao' }
+                />
+            </div>
+
+            <div className={ style.PrimeiraColuna }>
+                <CardIndicadorDescricao
+                    // descricao={ 'descricao' }
+                    indicador={ 5 }
+                    // indicadorSimbolo={ indicadorSimbolo }
+                    indicadorDescricao={ 'indicadorDescricaoooooooooooooooooooooooooooooooooooooooooooooooooooo' }
+                />
+            </div>
+
+            <div className={ style.SegundaColuna }>
+                <CardIndicadorDescricao
+                    // descricao={ 'descricao' }
+                    indicador={ 5 }
+                    // indicadorSimbolo={ indicadorSimbolo }
+                    indicadorDescricao={ 'indicadorDescricao' }
+                />
+            </div>
+
+            <div className={ style.TerceiraColuna }>
+                <CardIndicadorDescricao
+                    // descricao={ 'descricao' }
+                    indicador={ 5 }
+                    // indicadorSimbolo={ indicadorSimbolo }
+                    indicadorDescricao={ 'indicadorDescricao' }
+                />
+            </div>
+
+            <div className={ style.QuartaColuna }>
+                <CardIndicadorDescricao
+                    // descricao={ 'descricao' }
+                    indicador={ 5 }
+                    // indicadorSimbolo={ indicadorSimbolo }
+                    indicadorDescricao={ 'indicadorDescricao' }
+                />
+            </div>
+
+            <div className={ style.QuintaColuna }>
+                <CardIndicadorDescricao
+                    // descricao={ 'descricao' }
+                    indicador={ 5 }
+                    // indicadorSimbolo={ indicadorSimbolo }
+                    indicadorDescricao={ 'indicadorDescricao' }
+                />
+            </div>
         </div>
     );
 };

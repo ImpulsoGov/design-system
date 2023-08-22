@@ -167,3 +167,23 @@
     grid-template-columns: repeat(5, auto);
     /* grid-column: ; */
 }
+
+.PrimeiraColuna {
+    grid-column: 1/2;
+}
+
+.SegundaColuna {
+    grid-column: 2/3;
+}
+
+.TerceiraColuna {
+    grid-column: 3/4;
+}
+
+.QuartaColuna {
+    grid-column: 4/5;
+}
+
+.QuintaColuna {
+    grid-column: 5/6;
+}
