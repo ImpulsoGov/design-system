@@ -442,10 +442,10 @@ const ContainerCards = () => {
 };
 
 export {
-    CardIndicadorDescricao,
+    //CardIndicadorDescricao,
     CardInfoTipoA,
     CardInfoTipoB,
     CardInfoTipoC,
-    ContainerCards
+    //ContainerCards
 };
 

@@ -1,0 +1,162 @@
+.CardInfo {
+    border: solid 1px #9494946b;
+    color: #9ba4a5;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    font-size: 16px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    padding: 25px;
+    border-radius: 5px;
+}
+
+.Aux {
+    gap: 20px;
+}
+
+.CardInfoTitulo {
+    margin-bottom: 8px;
+    white-space: normal;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.CardInfoTooltip {
+    font-family: 'Inter';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    text-align: center;
+}
+
+.CardInfoSymbol {
+    color: black;
+    margin-left: 5px;
+}
+
+.CardInfoSymbol:hover {
+    cursor: default;
+}
+
+.CardInfoIndicadorContainer {
+    display: flex;
+    gap: 10px;
+    height: fit-content;
+    align-items: flex-end;
+    flex-wrap: wrap;
+}
+
+.TipoC .CardInfoIndicadorContainer {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.CardInfoIndicador {
+    color: black;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.CardInfoIndicadorDescricao,
+.CardInfoDescricao {
+    font-size: 14px;
+}
+
+.CardInfoIndiceContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.TextoVerde {
+    color: #7ab37d;
+}
+
+.TextoVermelho {
+    color: #cf6868;
+}
+
+.CardInfoSymbolUp {
+    font-size: 32px;
+    transform: rotate(-90deg);
+}
+
+.CardInfoSymbolDown {
+    font-size: 32px;
+    transform: rotate(90deg);
+}
+
+.CardInfoIndice {
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+.CardInfoLink {
+    text-decoration: none;
+    color: #75b2ed;
+}
+
+.CardInfoFonte {
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.CardInfoStatusContainer {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.CardInfoStatus {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex-wrap: wrap;
+}
+
+.CardInfoStatusSymbol {
+    font-size: 18px;
+}
+
+/* MEDIUM */
+@media(max-width: 780px) {
+    .CardInfo {
+        font-size: 14px;
+    }
+
+    .CardInfoFonte {
+        font-size: 12px;
+    }
+}
+
+.ContainerCards {
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    column-gap: 1px;
+    row-gap: 1px;
+    /* grid-column: ; */
+}
+
+.PrimeiraColuna {
+    grid-column: 1/2;
+}
+
+.SegundaColuna {
+    grid-column: 2/3;
+}
+
+.TerceiraColuna {
+    grid-column: 3/4;
+}
+
+.QuartaColuna {
+    grid-column: 4/5;
+}
+
+.QuintaColuna {
+    grid-column: 5/6;
+}
