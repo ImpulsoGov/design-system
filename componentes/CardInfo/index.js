@@ -1,8 +1,6 @@
 export {
-  CardIndicadorDescricao,
   CardInfoTipoA,
   CardInfoTipoB,
-  CardInfoTipoC,
-  ContainerCards
+  CardInfoTipoC
 } from "./CardInfo";
 
