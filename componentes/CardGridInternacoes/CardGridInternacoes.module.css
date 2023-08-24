@@ -1,5 +1,4 @@
 .CardInfo {
-    border: solid 1px #9494946b;
     color: #9ba4a5;
     display: flex;
     flex-direction: column;
@@ -80,26 +79,6 @@
     color: #cf6868;
 }
 
-.CardInfoSymbolUp {
-    font-size: 32px;
-    transform: rotate(-90deg);
-}
-
-.CardInfoSymbolDown {
-    font-size: 32px;
-    transform: rotate(90deg);
-}
-
-.CardInfoIndice {
-    margin-left: 8px;
-    margin-right: 8px;
-}
-
-.CardInfoLink {
-    text-decoration: none;
-    color: #75b2ed;
-}
-
 .CardInfoFonte {
     font-size: 14px;
     margin-top: 5px;
@@ -136,27 +115,55 @@
 .ContainerCards {
     display: grid;
     grid-template-columns: repeat(5, auto);
-    column-gap: 1px;
-    row-gap: 1px;
+    column-gap: px;
+    /*row-gap: 1px;
     /* grid-column: ; */
 }
-
+.PrimeiroCard {
+    border-top: 1px solid #9ba4a5;
+    border-bottom: 1px solid #9ba4a5;
+}
+.TerceiroCard {
+    border-top: 1px solid #9ba4a5;
+    border-radius: 15px 0px 0px 0px;
+}
+.QuintoCard {
+    border-radius: 0px 0px 0px 15px;
+}
+.SextoCard {
+    border-top: 1px solid #9ba4a5;
+}
+.NonoCard {
+    border-top: 1px solid #9ba4a5;
+}
+.DecimoSegundoCard {
+    border-top: 1px solid #9ba4a5;
+}
 .PrimeiraColuna {
     grid-column: 1/2;
 }
 
 .SegundaColuna {
     grid-column: 2/3;
+    border-left: 1px solid #9ba4a5;
+    border-bottom: 1px solid #9ba4a5;
 }
 
 .TerceiraColuna {
     grid-column: 3/4;
+    border-left: 1px solid #9ba4a5;
+    border-bottom: 1px solid #9ba4a5;
 }
 
 .QuartaColuna {
     grid-column: 4/5;
+    border-left: 1px solid #9ba4a5;
+    border-bottom: 1px solid #9ba4a5;
 }
 
 .QuintaColuna {
     grid-column: 5/6;
+    border-left: 1px solid #9ba4a5;
+    border-bottom: 1px solid #9ba4a5;
+    border-right: 1px solid #9ba4a5;
 }
