@@ -28,18 +28,35 @@ const CardInfoDescricao = ({ descricao }) => {
     );
 };
 
-const CardInfoStatus = ({ descricao, status }) => {
+const CardInfoStatus = ({ antes, depois }) => {
     return (
+        <>
         <div className={ style.CardInfoStatus }>
             <span className={ cx(
                 style.CardInfoStatusSymbol,
-                status ? style.TextoVerde : style.TextoVermelho
+                antes.status ? style.TextoVerde : style.TextoVermelho
             ) }>
-                { status ? "✓" : "✕" }
+                { antes.status ? "✓" : "✕" }
             </span>
 
-            <p className={ style.CardInfoDescricao }>{ descricao }</p>
+            <p className={ style.AntesDepois }>Antes</p>
+            <CardInfoDescricao descricao = {antes.descricao}
+            />
         </div>
+        <div className={ style.CardInfoStatus }>
+        <span className={ cx(
+            style.CardInfoStatusSymbol,
+            depois.status ? style.TextoVerde : style.TextoVermelho
+        ) }>
+            { depois.status ? "✓" : "✕" }
+        </span>
+
+        <p className={ style.AntesDepois }>Depois</p>
+        <CardInfoDescricao descricao = {depois.descricao}
+        />
+    </div> 
+        </>
+        
     );
 };
 
@@ -76,7 +93,7 @@ const CardInfoAux = ({
     statusDepois
 }) => {
     return (
-        <div className={ cx(style.CardInfo, style.TipoC) }>
+        <div className={ cx(style.CardInfo) }>
             <div className={ style.CardInfoIndicadorContainer }>
                 <CardInfoIndicador
                     indicador={ indicador }
@@ -86,163 +103,175 @@ const CardInfoAux = ({
             </div>
 
             { descricao && <CardInfoDescricao descricao={ descricao } /> }
-
-            <div className={ style.CardInfoStatusContainer }>
-                { statusAntes
-                    ? <CardInfoStatus descricao="Antes" status={ statusAntes } />
-                    : <CardInfoStatus descricao="Antes" status={ statusAntes } />
-                }
-
-                { statusDepois
-                    ? <CardInfoStatus descricao="Depois" status={ statusDepois } />
-                    : <CardInfoStatus descricao="Depois" status={ statusDepois } />
-                }
-            </div>
         </div>
     );
 };
 
-const ContainerCards = () => {
+const ContainerCards = ({
+    cardsArray   
+}) => {
     return (
         <div className={ style.ContainerCards }>
-            <div className={ style.PrimeiraColuna }></div>
+            <div className={ cx(style.PrimeiraColuna, style.AuxClassBorder) }></div>
 
             <div className={ cx(style.SegundaColuna, style.TerceiroCard) }>
-                <CardInfoAux
-                    descricao={'Não foram atendidos na RAPS nos 6 meses anteriores à internação nem até o mês após a alta'}
-                    indicador={692}
-                    indicadorDescricao={'Usuários'}
-                    statusAntes={true}
-                    statusDepois={false}
-                />
+                {/* <CardInfoStatus
+                    antes={{status:false, descricao:'Não foram atendidos na RAPS nos 6 meses anteriores à internação nem até o mês após a alta'}}
+                    depois={{status:false, descricao:'Não foram atendidos nem no mês da alta, nem no mês seguinte'}}  
+                /> */}
+                {cardsArray[0]}
             </div>
 
             <div className={ cx(style.TerceiraColuna, style.SextoCard) }>
-                <CardInfoAux
-                    descricao={'Não foram atendidos na RAPS nos 6 meses anteriores à internação nem até o mês após a alta'}
-                    indicador={692}
-                    indicadorDescricao={'Usuários'}
-                    statusAntes={true}
-                    statusDepois={false}
-                />
+                {/* <CardInfoStatus
+                        antes={{status:true, descricao:'Foram atendidos na RAPS nos 6 meses anteriores à internação nem até o mês após a alta'}}
+                        depois={{status:false, descricao:'Não foram atendidos nem no mês da alta, nem no mês seguinte'}}  
+                    /> */}
+                {cardsArray[1]}    
             </div>
 
             <div className={ cx(style.QuartaColuna, style.NonoCard) }>
-                <CardInfoAux
-                    descricao={'Não foram atendidos na RAPS nos 6 meses anteriores à internação nem até o mês após a alta'}
-                    indicador={692}
-                    indicadorDescricao={'Usuários'}
-                    statusAntes={true}
-                    statusDepois={false}
-                />
+                {/* <CardInfoStatus
+                    antes={{status:true, descricao:'Foram atendidos na RAPS nos 6 meses anteriores à internação nem até o mês após a alta'}}
+                    depois={{status:true, descricao:'Foram atendidos nem no mês da alta, nem no mês seguinte'}}  
+                /> */}
+                {cardsArray[2]}
             </div>
 
             <div className={ cx(style.QuintaColuna, style.DecimoSegundoCard) }>
-                <CardInfoAux
-                    descricao={'Não foram atendidos na RAPS nos 6 meses anteriores à internação nem até o mês após a alta'}
-                    indicador={692}
-                    indicadorDescricao={'Usuários'}
-                    statusAntes={true}
-                    statusDepois={false}
-                />
+                {/* <CardInfoStatus
+                        antes={{status:false, descricao:'Não foram atendidos na RAPS nos 6 meses anteriores à internação nem até o mês após a alta'}}
+                        depois={{status:true, descricao:'Foram atendidos nem no mês da alta, nem no mês seguinte'}}  
+                    /> */}
+                {cardsArray[3]}    
             </div>
-
+            
             <div className={ cx(style.PrimeiraColuna, style.PrimeiroCard) }>
-                <CardIndicadorDescricao
+                {/* <CardPeriodos
                     // descricao={ 'descricao' }
-                    indicador={ 5 }
+                    titulo={ 'Anual'}
                     // indicadorSimbolo={ indicadorSimbolo }
-                    indicadorDescricao={ 'indicadorDescricao' }
-                />
+                    descricao={ 'Internações finalizadas entre agosto de 2021 e julho de 2022.' }
+                /> */}
+                {cardsArray[4]}
             </div>
 
-            <div className={ style.SegundaColuna }>
-                <CardIndicadorDescricao
+            <div className={ cx(style.SegundaColuna, style.QuartoCard) }>
+                {/* <CardIndicadorDescricao
                     // descricao={ 'descricao' }
-                    indicador={ 5 }
+                    indicador={ 5117 }
                     // indicadorSimbolo={ indicadorSimbolo }
-                    indicadorDescricao={ 'indicadorDescricao' }
-                />
+                    indicadorDescricao={ 'Usuários' }
+                /> */}
+                {cardsArray[5]}
             </div>
 
-            <div className={ style.TerceiraColuna }>
-                <CardIndicadorDescricao
+            <div className={ cx(style.TerceiraColuna, style.SetimoCard) }>
+                {/* <CardIndicadorDescricao
                     // descricao={ 'descricao' }
-                    indicador={ 5 }
+                    indicador={ 3350 }
                     // indicadorSimbolo={ indicadorSimbolo }
-                    indicadorDescricao={ 'indicadorDescricao' }
-                />
+                    indicadorDescricao={ 'Usuários' }
+                /> */}
+                {cardsArray[6]}
             </div>
 
             <div className={ style.QuartaColuna }>
-                <CardIndicadorDescricao
+                {/* <CardIndicadorDescricao
                     // descricao={ 'descricao' }
-                    indicador={ 5 }
+                    indicador={ 1818 }
                     // indicadorSimbolo={ indicadorSimbolo }
-                    indicadorDescricao={ 'indicadorDescricao' }
-                />
+                    indicadorDescricao={ 'Usuários' }
+                /> */}
+                {cardsArray[7]}
             </div>
 
             <div className={ style.QuintaColuna }>
-                <CardIndicadorDescricao
+                {/* <CardIndicadorDescricao
                     // descricao={ 'descricao' }
-                    indicador={ 5 }
+                    indicador={ 1074 }
                     // indicadorSimbolo={ indicadorSimbolo }
-                    indicadorDescricao={ 'indicadorDescricao' }
-                />
+                    indicadorDescricao={ 'Usuários' }
+                /> */}
+                {cardsArray[8]}
             </div>
 
             <div className={ style.PrimeiraColuna }>
-                <CardIndicadorDescricao
+                {/* <CardPeriodos
+                    filtro={filtro}
                     // descricao={ 'descricao' }
-                    indicador={ 5 }
+                    titulo={ 'Mensal'}
                     // indicadorSimbolo={ indicadorSimbolo }
-                    indicadorDescricao={ 'indicadorDescricao' }
-                />
+                    descricao={ 'Último mês disponível: Setembro' }
+                /> */}
+                {cardsArray[9]}
             </div>
 
             <div className={ cx(style.SegundaColuna, style.QuintoCard) }>
-                <CardIndicadorDescricao
+                {/* <CardIndicadorDescricao
                     // descricao={ 'descricao' }
                     indicador={ 5 }
                     // indicadorSimbolo={ indicadorSimbolo }
                     indicadorDescricao={ 'indicadorDescricao' }
-                />
+                /> */}
+                {cardsArray[10]}
             </div>
 
             <div className={ style.TerceiraColuna }>
-                <CardIndicadorDescricao
+                {/* <CardIndicadorDescricao
                     // descricao={ 'descricao' }
                     indicador={ 5 }
                     // indicadorSimbolo={ indicadorSimbolo }
                     indicadorDescricao={ 'indicadorDescricao' }
-                />
+                /> */}
+                {cardsArray[11]}
             </div>
 
             <div className={ style.QuartaColuna }>
-                <CardIndicadorDescricao
+                {/* <CardIndicadorDescricao
                     // descricao={ 'descricao' }
                     indicador={ 5 }
                     // indicadorSimbolo={ indicadorSimbolo }
                     indicadorDescricao={ 'indicadorDescricao' }
-                />
+                /> */}
+                {cardsArray[12]}
             </div>
 
-            <div className={ style.QuintaColuna }>
-                <CardIndicadorDescricao
+            <div className={ cx(style.QuintaColuna, style.DecimoQuartoCard) }>
+                {/* <CardIndicadorDescricao
                     // descricao={ 'descricao' }
                     indicador={ 5 }
                     // indicadorSimbolo={ indicadorSimbolo }
                     indicadorDescricao={ 'indicadorDescricao' }
-                />
+                /> */}
+                {cardsArray[13]}
             </div>
         </div>
     );
 };
 
+const CardPeriodos = ({
+    titulo,
+    descricao,
+    filtro
+}) =>{
+    return ( <div className = {style.CardPeriodos}> 
+        <h3>{titulo}</h3>
+        <p className = {style.CardPeriodosDescricao}>{descricao}</p>
+        {filtro && <>{filtro}</>}
+    </div>
+
+    );
+
+
+
+}
+
+
 export {
     CardIndicadorDescricao,
-    CardInfoAux,
-    ContainerCards
+    CardInfoStatus,
+    ContainerCards,
+    CardPeriodos
 };
 

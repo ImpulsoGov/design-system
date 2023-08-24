@@ -1,6 +1,8 @@
 .CardInfo {
     color: #9ba4a5;
     display: flex;
+    justify-content: center;
+    /* align-items: left; */
     flex-direction: column;
     width: 100%;
     height: 100%;
@@ -8,8 +10,9 @@
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
-    padding: 25px;
-    border-radius: 5px;
+    /* top-bottom, left-right */
+    padding: 25px 55px;
+   
 }
 
 .Aux {
@@ -62,8 +65,11 @@
 .CardInfoIndicadorDescricao,
 .CardInfoDescricao {
     font-size: 14px;
+   
 }
-
+.AntesDepois {
+    color: black;
+}
 .CardInfoIndiceContainer {
     display: flex;
     flex-direction: row;
@@ -95,10 +101,17 @@
     align-items: center;
     gap: 4px;
     flex-wrap: wrap;
+    font-size: 14px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    padding: 25px;
+    color: #9ba4a5;
 }
 
 .CardInfoStatusSymbol {
-    font-size: 18px;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 /* MEDIUM */
@@ -114,56 +127,86 @@
 
 .ContainerCards {
     display: grid;
-    grid-template-columns: repeat(5, auto);
-    column-gap: px;
+    grid-template-columns: repeat(6, 1fr);
+    height:fit-content;
     /*row-gap: 1px;
     /* grid-column: ; */
 }
 .PrimeiroCard {
-    border-top: 1px solid #9ba4a5;
-    border-bottom: 1px solid #9ba4a5;
+    border-bottom: 1px solid #9494946b;
+    height: 100%;
+    
 }
-.TerceiroCard {
-    border-top: 1px solid #9ba4a5;
+/* border-radius starts at top-left, top-right, bottom-right, bottom left */
+.TerceiroCard { 
+    border-top: 1px solid #9494946b;
     border-radius: 15px 0px 0px 0px;
+    border-bottom: 1px solid #9494946b;
+}
+.QuartoCard {
+    border-bottom: 1px solid #9494946b;
 }
 .QuintoCard {
     border-radius: 0px 0px 0px 15px;
+    border-bottom : 1px solid #9494946b;
 }
 .SextoCard {
-    border-top: 1px solid #9ba4a5;
+    border-top: 1px solid #9494946b;
 }
 .NonoCard {
-    border-top: 1px solid #9ba4a5;
+    border-top: 1px solid #9494946b;
 }
 .DecimoSegundoCard {
-    border-top: 1px solid #9ba4a5;
+    border-top: 1px solid #9494946b;
+    border-radius: 0px 15px 0px 0px;
 }
+.DecimoQuartoCard {
+    border-radius: 0px 0px 15px 0px;
+}
+/* Coluna 1 = coluna fantasma */
 .PrimeiraColuna {
-    grid-column: 1/2;
-}
+    /* grid-column: 1/3; */
+    grid-column:span 2; 
 
+}
+.AuxClassBorder {
+    border-bottom: 1px solid #9494946b;
+}
 .SegundaColuna {
-    grid-column: 2/3;
-    border-left: 1px solid #9ba4a5;
-    border-bottom: 1px solid #9ba4a5;
+    grid-column: 3/4;
+    border-left: 1px solid #9494946b;
 }
 
 .TerceiraColuna {
-    grid-column: 3/4;
-    border-left: 1px solid #9ba4a5;
-    border-bottom: 1px solid #9ba4a5;
+    grid-column: 4/5;
+    border-left: 1px solid #9494946b;
+    border-bottom: 1px solid #9494946b;
 }
 
 .QuartaColuna {
-    grid-column: 4/5;
-    border-left: 1px solid #9ba4a5;
-    border-bottom: 1px solid #9ba4a5;
+    grid-column: 5/6;
+    border-left: 1px solid #9494946b;
+    border-bottom: 1px solid #9494946b;
 }
 
 .QuintaColuna {
-    grid-column: 5/6;
-    border-left: 1px solid #9ba4a5;
-    border-bottom: 1px solid #9ba4a5;
-    border-right: 1px solid #9ba4a5;
+    grid-column: 6/7;
+    border-left: 1px solid #9494946b;
+    border-bottom: 1px solid #9494946b;
+    border-right: 1px solid #9494946b;
+}
+.CardPeriodos {
+    font-size: 14px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    padding: 25px;
+    height: 100%;
+}
+.TesteMensal {
+    border: 1px solid #9494946b;
+}
+.CardPeriodosDescricao {
+    font-size: 14px;
+    color: #9ba4a5;
 }

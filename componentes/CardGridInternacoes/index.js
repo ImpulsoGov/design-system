@@ -1,6 +1,7 @@
 export {
   CardIndicadorDescricao,
-  CardInfoAux,
-  ContainerCards
+  CardInfoStatus,
+  ContainerCards,
+  CardPeriodos
 } from "./CardGridInternacoes";
 
