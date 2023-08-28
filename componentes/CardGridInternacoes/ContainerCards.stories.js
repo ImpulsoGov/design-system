@@ -13,7 +13,7 @@ const cards = [
     depois={{status:false, descricao:'Não foram atendidos nem no mês da alta, nem no mês seguinte'}}></CardInfoStatus>,
   <CardInfoStatus
     antes={{status:true, descricao:'Foram atendidos na RAPS nos 6 meses anteriores à internação nem até o mês após a alta'}}
-    depois={{status:false, descricao:'Não foram atendidos nem no mês da alta, nem no mês seguinte'}}></CardInfoStatus>,  
+    depois={{status:false, descricao:'Não foram atendidos nem no mês da alta, nem no mês seguinte'}}></CardInfoStatus>,
   <CardInfoStatus
     antes={{status:true, descricao:'Foram atendidos na RAPS nos 6 meses anteriores à internação nem até o mês após a alta'}}
     depois={{status:true, descricao:'Foram atendidos nem no mês da alta, nem no mês seguinte'}}></CardInfoStatus>,
@@ -36,7 +36,6 @@ const cards = [
     indicador={ 1074 }
     indicadorDescricao={ 'Usuários' }></CardIndicadorDescricao>,
   <CardPeriodos
-    // filtro={filtro}
     titulo={ 'Mensal'}
     descricao={ 'Último mês disponível: Setembro' }></CardPeriodos>,
   <CardIndicadorDescricao
