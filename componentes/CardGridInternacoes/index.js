@@ -1,7 +1,7 @@
 export {
   CardIndicadorDescricao,
-  CardInfoStatus,
-  ContainerCards,
-  CardPeriodos
+  CardInternacaoStatus,
+  CardPeriodosInternacao,
+  CardsGridInternacao
 } from "./CardGridInternacoes";
 

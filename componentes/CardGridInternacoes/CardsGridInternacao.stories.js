@@ -1,28 +1,33 @@
-import { CardInfoStatus, CardIndicadorDescricao, CardPeriodos, ContainerCards } from './index';
+import {
+  CardIndicadorDescricao,
+  CardInternacaoStatus,
+  CardPeriodosInternacao,
+  CardsGridInternacao
+} from './index';
 
 export default {
-  title: "Componentes/ContainerCards",
-  component: ContainerCards,
+  title: "Componentes/CardsGridInternacao",
+  component: CardsGridInternacao,
   argTypes: {
   }
 };
 
 const cards = [
-  <CardInfoStatus
+  <CardInternacaoStatus
     antes={{status:false, descricao:'Não foram atendidos na RAPS nos 6 meses anteriores à internação nem até o mês após a alta'}}
-    depois={{status:false, descricao:'Não foram atendidos nem no mês da alta, nem no mês seguinte'}}></CardInfoStatus>,
-  <CardInfoStatus
+    depois={{status:false, descricao:'Não foram atendidos nem no mês da alta, nem no mês seguinte'}}></CardInternacaoStatus>,
+  <CardInternacaoStatus
     antes={{status:true, descricao:'Foram atendidos na RAPS nos 6 meses anteriores à internação nem até o mês após a alta'}}
-    depois={{status:false, descricao:'Não foram atendidos nem no mês da alta, nem no mês seguinte'}}></CardInfoStatus>,
-  <CardInfoStatus
+    depois={{status:false, descricao:'Não foram atendidos nem no mês da alta, nem no mês seguinte'}}></CardInternacaoStatus>,
+  <CardInternacaoStatus
     antes={{status:true, descricao:'Foram atendidos na RAPS nos 6 meses anteriores à internação nem até o mês após a alta'}}
-    depois={{status:true, descricao:'Foram atendidos nem no mês da alta, nem no mês seguinte'}}></CardInfoStatus>,
-  <CardInfoStatus
+    depois={{status:true, descricao:'Foram atendidos nem no mês da alta, nem no mês seguinte'}}></CardInternacaoStatus>,
+  <CardInternacaoStatus
     antes={{status:false, descricao:'Não foram atendidos na RAPS nos 6 meses anteriores à internação nem até o mês após a alta'}}
-    depois={{status:true, descricao:'Foram atendidos nem no mês da alta, nem no mês seguinte'}}></CardInfoStatus>,
-  <CardPeriodos
+    depois={{status:true, descricao:'Foram atendidos nem no mês da alta, nem no mês seguinte'}}></CardInternacaoStatus>,
+  <CardPeriodosInternacao
     titulo={ 'Anual'}
-    descricao={ 'Internações finalizadas entre agosto de 2021 e julho de 2022.' }></CardPeriodos>,
+    descricao={ 'Internações finalizadas entre agosto de 2021 e julho de 2022.' }></CardPeriodosInternacao>,
   <CardIndicadorDescricao
     indicador={ 5117 }
     indicadorDescricao={ 'Usuários' }></CardIndicadorDescricao>,
@@ -35,9 +40,9 @@ const cards = [
   <CardIndicadorDescricao
     indicador={ 1074 }
     indicadorDescricao={ 'Usuários' }></CardIndicadorDescricao>,
-  <CardPeriodos
+  <CardPeriodosInternacao
     titulo={ 'Mensal'}
-    descricao={ 'Último mês disponível: Setembro' }></CardPeriodos>,
+    descricao={ 'Último mês disponível: Setembro' }></CardPeriodosInternacao>,
   <CardIndicadorDescricao
     indicador={ 5 }
     indicadorDescricao={ 'indicadorDescricao' }></CardIndicadorDescricao>,
@@ -49,10 +54,10 @@ const cards = [
     indicadorDescricao={ 'indicadorDescricao' }></CardIndicadorDescricao>,
   <CardIndicadorDescricao
     indicador={ 5 }
-    indicadorDescricao={ 'indicadorDescricao' }></CardIndicadorDescricao>  
+    indicadorDescricao={ 'indicadorDescricao' }></CardIndicadorDescricao>
 ];
 
-const Template = (args) => <ContainerCards { ...args }/>;
+const Template = (args) => <CardsGridInternacao { ...args }/>;
 export const Completo = Template.bind({});
 Completo.args = {
   cardsArray: cards

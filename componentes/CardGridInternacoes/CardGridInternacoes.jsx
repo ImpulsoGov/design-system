@@ -2,7 +2,7 @@ import cx from "classnames";
 import React from "react";
 import style from "./CardGridInternacoes.module.css";
 
-const CardInfoIndicador = ({ indicador, simbolo, descricao }) => {
+const CardInternacaoIndicador = ({ indicador, simbolo, descricao }) => {
     return (
         <>
             <span className={ style.CardInfoIndicador }>
@@ -18,39 +18,37 @@ const CardInfoIndicador = ({ indicador, simbolo, descricao }) => {
     );
 };
 
-const CardInfoDescricao = ({ descricao }) => {
+const CardInternacaoDescricao = ({ descricao }) => {
     return (
         <p className={ style.CardInfoDescricao }>{ descricao }</p>
     );
 };
 
-const CardInfoStatus = ({ antes, depois }) => {
+const CardInternacaoStatus = ({ antes, depois }) => {
     return (
         <>
-        <div className={ style.CardInfoStatus }>
-            <span className={ cx(
-                style.CardInfoStatusSymbol,
-                antes.status ? style.TextoVerde : style.TextoVermelho
-            ) }>
-                { antes.status ? "✓" : "✕" }
-            </span>
+            <div className={ style.CardInfoStatus }>
+                <span className={ cx(
+                    style.CardInfoStatusSymbol,
+                    antes.status ? style.TextoVerde : style.TextoVermelho
+                ) }>
+                    { antes.status ? "✓" : "✕" }
+                </span>
 
-            <p className={ style.AntesDepois }>Antes</p>
-            <CardInfoDescricao descricao = {antes.descricao}
-            />
-        </div>
-        <div className={ style.CardInfoStatus }>
-        <span className={ cx(
-            style.CardInfoStatusSymbol,
-            depois.status ? style.TextoVerde : style.TextoVermelho
-        ) }>
-            { depois.status ? "✓" : "✕" }
-        </span>
+                <p className={ style.AntesDepois }>Antes</p>
+                <CardInternacaoDescricao descricao = {antes.descricao}/>
+            </div>
+            <div className={ style.CardInfoStatus }>
+                <span className={ cx(
+                    style.CardInfoStatusSymbol,
+                    depois.status ? style.TextoVerde : style.TextoVermelho
+                ) }>
+                    { depois.status ? "✓" : "✕" }
+                </span>
 
-        <p className={ style.AntesDepois }>Depois</p>
-        <CardInfoDescricao descricao = {depois.descricao}
-        />
-    </div>
+                <p className={ style.AntesDepois }>Depois</p>
+                <CardInternacaoDescricao descricao = {depois.descricao}/>
+            </div>
         </>
     );
 };
@@ -64,19 +62,19 @@ const CardIndicadorDescricao = ({
     return (
         <div className={ cx(style.CardInfo) }>
             <div className={ style.CardInfoIndicadorContainer }>
-                <CardInfoIndicador
+                <CardInternacaoIndicador
                     indicador={ indicador }
                     descricao={ indicadorDescricao }
                     simbolo={ indicadorSimbolo }
                 />
             </div>
 
-            { descricao && <CardInfoDescricao descricao={ descricao } /> }
+            { descricao && <CardInternacaoDescricao descricao={ descricao } /> }
         </div>
     );
 };
 
-const ContainerCards = ({ cardsArray }) => {
+const CardsGridInternacao = ({ cardsArray }) => {
     return (
         <div className={ style.ContainerCards }>
             <div className={ cx(style.PrimeiraColuna, style.AuxClassBorder) }></div>
@@ -140,12 +138,12 @@ const ContainerCards = ({ cardsArray }) => {
     );
 };
 
-const CardPeriodos = ({
+const CardPeriodosInternacao = ({
     titulo,
     descricao,
     filtro
 }) =>{
-    return ( <div className = {style.CardPeriodos}> 
+    return ( <div className = {style.CardPeriodos}>
         <h3>{titulo}</h3>
         <p className = {style.CardPeriodosDescricao}>{descricao}</p>
         {filtro && <>{filtro}</>}
@@ -156,5 +154,7 @@ const CardPeriodos = ({
 
 export {
     CardIndicadorDescricao,
-    CardInfoStatus, CardPeriodos, ContainerCards
+    CardInternacaoStatus,
+    CardPeriodosInternacao,
+    CardsGridInternacao
 };
