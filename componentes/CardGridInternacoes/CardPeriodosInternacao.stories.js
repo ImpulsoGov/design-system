@@ -22,4 +22,6 @@ export default {
 const Template = (args) => <CardPeriodosInternacao { ...args }/>;
 export const Completo = Template.bind({});
 Completo.args = {
+  periodo: "Anual",
+  descricao: "Internações finalizadas entre agosto de 2021 e julho de 2022.",
 };
