@@ -1,4 +1,4 @@
-.CardInfo{
+.CardInfo {
     border: solid 1px #9494946b;
     color: #9ba4a5;
     display: flex;
@@ -12,29 +12,35 @@
     padding: 25px;
     border-radius: 5px;
 }
-.TipoB{
+
+.TipoB {
     flex-direction: row;
     gap: 40px;
 }
-.TipoB .CardInfoDireita{
+
+.TipoB .CardInfoDireita {
     width: 60%;
 }
-.TipoB .CardInfoEsquerda{
+
+.TipoB .CardInfoEsquerda {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 40%;
     height: 100%;
 }
-.TipoC{
+
+.TipoC {
     gap: 20px;
 }
-.CardInfoTitulo{
+
+.CardInfoTitulo {
     margin-bottom: 8px;
     white-space: normal;
     display: flex;
     flex-wrap: wrap;
 }
+
 .CardInfoTooltip {
     font-family: 'Inter';
     font-size: 14px;
@@ -42,14 +48,17 @@
     font-weight: 400;
     text-align: center;
 }
-.CardInfoSymbol{
+
+.CardInfoSymbol {
     color: black;
     margin-left: 5px;
 }
+
 .CardInfoSymbol:hover {
     cursor: default;
 }
-.CardInfoIndicadorContainer{
+
+.CardInfoIndicadorContainer {
     display: flex;
     gap: 10px;
     height: fit-content;
@@ -57,62 +66,76 @@
     flex-wrap: wrap;
 }
 
-.TipoC .CardInfoIndicadorContainer{
+.TipoC .CardInfoIndicadorContainer {
     flex-direction: column;
     align-items: flex-start;
 }
-.CardInfoIndicador{
+
+.CardInfoIndicador {
     color: black;
     font-size: 32px;
     font-weight: bold;
 }
-.CardInfoIndicadorDescricao, .CardInfoDescricao{
+
+.CardInfoIndicadorDescricao,
+.CardInfoDescricao {
     font-size: 14px;
 }
-.CardInfoIndiceContainer{
+
+.CardInfoIndiceContainer {
     display: flex;
     flex-direction: row;
     align-items: center;
     margin-bottom: 16px;
 }
-.TextoVerde{
+
+.TextoVerde {
     color: #7ab37d;
 }
-.TextoVermelho{
+
+.TextoVermelho {
     color: #cf6868;
 }
-.CardInfoSymbolUp{
+
+.CardInfoSymbolUp {
     font-size: 32px;
     transform: rotate(-90deg);
 }
-.CardInfoSymbolDown{
+
+.CardInfoSymbolDown {
     font-size: 32px;
     transform: rotate(90deg);
 }
-.CardInfoIndice{
+
+.CardInfoIndice {
     margin-left: 8px;
     margin-right: 8px;
 }
-.CardInfoLink{
+
+.CardInfoLink {
     text-decoration: none;
     color: #75b2ed;
 }
-.CardInfoFonte{
+
+.CardInfoFonte {
     font-size: 14px;
     margin-top: 5px;
 }
-.CardInfoStatusContainer{
+
+.CardInfoStatusContainer {
     display: flex;
     justify-content: space-between;
     gap: 10px;
 }
-.CardInfoStatus{
+
+.CardInfoStatus {
     display: flex;
     align-items: center;
     gap: 4px;
     flex-wrap: wrap;
 }
-.CardInfoStatusSymbol{
+
+.CardInfoStatusSymbol {
     font-size: 18px;
 }
 
@@ -137,4 +160,30 @@
     .TipoB .CardInfoEsquerda {
         width: 100%;
     }
+}
+
+.ContainerCards {
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    /* grid-column: ; */
+}
+
+.PrimeiraColuna {
+    grid-column: 1/2;
+}
+
+.SegundaColuna {
+    grid-column: 2/3;
+}
+
+.TerceiraColuna {
+    grid-column: 3/4;
+}
+
+.QuartaColuna {
+    grid-column: 4/5;
+}
+
+.QuintaColuna {
+    grid-column: 5/6;
 }

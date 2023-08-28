@@ -1,5 +1,6 @@
 export {
   CardInfoTipoA,
   CardInfoTipoB,
-  CardInfoTipoC,
+  CardInfoTipoC
 } from "./CardInfo";
+
