@@ -139,12 +139,12 @@ const CardsGridInternacao = ({ cardsArray }) => {
 };
 
 const CardPeriodosInternacao = ({
-    titulo,
+    periodo,
     descricao,
     filtro
 }) =>{
     return ( <div className = {style.CardPeriodos}>
-        <h3>{titulo}</h3>
+        <h3>{periodo}</h3>
         <p className = {style.CardPeriodosDescricao}>{descricao}</p>
         {filtro && <>{filtro}</>}
     </div>

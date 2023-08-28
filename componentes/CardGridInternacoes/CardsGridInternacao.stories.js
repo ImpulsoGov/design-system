@@ -9,6 +9,10 @@ export default {
   title: "Componentes/CardsGridInternacao",
   component: CardsGridInternacao,
   argTypes: {
+    cardsArray: {
+      name: "cardsArray",
+      description: "Array de cards que compõem o grid *componente react*"
+    },
   }
 };
 
@@ -26,7 +30,7 @@ const cards = [
     antes={{status:false, descricao:'Não foram atendidos na RAPS nos 6 meses anteriores à internação nem até o mês após a alta'}}
     depois={{status:true, descricao:'Foram atendidos nem no mês da alta, nem no mês seguinte'}}></CardInternacaoStatus>,
   <CardPeriodosInternacao
-    titulo={ 'Anual'}
+    periodo={ 'Anual'}
     descricao={ 'Internações finalizadas entre agosto de 2021 e julho de 2022.' }></CardPeriodosInternacao>,
   <CardIndicadorDescricao
     indicador={ 5117 }
@@ -41,7 +45,7 @@ const cards = [
     indicador={ 1074 }
     indicadorDescricao={ 'Usuários' }></CardIndicadorDescricao>,
   <CardPeriodosInternacao
-    titulo={ 'Mensal'}
+    periodo={ 'Mensal'}
     descricao={ 'Último mês disponível: Setembro' }></CardPeriodosInternacao>,
   <CardIndicadorDescricao
     indicador={ 5 }
