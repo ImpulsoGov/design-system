@@ -77,33 +77,40 @@ const CardIndicadorDescricao = ({
 const CardsGridInternacao = ({ cardsArray }) => {
     return (
         <div className={ style.ContainerCards }>
-            <div className={ cx(style.PrimeiraColuna, style.AuxClassBorder) }></div>
-
-            <div className={ cx(style.SegundaColuna, style.TerceiroCard) }>
+            <div className={ cx(
+                style.SegundaColuna,
+                style.BordaRedondaSuperiorEsquerda
+            ) }>
                 {cardsArray[0]}
             </div>
 
-            <div className={ cx(style.TerceiraColuna, style.SextoCard) }>
+            <div className={ style.TerceiraColuna }>
                 {cardsArray[1]}
             </div>
 
-            <div className={ cx(style.QuartaColuna, style.NonoCard) }>
+            <div className={ style.QuartaColuna }>
                 {cardsArray[2]}
             </div>
 
-            <div className={ cx(style.QuintaColuna, style.DecimoSegundoCard) }>
+            <div className={ cx(
+                style.QuintaColuna,
+                style.BordaRedondaSuperiorDireita
+            ) }>
                 {cardsArray[3]}
             </div>
 
-            <div className={ cx(style.PrimeiraColuna, style.PrimeiroCard) }>
+            <div className={ cx(
+                style.PrimeiraColuna,
+                style.BordaRedondaSuperiorEsquerda
+            ) }>
                 {cardsArray[4]}
             </div>
 
-            <div className={ cx(style.SegundaColuna, style.QuartoCard) }>
+            <div className={ style.SegundaColuna }>
                 {cardsArray[5]}
             </div>
 
-            <div className={ cx(style.TerceiraColuna, style.SetimoCard) }>
+            <div className={ style.TerceiraColuna }>
                 {cardsArray[6]}
             </div>
 
@@ -115,23 +122,40 @@ const CardsGridInternacao = ({ cardsArray }) => {
                 {cardsArray[8]}
             </div>
 
-            <div className={ style.PrimeiraColuna }>
+            <div className={ cx(
+                style.PrimeiraColuna,
+                style.BordaInferior,
+                style.BordaRedondaInferiorEsquerda
+            ) }>
                 {cardsArray[9]}
             </div>
 
-            <div className={ cx(style.SegundaColuna, style.QuintoCard) }>
+            <div className={ cx(
+                style.SegundaColuna,
+                style.BordaInferior
+            ) }>
                 {cardsArray[10]}
             </div>
 
-            <div className={ style.TerceiraColuna }>
+            <div className={ cx(
+                style.TerceiraColuna,
+                style.BordaInferior
+            ) }>
                 {cardsArray[11]}
             </div>
 
-            <div className={ style.QuartaColuna }>
+            <div className={ cx(
+                style.QuartaColuna,
+                style.BordaInferior
+            ) }>
                 {cardsArray[12]}
             </div>
 
-            <div className={ cx(style.QuintaColuna, style.DecimoQuartoCard) }>
+            <div className={ cx(
+                style.QuintaColuna,
+                style.BordaInferior,
+                style.BordaRedondaInferiorDireita
+            ) }>
                 {cardsArray[13]}
             </div>
         </div>
@@ -143,12 +167,12 @@ const CardPeriodosInternacao = ({
     descricao,
     filtro
 }) =>{
-    return ( <div className = {style.CardPeriodos}>
-        <h3>{periodo}</h3>
-        <p className = {style.CardPeriodosDescricao}>{descricao}</p>
-        {filtro && <>{filtro}</>}
-    </div>
-
+    return (
+        <div className={style.CardPeriodos}>
+            <p className={style.CardPeriodosTitulo}>{periodo}</p>
+            <p className={style.CardPeriodosDescricao}>{descricao}</p>
+            {filtro && <>{filtro}</>}
+        </div>
     );
 }
 
