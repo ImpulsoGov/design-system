@@ -78,7 +78,7 @@ const cards = [
 ];
 
 const Template = (args) => <CardsGridInternacao { ...args }/>;
-export const Completo = Template.bind({});
-Completo.args = {
+export const Default = Template.bind({});
+Default.args = {
   cardsArray: cards
 };
