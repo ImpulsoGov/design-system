@@ -16,49 +16,65 @@ export default {
   }
 };
 
+const iconeSim = "https://media.graphassets.com/TrHUmoqQ12gaauujhEoS";
+
+const iconeNao = "https://media.graphassets.com/avvXauyoTCKA3NnBWP9g";
+
 const cards = [
   <CardInternacaoStatus
-    antes={{status:false, descricao:'Não foram atendidos na RAPS nos 6 meses anteriores à internação nem até o mês após a alta'}}
-    depois={{status:false, descricao:'Não foram atendidos nem no mês da alta, nem no mês seguinte'}}></CardInternacaoStatus>,
+    icones={{ sim: iconeSim, nao: iconeNao }}
+    antes={{status:false, descricao:'Não atendidos'}}
+    depois={{status:false, descricao:'e nem'}}></CardInternacaoStatus>,
   <CardInternacaoStatus
-    antes={{status:true, descricao:'Foram atendidos na RAPS nos 6 meses anteriores à internação nem até o mês após a alta'}}
-    depois={{status:false, descricao:'Não foram atendidos nem no mês da alta, nem no mês seguinte'}}></CardInternacaoStatus>,
+    icones={{ sim: iconeSim, nao: iconeNao }}
+    antes={{status:true, descricao:'Atendidos'}}
+    depois={{status:false, descricao:'mas não'}}></CardInternacaoStatus>,
   <CardInternacaoStatus
-    antes={{status:true, descricao:'Foram atendidos na RAPS nos 6 meses anteriores à internação nem até o mês após a alta'}}
-    depois={{status:true, descricao:'Foram atendidos nem no mês da alta, nem no mês seguinte'}}></CardInternacaoStatus>,
+    icones={{ sim: iconeSim, nao: iconeNao }}
+    antes={{status:true, descricao:'Atendidos'}}
+    depois={{status:true, descricao:'e também'}}></CardInternacaoStatus>,
   <CardInternacaoStatus
-    antes={{status:false, descricao:'Não foram atendidos na RAPS nos 6 meses anteriores à internação nem até o mês após a alta'}}
-    depois={{status:true, descricao:'Foram atendidos nem no mês da alta, nem no mês seguinte'}}></CardInternacaoStatus>,
+    icones={{ sim: iconeSim, nao: iconeNao }}
+    antes={{status:false, descricao:'Não atendidos'}}
+    depois={{status:true, descricao:'mas atendidos'}}></CardInternacaoStatus>,
   <CardPeriodosInternacao
-    periodo={ 'Anual'}
+    periodo={ 'Ano'}
     descricao={ 'Internações finalizadas entre agosto de 2021 e julho de 2022.' }></CardPeriodosInternacao>,
   <CardIndicadorDescricao
     indicador={ 5117 }
-    indicadorDescricao={ 'Usuários' }></CardIndicadorDescricao>,
+    descricao={ 'Usuários' }></CardIndicadorDescricao>,
   <CardIndicadorDescricao
     indicador={ 3350 }
-    indicadorDescricao={ 'Usuários' }></CardIndicadorDescricao>,
+    descricao={ 'Usuários' }></CardIndicadorDescricao>,
   <CardIndicadorDescricao
     indicador={ 1818 }
-    indicadorDescricao={ 'Usuários' }></CardIndicadorDescricao>,
+    descricao={ 'Usuários' }></CardIndicadorDescricao>,
   <CardIndicadorDescricao
     indicador={ 1074 }
-    indicadorDescricao={ 'Usuários' }></CardIndicadorDescricao>,
+    descricao={ 'Usuários' }></CardIndicadorDescricao>,
   <CardPeriodosInternacao
-    periodo={ 'Mensal'}
+    periodo={ 'Mês'}
+    filtro={<div style={{
+      width: '100%',
+      border: '1px solid #9494946b',
+      fontFamily: 'Inter',
+      fontSize: '14px',
+      padding: '10px',
+      borderRadius: '4px'
+    }}>Abril de 2023</div>}
     descricao={ 'Último mês disponível: Setembro' }></CardPeriodosInternacao>,
   <CardIndicadorDescricao
-    indicador={ 5 }
-    indicadorDescricao={ 'indicadorDescricao' }></CardIndicadorDescricao>,
+    indicador={ 5524 }
+    descricao={ 'Usuários' }></CardIndicadorDescricao>,
   <CardIndicadorDescricao
-    indicador={ 5 }
-    indicadorDescricao={ 'indicadorDescricao' }></CardIndicadorDescricao>,
+    indicador={ 5853 }
+    descricao={ 'Usuários' }></CardIndicadorDescricao>,
   <CardIndicadorDescricao
-    indicador={ 5 }
-    indicadorDescricao={ 'indicadorDescricao' }></CardIndicadorDescricao>,
+    indicador={ 5223 }
+    descricao={ 'Usuários' }></CardIndicadorDescricao>,
   <CardIndicadorDescricao
-    indicador={ 5 }
-    indicadorDescricao={ 'indicadorDescricao' }></CardIndicadorDescricao>
+    indicador={ 5578}
+    descricao={ 'Usuários' }></CardIndicadorDescricao>
 ];
 
 const Template = (args) => <CardsGridInternacao { ...args }/>;

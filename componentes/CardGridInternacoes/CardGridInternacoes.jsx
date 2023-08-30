@@ -2,74 +2,47 @@ import cx from "classnames";
 import React from "react";
 import style from "./CardGridInternacoes.module.css";
 
-const CardInternacaoIndicador = ({ indicador, simbolo, descricao }) => {
+const CardStatusDescricao = ({ icone, descricao, titulo }) => {
     return (
-        <>
+        <div className={ style.CardInfoStatus }>
+            <img src={icone} />
+
+            <div className={style.CardInfoStatusDescricao}>
+                <span className={ style.CardInfoDescricao }>{ descricao }</span>
+                <span className={ style.AntesDepois }>{titulo}</span>
+            </div>
+        </div>
+    );
+};
+
+const CardInternacaoStatus = ({ antes, depois, icones }) => {
+    return (
+        <div className={ style.CardInternacaoStatus }>
+            <CardStatusDescricao
+                titulo="ANTES"
+                icone={ antes.status ? icones.sim : icones.nao }
+                descricao={ antes.descricao }
+            />
+
+            <CardStatusDescricao
+                titulo="DEPOIS"
+                icone={ depois.status ? icones.sim : icones.nao }
+                descricao={ depois.descricao }
+            />
+        </div>
+    );
+};
+
+const CardIndicadorDescricao = ({ descricao, indicador }) => {
+    return (
+        <div className={ style.CardInfo }>
             <span className={ style.CardInfoIndicador }>
-                { `${indicador}${simbolo ? simbolo : ""}` }
+                { indicador }
             </span>
 
-            { descricao && (
-                <span className={ style.CardInfoIndicadorDescricao }>
-                    { descricao }
-                </span>
-            ) }
-        </>
-    );
-};
-
-const CardInternacaoDescricao = ({ descricao }) => {
-    return (
-        <p className={ style.CardInfoDescricao }>{ descricao }</p>
-    );
-};
-
-const CardInternacaoStatus = ({ antes, depois }) => {
-    return (
-        <>
-            <div className={ style.CardInfoStatus }>
-                <span className={ cx(
-                    style.CardInfoStatusSymbol,
-                    antes.status ? style.TextoVerde : style.TextoVermelho
-                ) }>
-                    { antes.status ? "✓" : "✕" }
-                </span>
-
-                <p className={ style.AntesDepois }>Antes</p>
-                <CardInternacaoDescricao descricao = {antes.descricao}/>
-            </div>
-            <div className={ style.CardInfoStatus }>
-                <span className={ cx(
-                    style.CardInfoStatusSymbol,
-                    depois.status ? style.TextoVerde : style.TextoVermelho
-                ) }>
-                    { depois.status ? "✓" : "✕" }
-                </span>
-
-                <p className={ style.AntesDepois }>Depois</p>
-                <CardInternacaoDescricao descricao = {depois.descricao}/>
-            </div>
-        </>
-    );
-};
-
-const CardIndicadorDescricao = ({
-    descricao,
-    indicador,
-    indicadorSimbolo,
-    indicadorDescricao
-}) => {
-    return (
-        <div className={ cx(style.CardInfo) }>
-            <div className={ style.CardInfoIndicadorContainer }>
-                <CardInternacaoIndicador
-                    indicador={ indicador }
-                    descricao={ indicadorDescricao }
-                    simbolo={ indicadorSimbolo }
-                />
-            </div>
-
-            { descricao && <CardInternacaoDescricao descricao={ descricao } /> }
+            <span className={ style.CardInfoIndicadorDescricao }>
+                { descricao }
+            </span>
         </div>
     );
 };
