@@ -54,14 +54,6 @@ const cards = [
     descricao={ 'Usuários' }></CardIndicadorDescricao>,
   <CardPeriodosInternacao
     periodo={ 'Mês'}
-    filtro={<div style={{
-      width: '100%',
-      border: '1px solid #9494946b',
-      fontFamily: 'Inter',
-      fontSize: '14px',
-      padding: '10px',
-      borderRadius: '4px'
-    }}>Abril de 2023</div>}
     descricao={ 'Último mês disponível: Setembro' }></CardPeriodosInternacao>,
   <CardIndicadorDescricao
     indicador={ 5524 }
