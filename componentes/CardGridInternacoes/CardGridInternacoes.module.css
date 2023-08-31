@@ -76,7 +76,7 @@
     display: grid;
     grid-template-columns: repeat(5, auto);
     height:fit-content;
-    margin: 20px;
+    margin: 20px 0;
     margin-bottom: 20px;
 }
 
