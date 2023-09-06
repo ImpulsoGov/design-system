@@ -27,7 +27,9 @@ const GraficoInfo = ({
 
                 { tooltip && (
                     <Tippy
-                        content={ tooltip }
+                        content={
+                            <div dangerouslySetInnerHTML={ { __html: sanitize(tooltip) } }></div>
+                        }
                         placement="auto"
                         className={ style.Tooltip }
                         theme="light"
