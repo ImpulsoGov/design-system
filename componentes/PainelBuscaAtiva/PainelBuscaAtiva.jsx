@@ -187,6 +187,7 @@ const Filtro = ({
     setData,
     tabela,
     value,
+    setValue,
     handleCheckbox,
     chavesFiltros,
     setChavesFiltros,
@@ -195,6 +196,11 @@ const Filtro = ({
     const LimparFiltros = ()=>{
         setData(tabela)
         setChavesFiltros([])
+        setValue(()=>{
+            const objeto = {}
+            Object.keys(value).forEach(key => objeto[key] = false)
+            return objeto
+        })
         setModal(false)
     }
     return(
@@ -285,7 +291,26 @@ const PainelBuscaAtiva = ({
         })
         
     };
+    useEffect(()=>{console.log(value)},[value])
     useEffect(()=>{console.log(chavesFiltros)},[chavesFiltros])
+    useEffect(()=>{
+        console.log('modal fechou')
+        console.log('chaves filtro : ',chavesFiltros)
+        modal ?
+        setValue(()=>{
+            const objeto = {}
+            Object.keys(chavesFiltros).forEach(key => value[key] = true)
+            //Object.keys(chavesFiltros).map()
+            return objeto
+        }) :
+        setValue(()=>{
+            const objeto = {}
+            Object.keys(value).forEach(key => objeto[key] = false)
+            return objeto
+        })
+        
+ 
+    },[modal])
     return(
         <div style={{marginTop : "30px"}}>
             {
@@ -317,6 +342,7 @@ const PainelBuscaAtiva = ({
                                 setData={setData} 
                                 tabela={tabela.data}
                                 value={value}
+                                setValue={setValue}
                                 handleCheckbox={handleCheckbox}
                                 chavesFiltros={chavesFiltros}
                                 setChavesFiltros={setChavesFiltros}
