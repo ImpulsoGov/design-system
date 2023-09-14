@@ -58,16 +58,17 @@ const ButtonLightSubmit = ({
     label,
     submit,
     icon,
-    arg
+    arg,
+    disabled
 })=>{
     return(
         <button 
             className={style.ButtonLightContainer}
             onClick={()=>{
-                if(arg){
+                if(arg&&!disabled){
                     submit(arg)
                 }else{
-                    submit()
+                    if(!disabled) submit()
                 }
                     
             }}
@@ -81,11 +82,13 @@ const ButtonLightSubmit = ({
 const ButtonLightSubmitMobile = ({
     label,
     submit,
+    disabled
 })=>{
+    const handleClick = ()=>{if(!disabled){submit}}
     return(
         <button 
             className={style.ButtonLightMobile}
-            onClick={submit}
+            onClick={handleClick}
         >{label?.toUpperCase()}</button>
     )
 }

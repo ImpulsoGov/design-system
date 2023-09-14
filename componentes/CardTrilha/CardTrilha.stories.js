@@ -35,7 +35,7 @@ CronicosNaoIniciado.args={
     progressao:0,
     linkTrilha:"/",
     //linkSobre:"/",
-    linkCertificado:"/",
+    Certificado:()=>console.log('certificado'),
     certificadoLiberado: false
 }
 
@@ -45,7 +45,7 @@ CronicosIniciado.args={
     progressao:10,
     linkTrilha:"/",
     //linkSobre:"/",
-    linkCertificado:"/",
+    Certificado:()=>console.log('certificado'),
     certificadoLiberado: false
 }
 
@@ -55,6 +55,6 @@ CertificadoLiberado.args={
     progressao:30,
     linkTrilha:"/",
     //linkSobre:"/",
-    linkCertificado:"/",
+    Certificado:()=>console.log('certificado'),
     certificadoLiberado: true
 }

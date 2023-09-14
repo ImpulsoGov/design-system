@@ -1,6 +1,6 @@
 import React from "react";
 import style from "./CardTrilha.module.css";
-import { ButtonLight, ButtonLightMobile } from "../ButtonLight/ButtonLight";
+import { ButtonLight, ButtonLightMobile, ButtonLightSubmit, ButtonLightSubmitMobile } from "../ButtonLight/ButtonLight";
 import { ButtonColor, ButtonColorMobile } from "../ButtonColor/ButtonColor";
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
@@ -39,7 +39,7 @@ const CardTrilha = ({
     progressao,
     linkTrilha,
     linkSobre,
-    linkCertificado,
+    Certificado,
     certificadoLiberado
 })=>{
         return(
@@ -71,9 +71,9 @@ const CardTrilha = ({
                             theme="light"
                         >
                             <div>
-                                <ButtonLight
+                                <ButtonLightSubmit
                                     label="RETIRE SEU CERTIFICADO"
-                                    link={linkCertificado}
+                                    submit={Certificado}
                                     disabled={!certificadoLiberado}
                                 />
                             </div>
@@ -98,9 +98,9 @@ const CardTrilha = ({
                             theme="light"
                         >
                             <div>
-                                <ButtonLightMobile
+                                <ButtonLightSubmitMobile 
                                     label="RETIRE SEU CERTIFICADO"
-                                    link={linkCertificado}
+                                    submit={Certificado}
                                     disabled={!certificadoLiberado}
                                 />
                             </div>
