@@ -41,9 +41,9 @@ const InserirInfo = ({
     const [value, setValue] = useState('');
     const [novaSenhaConfirmacao,setNovaSenhaConfirmacao] = useState('')
     const ProximaEtapa = ()=> {
-        value.length > 0 && setLoading(true);
+        setLoading(true);
 
-        if(etapa==0 && value.length > 0){
+        if(etapa==0){
             req(value).then((response)=>{
                 if (response==true && value.length>0){
                     setEtapa(etapa+1)
@@ -59,7 +59,7 @@ const InserirInfo = ({
                 }
             })
         }
-        if(etapa==1 && value.length > 0){
+        if(etapa==1){
             req(alterarSenhaArgs.mail,value).then((response)=>{
                 if (response==true && value.length>0){
                     setEtapa(etapa+1)
@@ -76,7 +76,7 @@ const InserirInfo = ({
                 }
             })
         }
-        if(etapa==2 && value.length > 0 && value == novaSenhaConfirmacao && validacaoSenha(novaSenhaConfirmacao).validacao){
+        if(etapa==2){
             req(alterarSenhaArgs.mail,alterarSenhaArgs.codigo,value)
             .then((response)=>{
                 if (response==true){
@@ -144,14 +144,15 @@ const InserirInfo = ({
                             className={style.RecuperarSenhaBotaoVoltar}
                             onClick={EtapaAnterior}
                         >{botaoVoltar.label.toUpperCase()}</div>
-                        <div 
+                        <button
                             className={
                                 (AtivarBotao())?
                                 cx(style.RecuperarSenhaBotaoProximo, style[`${theme}`]):
                                 style.RecuperarSenhaBotaoProximoInativo
                             }
+                            disabled={!AtivarBotao()}
                             onClick={ProximaEtapa}
-                        >{botaoProximo.label.toUpperCase()}</div>
+                        >{botaoProximo.label.toUpperCase()}</button>
                     </div>
                 </>
             }
