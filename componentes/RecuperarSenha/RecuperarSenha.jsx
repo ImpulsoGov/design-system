@@ -41,7 +41,7 @@ const InserirInfo = ({
     const [value, setValue] = useState('');
     const [novaSenhaConfirmacao,setNovaSenhaConfirmacao] = useState('')
     const ProximaEtapa = ()=> {
-        value.length > 0 && setLoading(true);
+        setLoading(true);
 
         if(etapa==0 && value.length > 0){
             req(value).then((response)=>{
@@ -144,14 +144,15 @@ const InserirInfo = ({
                             className={style.RecuperarSenhaBotaoVoltar}
                             onClick={EtapaAnterior}
                         >{botaoVoltar.label.toUpperCase()}</div>
-                        <div 
+                        <button
                             className={
                                 (AtivarBotao())?
                                 cx(style.RecuperarSenhaBotaoProximo, style[`${theme}`]):
                                 style.RecuperarSenhaBotaoProximoInativo
                             }
+                            disabled={!AtivarBotao()}
                             onClick={ProximaEtapa}
-                        >{botaoProximo.label.toUpperCase()}</div>
+                        >{botaoProximo.label.toUpperCase()}</button>
                     </div>
                 </>
             }

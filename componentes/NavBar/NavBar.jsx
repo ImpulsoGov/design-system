@@ -10,6 +10,11 @@ import { MenuMoblie } from "../MenuMoblie";
 import { RecuperarSenha } from "../RecuperarSenha/RecuperarSenha";
 import { ModalInicio } from "../ModalInicio";
 
+const CHAMADA_AVISO_PADRAO = "Caso não lembre o e-mail cadastrado, entre em contato conosco pelo grupo de mensagens do seu município com a Impulso Gov.";
+const CHAMADA_MAIL_PADRAO_PRIMEIRO_ACESSO = "Digite o e-mail cadastrado para receber um código de autorização de criação da senha.";
+const TITULO_MAIL_PADRAO_PRIMEIRO_ACESSO = "Bem vindo(a)! Precisamos que você crie uma senha para acessar os dados.";
+const CHAMADA_MAIL_PADRAO_ESQUECI_SENHA = "Digite o e-mail cadastrado para receber um código de autorização de recuperação da senha."
+
 const NavBarMenu = (tema, NavBarIconBranco, NavBarIconDark) => {
   let theme = (tema == "ColorIP" || tema == "ColorAGP" || tema == "ColorSM") ? NavBarIconBranco : NavBarIconDark
   return theme
@@ -147,8 +152,8 @@ const NavBar = (props) => {
                                 sucesso : "Nova senha criada com sucesso!"
                               }}
                               chamadas={{
-                              mail : "Digite o e-mail cadastrado para receber um código de autorização de recuperação da senha.",
-                              aviso : "Caso não lembre o e-mail cadastrado, entre em contato conosco pelo grupo de mensagens do seu município com a Impulso Gov.",
+                              mail : props?.esqueciMinhaSenha?.chamadas?.mail || CHAMADA_MAIL_PADRAO_ESQUECI_SENHA,
+                              aviso : props?.esqueciMinhaSenha?.chamadas?.aviso || CHAMADA_AVISO_PADRAO,
                               codigo : "Digite abaixo o código recebido no e-mail cadastrado",
                               senha : "Escolha uma nova senha",
                               sucesso : props.esqueciMinhaSenha.chamadas.sucesso,
@@ -162,14 +167,14 @@ const NavBar = (props) => {
                             />   
   const PrimeiroAcesso = <RecuperarSenha
                                 titulos = { {
-                                  mail : "Bem vindo(a)! Precisamos que você crie uma senha para acessar os dados.",
+                                  mail : props?.primeiroAcesso?.titulos?.mail || TITULO_MAIL_PADRAO_PRIMEIRO_ACESSO,
                                   codigo : "Validação do e-mail",
                                   senha: "Crie sua senha de acesso",
                                   sucesso : "Senha criada com sucesso!"
                                 }}
                                 chamadas={{
-                                mail : "Digite o e-mail cadastrado para receber um código de autorização de criação da senha.",
-                                aviso : "Caso não lembre o e-mail cadastrado, entre em contato conosco pelo grupo de mensagens do seu município com a Impulso Gov.",
+                                mail : props?.primeiroAcesso?.chamadas?.mail || CHAMADA_MAIL_PADRAO_PRIMEIRO_ACESSO,
+                                aviso : props?.primeiroAcesso?.chamadas?.aviso || CHAMADA_AVISO_PADRAO,
                                 codigo : "Digite abaixo o código recebido no e-mail cadastrado",
                                 senha : "Crie sua senha de acesso",
                                 sucesso : props.primeiroAcesso.chamadas.sucesso,
