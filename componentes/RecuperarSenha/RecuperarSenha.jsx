@@ -43,7 +43,7 @@ const InserirInfo = ({
     const ProximaEtapa = ()=> {
         setLoading(true);
 
-        if(etapa==0){
+        if(etapa==0 && value.length > 0){
             req(value).then((response)=>{
                 if (response==true && value.length>0){
                     setEtapa(etapa+1)
@@ -59,7 +59,7 @@ const InserirInfo = ({
                 }
             })
         }
-        if(etapa==1){
+        if(etapa==1 && value.length > 0){
             req(alterarSenhaArgs.mail,value).then((response)=>{
                 if (response==true && value.length>0){
                     setEtapa(etapa+1)
@@ -76,7 +76,7 @@ const InserirInfo = ({
                 }
             })
         }
-        if(etapa==2){
+        if(etapa==2 && value.length > 0 && value == novaSenhaConfirmacao && validacaoSenha(novaSenhaConfirmacao).validacao){
             req(alterarSenhaArgs.mail,alterarSenhaArgs.codigo,value)
             .then((response)=>{
                 if (response==true){
