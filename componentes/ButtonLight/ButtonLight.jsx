@@ -84,7 +84,7 @@ const ButtonLightSubmitMobile = ({
     submit,
     disabled
 })=>{
-    const handleClick = ()=>{if(!disabled){submit}}
+    const handleClick = ()=>{if(!disabled){submit()}}
     return(
         <button 
             className={disabled ? style.ButtonLightDisabled : style.ButtonLightMobile}
