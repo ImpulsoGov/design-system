@@ -399,7 +399,7 @@ const dadosFiltros = [
   },
   {
     rotulo : "Filtrar por nome do ACS",
-    data : ["Luana", "Soraia", "Estela"],
+    data : ["Luana", "Soraia", "Estela","Camila", "Joana", "Samira", "Maiara", "Maria", "Antonio", "José", "Carlos","Birajar"],
     filtro : "acs_nome_cadastro"
 
   },
@@ -430,7 +430,7 @@ const dadosFiltrosDiabetes = [
   },
   {
     rotulo : "Filtrar por nome do ACS",
-    data : ["Luana", "Soraia", "Estela"],
+    data : ["Luana", "Soraia", "Estela","Camila", "Joana", "Samira", "Maiara", "Maria", "Antonio", "José", "Carlos","Birajar"],
     filtro : "acs_nome_cadastro"
 
   },
@@ -585,7 +585,7 @@ const dataDiabetes=[
     "prazo_proxima_consulta": "Até 31/Agosto",
     "dt_solicitacao_hemoglobina_glicada_mais_recente": null,
     "prazo_proxima_solicitacao_hemoglobina": "Até 31/Agosto",
-    "acs_nome_cadastro": "Nerita Maia Travassos"
+    "acs_nome_cadastro": "Soraia"
   },
   {
     "cidadao_nome": "DESUITA JANSEN",
@@ -595,7 +595,7 @@ const dataDiabetes=[
     "prazo_proxima_consulta": "Até 31/Agosto",
     "dt_solicitacao_hemoglobina_glicada_mais_recente": null,
     "prazo_proxima_solicitacao_hemoglobina": "Até 31/Agosto",
-    "acs_nome_cadastro": "Claudio de Jesus Santos"
+    "acs_nome_cadastro": "Samira"
   },
   {
     "cidadao_nome": "EDMILSON CASTRO SILVA",
@@ -814,6 +814,16 @@ const dataCito = [
         "equipe_nome": "ESF GOIANA"
     }
 ]
+const datefiltrosDiabetes = [
+  "dt_ultima_consulta",
+  "dt_afericao_hemoglobina_glicada_mais_recente",
+]
+const datefiltros = [
+  "dt_afericao_pressao_mais_recente",
+  "dt_ultima_consulta",
+  "dt_afericao_hemoglobina_glicada_mais_recente",
+]
+
 const Template = (args) =>{
   const dados = {
     "diabetes" : dataDiabetes,
@@ -836,6 +846,7 @@ Diabetes.args={
       data : dataDiabetes
   },
   cards : cards,
+  datefiltros : datefiltrosDiabetes
 }
 
 export const Hipertensao = Template.bind({});

@@ -9,8 +9,8 @@ const TabelaHiperDia = ({
     const styles = {
       padding:40,
       height: "80vh",
-      width: '93%',
-      marginLeft : '45px'
+      width: window.innerWidth < 1024 ? '100%' : '93%',
+      marginLeft : window.innerWidth < 1024 ? 0 : '45px'
     }
     const rowsID = data.map((row, index) => ({ ...row, id: index }));
     return (
