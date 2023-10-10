@@ -8,49 +8,87 @@ import { TabelaHiperDia } from "../TabelaHiperDia";
 //Essa função considera que str esta no formato dd/mm/aa
 const stringToDate = (str)=>{
     if(!str) return null
-    const parts = str.split('/');
-    const dia = parseInt(parts[0]);
+    const parts = str.split('-');
+    const ano = parseInt(parts[0]);
     const mes = parseInt(parts[1]) -1;
-    const ano = 2000 + parseInt(parts[2]);
+    const dia = parseInt(parts[2]);
     const date = new Date(ano, mes ,dia);
     return date
 }
-// const SortData = ({
-//     data,
-//     setData,
-//     filtro
-// })=>{
-//     console.log(filtro)
-//     const sortByDate = (data)=>{
-//         return [...data].sort((a,b) => stringToDate(a[filtro]) - stringToDate(b[filtro])
-//     )}
-//     const sortByString = (data)=>[...data].sort((a,b) => a[filtro].localeCompare(b[filtro]) )
-//     const datefiltros = [
-//         "dt_afericao_pressao_mais_recente",
-//         "dt_ultima_consulta",
-//         "dt_afericao_hemoglobina_glicada_mais_recente",
-//     ]
-//     if(datefiltros.includes(filtro)){ 
-//         setData(sortByDate(data))
-//     }else{
-//         setData(sortByString(data))
-//     }
-// }
+const SortData = ({
+    data,
+    setData,
+    filtro,
+    datefiltros,
+    setModal,
+    setOrdenacaoAplicada
+})=>{
+    const sortByDate = (data)=>{
+        return [...data].sort((a,b) => stringToDate(a[filtro]) - stringToDate(b[filtro])
+    )}
+    const sortByString = (data)=>[...data].sort((a,b) => a[filtro].localeCompare(b[filtro]) )
+    datefiltros.includes(filtro) ? 
+    setData(sortByDate(data)) :
+    setData(sortByString(data))
+    setModal(false)
+    setOrdenacaoAplicada(true)
+}
 const FilterData = (props)=>{
+    const filtros = ValuesToChavesFiltros(props.value,props.setChavesFiltros,props.dadosFiltros)
+    const agruparChavesIguais =(filtros)=>{
+        const chavesUnicas = [...new Set(filtros.flatMap(objeto => Object.keys(objeto)))];
+        return chavesUnicas.map(chave => {
+            const objetosComChave = filtros.filter(objeto => objeto.hasOwnProperty(chave));
+            const valores = objetosComChave.map(objeto => objeto[chave]);
+            return { [chave]: valores };
+        });
+    }
+    const filtrosAgrupados = agruparChavesIguais(filtros)
     props.setData(props.data.filter(item => {
-        return props.filtros.every(filter => filter[Object.keys(filter)[0]] === item[Object.keys(filter)[0]]);
+        return filtrosAgrupados.every(filter =>{
+            return filter[Object.keys(filter)[0]].includes(item[Object.keys(filter)[0]])
+        });
     }))
     props.setModal(false)
 }
+const ValuesToChavesFiltros = (value,setChavesFiltros,dadosFiltros)=>{
+    const checkboxes = Object.keys(value).map(key=>{
+        if(value[key]) return key
+    }) 
+    const chaves = []
+    checkboxes.forEach(checkbox=>{
+        let filtro
+        dadosFiltros.forEach(dadoFiltro=>{
+            if(dadoFiltro.data.includes(checkbox)) filtro = dadoFiltro.filtro
+        })
+        if(filtro) chaves.push({ [filtro] : checkbox})
+    })
+    setChavesFiltros(()=>chaves)
+    return chaves
+}
+
+const chavesFiltrosToCheckBoxesValues = (chavesFiltros,value,setValue)=>{
+    const value_temp = value
+    Object.keys(value_temp).forEach(checkbox=>{
+        value_temp[checkbox] = false
+    })
+    chavesFiltros.forEach(valor=>{
+        value_temp[Object.values(valor)[0]] = true
+    })
+    setValue(()=>value_temp)
+}
+
 const ToolBar = ({
     showFiltros,
     showOrdenar,
     painel,
+    chavesFiltros,
     ordenar,
     setOrdenar,
     data,
     setData,
-    tabela
+    tabela,
+    ordenacaoAplicada
 })=>{
     const [nome,setNome] =useState('')
     const filterbyName = ()=>setData(tabela.filter(item=>item[item?.cidadao_nome ? "cidadao_nome" : "paciente_nome"].toUpperCase().includes(nome.toUpperCase())))
@@ -65,8 +103,16 @@ const ToolBar = ({
                 value={nome}
                 onChange={(e) => {setNome(e.target.value);filterbyName();}}
             />
-            {/* <ButtonLightSubmit label="ORDENAÇÃO" submit={showOrdenar} arg={{painel,ordenar,setOrdenar,data,setData}}/> */}
-            <ButtonLightSubmit label="FILTROS" submit={showFiltros}/>
+            <ButtonLightSubmit 
+                label="ORDENAR LISTA" 
+                submit={showOrdenar} 
+                arg={{painel,ordenar,setOrdenar,data,setData}}
+                icon={ordenacaoAplicada ?
+                     "https://media.graphassets.com/ZWmQGa3TEGVceKxm4nlw" : 
+                     "https://media.graphassets.com/7E9qXtNTze5w3ozl6a5I"
+                }
+            />
+            <ButtonLightSubmit label="FILTRAR LISTA NOMINAL" submit={showFiltros} icon={chavesFiltros.length>0 ? "https://media.graphassets.com/1rnUv5WSTKmCHnvqciuW" : "https://media.graphassets.com/1WHJsCigTXyJbq7Tw47m"}/>
         </div>
     )
 }
@@ -122,6 +168,8 @@ const Ordenar = (props)=>{
     const limpar = ()=>{
         props.setOrdenar()
         props.setData(props.tabela)
+        props.setModal(false)
+        props.setOrdenacaoAplicada(false)
     }
     return(
         <div className={style.containerOrdenar}>
@@ -131,7 +179,7 @@ const Ordenar = (props)=>{
             >Limpar ordenação</p>
             <p className={style.OrdenarPor}>Ordenar por:</p>
             {filtros_painel.rotulos.map((label)=><CardFiltro label={label} setOrdenar={props.setOrdenar} ordenar={props.ordenar} ID={filtros_painel.ID} key={label} />)}
-            <ButtonColorSubmit label="APLICAR FILTROS" submit={SortData} arg={{data : props.data, filtro : props.ordenar, setData:props.setData}}/>            
+            <ButtonColorSubmit label="ORDENAR LISTA" submit={SortData} arg={{data : props.data, filtro : props.ordenar, setData:props.setData, datefiltros : props.datefiltros, setModal : props.setModal, setOrdenacaoAplicada : props.setOrdenacaoAplicada}}/>            
         </div>
     )
 }
@@ -160,7 +208,7 @@ const FiltroBody = ({
                     <div className={style.ConteinerFiltros}>
                         {/* <div className={style.MarcarTodas}>Marcar Todas</div> */}
                         {
-                            data.data.map((item)=>{
+                            data.data.sort().map((item)=>{
                                 return(
                                     <FiltroCard 
                                         label={item} 
@@ -196,30 +244,39 @@ const Filtro = ({
         setData(tabela)
         setChavesFiltros([])
         setModal(false)
+        
     }
     return(
         <div className={style.Filtro}>
             <div className={style.LimparFiltros} onClick={LimparFiltros}>Limpar Filtros</div>
-            {
-                data.map((filtro)=><FiltroBody
-                    data={filtro} 
-                    key={filtro.rotulo}
-                    chavesFiltros={chavesFiltros}
-                    setChavesFiltros={setChavesFiltros}
-                    value={value}
-                    handleCheckbox={handleCheckbox}
-                />)
-            }
-            <ButtonColorSubmit 
-                label="APLICAR FILTROS" 
-                submit={FilterData} 
-                arg={{
-                    data : tabela,
-                    setData : setData,
-                    filtros : chavesFiltros,
-                    setModal : setModal
-                }}
-            />            
+            <div style={{overflowY : 'scroll',height:'70vh',width : '120%'}}>
+                {
+                    data.sort((a,b)=>a.filtro.localeCompare(b.filtro)).map((filtro)=><FiltroBody
+                        data={filtro} 
+                        key={filtro.rotulo}
+                        chavesFiltros={chavesFiltros}
+                        setChavesFiltros={setChavesFiltros}
+                        value={value}
+                        handleCheckbox={handleCheckbox}
+                    />)
+                }
+            </div>
+            <div className={style.AplicarFiltros}>
+                <ButtonColorSubmit 
+                    label="FILTRAR LISTA NOMINAL" 
+                    submit={FilterData} 
+                    arg={{
+                        data : tabela,
+                        setData : setData,
+                        filtros : chavesFiltros,
+                        setModal : setModal,
+                        value : value,
+                        setChavesFiltros : setChavesFiltros,
+                        dadosFiltros : data
+                    }}
+                />  
+            </div>
+            <div className={style.AplicarfiltrosCase}></div>          
         </div>
     )
 }
@@ -251,11 +308,13 @@ const PainelBuscaAtiva = ({
     dadosFiltros,
     painel,
     data,
-    setData
+    setData,
+    datefiltros
 })=>{
     const [showOrdenarModal,setShowOrdenarModal] = useState(false)
     const [showFiltrosModal,setShowFiltrosModal] = useState(false)
     const [ordenar,setOrdenar] = useState('1')
+    const [ordenacaoAplicada,setOrdenacaoAplicada] = useState(false)
     const [modal,setModal] = useState(false)
     const [chavesFiltros,setChavesFiltros] = useState([])
     const showOrdenar = ()=>{
@@ -267,6 +326,7 @@ const PainelBuscaAtiva = ({
         setModal(true)
         setShowOrdenarModal(false)
         setShowFiltrosModal(true)
+        chavesFiltrosToCheckBoxesValues(chavesFiltros,value,setValue)
     }
     let valores = {}
     dadosFiltros.forEach((item)=>item.data.forEach((valor)=>valores[valor]=false))
@@ -276,16 +336,25 @@ const PainelBuscaAtiva = ({
         const updateState = {...value}
         updateState[event.target.id] = checked
         setValue(updateState)
-        setChavesFiltros(() => {
-            if (checked) return([
-                    ...chavesFiltros,
-                    {[name]: Number(event.target.id) ? Number(event.target.id) : event.target.id}
-            ])
-            return chavesFiltros.filter(item=>item[name] !==  event.target.id)
-        })
+        // setChavesFiltros(() => {
+        //     if (checked) return([
+        //             ...chavesFiltros,
+        //             {[name]: Number(event.target.id) ? Number(event.target.id) : event.target.id}
+        //     ])
+        //     return chavesFiltros.filter(item=>item[name] !==  event.target.id)
+        // })
         
     };
-    useEffect(()=>{console.log(chavesFiltros)},[chavesFiltros])
+    useEffect(()=>{console.log('chavesFiltros: ',chavesFiltros)},[chavesFiltros])
+    useEffect(()=>{
+        if(!modal && chavesFiltros.length==0){
+            const value_temp = {}
+            Object.keys(value).forEach(checkbox=>{
+                value_temp[checkbox] = false
+            })
+            setValue(()=>value_temp)
+        }
+    },[modal])
     return(
         <div style={{marginTop : "30px"}}>
             {
@@ -308,6 +377,9 @@ const PainelBuscaAtiva = ({
                                 data={data} 
                                 setData={setData} 
                                 tabela={tabela.data}
+                                datefiltros={datefiltros}
+                                setModal={setModal}
+                                setOrdenacaoAplicada={setOrdenacaoAplicada}
                             />
                         }
                         {
@@ -330,11 +402,13 @@ const PainelBuscaAtiva = ({
                 showFiltros={showFiltros} 
                 showOrdenar={showOrdenar} 
                 painel={painel}
+                chavesFiltros={chavesFiltros}
                 setOrdenar={setOrdenar}
                 ordenar={ordenar}
                 data={data}
                 setData={setData}
                 tabela={tabela.data}
+                ordenacaoAplicada={ordenacaoAplicada}
             />
             <TabelaHiperDia 
                 colunas={tabela.colunas} 

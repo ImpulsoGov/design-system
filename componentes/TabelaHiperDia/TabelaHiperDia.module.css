@@ -1,3 +1,9 @@
+.Container{
+    padding:40;
+    height: 80vh;
+    width: 93%;
+    margin-left :  45px
+}
 .tabela {
     border-collapse: collapse;
     margin: 15px;
