@@ -591,7 +591,7 @@ const dataDiabetes=[
     "cidadao_nome": "DESUITA JANSEN",
     "cidadao_cpf_dt_nascimento": "1952-11-12",
     "identificacao_condicao_diabetes": "Diagnóstico Clínico",
-    "dt_ultima_consulta": "2021-10-04",
+    "dt_ultima_consulta": null,
     "prazo_proxima_consulta": "Até 31/Agosto",
     "dt_solicitacao_hemoglobina_glicada_mais_recente": null,
     "prazo_proxima_solicitacao_hemoglobina": "Até 31/Agosto",
@@ -816,14 +816,37 @@ const dataCito = [
 ]
 const datefiltrosDiabetes = [
   "dt_ultima_consulta",
-  "dt_afericao_hemoglobina_glicada_mais_recente",
+  "dt_solicitacao_hemoglobina_glicada_mais_recente"
 ]
 const datefiltros = [
   "dt_afericao_pressao_mais_recente",
   "dt_ultima_consulta",
   "dt_afericao_hemoglobina_glicada_mais_recente",
 ]
-
+const rotulosfiltrosHipertensao = [
+  "DATA DA CONSULTA MAIS RECENTE",
+  "PRAZO PARA PRÓXIMA CONSULTA",
+  "NOMES DE A-Z",
+  "DATA DA AFERIÇÃO DE PA MAIS RECENTE",
+]
+const rotulosfiltrosDiabetes = [
+  "DATA DA CONSULTA MAIS RECENTE",
+  "PRAZO PARA PRÓXIMA CONSULTA",
+  "NOMES DE A-Z",
+  "DATA DE SOLICITAÇÃO DE HEMOGLOBINA GLICADA MAIS RECENTE",
+]
+const IDFiltrosHipertensao = {
+  "DATA DA CONSULTA MAIS RECENTE" : "dt_ultima_consulta",
+  "PRAZO PARA PRÓXIMA CONSULTA" : "prazo_proxima_consulta",
+  "NOMES DE A-Z": "cidadao_nome",
+  "DATA DA AFERIÇÃO DE PA MAIS RECENTE": "dt_afericao_pressao_mais_recente",
+}
+const IDFiltrosDiabetes = {
+  "DATA DA CONSULTA MAIS RECENTE" : "dt_ultima_consulta",
+  "PRAZO PARA PRÓXIMA CONSULTA" : "prazo_proxima_consulta",
+  "NOMES DE A-Z": "cidadao_nome",
+  "DATA DE SOLICITAÇÃO DE HEMOGLOBINA GLICADA MAIS RECENTE" : "dt_solicitacao_hemoglobina_glicada_mais_recente",
+}
 const Template = (args) =>{
   const dados = {
     "diabetes" : dataDiabetes,
@@ -846,7 +869,10 @@ Diabetes.args={
       data : dataDiabetes
   },
   cards : cards,
-  datefiltros : datefiltrosDiabetes
+  datefiltros : datefiltrosDiabetes,
+  IDFiltros : IDFiltrosDiabetes,
+  rotulosfiltros : rotulosfiltrosDiabetes
+
 }
 
 export const Hipertensao = Template.bind({});

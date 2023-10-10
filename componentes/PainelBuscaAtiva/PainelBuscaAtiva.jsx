@@ -24,7 +24,18 @@ const SortData = ({
     setOrdenacaoAplicada
 })=>{
     const sortByDate = (data)=>{
-        return [...data].sort((a,b) => stringToDate(a[filtro]) - stringToDate(b[filtro])
+        return [...data].sort((a,b) =>{ 
+            const valueA = stringToDate(a[filtro]) 
+            const valueB = stringToDate(b[filtro])
+            if (valueA === null && valueB === null) {
+                return 0;
+              } else if (valueA === null) {
+                return 1;
+              } else if (valueB === null) {
+                return -1;
+              }
+            return valueA - valueB
+        }
     )}
     const sortByString = (data)=>[...data].sort((a,b) => a[filtro].localeCompare(b[filtro]) )
     datefiltros.includes(filtro) ? 
@@ -116,30 +127,7 @@ const ToolBar = ({
         </div>
     )
 }
-const rotulosfiltrosHipertensao = [
-    "DATA DA CONSULTA MAIS RECENTE",
-    "PRAZO PARA PRÓXIMA CONSULTA",
-    "NOMES DE A-Z",
-    "DATA DA AFERIÇÃO DE PA MAIS RECENTE",
-]
-const rotulosfiltrosDiabetes = [
-    "DATA DA CONSULTA MAIS RECENTE",
-    "PRAZO PARA PRÓXIMA CONSULTA",
-    "NOMES DE A-Z",
-    "DATA DE SOLICITAÇÃO DE HEMOGLOBINA GLICADA MAIS RECENTE",
-]
-const IDFiltrosHipertensao = {
-    "DATA DA CONSULTA MAIS RECENTE" : "dt_ultima_consulta",
-    "PRAZO PARA PRÓXIMA CONSULTA" : "prazo_proxima_consulta",
-    "NOMES DE A-Z": "cidadao_nome",
-    "DATA DA AFERIÇÃO DE PA MAIS RECENTE": "dt_afericao_pressao_mais_recente",
-}
-const IDFiltrosDiabetes = {
-    "DATA DA CONSULTA MAIS RECENTE" : "dt_ultima_consulta",
-    "PRAZO PARA PRÓXIMA CONSULTA" : "prazo_proxima_consulta",
-    "NOMES DE A-Z": "cidadao_nome",
-    "DATA DE SOLICITAÇÃO DE HEMOGLOBINA GLICADA MAIS RECENTE" : "dt_solicitacao_hemoglobina_glicada_mais_recente",
-}
+
 const CardFiltro = (props)=>{
     const OrdenarPor = ()=>{
         props.setOrdenar(props.ID[props.label])
@@ -156,14 +144,9 @@ const CardFiltro = (props)=>{
             </div>
 }
 const Ordenar = (props)=>{
-    let filtros_painel
-    if (props.painel == "hipertensao") filtros_painel = {
-        "rotulos" : rotulosfiltrosHipertensao,
-        "ID" : IDFiltrosHipertensao
-    }
-    if (props.painel == "diabetes") filtros_painel = {
-        "rotulos" : rotulosfiltrosDiabetes,
-        "ID" : IDFiltrosDiabetes
+    const filtros_painel = {
+        "rotulos" : props.rotulosfiltros,
+        "ID" : props.IDFiltros
     }
     const limpar = ()=>{
         props.setOrdenar()
@@ -309,7 +292,9 @@ const PainelBuscaAtiva = ({
     painel,
     data,
     setData,
-    datefiltros
+    datefiltros,
+    IDFiltros,
+    rotulosfiltros
 })=>{
     const [showOrdenarModal,setShowOrdenarModal] = useState(false)
     const [showFiltrosModal,setShowFiltrosModal] = useState(false)
@@ -380,6 +365,8 @@ const PainelBuscaAtiva = ({
                                 datefiltros={datefiltros}
                                 setModal={setModal}
                                 setOrdenacaoAplicada={setOrdenacaoAplicada}
+                                IDFiltros={IDFiltros}
+                                rotulosfiltros={rotulosfiltros}
                             />
                         }
                         {
