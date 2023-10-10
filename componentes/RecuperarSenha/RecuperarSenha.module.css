@@ -126,6 +126,7 @@
     font-size: 14px;
     line-height: 130%;
     color: #fff;
+    border: none;
     border-radius: 100px;
     padding: 16px 24px;
 }
@@ -155,6 +156,7 @@
     line-height: 130%;
     color: #fff;
     background: #A6B5BE;
+    border: none;
     border-radius: 100px;
     padding: 16px 24px;
 }
