@@ -46,6 +46,7 @@ const SortData = ({
 }
 const FilterData = (props)=>{
     const filtros = ValuesToChavesFiltros(props.value,props.setChavesFiltros,props.dadosFiltros)
+    console.log(filtros)
     const agruparChavesIguais =(filtros)=>{
         const chavesUnicas = [...new Set(filtros.flatMap(objeto => Object.keys(objeto)))];
         return chavesUnicas.map(chave => {
@@ -66,14 +67,17 @@ const ValuesToChavesFiltros = (value,setChavesFiltros,dadosFiltros)=>{
     const checkboxes = Object.keys(value).map(key=>{
         if(value[key]) return key
     }) 
+    console.log(checkboxes)
     const chaves = []
     checkboxes.forEach(checkbox=>{
         let filtro
         dadosFiltros.forEach(dadoFiltro=>{
+            console.log(checkbox,dadoFiltro.data,dadoFiltro.data.includes(checkbox))
             if(dadoFiltro.data.includes(checkbox)) filtro = dadoFiltro.filtro
         })
-        if(filtro) chaves.push({ [filtro] : checkbox})
+        if(filtro) chaves.push({ [filtro] : Number(checkbox) ? Number(checkbox) : checkbox})
     })
+    console.log(chaves)
     setChavesFiltros(()=>chaves)
     return chaves
 }

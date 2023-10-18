@@ -682,7 +682,7 @@ const dadosFiltrosCito = [
   },
   {
     rotulo : "Filtrar por faixa etária",
-    data : [0,1,2,3,4,5,6,7,8],
+    data : ['0','1','2','3','4','5','6','7','8'],
     filtro : "id_faixa_etaria"
 
   },
