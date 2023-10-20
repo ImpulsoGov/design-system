@@ -49,7 +49,7 @@ const colunas=[
     },
     {
       align: 'center',
-      field: 'dt_ultima_consulta',
+      field: 'dt_consulta_mais_recente',
       headerAlign: 'center',
       headerName: 'DATA DA CONSULTA MAIS RECENTE',
       width: 120
@@ -109,7 +109,7 @@ const colunasDiabetes=[
   },
   {
     align: 'center',
-    field: 'dt_ultima_consulta',
+    field: 'dt_consulta_mais_recente',
     headerAlign: 'center',
     headerName: 'DATA DA CONSULTA MAIS RECENTE',
     width: 120
@@ -447,7 +447,7 @@ const data=[
       "cidadao_nome": "DAVIDSON MUSTAFA ZEHED",
       "cidadao_cpf": "32702133878",
       "identificacao_condicao_hipertensao": "Autorreferida",
-      "dt_ultima_consulta": "2020-09-23",
+      "dt_consulta_mais_recente": "2020-09-23",
       "prazo_proxima_consulta": "Até 31/Agosto",
       "dt_afericao_pressao_mais_recente": null,
       "prazo_proxima_afericao_pa": "Até 31/Agosto",
@@ -459,7 +459,7 @@ const data=[
       "cidadao_nome": "JOSE GALDINO ALVES DA PAZ",
       "cidadao_cpf": "33343316873",
       "identificacao_condicao_hipertensao": "Diagnóstico Clínico",
-      "dt_ultima_consulta": "2023-05-11",
+      "dt_consulta_mais_recente": "2023-05-11",
       "prazo_proxima_consulta": "Em dia",
       "dt_afericao_pressao_mais_recente": "2023-05-11",
       "prazo_proxima_afericao_pa": "Em dia",
@@ -471,7 +471,7 @@ const data=[
       "cidadao_nome": "ACSA DOS SANTOS LOPES",
       "cidadao_cpf": "32704359830",
       "identificacao_condicao_hipertensao": "Diagnóstico Clínico",
-      "dt_ultima_consulta": "2023-05-12",
+      "dt_consulta_mais_recente": "2023-05-12",
       "prazo_proxima_consulta": "Até 31/Agosto",
       "dt_afericao_pressao_mais_recente": null,
       "prazo_proxima_afericao_pa": "Até 31/Agosto",
@@ -483,7 +483,7 @@ const data=[
       "cidadao_nome": "ANA PAULA DA SILVA SOARES",
       "cidadao_cpf": "41364717859",
       "identificacao_condicao_hipertensao": "Autorreferida",
-      "dt_ultima_consulta": "2022-11-23",
+      "dt_consulta_mais_recente": "2022-11-23",
       "prazo_proxima_consulta": "Até 31/Agosto",
       "dt_afericao_pressao_mais_recente": null,
       "prazo_proxima_afericao_pa": "Até 31/Agosto",
@@ -495,7 +495,7 @@ const data=[
       "cidadao_nome": "APARECIDA VANESSA DO AMARAL",
       "cidadao_cpf": "35299537840",
       "identificacao_condicao_hipertensao": "Diagnóstico Clínico",
-      "dt_ultima_consulta": "2023-05-26",
+      "dt_consulta_mais_recente": "2023-05-26",
       "prazo_proxima_consulta": "Até 31/Agosto",
       "dt_afericao_pressao_mais_recente": null,
       "prazo_proxima_afericao_pa": "Até 31/Agosto",
@@ -507,7 +507,7 @@ const data=[
       "cidadao_nome": "CLAUDINEI DO ROSARIO",
       "cidadao_cpf": "34353421883",
       "identificacao_condicao_hipertensao": "Diagnóstico Clínico",
-      "dt_ultima_consulta": "2015-07-24",
+      "dt_consulta_mais_recente": "2015-07-24",
       "prazo_proxima_consulta": "Até 31/Agosto",
       "dt_afericao_pressao_mais_recente": null,
       "prazo_proxima_afericao_pa": "Até 31/Agosto",
@@ -519,7 +519,7 @@ const data=[
       "cidadao_nome": "CRISTIANE DELGADO SEMO",
       "cidadao_cpf": "42402357827",
       "identificacao_condicao_hipertensao": "Autorreferida",
-      "dt_ultima_consulta": "2019-02-05",
+      "dt_consulta_mais_recente": "2019-02-05",
       "prazo_proxima_consulta": "Até 31/Agosto",
       "dt_afericao_pressao_mais_recente": null,
       "prazo_proxima_afericao_pa": "Até 31/Agosto",
@@ -531,7 +531,7 @@ const data=[
       "cidadao_nome": "DEBORA CAROLINA SOUZA",
       "cidadao_cpf": "22910043878",
       "identificacao_condicao_hipertensao": "Diagnóstico Clínico",
-      "dt_ultima_consulta": "2023-05-22",
+      "dt_consulta_mais_recente": "2023-05-22",
       "prazo_proxima_consulta": "Em dia",
       "dt_afericao_pressao_mais_recente": "2023-05-22",
       "prazo_proxima_afericao_pa": "Em dia",
@@ -543,7 +543,7 @@ const data=[
       "cidadao_nome": "FAUSTINO DA COSTA JUNIOR",
       "cidadao_cpf": "34445553859",
       "identificacao_condicao_hipertensao": "Diagnóstico Clínico",
-      "dt_ultima_consulta": "2022-12-19",
+      "dt_consulta_mais_recente": "2022-12-19",
       "prazo_proxima_consulta": "Até 31/Agosto",
       "dt_afericao_pressao_mais_recente": null,
       "prazo_proxima_afericao_pa": "Até 31/Agosto",
@@ -555,7 +555,7 @@ const data=[
       "cidadao_nome": "FRANCIELE DE DEUS BOA VENTURA",
       "cidadao_cpf": "43656184828",
       "identificacao_condicao_hipertensao": "Diagnóstico Clínico",
-      "dt_ultima_consulta": "2020-10-19",
+      "dt_consulta_mais_recente": "2020-10-19",
       "prazo_proxima_consulta": "Até 31/Agosto",
       "dt_afericao_pressao_mais_recente": null,
       "prazo_proxima_afericao_pa": "Até 31/Agosto",
@@ -567,7 +567,7 @@ const data=[
       "cidadao_nome": "GABRIEL DE ALMEIDA FERNANDES",
       "cidadao_cpf": "44455263802",
       "identificacao_condicao_hipertensao": "Diagnostico Clinico",
-      "dt_ultima_consulta": "2022-09-27",
+      "dt_consulta_mais_recente": "2022-09-27",
       "prazo_proxima_consulta": "Até 31/Agosto",
       "dt_afericao_pressao_mais_recente": null,
       "prazo_proxima_afericao_pa": "Até 31/Agosto",
@@ -581,7 +581,7 @@ const dataDiabetes=[
     "cidadao_nome": "DALVA MARIA CORREIA MENDES",
     "cidadao_cpf_dt_nascimento": "1966-01-18",
     "identificacao_condicao_diabetes": "Autorreferida",
-    "dt_ultima_consulta": "2022-02-08",
+    "dt_consulta_mais_recente": "2022-02-08",
     "prazo_proxima_consulta": "Até 31/Agosto",
     "dt_solicitacao_hemoglobina_glicada_mais_recente": null,
     "prazo_proxima_solicitacao_hemoglobina": "Até 31/Agosto",
@@ -591,7 +591,7 @@ const dataDiabetes=[
     "cidadao_nome": "DESUITA JANSEN",
     "cidadao_cpf_dt_nascimento": "1952-11-12",
     "identificacao_condicao_diabetes": "Diagnóstico Clínico",
-    "dt_ultima_consulta": null,
+    "dt_consulta_mais_recente": null,
     "prazo_proxima_consulta": "Até 31/Agosto",
     "dt_solicitacao_hemoglobina_glicada_mais_recente": null,
     "prazo_proxima_solicitacao_hemoglobina": "Até 31/Agosto",
@@ -601,7 +601,7 @@ const dataDiabetes=[
     "cidadao_nome": "EDMILSON CASTRO SILVA",
     "cidadao_cpf_dt_nascimento": "45037680344",
     "identificacao_condicao_diabetes": "Diagnóstico Clínico",
-    "dt_ultima_consulta": "2023-03-15",
+    "dt_consulta_mais_recente": "2023-03-15",
     "prazo_proxima_consulta": "Em dia",
     "dt_solicitacao_hemoglobina_glicada_mais_recente": "2023-03-15",
     "prazo_proxima_solicitacao_hemoglobina": "Em dia",
@@ -611,7 +611,7 @@ const dataDiabetes=[
     "cidadao_nome": "GILMARA MACHADO SANTOS",
     "cidadao_cpf_dt_nascimento": "1981-06-11",
     "identificacao_condicao_diabetes": "Diagnóstico Clínico",
-    "dt_ultima_consulta": "2020-07-27",
+    "dt_consulta_mais_recente": "2020-07-27",
     "prazo_proxima_consulta": "Até 31/Agosto",
     "dt_solicitacao_hemoglobina_glicada_mais_recente": null,
     "prazo_proxima_solicitacao_hemoglobina": "Até 31/Agosto",
@@ -621,7 +621,7 @@ const dataDiabetes=[
     "cidadao_nome": "JOAO PEDRO MENDES",
     "cidadao_cpf_dt_nascimento": "1955-05-30",
     "identificacao_condicao_diabetes": "Diagnóstico Clínico",
-    "dt_ultima_consulta": "2022-04-14",
+    "dt_consulta_mais_recente": "2022-04-14",
     "prazo_proxima_consulta": "Até 31/Agosto",
     "dt_solicitacao_hemoglobina_glicada_mais_recente": null,
     "prazo_proxima_solicitacao_hemoglobina": "Até 31/Agosto",
@@ -631,7 +631,7 @@ const dataDiabetes=[
     "cidadao_nome": "JOSE ROBERTO PINHEIRO CAMARA",
     "cidadao_cpf_dt_nascimento": "1976-11-22",
     "identificacao_condicao_diabetes": "Diagnóstico Clínico",
-    "dt_ultima_consulta": "2021-07-22",
+    "dt_consulta_mais_recente": "2021-07-22",
     "prazo_proxima_consulta": "Até 31/Agosto",
     "dt_solicitacao_hemoglobina_glicada_mais_recente": null,
     "prazo_proxima_solicitacao_hemoglobina": "Até 31/Agosto",
@@ -641,7 +641,7 @@ const dataDiabetes=[
     "cidadao_nome": "RAIMUNDA COSTA DOS SANTOS",
     "cidadao_cpf_dt_nascimento": "1933-03-30",
     "identificacao_condicao_diabetes": "Diagnóstico Clínico",
-    "dt_ultima_consulta": "2022-09-05",
+    "dt_consulta_mais_recente": "2022-09-05",
     "prazo_proxima_consulta": "Até 31/Agosto",
     "dt_solicitacao_hemoglobina_glicada_mais_recente": "2022-09-05",
     "prazo_proxima_solicitacao_hemoglobina": "Até 31/Agosto",
@@ -651,7 +651,7 @@ const dataDiabetes=[
     "cidadao_nome": "ADRIEL ARAUJO MENDONCA",
     "cidadao_cpf_dt_nascimento": "2001-08-21",
     "identificacao_condicao_diabetes": "Diagnóstico Clínico",
-    "dt_ultima_consulta": "2021-07-12",
+    "dt_consulta_mais_recente": "2021-07-12",
     "prazo_proxima_consulta": "Até 31/Agosto",
     "dt_solicitacao_hemoglobina_glicada_mais_recente": null,
     "prazo_proxima_solicitacao_hemoglobina": "Até 31/Agosto",
@@ -661,7 +661,7 @@ const dataDiabetes=[
     "cidadao_nome": "ALEXANDRINA MATA MAIA",
     "cidadao_cpf_dt_nascimento": "1950-05-19",
     "identificacao_condicao_diabetes": "Diagnóstico Clínico",
-    "dt_ultima_consulta": "2021-08-24",
+    "dt_consulta_mais_recente": "2021-08-24",
     "prazo_proxima_consulta": "Até 31/Agosto",
     "dt_solicitacao_hemoglobina_glicada_mais_recente": "2021-08-24",
     "prazo_proxima_solicitacao_hemoglobina": "Até 31/Agosto",
@@ -682,7 +682,7 @@ const dadosFiltrosCito = [
   },
   {
     rotulo : "Filtrar por faixa etária",
-    data : [0,1,2,3,4,5,6,7,8],
+    data : ['0','1','2','3','4','5','6','7','8'],
     filtro : "id_faixa_etaria"
 
   },
@@ -815,38 +815,64 @@ const dataCito = [
     }
 ]
 const datefiltrosDiabetes = [
-  "dt_ultima_consulta",
+  "dt_consulta_mais_recente",
   "dt_solicitacao_hemoglobina_glicada_mais_recente"
 ]
 const datefiltros = [
   "dt_afericao_pressao_mais_recente",
-  "dt_ultima_consulta",
-  "dt_afericao_hemoglobina_glicada_mais_recente",
+  "dt_consulta_mais_recente",
 ]
+const datefiltrosCito = [
+  "vencimento_da_coleta",
+]
+
 const rotulosfiltrosHipertensao = [
+  "NOMES DE A-Z",
   "DATA DA CONSULTA MAIS RECENTE",
   "PRAZO PARA PRÓXIMA CONSULTA",
-  "NOMES DE A-Z",
   "DATA DA AFERIÇÃO DE PA MAIS RECENTE",
+  "PRAZO PARA PRÓXIMA AFERIÇÃO DE PA",
+  "NOME DO ACS DE A-Z"
 ]
 const rotulosfiltrosDiabetes = [
+  "NOMES DE A-Z",
+  "NOME DO ACS DE A-Z",
   "DATA DA CONSULTA MAIS RECENTE",
   "PRAZO PARA PRÓXIMA CONSULTA",
-  "NOMES DE A-Z",
   "DATA DE SOLICITAÇÃO DE HEMOGLOBINA GLICADA MAIS RECENTE",
+  "PRAZO PARA PRÓXIMA SOLICITAÇÃO DE HEMOGLOBINA GLICADA MAIS RECENTE"
 ]
+const rotulosfiltrosCito = [
+  "NOMES DE A-Z",
+  "NOME DO ACS DE A-Z",
+  "VENCIMENTO DA COLETA MAIS ANTIGO",
+  "PRAZO PARA PRÓXIMA COLETA",
+]
+
 const IDFiltrosHipertensao = {
-  "DATA DA CONSULTA MAIS RECENTE" : "dt_ultima_consulta",
-  "PRAZO PARA PRÓXIMA CONSULTA" : "prazo_proxima_consulta",
   "NOMES DE A-Z": "cidadao_nome",
+  "DATA DA CONSULTA MAIS RECENTE" : "dt_consulta_mais_recente",
+  "PRAZO PARA PRÓXIMA CONSULTA" : "prazo_proxima_consulta",
   "DATA DA AFERIÇÃO DE PA MAIS RECENTE": "dt_afericao_pressao_mais_recente",
+  "PRAZO PARA PRÓXIMA AFERIÇÃO DE PA" : "prazo_proxima_afericao_pa",
+  "NOME DO ACS DE A-Z" : "acs_nome_cadastro"
+
 }
 const IDFiltrosDiabetes = {
-  "DATA DA CONSULTA MAIS RECENTE" : "dt_ultima_consulta",
-  "PRAZO PARA PRÓXIMA CONSULTA" : "prazo_proxima_consulta",
   "NOMES DE A-Z": "cidadao_nome",
+  "NOME DO ACS DE A-Z": "acs_nome_cadastro",
+  "DATA DA CONSULTA MAIS RECENTE" : "dt_consulta_mais_recente",
+  "PRAZO PARA PRÓXIMA CONSULTA" : "prazo_proxima_consulta",
   "DATA DE SOLICITAÇÃO DE HEMOGLOBINA GLICADA MAIS RECENTE" : "dt_solicitacao_hemoglobina_glicada_mais_recente",
+  "PRAZO PARA PRÓXIMA SOLICITAÇÃO DE HEMOGLOBINA GLICADA MAIS RECENTE" : "prazo_proxima_solicitacao_hemoglobina"
 }
+const IDFiltrosCito = {
+  "NOMES DE A-Z": "paciente_nome",
+  "NOME DO ACS DE A-Z": "acs_nome",
+  "VENCIMENTO DA COLETA MAIS ANTIGO" : "vencimento_da_coleta",
+  "PRAZO PARA PRÓXIMA COLETA" : "prazo_proxima_coleta",
+}
+
 const Template = (args) =>{
   const dados = {
     "diabetes" : dataDiabetes,
@@ -868,25 +894,25 @@ Diabetes.args={
       colunas : colunasDiabetes,
       data : dataDiabetes
   },
-  cards : cards,
   datefiltros : datefiltrosDiabetes,
   IDFiltros : IDFiltrosDiabetes,
-  rotulosfiltros : rotulosfiltrosDiabetes
-
+  rotulosfiltros : rotulosfiltrosDiabetes,
+  atualizacao : "20/10/2023"
 }
 
 export const Hipertensao = Template.bind({});
 
 Hipertensao.args={
     painel : "hipertensao",
-    visualizacao : "equipe",
     dadosFiltros : dadosFiltros,
     tabela : {
         colunas : colunas,
         data : data
     },
-    cards : cards
-}
+    datefiltros : datefiltros,
+    IDFiltros : IDFiltrosHipertensao,
+    rotulosfiltros : rotulosfiltrosHipertensao
+  }
 
 export const Cito = Template.bind({});
 
@@ -897,4 +923,8 @@ Cito.args={
       colunas : colunasCito,
       data : dataCito
   },
+  datefiltros : datefiltrosCito,
+  IDFiltros : IDFiltrosCito,
+  rotulosfiltros : rotulosfiltrosCito
+
 }

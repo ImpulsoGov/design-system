@@ -5,15 +5,29 @@ import { ButtonLightSubmit } from "../ButtonLight/ButtonLight";
 import { ButtonColorSubmit } from "../ButtonColor/ButtonColor";
 import { TabelaHiperDia } from "../TabelaHiperDia";
 
-//Essa função considera que str esta no formato dd/mm/aa
 const stringToDate = (str)=>{
     if(!str) return null
-    const parts = str.split('-');
-    const ano = parseInt(parts[0]);
-    const mes = parseInt(parts[1]) -1;
-    const dia = parseInt(parts[2]);
-    const date = new Date(ano, mes ,dia);
-    return date
+    if(str=="-") return null
+    //Essa função considera que str esta no formato aaaa-mm-dd
+    const dataFormatoTraco = (str)=>{
+        const parts = str.split('-');
+        const ano = parseInt(parts[0]);
+        const mes = parseInt(parts[1]) -1;
+        const dia = parseInt(parts[2]);
+        const date = new Date(ano, mes ,dia);
+        return date
+    }
+    //Essa função considera que str esta no formato dd/mm/aaaa
+    const dataFormatoBarra = (str)=>{
+        const parts = str.split('/');
+        const ano = parseInt(parts[2]);
+        const mes = parseInt(parts[1]) -1;
+        const dia = parseInt(parts[0]);
+        const date = new Date(ano, mes ,dia);
+        return date
+    }
+    if(str.includes('/')) return dataFormatoBarra(str) 
+    if(str.includes('-')) return dataFormatoTraco(str) 
 }
 const SortData = ({
     data,
@@ -46,6 +60,7 @@ const SortData = ({
 }
 const FilterData = (props)=>{
     const filtros = ValuesToChavesFiltros(props.value,props.setChavesFiltros,props.dadosFiltros)
+    console.log(filtros)
     const agruparChavesIguais =(filtros)=>{
         const chavesUnicas = [...new Set(filtros.flatMap(objeto => Object.keys(objeto)))];
         return chavesUnicas.map(chave => {
@@ -66,14 +81,17 @@ const ValuesToChavesFiltros = (value,setChavesFiltros,dadosFiltros)=>{
     const checkboxes = Object.keys(value).map(key=>{
         if(value[key]) return key
     }) 
+    console.log(checkboxes)
     const chaves = []
     checkboxes.forEach(checkbox=>{
         let filtro
         dadosFiltros.forEach(dadoFiltro=>{
+            console.log(checkbox,dadoFiltro.data,dadoFiltro.data.includes(checkbox))
             if(dadoFiltro.data.includes(checkbox)) filtro = dadoFiltro.filtro
         })
-        if(filtro) chaves.push({ [filtro] : checkbox})
+        if(filtro) chaves.push({ [filtro] : Number(checkbox) ? Number(checkbox) : checkbox})
     })
+    console.log(chaves)
     setChavesFiltros(()=>chaves)
     return chaves
 }
@@ -156,10 +174,10 @@ const Ordenar = (props)=>{
     }
     return(
         <div className={style.containerOrdenar}>
-            <p 
+            <div 
                 className={style.limparOrdenacao}
                 onClick={limpar}
-            >Limpar ordenação</p>
+            >Limpar ordenação</div>
             <p className={style.OrdenarPor}>Ordenar por:</p>
             {filtros_painel.rotulos.map((label)=><CardFiltro label={label} setOrdenar={props.setOrdenar} ordenar={props.ordenar} ID={filtros_painel.ID} key={label} />)}
             <ButtonColorSubmit label="ORDENAR LISTA" submit={SortData} arg={{data : props.data, filtro : props.ordenar, setData:props.setData, datefiltros : props.datefiltros, setModal : props.setModal, setOrdenacaoAplicada : props.setOrdenacaoAplicada}}/>            
@@ -294,7 +312,8 @@ const PainelBuscaAtiva = ({
     setData,
     datefiltros,
     IDFiltros,
-    rotulosfiltros
+    rotulosfiltros,
+    atualizacao
 })=>{
     const [showOrdenarModal,setShowOrdenarModal] = useState(false)
     const [showFiltrosModal,setShowFiltrosModal] = useState(false)
@@ -397,6 +416,9 @@ const PainelBuscaAtiva = ({
                 tabela={tabela.data}
                 ordenacaoAplicada={ordenacaoAplicada}
             />
+            <div className={style.AtualizacaoConteiner}>
+                <div className={style.Atualizacao}>REGISTRO DE PRODUÇÃO MAIS RECENTE : {atualizacao}</div>
+            </div>
             <TabelaHiperDia 
                 colunas={tabela.colunas} 
                 data={data} 

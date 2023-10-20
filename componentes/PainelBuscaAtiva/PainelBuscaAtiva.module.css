@@ -199,7 +199,29 @@
     padding: 15px;
     background-color: #FFF;
 }
-
+.AtualizacaoConteiner{
+    display : flex;
+    justify-content : right;
+    padding-right : 75px;
+    margin-top: 40px;
+}
+.Atualizacao{
+    background-color:#EFF5F9;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+    text-align: center;
+    width: fit-content;
+    padding: 8px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+}
 @media screen and (max-width : 1023px) {
     .ToolBar{
         flex-direction: column;
@@ -210,10 +232,29 @@
         height: 60px;
         text-align: center;
     }
+    .AtualizacaoConteiner{
+        justify-content : center;
+        padding-right : 0px;
+    }
+    .Atualizacao{
+        width: 80%;
+    }
 }
 
 @media screen and (max-width : 1365px) {
     .SearchBar{
         width: 40%;
     }
+}
+@media screen and (max-width : 1919px) {
+    .AtualizacaoConteiner{
+        padding-right : 100px;
+    }
+
+}
+@media screen and (min-width : 1920px) {
+    .AtualizacaoConteiner{
+        padding-right : 200px;
+    }
+
 }
