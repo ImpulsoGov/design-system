@@ -260,7 +260,12 @@
   .NavBarSubMenuContainerColorIP {
     background-color: #2EB380;
   }
-
+  .NavBarSubMenuContainerCinza {
+    background-color: #E6ECF0;
+  }
+  .NavBarSubMenuContainerCinza:hover {
+    background-color: #d7dee2;
+  }
   .NavBarSubMenuContainerColorIP:hover {
     background-color: #55D499;
   }
@@ -275,6 +280,7 @@
   }
 
   .NavBarSubMenuContainerWhite .NavBarSubMenuAnchor,
+  .NavBarSubMenuContainerCinza .NavBarSubMenuAnchor,
   .NavBarSubMenuContainerWhiteSM .NavBarSubMenuAnchor {
     color: #606E78;
   }

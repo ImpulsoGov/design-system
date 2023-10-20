@@ -810,6 +810,68 @@ White.args={
         }
     }
 }
+export const Cinza = Template.bind({});
+Cinza.args={
+    user: loggedUser,
+    login: {
+        titulo: "Faça o login para ver o painel de busca ativa"
+    },
+    data:data,
+    theme:{
+        logoProjeto: "https://media.graphassets.com/3Vvlszx1RraNWFWyfgaT",
+            cor: "Cinza",
+        logoLink: "/inicio"
+    },
+    menu:
+        [
+            { label: "A Impulso Gov", url: "/impulsogov" },
+            { label: "Consultoria", url: "/consultoria" },
+            {
+                label: "Análise",
+                url: "analise" ,
+                sub : subMenus
+            },
+        ],
+    subtitles:[
+        { label: "Indicadores de Desempenho", url: "/indicadores" },
+        { label: "Capitação Ponderada", url: "/capitacao" },
+        { label: "Ações Estratégicas", url: "/acoes-estrategicas" },
+    ],
+    seletorMunicipios: true,
+    NavBarIconBranco:"https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconBranco.svg",
+    NavBarIconDark:"https://raw.githubusercontent.com/ImpulsoGov/ImpulsoPrevine/main/public/hamburgerIconDark.svg",
+    esqueciMinhaSenha : {
+        reqs : loggedReqsEsqueciSenha,
+        chamadas: {
+            sucesso: "Agora é só clicar no botão ENTRAR com seu e-mail e a senha criada."
+        }
+    },
+    ModalInicio:{
+        titulo: "Faça o login para ver os dados restritos.",
+        chamada: "Se esse é o seu primeiro acesso e sua senha ainda não foi criada, clique abaixo em ‘primeiro acesso’. Se você já possui uma senha, clique em ‘entrar’.",
+        botaoPrincipal : {
+            label: "entrar",
+            submit: ()=>console.log("teste")
+        },
+        botaoSecundario : {
+            label: "primeiro acesso",
+            submit: ()=>console.log("teste")
+        },
+        botaoSecundario : {
+            label: "primeiro acesso",
+        },
+        botaoAjuda: {
+          label: 'ESTOU COM PROBLEMAS NO LOGIN',
+          link: 'https://docs.google.com/forms/d/e/1FAIpQLSe1i7zkVOz-T24xfD3F4XCM2J-hYnoTKYCMHG3EVMLUoBNpMg/viewform?usp=sf_link'
+        },
+    },
+    primeiroAcesso:{
+        reqs: reqsPrimeiroAcesso,
+        chamadas: {
+            sucesso: "Agora é só clicar no botão ENTRAR com seu e-mail e a senha criada."
+        }
+    }
+}
 
 export const WhiteLogout = Template.bind({});
 WhiteLogout.args={
