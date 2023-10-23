@@ -207,7 +207,6 @@ const FiltroBody = ({
                 {
                     show &&
                     <div className={style.ConteinerFiltros}>
-                        {/* <div className={style.MarcarTodas}>Marcar Todas</div> */}
                         {
                             data.data.sort().map((item)=>{
                                 return(
@@ -252,7 +251,7 @@ const Filtro = ({
             <div className={style.LimparFiltros} onClick={LimparFiltros}>Limpar Filtros</div>
             <div style={{overflowY : 'scroll',height:'70vh',width : '120%'}}>
                 {
-                    data.sort((a,b)=>a.filtro.localeCompare(b.filtro)).map((filtro)=><FiltroBody
+                    data.map((filtro)=><FiltroBody
                         data={filtro} 
                         key={filtro.rotulo}
                         chavesFiltros={chavesFiltros}
