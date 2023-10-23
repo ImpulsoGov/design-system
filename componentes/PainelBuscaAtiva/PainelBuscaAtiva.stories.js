@@ -846,6 +846,7 @@ const rotulosfiltrosCito = [
   "NOMES DE A-Z",
   "NOME DO ACS DE A-Z",
   "VENCIMENTO DA COLETA MAIS ANTIGO",
+  "IDADE",
   "PRAZO PARA PRÓXIMA COLETA",
 ]
 
@@ -869,6 +870,7 @@ const IDFiltrosDiabetes = {
 const IDFiltrosCito = {
   "NOMES DE A-Z": "paciente_nome",
   "NOME DO ACS DE A-Z": "acs_nome",
+  "IDADE" : "idade",
   "VENCIMENTO DA COLETA MAIS ANTIGO" : "vencimento_da_coleta",
   "PRAZO PARA PRÓXIMA COLETA" : "prazo_proxima_coleta",
 }
