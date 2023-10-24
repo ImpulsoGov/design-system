@@ -62,7 +62,6 @@
 
 .CardInfoIndicadorContainer {
     height: fit-content;
-    
 }
 
 .TipoC .CardInfoIndicadorContainer {
@@ -73,7 +72,7 @@
 .CardInfoIndicador {
     margin-right: 10px; 
     font-weight: bold;
-    font-size: 33px;
+    font-size: 32px;
     color: black;
 }
 
