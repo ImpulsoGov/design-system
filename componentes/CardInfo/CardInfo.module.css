@@ -11,6 +11,8 @@
     font-weight: 400;
     padding: 25px;
     border-radius: 5px;
+    justify-content: center;
+   
 }
 
 .TipoB {
@@ -59,11 +61,8 @@
 }
 
 .CardInfoIndicadorContainer {
-    display: flex;
-    gap: 10px;
     height: fit-content;
-    align-items: flex-end;
-    flex-wrap: wrap;
+    
 }
 
 .TipoC .CardInfoIndicadorContainer {
@@ -72,12 +71,15 @@
 }
 
 .CardInfoIndicador {
-    color: black;
-    font-size: 32px;
+    margin-right: 10px; 
     font-weight: bold;
+    font-size: 33px;
+    color: black;
 }
 
-.CardInfoIndicadorDescricao,
+.CardInfoIndicadorDescricao {
+    font-size:14px;
+}
 .CardInfoDescricao {
     font-size: 14px;
 }
