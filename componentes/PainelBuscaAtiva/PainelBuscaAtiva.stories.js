@@ -721,7 +721,8 @@ const dataCito = [
         "estabelecimento_nome": "Unidade de Saude da Familia Taboao",
         "equipe_ine": "0002277573",
         "ine_master": "0002277573",
-        "equipe_nome": "ESF TABOAO 2"
+        "equipe_nome": "ESF TABOAO 2",
+        "dt_registro_producao_mais_recente" : "2023-10-22"
     },
     {
         "paciente_nome": "ACSA DOS SANTOS LOPES",
@@ -736,7 +737,8 @@ const dataCito = [
         "estabelecimento_nome": "Posto de Saude do Goiana",
         "equipe_ine": "0001540971",
         "ine_master": "0001540971",
-        "equipe_nome": "ESF GOIANA"
+        "equipe_nome": "ESF GOIANA",
+        "dt_registro_producao_mais_recente" : "2023-10-22"
     },
     {
         "paciente_nome": "ADAGUIMAR DE CASTRO SANTOS",
@@ -751,7 +753,9 @@ const dataCito = [
         "estabelecimento_nome": "Posto de Saude de Mailasqui Sao Roque",
         "equipe_ine": "0000369799",
         "ine_master": "0000369799",
-        "equipe_nome": "ESF MAILASQUI 1.2"
+        "equipe_nome": "ESF MAILASQUI 1.2",
+        "dt_registro_producao_mais_recente" : "2023-10-22"
+
     },
     {
         "paciente_nome": "ADA IMACULADA PADILHA DO SANOS",
@@ -766,7 +770,9 @@ const dataCito = [
         "estabelecimento_nome": "Unidade de Saude da Familia Carmo Sao Roque",
         "equipe_ine": "0000369802",
         "ine_master": "0000369802",
-        "equipe_nome": "ESF CARMO"
+        "equipe_nome": "ESF CARMO",
+        "dt_registro_producao_mais_recente" : "2023-10-22"
+
     },
     {
         "paciente_nome": "ADEILDES DE JESUS SOARES DOS SANTOS",
@@ -781,7 +787,9 @@ const dataCito = [
         "estabelecimento_nome": "Posto de Saude do Goiana",
         "equipe_ine": "0001540971",
         "ine_master": "0001540971",
-        "equipe_nome": "ESF GOIANA"
+        "equipe_nome": "ESF GOIANA",
+        "dt_registro_producao_mais_recente" : "2023-10-22"
+
     },
     {
         "paciente_nome": "ADEITA SOARES DE OLIVEIRA",
@@ -796,7 +804,9 @@ const dataCito = [
         "estabelecimento_nome": "Unidade de Saude da Familia Carmo Sao Roque",
         "equipe_ine": "0000369802",
         "ine_master": "0000369802",
-        "equipe_nome": "ESF CARMO"
+        "equipe_nome": "ESF CARMO",
+        "dt_registro_producao_mais_recente" : "2023-10-22"
+
     },
     {
         "paciente_nome": "ADELAIDE GOMES FERREIRA",
@@ -811,7 +821,9 @@ const dataCito = [
         "estabelecimento_nome": "Posto de Saude do Goiana",
         "equipe_ine": "0001540971",
         "ine_master": "0001540971",
-        "equipe_nome": "ESF GOIANA"
+        "equipe_nome": "ESF GOIANA",
+        "dt_registro_producao_mais_recente" : "2023-10-22"
+
     }
 ]
 const datefiltrosDiabetes = [
@@ -927,6 +939,15 @@ Cito.args={
   },
   datefiltros : datefiltrosCito,
   IDFiltros : IDFiltrosCito,
-  rotulosfiltros : rotulosfiltrosCito
-
+  rotulosfiltros : rotulosfiltrosCito,
+  atualizacao : new Date(dataCito.reduce((maisRecente, objeto) => {
+    const dataAtual = new Date(objeto.dt_registro_producao_mais_recente);
+    const dataMaisRecenteAnterior = new Date(maisRecente);
+    return dataAtual > dataMaisRecenteAnterior ? objeto.dt_registro_producao_mais_recente : maisRecente
+}, "2000-01-01")).toLocaleString('pt-BR', { 
+  timeZone: 'UTC',
+  year: 'numeric',
+  month: '2-digit',
+  day: '2-digit'
+ })
 }
