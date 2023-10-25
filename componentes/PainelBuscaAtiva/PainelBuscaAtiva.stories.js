@@ -816,7 +816,7 @@ const dataCito = [
         "prazo_proxima_coleta": "Em dia",
         "idade": 49,
         "id_faixa_etaria": 7,
-        "acs_nome": "Fabiana Matias de Oliveira",
+        "acs_nome": null,
         "estabelecimento_cnes": "2752506",
         "estabelecimento_nome": "Posto de Saude do Goiana",
         "equipe_ine": "0001540971",
