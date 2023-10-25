@@ -406,7 +406,7 @@ const PainelBuscaAtiva = ({
                 ordenacaoAplicada={ordenacaoAplicada}
             />
             <div className={style.AtualizacaoConteiner}>
-                <div className={style.Atualizacao}>REGISTRO DE PRODUÇÃO MAIS RECENTE : {atualizacao}</div>
+                <div className={style.Atualizacao}>produção mais recente recebida em: {atualizacao}</div>
             </div>
             <TabelaHiperDia 
                 colunas={tabela.colunas} 
