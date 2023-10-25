@@ -51,7 +51,7 @@ const SortData = ({
             return valueB - valueA
         }
     )}
-    const sortByString = (data)=>[...data].sort((a,b) => a[filtro].toString().localeCompare(b[filtro].toString()) )
+    const sortByString = (data)=>[...data].sort((a,b) => a[filtro]?.toString().localeCompare(b[filtro]?.toString()) )
     datefiltros.includes(filtro) ? 
     setData(sortByDate(data)) :
     setData(sortByString(data))
