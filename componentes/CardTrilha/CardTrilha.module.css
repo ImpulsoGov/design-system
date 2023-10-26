@@ -46,8 +46,7 @@
 }
 
 .BotoesCardTrilha{
-    display: inline-flex;
-    gap: 15px;
+    display: none;
 }
 .BotoesCardTrilhaMobile{
     display: none;
@@ -73,7 +72,9 @@
         width: 100%;
     }
     .BotoesCardTrilha{
-        display: none;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
     }   
     .BotoesCardTrilhaMobile{
         display: flex;
@@ -95,7 +96,9 @@
     }
     
     .BotoesCardTrilha{
-        display: none;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
     }   
     .BotoesCardTrilhaMobile{
         display: flex;
@@ -117,7 +120,10 @@
     }
     
     .BotoesCardTrilha{
-        display: none;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
     }
     .BotoesCardTrilhaMobile{
         display: flex;
