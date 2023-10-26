@@ -11,6 +11,30 @@ import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 import 'tippy.js/themes/light.css';
 
+const ProgressBar = ({ bgcolor, progress }) => {
+    const Parentdiv = {
+      height: 8,
+      width: '100%',
+      backgroundColor: '#9DEECD',
+      borderRadius: 40,
+      marginBottom: 10
+    }
+  
+    const Childdiv = {
+      height: '100%',
+      width: `${progress}%`,
+      backgroundColor: bgcolor,
+      borderRadius: 40,
+      textAlign: 'right'
+    }
+  
+    return (
+      <div style={Parentdiv}>
+        <div style={Childdiv}></div>
+      </div>
+    );
+  }
+
 const CardTrilha = ({
     titulo,
     progressao,
