@@ -61,14 +61,13 @@
         width: 100%;
     }
     .BotoesCardTrilha{
-        display: none;
-    }   
-    .BotoesCardTrilhaMobile{
-        display: flex;
-        flex-direction: column;
+        display: inline-flex;
         gap: 15px;
-
     }
+    .BotoesCardTrilhaMobile{
+        display: none;
+    }
+    
 }
 
 /* REGULAR */
