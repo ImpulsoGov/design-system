@@ -52,7 +52,7 @@ const CardTrilha = ({
                     <div className={style.CardTrilhaProgressoTitulo}>
                         {progressao}% da capacitação completa
                     </div>
-                    <div className={style.BotoesCardTrilha}>
+                    <div className={style.BotoesCardTrilhaMobile}>
                         <ButtonColor
                             label={progressao > 0 ? "CONTINUAR DE ONDE PAREI" : "INICIAR CAPACITAÇÃO"}
                             link={linkTrilha}
