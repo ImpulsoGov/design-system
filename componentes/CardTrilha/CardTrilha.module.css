@@ -57,14 +57,50 @@
 
 /* XLARGE */
 @media screen and (min-width: 1920px) {
+    .CardTrilha{
+        width: 100%;
+    }
+    .BotoesCardTrilha{
+        display: none;
+    }   
+    .BotoesCardTrilhaMobile{
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+
+    }
 }
 
 /* LARGE */
 @media screen and (min-width: 1440px) and (max-width: 1919px) {
+    .CardTrilha{
+        width: 100%;
+    }
+    .BotoesCardTrilha{
+        display: none;
+    }   
+    .BotoesCardTrilhaMobile{
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+
+    }
 }
 
 /* REGULAR */
 @media screen and (min-width: 1024px)and (max-width: 1439px) {
+    .CardTrilha{
+        width: 100%;
+    }
+    .BotoesCardTrilha{
+        display: none;
+    }   
+    .BotoesCardTrilhaMobile{
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+
+    }
 }
 
 /* MEDIUM */
