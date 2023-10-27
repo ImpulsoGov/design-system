@@ -49,11 +49,7 @@ const CardTrilha = ({
     const checkCardWidth = () => {
         if (cardRef.current) {
             const cardWidth = cardRef.current.offsetWidth;
-            if (cardWidth <= 1024) {
-                setIsMobileButton(true);
-            } else {
-                setIsMobileButton(false);
-            }
+            cardWidth < 1024 ? setIsMobileButton(true) : setIsMobileButton(false);
         }
     };
 

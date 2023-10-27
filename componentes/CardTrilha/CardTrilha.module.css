@@ -79,9 +79,6 @@
     .CardTrilha{
         width: 100%;
     }
-    .BotoesCardTrilha{
-        display: none;
-    }   
     .BotoesCardTrilhaMobile{
         display: flex;
         flex-direction: column;
@@ -101,9 +98,6 @@
         width: 100%;
     }
     
-    .BotoesCardTrilha{
-        display: none;
-    }   
     .BotoesCardTrilhaMobile{
         display: flex;
         flex-direction: column;
@@ -123,9 +117,6 @@
         width: 100%;
     }
     
-    .BotoesCardTrilha{
-        display: none;
-    }
     .BotoesCardTrilhaMobile{
         display: flex;
         flex-direction: column;
