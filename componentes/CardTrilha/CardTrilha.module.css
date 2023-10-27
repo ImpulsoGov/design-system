@@ -63,11 +63,7 @@
     .BotoesCardTrilha{
         display: inline-flex;
         gap: 15px;
-    }
-    .BotoesCardTrilhaMobile{
-        display: none;
-    }
-    
+    }    
 }
 
 /* REGULAR */
