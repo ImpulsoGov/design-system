@@ -55,12 +55,19 @@
 
 
 
-/* XLARGE */
-@media screen and (min-width: 1920px) {
-}
-
-/* LARGE */
-@media screen and (min-width: 1440px) and (max-width: 1919px) {
+/* LARGO (1024px - 3244px) */
+@media screen and (min-width: 1025px) and (max-width: 3244px) {
+    .CardTrilha{
+        width: 100%;
+    }
+    .BotoesCardTrilha{
+        display: inline-flex;
+        gap: 15px;
+    }
+    .BotoesCardTrilhaMobile{
+        display: none;
+    }
+    
 }
 
 /* REGULAR */
@@ -68,7 +75,7 @@
 }
 
 /* MEDIUM */
-@media screen and (min-width: 580px )and (max-width: 1023px) {
+@media screen and (min-width: 580px )and (max-width: 1024px) {
     .CardTrilha{
         width: 100%;
     }

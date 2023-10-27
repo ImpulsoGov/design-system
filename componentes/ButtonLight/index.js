@@ -1,1 +1,1 @@
-export { ButtonLight,ButtonLightSubmit,ButtonLightSubmitMobile,ButtonLightMobile, ButtonLightLarge } from "./ButtonLight";
+export { ButtonLight,ButtonLightSubmit,ButtonLightSubmitMobile,ButtonLightMobile, ButtonLightLarge,ButtonLightSubmitLarge } from "./ButtonLight";

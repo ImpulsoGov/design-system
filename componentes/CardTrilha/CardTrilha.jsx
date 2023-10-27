@@ -4,9 +4,10 @@ import {
     ButtonLight,
     ButtonLightMobile,
     ButtonLightSubmit,
-    ButtonLightSubmitMobile
+    ButtonLightSubmitMobile,
+    ButtonLightSubmitLarge
 } from "../ButtonLight/ButtonLight";
-import { ButtonColor, ButtonColorMobile } from "../ButtonColor/ButtonColor";
+import { ButtonColor, ButtonColorMobile, ButtonColorSubmitLarge, ButtonColorLarge } from "../ButtonColor/ButtonColor";
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 import 'tippy.js/themes/light.css';
@@ -48,7 +49,7 @@ const CardTrilha = ({
     const checkCardWidth = () => {
         if (cardRef.current) {
             const cardWidth = cardRef.current.offsetWidth;
-            if (cardWidth <= 1023) {
+            if (cardWidth <= 1024) {
                 setIsMobileButton(true);
             } else {
                 setIsMobileButton(false);
