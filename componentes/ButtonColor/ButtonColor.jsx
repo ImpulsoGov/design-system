@@ -116,6 +116,38 @@ const ButtonColorSubmitMultiple = ({
     )
 }
 
+const ButtonColorLarge = ({
+    label,
+    link
+})=>{
+    return(
+          <Link href={link}>
+            <a className={style.ButtonColorLarge}>
+                {label} 
+            </a>
+          </Link>
+    )
+  }
+
+const ButtonColorSubmitLarge = ({
+    label,
+    submit,
+    arg,
+    theme,
+    icon,
+    disable
+})=>{
+    return(
+        <button 
+            className={cx(style.ButtonColorContainerLarge, style[`${!disable ? theme : "disable"}`])}
+            onClick={()=>{if(!disable)submit(arg)}}
+        >
+            {icon && <img className={style.IconeRight} src={icon} />}
+            {label?.toUpperCase()}
+        </button>
+    )
+}
+
 ButtonColorSubmit.defaultProps = {
     theme: 'ColorIP'
 }
@@ -148,4 +180,4 @@ ButtonColorSubmitMultiple.propTypes = {
     theme: PropTypes.string
 }
 
-export {ButtonColor,ButtonColorSubmit,ButtonColorSubmitMultiple,ButtonColorSubmitMobile,ButtonColorMobile,ButtonColorSubmitIcon}
+export {ButtonColor,ButtonColorSubmit,ButtonColorSubmitMultiple,ButtonColorSubmitMobile,ButtonColorMobile,ButtonColorSubmitIcon, ButtonColorLarge,ButtonColorSubmitLarge}

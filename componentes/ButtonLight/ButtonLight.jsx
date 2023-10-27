@@ -79,6 +79,31 @@ const ButtonLightSubmit = ({
     )
 }
 
+const ButtonLightSubmitLarge = ({
+    label,
+    submit,
+    icon,
+    arg,
+    disabled
+})=>{
+    return(
+        <button 
+            className={disabled ? style.ButtonLightDisabled : style.ButtonLightContainerLarge}
+            onClick={()=>{
+                if(arg&&!disabled){
+                    submit(arg)
+                }else{
+                    if(!disabled) submit()
+                }
+                    
+            }}
+        >
+            {icon && <img className={style.IconeRight} src={icon} />}
+            {label?.toUpperCase()}
+        </button>
+    )
+}
+
 const ButtonLightSubmitMobile = ({
     label,
     submit,
@@ -109,4 +134,4 @@ ButtonLightMobile.propTypes = {
     disabled: PropTypes.bool,
 }
 
-export {ButtonLight,ButtonLightSubmit,ButtonLightSubmitMobile,ButtonLightMobile, ButtonLightLarge}
+export {ButtonLight,ButtonLightSubmit,ButtonLightSubmitMobile,ButtonLightMobile, ButtonLightLarge,ButtonLightSubmitLarge}

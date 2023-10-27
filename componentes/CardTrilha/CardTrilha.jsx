@@ -4,9 +4,10 @@ import {
     ButtonLight,
     ButtonLightMobile,
     ButtonLightSubmit,
-    ButtonLightSubmitMobile
+    ButtonLightSubmitMobile,
+    ButtonLightSubmitLarge
 } from "../ButtonLight/ButtonLight";
-import { ButtonColor, ButtonColorMobile } from "../ButtonColor/ButtonColor";
+import { ButtonColor, ButtonColorMobile, ButtonColorSubmitLarge, ButtonColorLarge } from "../ButtonColor/ButtonColor";
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 import 'tippy.js/themes/light.css';
