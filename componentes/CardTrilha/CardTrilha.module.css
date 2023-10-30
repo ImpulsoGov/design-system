@@ -50,9 +50,11 @@
     gap: 15px;
 }
 .BotoesCardTrilhaMobile{
-    display: none;
-}
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 
+}
 
 
 /* LARGO (1024px - 3244px) */
@@ -63,11 +65,7 @@
     .BotoesCardTrilha{
         display: inline-flex;
         gap: 15px;
-    }
-    .BotoesCardTrilhaMobile{
-        display: none;
-    }
-    
+    }    
 }
 
 /* REGULAR */
@@ -79,9 +77,6 @@
     .CardTrilha{
         width: 100%;
     }
-    .BotoesCardTrilha{
-        display: none;
-    }   
     .BotoesCardTrilhaMobile{
         display: flex;
         flex-direction: column;
@@ -101,9 +96,6 @@
         width: 100%;
     }
     
-    .BotoesCardTrilha{
-        display: none;
-    }   
     .BotoesCardTrilhaMobile{
         display: flex;
         flex-direction: column;
@@ -123,9 +115,6 @@
         width: 100%;
     }
     
-    .BotoesCardTrilha{
-        display: none;
-    }
     .BotoesCardTrilhaMobile{
         display: flex;
         flex-direction: column;
