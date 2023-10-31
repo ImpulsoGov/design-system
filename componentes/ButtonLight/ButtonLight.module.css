@@ -71,9 +71,15 @@
     white-space: nowrap;
     display: flex;
     align-items: center;
+    justify-content: center;
     text-decoration: none;
 }
 
+.ButtonLightContainerLarge:hover{
+    border: 1px solid rgba(31, 31, 31, 1);
+    background-color: #fff;
+    cursor: pointer;
+}
 
 .ButtonLightContainer:hover{
     border: 1px solid rgba(31, 31, 31, 1);
