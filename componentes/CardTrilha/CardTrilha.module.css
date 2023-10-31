@@ -49,6 +49,12 @@
     display: inline-flex;
     gap: 15px;
 }
+.BotoesCardTrilhaMobile{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+}
 
 
 /* LARGO (1024px - 3244px) */
