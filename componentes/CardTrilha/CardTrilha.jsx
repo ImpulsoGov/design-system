@@ -90,7 +90,7 @@ const CardTrilha = ({
                             theme="light"
                         >
                             <div>
-                                <ButtonLightSubmitMobile
+                                <ButtonLightSubmitLarge
                                     label="RETIRE SEU CERTIFICADO"
                                     submit={Certificado}
                                     disabled={!certificadoLiberado}
