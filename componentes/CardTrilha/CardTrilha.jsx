@@ -5,7 +5,8 @@ import {
     ButtonLightMobile,
     ButtonLightSubmit,
     ButtonLightSubmitMobile,
-    ButtonLightSubmitLarge
+    ButtonLightSubmitLarge,
+    ButtonLightLarge
 } from "../ButtonLight/ButtonLight";
 import { ButtonColor, ButtonColorMobile, ButtonColorSubmitLarge, ButtonColorLarge } from "../ButtonColor/ButtonColor";
 import Tippy from '@tippyjs/react';
@@ -47,10 +48,7 @@ const CardTrilha = ({
     const cardRef = useRef(null);
 
     const checkCardWidth = () => {
-        if (cardRef.current) {
-            const cardWidth = cardRef.current.offsetWidth;
-            cardWidth < 600 ? setIsMobileButton(true) : setIsMobileButton(false);
-        }
+        if (cardRef.current) setIsMobileButton(cardRef.current.offsetWidth < 600)
     };
 
     const [isMobileButton, setIsMobileButton] = useState(false);
@@ -75,12 +73,12 @@ const CardTrilha = ({
                 </div>
                 {isMobileButton ? (
                     <div className={style.BotoesCardTrilhaMobile}>
-                        <ButtonColorMobile
+                        <ButtonColorLarge
                             label={progressao > 0 ? "CONTINUAR DE ONDE PAREI" : "INICIAR CAPACITAÇÃO"}
                             link={linkTrilha}
                         />
                         {linkSobre && (
-                            <ButtonLightMobile
+                            <ButtonLightLarge
                                 label="VER CONTEÚDO"
                                 link={linkSobre}
                             />
