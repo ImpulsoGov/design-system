@@ -121,6 +121,7 @@
     white-space: nowrap;
     display: flex;
     align-items: center;
+    justify-content: center;
     text-decoration: none;
 }
 .ButtonLightLargeDisabled {
@@ -139,8 +140,9 @@
     white-space: nowrap;
     display: flex;
     align-items: center;
+    justify-content: center;
     text-decoration: none;
-    width : 100%
+    width : 100%;
 }
 
 .ButtonLightDisabled:hover {
