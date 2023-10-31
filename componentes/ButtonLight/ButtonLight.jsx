@@ -88,7 +88,7 @@ const ButtonLightSubmitLarge = ({
 })=>{
     return(
         <button 
-            className={disabled ? style.ButtonLightDisabled : style.ButtonLightContainerLarge}
+            className={disabled ? style.ButtonLightLargeDisabled : style.ButtonLightContainerLarge}
             onClick={()=>{
                 if(arg&&!disabled){
                     submit(arg)
