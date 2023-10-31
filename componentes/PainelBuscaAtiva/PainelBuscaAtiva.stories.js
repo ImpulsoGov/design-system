@@ -869,7 +869,6 @@ const IDFiltrosHipertensao = {
   "DATA DA AFERIÇÃO DE PA MAIS RECENTE": "dt_afericao_pressao_mais_recente",
   "PRAZO PARA PRÓXIMA AFERIÇÃO DE PA" : "prazo_proxima_afericao_pa",
   "NOME DO ACS DE A-Z" : "acs_nome_cadastro"
-
 }
 const IDFiltrosDiabetes = {
   "NOMES DE A-Z": "cidadao_nome",
@@ -886,6 +885,30 @@ const IDFiltrosCito = {
   "VENCIMENTO DA COLETA MAIS ANTIGO" : "vencimento_da_coleta",
   "PRAZO PARA PRÓXIMA COLETA" : "prazo_proxima_coleta",
 }
+const IDFiltrosOrdenacaoHipertensao = {
+  "cidadao_nome" : "asc",
+  "dt_consulta_mais_recente" : "asc",
+  "prazo_proxima_consulta" : "asc",
+  "dt_afericao_pressao_mais_recente" : "asc",
+  "prazo_proxima_afericao_pa" : "asc",
+  "acs_nome_cadastro" : "asc",
+}
+const IDFiltrosOrdenacaoDiabetes = {
+  "cidadao_nome" : "asc",
+  "acs_nome_cadastro" : "asc",
+  "dt_consulta_mais_recente" : "asc",
+  "prazo_proxima_consulta" : "asc",
+  "dt_solicitacao_hemoglobina_glicada_mais_recente" : "asc",
+  "prazo_proxima_solicitacao_hemoglobina" : "asc",
+}
+const IDFiltrosOrdenacaoCito = {
+  "paciente_nome" : "asc",
+  "acs_nome" : "asc",
+  "idade" : "asc",
+  "vencimento_da_coleta" : "desc",
+  "prazo_proxima_coleta" : "asc",
+}
+
 
 const Template = (args) =>{
   const dados = {
@@ -911,22 +934,24 @@ Diabetes.args={
   datefiltros : datefiltrosDiabetes,
   IDFiltros : IDFiltrosDiabetes,
   rotulosfiltros : rotulosfiltrosDiabetes,
+  IDFiltrosOrdenacao : IDFiltrosOrdenacaoDiabetes,
   atualizacao : "20/10/2023"
 }
 
 export const Hipertensao = Template.bind({});
 
 Hipertensao.args={
-    painel : "hipertensao",
-    dadosFiltros : dadosFiltros,
-    tabela : {
-        colunas : colunas,
-        data : data
-    },
-    datefiltros : datefiltros,
-    IDFiltros : IDFiltrosHipertensao,
-    rotulosfiltros : rotulosfiltrosHipertensao
-  }
+  painel : "hipertensao",
+  dadosFiltros : dadosFiltros,
+  tabela : {
+      colunas : colunas,
+      data : data
+  },
+  datefiltros : datefiltros,
+  IDFiltros : IDFiltrosHipertensao,
+  rotulosfiltros : rotulosfiltrosHipertensao,
+  IDFiltrosOrdenacao : IDFiltrosOrdenacaoHipertensao
+}
 
 export const Cito = Template.bind({});
 
@@ -940,6 +965,7 @@ Cito.args={
   datefiltros : datefiltrosCito,
   IDFiltros : IDFiltrosCito,
   rotulosfiltros : rotulosfiltrosCito,
+  IDFiltrosOrdenacao : IDFiltrosOrdenacaoCito,
   atualizacao : new Date(dataCito.reduce((maisRecente, objeto) => {
     const dataAtual = new Date(objeto.dt_registro_producao_mais_recente);
     const dataMaisRecenteAnterior = new Date(maisRecente);
