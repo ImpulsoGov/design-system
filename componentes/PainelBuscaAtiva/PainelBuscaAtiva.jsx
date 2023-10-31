@@ -35,20 +35,21 @@ const SortData = ({
     filtro,
     datefiltros,
     setModal,
-    setOrdenacaoAplicada
+    setOrdenacaoAplicada,
+    IDFiltrosOrdenacao
 })=>{
     const sortByDate = (data)=>{
         return [...data].sort((a,b) =>{ 
             const valueA = stringToDate(a[filtro]) 
             const valueB = stringToDate(b[filtro])
             if (valueA === null && valueB === null) {
-                return 0;
-              } else if (valueA === null) {
-                return 1;
-              } else if (valueB === null) {
-                return -1;
-              }
-            return valueB - valueA
+            return 0;
+            } else if (valueA === null) {
+            return 1;
+            } else if (valueB === null) {
+            return -1;
+            }
+            return IDFiltrosOrdenacao[filtro] == "desc" ?  valueA - valueB : valueB - valueA 
         }
     )}
     const sortByString = (data)=>[...data].sort((a,b) => a[filtro]?.toString().localeCompare(b[filtro]?.toString()) )
@@ -173,7 +174,7 @@ const Ordenar = (props)=>{
             >Limpar ordenação</div>
             <p className={style.OrdenarPor}>Ordenar por:</p>
             {filtros_painel.rotulos.map((label)=><CardFiltro label={label} setOrdenar={props.setOrdenar} ordenar={props.ordenar} ID={filtros_painel.ID} key={label} />)}
-            <ButtonColorSubmit label="ORDENAR LISTA" submit={SortData} arg={{data : props.data, filtro : props.ordenar, setData:props.setData, datefiltros : props.datefiltros, setModal : props.setModal, setOrdenacaoAplicada : props.setOrdenacaoAplicada}}/>            
+            <ButtonColorSubmit label="ORDENAR LISTA" submit={SortData} arg={{data : props.data, filtro : props.ordenar, setData:props.setData, datefiltros : props.datefiltros, setModal : props.setModal, setOrdenacaoAplicada : props.setOrdenacaoAplicada, IDFiltrosOrdenacao : props.IDFiltrosOrdenacao}}/>            
         </div>
     )
 }
@@ -303,6 +304,7 @@ const PainelBuscaAtiva = ({
     datefiltros,
     IDFiltros,
     rotulosfiltros,
+    IDFiltrosOrdenacao,
     atualizacao
 })=>{
     const [showOrdenarModal,setShowOrdenarModal] = useState(false)
@@ -375,6 +377,7 @@ const PainelBuscaAtiva = ({
                                 setOrdenacaoAplicada={setOrdenacaoAplicada}
                                 IDFiltros={IDFiltros}
                                 rotulosfiltros={rotulosfiltros}
+                                IDFiltrosOrdenacao={IDFiltrosOrdenacao}
                             />
                         }
                         {
