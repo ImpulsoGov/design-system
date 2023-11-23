@@ -305,7 +305,8 @@ const PainelBuscaAtiva = ({
     IDFiltros,
     rotulosfiltros,
     IDFiltrosOrdenacao,
-    atualizacao
+    atualizacao,
+    rowHeight
 })=>{
     const [showOrdenarModal,setShowOrdenarModal] = useState(false)
     const [showFiltrosModal,setShowFiltrosModal] = useState(false)
@@ -414,6 +415,7 @@ const PainelBuscaAtiva = ({
             <TabelaHiperDia 
                 colunas={tabela.colunas} 
                 data={data} 
+                rowHeight={rowHeight ? rowHeight : null}
             />
         </div>
     )
