@@ -57,7 +57,7 @@
   min-width: 100%;
   width: 100%;
   height: 63px;
-  padding: 0 9%;
+  padding: 0 6%;
   border-bottom: 1px solid #D1D1D2;
 
 
@@ -84,9 +84,9 @@
 
 .PanelSelectorButtonSelected {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
 
-  border-top: 3px solid #141919;
+  border-bottom: 3px solid #141919;
   outline: none;
   background: none;
   
@@ -105,7 +105,7 @@
 
 .PanelSelectorButton {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
 
   width: fit-content;
 
