@@ -5,9 +5,10 @@ import style from "./TabelaHiperDia.module.css"
 const TabelaHiperDia = ({
   data,
   colunas,
+  rowHeight
   }) => {
     const styles = {
-      padding:40,
+      padding:"10px 40px 40px 40px",
       height: "80vh",
       width: window.innerWidth < 1024 ? '100%' : '93%',
       marginLeft : window.innerWidth < 1024 ? 0 : '45px'
@@ -27,7 +28,7 @@ const TabelaHiperDia = ({
                     pageSizeOptions={[10, 30, 45, 100]}
                     rowsPerPageOptions={[30]}
                     getRowId={(row) => row.id}
-                    rowHeight={35}
+                    rowHeight={ rowHeight ? rowHeight : 35}
                     localeText={ptBR.components.MuiDataGrid.defaultProps.localeText}
                     sx={{
                         '& .MuiDataGrid-columnHeaderTitle': {

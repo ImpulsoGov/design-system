@@ -396,6 +396,9 @@ const PainelBuscaAtiva = ({
                     </Modal>
                 </div>
             }
+            <div className={style.AtualizacaoConteiner}>
+                <div className={style.Atualizacao}>PRODUÇÃO MAIS RECENTE REBIDA EM: {atualizacao}</div>
+            </div>
             <ToolBar 
                 showFiltros={showFiltros} 
                 showOrdenar={showOrdenar} 
@@ -408,9 +411,6 @@ const PainelBuscaAtiva = ({
                 tabela={tabela.data}
                 ordenacaoAplicada={ordenacaoAplicada}
             />
-            <div className={style.AtualizacaoConteiner}>
-                <div className={style.Atualizacao}>PRODUÇÃO MAIS RECENTE REBIDA EM: {atualizacao}</div>
-            </div>
             <TabelaHiperDia 
                 colunas={tabela.colunas} 
                 data={data} 

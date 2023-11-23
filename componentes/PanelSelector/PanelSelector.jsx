@@ -36,7 +36,6 @@ const PanelSelector = ({
 
         <div className={cx(style.PanelSelectorContainerIP,style["PanelSelectorContainerPosition"+states.activeTitleTabIndex.toString()])}>
           {list[states.activeTitleTabIndex].map((item, index) => (
-            
             <div
               onClick={() => {
                 states.setActiveTabIndex(index);
