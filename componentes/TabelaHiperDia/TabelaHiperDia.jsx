@@ -8,7 +8,7 @@ const TabelaHiperDia = ({
   rowHeight
   }) => {
     const styles = {
-      padding:"10px 40px 40px 40px",
+      padding:"20px 40px 40px 40px",
       height: "80vh",
       width: window.innerWidth < 1024 ? '100%' : '93%',
       marginLeft : window.innerWidth < 1024 ? 0 : '45px'
