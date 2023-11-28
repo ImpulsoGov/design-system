@@ -398,7 +398,7 @@ const PainelBuscaAtiva = ({
                 </div>
             }
             <div className={style.AtualizacaoConteiner}>
-                <div className={style.Atualizacao}>PRODUÇÃO MAIS RECENTE REBIDA EM: {atualizacao}</div>
+                <div className={style.Atualizacao}>PRODUÇÃO MAIS RECENTE RECEBIDA EM: {atualizacao}</div>
             </div>
             <ToolBar 
                 showFiltros={showFiltros} 
