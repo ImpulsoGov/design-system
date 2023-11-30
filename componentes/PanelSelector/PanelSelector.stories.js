@@ -34,6 +34,46 @@ const labels = [
     label: "Incentivos a Ações Estratégicas",
   },
 ]
+const labelsComponentes = [
+  [
+    {
+      label: "Indicadores de Desempenho",
+    },
+    {
+      label: "Captação Ponderada",
+    },
+    {
+      label: "Incentivos a Ações Estratégicas",
+    },
+  ],
+  [
+    {
+      label: "Indicadores",
+    },
+    {
+      label: "Captação",
+    },
+    {
+      label: "Incentivos",
+    },
+  ],
+  [
+    {
+      label: 'GRÁFICOS'
+    },
+    {
+      label: 'GESTANTES ATIVAS'
+    },
+    {
+      label: 'GESTANTES ENCERRADAS'
+    },
+],
+  [
+    {
+      label: 'GESTANTES SEM DUM'
+    },
+],
+]
 const labelsBuscaAtiva = [
   [
     {
@@ -79,6 +119,20 @@ const titles = [
     label: "Análises",
   }
 ]
+const titlesComponentes = [
+  {
+    label: "Análises0",
+  },
+  {
+    label: "Análises1",
+  },
+  {
+    label: "Análises2",
+  },
+  {
+    label: "Análises3",
+  }
+]
 
 
 export default {
@@ -103,7 +157,7 @@ export default {
 const Child_zero = ()=><div>Child 0</div>
 const Child_one = ()=><div>Child 1</div>
 const Child_two = ()=><div>Child 2</div>
-const children = [<Child_zero/>,<Child_one/>,<Child_two/>]
+const children = [[<Child_zero/>,<Child_one/>,<Child_two/>],[<Child_zero/>,<Child_one/>,<Child_two/>],[<Child_zero/>,<Child_one/>,<Child_two/>],[<Child_zero/>,<Child_one/>,<Child_two/>]]
 
 const Template = (args) => {
   const [activeTabIndex, setActiveTabIndex] = useState(0);
@@ -140,9 +194,9 @@ Analises.args={
 export const Componentes = Template.bind({});
 Componentes.args={
   links: [dsLink],
-  list: [labels],
-  titles: titles,
+  list: labelsComponentes,
+  titles: titlesComponentes,
   conteudo : "components",
-  components : [children]
+  components : children
 }
   
