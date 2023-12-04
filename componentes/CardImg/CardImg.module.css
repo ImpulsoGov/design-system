@@ -1,0 +1,110 @@
+.CardInfo{
+  border: solid 1px #9494946b;
+  color: #9ba4a5;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  font-size: 16px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  padding: 25px;
+  border-radius: 5px;
+  background-color: #fff;
+  word-break: break-word;
+}
+.TipoB{
+  flex-direction: row;
+  gap: 40px;
+}
+.TipoB .CardInfoDireita{
+  width: 60%;
+}
+.TipoB .CardInfoEsquerda{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  height: 100%;
+}
+.TipoC{
+  gap: 20px;
+}
+
+.CardInfoIndicadorContainer{
+  display: flex;
+  gap: 10px;
+  height: fit-content;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+.TipoC .CardInfoIndicadorContainer{
+  flex-direction: column;
+  align-items: flex-start;
+}
+.CardInfoIndicador{
+  color: #1F1F1F;
+  font-size: 32px;
+  font-weight: bold;
+}
+.CardInfoDescricao{
+  color: var(--grey-darkest, #1F1F1F);
+  font-feature-settings: 'clig' off, 'liga' off;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 30px */
+  letter-spacing: -0.2px;
+}
+.CardInfoIndicadorDescricao, .CardInfoDescricao{
+  font-size: 14px;
+  color: #1F1F1F;
+}
+.CardInfoIndiceContainer{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.CardInfoImagemContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  margin-bottom: 16px; 
+}
+
+.CardInfoImagem {
+  max-width: 100%;
+  max-height: 100%; 
+  border-radius: 5px;
+}
+
+/* MEDIUM */
+@media(max-width: 780px) {
+  .CardInfo {
+      font-size: 14px;
+  }
+
+  .CardInfoFonte {
+      font-size: 12px;
+  }
+
+  .CardInfoIndicador{
+      font-size: 25px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .TipoB {
+      flex-direction: column;
+      gap: 15px;
+  }
+
+  .TipoB .CardInfoDireita,
+  .TipoB .CardInfoEsquerda {
+      width: 100%;
+  }
+}
