@@ -28,5 +28,5 @@ export const Completo = Template.bind({});
 Completo.args={
     indicador:"Conteúdos e materiais com dicas",
     descricao:"Semanalmente enviamos para o seu e-mail sugestões para melhorar sua rotina de trabalho e mantemos você informado sobre as atualizações da APS.",
-    imagemSrc: "url_da_sua_imagem.jpg",
+    imagemSrc: "url_da_sua_imagem",
 }
