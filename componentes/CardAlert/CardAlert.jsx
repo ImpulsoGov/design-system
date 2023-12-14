@@ -4,10 +4,14 @@ import { sanitize } from "../sanitize";
 
 const CardAlert = ({
     msg,
-    destaque
+    destaque,
+    background
 })=>{
+    const cardStyle = {
+        background: background || "#F4CCAB",
+      };
     return(
-        <div className={style.CardAlert}>
+        <div className={style.CardAlert} style={cardStyle}>
             <b>{destaque}</b>
             {msg}
         </div>
