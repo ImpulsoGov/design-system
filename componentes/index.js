@@ -53,4 +53,5 @@ export { ToggleList } from "./ToggleList/ToggleList";
 export { ToggleListElementBlock } from "./ToggleListElementBlock/ToggleListElementBlock";
 export { ToggleText } from "./ToggleText/ToggleText";
 export { ToolsAndGuides } from "./ToolsAndGuides/ToolsAndGuides";
+export { CardImg } from "./CardImg/CardImg"
 
