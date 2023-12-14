@@ -1,0 +1,3 @@
+export {
+  CardImg,
+} from "./CardImg";
