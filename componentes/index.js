@@ -10,6 +10,7 @@ export { CardIP } from "./CardIP/CardIP"
 export { CardInfoTipoA, CardInfoTipoB, CardInfoTipoC } from "./CardInfo";
 export { CardIndicadorDescricao, CardInternacaoStatus, CardPeriodosInternacao, CardsGridInternacao
 } from "./CardGridInternacoes/CardGridInternacoes";
+export { CardImg } from "./CardImg/CardImg"
 export { CardLarge, CardLargeGrid, CardLargeGridInicioSM, CardLargeGridToggleList } from "./CardLarge/CardLarge";
 export { CardTrilha } from "./CardTrilha/CardTrilha";
 export { Content3Col } from "./Content3Col/Content3Col";
@@ -53,5 +54,4 @@ export { ToggleList } from "./ToggleList/ToggleList";
 export { ToggleListElementBlock } from "./ToggleListElementBlock/ToggleListElementBlock";
 export { ToggleText } from "./ToggleText/ToggleText";
 export { ToolsAndGuides } from "./ToolsAndGuides/ToolsAndGuides";
-export { CardImg } from "./CardImg/CardImg"
 
