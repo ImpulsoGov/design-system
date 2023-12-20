@@ -34,10 +34,12 @@ const SortData = ({
     setData,
     filtro,
     datefiltros,
+    IntFiltros,
     setModal,
     setOrdenacaoAplicada,
     IDFiltrosOrdenacao
 })=>{
+    console.log(datefiltros,IntFiltros)
     const sortByDate = (data)=>{
         return [...data].sort((a,b) =>{ 
             const valueA = stringToDate(a[filtro]) 
@@ -52,9 +54,12 @@ const SortData = ({
             return IDFiltrosOrdenacao[filtro] == "desc" ?  valueA - valueB : valueB - valueA 
         }
     )}
+    const sortInt = (data)=>[...data].sort((a,b) => IDFiltrosOrdenacao[filtro] == "desc" ? Number(b[filtro]) - Number(a[filtro]) : Number(a[filtro]) - Number(b[filtro]))
     const sortByString = (data)=>[...data].sort((a,b) => a[filtro]?.toString().localeCompare(b[filtro]?.toString()) )
     datefiltros.includes(filtro) ? 
     setData(sortByDate(data)) :
+    IntFiltros.includes(filtro) ?
+    setData(sortInt(data)) :
     setData(sortByString(data))
     setModal(false)
     setOrdenacaoAplicada(true)
@@ -70,10 +75,19 @@ const FilterData = (props)=>{
         });
     }
     const filtrosAgrupados = agruparChavesIguais(filtros)
+    console.log(filtrosAgrupados,filtrosAgrupados.filter(item=>item.hasOwnProperty('consultas_pre_natal_validas')))?.length > 0 ? filtrosAgrupados.filter(item=>item.hasOwnProperty('consultas_pre_natal_validas'))[0] : []
     props.setData(props.data.filter(item => {
         return filtrosAgrupados.every(filter =>{
-            return filter[Object.keys(filter)[0]].includes(item[Object.keys(filter)[0]])
+            return filter["consultas_pre_natal_validas"] ? true : filter[Object.keys(filter)[0]].includes(item[Object.keys(filter)[0]]) 
         });
+    }).filter(item=>{
+        const filtroConsultas = filtrosAgrupados.filter(item=>item.hasOwnProperty('consultas_pre_natal_validas'))?.length > 0 ? filtrosAgrupados.filter(item=>item.hasOwnProperty('idade'))[0] : []
+        if(filtroConsultas["consultas_pre_natal_validas"]?.length > 0){
+            if(filtroConsultas["consultas_pre_natal_validas"]=='Maior ou igual a 34' && Number(item["consultas_pre_natal_validas"]) >= 6) return true
+            if(filtroConsultas["consultas_pre_natal_validas"]=='Menor que 34' && Number(item["consultas_pre_natal_validas"]) < 6) return true
+            return false
+        }
+        return true
     }))
     props.setModal(false)
 }
@@ -166,6 +180,7 @@ const Ordenar = (props)=>{
         props.setModal(false)
         props.setOrdenacaoAplicada(false)
     }
+    console.log(props)
     return(
         <div className={style.containerOrdenar}>
             <div 
@@ -174,7 +189,7 @@ const Ordenar = (props)=>{
             >Limpar ordenação</div>
             <p className={style.OrdenarPor}>Ordenar por:</p>
             {filtros_painel.rotulos.map((label)=><CardFiltro label={label} setOrdenar={props.setOrdenar} ordenar={props.ordenar} ID={filtros_painel.ID} key={label} />)}
-            <ButtonColorSubmit label="ORDENAR LISTA" submit={SortData} arg={{data : props.data, filtro : props.ordenar, setData:props.setData, datefiltros : props.datefiltros, setModal : props.setModal, setOrdenacaoAplicada : props.setOrdenacaoAplicada, IDFiltrosOrdenacao : props.IDFiltrosOrdenacao}}/>            
+            <ButtonColorSubmit label="ORDENAR LISTA" submit={SortData} arg={{data : props.data, filtro : props.ordenar, setData:props.setData, datefiltros : props.datefiltros,IntFiltros : props.IntFiltros, setModal : props.setModal, setOrdenacaoAplicada : props.setOrdenacaoAplicada, IDFiltrosOrdenacao : props.IDFiltrosOrdenacao}}/>            
         </div>
     )
 }
@@ -302,12 +317,14 @@ const PainelBuscaAtiva = ({
     data,
     setData,
     datefiltros,
+    IntFiltros,
     IDFiltros,
     rotulosfiltros,
     IDFiltrosOrdenacao,
     atualizacao,
     rowHeight
 })=>{
+    console.log(IntFiltros)
     const [showOrdenarModal,setShowOrdenarModal] = useState(false)
     const [showFiltrosModal,setShowFiltrosModal] = useState(false)
     const [ordenar,setOrdenar] = useState('1')
@@ -333,6 +350,8 @@ const PainelBuscaAtiva = ({
         const updateState = {...value}
         updateState[event.target.id] = checked
         setValue(updateState)
+
+        console.log(value)
         // setChavesFiltros(() => {
         //     if (checked) return([
         //             ...chavesFiltros,
@@ -374,6 +393,7 @@ const PainelBuscaAtiva = ({
                                 setData={setData} 
                                 tabela={tabela.data}
                                 datefiltros={datefiltros}
+                                IntFiltros={IntFiltros}
                                 setModal={setModal}
                                 setOrdenacaoAplicada={setOrdenacaoAplicada}
                                 IDFiltros={IDFiltros}
