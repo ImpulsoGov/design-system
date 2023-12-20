@@ -687,6 +687,12 @@ const dadosFiltrosCito = [
 
   },
   {
+    rotulo : "Idade",
+    data : ['Maior ou igual a 34','Menor que 34'],
+    filtro : "idade"
+
+  },
+  {
     rotulo : "Filtrar por status",
     data : [12,13,14,15,16],
     labels : {
@@ -714,14 +720,14 @@ const dataCito = [
         "id_status_usuario": 15,
         "vencimento_da_coleta": "-",
         "prazo_proxima_coleta": "31/08/2023",
-        "idade": 55,
+        "idade": 5,
         "id_faixa_etaria": 8,
         "acs_nome": "Alessandra de Fatima Pereira",
         "estabelecimento_cnes": "2879085",
         "estabelecimento_nome": "Unidade de Saude da Familia Taboao",
         "equipe_ine": "0002277573",
         "ine_master": "0002277573",
-        "equipe_nome": "ESF TABOAO 2",
+        "equipe_nome": "ESF GOIANA",
         "dt_registro_producao_mais_recente" : "2023-10-22"
     },
     {
@@ -836,6 +842,9 @@ const datefiltros = [
 ]
 const datefiltrosCito = [
   "vencimento_da_coleta",
+]
+const IntfiltrosCito = [
+    "idade"
 ]
 
 const rotulosfiltrosHipertensao = [
@@ -963,6 +972,7 @@ Cito.args={
       data : dataCito
   },
   datefiltros : datefiltrosCito,
+  IntFiltros : IntfiltrosCito,
   IDFiltros : IDFiltrosCito,
   rotulosfiltros : rotulosfiltrosCito,
   IDFiltrosOrdenacao : IDFiltrosOrdenacaoCito,
