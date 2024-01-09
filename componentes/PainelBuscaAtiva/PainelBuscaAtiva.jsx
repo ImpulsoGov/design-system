@@ -50,15 +50,15 @@ const SortData = ({
             } else if (valueB === null) {
             return -1;
             }
-            if(IDFiltrosOrdenacao[filtro] == "desc") return valueA - valueB 
-            if(IDFiltrosOrdenacao[filtro] == "asc") return valueB - valueA  
+            if(IDFiltrosOrdenacao[filtro] == "asc") return valueA - valueB 
+            if(IDFiltrosOrdenacao[filtro] == "desc") return valueB - valueA  
         }
     )}
     const sortInt = (data)=>[...data].sort((a,b) => IDFiltrosOrdenacao[filtro] == "desc" ? Number(b[filtro]) - Number(a[filtro]) : Number(a[filtro]) - Number(b[filtro]))
     const sortByString = (data)=>[...data].sort((a,b) => a[filtro]?.toString().localeCompare(b[filtro]?.toString()) )
     datefiltros.includes(filtro) ? 
     setData(sortByDate(data)) :
-    IntFiltros.includes(filtro) ?
+    IntFiltros?.includes(filtro) ?
     setData(sortInt(data)) :
     setData(sortByString(data))
     setModal(false)
