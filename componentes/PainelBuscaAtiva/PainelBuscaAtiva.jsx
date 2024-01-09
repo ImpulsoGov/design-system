@@ -39,7 +39,6 @@ const SortData = ({
     setOrdenacaoAplicada,
     IDFiltrosOrdenacao
 })=>{
-    console.log(datefiltros,IntFiltros)
     const sortByDate = (data)=>{
         return [...data].sort((a,b) =>{ 
             const valueA = stringToDate(a[filtro]) 
@@ -51,7 +50,8 @@ const SortData = ({
             } else if (valueB === null) {
             return -1;
             }
-            return IDFiltrosOrdenacao[filtro] == "desc" ?  valueA - valueB : valueB - valueA 
+            if(IDFiltrosOrdenacao[filtro] == "desc") return valueA - valueB 
+            if(IDFiltrosOrdenacao[filtro] == "asc") return valueB - valueA  
         }
     )}
     const sortInt = (data)=>[...data].sort((a,b) => IDFiltrosOrdenacao[filtro] == "desc" ? Number(b[filtro]) - Number(a[filtro]) : Number(a[filtro]) - Number(b[filtro]))
@@ -75,7 +75,6 @@ const FilterData = (props)=>{
         });
     }
     const filtrosAgrupados = agruparChavesIguais(filtros)
-    console.log(filtrosAgrupados,filtrosAgrupados.filter(item=>item.hasOwnProperty('consultas_pre_natal_validas')))?.length > 0 ? filtrosAgrupados.filter(item=>item.hasOwnProperty('consultas_pre_natal_validas'))[0] : []
     props.setData(props.data.filter(item => {
         return filtrosAgrupados.every(filter =>{
             return filter["consultas_pre_natal_validas"] ? true : filter[Object.keys(filter)[0]].includes(item[Object.keys(filter)[0]]) 
@@ -180,7 +179,6 @@ const Ordenar = (props)=>{
         props.setModal(false)
         props.setOrdenacaoAplicada(false)
     }
-    console.log(props)
     return(
         <div className={style.containerOrdenar}>
             <div 
@@ -350,16 +348,6 @@ const PainelBuscaAtiva = ({
         const updateState = {...value}
         updateState[event.target.id] = checked
         setValue(updateState)
-
-        console.log(value)
-        // setChavesFiltros(() => {
-        //     if (checked) return([
-        //             ...chavesFiltros,
-        //             {[name]: Number(event.target.id) ? Number(event.target.id) : event.target.id}
-        //     ])
-        //     return chavesFiltros.filter(item=>item[name] !==  event.target.id)
-        // })
-        
     };
     useEffect(()=>{
         if(!modal && chavesFiltros.length==0){
