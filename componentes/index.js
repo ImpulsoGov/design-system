@@ -1,7 +1,7 @@
 export { AboutSection } from "./AboutSection/AboutSection";
 export { Banner2Col } from "./Banner2col/Banner2col";
 export { ButtonBar } from "./ButtonBar/ButtonBar";
-export { ButtonColor, ButtonColorMobile, ButtonColorSubmit, ButtonColorSubmitMobile, ButtonColorSubmitMultiple } from "./ButtonColor/ButtonColor";
+export { ButtonColor, ButtonColorMobile, ButtonColorSubmit, ButtonColorSubmitMobile, ButtonColorSubmitMultiple, ButtonColorSubmitIcon } from "./ButtonColor/ButtonColor";
 export { ButtonLight, ButtonLightMobile, ButtonLightSubmit, ButtonLightSubmitMobile } from "./ButtonLight/ButtonLight";
 export { ButtonLogin } from "./ButtonLogin/ButtonLogin";
 export { ButtonPrint } from "./ButtonPrint/ButtonPrint";
