@@ -2,7 +2,7 @@
     background-color:#EFF5F9;
     border-radius: 20px;
     width: auto;
-    height: 478px;
+    height: 515px;
     padding: 60px 30px;
     display: flex;
     flex-direction: column;
@@ -220,7 +220,11 @@
         filter: none;
     }
 }
-
+@media screen and (min-width: 1024px) and (max-width: 1365px){
+    .CardLargeContainer{
+        height: 535px;
+    }
+}
 @media screen and (min-width: 769px) and (max-width: 1024px) {
     .CardLargeGridToggleList {
         grid-template-columns: 1fr 1fr;
