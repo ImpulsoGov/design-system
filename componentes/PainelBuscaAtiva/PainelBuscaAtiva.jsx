@@ -220,10 +220,10 @@ const Ordenar = (props)=>{
                     setModal : props.setModal, 
                     setOrdenacaoAplicada : props.setOrdenacaoAplicada, 
                     IDFiltrosOrdenacao : props.IDFiltrosOrdenacao,
-                    trackObject : trackObject,
-                    painel : painel,
-                    aba : aba,
-                    sub_aba : sub_aba
+                    trackObject : props.trackObject,
+                    painel : props.painel,
+                    aba : props.aba,
+                    sub_aba : props.sub_aba
             }}/>            
         </div>
     )
@@ -420,14 +420,14 @@ const PainelBuscaAtiva = ({
         }
     },[modal])
     useEffect(() => {
-        // if (showOrdenarModal) {
-        //     trackObject.track('button_click', {
-        //         'button_action': "abrir_ordenacao",
-        //         'nome_lista_nominal': painel,
-        //         'aba_lista_nominal' : aba,
-        //         'sub_aba_lista_nominal' : sub_aba
-        //     });
-        // }
+        if (showOrdenarModal) {
+            trackObject.track('button_click', {
+                'button_action': "abrir_ordenacao",
+                'nome_lista_nominal': painel,
+                'aba_lista_nominal' : aba,
+                'sub_aba_lista_nominal' : sub_aba
+            });
+        }
     
         if (showFiltrosModal) {
             trackObject.track('button_click', {
