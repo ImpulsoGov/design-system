@@ -374,7 +374,7 @@ const PainelBuscaAtiva = ({
     
         if (showFiltrosModal) {
             trackObject.track('button_click', {
-                'button_action': "abrir_ordenacao",
+                'button_action': "abrir_filtro",
                 'nome_lista_nominal': lista,
                 'aba_lista_nominal' : aba,
                 'sub_aba_lista_nominal' : sub_aba
