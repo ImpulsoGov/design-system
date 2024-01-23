@@ -364,7 +364,7 @@ const PainelBuscaAtiva = ({
     },[modal])
     useEffect(() => {
         if (showOrdenarModal) {
-            mixpanel.track('button_click', {
+            trackObject.track('button_click', {
                 'button_action': "abrir_ordenacao",
                 'nome_lista_nominal': lista,
                 'aba_lista_nominal' : aba,
@@ -373,7 +373,7 @@ const PainelBuscaAtiva = ({
         }
     
         if (showFiltrosModal) {
-            mixpanel.track('button_click', {
+            trackObject.track('button_click', {
                 'button_action': "abrir_ordenacao",
                 'nome_lista_nominal': lista,
                 'aba_lista_nominal' : aba,
