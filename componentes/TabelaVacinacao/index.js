@@ -1,0 +1,1 @@
+export { TabelaVacinacaoImpressao } from "./TabelaVacinacao";
