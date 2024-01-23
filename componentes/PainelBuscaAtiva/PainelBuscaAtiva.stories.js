@@ -976,6 +976,9 @@ Cito.args={
   IDFiltros : IDFiltrosCito,
   rotulosfiltros : rotulosfiltrosCito,
   IDFiltrosOrdenacao : IDFiltrosOrdenacaoCito,
+  trackObject : {
+    track : (evento, propriedades)=> console.log(evento, propriedades)
+  },
   atualizacao : new Date(dataCito.reduce((maisRecente, objeto) => {
     const dataAtual = new Date(objeto.dt_registro_producao_mais_recente);
     const dataMaisRecenteAnterior = new Date(maisRecente);

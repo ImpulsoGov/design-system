@@ -37,7 +37,11 @@ const SortData = ({
     IntFiltros,
     setModal,
     setOrdenacaoAplicada,
-    IDFiltrosOrdenacao
+    IDFiltrosOrdenacao,
+    trackObject,
+    painel,
+    aba,
+    sub_aba
 })=>{
     const sortByDate = (data)=>{
         return [...data].sort((a,b) =>{ 
@@ -61,6 +65,14 @@ const SortData = ({
     IntFiltros?.includes(filtro) ?
     setData(sortInt(data)) :
     setData(sortByString(data))
+    
+    trackObject.track('button_click', {
+        'button_action': "button_ordenar",
+        'nome_lista_nominal': painel,
+        'aba_lista_nominal' : aba,
+        'sub_aba_lista_nominal' : sub_aba,
+        'ordenacao_aplicada' : filtro
+    }) 
     setModal(false)
     setOrdenacaoAplicada(true)
 }
@@ -88,6 +100,15 @@ const FilterData = (props)=>{
         }
         return true
     }))
+    filtrosAgrupados.forEach(item=>{
+        props.trackObject.track('button_click', {
+            'button_action': "button_ordenar",
+            'nome_lista_nominal': props.painel,
+            'aba_lista_nominal' : props.aba,
+            'sub_aba_lista_nominal' : props.sub_aba,
+            'filtro_aplicado' : Object.keys(item)[0]
+    });
+    })
     props.setModal(false)
 }
 const ValuesToChavesFiltros = (value,setChavesFiltros,dadosFiltros)=>{
@@ -187,7 +208,23 @@ const Ordenar = (props)=>{
             >Limpar ordenação</div>
             <p className={style.OrdenarPor}>Ordenar por:</p>
             {filtros_painel.rotulos.map((label)=><CardFiltro label={label} setOrdenar={props.setOrdenar} ordenar={props.ordenar} ID={filtros_painel.ID} key={label} />)}
-            <ButtonColorSubmit label="ORDENAR LISTA" submit={SortData} arg={{data : props.data, filtro : props.ordenar, setData:props.setData, datefiltros : props.datefiltros,IntFiltros : props.IntFiltros, setModal : props.setModal, setOrdenacaoAplicada : props.setOrdenacaoAplicada, IDFiltrosOrdenacao : props.IDFiltrosOrdenacao}}/>            
+            <ButtonColorSubmit 
+                label="ORDENAR LISTA" 
+                submit={SortData} 
+                arg={{
+                    data : props.data,
+                    filtro : props.ordenar,
+                    setData:props.setData, 
+                    datefiltros : props.datefiltros,
+                    IntFiltros : props.IntFiltros, 
+                    setModal : props.setModal, 
+                    setOrdenacaoAplicada : props.setOrdenacaoAplicada, 
+                    IDFiltrosOrdenacao : props.IDFiltrosOrdenacao,
+                    trackObject : props.trackObject,
+                    painel : props.painel,
+                    aba : props.aba,
+                    sub_aba : props.sub_aba
+            }}/>            
         </div>
     )
 }
@@ -196,7 +233,11 @@ const FiltroBody = ({
     chavesFiltros,
     setChavesFiltros,
     value,
-    handleCheckbox
+    handleCheckbox,
+    trackObject,
+    painel,
+    aba,
+    sub_aba
 })=>{
     const [show,setShow] = useState(false)
     return(
@@ -225,6 +266,11 @@ const FiltroBody = ({
                                         labels={data?.labels ? data?.labels[item] : null}
                                         value={value}
                                         handleCheckbox={handleCheckbox}
+                                        trackObject={trackObject}
+                                        painel={painel}
+                                        aba={aba}
+                                        sub_aba={sub_aba}
+        
                                     />
                                 )
                             })
@@ -244,7 +290,11 @@ const Filtro = ({
     handleCheckbox,
     chavesFiltros,
     setChavesFiltros,
-    setModal
+    setModal,
+    trackObject,
+    painel,
+    aba,
+    sub_aba
 })=>{
     const LimparFiltros = ()=>{
         setData(tabela)
@@ -264,6 +314,11 @@ const Filtro = ({
                         setChavesFiltros={setChavesFiltros}
                         value={value}
                         handleCheckbox={handleCheckbox}
+                        trackObject={trackObject}
+                        painel={painel}
+                        aba={aba}
+                        sub_aba={sub_aba}
+
                     />)
                 }
             </div>
@@ -278,7 +333,11 @@ const Filtro = ({
                         setModal : setModal,
                         value : value,
                         setChavesFiltros : setChavesFiltros,
-                        dadosFiltros : data
+                        dadosFiltros : data,
+                        trackObject : trackObject,
+                        painel : painel,
+                        aba : aba,
+                        sub_aba : sub_aba
                     }}
                 />  
             </div>
@@ -321,12 +380,10 @@ const PainelBuscaAtiva = ({
     IDFiltrosOrdenacao,
     atualizacao,
     trackObject = null,
-    lista = "",
     aba = "",
     sub_aba = "",
     rowHeight
 })=>{
-    console.log(IntFiltros)
     const [showOrdenarModal,setShowOrdenarModal] = useState(false)
     const [showFiltrosModal,setShowFiltrosModal] = useState(false)
     const [ordenar,setOrdenar] = useState('1')
@@ -366,7 +423,7 @@ const PainelBuscaAtiva = ({
         if (showOrdenarModal) {
             trackObject.track('button_click', {
                 'button_action': "abrir_ordenacao",
-                'nome_lista_nominal': lista,
+                'nome_lista_nominal': painel,
                 'aba_lista_nominal' : aba,
                 'sub_aba_lista_nominal' : sub_aba
             });
@@ -375,7 +432,7 @@ const PainelBuscaAtiva = ({
         if (showFiltrosModal) {
             trackObject.track('button_click', {
                 'button_action': "abrir_filtro",
-                'nome_lista_nominal': lista,
+                'nome_lista_nominal': painel,
                 'aba_lista_nominal' : aba,
                 'sub_aba_lista_nominal' : sub_aba
             });
@@ -411,6 +468,9 @@ const PainelBuscaAtiva = ({
                                 IDFiltros={IDFiltros}
                                 rotulosfiltros={rotulosfiltros}
                                 IDFiltrosOrdenacao={IDFiltrosOrdenacao}
+                                trackObject={trackObject}
+                                aba={aba}
+                                sub_aba={sub_aba}
                             />
                         }
                         {
@@ -424,6 +484,10 @@ const PainelBuscaAtiva = ({
                                 chavesFiltros={chavesFiltros}
                                 setChavesFiltros={setChavesFiltros}
                                 setModal={setModal}
+                                trackObject={trackObject}
+                                painel={painel}
+                                aba={aba}
+                                sub_aba={sub_aba}
                             />
                         }
                     </Modal>
