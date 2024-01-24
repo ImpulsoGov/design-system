@@ -100,15 +100,15 @@ const FilterData = (props)=>{
         }
         return true
     }))
-    filtrosAgrupados.forEach(item=>{
-        props.trackObject.track('button_click', {
-            'button_action': "button_ordenar",
-            'nome_lista_nominal': props.painel,
-            'aba_lista_nominal' : props.aba,
-            'sub_aba_lista_nominal' : props.sub_aba,
-            'filtro_aplicado' : Object.keys(item)[0]
+
+    props.trackObject.track('button_click', {
+        'button_action': 'aplicar_filtro',
+        'nome_lista_nominal': props.painel,
+        'aba_lista_nominal' : props.aba,
+        'sub_aba_lista_nominal' : props.sub_aba,
+        'button_choices' : filtrosAgrupados
     });
-    })
+
     props.setModal(false)
 }
 const ValuesToChavesFiltros = (value,setChavesFiltros,dadosFiltros)=>{
