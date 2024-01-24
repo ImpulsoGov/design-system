@@ -67,11 +67,11 @@ const SortData = ({
     setData(sortByString(data))
     
     trackObject.track('button_click', {
-        'button_action': "button_ordenar",
+        'button_action': 'aplicar_ordenacao',
         'nome_lista_nominal': painel,
         'aba_lista_nominal' : aba,
         'sub_aba_lista_nominal' : sub_aba,
-        'ordenacao_aplicada' : filtro
+        'button_choices' : filtro
     }) 
     setModal(false)
     setOrdenacaoAplicada(true)
