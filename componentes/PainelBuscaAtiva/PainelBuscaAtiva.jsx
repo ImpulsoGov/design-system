@@ -109,6 +109,9 @@ const FilterData = (props)=>{
             'filtro_aplicado' : Object.keys(item)[0]
     });
     })
+    props.setOrdenar()
+    props.setOrdenacaoAplicada(false)
+
     props.setModal(false)
 }
 const ValuesToChavesFiltros = (value,setChavesFiltros,dadosFiltros)=>{
@@ -294,7 +297,9 @@ const Filtro = ({
     trackObject,
     painel,
     aba,
-    sub_aba
+    sub_aba,
+    setOrdenar,
+    setOrdenacaoAplicada
 })=>{
     const LimparFiltros = ()=>{
         setData(tabela)
@@ -337,7 +342,9 @@ const Filtro = ({
                         trackObject : trackObject,
                         painel : painel,
                         aba : aba,
-                        sub_aba : sub_aba
+                        sub_aba : sub_aba,
+                        setOrdenar,
+                        setOrdenacaoAplicada                    
                     }}
                 />  
             </div>
@@ -488,6 +495,8 @@ const PainelBuscaAtiva = ({
                                 painel={painel}
                                 aba={aba}
                                 sub_aba={sub_aba}
+                                setOrdenar={setOrdenar} 
+                                setOrdenacaoAplicada={setOrdenacaoAplicada}
                             />
                         }
                     </Modal>
