@@ -89,7 +89,7 @@ const FilterData = (props)=>{
     const filtrosAgrupados = agruparChavesIguais(filtros)
     props.setData(props.data.filter(item => {
         return filtrosAgrupados.every(filter =>{
-            return filter["consultas_pre_natal_validas"] ? true : filter[Object.keys(filter)[0]].includes(item[Object.keys(filter)[0]]) 
+            return filter["consultas_pre_natal_validas"] ? true : filter[Object.keys(filter)[0]].includes(item[Object.keys(filter)[0]].toString()) 
         });
     }).filter(item=>{
         const filtroConsultas = filtrosAgrupados.filter(item=>item.hasOwnProperty('consultas_pre_natal_validas'))?.length > 0 ? filtrosAgrupados.filter(item=>item.hasOwnProperty('consultas_pre_natal_validas'))[0] : []
@@ -124,7 +124,7 @@ const ValuesToChavesFiltros = (value,setChavesFiltros,dadosFiltros)=>{
         dadosFiltros.forEach(dadoFiltro=>{
             if(dadoFiltro.data.includes(checkbox)) filtro = dadoFiltro.filtro
         })
-        if(filtro) chaves.push({ [filtro] : Number(checkbox) ? Number(checkbox) : checkbox})
+        if(filtro) chaves.push({ [filtro] : checkbox})
     })
     setChavesFiltros(()=>chaves)
     return chaves
