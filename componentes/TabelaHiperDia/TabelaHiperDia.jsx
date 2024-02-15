@@ -121,12 +121,6 @@ const PrazoProximaConsultaStyle = (value)=> {
     return str.includes('-') ?  date : str
   }
 
-const FormatarConteudo = (item,coluna)=>{
-    if(coluna.field=="cidadao_cpf_dt_nascimento") return FormatarDataNascimento(item[coluna.field])
-    if(coluna.field=="dt_ultima_consulta" || coluna.field=="dt_afericao_pressao_mais_recente" || coluna.field=="dt_solicitacao_hemoglobina_glicada_mais_recente") return FormatarData (item[coluna.field])
-    return item[coluna.field]
-}
-
 const prazoStyle = (value)=>{
   const check = {
     backgroundColor: "#E7FBF3",
@@ -232,10 +226,50 @@ const TabelaHiperDiaImpressao = ({ data,colunas }) => {
                         alignItems : "center",
                         marginTop : "4px"
                     }}
-                >{ 
-                    coluna.field=="prazo_proxima_consulta" ||  coluna.field=="prazo_proxima_afericao_pa" || coluna.field=="prazo_proxima_solicitacao_hemoglobina"? 
-                    PrazoProximaConsultaStyle(item[coluna.field]) : 
-                    FormatarConteudo(item,coluna)}</td>
+                >
+                  {
+                    coluna.field=="dt_consulta_mais_recente"  &&
+                    FormatarData(item[coluna.field])
+                  }
+                  {
+                    coluna.field=="dt_ultima_consulta"  &&
+                    FormatarData(item[coluna.field])
+                  }
+                  {
+                    coluna.field=="dt_afericao_pressao_mais_recente"  &&
+                    FormatarData(item[coluna.field])
+                  }
+                  {
+                    coluna.field=="dt_solicitacao_hemoglobina_glicada_mais_recente"  &&
+                    FormatarData(item[coluna.field])
+                  }
+                  {
+                    coluna.field=="cidadao_cpf_dt_nascimento" && FormatarDataNascimento(item[coluna.field])
+                  }
+                  {
+                    coluna.field=="prazo_proxima_consulta"  &&
+                    PrazoProximaConsultaStyle(item[coluna.field])
+                  }
+                  {
+                    coluna.field=="prazo_proxima_afericao_pa"  &&
+                    PrazoProximaConsultaStyle(item[coluna.field])
+                  }
+                  {
+                    coluna.field=="prazo_proxima_solicitacao_hemoglobina"  &&
+                    PrazoProximaConsultaStyle(item[coluna.field])
+                  }
+                  {
+                    coluna.field!="dt_consulta_mais_recente" &&
+                    coluna.field!="dt_ultima_consulta" &&
+                    coluna.field!="dt_afericao_pressao_mais_recente" &&
+                    coluna.field!="dt_solicitacao_hemoglobina_glicada_mais_recente" &&
+                    coluna.field!="cidadao_cpf_dt_nascimento" &&
+                    coluna.field!="prazo_proxima_consulta" &&
+                    coluna.field!="prazo_proxima_afericao_pa" &&
+                    coluna.field!="prazo_proxima_solicitacao_hemoglobina" &&
+                    item[coluna.field]
+                  }
+                </td>
               ))}
             </tr>
           ))}
