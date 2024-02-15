@@ -1,0 +1,1 @@
+export { TabelaGestantesImpressao } from "./TabelaGestantes";
