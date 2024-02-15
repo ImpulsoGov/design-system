@@ -26,7 +26,7 @@ const ModalLogged = (props)=>{
 
             {props.botaoAuxiliar &&
                 <button
-                    className={cx(style.Button, style.ButtonAuxiliar)}
+                    className={cx(style.Button, style.MargemComButtonAuxiliar)}
                     onClick={props.botaoAuxiliar.handelClick}
                 >
                     {props.botaoAuxiliar.label}
@@ -36,7 +36,7 @@ const ModalLogged = (props)=>{
             <button
                 className={cx(
                     style.Button,
-                    props.botaoAuxiliar ? style.ButtonAuxiliar : style.ButtonLogOut
+                    props.botaoAuxiliar ? style.MargemComButtonAuxiliar : style.MargemSemButtonAuxiliar
                 )}
                 onClick={()=>props.logout()}
             >SAIR</button>
