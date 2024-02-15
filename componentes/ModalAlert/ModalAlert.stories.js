@@ -1,5 +1,5 @@
 import React from 'react'
-import { Alert } from './index'
+import { Alert, Alert_v2 } from './index'
 import { ModalAlert } from './index'
 import { CardAlertModal } from './index'
 import { NPS } from './index'
@@ -48,6 +48,40 @@ Webnar.args ={
         botao : {
             label : "QUERO ME INSCREVER",
             url : "https://bit.ly/inscricao-webinar-9"
+        }
+    }
+}
+export const Webnar_v2 = Template.bind({});
+Webnar_v2.args ={
+    Child : Alert_v2,
+    childProps : {
+        titulos : {
+            Titulo : "Impulso Previne:",
+            SubTitulo : "Uso das listas nominais na rotina das equipes"
+        },
+        Info : [
+            {
+                icon : "https://media.graphassets.com/mK0XWA2qSyK3tSPER5SM",
+                info : "22 de feverreiro"
+            },
+            {
+                icon : "https://media.graphassets.com/Bsq3OasQQxWNFuN0Ldhs",
+                info : "14h"
+            },
+            {
+                icon : "https://media.graphassets.com/Ui2qHF9IR9WyqEQv8H1v",
+                info : "Certificado para os participantes"
+            },
+        ],
+        cardProfissional : {
+            profissional : "https://media.graphassets.com/CL8x2D45RxKZCGJZSXLa",
+            logo : "https://media.graphassets.com/et6MBNobT9OA39JxsjNi",
+            nome : "Isabela Santos",
+            cargo : "Especialista em Saúde Coletiva"
+        },
+        botao : {
+            label : "ACESSAR EVENTO",
+            url : "https://bit.ly/encontro-listas-nominais"
         }
     }
 }
