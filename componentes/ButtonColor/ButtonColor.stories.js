@@ -29,6 +29,12 @@ SemIcone.args={
   label :"INDICADORES DE DESEMPENHO",
   link :"indicadores"
 } 
+export const SemIconeNovaAba = Template.bind({});
+SemIconeNovaAba.args={
+  label :"INDICADORES DE DESEMPENHO",
+  link :"indicadores",
+  nova_aba : true
+} 
 
 export const ComIconeDireitaWhatsapp = Template.bind({});
 ComIconeDireitaWhatsapp.args={
