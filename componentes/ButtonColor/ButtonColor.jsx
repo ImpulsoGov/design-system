@@ -7,14 +7,18 @@ import cx from 'classnames';
 const ButtonColor = ({
     icone,
     label,
-    link
+    link,
+    nova_aba
 })=>{
     return(
         <>
             {
                 icone &&
                 <Link href={link}>
-                    <a  className={style.ButtonColorIconContainer}>
+                    <a  
+                        className={style.ButtonColorIconContainer}
+                        target={nova_aba ? "_blank" : "_self"}
+                    >
                         {icone?.posicao=='right' && <img className={style.IconeRight} src={icone?.url} />}
                         {label} 
                         {icone?.posicao=='left' && <img className={style.IconeLeft} src={icone?.url} />}
@@ -24,7 +28,10 @@ const ButtonColor = ({
             {
                 (icone == null) && 
                 <Link href={link}>
-                    <a  className={style.ButtonColorIconContainerTexto}>
+                    <a  
+                        className={style.ButtonColorIconContainerTexto}
+                        target={nova_aba ? "_blank" : "_self"}
+                    >
                         {label} 
                     </a>
                 </Link>
