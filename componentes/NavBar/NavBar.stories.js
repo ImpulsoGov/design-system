@@ -8,7 +8,7 @@ export default {
     argTypes: {
         user: {
             name: "Dados do Usuário",
-            description: "Dados do usuário autenticado, utilizado pelo modal.\n\n**nome** : nome do usuário *string*,\n\n**cargo**: Cargo do usuário *string*,\n\n**button**: Rótulo do botão de sair *object*,\n\n**label**: Letra do botão de usuário quando autenticado *string*, \n\n**equipe**: Código INE *string*,\n\n**login**: Função de login *function*,\n\n**logout**: Função de logout *function* "
+            description: "Dados do usuário autenticado, utilizado pelo modal.\n\n**nome** : nome do usuário *string*,\n\n**cargo**: Cargo do usuário *string*,\n\n**button**: Rótulo do botão de sair *object*,\n\n**label**: Letra do botão de usuário quando autenticado *string*, \n\n**equipe**: Código INE *string*,\n\n**login**: Função de login *function*,\n\n**logout**: Função de logout *function* \n\n **botaoAuxiliar**: Objeto opcional com as propriedades do botão auxiliar do modal logado *object*"
         },
         login: {
             name: "Área de login",

@@ -1,5 +1,7 @@
 import React from "react";
-import style from "./ModalLogged.module.css"
+import style from "./ModalLogged.module.css";
+import PropTypes from "prop-types";
+import cx from "classnames";
 
 const UserAvatar = (props)=>{
     return(
@@ -21,12 +23,36 @@ const ModalLogged = (props)=>{
                 cargo = {props.cargo}
                 equipe = {props.equipe}
             />
+
+            {props.botaoAuxiliar &&
+                <button
+                    className={cx(style.Button, style.MargemComButtonAuxiliar)}
+                    onClick={props.botaoAuxiliar.handelClick}
+                >
+                    {props.botaoAuxiliar.label}
+                </button>
+            }
+
             <button
-                className={style.ButtonLogOut}
+                className={cx(
+                    style.Button,
+                    props.botaoAuxiliar ? style.MargemComButtonAuxiliar : style.MargemSemButtonAuxiliar
+                )}
                 onClick={()=>props.logout()}
             >SAIR</button>
         </div>
     )
+}
+
+ModalLogged.defaultProps = {
+    botaoAuxiliar: null
+}
+
+ModalLogged.propTypes = {
+    botaoAuxiliar: PropTypes.shape({
+        label: PropTypes.string,
+        handelClick: PropTypes.func,
+    })
 }
 
 export {ModalLogged,UserAvatar}
