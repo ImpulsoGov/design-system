@@ -49,6 +49,7 @@ export { SobreTrilha } from "./SobreTrilha/SobreTrilha";
 export { Spinner } from "./Spinner";
 export { TabelaHiperDia,TabelaHiperDiaImpressao , TabelaCitoImpressao } from "./TabelaHiperDia/TabelaHiperDia";
 export { TabelaVacinacaoImpressao } from "./TabelaVacinacao/TabelaVacinacao";
+export { TabelaGestantesImpressao } from "./TabelaGestantes/TabelaGestantes";
 export { TextCol } from "./TextCol/TextCol";
 export { TituloSmallTexto, TituloTexto, NovoTituloTexto } from "./TituloTexto/TituloTexto";
 export { ToggleList } from "./ToggleList/ToggleList";
