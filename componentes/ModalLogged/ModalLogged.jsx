@@ -27,7 +27,10 @@ const ModalLogged = (props)=>{
             {props.botaoAuxiliar &&
                 <button
                     className={cx(style.Button, style.MargemComButtonAuxiliar)}
-                    onClick={props.botaoAuxiliar.handelClick}
+                    onClick={ () => {
+                        props.botaoAuxiliar.handelClick()
+                        props.setModal(false)
+                    }}
                 >
                     {props.botaoAuxiliar.label}
                 </button>
