@@ -29,6 +29,39 @@ const stringToDate = (str)=>{
     if(str.includes('/')) return dataFormatoBarra(str) 
     if(str.includes('-')) return dataFormatoTraco(str) 
 }
+
+const sortByDate = (data, filtro, IDFiltrosOrdenacao)=>{
+    return [...data].sort((a,b) =>{
+        const valueA = stringToDate(a[filtro])
+        const valueB = stringToDate(b[filtro])
+        if (valueA === null && valueB === null) {
+        return 0;
+        } else if (valueA === null) {
+        return 1;
+        } else if (valueB === null) {
+        return -1;
+        }
+        if(IDFiltrosOrdenacao[filtro] == "asc") return valueA - valueB
+        if(IDFiltrosOrdenacao[filtro] == "desc") return valueB - valueA
+    }
+)}
+
+const sortInt = (data, filtro, IDFiltrosOrdenacao)=>[...data].sort((a,b) => IDFiltrosOrdenacao[filtro] == "desc" ? Number(b[filtro]) - Number(a[filtro]) : Number(a[filtro]) - Number(b[filtro]))
+
+const sortByString = (data, filtro)=>[...data].sort((a,b) => a[filtro]?.toString().localeCompare(b[filtro]?.toString()) )
+
+const sortByChoice = (data, filtro, IDFiltrosOrdenacao, datefiltros, IntFiltros) => {
+    if (datefiltros.includes(filtro)) {
+        return sortByDate(data, filtro, IDFiltrosOrdenacao);
+    }
+
+    if (IntFiltros?.includes(filtro)) {
+        return sortInt(data, filtro, IDFiltrosOrdenacao);
+    }
+
+    return sortByString(data, filtro);
+}
+
 const SortData = ({
     data,
     setData,
@@ -43,29 +76,8 @@ const SortData = ({
     aba,
     sub_aba
 })=>{
-    const sortByDate = (data)=>{
-        return [...data].sort((a,b) =>{ 
-            const valueA = stringToDate(a[filtro]) 
-            const valueB = stringToDate(b[filtro])
-            if (valueA === null && valueB === null) {
-            return 0;
-            } else if (valueA === null) {
-            return 1;
-            } else if (valueB === null) {
-            return -1;
-            }
-            if(IDFiltrosOrdenacao[filtro] == "asc") return valueA - valueB 
-            if(IDFiltrosOrdenacao[filtro] == "desc") return valueB - valueA  
-        }
-    )}
-    const sortInt = (data)=>[...data].sort((a,b) => IDFiltrosOrdenacao[filtro] == "desc" ? Number(b[filtro]) - Number(a[filtro]) : Number(a[filtro]) - Number(b[filtro]))
-    const sortByString = (data)=>[...data].sort((a,b) => a[filtro]?.toString().localeCompare(b[filtro]?.toString()) )
-    datefiltros.includes(filtro) ? 
-    setData(sortByDate(data)) :
-    IntFiltros?.includes(filtro) ?
-    setData(sortInt(data)) :
-    setData(sortByString(data))
-    
+    setData(sortByChoice(data, filtro, IDFiltrosOrdenacao, datefiltros, IntFiltros))
+
     trackObject.track('button_click', {
         'button_action': 'aplicar_ordenacao',
         'nome_lista_nominal': painel,
@@ -76,30 +88,39 @@ const SortData = ({
     setModal(false)
     setOrdenacaoAplicada(true)
 }
-const FilterData = (props)=>{
-    const filtros = ValuesToChavesFiltros(props.value,props.setChavesFiltros,props.dadosFiltros)
-    const agruparChavesIguais =(filtros)=>{
-        const chavesUnicas = [...new Set(filtros.flatMap(objeto => Object.keys(objeto)))];
-        return chavesUnicas.map(chave => {
-            const objetosComChave = filtros.filter(objeto => objeto.hasOwnProperty(chave));
-            const valores = objetosComChave.map(objeto => objeto[chave]);
-            return { [chave]: valores };
-        });
-    }
-    const filtrosAgrupados = agruparChavesIguais(filtros)
-    props.setData(props.data.filter(item => {
-        return filtrosAgrupados.every(filter =>{
+
+const agruparChavesIguais =(filtros)=>{
+    const chavesUnicas = [...new Set(filtros.flatMap(objeto => Object.keys(objeto)))];
+    return chavesUnicas.map(chave => {
+        const objetosComChave = filtros.filter(objeto => objeto.hasOwnProperty(chave));
+        const valores = objetosComChave.map(objeto => objeto[chave]);
+        return { [chave]: valores };
+    });
+}
+
+const filterByChoices = (data, filterChoices) => {
+    return data.filter(item => {
+        return filterChoices.every(filter =>{
             return filter["consultas_pre_natal_validas"] ? true : filter[Object.keys(filter)[0]].includes(item[Object.keys(filter)[0]].toString()) 
         });
     }).filter(item=>{
-        const filtroConsultas = filtrosAgrupados.filter(item=>item.hasOwnProperty('consultas_pre_natal_validas'))?.length > 0 ? filtrosAgrupados.filter(item=>item.hasOwnProperty('consultas_pre_natal_validas'))[0] : []
+        const filtroConsultas = filterChoices.filter(item=>item.hasOwnProperty('consultas_pre_natal_validas'))?.length > 0 ? filterChoices.filter(item=>item.hasOwnProperty('consultas_pre_natal_validas'))[0] : []
         if(filtroConsultas["consultas_pre_natal_validas"]?.length > 0){
             if(filtroConsultas["consultas_pre_natal_validas"]=='Maior ou igual a 6' && Number(item["consultas_pre_natal_validas"]) >= 6) return true
             if(filtroConsultas["consultas_pre_natal_validas"]=='Menor que 6' && Number(item["consultas_pre_natal_validas"]) < 6) return true
             return false
         }
         return true
-    }))
+    })
+}
+
+const FilterData = (props)=>{
+    const filtros = ValuesToChavesFiltros(props.value,props.setChavesFiltros,props.dadosFiltros)
+    const filtrosAgrupados = agruparChavesIguais(filtros)
+    const dadosFiltrados = filterByChoices(props.data, filtrosAgrupados)
+    const dadosOrdenados = sortByChoice(dadosFiltrados, props.ordenar, props.IDFiltrosOrdenacao, props.datefiltros, props.IntFiltros)
+
+    props.setData(dadosOrdenados)
 
     props.trackObject.track('button_click', {
         'button_action': 'aplicar_filtro',
@@ -108,9 +129,6 @@ const FilterData = (props)=>{
         'sub_aba_lista_nominal' : props.sub_aba,
         'button_choices' : filtrosAgrupados
     });
-
-    props.setOrdenar()
-    props.setOrdenacaoAplicada(false)
 
     props.setModal(false)
 }
@@ -198,8 +216,17 @@ const Ordenar = (props)=>{
         "ID" : props.IDFiltros
     }
     const limpar = ()=>{
+        let dados = props.tabela
+        const temFiltrosAplicados = Object.values(props.filtros).some((filtro) => filtro);
+
+        if (temFiltrosAplicados) {
+            const filtrosEscolhidos = ValuesToChavesFiltros(props.filtros, props.setChavesFiltros, props.dadosFiltros)
+            const filtrosAgrupados = agruparChavesIguais(filtrosEscolhidos)
+            dados = filterByChoices(props.tabela, filtrosAgrupados)
+        }
+
         props.setOrdenar()
-        props.setData(props.tabela)
+        props.setData(dados)
         props.setModal(false)
         props.setOrdenacaoAplicada(false)
     }
@@ -299,13 +326,16 @@ const Filtro = ({
     aba,
     sub_aba,
     setOrdenar,
-    setOrdenacaoAplicada
+    setOrdenacaoAplicada,
+    ordenar,
+    datefiltros,
+    IntFiltros,
+    IDFiltrosOrdenacao,
 })=>{
     const LimparFiltros = ()=>{
-        setData(tabela)
+        setData(sortByChoice(tabela, ordenar, IDFiltrosOrdenacao, datefiltros, IntFiltros))
         setChavesFiltros([])
         setModal(false)
-        
     }
     return(
         <div className={style.Filtro}>
@@ -344,7 +374,11 @@ const Filtro = ({
                         aba : aba,
                         sub_aba : sub_aba,
                         setOrdenar,
-                        setOrdenacaoAplicada                    
+                        setOrdenacaoAplicada,
+                        ordenar,
+                        datefiltros,
+                        IntFiltros,
+                        IDFiltrosOrdenacao,
                     }}
                 />  
             </div>
@@ -478,6 +512,9 @@ const PainelBuscaAtiva = ({
                                 trackObject={trackObject}
                                 aba={aba}
                                 sub_aba={sub_aba}
+                                filtros={value}
+                                setChavesFiltros={setChavesFiltros}
+                                dadosFiltros={dadosFiltros}
                             />
                         }
                         {
@@ -497,6 +534,10 @@ const PainelBuscaAtiva = ({
                                 sub_aba={sub_aba}
                                 setOrdenar={setOrdenar} 
                                 setOrdenacaoAplicada={setOrdenacaoAplicada}
+                                ordenar={ordenar} 
+                                datefiltros={datefiltros}
+                                IntFiltros={IntFiltros}
+                                IDFiltrosOrdenacao={IDFiltrosOrdenacao}
                             />
                         }
                     </Modal>
