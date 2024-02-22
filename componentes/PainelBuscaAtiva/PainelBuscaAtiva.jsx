@@ -29,6 +29,39 @@ const stringToDate = (str)=>{
     if(str.includes('/')) return dataFormatoBarra(str) 
     if(str.includes('-')) return dataFormatoTraco(str) 
 }
+
+const sortByDate = (data, filtro, IDFiltrosOrdenacao)=>{
+    return [...data].sort((a,b) =>{
+        const valueA = stringToDate(a[filtro])
+        const valueB = stringToDate(b[filtro])
+        if (valueA === null && valueB === null) {
+        return 0;
+        } else if (valueA === null) {
+        return 1;
+        } else if (valueB === null) {
+        return -1;
+        }
+        if(IDFiltrosOrdenacao[filtro] == "asc") return valueA - valueB
+        if(IDFiltrosOrdenacao[filtro] == "desc") return valueB - valueA
+    }
+)}
+
+const sortInt = (data, filtro, IDFiltrosOrdenacao)=>[...data].sort((a,b) => IDFiltrosOrdenacao[filtro] == "desc" ? Number(b[filtro]) - Number(a[filtro]) : Number(a[filtro]) - Number(b[filtro]))
+
+const sortByString = (data, filtro)=>[...data].sort((a,b) => a[filtro]?.toString().localeCompare(b[filtro]?.toString()) )
+
+const sortByChoice = (data, filtro, IDFiltrosOrdenacao, datefiltros, IntFiltros) => {
+    if (datefiltros.includes(filtro)) {
+        return sortByDate(data, filtro, IDFiltrosOrdenacao);
+    }
+
+    if (IntFiltros?.includes(filtro)) {
+        return sortInt(data, filtro, IDFiltrosOrdenacao);
+    }
+
+    return sortByString(data, filtro);
+}
+
 const SortData = ({
     data,
     setData,
@@ -43,29 +76,8 @@ const SortData = ({
     aba,
     sub_aba
 })=>{
-    const sortByDate = (data)=>{
-        return [...data].sort((a,b) =>{ 
-            const valueA = stringToDate(a[filtro]) 
-            const valueB = stringToDate(b[filtro])
-            if (valueA === null && valueB === null) {
-            return 0;
-            } else if (valueA === null) {
-            return 1;
-            } else if (valueB === null) {
-            return -1;
-            }
-            if(IDFiltrosOrdenacao[filtro] == "asc") return valueA - valueB 
-            if(IDFiltrosOrdenacao[filtro] == "desc") return valueB - valueA  
-        }
-    )}
-    const sortInt = (data)=>[...data].sort((a,b) => IDFiltrosOrdenacao[filtro] == "desc" ? Number(b[filtro]) - Number(a[filtro]) : Number(a[filtro]) - Number(b[filtro]))
-    const sortByString = (data)=>[...data].sort((a,b) => a[filtro]?.toString().localeCompare(b[filtro]?.toString()) )
-    datefiltros.includes(filtro) ? 
-    setData(sortByDate(data)) :
-    IntFiltros?.includes(filtro) ?
-    setData(sortInt(data)) :
-    setData(sortByString(data))
-    
+    setData(sortByChoice(data, filtro, IDFiltrosOrdenacao, datefiltros, IntFiltros))
+
     trackObject.track('button_click', {
         'button_action': 'aplicar_ordenacao',
         'nome_lista_nominal': painel,
