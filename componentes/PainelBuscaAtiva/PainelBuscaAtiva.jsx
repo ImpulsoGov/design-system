@@ -99,7 +99,7 @@ const FilterData = (props)=>{
         });
     }
     const filtrosAgrupados = agruparChavesIguais(filtros)
-    props.setData(props.data.filter(item => {
+    const dadosFiltrados = props.data.filter(item => {
         return filtrosAgrupados.every(filter =>{
             return filter["consultas_pre_natal_validas"] ? true : filter[Object.keys(filter)[0]].includes(item[Object.keys(filter)[0]].toString()) 
         });
@@ -111,7 +111,10 @@ const FilterData = (props)=>{
             return false
         }
         return true
-    }))
+    })
+    const dadosOrdenados = sortByChoice(dadosFiltrados, props.ordenar, props.IDFiltrosOrdenacao, props.datefiltros, props.IntFiltros)
+
+    props.setData(dadosOrdenados)
 
     props.trackObject.track('button_click', {
         'button_action': 'aplicar_filtro',
@@ -120,9 +123,6 @@ const FilterData = (props)=>{
         'sub_aba_lista_nominal' : props.sub_aba,
         'button_choices' : filtrosAgrupados
     });
-
-    props.setOrdenar()
-    props.setOrdenacaoAplicada(false)
 
     props.setModal(false)
 }
@@ -311,13 +311,16 @@ const Filtro = ({
     aba,
     sub_aba,
     setOrdenar,
-    setOrdenacaoAplicada
+    setOrdenacaoAplicada,
+    ordenar,
+    datefiltros,
+    IntFiltros,
+    IDFiltrosOrdenacao,
 })=>{
     const LimparFiltros = ()=>{
-        setData(tabela)
+        setData(sortByChoice(tabela, ordenar, IDFiltrosOrdenacao, datefiltros, IntFiltros))
         setChavesFiltros([])
         setModal(false)
-        
     }
     return(
         <div className={style.Filtro}>
@@ -356,7 +359,11 @@ const Filtro = ({
                         aba : aba,
                         sub_aba : sub_aba,
                         setOrdenar,
-                        setOrdenacaoAplicada                    
+                        setOrdenacaoAplicada,
+                        ordenar,
+                        datefiltros,
+                        IntFiltros,
+                        IDFiltrosOrdenacao,
                     }}
                 />  
             </div>
@@ -509,6 +516,10 @@ const PainelBuscaAtiva = ({
                                 sub_aba={sub_aba}
                                 setOrdenar={setOrdenar} 
                                 setOrdenacaoAplicada={setOrdenacaoAplicada}
+                                ordenar={ordenar} 
+                                datefiltros={datefiltros}
+                                IntFiltros={IntFiltros}
+                                IDFiltrosOrdenacao={IDFiltrosOrdenacao}
                             />
                         }
                     </Modal>
