@@ -83,7 +83,7 @@ const identificacao_atendimento_odontologico = [
 ]
 const atendimento_odontologico = (str)=>identificacao_atendimento_odontologico.find(item=>item.id_atendimento_odontologico==str).atendimento_odontologico_descricao
 
-const TabelaGestantesImpressao = ({ data,colunas}) => {
+const TabelaGestantesImpressao = ({ data, colunas, fontFamily = "Inter"}) => {
   return (
     <table style={{
       borderCollapse: "collapse",
@@ -91,7 +91,7 @@ const TabelaGestantesImpressao = ({ data,colunas}) => {
       color:  "#1F1F1F",
       textAlign: "center",
       fontSize: "12px",
-      fontFamily: "Inter",
+      fontFamily,
       letterSpacing: "-0.12px",
       textTransform: "uppercase",
     }}>
