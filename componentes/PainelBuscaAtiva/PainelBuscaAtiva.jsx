@@ -88,23 +88,23 @@ const SortData = ({
     setModal(false)
     setOrdenacaoAplicada(true)
 }
-const FilterData = (props)=>{
-    const filtros = ValuesToChavesFiltros(props.value,props.setChavesFiltros,props.dadosFiltros)
-    const agruparChavesIguais =(filtros)=>{
-        const chavesUnicas = [...new Set(filtros.flatMap(objeto => Object.keys(objeto)))];
-        return chavesUnicas.map(chave => {
-            const objetosComChave = filtros.filter(objeto => objeto.hasOwnProperty(chave));
-            const valores = objetosComChave.map(objeto => objeto[chave]);
-            return { [chave]: valores };
-        });
-    }
-    const filtrosAgrupados = agruparChavesIguais(filtros)
-    const dadosFiltrados = props.data.filter(item => {
-        return filtrosAgrupados.every(filter =>{
+
+const agruparChavesIguais =(filtros)=>{
+    const chavesUnicas = [...new Set(filtros.flatMap(objeto => Object.keys(objeto)))];
+    return chavesUnicas.map(chave => {
+        const objetosComChave = filtros.filter(objeto => objeto.hasOwnProperty(chave));
+        const valores = objetosComChave.map(objeto => objeto[chave]);
+        return { [chave]: valores };
+    });
+}
+
+const filterByChoices = (data, filterChoices) => {
+    return data.filter(item => {
+        return filterChoices.every(filter =>{
             return filter["consultas_pre_natal_validas"] ? true : filter[Object.keys(filter)[0]].includes(item[Object.keys(filter)[0]].toString()) 
         });
     }).filter(item=>{
-        const filtroConsultas = filtrosAgrupados.filter(item=>item.hasOwnProperty('consultas_pre_natal_validas'))?.length > 0 ? filtrosAgrupados.filter(item=>item.hasOwnProperty('consultas_pre_natal_validas'))[0] : []
+        const filtroConsultas = filterChoices.filter(item=>item.hasOwnProperty('consultas_pre_natal_validas'))?.length > 0 ? filterChoices.filter(item=>item.hasOwnProperty('consultas_pre_natal_validas'))[0] : []
         if(filtroConsultas["consultas_pre_natal_validas"]?.length > 0){
             if(filtroConsultas["consultas_pre_natal_validas"]=='Maior ou igual a 6' && Number(item["consultas_pre_natal_validas"]) >= 6) return true
             if(filtroConsultas["consultas_pre_natal_validas"]=='Menor que 6' && Number(item["consultas_pre_natal_validas"]) < 6) return true
@@ -112,6 +112,12 @@ const FilterData = (props)=>{
         }
         return true
     })
+}
+
+const FilterData = (props)=>{
+    const filtros = ValuesToChavesFiltros(props.value,props.setChavesFiltros,props.dadosFiltros)
+    const filtrosAgrupados = agruparChavesIguais(filtros)
+    const dadosFiltrados = filterByChoices(props.data, filtrosAgrupados)
     const dadosOrdenados = sortByChoice(dadosFiltrados, props.ordenar, props.IDFiltrosOrdenacao, props.datefiltros, props.IntFiltros)
 
     props.setData(dadosOrdenados)
