@@ -216,8 +216,17 @@ const Ordenar = (props)=>{
         "ID" : props.IDFiltros
     }
     const limpar = ()=>{
+        let dados = props.tabela
+        const temFiltrosAplicados = Object.values(props.filtros).some((filtro) => filtro);
+
+        if (temFiltrosAplicados) {
+            const filtrosEscolhidos = ValuesToChavesFiltros(props.filtros, props.setChavesFiltros, props.dadosFiltros)
+            const filtrosAgrupados = agruparChavesIguais(filtrosEscolhidos)
+            dados = filterByChoices(props.tabela, filtrosAgrupados)
+        }
+
         props.setOrdenar()
-        props.setData(props.tabela)
+        props.setData(dados)
         props.setModal(false)
         props.setOrdenacaoAplicada(false)
     }
@@ -503,6 +512,9 @@ const PainelBuscaAtiva = ({
                                 trackObject={trackObject}
                                 aba={aba}
                                 sub_aba={sub_aba}
+                                filtros={value}
+                                setChavesFiltros={setChavesFiltros}
+                                dadosFiltros={dadosFiltros}
                             />
                         }
                         {
