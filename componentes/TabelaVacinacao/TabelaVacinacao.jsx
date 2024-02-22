@@ -278,7 +278,7 @@ const STYLE_STATUS_PENTA = (value)=>{
   
 const FormatarIdade = (str)=> <div>{str + " meses"}</div>
 
-const TabelaVacinacaoImpressao = ({ data,colunas}) => {
+const TabelaVacinacaoImpressao = ({ data, colunas, fontFamily = "Inter" }) => {
   return (
     <table style={{
       borderCollapse: "collapse",
@@ -286,7 +286,7 @@ const TabelaVacinacaoImpressao = ({ data,colunas}) => {
       color:  "#1F1F1F",
       textAlign: "center",
       fontSize: "12px",
-      fontFamily: "Inter",
+      fontFamily,
       letterSpacing: "-0.12px",
       textTransform: "uppercase",
     }}>
