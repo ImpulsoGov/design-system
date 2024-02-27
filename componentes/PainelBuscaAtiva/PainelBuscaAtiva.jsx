@@ -101,7 +101,8 @@ const agruparChavesIguais =(filtros)=>{
 const filterByChoices = (data, filterChoices) => {
     return data.filter(item => {
         return filterChoices.every(filter =>{
-            return filter["consultas_pre_natal_validas"] ? true : filter[Object.keys(filter)[0]].includes(item[Object.keys(filter)[0]].toString()) 
+            if (!item[Object.keys(filter)[0]]) return false
+            return filter["consultas_pre_natal_validas"] ? true : filter[Object.keys(filter)[0]].includes(item[Object.keys(filter)[0]].toString())
         });
     }).filter(item=>{
         const filtroConsultas = filterChoices.filter(item=>item.hasOwnProperty('consultas_pre_natal_validas'))?.length > 0 ? filterChoices.filter(item=>item.hasOwnProperty('consultas_pre_natal_validas'))[0] : []
