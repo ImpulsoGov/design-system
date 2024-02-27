@@ -522,7 +522,7 @@ export const ColorIPLogout = Template.bind({});
 ColorIPLogout.args = {
     user: notLoggedUser,
     login: {
-        titulo: "Faça o login para ver o painel de busca ativa"
+        titulo: "Faça o login para ver os dados restritos"
     },
     data:data,
     theme:{

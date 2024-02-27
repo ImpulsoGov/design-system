@@ -1,10 +1,8 @@
 .LoginConteiner{
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
     width: 100%;
-    padding: 45px;
+    padding: 25px 70px;
 }
 .LoginCampos{
     display: flex;
@@ -12,11 +10,19 @@
     gap: 20px;
     width: 100%;
 }
-
+.LoginMSG{
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    color : #1F1F1F;
+    margin: 15px 0px 25px 0px;
+}
 .LoginCampo{
     font-family: 'Inter';
     width: 100%;
-    height: 80px;
+    height: 56px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -41,25 +47,26 @@
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
-    font-size: 24px;
-    line-height: 150%;
+    font-size: 28px;
+    line-height: 130%;
     color: #1F1F1F;
-    width: 100%;
-    margin-bottom: 32px;
+    width: 70%;
+    margin-bottom: 30px;
 }
 
 .LoginEsqueciMinhaSenha{
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 150%;
-    color: #606E78;
+    color: #2EB280;
+    border-bottom: solid 1px #2EB280;
+    width: fit-content;
 }
 
 .LoginEsqueciMinhaSenha:hover{
     cursor : pointer;
-    text-decoration: underline;
 }
 .LoginResposta{
     background-color: #E95F3A;
@@ -76,7 +83,7 @@
     line-height: 150%;
 }
 .LoginCampoButton{
-    margin-top: 50px;
+    margin-top: 35px;
     width: 100%;
     display: flex;
     text-transform: uppercase;
@@ -168,8 +175,13 @@
 }
 
 @media screen and (max-width: 1023px) {
+    .LoginConteiner{
+        padding: 16px;
+    }
+    
     .LoginTitulo{
         font-size: 24px;
+        width: 100%;
     }
     
     .LoginCampo{
@@ -184,7 +196,7 @@
     }
     
     .LoginCampo{
-        height: 50px;
-        padding: 15px;
+        height: 56px;
+        padding: 10px;
     }
 }
