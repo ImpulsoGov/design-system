@@ -1,8 +1,12 @@
 import React from 'react'
-import { Alert, Alert_v2 } from './index'
-import { ModalAlert } from './index'
-import { CardAlertModal } from './index'
-import { NPS } from './index'
+import { 
+    Alert, 
+    Alert_v2, 
+    AtualizacaoCadastral, 
+    ModalAlert, 
+    CardAlertModal,
+    NPS 
+} from './index'
 
 
 export default {
@@ -81,6 +85,22 @@ Webnar_v2.args ={
         },
         botao : {
             label : "ACESSAR EVENTO",
+            url : "https://bit.ly/encontro-listas-nominais"
+        }
+    }
+}
+export const Atualizacao_Cadastral = Template.bind({});
+Atualizacao_Cadastral.args ={
+    Child : AtualizacaoCadastral,
+    childProps : {
+        titulos : {
+            Titulo : "Atenção",
+            SubTitulo : "Para garantir o seu acesso na área logada, atualize seu cadastro"
+        },
+        Info : "Em breve vamos alterar os dados necessários para acessar o site do Impulso Previne. Clique no botão abaixo e atualize sua ficha de cadastro!",
+        imagem : "https://media.graphassets.com/fnBPBSsuS2aUWu0pjQV9",
+        botao : {
+            label : "ATUALIZAR CADASTRO",
             url : "https://bit.ly/encontro-listas-nominais"
         }
     }
