@@ -111,8 +111,8 @@
     color: #145C56;
 }
 .close{
-    width: 72%;
-    height: auto;
+    width: auto;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: flex-end;

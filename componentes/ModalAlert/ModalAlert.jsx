@@ -130,7 +130,7 @@ const AtualizacaoCadastral = ({
                     className={style_v3.ModalExit}
                     onClick={()=>props.setDisplay(false)}
                 ></a>
-                <img src={props.imagem} width="100%" height="100%" style={{borderRadius:"0 20px 20px 0px",objectFit : "contain"}}/>
+                <img src={props.imagem} height={"100%"} style={{borderRadius:"0 20px 20px 0px",objectFit : "contain"}}/>
             </div>
             <div className={style_v3.Container}>
                 <div className={style_v3.ContainerTitulo}>
