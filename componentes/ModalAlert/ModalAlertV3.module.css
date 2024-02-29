@@ -40,7 +40,7 @@
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
-    font-size: 28px;
+    font-size: 24px;
     line-height: 130%;
     color: #2EB380;
 }
@@ -48,7 +48,7 @@
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
-    font-size: 26px;
+    font-size: 16px;
     line-height: 120%;
     color: #606E78;
 }
@@ -193,7 +193,7 @@
         font-size: 24px;
     }
     .Titulo{
-        font-size: 24px;
+        font-size: 16px;
     }
     .ProfissionalInfoNome{
         font-size: 14px;
