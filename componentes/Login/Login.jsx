@@ -5,6 +5,8 @@ import { ButtonLightSubmit } from "../ButtonLight";
 import { CardAlert } from "../CardAlert"
 import cx from 'classnames';
 import { Spinner } from "../Spinner";
+import { cpf } from 'cpf-cnpj-validator';
+
 
 const Login = (props)=>{
     const [senha, setSenha] = useState("");
@@ -37,8 +39,9 @@ const Login = (props)=>{
             // Se o valor tem mais de 11 dígitos, adicione um traço após os próximos 3 dígitos
             if (value.length > 11) {
                 value = value.replace(/(\d{3}\.\d{3}\.)(\d{3})/, '$1$2-');
+                cpf.isValid(value)
             }
-        
+            
             // Atualiza o estado
             setMail(value);
         }
@@ -115,7 +118,7 @@ const Login = (props)=>{
                         <div className={style.LoginCampoButton}>
                             <button 
                                 className={
-                                    (mail.length>0 && senha.length>0)?
+                                    ((mail.length>0 && cpf.isValid(mail)) && senha.length>0 )?
                                     cx(style.LoginButton, style[`${color}`]):
                                     style.LoginButtonInativo
                                 }

@@ -17,7 +17,7 @@ const reqs = {
         const aguarde = async()=> await new Promise(r => setTimeout(r, 2000));
         const res = aguarde().then(async(res)=>{
             console.log(mail)
-            if (mail == 'danilo') return true
+            if (mail == '390.270.498-58') return true
             return false 
         })
         return await res

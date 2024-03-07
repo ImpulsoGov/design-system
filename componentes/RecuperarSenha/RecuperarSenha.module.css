@@ -48,7 +48,15 @@
 
 .InputColorIP:focus, .InputWhite:focus , .RecuperarSenhaInput:focus{
     outline: none !important;
+    border: #EFF5F9 solid 1px;
+}
+.InputColorIPSucesso:focus{
+    outline: none !important;
     border: #2EB280 solid 1px;
+}
+.InputColorIPAlerta:focus{
+    outline: none !important;
+    border: #EABF2E solid 1px;
 }
 
 .InputColorSM:focus, .InputWhiteSM:focus{
@@ -86,6 +94,21 @@
     align-items: center;
     padding: 10px 16px;
     background: #E95F3A;
+    border-radius: 8px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 150%;
+    color: #FFFFFF;
+}
+.RecuperarSenhaMensagemAlerta{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px 16px;
+    background: #EABF2E;
     border-radius: 8px;
 
     font-family: 'Inter';

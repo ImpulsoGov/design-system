@@ -3,6 +3,7 @@ import { useState } from "react";
 import style from "./RecuperarSenha.module.css";
 import cx from "classnames";
 import { Spinner } from "../Spinner";
+import { cpf } from 'cpf-cnpj-validator';
 
 const validacaoSenha = (senha)=>{
     let restricoes ={}
@@ -40,15 +41,53 @@ const InserirInfo = ({
 })=>{
     const [value, setValue] = useState('');
     const [novaSenhaConfirmacao,setNovaSenhaConfirmacao] = useState('')
-    const ProximaEtapa = ()=> {
-        setLoading(true);
 
+    const handleCPF = (e)=>{
+        if(theme != 'ColorIP'){ 
+            setValue(e.target.value)
+        }else{
+            let value = e.target.value;
+            console.log(value,cpf.isValid(value))
+            // Procura todos os caracteres não numericos
+            let naoNumeros = value.match(/[^\d.-]/g)
+            console.log(naoNumeros,value.length)
+            naoNumeros?.length>0 && value.length> 0 ?
+            setAlert("A criação de senha é realizada utilizando o CPF.") : 
+            setAlert("")
+
+            // Remove qualquer caractere que não seja um dígito numerico
+            value = value.replace(/\D/g, '');
+            // Se o valor tem mais de 3 dígitos, adicione um ponto após os primeiros 3 dígitos
+            if (value.length > 3) {
+                value = value.replace(/(\d{3})/, '$1.');
+            }
+        
+            // Se o valor tem mais de 7 dígitos, adicione um ponto após os próximos 3 dígitos
+            if (value.length > 7) {
+                value = value.replace(/(\d{3}\.)(\d{3})/, '$1$2.');
+            }
+        
+            // Se o valor tem mais de 11 dígitos, adicione um traço após os próximos 3 dígitos
+            if (value.length > 11) {
+                value = value.replace(/(\d{3}\.\d{3}\.)(\d{3})/, '$1$2-');
+            }
+        
+            // Atualiza o estado
+            setValue(value);
+            if(!cpf.isValid(value) && value.length == 14) setAlert("CPF Inválido")
+            console.log(value)
+        }
+
+    }
+
+    const ProximaEtapa = ()=> {
+        setLoading(true);    
         if(etapa==0 && value.length > 0){
             req(value).then((response)=>{
                 if (response==true && value.length>0){
                     setEtapa(etapa+1)
                     setAlterarSenhaArgs({
-                        mail : value
+                        mail : value.replace(/\D/g, '')
                     })
                     setAlert('')
                     setLoading(false);
@@ -92,7 +131,8 @@ const InserirInfo = ({
     }
     const EtapaAnterior = ()=> (etapa-1>=0) ? setEtapa(etapa-1) : showEsqueciSenha(false)
     const AtivarBotao = ()=>{
-        if (value.length>0 && etapa!=2) return true
+        if(cpf.isValid(value)) return true
+        if (value.length>0 && etapa!=2 && etapa!=0) return true
         if (value.length>0 && value == novaSenhaConfirmacao && validacaoSenha(novaSenhaConfirmacao).validacao) return true
         return false
     }
@@ -110,11 +150,24 @@ const InserirInfo = ({
                 <>
                     <div className={style.inputContainer}>
                         <input 
-                            className={(alert.length>0 && value==0) ? style.RecuperarSenhaInputErro : cx(style.RecuperarSenhaInput, style[`Input${theme}`])}
+                            className={
+                                (alert.length>0 && value==0) && value.match(/[^\d.-]/g) ?
+                                style.RecuperarSenhaInputErro : 
+                                cpf.isValid(value) ? 
+                                cx(style.RecuperarSenhaInput, style[`Input${theme}Sucesso`]) :
+                                (alert && etapa != 2 && !cpf.isValid(value)) || value.match(/[^\d.-]/g)?.length > 0 ?
+                                cx(style.RecuperarSenhaInput, style[`Input${theme}Alerta`]) :
+                                cx(style.RecuperarSenhaInput, style[`Input${theme}`])
+                            }
                             type={(etapa==0) || mostrarSenha ? 'text' : 'password'}
                             placeholder={placeholder}
-                            value={value.replaceAll(" ","")}
-                            onChange={(e) => {setValue(e.target.value.replaceAll(" ",""));}}
+                            value={value}
+                            maxLength={etapa==0 ? 14 : null}
+                            onChange={(e) => {
+                                etapa==0 ? 
+                                handleCPF(e) :
+                                setValue(e.target.value.replaceAll(" ",""));
+                            }}
                         />
                         {
                             validarsenha && value.length>0 && 
@@ -138,7 +191,8 @@ const InserirInfo = ({
                             theme={theme}
                         />
                     }
-                    {alert && etapa != 2 && value.length==0 && <div className={style.RecuperarSenhaMensagem}>{alert}</div>}
+                    {alert && etapa != 2 && value.length==0 && value?.match(/[^\d.-]/g)?.length > 0 && <div className={style.RecuperarSenhaMensagem}>{alert}</div>}
+                    {alert && etapa != 2 && !cpf.isValid(value) && <div className={style.RecuperarSenhaMensagemAlerta}>{alert}</div>}
                     <div className={style.RecuperarSenhaButtonConteiner}>
                         <div 
                             className={style.RecuperarSenhaBotaoVoltar}
@@ -242,7 +296,7 @@ const RecuperarSenha = ({
     const [alterarSenhaArgs, setAlterarSenhaArgs] = useState();
     const [loading, setLoading] = useState(false);
 
-    const mailAlertMsg = "E-mail invalido.";
+    const mailAlertMsg = "CPF inválido";
     const codigoAlertMsg = "Código digitado é invalido";
     const senhaAlertMsg = "Falha na requisição"
     const color = theme || 'ColorIP';
@@ -266,7 +320,7 @@ const RecuperarSenha = ({
                             req = {reqs.mail}
                             etapa = {etapa}
                             setEtapa = {setEtapa}
-                            placeholder = "E-mail"
+                            placeholder = "CPF"
                             showEsqueciSenha = {showEsqueciSenha}
                             setAlterarSenhaArgs = {setAlterarSenhaArgs}
                             alterarSenhaArgs = {alterarSenhaArgs}

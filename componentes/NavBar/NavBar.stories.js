@@ -445,7 +445,7 @@ const notLoggedReqsEsqueciSenha = {
 
 const reqsPrimeiroAcesso = {
     mail : async(mail)=> {
-        const aguarde = async()=> await new Promise(r => setTimeout(r, 2000));
+        const aguarde = async()=> await new Promise(r => setTimeout(r, 1000));
         const res = aguarde().then(async(res)=>{
             console.log(mail)
             if (mail == 'danilo') return true
