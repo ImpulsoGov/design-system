@@ -127,6 +127,7 @@ const NavBar = (props) => {
                   logout = {props?.user?.logout}
                   equipe = {props?.user?.equipe}
                   botaoAuxiliar = {props?.user?.botaoAuxiliar}
+                  setModal = {setModal}
                 />
   const login = <Login
                   titulo = {props.login.titulo}

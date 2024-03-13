@@ -182,7 +182,7 @@ const prazoStyle = (value)=>{
 
 }
 
-const TabelaHiperDiaImpressao = ({ data,colunas }) => {
+const TabelaHiperDiaImpressao = ({ data, colunas, fontFamily = "Inter" }) => {
     return (
       <table style={{
         borderCollapse: "collapse",
@@ -190,7 +190,7 @@ const TabelaHiperDiaImpressao = ({ data,colunas }) => {
         color:  "#1F1F1F",
         textAlign: "center",
         fontSize: "12px",
-        fontFamily: "Inter",
+        fontFamily,
         letterSpacing: "-0.12px",
         textTransform: "uppercase",
       }}>
@@ -371,7 +371,7 @@ const selecionar_status_usuario_descricao = (value,status_usuario_descricao)=> {
       </div>
   }
 
-  const TabelaCitoImpressao = ({ data,colunas,status_usuario_descricao}) => {
+  const TabelaCitoImpressao = ({ data, colunas, status_usuario_descricao, fontFamily = "Inter"}) => {
     return (
       <table style={{
         borderCollapse: "collapse",
@@ -379,7 +379,7 @@ const selecionar_status_usuario_descricao = (value,status_usuario_descricao)=> {
         color:  "#1F1F1F",
         textAlign: "center",
         fontSize: "12px",
-        fontFamily: "Inter",
+        fontFamily,
         letterSpacing: "-0.12px",
         textTransform: "uppercase",
       }}>

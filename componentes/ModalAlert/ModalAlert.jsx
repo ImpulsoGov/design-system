@@ -1,6 +1,7 @@
 import React, {useState,useRef,useEffect} from "react";
 import style from "./ModalAlert.module.css";
 import style_v2 from "./ModalAlertV2.module.css";
+import style_v3 from "./ModalAlertV3.module.css";
 import { ButtonColor,ButtonColorMobile, ButtonColorSubmit } from "../ButtonColor";
 
 const CardProfissional = ({cardProfissional})=>{
@@ -118,6 +119,37 @@ const Alert_v2 = ({
         </div>
     )
 }
+const AtualizacaoCadastral = ({
+    refModal,
+    props
+})=>{
+    return (
+        <div className={style_v3.Alert} ref={refModal}>
+            <div className={style_v3.close}>
+                <a 
+                    className={style_v3.ModalExit}
+                    onClick={()=>props.setDisplay(false)}
+                ></a>
+                <img src={props.imagem} height={"100%"} style={{borderRadius:"0 20px 20px 0px",objectFit : "contain"}}/>
+            </div>
+            <div className={style_v3.Container}>
+                <div className={style_v3.ContainerTitulo}>
+                    <div>
+                        <div className={style_v3.Titulo}>{props.titulos.Titulo}</div>
+                        <div className={style_v3.SubTitulo}>{props.titulos.SubTitulo}</div>
+                    </div>
+                    <div className={style_v3.ContainerInfo}>{props.Info}
+                    </div>
+                    <div className={style_v3.botaoDesktop}>
+                        <ButtonColor label={props.botao.label} link={props.botao.url} nova_aba={true}/>
+                    </div>
+                    <div className={style_v3.botaoMobile}><ButtonColorMobile label={props.botao.label} link={props.botao.url} /></div>
+                </div>
+            </div>
+        </div>
+    )
+}
+
 const NPS = ({props})=>{
     const [avaliacao,setAvaliacao] = useState(0)
     const [avaliacaoHover,setAvaliacaoHover] = useState(0)
@@ -203,4 +235,4 @@ const ModalAlertOff= ({Child,childProps,display,setDisplay})=>{
     )
 }
 
-export {ModalAlert,Alert,CardAlertModal,ModalAlertOff,NPS, Alert_v2}
+export { ModalAlert,Alert,CardAlertModal,ModalAlertOff,NPS, Alert_v2, AtualizacaoCadastral }
