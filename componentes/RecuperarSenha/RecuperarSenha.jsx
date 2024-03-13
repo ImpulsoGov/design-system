@@ -1,9 +1,12 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import style from "./RecuperarSenha.module.css";
 import cx from "classnames";
 import { Spinner } from "../Spinner";
 import { cpf } from 'cpf-cnpj-validator';
+
+// Refatorar componentes, estão com muitas responsabilidades e logica complexa para manutenção
+
 
 const validacaoSenha = (senha)=>{
     let restricoes ={}
@@ -20,6 +23,7 @@ const validacaoSenha = (senha)=>{
 const InserirInfo = ({
     titulo,
     chamada,
+    trocar_telefone,
     aviso,
     botaoVoltar,
     botaoProximo,
@@ -30,6 +34,11 @@ const InserirInfo = ({
     etapa,
     setEtapa,
     req,
+    sms,
+    seguntaTentativa,
+    setSegundaTentativa,
+    saveCPF,
+    setSaveCPF,
     validarsenha,
     placeholder,
     sucesso,
@@ -40,42 +49,46 @@ const InserirInfo = ({
     setLoading
 })=>{
     const [value, setValue] = useState('');
-    const [novaSenhaConfirmacao,setNovaSenhaConfirmacao] = useState('')
-
+    const [novaSenhaConfirmacao,setNovaSenhaConfirmacao] = useState('');
+    const [alertCPF,setAlertCPF] = useState(false);
+    const [seconds, setSeconds] = useState(120);
     const handleCPF = (e)=>{
+        let value = e.target.value;
         if(theme != 'ColorIP'){ 
             setValue(e.target.value)
         }else{
-            let value = e.target.value;
-            console.log(value,cpf.isValid(value))
-            // Procura todos os caracteres não numericos
-            let naoNumeros = value.match(/[^\d.-]/g)
-            console.log(naoNumeros,value.length)
-            naoNumeros?.length>0 && value.length> 0 ?
-            setAlert("A criação de senha é realizada utilizando o CPF.") : 
-            setAlert("")
-
-            // Remove qualquer caractere que não seja um dígito numerico
-            value = value.replace(/\D/g, '');
-            // Se o valor tem mais de 3 dígitos, adicione um ponto após os primeiros 3 dígitos
-            if (value.length > 3) {
-                value = value.replace(/(\d{3})/, '$1.');
+            if(etapa == 0){
+                // Procura todos os caracteres não numericos
+                let naoNumeros = value.match(/[^\d.-]/g)
+                if(naoNumeros?.length>0 && value.length> 0){
+                    setAlert("A criação de senha é realizada utilizando o CPF.") 
+                    setAlertCPF(true)
+                }else{ 
+                    setAlert("")
+                    setAlertCPF(false)
+                }
+                // Remove qualquer caractere que não seja um dígito numerico
+                value = value.replace(/\D/g, '');
+                // Se o valor tem mais de 3 dígitos, adicione um ponto após os primeiros 3 dígitos
+                if (value.length > 3) {
+                    value = value.replace(/(\d{3})/, '$1.');
+                }
+            
+                // Se o valor tem mais de 7 dígitos, adicione um ponto após os próximos 3 dígitos
+                if (value.length > 7) {
+                    value = value.replace(/(\d{3}\.)(\d{3})/, '$1$2.');
+                }
+            
+                // Se o valor tem mais de 11 dígitos, adicione um traço após os próximos 3 dígitos
+                if (value.length > 11) {
+                    value = value.replace(/(\d{3}\.\d{3}\.)(\d{3})/, '$1$2-');
+                }
+            
+                // Atualiza o estado
+                setValue(value);
             }
-        
-            // Se o valor tem mais de 7 dígitos, adicione um ponto após os próximos 3 dígitos
-            if (value.length > 7) {
-                value = value.replace(/(\d{3}\.)(\d{3})/, '$1$2.');
-            }
-        
-            // Se o valor tem mais de 11 dígitos, adicione um traço após os próximos 3 dígitos
-            if (value.length > 11) {
-                value = value.replace(/(\d{3}\.\d{3}\.)(\d{3})/, '$1$2-');
-            }
-        
-            // Atualiza o estado
             setValue(value);
-            if(!cpf.isValid(value) && value.length == 14) setAlert("CPF Inválido")
-            console.log(value)
+            if(etapa == 1 && value?.length > 0) setAlert("")
         }
 
     }
@@ -84,15 +97,17 @@ const InserirInfo = ({
         setLoading(true);    
         if(etapa==0 && value.length > 0){
             req(value).then((response)=>{
-                if (response==true && value.length>0){
+                if (response["success"]==true && value.length>0){
                     setEtapa(etapa+1)
                     setAlterarSenhaArgs({
-                        mail : value.replace(/\D/g, '')
+                        cpf : value.replace(/\D/g, ''),
+                        telefone : `(**) ****-${response["telefone"]}`
                     })
                     setAlert('')
                     setLoading(false);
+                    setSaveCPF(value)
                 }else{
-                    setAlert(alertMsg)
+                    setAlert(response["mensagem"])
                     setValue('')
                     setLoading(false);
                 }
@@ -100,30 +115,32 @@ const InserirInfo = ({
         }
         if(etapa==1 && value.length > 0){
             req(alterarSenhaArgs.mail,value).then((response)=>{
-                if (response==true && value.length>0){
+                if (response["success"]==true && value.length>0){
                     setEtapa(etapa+1)
                     setAlterarSenhaArgs({
-                        mail : alterarSenhaArgs.mail,
-                        codigo : value
+                        cpf : alterarSenhaArgs.cpf,
+                        codigo : value,
+                        telefone : alterarSenhaArgs.telefone
                     })
                     setAlert('')
                     setLoading(false);
                 }else{
-                    setAlert(alertMsg)
+                    setAlert(response["mensagem"])
                     setValue('')
                     setLoading(false);
+                    setSegundaTentativa(true)
                 }
             })
         }
         if(etapa==2 && value.length > 0 && value == novaSenhaConfirmacao && validacaoSenha(novaSenhaConfirmacao).validacao){
-            req(alterarSenhaArgs.mail,alterarSenhaArgs.codigo,value)
+            req(alterarSenhaArgs.cpf,alterarSenhaArgs.codigo,value)
             .then((response)=>{
-                if (response==true){
+                if (response["succes"]==true){
                     setEtapa(etapa+1)
                     setAlert('')
                     setLoading(false);
                 }else{
-                    setAlert(alertMsg)
+                    setAlert(response["msg"])
                     setLoading(false);
                 }
             })
@@ -131,8 +148,7 @@ const InserirInfo = ({
     }
     const EtapaAnterior = ()=> (etapa-1>=0) ? setEtapa(etapa-1) : showEsqueciSenha(false)
     const AtivarBotao = ()=>{
-        if(cpf.isValid(value)) return true
-        if (value.length>0 && etapa!=2 && etapa!=0) return true
+        if (value.length>0 && etapa!=2) return true
         if (value.length>0 && value == novaSenhaConfirmacao && validacaoSenha(novaSenhaConfirmacao).validacao) return true
         return false
     }
@@ -140,34 +156,52 @@ const InserirInfo = ({
     const handleMostrarSenha = () => {
         setMostrarSenha(!mostrarSenha);
     };
+    useEffect(() => {
+        const interval = setInterval(() => {
+        if (seconds > 0) {
+            setSeconds(seconds - 1);
+        }
+        }, 1000);
 
+        return () => clearInterval(interval);
+    }, [seconds]);
+    const formatTime = (time) => {
+    const minutes = Math.floor(time / 60);
+    const remainingSeconds = time % 60;
+    return `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
+    };
     return(
         <div className={style.RecuperarSenhaConteiner}>
             <div className={style.RecuperarSenhaTitulo}>{titulo}</div>
-            <div className={style.RecuperarSenhaChamada}>{chamada}</div>
+            <div className={style.RecuperarSenhaChamada}>{chamada}{etapa==1 ? alterarSenhaArgs.telefone : ""}</div>
+            {
+                etapa == 1 &&
+                <a 
+                    href={trocar_telefone.link}
+                    target="_blank"
+                    className={style.Timer}
+                >{trocar_telefone.texto}</a>
+            }
             {aviso && <div className={style.RecuperarSenhaChamada}>{aviso}</div>}
             {   !sucesso &&
                 <>
                     <div className={style.inputContainer}>
                         <input 
                             className={
-                                (alert.length>0 && value==0) && value.match(/[^\d.-]/g) ?
+                                (alert.length>0 && value==0 && value.match(/[^\d.-]/g)?.length == 0) ?
                                 style.RecuperarSenhaInputErro : 
-                                cpf.isValid(value) ? 
+                                value.length == 14 && etapa == 0 ? 
                                 cx(style.RecuperarSenhaInput, style[`Input${theme}Sucesso`]) :
-                                (alert && etapa != 2 && !cpf.isValid(value)) || value.match(/[^\d.-]/g)?.length > 0 ?
-                                cx(style.RecuperarSenhaInput, style[`Input${theme}Alerta`]) :
+                                (etapa == 0 && alertCPF) ? 
+                                cx(style.RecuperarSenhaInput, style[`Input${theme}Alerta`]) : 
                                 cx(style.RecuperarSenhaInput, style[`Input${theme}`])
+
                             }
-                            type={(etapa==0) || mostrarSenha ? 'text' : 'password'}
+                            type={(etapa==0 || etapa == 1) || mostrarSenha ? 'text' : 'password'}
                             placeholder={placeholder}
                             value={value}
                             maxLength={etapa==0 ? 14 : null}
-                            onChange={(e) => {
-                                etapa==0 ? 
-                                handleCPF(e) :
-                                setValue(e.target.value.replaceAll(" ",""));
-                            }}
+                            onChange={(e) => {handleCPF(e) }}
                         />
                         {
                             validarsenha && value.length>0 && 
@@ -177,13 +211,13 @@ const InserirInfo = ({
                             >
                                 <img 
                                     className={style.showPassword}
-                                    src={ mostrarSenha ? "https://media.graphassets.com/KQptzqZRo2anp1Gdm0Wg" : "https://media.graphassets.com/wQYJXFzUSpCMUMc6xp5J" }
+                                    src={ mostrarSenha ?  "https://media.graphassets.com/drpbgyNgRy2TcgPzsFZe" : "https://media.graphassets.com/6SOGlnrdTGbEkjQPEggA" }
                                     alt="eye"
                                 />
                             </button>
                         }
                     </div>
-                    {   validarsenha && value.length>0 &&
+                    {   validarsenha &&
                         <ValidarSenha
                             novaSenha={value.replaceAll(" ","")}
                             novaSenhaConfirmacao = {novaSenhaConfirmacao.replaceAll(" ","")}
@@ -191,8 +225,40 @@ const InserirInfo = ({
                             theme={theme}
                         />
                     }
-                    {alert && etapa != 2 && value.length==0 && value?.match(/[^\d.-]/g)?.length > 0 && <div className={style.RecuperarSenhaMensagem}>{alert}</div>}
-                    {alert && etapa != 2 && !cpf.isValid(value) && <div className={style.RecuperarSenhaMensagemAlerta}>{alert}</div>}
+                    {alert && etapa != 2 && value.length==0 && !alertCPF && <div className={style.RecuperarSenhaMensagem}>{alert}</div>}
+                    {alert && etapa != 2 && alertCPF && <div className={style.RecuperarSenhaMensagemAlerta}>{alert}</div>}
+                    { 
+                        etapa == 1 && seconds != 0 && !alert && !seguntaTentativa ? 
+                        <p className={style.Timer}>O código enviado expira em {formatTime(seconds)}</p> : 
+                        etapa == 1 && !alert && !seguntaTentativa ?
+                        <p className={style.Timer}>
+                            Seu código expirou. 
+                            <span 
+                                className={style.SMS}
+                                onClick={()=>{
+                                    sms(saveCPF);
+                                    setSeconds(120);
+                                    setAlert("");
+                                    setSegundaTentativa(false);
+                                }}
+                            >
+                                Reenviar código por SMS.
+                            </span> 
+                        </p> : 
+                        etapa == 1 && <p className={style.Timer}>
+                            <span 
+                                className={style.SMS}
+                                onClick={()=>{
+                                    sms(saveCPF);
+                                    setSeconds(120);
+                                    setAlert("");
+                                    setSegundaTentativa(false);
+                                }}
+                            >
+                                Reenviar código por SMS.
+                            </span> 
+                        </p>
+                }
                     <div className={style.RecuperarSenhaButtonConteiner}>
                         <div 
                             className={style.RecuperarSenhaBotaoVoltar}
@@ -266,7 +332,7 @@ const ValidarSenha = ({novaSenha,novaSenhaConfirmacao,setNovaSenhaConfirmacao, t
                 >
                     <img 
                         className={style.showPassword}
-                        src={ mostrarSenha ? "https://media.graphassets.com/KQptzqZRo2anp1Gdm0Wg" : "https://media.graphassets.com/wQYJXFzUSpCMUMc6xp5J" }
+                        src={ mostrarSenha ?  "https://media.graphassets.com/drpbgyNgRy2TcgPzsFZe" : "https://media.graphassets.com/6SOGlnrdTGbEkjQPEggA" }
                         alt="eye"
                     />
                 </button>
@@ -287,7 +353,7 @@ const RecuperarSenha = ({
     botaoSucesso,
     reqs,
     showEsqueciSenha,
-    theme
+    theme,
 })=>{
     const [etapa, setEtapa] = useState(0);
     const [mailAlert, setMailAlert,] = useState('');
@@ -295,6 +361,8 @@ const RecuperarSenha = ({
     const [senhaAlert, setSenhaAlert] = useState('');
     const [alterarSenhaArgs, setAlterarSenhaArgs] = useState();
     const [loading, setLoading] = useState(false);
+    const [seguntaTentativa, setSegundaTentativa] = useState(false)
+    const [saveCPF,setSaveCPF] = useState("")
 
     const mailAlertMsg = "CPF inválido";
     const codigoAlertMsg = "Código digitado é invalido";
@@ -318,6 +386,8 @@ const RecuperarSenha = ({
                             setAlert = {setMailAlert}
                             alertMsg = {mailAlertMsg}
                             req = {reqs.mail}
+                            saveCPF = {saveCPF}
+                            setSaveCPF = {setSaveCPF}
                             etapa = {etapa}
                             setEtapa = {setEtapa}
                             placeholder = "CPF"
@@ -333,12 +403,18 @@ const RecuperarSenha = ({
                         <InserirInfo
                             titulo = {titulos.codigo}
                             chamada = {chamadas.codigo}
+                            trocar_telefone = { chamadas.trocar_telefone}
                             botaoVoltar = {botaoVoltar}
                             botaoProximo ={botaoProximo}
                             alert = {codigoAlert}
                             setAlert = {setCodigoAlert}
                             alertMsg = {codigoAlertMsg}
                             req = {reqs.codigo}
+                            sms = { reqs.mail }
+                            seguntaTentativa = { seguntaTentativa }
+                            setSegundaTentativa = { setSegundaTentativa }
+                            saveCPF = {saveCPF}
+                            setSaveCPF = {setSaveCPF}
                             etapa = {etapa}
                             setEtapa = {setEtapa}
                             placeholder = "Código de Recuperação"

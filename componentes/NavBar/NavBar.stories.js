@@ -448,7 +448,7 @@ const reqsPrimeiroAcesso = {
         const aguarde = async()=> await new Promise(r => setTimeout(r, 1000));
         const res = aguarde().then(async(res)=>{
             console.log(mail)
-            if (mail == 'danilo') return true
+            if (mail == '390.270.498-58') return true
             return false 
         })
         return await res
@@ -572,7 +572,7 @@ ColorIPLogout.args = {
     primeiroAcesso:{
         reqs: reqsPrimeiroAcesso,
         chamadas: {
-            sucesso: "Agora é só entrar na área restrita com seu e-mail e a senha criada."
+            sucesso: "Agora é só entrar na área restrita com seu CPF e a senha criada."
         }
     }
 

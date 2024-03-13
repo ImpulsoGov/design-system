@@ -102,7 +102,7 @@ const Login = (props)=>{
                                 >
                                     <img
                                         className={style.IconeMostraSenha}
-                                        src={ mostraSenha ? "https://media.graphassets.com/KQptzqZRo2anp1Gdm0Wg" : "https://media.graphassets.com/wQYJXFzUSpCMUMc6xp5J" }
+                                        src={ mostraSenha ?  "https://media.graphassets.com/drpbgyNgRy2TcgPzsFZe" : "https://media.graphassets.com/6SOGlnrdTGbEkjQPEggA" }
                                         alt="eye"
                                     />
                                 </button>
@@ -118,7 +118,7 @@ const Login = (props)=>{
                         <div className={style.LoginCampoButton}>
                             <button 
                                 className={
-                                    ((mail.length>0 && cpf.isValid(mail)) && senha.length>0 )?
+                                    (mail.length>0 && senha.length>0 ) ?
                                     cx(style.LoginButton, style[`${color}`]):
                                     style.LoginButtonInativo
                                 }

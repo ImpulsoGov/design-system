@@ -182,9 +182,8 @@ const NavBar = (props) => {
                                 }}
                                 botaoVoltar = {{label:"voltar",function : ""}}
                                 botaoProximo = {{label:"próximo",function : ""}}
-                                botaoSucesso = "Inicio"
+                                botaoSucesso = "Fazer Login"
                                 showEsqueciSenha = {(arg)=>{
-                                  setShowModalInicio(!arg)
                                   setShowPrimeiroAcesso(arg)
                                 }}
                                 reqs = {props.primeiroAcesso.reqs}
