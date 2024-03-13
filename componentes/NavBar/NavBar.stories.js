@@ -530,6 +530,7 @@ ColorIPLogout.args = {
         cor: "ColorIP",
         logoLink: "/inicio"
     },
+    projeto : "IP",
     seletorMunicipios: true,
     menu:
         [
@@ -572,7 +573,12 @@ ColorIPLogout.args = {
     primeiroAcesso:{
         reqs: reqsPrimeiroAcesso,
         chamadas: {
-            sucesso: "Agora é só entrar na área restrita com seu CPF e a senha criada."
+            mail : "Digite o e-mail cadastrado para receber um código de autorização de criação da senha.",
+            aviso : " ",
+            codigo : "Digite abaixo o código recebido por mensagem de SMS no número de telefone cadastrado: ",
+            trocar_telefone : { texto : "Quero atualizar meu número de telefone cadastrado.", link : "/"},
+            senha : "Crie sua senha de acesso",
+            sucesso : "Agora é só entrar na área restrita com seu e-mail e a senha criada."
         }
     }
 
@@ -581,7 +587,7 @@ export const ColorAGPLogin = Template.bind({});
 ColorAGPLogin.args = {
     user: loggedUser,
     login: {
-        titulo: "Faça o login para ver o painel de busca ativa"
+        titulo: "Faça o login para ver os dados restritos"
     },
     data:data,
     theme:{
@@ -625,8 +631,13 @@ ColorAGPLogin.args = {
     primeiroAcesso:{
         reqs: reqsPrimeiroAcesso,
         chamadas: {
-            sucesso: "Agora é só clicar no botão ENTRAR com seu e-mail e a senha criada."
-        }
+            mail : "Digite o e-mail cadastrado para receber um código de autorização de criação da senha.",
+            aviso : "Caso não lembre o e-mail cadastrado, entre em contato conosco pelo grupo de mensagens do seu município com a Impulso Gov.",
+            codigo : "Digite abaixo o código recebido por mensagem de SMS no número de telefone cadastrado: ",
+            trocar_telefone : { texto : "Quero atualizar meu número de telefone cadastrado.", link : "/"},
+            senha : "Crie sua senha de acesso",
+            sucesso : "Agora é só entrar na área restrita com seu e-mail e a senha criada."
+            }
     }
 }
 export const ColorSMLogout = Template.bind({});

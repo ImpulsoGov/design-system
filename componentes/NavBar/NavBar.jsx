@@ -144,6 +144,7 @@ const NavBar = (props) => {
                   validarCredencial = {props?.user?.validarCredencial}
                   validacao = {props?.user?.validacao}
                   showEsqueciSenha = {setShowEsqueciSenha}
+                  projeto = {props?.projeto}
                 />
   
   const EsqueciMinhaSenha = <RecuperarSenha
@@ -166,6 +167,7 @@ const NavBar = (props) => {
                               showEsqueciSenha = {setShowEsqueciSenha}
                               reqs = {props.esqueciMinhaSenha.reqs}
                               theme = {props.theme.cor}
+                              projeto = {props?.projeto}
                             />   
   const PrimeiroAcesso = <RecuperarSenha
                                 titulos = { {
@@ -178,6 +180,7 @@ const NavBar = (props) => {
                                 mail : props?.primeiroAcesso?.chamadas?.mail || CHAMADA_MAIL_PADRAO_PRIMEIRO_ACESSO,
                                 aviso : props?.primeiroAcesso?.chamadas?.aviso || CHAMADA_AVISO_PADRAO,
                                 codigo : "Digite abaixo o código recebido no e-mail cadastrado",
+                                trocar_telefone : { texto : "Quero atualizar meu número de telefone cadastrado.", link : "/"},
                                 senha : "Crie sua senha de acesso",
                                 sucesso : props.primeiroAcesso.chamadas.sucesso,
                                 }}
@@ -189,6 +192,7 @@ const NavBar = (props) => {
                                 }}
                                 reqs = {props.primeiroAcesso.reqs}
                                 theme = {props.theme.cor}
+                                projeto = {props?.projeto}
                               />   
                               
   const ModalInicioChild = <ModalInicio

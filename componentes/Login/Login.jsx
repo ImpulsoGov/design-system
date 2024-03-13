@@ -17,7 +17,7 @@ const Login = (props)=>{
     const [alertCPF, setAlertCPF] = useState(false)
     const color = props.botaoPrincipal.theme ? props.botaoPrincipal.theme : 'ColorIP';
     const handleUser = (e)=>{
-        if(props.botaoPrincipal.theme != 'ColorIP'){ 
+        if(props.projeto != 'IP'){ 
             setMail(e.target.value)
         }else{
             let value = e.target.value;
@@ -55,7 +55,7 @@ const Login = (props)=>{
                     <div className={style.LoginConteiner}>
                         <div className={style.LoginTitulo}>{props.titulo}</div>
                         {
-                            props.botaoPrincipal.theme == 'ColorIP' &&
+                            props.projeto == 'IP' &&
                             <>
                                 <CardAlert
                                     msg = "Agora não utilizamos mais e-mail para login. Você deve utilizar seu CPF e senha cadastrada."
@@ -69,7 +69,7 @@ const Login = (props)=>{
                             <input
                                 className={style.LoginCampo} 
                                 type="text"
-                                placeholder= {props.botaoPrincipal.theme == 'ColorIP' ? "CPF" : "E-mail"}
+                                placeholder= {props.projeto == 'IP' ? "CPF" : "E-mail"}
                                 rows="2" 
                                 style={{resize: "none"}}
                                 value={mail}

@@ -46,6 +46,7 @@ const InserirInfo = ({
     setAlterarSenhaArgs,
     alterarSenhaArgs,
     theme,
+    projeto,
     setLoading
 })=>{
     const [value, setValue] = useState('');
@@ -54,7 +55,7 @@ const InserirInfo = ({
     const [seconds, setSeconds] = useState(120);
     const handleCPF = (e)=>{
         let value = e.target.value;
-        if(theme != 'ColorIP'){ 
+        if(projeto != 'IP'){ 
             setValue(e.target.value)
         }else{
             if(etapa == 0){
@@ -354,6 +355,7 @@ const RecuperarSenha = ({
     reqs,
     showEsqueciSenha,
     theme,
+    projeto
 })=>{
     const [etapa, setEtapa] = useState(0);
     const [mailAlert, setMailAlert,] = useState('');
@@ -395,6 +397,7 @@ const RecuperarSenha = ({
                             setAlterarSenhaArgs = {setAlterarSenhaArgs}
                             alterarSenhaArgs = {alterarSenhaArgs}
                             theme = {color}
+                            projeto = {projeto}
                             setLoading={setLoading}
                         />
                     }
@@ -421,6 +424,7 @@ const RecuperarSenha = ({
                             setAlterarSenhaArgs = {setAlterarSenhaArgs}
                             alterarSenhaArgs = {alterarSenhaArgs}
                             theme = {color}
+                            projeto = {projeto}
                             setLoading={setLoading}
                         />
                     }
@@ -442,6 +446,7 @@ const RecuperarSenha = ({
                             setAlterarSenhaArgs = {setAlterarSenhaArgs}
                             alterarSenhaArgs = {alterarSenhaArgs}
                             theme = {color}
+                            projeto = {projeto}
                             setLoading={setLoading}
                         />
                     }
@@ -463,6 +468,7 @@ const RecuperarSenha = ({
                             setAlterarSenhaArgs = {setAlterarSenhaArgs}
                             alterarSenhaArgs = {alterarSenhaArgs}
                             theme = {color}
+                            projeto = {projeto}
                             setLoading={setLoading}
                         />
                     }
