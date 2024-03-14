@@ -662,4 +662,4 @@ const PainelBuscaAtiva = ({
 }
 
 
-export {PainelBuscaAtiva}
+export {PainelBuscaAtiva, Filtro, FiltroCard, FiltroBody}
