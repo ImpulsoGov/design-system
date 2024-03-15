@@ -148,45 +148,19 @@ const NavBar = (props) => {
                 />
   
   const EsqueciMinhaSenha = <RecuperarSenha
-                              titulos = { {
-                                mail : "Recuperação de senha",
-                                senha : "Recuperação de senha",
-                                codigo : "Recuperação de senha",
-                                sucesso : "Nova senha criada com sucesso!"
-                              }}
-                              chamadas={{
-                              mail : props?.esqueciMinhaSenha?.chamadas?.mail || CHAMADA_MAIL_PADRAO_ESQUECI_SENHA,
-                              aviso : props?.esqueciMinhaSenha?.chamadas?.aviso || CHAMADA_AVISO_PADRAO,
-                              trocar_telefone : props?.esqueciMinhaSenha?.chamadas?.trocar_telefone,
-                              codigo : "Digite abaixo o código recebido no e-mail cadastrado",
-                              senha : "Escolha uma nova senha",
-                              sucesso : props.esqueciMinhaSenha.chamadas.sucesso,
-                              }}
+                              titulos = { props?.esqueciMinhaSenha?.titulos }
+                              chamadas={props?.esqueciMinhaSenha?.chamadas}
                               botaoVoltar = {{label:"voltar",function : ""}}
                               botaoProximo = {{label:"próximo",function : ""}}
-                              botaoSucesso = "Entrar"
+                              botaoSucesso = "Fazer Login"
                               showEsqueciSenha = {setShowEsqueciSenha}
                               reqs = {props.esqueciMinhaSenha.reqs}
                               theme = {props.theme.cor}
                               projeto = {props?.projeto}
                             />   
   const PrimeiroAcesso = <RecuperarSenha
-                                titulos = { {
-                                  mail : props?.primeiroAcesso?.titulos?.mail || TITULO_MAIL_PADRAO_PRIMEIRO_ACESSO,
-                                  verificacao : "Verificação do telefone",
-                                  codigo : props?.primeiroAcesso?.titulos?.codigo || "Validação do e-mail",
-                                  senha: "Crie sua senha de acesso",
-                                  sucesso : "Senha criada com sucesso!"
-                                }}
-                                chamadas={{
-                                mail : props?.primeiroAcesso?.chamadas?.mail || CHAMADA_MAIL_PADRAO_PRIMEIRO_ACESSO,
-                                aviso : props?.primeiroAcesso?.chamadas?.aviso || CHAMADA_AVISO_PADRAO,
-                                verificacao : "É necessário que um código de verificação seja enviado por mensagem de SMS para o telefone ",
-                                codigo : "Digite abaixo o código recebido no e-mail cadastrado",
-                                trocar_telefone : props?.esqueciMinhaSenha?.chamadas?.trocar_telefone,
-                                senha : "Crie sua senha de acesso",
-                                sucesso : props.primeiroAcesso.chamadas.sucesso,
-                                }}
+                                titulos = {props?.primeiroAcesso?.titulos}
+                                chamadas={props?.primeiroAcesso?.chamadas}
                                 botaoVoltar = {{label:"voltar",function : ""}}
                                 botaoProximo = {{label:"próximo",function : ""}}
                                 botaoSucesso = "Fazer Login"
