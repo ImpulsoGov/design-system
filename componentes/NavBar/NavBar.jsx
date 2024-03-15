@@ -173,7 +173,7 @@ const NavBar = (props) => {
                                 titulos = { {
                                   mail : props?.primeiroAcesso?.titulos?.mail || TITULO_MAIL_PADRAO_PRIMEIRO_ACESSO,
                                   verificacao : "Verificação do telefone",
-                                  codigo : "Validação do e-mail",
+                                  codigo : props?.primeiroAcesso?.titulos?.codigo || "Validação do e-mail",
                                   senha: "Crie sua senha de acesso",
                                   sucesso : "Senha criada com sucesso!"
                                 }}

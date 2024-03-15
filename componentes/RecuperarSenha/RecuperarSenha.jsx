@@ -52,7 +52,7 @@ const InserirInfo = ({
     const [value, setValue] = useState('');
     const [novaSenhaConfirmacao,setNovaSenhaConfirmacao] = useState('');
     const [alertCPF,setAlertCPF] = useState(false);
-    const [seconds, setSeconds] = useState(120);
+    const [seconds, setSeconds] = useState(180);
     const handleCPF = (e)=>{
         let value = e.target.value;
         if(projeto != 'IP'){ 
@@ -301,7 +301,7 @@ const InserirInfo = ({
                 <a 
                     href={trocar_telefone.link}
                     target="_blank"
-                    className={style.Timer}
+                    className={style.CTAAtualizar}
                 >{trocar_telefone.texto}</a>
             }
             {

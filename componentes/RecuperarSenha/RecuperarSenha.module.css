@@ -150,6 +150,17 @@
     font-weight: 400;
     line-height: 150%;
 }
+.CTAAtualizar{
+    color: #2EB280;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    border-bottom: #2EB280 solid 1px;
+}
+
 .SMS{
     border-bottom: solid 1px #2EB280;
     margin-left: 5px;
