@@ -157,6 +157,7 @@ const NavBar = (props) => {
                               chamadas={{
                               mail : props?.esqueciMinhaSenha?.chamadas?.mail || CHAMADA_MAIL_PADRAO_ESQUECI_SENHA,
                               aviso : props?.esqueciMinhaSenha?.chamadas?.aviso || CHAMADA_AVISO_PADRAO,
+                              trocar_telefone : props?.esqueciMinhaSenha?.chamadas?.trocar_telefone,
                               codigo : "Digite abaixo o código recebido no e-mail cadastrado",
                               senha : "Escolha uma nova senha",
                               sucesso : props.esqueciMinhaSenha.chamadas.sucesso,
@@ -182,7 +183,7 @@ const NavBar = (props) => {
                                 aviso : props?.primeiroAcesso?.chamadas?.aviso || CHAMADA_AVISO_PADRAO,
                                 verificacao : "É necessário que um código de verificação seja enviado por mensagem de SMS para o telefone ",
                                 codigo : "Digite abaixo o código recebido no e-mail cadastrado",
-                                trocar_telefone : { texto : "Quero atualizar meu número de telefone cadastrado.", link : "/"},
+                                trocar_telefone : props?.esqueciMinhaSenha?.chamadas?.trocar_telefone,
                                 senha : "Crie sua senha de acesso",
                                 sucesso : props.primeiroAcesso.chamadas.sucesso,
                                 }}
