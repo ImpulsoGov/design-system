@@ -129,7 +129,7 @@ const InserirInfo = ({
         }
 
         if(etapa==1 && value.length > 0){
-            req(alterarSenhaArgs.mail,value).then((response)=>{
+            req(alterarSenhaArgs.cpf,value).then((response)=>{
                 if (response["success"]==true && value.length>0){
                     setEtapa(etapa+1)
                     setAlterarSenhaArgs({
