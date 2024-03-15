@@ -444,28 +444,53 @@ const notLoggedReqsEsqueciSenha = {
 };
 
 const reqsPrimeiroAcesso = {
-    mail : async(mail)=> {
+    mail : async(cpf)=> {
         const aguarde = async()=> await new Promise(r => setTimeout(r, 1000));
         const res = aguarde().then(async(res)=>{
-            console.log(mail)
-            if (mail == '390.270.498-58') return true
-            return false 
+            if(cpf.toString() == '39027049858') return { "success" : true , telefone : "5678"}
+            if(cpf == "123.123.123-11") return {
+                "mensagem": "CPF já possui senha cadastrada. Volte e clique em ENTRAR",
+                "success": false
+            }
+
+            return {
+                "mensagem": "CPF não cadastrado",
+                "success": false
+            }
+        })
+        return await res
+    },
+    verificacao : async(cpf)=> {
+        const aguarde = async()=> await new Promise(r => setTimeout(r, 500));
+        const res = aguarde().then(async(res)=>{
+            if(cpf == '390.270.498-58') return { "success" : true , telefone : "5678"}
+            if(cpf == "123.123.123-11") return {
+                "mensagem": "CPF já possui senha cadastrada. Volte e clique em ENTRAR",
+                "success": false
+            }
+
+            return {
+                "mensagem": "CPF não cadastrado",
+                "success": false
+            }
         })
         return await res
     },
     codigo : async(mail,codigo)=>{
         const aguarde = async()=> await new Promise(r => setTimeout(r, 2000));
         const res = aguarde().then(async(res)=>{
-            console.log(codigo)
-            if (codigo.toString() == '123') return true
-            return false;
+            if (codigo.toString() == '123') return {success : true}
+            return {
+                "mensagem": "Código digitado é inválido, tente novamente.",
+                "success": false
+            }
         })
         return await res
     },
     alterarSenha : async()=>{
         const aguarde = async()=> await new Promise(r => setTimeout(r, 2000));
         const res = aguarde().then(async(res)=>{
-            return true
+            return {"msg": "alteração realizada com sucesso", "success": true}
         })
         return await res
     }
@@ -574,8 +599,9 @@ ColorIPLogout.args = {
         reqs: reqsPrimeiroAcesso,
         chamadas: {
             mail : "Digite o e-mail cadastrado para receber um código de autorização de criação da senha.",
-            aviso : " ",
+            aviso : "Caso não lembre o e-mail cadastrado, entre em contato conosco pelo grupo de mensagens do seu município com a Impulso Gov.",
             codigo : "Digite abaixo o código recebido por mensagem de SMS no número de telefone cadastrado: ",
+            verificacao : "É necessário que um código de verificação seja enviado por mensagem de SMS para o telefone ",
             trocar_telefone : { texto : "Quero atualizar meu número de telefone cadastrado.", link : "/"},
             senha : "Crie sua senha de acesso",
             sucesso : "Agora é só entrar na área restrita com seu e-mail e a senha criada."

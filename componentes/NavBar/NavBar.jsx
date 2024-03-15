@@ -172,6 +172,7 @@ const NavBar = (props) => {
   const PrimeiroAcesso = <RecuperarSenha
                                 titulos = { {
                                   mail : props?.primeiroAcesso?.titulos?.mail || TITULO_MAIL_PADRAO_PRIMEIRO_ACESSO,
+                                  verificacao : "Verificação do telefone",
                                   codigo : "Validação do e-mail",
                                   senha: "Crie sua senha de acesso",
                                   sucesso : "Senha criada com sucesso!"
@@ -179,6 +180,7 @@ const NavBar = (props) => {
                                 chamadas={{
                                 mail : props?.primeiroAcesso?.chamadas?.mail || CHAMADA_MAIL_PADRAO_PRIMEIRO_ACESSO,
                                 aviso : props?.primeiroAcesso?.chamadas?.aviso || CHAMADA_AVISO_PADRAO,
+                                verificacao : "É necessário que um código de verificação seja enviado por mensagem de SMS para o telefone ",
                                 codigo : "Digite abaixo o código recebido no e-mail cadastrado",
                                 trocar_telefone : { texto : "Quero atualizar meu número de telefone cadastrado.", link : "/"},
                                 senha : "Crie sua senha de acesso",
@@ -187,8 +189,9 @@ const NavBar = (props) => {
                                 botaoVoltar = {{label:"voltar",function : ""}}
                                 botaoProximo = {{label:"próximo",function : ""}}
                                 botaoSucesso = "Fazer Login"
-                                showEsqueciSenha = {(arg)=>{
+                                showEsqueciSenha = {(arg,arg2)=>{
                                   setShowPrimeiroAcesso(arg)
+                                  if(arg2) setShowModalInicio(arg2)
                                 }}
                                 reqs = {props.primeiroAcesso.reqs}
                                 theme = {props.theme.cor}
