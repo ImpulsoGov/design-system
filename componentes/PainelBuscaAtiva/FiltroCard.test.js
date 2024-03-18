@@ -4,9 +4,9 @@ import userEvent from '@testing-library/user-event';
 import { useState } from 'react';
 import { FiltroCard } from './PainelBuscaAtiva';
 
-const label = 'Alessandra Santos';
-const labels = 'Carmen Miranda';
-const filtroId = 'acs_nome';
+const LABEL = 'Alessandra Santos';
+const LABELS = 'Carmen Miranda';
+const FILTRO_ID = 'acs_nome';
 const handleCheckboxChange = jest.fn((event, value, setValue) => {
   const { id, checked } = event.target;
   const valueStateCopy = { ...value };
@@ -30,12 +30,12 @@ describe('FiltroCard', () => {
     describe('And labels property is not provided', () => {
       it('should render an unchecked checkbox with the provided label', async () => {
         const Wrapper = () => {
-          const [value, setValue] = useState({ [label]: false });
+          const [value, setValue] = useState({ [LABEL]: false });
           return (
             <FiltroCard
               handleCheckbox={ (event) => handleCheckboxChange(event, value, setValue) }
-              label={ label }
-              filtroID={ filtroId }
+              label={ LABEL }
+              filtroID={ FILTRO_ID }
               labels={ null }
               value={ value }
             />
@@ -44,23 +44,23 @@ describe('FiltroCard', () => {
         setup(<Wrapper />);
 
         const checkbox = await screen.findByRole('checkbox');
-        const checkboxLabel = await screen.findByText(label);
+        const checkboxLabel = await screen.findByText(LABEL);
 
         expect(checkbox).toBeInTheDocument();
         expect(checkbox).not.toBeChecked();
-        expect(checkbox).toHaveAttribute('id', label);
-        expect(checkbox).toHaveAttribute('name', filtroId);
+        expect(checkbox).toHaveAttribute('id', LABEL);
+        expect(checkbox).toHaveAttribute('name', FILTRO_ID);
         expect(checkboxLabel).toBeInTheDocument();
       });
 
       it('should render a checked checkbox after clicking it', async () => {
         const Wrapper = () => {
-          const [value, setValue] = useState({ [label]: false });
+          const [value, setValue] = useState({ [LABEL]: false });
           return (
             <FiltroCard
               handleCheckbox={ (event) => handleCheckboxChange(event, value, setValue) }
-              label={ label }
-              filtroID={ filtroId }
+              label={ LABEL }
+              filtroID={ FILTRO_ID }
               labels={ null }
               value={ value }
             />
@@ -77,12 +77,12 @@ describe('FiltroCard', () => {
 
       it('should render an unchecked checkbox after clicking it twice', async () => {
         const Wrapper = () => {
-          const [value, setValue] = useState({ [label]: false });
+          const [value, setValue] = useState({ [LABEL]: false });
           return (
             <FiltroCard
               handleCheckbox={ (event) => handleCheckboxChange(event, value, setValue) }
-              label={ label }
-              filtroID={ filtroId }
+              label={ LABEL }
+              filtroID={ FILTRO_ID }
               labels={ null }
               value={ value }
             />
@@ -105,7 +105,7 @@ describe('FiltroCard', () => {
             <FiltroCard
               handleCheckbox={ (event) => handleCheckboxChange(event, value, setValue) }
               label={ 1 }
-              filtroID={ filtroId }
+              filtroID={ FILTRO_ID }
               labels={ null }
               value={ value }
             />
@@ -127,7 +127,7 @@ describe('FiltroCard', () => {
             <FiltroCard
               handleCheckbox={ (event) => handleCheckboxChange(event, value, setValue) }
               label={ null }
-              filtroID={ filtroId }
+              filtroID={ FILTRO_ID }
               labels={ null }
               value={ value }
             />
@@ -147,7 +147,7 @@ describe('FiltroCard', () => {
             <FiltroCard
               handleCheckbox={ (event) => handleCheckboxChange(event, value, setValue) }
               label={ '' }
-              filtroID={ filtroId }
+              filtroID={ FILTRO_ID }
               labels={ null }
               value={ value }
             />
@@ -164,41 +164,41 @@ describe('FiltroCard', () => {
     describe('And labels property is provided', () => {
       it('should render its content if label property is not provided', async () => {
         const Wrapper = () => {
-          const [value, setValue] = useState({ [label]: false });
+          const [value, setValue] = useState({ [LABEL]: false });
           return (
             <FiltroCard
               handleCheckbox={ (event) => handleCheckboxChange(event, value, setValue) }
               label={ '' }
-              filtroID={ filtroId }
-              labels={ labels }
+              filtroID={ FILTRO_ID }
+              labels={ LABELS }
               value={ value }
             />
           );
         };
         setup(<Wrapper />);
 
-        const checkboxLabel = await screen.findByText(labels);
+        const checkboxLabel = await screen.findByText(LABELS);
 
         expect(checkboxLabel).toBeInTheDocument();
       });
 
       it('should render its content even if label property is provided', async () => {
         const Wrapper = () => {
-          const [value, setValue] = useState({ [label]: false });
+          const [value, setValue] = useState({ [LABEL]: false });
           return (
             <FiltroCard
               handleCheckbox={ (event) => handleCheckboxChange(event, value, setValue) }
-              label={ label }
-              filtroID={ filtroId }
-              labels={ labels }
+              label={ LABEL }
+              filtroID={ FILTRO_ID }
+              labels={ LABELS }
               value={ value }
             />
           );
         };
         setup(<Wrapper />);
 
-        expect(await screen.findByText(labels)).toBeInTheDocument();
-        await waitFor(() => expect(screen.queryByText(label)).not.toBeInTheDocument());
+        expect(await screen.findByText(LABELS)).toBeInTheDocument();
+        await waitFor(() => expect(screen.queryByText(LABEL)).not.toBeInTheDocument());
       });
     });
   });
@@ -206,12 +206,12 @@ describe('FiltroCard', () => {
   describe('When initial checked state is true', () => {
     it('should render a checked checkbox with the provided label', async () => {
       const Wrapper = () => {
-        const [value, setValue] = useState({ [label]: true });
+        const [value, setValue] = useState({ [LABEL]: true });
         return (
           <FiltroCard
             handleCheckbox={ (event) => handleCheckboxChange(event, value, setValue) }
-            label={ label }
-            filtroID={ filtroId }
+            label={ LABEL }
+            filtroID={ FILTRO_ID }
             labels={ null }
             value={ value }
           />
@@ -220,23 +220,23 @@ describe('FiltroCard', () => {
       setup(<Wrapper />);
 
       const checkbox = await screen.findByRole('checkbox');
-      const checkboxLabel = await screen.findByText(label);
+      const checkboxLabel = await screen.findByText(LABEL);
 
       expect(checkbox).toBeInTheDocument();
       expect(checkbox).toBeChecked();
-      expect(checkbox).toHaveAttribute('id', label);
-      expect(checkbox).toHaveAttribute('name', filtroId);
+      expect(checkbox).toHaveAttribute('id', LABEL);
+      expect(checkbox).toHaveAttribute('name', FILTRO_ID);
       expect(checkboxLabel).toBeInTheDocument();
     });
 
     it('should render an unchecked checkbox after clicking it', async () => {
       const Wrapper = () => {
-        const [value, setValue] = useState({ [label]: true });
+        const [value, setValue] = useState({ [LABEL]: true });
         return (
           <FiltroCard
             handleCheckbox={ (event) => handleCheckboxChange(event, value, setValue) }
-            label={ label }
-            filtroID={ filtroId }
+            label={ LABEL }
+            filtroID={ FILTRO_ID }
             labels={ null }
             value={ value }
           />
