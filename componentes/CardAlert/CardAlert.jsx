@@ -5,10 +5,16 @@ import { sanitize } from "../sanitize";
 const CardAlert = ({
     msg,
     destaque,
-    background
+    background,
+    margin,
+    padding,
+    color
 })=>{
     const cardStyle = {
         background: background || "#F4CCAB",
+        margin : margin || "0px 80px",
+        padding: padding || "10px 16px",
+        color: color || "#1F1F1F"
       };
     return(
         <div className={style.CardAlert} style={cardStyle}>
@@ -18,11 +24,18 @@ const CardAlert = ({
     )
 }
 const CardAlertChild = ({
-    msg
+    msg,
+    background,
+    margin,
 })=>{
+    const cardStyle = {
+        background: background || "#F4CCAB",
+        margin : margin || "0px 80px",
+      };
     return(
         <div 
             className={style.CardAlertChild}
+            style={cardStyle}
             dangerouslySetInnerHTML={{
                 __html: sanitize(msg),
               }} 

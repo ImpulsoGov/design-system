@@ -17,7 +17,7 @@ const ModalInicio = ({
     return(
         <div className={style.ModalInicioContainer}>
             <div className={style.ModalInicioTitulo}>{titulo}</div>
-            { cardAlert && <CardAlertChild msg={cardAlert}/>}
+            { cardAlert && <CardAlertChild msg={cardAlert} margin="0px 0px"/>}
             <div className={style.ModalInicioChamada}>{chamada}</div>
             <div className={style.ModalInicioButtonContainer}>
                 <ButtonColorSubmit

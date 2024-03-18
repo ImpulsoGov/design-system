@@ -55,7 +55,7 @@ const args = {
                         setLoading(false);
                     }
                 });
-            }, 5000);
+            }, 1000);
         }
     }
 };

@@ -2,8 +2,11 @@ import React from "react";
 import { useState } from "react";
 import style from "./Login.module.css"
 import { ButtonLightSubmit } from "../ButtonLight";
+import { CardAlert } from "../CardAlert"
 import cx from 'classnames';
 import { Spinner } from "../Spinner";
+import { cpf } from 'cpf-cnpj-validator';
+
 
 const Login = (props)=>{
     const [senha, setSenha] = useState("");
@@ -11,8 +14,39 @@ const Login = (props)=>{
     const [mostraSenha, setMostraSenha] = useState(false);
     const [resposta,setResposta] = useState();
     const [loading, setLoading] = useState(false);
+    const [alertCPF, setAlertCPF] = useState(false)
     const color = props.botaoPrincipal.theme ? props.botaoPrincipal.theme : 'ColorIP';
+    const handleUser = (e)=>{
+        if(props.projeto != 'IP'){ 
+            setMail(e.target.value)
+        }else{
+            let value = e.target.value;
+            // Procura todos os caracteres não numericos
+            let naoNumeros = value.match(/[^\d.-]/g)
+            setAlertCPF(naoNumeros ? true : false)
+            // Remove qualquer caractere que não seja um dígito numerico
+            value = value.replace(/\D/g, '');
+            // Se o valor tem mais de 3 dígitos, adicione um ponto após os primeiros 3 dígitos
+            if (value.length > 3) {
+                value = value.replace(/(\d{3})/, '$1.');
+            }
+        
+            // Se o valor tem mais de 7 dígitos, adicione um ponto após os próximos 3 dígitos
+            if (value.length > 7) {
+                value = value.replace(/(\d{3}\.)(\d{3})/, '$1$2.');
+            }
+        
+            // Se o valor tem mais de 11 dígitos, adicione um traço após os próximos 3 dígitos
+            if (value.length > 11) {
+                value = value.replace(/(\d{3}\.\d{3}\.)(\d{3})/, '$1$2-');
+                cpf.isValid(value)
+            }
+            
+            // Atualiza o estado
+            setMail(value);
+        }
 
+    }
     return(
         <>
             {loading
@@ -20,14 +54,39 @@ const Login = (props)=>{
                 : (
                     <div className={style.LoginConteiner}>
                         <div className={style.LoginTitulo}>{props.titulo}</div>
+                        {
+                            props.projeto == 'IP' &&
+                            <>
+                                <CardAlert
+                                    msg = "Agora não utilizamos mais e-mail para login. Você deve utilizar seu CPF e senha cadastrada."
+                                    background="#ADE3F4"
+                                    margin="0"
+                                />
+                                <p className={style.LoginMSG}>Se você é de um município parceiro e já possui senha cadastrada, preencha os campos de CPF e senha para entrar.</p>
+                            </>
+                        }
                         <div className={style.LoginCampos}>
-                            <input 
+                            <input
                                 className={style.LoginCampo} 
                                 type="text"
-                                placeholder="E-mail"
+                                placeholder= {props.projeto == 'IP' ? "CPF" : "E-mail"}
+                                rows="2" 
+                                style={{resize: "none"}}
                                 value={mail}
-                                onChange={(e) => {setMail(e.target.value);}}
+                                maxLength={14}
+                                onChange={(e) => handleUser(e)}
                             />
+                            {
+                                alertCPF &&
+                                <CardAlert
+                                    msg = "Lembre-se de que agora o login é realizado com CPF e senha."
+                                    background="#EABF2E"
+                                    margin="0"
+                                    padding="16px"
+                                    color="#FFF"
+                                />
+
+                            }
                             <div className={style.InputSenhaContainer}>
                                 <input
                                     className={style.LoginCampo}
@@ -43,7 +102,7 @@ const Login = (props)=>{
                                 >
                                     <img
                                         className={style.IconeMostraSenha}
-                                        src={ mostraSenha ? "https://media.graphassets.com/KQptzqZRo2anp1Gdm0Wg" : "https://media.graphassets.com/wQYJXFzUSpCMUMc6xp5J" }
+                                        src={ mostraSenha ?  "https://media.graphassets.com/drpbgyNgRy2TcgPzsFZe" : "https://media.graphassets.com/6SOGlnrdTGbEkjQPEggA" }
                                         alt="eye"
                                     />
                                 </button>
@@ -52,14 +111,14 @@ const Login = (props)=>{
                                 className={style.LoginEsqueciMinhaSenha}
                                 onClick={()=>props.showEsqueciSenha(true)}
                             >
-                                Esqueceu sua senha?
+                                Esqueceu ou quer trocar sua senha?
                             </div>
                             {resposta && <div className={style.LoginResposta}>{resposta}</div>}
                         </div>
                         <div className={style.LoginCampoButton}>
                             <button 
                                 className={
-                                    (mail.length>0 && senha.length>0)?
+                                    (mail.length>0 && senha.length>0 ) ?
                                     cx(style.LoginButton, style[`${color}`]):
                                     style.LoginButtonInativo
                                 }
