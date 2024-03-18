@@ -1,19 +1,18 @@
 import { jest } from '@jest/globals';
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { useState } from 'react';
 import { FiltroCard } from './PainelBuscaAtiva';
 
-const setCheckedValue = jest.fn();
-const falseCheckedState = { 'Alessandra Santos': false };
-const trueCheckedState = { 'Alessandra Santos': true };
 const label = 'Alessandra Santos';
 const labels = 'Carmen Miranda';
 const filtroId = 'acs_nome';
-
-function handleCheckbox(event) {
-  const { checked } = event.target;
-  setCheckedValue(checked);
-};
+const handleCheckboxChange = jest.fn((event, value, setValue) => {
+  const { id, checked } = event.target;
+  const valueStateCopy = { ...value };
+  valueStateCopy[id] = checked;
+  setValue(valueStateCopy);
+});
 
 function setup(component) {
   return {
@@ -22,74 +21,203 @@ function setup(component) {
   };
 }
 
-// CASOS DE TESTE
-// 1. Deve renderizar um checkbox desmarcado com um label ao passar value = false - OK
-// 2. Deve chamar setValue com checked = true quando clicar no checkbox - OK
-// 3. Deve chamar setValue com checked = false quando clicar no checkbox duas vezes (TALVEZ)
-// 4. Deve renderizar um checkbox marcado com um label ao passar value = true - OK
-// 5. Deve chamar setValue com checked = false quando clicar no checkbox - OK
-// 6. Deve exibir a label correta quando labels for passado sozinho - OK
-// 7. Deve exibir a label correta quando labels for passado e label também - OK
-// 8. Não deve exibir checkbox quando a label for nula - OK
-// 9. Deve exibir o valor numérico quando a label for numérica - OK
-
 describe('FiltroCard', () => {
   afterEach(() => {
     jest.clearAllMocks();
   });
 
-  describe('When starting with false checked value', () => {
-    it('should render an unchecked checkbox with the provided label', async () => {
-      setup(
-        <FiltroCard
-          handleCheckbox={ handleCheckbox }
-          label={ label }
-          filtroID={ filtroId }
-          labels={ null }
-          value={ falseCheckedState }
-        />
-      );
+  describe('When initial checked state is false', () => {
+    describe('And labels property is not provided', () => {
+      it('should render an unchecked checkbox with the provided label', async () => {
+        const Wrapper = () => {
+          const [value, setValue] = useState({ [label]: false });
+          return (
+            <FiltroCard
+              handleCheckbox={ (event) => handleCheckboxChange(event, value, setValue) }
+              label={ label }
+              filtroID={ filtroId }
+              labels={ null }
+              value={ value }
+            />
+          );
+        };
+        setup(<Wrapper />);
 
-      const checkbox = await screen.findByRole('checkbox');
-      const checkboxLabel = await screen.findByText(label);
+        const checkbox = await screen.findByRole('checkbox');
+        const checkboxLabel = await screen.findByText(label);
 
-      expect(checkbox).toBeInTheDocument();
-      expect(checkbox).not.toBeChecked();
-      expect(checkbox).toHaveAttribute('id', label);
-      expect(checkbox).toHaveAttribute('name', filtroId);
-      expect(checkboxLabel).toBeInTheDocument();
+        expect(checkbox).toBeInTheDocument();
+        expect(checkbox).not.toBeChecked();
+        expect(checkbox).toHaveAttribute('id', label);
+        expect(checkbox).toHaveAttribute('name', filtroId);
+        expect(checkboxLabel).toBeInTheDocument();
+      });
+
+      it('should render a checked checkbox after clicking it', async () => {
+        const Wrapper = () => {
+          const [value, setValue] = useState({ [label]: false });
+          return (
+            <FiltroCard
+              handleCheckbox={ (event) => handleCheckboxChange(event, value, setValue) }
+              label={ label }
+              filtroID={ filtroId }
+              labels={ null }
+              value={ value }
+            />
+          );
+        };
+        const { user } = setup(<Wrapper />);
+        const checkbox = await screen.findByRole('checkbox');
+
+        await user.click(checkbox);
+
+        expect(handleCheckboxChange).toHaveBeenCalledTimes(1);
+        expect(checkbox).toBeChecked();
+      });
+
+      it('should render an unchecked checkbox after clicking it twice', async () => {
+        const Wrapper = () => {
+          const [value, setValue] = useState({ [label]: false });
+          return (
+            <FiltroCard
+              handleCheckbox={ (event) => handleCheckboxChange(event, value, setValue) }
+              label={ label }
+              filtroID={ filtroId }
+              labels={ null }
+              value={ value }
+            />
+          );
+        };
+        const { user } = setup(<Wrapper />);
+        const checkbox = await screen.findByRole('checkbox');
+
+        await user.click(checkbox);
+        await user.click(checkbox);
+
+        expect(handleCheckboxChange).toHaveBeenCalledTimes(2);
+        expect(checkbox).not.toBeChecked();
+      });
+
+      it('should render a checkbox and the stringfied label when it is a number', async () => {
+        const Wrapper = () => {
+          const [value, setValue] = useState({ [1]: false });
+          return (
+            <FiltroCard
+              handleCheckbox={ (event) => handleCheckboxChange(event, value, setValue) }
+              label={ 1 }
+              filtroID={ filtroId }
+              labels={ null }
+              value={ value }
+            />
+          );
+        };
+        setup(<Wrapper />);
+
+        const checkbox = await screen.findByRole('checkbox');
+        const checkboxLabel = await screen.findByText('1');
+
+        expect(checkbox).toBeInTheDocument();
+        expect(checkboxLabel).toBeInTheDocument();
+      });
+
+      it('should not render a checkbox when the label is null', async () => {
+        const Wrapper = () => {
+          const [value, setValue] = useState({ [null]: false });
+          return (
+            <FiltroCard
+              handleCheckbox={ (event) => handleCheckboxChange(event, value, setValue) }
+              label={ null }
+              filtroID={ filtroId }
+              labels={ null }
+              value={ value }
+            />
+          );
+        };
+        setup(<Wrapper />);
+
+        // const checkbox = screen.queryByRole('checkbox');
+
+        await waitFor(() => expect(screen.queryByRole('checkbox')).not.toBeInTheDocument());
+      });
+
+      it('should not render a checkbox when the label is an empty string', async () => {
+        const Wrapper = () => {
+          const [value, setValue] = useState({ '': false });
+          return (
+            <FiltroCard
+              handleCheckbox={ (event) => handleCheckboxChange(event, value, setValue) }
+              label={ '' }
+              filtroID={ filtroId }
+              labels={ null }
+              value={ value }
+            />
+          );
+        };
+        setup(<Wrapper />);
+
+        // const checkbox = screen.queryByRole('checkbox');
+
+        await waitFor(() => expect(screen.queryByRole('checkbox')).not.toBeInTheDocument());
+      });
     });
 
-    it('should call setValue with checked value = true when clicking the checkbox', async () => {
-      const { user } = setup(
-        <FiltroCard
-          handleCheckbox={ handleCheckbox }
-          label={ label }
-          filtroID={ filtroId }
-          labels={ null }
-          value={ falseCheckedState }
-        />
-      );
-      const checkbox = await screen.findByRole('checkbox');
+    describe('And labels property is provided', () => {
+      it('should render its content if label property is not provided', async () => {
+        const Wrapper = () => {
+          const [value, setValue] = useState({ [label]: false });
+          return (
+            <FiltroCard
+              handleCheckbox={ (event) => handleCheckboxChange(event, value, setValue) }
+              label={ '' }
+              filtroID={ filtroId }
+              labels={ labels }
+              value={ value }
+            />
+          );
+        };
+        setup(<Wrapper />);
 
-      await user.click(checkbox);
+        const checkboxLabel = await screen.findByText(labels);
 
-      expect(setCheckedValue).toHaveBeenCalledTimes(1);
-      expect(setCheckedValue).toHaveBeenCalledWith(true);
+        expect(checkboxLabel).toBeInTheDocument();
+      });
+
+      it('should render its content even if label property is provided', async () => {
+        const Wrapper = () => {
+          const [value, setValue] = useState({ [label]: false });
+          return (
+            <FiltroCard
+              handleCheckbox={ (event) => handleCheckboxChange(event, value, setValue) }
+              label={ label }
+              filtroID={ filtroId }
+              labels={ labels }
+              value={ value }
+            />
+          );
+        };
+        setup(<Wrapper />);
+
+        expect(await screen.findByText(labels)).toBeInTheDocument();
+        await waitFor(() => expect(screen.queryByText(label)).not.toBeInTheDocument());
+      });
     });
   });
 
-  describe('When starting with true checked value', () => {
+  describe('When initial checked state is true', () => {
     it('should render a checked checkbox with the provided label', async () => {
-      setup(
-        <FiltroCard
-          handleCheckbox={ handleCheckbox }
-          label={ label }
-          filtroID={ filtroId }
-          labels={ null }
-          value={ trueCheckedState }
-        />
-      );
+      const Wrapper = () => {
+        const [value, setValue] = useState({ [label]: true });
+        return (
+          <FiltroCard
+            handleCheckbox={ (event) => handleCheckboxChange(event, value, setValue) }
+            label={ label }
+            filtroID={ filtroId }
+            labels={ null }
+            value={ value }
+          />
+        );
+      };
+      setup(<Wrapper />);
 
       const checkbox = await screen.findByRole('checkbox');
       const checkboxLabel = await screen.findByText(label);
@@ -101,91 +229,26 @@ describe('FiltroCard', () => {
       expect(checkboxLabel).toBeInTheDocument();
     });
 
-    it('should call setValue with checked value = false when clicking the checkbox', async () => {
-      const { user } = setup(
-        <FiltroCard
-          handleCheckbox={ handleCheckbox }
-          label={ label }
-          filtroID={ filtroId }
-          labels={ null }
-          value={ trueCheckedState }
-        />
-      );
+    it('should render an unchecked checkbox after clicking it', async () => {
+      const Wrapper = () => {
+        const [value, setValue] = useState({ [label]: true });
+        return (
+          <FiltroCard
+            handleCheckbox={ (event) => handleCheckboxChange(event, value, setValue) }
+            label={ label }
+            filtroID={ filtroId }
+            labels={ null }
+            value={ value }
+          />
+        );
+      };
+      const { user } = setup(<Wrapper />);
       const checkbox = await screen.findByRole('checkbox');
 
       await user.click(checkbox);
 
-      expect(setCheckedValue).toHaveBeenCalledTimes(1);
-      expect(setCheckedValue).toHaveBeenCalledWith(false);
-    });
-  });
-
-  describe('When the labels property is provided', () => {
-    it('should render its content if label property is not provided', async () => {
-      setup(
-        <FiltroCard
-          handleCheckbox={ handleCheckbox }
-          label={ null }
-          filtroID={ filtroId }
-          labels={ labels }
-          value={ falseCheckedState }
-        />
-      );
-
-      const checkboxLabel = await screen.findByText(labels);
-
-      expect(checkboxLabel).toBeInTheDocument();
-    });
-
-    it('should render its content even if label property is provided', async () => {
-      setup(
-        <FiltroCard
-          handleCheckbox={ handleCheckbox }
-          label={ label }
-          filtroID={ filtroId }
-          labels={ labels }
-          value={ falseCheckedState }
-        />
-      );
-
-      expect(await screen.findByText(labels)).toBeInTheDocument();
-      expect(screen.queryByText(label)).not.toBeInTheDocument();
-    });
-  });
-
-  describe('When providing non string label', () => {
-    it('should not render when the value is null', () => {
-      setup(
-        <FiltroCard
-          handleCheckbox={ handleCheckbox }
-          label={ null }
-          filtroID={ filtroId }
-          labels={ null }
-          value={ falseCheckedState }
-        />
-      );
-
-      const checkbox = screen.queryByRole('checkbox');
-
-      expect(checkbox).not.toBeInTheDocument();
-    });
-
-    it('should render when the value is a number', async () => {
-      setup(
-        <FiltroCard
-          handleCheckbox={ handleCheckbox }
-          label={ 1 }
-          filtroID={ filtroId }
-          labels={ null }
-          value={ falseCheckedState }
-        />
-      );
-
-      const checkbox = await screen.findByRole('checkbox');
-      const checkboxLabel = await screen.findByText('1');
-
-      expect(checkbox).toBeInTheDocument();
-      expect(checkboxLabel).toBeInTheDocument();
+      expect(handleCheckboxChange).toHaveBeenCalledTimes(1);
+      expect(checkbox).not.toBeChecked();
     });
   });
 });
