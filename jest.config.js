@@ -16,17 +16,23 @@ const config = {
 
   // Indicates whether the coverage information should be collected while executing the test
   collectCoverage: true,
+  collectCoverageFrom: [
+    'componentes/**/*.{js,jsx}',
+    '!componentes/**/*.stories.js',
+  ],
 
   // The directory where Jest should output its coverage files
-  coverageDirectory: "coverage",
+  coverageDirectory: 'coverage',
 
   // An array of regexp pattern strings used to skip coverage collection
   coveragePathIgnorePatterns: [
-    "/node_modules/"
+    '/node_modules/',
+    '/dist/',
+    '/docs/',
   ],
 
   // Indicates which provider should be used to instrument code for coverage
-  coverageProvider: "babel",
+  coverageProvider: 'babel',
 
   // A set of global variables that need to be available in all test environments
   // globals: {},
@@ -36,7 +42,7 @@ const config = {
 
   // A list of paths to directories that Jest should use to search for files in
   // roots: [
-  //   "<rootDir>"
+  //   '<rootDir>'
   // ],
 
   // The paths to modules that run some code to configure or set up the testing environment before each test
@@ -49,17 +55,17 @@ const config = {
   // slowTestThreshold: 5,
 
   // The test environment that will be used for testing
-  testEnvironment: "jsdom",
+  testEnvironment: 'jsdom',
 
   // The glob patterns Jest uses to detect test files
   // testMatch: [
-  //   "**/__tests__/**/*.[jt]s?(x)",
-  //   "**/?(*.)+(spec|test).[tj]s?(x)"
+  //   '**/__tests__/**/*.[jt]s?(x)',
+  //   '**/?(*.)+(spec|test).[tj]s?(x)'
   // ],
 
   // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
   // testPathIgnorePatterns: [
-  //   "/node_modules/"
+  //   '/node_modules/'
   // ],
 
   // The regexp pattern or array of patterns that Jest uses to detect test files
@@ -67,8 +73,8 @@ const config = {
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
   // transformIgnorePatterns: [
-  //   "/node_modules/",
-  //   "\\.pnp\\.[^\\/]+$"
+  //   '/node_modules/',
+  //   '\\.pnp\\.[^\\/]+$'
   // ],
 
   setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
