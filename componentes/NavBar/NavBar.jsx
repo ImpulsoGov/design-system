@@ -179,7 +179,12 @@ const NavBar = (props) => {
                               cardAlert = {props?.ModalInicio.cardAlert}
                               botaoPrincipal = {{
                                 label : props.ModalInicio.botaoPrincipal.label,
-                                submit : ()=>setShowModalInicio(false),
+                                submit : ()=>{
+                                  props?.trackObject.track('button_click', {
+                                    'button_action': 'entrar_area_restitra',
+                                  });
+                                  setShowModalInicio(false)
+                                },
                                 theme: props.theme.cor
                               }}
                               botaoSecundario = {{
@@ -190,7 +195,7 @@ const NavBar = (props) => {
                                   props?.trackObject.track('button_click', {
                                     'button_action': 'inicio_primeiro_acesso',
                                     'login_flow': 'primeiro_acesso'
-                                });
+                                  });
                                 }
                               }}
                               botaoAjuda={{
