@@ -187,6 +187,10 @@ const NavBar = (props) => {
                                 submit : ()=>{
                                   setShowModalInicio(false)
                                   setShowPrimeiroAcesso(true)
+                                  props?.trackObject.track('button_click', {
+                                    'button_action': 'inicio_primeiro_acesso',
+                                    'login_flow': 'primeiro_acesso'
+                                });
                                 }
                               }}
                               botaoAjuda={{
