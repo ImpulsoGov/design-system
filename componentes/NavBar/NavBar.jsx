@@ -181,7 +181,7 @@ const NavBar = (props) => {
                               botaoPrincipal = {{
                                 label : props.ModalInicio.botaoPrincipal.label,
                                 submit : ()=>{
-                                  props?.trackObject.track('button_click', {
+                                  props?.trackObject?.track('button_click', {
                                     'button_action': 'entrar_area_restitra',
                                   });
                                   setShowModalInicio(false)
@@ -193,7 +193,7 @@ const NavBar = (props) => {
                                 submit : ()=>{
                                   setShowModalInicio(false)
                                   setShowPrimeiroAcesso(true)
-                                  props?.trackObject.track('button_click', {
+                                  props?.trackObject?.track('button_click', {
                                     'button_action': 'inicio_primeiro_acesso',
                                     'login_flow': 'primeiro_acesso'
                                   });
