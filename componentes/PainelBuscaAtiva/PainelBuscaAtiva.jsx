@@ -299,10 +299,11 @@ const Ordenar = (props)=>{
         </div>
     )
 }
+// TODO remover props não utilizadas
 const FiltroBody = ({
     data,
-    chavesFiltros,
-    setChavesFiltros,
+    // chavesFiltros,
+    // setChavesFiltros,
     value,
     handleCheckbox,
     trackObject,
@@ -344,8 +345,8 @@ const FiltroBody = ({
                                     <FiltroCard 
                                         label={item} 
                                         filtroID={data.filtro}
-                                        chavesFiltros={chavesFiltros}
-                                        setChavesFiltros={setChavesFiltros}
+                                        // chavesFiltros={chavesFiltros}
+                                        // setChavesFiltros={setChavesFiltros}
                                         labels={data?.labels ? data?.labels[item] : null}
                                         value={value}
                                         handleCheckbox={handleCheckbox}
@@ -450,10 +451,11 @@ const Filtro = ({
         </div>
     )
 }
+// TODO remover props não utilizadas
 const FiltroCard = ({
     label,
     filtroID,
-    chavesFiltros,
+    // chavesFiltros,
     value,
     labels,
     handleCheckbox
