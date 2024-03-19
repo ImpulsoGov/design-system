@@ -4,6 +4,7 @@ import style from "./RecuperarSenha.module.css";
 import cx from "classnames";
 import { Spinner } from "../Spinner";
 import { cpf } from 'cpf-cnpj-validator';
+import { sanitize } from "../sanitize";
 
 // Refatorar componentes, estão com muitas responsabilidades e logica complexa para manutenção
 
@@ -109,7 +110,6 @@ const InserirInfo = ({
                     setSaveCPF(value)
                 }else{
                     setAlert(response["mensagem"])
-                    console.log(alert)
                     setValue('')
                     setLoading(false);
                 }
@@ -135,7 +135,7 @@ const InserirInfo = ({
                     setAlterarSenhaArgs({
                         cpf : alterarSenhaArgs.cpf,
                         codigo : value,
-                        telefone : alterarSenhaArgs.telefone
+                        telefone : alterarSenhaArgs.telefone 
                     })
                     setAlert('')
                     setLoading(false);
@@ -245,7 +245,14 @@ const InserirInfo = ({
                             theme={theme}
                         />
                     }
-                    {alert && etapa != 2 && value.length==0 && !alertCPF && <div className={style.RecuperarSenhaMensagem}>{alert}</div>}
+                    {
+                        alert && etapa != 2 && value.length==0 && !alertCPF && 
+                        <div 
+                            className={style.RecuperarSenhaMensagem}
+                            dangerouslySetInnerHTML={{
+                                __html: sanitize(alert),
+                              }} 
+                        ></div>}
                     {alert && etapa != 2 && alertCPF && <div className={style.RecuperarSenhaMensagemAlerta}>{alert}</div>}
                     { 
                         etapa == 1 && seconds != 0 && !alert && !seguntaTentativa ? 
