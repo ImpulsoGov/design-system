@@ -134,6 +134,10 @@
     margin-left: auto;
     text-decoration: none;
 }
+.Imagem{
+    border-radius:0 20px 20px 0px;
+    object-fit : contain;
+}
 .ModalExit:before{
     content: "✖";
     cursor: pointer;
@@ -173,7 +177,6 @@
         font-size: 18px;
         width: 50%;
     }
-
     .ContainerInfo{
         font-size: 16px;
     }
@@ -201,8 +204,8 @@
     .ProfissionalInfoCargo{
         font-size: 14px;
     }
-    .close{
-        display:  none;
+    .Imagem{
+        display: none;
     }
     .ContainerInfo{
         flex-direction: column;
