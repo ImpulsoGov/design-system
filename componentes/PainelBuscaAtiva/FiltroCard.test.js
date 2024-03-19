@@ -135,8 +135,6 @@ describe('FiltroCard', () => {
         };
         setup(<Wrapper />);
 
-        // const checkbox = screen.queryByRole('checkbox');
-
         await waitFor(() => expect(screen.queryByRole('checkbox')).not.toBeInTheDocument());
       });
 
@@ -154,8 +152,6 @@ describe('FiltroCard', () => {
           );
         };
         setup(<Wrapper />);
-
-        // const checkbox = screen.queryByRole('checkbox');
 
         await waitFor(() => expect(screen.queryByRole('checkbox')).not.toBeInTheDocument());
       });
