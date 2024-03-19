@@ -259,16 +259,17 @@ const Ordenar = (props)=>{
         </div>
     )
 }
+// TODO remover props não utilizadas
 const FiltroBody = ({
     data,
-    chavesFiltros,
-    setChavesFiltros,
+    // chavesFiltros,
+    // setChavesFiltros,
     value,
     handleCheckbox,
-    trackObject,
-    painel,
-    aba,
-    sub_aba
+    // trackObject,
+    // painel,
+    // aba,
+    // sub_aba
 })=>{
     const [show,setShow] = useState(false)
     return(
@@ -292,15 +293,15 @@ const FiltroBody = ({
                                     <FiltroCard 
                                         label={item} 
                                         filtroID={data.filtro}
-                                        chavesFiltros={chavesFiltros}
-                                        setChavesFiltros={setChavesFiltros}
+                                        // chavesFiltros={chavesFiltros}
+                                        // setChavesFiltros={setChavesFiltros}
                                         labels={data?.labels ? data?.labels[item] : null}
                                         value={value}
                                         handleCheckbox={handleCheckbox}
-                                        trackObject={trackObject}
-                                        painel={painel}
-                                        aba={aba}
-                                        sub_aba={sub_aba}
+                                        // trackObject={trackObject}
+                                        // painel={painel}
+                                        // aba={aba}
+                                        // sub_aba={sub_aba}
         
                                     />
                                 )
@@ -387,10 +388,11 @@ const Filtro = ({
         </div>
     )
 }
+// TODO remover props não utilizadas
 const FiltroCard = ({
     label,
     filtroID,
-    chavesFiltros,
+    // chavesFiltros,
     value,
     labels,
     handleCheckbox
