@@ -145,6 +145,7 @@ const NavBar = (props) => {
                   validacao = {props?.user?.validacao}
                   showEsqueciSenha = {setShowEsqueciSenha}
                   projeto = {props?.projeto}
+                  trackObject = {props?.trackObject ? props.trackObject : null}
                 />
   
   const EsqueciMinhaSenha = <RecuperarSenha
