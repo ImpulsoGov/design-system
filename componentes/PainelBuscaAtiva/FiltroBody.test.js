@@ -1,17 +1,12 @@
 import { jest } from '@jest/globals';
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { FiltroBody } from './PainelBuscaAtiva';
 
 const STRING_OPTION_1 = 'Alessandra Santos';
 const STRING_OPTION_2 = 'Carmen Miranda';
-// const filterOptions = [STRING_OPTION_2, STRING_OPTION_1];
-const filterProperty = 'acs_nome';
-const filterLabel = 'Filtrar por nome do Profissional Responsável';
-// const optionsCheckedState = {
-//   [STRING_OPTION_1]: false,
-//   [STRING_OPTION_2]: false
-// };
+const FILTER_PROPERTY = 'acs_nome';
+const FILTER_LABEL = 'Filtrar por nome do Profissional Responsável';
 const handleCheckbox = jest.fn();
 
 function setup(component) {
@@ -46,8 +41,8 @@ describe('FiltroBody', () => {
       <FiltroBody
         data={ {
           data: [STRING_OPTION_1, STRING_OPTION_2],
-          filtro: filterProperty,
-          rotulo: filterLabel
+          filtro: FILTER_PROPERTY,
+          rotulo: FILTER_LABEL
         } }
         value={ {
           [STRING_OPTION_1]: false,
@@ -57,7 +52,7 @@ describe('FiltroBody', () => {
       />
     );
 
-    const label = await screen.findByText(filterLabel);
+    const label = await screen.findByText(FILTER_LABEL);
     const showOptionsButton = await screen.findByRole('button', { name: '+' });
 
     expect(label).toBeInTheDocument();
@@ -70,8 +65,8 @@ describe('FiltroBody', () => {
         <FiltroBody
           data={ {
             data: [STRING_OPTION_2, STRING_OPTION_1],
-            filtro: filterProperty,
-            rotulo: filterLabel
+            filtro: FILTER_PROPERTY,
+            rotulo: FILTER_LABEL
           } }
           value={ {
             [STRING_OPTION_1]: false,
@@ -81,7 +76,7 @@ describe('FiltroBody', () => {
         />
       );
 
-      const label = await screen.findByText(filterLabel);
+      const label = await screen.findByText(FILTER_LABEL);
       const showOptionsButton = await screen.findByRole('button', { name: '+' });
 
       await user.click(showOptionsButton);
@@ -91,7 +86,7 @@ describe('FiltroBody', () => {
 
       expect(label).toBeInTheDocument();
       expect(hideOptionsButton).toBeInTheDocument();
-      expect(options).toHaveLength(filterOptions.length);
+      expect(options).toHaveLength(2);
       expect(options[0]).toHaveAttribute('id', STRING_OPTION_1);
       expect(options[1]).toHaveAttribute('id', STRING_OPTION_2);
     });
@@ -103,8 +98,8 @@ describe('FiltroBody', () => {
         <FiltroBody
           data={ {
             data: [OPTION_2, OPTION_1],
-            filtro: filterProperty,
-            rotulo: filterLabel
+            filtro: FILTER_PROPERTY,
+            rotulo: FILTER_LABEL
           } }
           value={ {
             [OPTION_1]: false,
@@ -114,7 +109,7 @@ describe('FiltroBody', () => {
         />
       );
 
-      const label = await screen.findByText(filterLabel);
+      const label = await screen.findByText(FILTER_LABEL);
       const showOptionsButton = await screen.findByRole('button', { name: '+' });
 
       await user.click(showOptionsButton);
@@ -124,40 +119,73 @@ describe('FiltroBody', () => {
 
       expect(label).toBeInTheDocument();
       expect(hideOptionsButton).toBeInTheDocument();
-      expect(options).toHaveLength(filterOptions.length);
-      expect(options[0]).toHaveAttribute('id', STRING_OPTION_1);
-      expect(options[1]).toHaveAttribute('id', STRING_OPTION_2);
+      expect(options).toHaveLength(2);
+      expect(options[0]).toHaveAttribute('id', OPTION_1);
+      expect(options[1]).toHaveAttribute('id', OPTION_2);
     });
-  });
 
+    it('should render a label, a - button and the filter number options in ASC order ', async () => {
+      const OPTION_1 = 5;
+      const OPTION_2 = 56;
+      const { user } = setup(
+        <FiltroBody
+          data={ {
+            data: [OPTION_2, OPTION_1],
+            filtro: FILTER_PROPERTY,
+            rotulo: FILTER_LABEL
+          } }
+          value={ {
+            [OPTION_1]: false,
+            [OPTION_2]: false
+          } }
+          handleCheckbox={ handleCheckbox }
+        />
+      );
 
-  it('should render a label, a + button and no filter options after clicking the - button', async () => {
-    const { user } = setup(
-      <FiltroBody
-        data={ {
-          data: [STRING_OPTION_1, STRING_OPTION_2],
-          filtro: filterProperty,
-          rotulo: filterLabel
-        } }
-        value={ {
-          [STRING_OPTION_1]: false,
-          [STRING_OPTION_2]: false
-        } }
-        handleCheckbox={ handleCheckbox }
-      />
-    );
+      const label = await screen.findByText(FILTER_LABEL);
+      const showOptionsButton = await screen.findByRole('button', { name: '+' });
 
-    const label = await screen.findByText(filterLabel);
-    const showOptionsButton = await screen.findByRole('button', { name: '+' });
+      await user.click(showOptionsButton);
 
-    await user.click(showOptionsButton);
+      const options = await screen.findAllByRole('checkbox');
+      const hideOptionsButton = await screen.findByRole('button', { name: '-' });
 
-    const hideOptionsButton = await screen.findByRole('button', { name: '-' });
+      expect(label).toBeInTheDocument();
+      expect(hideOptionsButton).toBeInTheDocument();
+      expect(options).toHaveLength(2);
+      expect(options[0]).toHaveAttribute('id', String(OPTION_1));
+      expect(options[1]).toHaveAttribute('id', String(OPTION_2));
+    });
 
-    await user.click(hideOptionsButton);
+    it('should render a label, a + button and no filter options after clicking the - button', async () => {
+      const { user } = setup(
+        <FiltroBody
+          data={ {
+            data: [STRING_OPTION_1, STRING_OPTION_2],
+            filtro: FILTER_PROPERTY,
+            rotulo: FILTER_LABEL
+          } }
+          value={ {
+            [STRING_OPTION_1]: false,
+            [STRING_OPTION_2]: false
+          } }
+          handleCheckbox={ handleCheckbox }
+        />
+      );
 
-    expect(label).toBeInTheDocument();
-    expect(showOptionsButton).toBeInTheDocument();
-    expect(screen.findAllByRole('checkbox')).rejects.toThrow('Unable to find role="checkbox"');
+      const label = await screen.findByText(FILTER_LABEL);
+      const showOptionsButton = await screen.findByRole('button', { name: '+' });
+
+      await user.click(showOptionsButton);
+
+      const hideOptionsButton = await screen.findByRole('button', { name: '-' });
+
+      await user.click(hideOptionsButton);
+
+      expect(label).toBeInTheDocument();
+      expect(showOptionsButton).toBeInTheDocument();
+      await waitFor(() => expect(screen.queryAllByRole('checkbox')).toHaveLength(0));
+      await waitFor(() => expect(screen.queryByRole('button', { name: '-' })).not.toBeInTheDocument());
+    });
   });
 });
