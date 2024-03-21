@@ -16,51 +16,38 @@ function setup(component) {
   };
 }
 
-// CASOS DE TESTE
-// 1. Deve renderizar o rótulo com o botão + ao passar um rótulo - OK
-// 2. Deve renderizar o rótulo com o botão - e a quantidade certa de checkboxes ordenados ASC ao clicar no botão + - OK
-// 3. Deve renderizar o rótulo com o botão + ao clicar no botão - e os checkboxes não devem ser exibidos - OK
-
-// Copilot
-// Here are some additional test cases you could consider:
-// 1. Test the initial state of the component: Ensure that the initial state of the component is as expected. For instance, the show state should be false initially. - OK
-// 2. Test the handleCheckbox function: If possible, test that the handleCheckbox function is called when a checkbox in the FiltroCard component is clicked. - Não acho que isso deveria ser testado no FiltroBody, e sim no teste de FiltroCard (e já foi testado lá)
-// 3. Test the sorting of filter options: You've mentioned that the filter options should be in ascending order. You could write a test to ensure that this is always the case. - Testar também com números
-// 4. Test the rendering of FiltroCard: Test that the FiltroCard component is rendered for each item in data.data. - OK
-// 5. Test the props passed to FiltroCard: Ensure that the correct props are passed to the FiltroCard component.
-// 6. Test the button click functionality: You've tested the rendering after the button click, but you could also test that the setShow function is called with the correct argument when the button is clicked. - Não parece necessário uma vez que o que é renderizado depende da correta mudança do estado show após click no botão e o teste 2 já cobre isso
-// 7. Test the conditional rendering of labels: If data.labels exists and has a property that matches item, then data.labels[item] should be passed as a prop to FiltroCard. You could write a test to ensure this conditional rendering works as expected.
-
 describe('FiltroBody', () => {
   afterEach(() => {
     jest.clearAllMocks();
   });
 
-  it('should render a label and a + button when first rendered', async () => {
-    setup(
-      <FiltroBody
-        data={ {
-          data: [STRING_OPTION_1, STRING_OPTION_2],
-          filtro: FILTER_PROPERTY,
-          rotulo: FILTER_LABEL
-        } }
-        value={ {
-          [STRING_OPTION_1]: false,
-          [STRING_OPTION_2]: false
-        } }
-        handleCheckbox={ handleCheckbox }
-      />
-    );
+  describe('When first rendering', () => {
+    it('should render the filter\'s label and a + button', async () => {
+      setup(
+        <FiltroBody
+          data={ {
+            data: [STRING_OPTION_1, STRING_OPTION_2],
+            filtro: FILTER_PROPERTY,
+            rotulo: FILTER_LABEL
+          } }
+          value={ {
+            [STRING_OPTION_1]: false,
+            [STRING_OPTION_2]: false
+          } }
+          handleCheckbox={ handleCheckbox }
+        />
+      );
 
-    const label = await screen.findByText(FILTER_LABEL);
-    const showOptionsButton = await screen.findByRole('button', { name: '+' });
+      const label = await screen.findByText(FILTER_LABEL);
+      const showOptionsButton = await screen.findByRole('button', { name: '+' });
 
-    expect(label).toBeInTheDocument();
-    expect(showOptionsButton).toBeInTheDocument();
+      expect(label).toBeInTheDocument();
+      expect(showOptionsButton).toBeInTheDocument();
+    });
   });
 
-  describe('When clicking the + button', () => {
-    it('should render a label, a - button and the filter string options in ASC order', async () => {
+  describe('After clicking the + button', () => {
+    it('should render the filter\'s label and a - button', async () => {
       const { user } = setup(
         <FiltroBody
           data={ {
@@ -86,106 +73,6 @@ describe('FiltroBody', () => {
 
       expect(label).toBeInTheDocument();
       expect(hideOptionsButton).toBeInTheDocument();
-      expect(options).toHaveLength(2);
-      expect(options[0]).toHaveAttribute('id', STRING_OPTION_1);
-      expect(options[1]).toHaveAttribute('id', STRING_OPTION_2);
-    });
-
-    it('should render a label, a - button and the filter stringfied number options in ASC order ', async () => {
-      const OPTION_1 = '5';
-      const OPTION_2 = '56';
-      const { user } = setup(
-        <FiltroBody
-          data={ {
-            data: [OPTION_2, OPTION_1],
-            filtro: FILTER_PROPERTY,
-            rotulo: FILTER_LABEL
-          } }
-          value={ {
-            [OPTION_1]: false,
-            [OPTION_2]: false
-          } }
-          handleCheckbox={ handleCheckbox }
-        />
-      );
-
-      const label = await screen.findByText(FILTER_LABEL);
-      const showOptionsButton = await screen.findByRole('button', { name: '+' });
-
-      await user.click(showOptionsButton);
-
-      const options = await screen.findAllByRole('checkbox');
-      const hideOptionsButton = await screen.findByRole('button', { name: '-' });
-
-      expect(label).toBeInTheDocument();
-      expect(hideOptionsButton).toBeInTheDocument();
-      expect(options).toHaveLength(2);
-      expect(options[0]).toHaveAttribute('id', OPTION_1);
-      expect(options[1]).toHaveAttribute('id', OPTION_2);
-    });
-
-    it('should render a label, a - button and the filter number options in ASC order ', async () => {
-      const OPTION_1 = 5;
-      const OPTION_2 = 56;
-      const { user } = setup(
-        <FiltroBody
-          data={ {
-            data: [OPTION_2, OPTION_1],
-            filtro: FILTER_PROPERTY,
-            rotulo: FILTER_LABEL
-          } }
-          value={ {
-            [OPTION_1]: false,
-            [OPTION_2]: false
-          } }
-          handleCheckbox={ handleCheckbox }
-        />
-      );
-
-      const label = await screen.findByText(FILTER_LABEL);
-      const showOptionsButton = await screen.findByRole('button', { name: '+' });
-
-      await user.click(showOptionsButton);
-
-      const options = await screen.findAllByRole('checkbox');
-      const hideOptionsButton = await screen.findByRole('button', { name: '-' });
-
-      expect(label).toBeInTheDocument();
-      expect(hideOptionsButton).toBeInTheDocument();
-      expect(options).toHaveLength(2);
-      expect(options[0]).toHaveAttribute('id', String(OPTION_1));
-      expect(options[1]).toHaveAttribute('id', String(OPTION_2));
-    });
-
-    it('should render a label, a + button and no filter options after clicking the - button', async () => {
-      const { user } = setup(
-        <FiltroBody
-          data={ {
-            data: [STRING_OPTION_1, STRING_OPTION_2],
-            filtro: FILTER_PROPERTY,
-            rotulo: FILTER_LABEL
-          } }
-          value={ {
-            [STRING_OPTION_1]: false,
-            [STRING_OPTION_2]: false
-          } }
-          handleCheckbox={ handleCheckbox }
-        />
-      );
-
-      const label = await screen.findByText(FILTER_LABEL);
-      const showOptionsButton = await screen.findByRole('button', { name: '+' });
-
-      await user.click(showOptionsButton);
-
-      const hideOptionsButton = await screen.findByRole('button', { name: '-' });
-
-      await user.click(hideOptionsButton);
-
-      expect(label).toBeInTheDocument();
-      expect(showOptionsButton).toBeInTheDocument();
-      await waitFor(() => expect(screen.queryAllByRole('checkbox')).toHaveLength(0));
-      await waitFor(() => expect(screen.queryByRole('button', { name: '-' })).not.toBeInTheDocument());
     });
 
     it('should render the options labels when they are provided', async () => {
@@ -220,6 +107,152 @@ describe('FiltroBody', () => {
       expect(options).toHaveLength(2);
       expect(await screen.findByText(LABEL_OPTION_1)).toBeInTheDocument();
       expect(await screen.findByText(LABEL_OPTION_2)).toBeInTheDocument();
+    });
+
+    describe('When clicking the - button', () => {
+      it('should remove the - button and render the filter\'s label and a + button', async () => {
+        const { user } = setup(
+          <FiltroBody
+            data={ {
+              data: [STRING_OPTION_1, STRING_OPTION_2],
+              filtro: FILTER_PROPERTY,
+              rotulo: FILTER_LABEL
+            } }
+            value={ {
+              [STRING_OPTION_1]: false,
+              [STRING_OPTION_2]: false
+            } }
+            handleCheckbox={ handleCheckbox }
+          />
+        );
+
+        const label = await screen.findByText(FILTER_LABEL);
+        const showOptionsButton = await screen.findByRole('button', { name: '+' });
+
+        await user.click(showOptionsButton);
+
+        const hideOptionsButton = await screen.findByRole('button', { name: '-' });
+
+        await user.click(hideOptionsButton);
+
+        expect(label).toBeInTheDocument();
+        expect(showOptionsButton).toBeInTheDocument();
+        await waitFor(() => expect(screen.queryByRole('button', { name: '-' })).not.toBeInTheDocument());
+      });
+
+      it('should not render the filter\'s options', async () => {
+        const { user } = setup(
+          <FiltroBody
+            data={ {
+              data: [STRING_OPTION_1, STRING_OPTION_2],
+              filtro: FILTER_PROPERTY,
+              rotulo: FILTER_LABEL
+            } }
+            value={ {
+              [STRING_OPTION_1]: false,
+              [STRING_OPTION_2]: false
+            } }
+            handleCheckbox={ handleCheckbox }
+          />
+        );
+
+        const showOptionsButton = await screen.findByRole('button', { name: '+' });
+
+        await user.click(showOptionsButton);
+
+        const hideOptionsButton = await screen.findByRole('button', { name: '-' });
+
+        await user.click(hideOptionsButton);
+
+        await waitFor(() => expect(screen.queryAllByRole('checkbox')).toHaveLength(0));
+      });
+    });
+
+    describe('All the filter\'s options should be in ASC order', () => {
+      it('when providing strings', async () => {
+        const { user } = setup(
+          <FiltroBody
+            data={ {
+              data: [STRING_OPTION_2, STRING_OPTION_1],
+              filtro: FILTER_PROPERTY,
+              rotulo: FILTER_LABEL
+            } }
+            value={ {
+              [STRING_OPTION_1]: false,
+              [STRING_OPTION_2]: false
+            } }
+            handleCheckbox={ handleCheckbox }
+          />
+        );
+
+        const showOptionsButton = await screen.findByRole('button', { name: '+' });
+
+        await user.click(showOptionsButton);
+
+        const options = await screen.findAllByRole('checkbox');
+
+        expect(options).toHaveLength(2);
+        expect(options[0].nextSibling).toHaveTextContent(STRING_OPTION_1);
+        expect(options[1].nextSibling).toHaveTextContent(STRING_OPTION_2);
+      });
+
+      it('when providing number strings', async () => {
+        const OPTION_1 = '5';
+        const OPTION_2 = '56';
+        const { user } = setup(
+          <FiltroBody
+            data={ {
+              data: [OPTION_2, OPTION_1],
+              filtro: FILTER_PROPERTY,
+              rotulo: FILTER_LABEL
+            } }
+            value={ {
+              [OPTION_1]: false,
+              [OPTION_2]: false
+            } }
+            handleCheckbox={ handleCheckbox }
+          />
+        );
+
+        const showOptionsButton = await screen.findByRole('button', { name: '+' });
+
+        await user.click(showOptionsButton);
+
+        const options = await screen.findAllByRole('checkbox');
+
+        expect(options).toHaveLength(2);
+        expect(options[0].nextSibling).toHaveTextContent(OPTION_1);
+        expect(options[1].nextSibling).toHaveTextContent(OPTION_2);
+      });
+
+      it('when providing numbers', async () => {
+        const OPTION_1 = 5;
+        const OPTION_2 = 56;
+        const { user } = setup(
+          <FiltroBody
+            data={ {
+              data: [OPTION_2, OPTION_1],
+              filtro: FILTER_PROPERTY,
+              rotulo: FILTER_LABEL
+            } }
+            value={ {
+              [OPTION_1]: false,
+              [OPTION_2]: false
+            } }
+            handleCheckbox={ handleCheckbox }
+          />
+        );
+
+        const showOptionsButton = await screen.findByRole('button', { name: '+' });
+
+        await user.click(showOptionsButton);
+
+        const options = await screen.findAllByRole('checkbox');
+
+        expect(options).toHaveLength(2);
+        expect(options[0].nextSibling).toHaveTextContent(String(OPTION_1));
+        expect(options[1].nextSibling).toHaveTextContent(String(OPTION_2));
+      });
     });
   });
 });
