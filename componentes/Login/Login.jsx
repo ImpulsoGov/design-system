@@ -122,7 +122,7 @@ const Login = (props)=>{
                             >
                                 Esqueceu ou quer trocar sua senha?
                             </div>
-                            {resposta && <div className={style.LoginResposta}>{resposta}</div>}
+                            {resposta && !alertCPF && <div className={style.LoginResposta}>{resposta}</div>}
                         </div>
                         <div className={style.LoginCampoButton}>
                             <button 
