@@ -187,5 +187,39 @@ describe('FiltroBody', () => {
       await waitFor(() => expect(screen.queryAllByRole('checkbox')).toHaveLength(0));
       await waitFor(() => expect(screen.queryByRole('button', { name: '-' })).not.toBeInTheDocument());
     });
+
+    it('should render the options labels when they are provided', async () => {
+      const LABEL_OPTION_1 = 'ACS 1';
+      const LABEL_OPTION_2 = 'ACS 2';
+      const { user } = setup(
+        <FiltroBody
+          data={ {
+            data: [STRING_OPTION_1, STRING_OPTION_2],
+            filtro: FILTER_PROPERTY,
+            rotulo: FILTER_LABEL,
+            labels: [LABEL_OPTION_1, LABEL_OPTION_2]
+          } }
+          value={ {
+            [STRING_OPTION_1]: false,
+            [STRING_OPTION_2]: false
+          } }
+          handleCheckbox={ handleCheckbox }
+        />
+      );
+
+      const label = await screen.findByText(FILTER_LABEL);
+      const showOptionsButton = await screen.findByRole('button', { name: '+' });
+
+      await user.click(showOptionsButton);
+
+      const options = await screen.findAllByRole('checkbox');
+      const hideOptionsButton = await screen.findByRole('button', { name: '-' });
+
+      expect(label).toBeInTheDocument();
+      expect(hideOptionsButton).toBeInTheDocument();
+      expect(options).toHaveLength(2);
+      expect(await screen.findByText(LABEL_OPTION_1)).toBeInTheDocument();
+      expect(await screen.findByText(LABEL_OPTION_2)).toBeInTheDocument();
+    });
   });
 });
