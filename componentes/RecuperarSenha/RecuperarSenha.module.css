@@ -67,11 +67,9 @@
 .RecuperarSenhaInputErro{
     width: 98%;
     height: 56px;
-    border: 1px solid #EFF5F9;
+    border: #E95F3A solid 1px;
     border-radius: 8px;
     padding: 0px 24px 2px;
-
-    background-color:#FCFFE9;
     color: #1F1F1F;
     font-family: 'Inter';
     font-style: normal;

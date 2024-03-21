@@ -44,6 +44,7 @@ const Login = (props)=>{
             
             // Atualiza o estado
             setMail(value);
+            if(mail.length>0) setResposta('')
         }
 
     }
@@ -121,20 +122,22 @@ const Login = (props)=>{
                             >
                                 Esqueceu ou quer trocar sua senha?
                             </div>
-                            {resposta && <div className={style.LoginResposta}>{resposta}</div>}
+                            {resposta && !alertCPF && <div className={style.LoginResposta}>{resposta}</div>}
                         </div>
                         <div className={style.LoginCampoButton}>
                             <button 
                                 className={
-                                    (mail.length>0 && senha.length>0 ) ?
+                                    (mail.length>=14 && senha.length>=8 ) ?
                                     cx(style.LoginButton, style[`${color}`]):
                                     style.LoginButtonInativo
                                 }
                                 onClick={() => {
-                                    if (mail.length>0 && senha.length>0){
+                                    if (mail.length>=14 && senha.length>=8){
                                         setLoading(true);
                                         props.botaoPrincipal.submit(true);
                                         props.validacao(setResposta,props.validarCredencial,props.entrar,mail,senha, setLoading);
+                                        setMail("")
+                                        setSenha("")
                                     }
                                 }}
                             >{props.botaoPrincipal.label.toUpperCase()}</button>

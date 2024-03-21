@@ -4,6 +4,7 @@ import style from "./RecuperarSenha.module.css";
 import cx from "classnames";
 import { Spinner } from "../Spinner";
 import { cpf } from 'cpf-cnpj-validator';
+import { sanitize } from "../sanitize";
 
 // Refatorar componentes, estão com muitas responsabilidades e logica complexa para manutenção
 
@@ -61,7 +62,7 @@ const InserirInfo = ({
             if(etapa == 0){
                 // Procura todos os caracteres não numericos
                 let naoNumeros = value.match(/[^\d.-]/g)
-                if(naoNumeros?.length>0 && value.length> 0){
+                if(naoNumeros?.length>0){
                     setAlert("A criação de senha é realizada utilizando o CPF.") 
                     setAlertCPF(true)
                 }else{ 
@@ -89,7 +90,16 @@ const InserirInfo = ({
                 setValue(value);
             }
             setValue(value);
-            if(etapa == 1 && value?.length > 0) setAlert("")
+            if(etapa == 1){ 
+                if(value?.length > 0) setAlert("")
+                let naoNumeros = value.match(/[^\d.-]/g)
+                setAlertCPF(false)
+                if(naoNumeros?.length>0){
+                    setAlert("O código de verificação possui apenas caracteres numéricos.") 
+                    setAlertCPF(true)
+                    setValue(value.replace(/\D/g, ''))
+                }
+            }
         }
 
     }
@@ -109,7 +119,6 @@ const InserirInfo = ({
                     setSaveCPF(value)
                 }else{
                     setAlert(response["mensagem"])
-                    console.log(alert)
                     setValue('')
                     setLoading(false);
                 }
@@ -135,7 +144,7 @@ const InserirInfo = ({
                     setAlterarSenhaArgs({
                         cpf : alterarSenhaArgs.cpf,
                         codigo : value,
-                        telefone : alterarSenhaArgs.telefone
+                        telefone : alterarSenhaArgs.telefone 
                     })
                     setAlert('')
                     setLoading(false);
@@ -182,7 +191,7 @@ const InserirInfo = ({
     };
     useEffect(() => {
         const interval = setInterval(() => {
-        if (seconds > 0) {
+        if (seconds > 0 && etapa == 1) {
             setSeconds(seconds - 1);
         }
         }, 1000);
@@ -194,6 +203,7 @@ const InserirInfo = ({
         const remainingSeconds = time % 60;
         return `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
     };
+    console.log((alert.length>0 && value.length==0 && !alertCPF) || (value != novaSenhaConfirmacao && novaSenhaConfirmacao.length > 0),)
     return(
         <div className={style.RecuperarSenhaConteiner}>
             <div className={style.RecuperarSenhaTitulo}>{titulo}</div>
@@ -207,24 +217,27 @@ const InserirInfo = ({
                             (etapa != 0.1 || etapa == 3)&& 
                             <input 
                                 className={
-                                    (alert.length>0 && value==0 && value.match(/[^\d.-]/g)?.length == 0) ?
+                                    ((alert.length>0 && value.length==0 && !alertCPF) || (value != novaSenhaConfirmacao && novaSenhaConfirmacao.length > 0)) ?
                                     style.RecuperarSenhaInputErro : 
                                     value.length == 14 && etapa == 0 ? 
                                     cx(style.RecuperarSenhaInput, style[`Input${theme}Sucesso`]) :
-                                    (etapa == 0 && alertCPF) ? 
+                                    ((etapa == 0 || 1) && alertCPF) ? 
                                     cx(style.RecuperarSenhaInput, style[`Input${theme}Alerta`]) : 
                                     cx(style.RecuperarSenhaInput, style[`Input${theme}`])
-
                                 }
                                 type={(etapa==0 || etapa == 1) || mostrarSenha ? 'text' : 'password'}
                                 placeholder={placeholder}
                                 value={value}
-                                maxLength={etapa==0 ? 14 : null}
+                                maxLength={
+                                    etapa==0 ? 14 : 
+                                    etapa == 1 ? 8 :
+                                    null
+                                }
                                 onChange={(e) => {handleCPF(e) }}
                             />
                         }
                         {
-                            validarsenha && value.length>0 && 
+                            validarsenha && 
                             <button
                                 className={style.buttonHidePassword}
                                 onClick={handleMostrarSenha}
@@ -245,7 +258,14 @@ const InserirInfo = ({
                             theme={theme}
                         />
                     }
-                    {alert && etapa != 2 && value.length==0 && !alertCPF && <div className={style.RecuperarSenhaMensagem}>{alert}</div>}
+                    {
+                        alert && etapa != 2 && value.length==0 && !alertCPF && 
+                        <div 
+                            className={style.RecuperarSenhaMensagem}
+                            dangerouslySetInnerHTML={{
+                                __html: sanitize(alert),
+                              }} 
+                        ></div>}
                     {alert && etapa != 2 && alertCPF && <div className={style.RecuperarSenhaMensagemAlerta}>{alert}</div>}
                     { 
                         etapa == 1 && seconds != 0 && !alert && !seguntaTentativa ? 
@@ -257,7 +277,7 @@ const InserirInfo = ({
                                 className={style.SMS}
                                 onClick={()=>{
                                     sms(saveCPF);
-                                    setSeconds(120);
+                                    setSeconds(180);
                                     setAlert("");
                                     setSegundaTentativa(false);
                                 }}
@@ -270,7 +290,7 @@ const InserirInfo = ({
                                 className={style.SMS}
                                 onClick={()=>{
                                     sms(saveCPF);
-                                    setSeconds(120);
+                                    setSeconds(180);
                                     setAlert("");
                                     setSegundaTentativa(false);
                                 }}
@@ -317,7 +337,7 @@ const InserirInfo = ({
 
 const ValidarSenha = ({novaSenha,novaSenhaConfirmacao,setNovaSenhaConfirmacao, theme})=>{
     const Symbol = (color)=> (color?.length>0 || typeof(color)!='undefined') ?  '✘' : '✓'
-    const senhaAlertMsg = "As senhas digitadas não são iguais";
+    const senhaAlertMsg = "As senhas digitadas não são iguais.";
     let validacao = validacaoSenha(novaSenha)
     let validacoes = [
         {restricao:'tamanho',descricao:' Mínimo de 8 caracteres'},
@@ -348,9 +368,9 @@ const ValidarSenha = ({novaSenha,novaSenhaConfirmacao,setNovaSenhaConfirmacao, t
             </div>
             <div className={style.inputContainer}>
                 <input
-                    className={cx(style.RecuperarSenhaInput, style[`Input${theme}`])}
+                    className={(novaSenha != novaSenhaConfirmacao && novaSenhaConfirmacao.length > 0) ? style.RecuperarSenhaInputErro : cx(style.RecuperarSenhaInput, style[`Input${theme}`])}
                     type={ mostrarSenha ? "text" : "password"  }
-                    placeholder="Confirmar nova senha"
+                    placeholder="Digite sua senha novamente"
                     value={novaSenhaConfirmacao.replaceAll(" ","")}
                     onChange={(e) => {setNovaSenhaConfirmacao(e.target.value.replaceAll(" ",""));}}
                 />
@@ -434,6 +454,7 @@ const RecuperarSenha = ({
                             titulo = {titulos.verificacao}
                             chamada = {chamadas.verificacao}
                             botaoVoltar = {botaoVoltar}
+                            aviso = "Clique em ENVIAR CÓDIGO"
                             botaoProximo = {{label : "ENVIAR CÓDIGO"}}
                             trocar_telefone = { chamadas.trocar_telefone}
                             alert = {mailAlert}
@@ -471,7 +492,7 @@ const RecuperarSenha = ({
                             setSaveCPF = {setSaveCPF}
                             etapa = {etapa}
                             setEtapa = {setEtapa}
-                            placeholder = "Código de Recuperação"
+                            placeholder = "Código de Verificacão"
                             setAlterarSenhaArgs = {setAlterarSenhaArgs}
                             alterarSenhaArgs = {alterarSenhaArgs}
                             theme = {color}
@@ -493,7 +514,7 @@ const RecuperarSenha = ({
                             req = {reqs.alterarSenha}
                             setEtapa = {setEtapa}
                             validarsenha = {true}
-                            placeholder = "Nova Senha"
+                            placeholder = "Crie sua senha"
                             setAlterarSenhaArgs = {setAlterarSenhaArgs}
                             alterarSenhaArgs = {alterarSenhaArgs}
                             theme = {color}

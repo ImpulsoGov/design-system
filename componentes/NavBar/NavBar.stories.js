@@ -492,7 +492,7 @@ const reqsPrimeiroAcesso = {
         const res = aguarde().then(async(res)=>{
             if(cpf == '390.270.498-58') return { "success" : true , telefone : "5678"}
             if(cpf == "123.123.123-11") return {
-                "mensagem": "CPF já possui senha cadastrada. Volte e clique em ENTRAR",
+                "mensagem": "<div>Esse CPF já possui senha cadastrada. Volte e clique em Entrar <br/>Precisa de ajuda nessa etapa? <a href='/' style='color: #FFF'>Clique aqui,</a></div>",
                 "success": false
             }
 

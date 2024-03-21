@@ -161,8 +161,6 @@
     .ButtonColorIconContainer{
         font-size: 0px;
     }
-    .ButtonColorIconContainerTexto{
-    }
     .ButtonColorIconContainer img{
         width: 16px;
         height: 16px;
@@ -193,12 +191,31 @@
     text-decoration: none;
 }
 
-.ColorIPMobile {
+.ColorIPMobile{
+    border: 1px solid rgba(96, 110, 120, 0.15);
+    background-color: #1D856C;
+}
+.CinzaMobile{
+    border: 1px solid rgba(96, 110, 120, 0.15);
+    background-color: #1D856C;
+}
+.WhiteMobile{
     border: 1px solid rgba(96, 110, 120, 0.15);
     background-color: #1D856C;
 }
 
 .ColorIPMobile:hover{
+    border: 1px solid rgba(96, 110, 120, 0.50);
+    background-color: #1d856df0;
+    cursor: pointer;
+}
+.CinzaMobile:hover{
+    border: 1px solid rgba(96, 110, 120, 0.50);
+    background-color: #1d856df0;
+    cursor: pointer;
+}
+
+.WhiteMobile{
     border: 1px solid rgba(96, 110, 120, 0.50);
     background-color: #1d856df0;
     cursor: pointer;

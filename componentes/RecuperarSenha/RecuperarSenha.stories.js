@@ -24,7 +24,7 @@ const reqs = {
             }
 
             return {
-                "mensagem": "CPF não cadastrado",
+                "mensagem": "<div>Esse CPF já possui senha cadastrada. Volte e clique em Entrar <a href='/'>Precisa de ajuda nessa etapa? Clique aqui,</a></div>",
                 "success": false
             }
         })
@@ -40,7 +40,7 @@ const reqs = {
             }
 
             return {
-                "mensagem": "CPF não cadastrado",
+                "mensagem": "<div>Esse CPF já possui senha cadastrada. Volte e clique em Entrar <a href='/'>Precisa de ajuda nessa etapa? Clique aqui,</a></div>",
                 "success": false
             }
         })
