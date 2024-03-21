@@ -110,7 +110,15 @@ const Login = (props)=>{
                             </div>
                             <div 
                                 className={style.LoginEsqueciMinhaSenha}
-                                onClick={()=>props.showEsqueciSenha(true)}
+                                onClick={()=>{
+                                    if (props.trackObject) {
+                                        props.trackObject.track('button_click', {
+                                            'button_action': 'inicio_esqueceu_senha',
+                                            'login_flow': 'esqueceu_senha'
+                                        });
+                                    }
+                                    props.showEsqueciSenha(true)
+                                }}
                             >
                                 Esqueceu ou quer trocar sua senha?
                             </div>
