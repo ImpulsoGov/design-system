@@ -153,7 +153,7 @@
     line-height: 150%;
 }
 .CTAAtualizar{
-    color: #2EB280;
+    color: #2EB280 !important;
     font-feature-settings: 'clig' off, 'liga' off;
     font-family: Inter;
     font-size: 14px;
