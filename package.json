@@ -38,7 +38,7 @@
     "start": "react-scripts start",
     "build-for-windows": "del -rf dist && babel componentes/ --out-dir dist --copy-files",
     "build": "rm -rf dist && NODE_ENV=production babel componentes/ --out-dir dist --copy-files",
-    "test": "jest",
+    "test": "jest --coverage=false",
     "test:coverage": "jest --coverage --watchAll=false --bail",
     "eject": "react-scripts eject",
     "sb": "start-storybook -p 6006",
