@@ -203,7 +203,6 @@ const InserirInfo = ({
         const remainingSeconds = time % 60;
         return `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
     };
-    console.log((alert.length>0 && value.length==0 && !alertCPF) || (value != novaSenhaConfirmacao && novaSenhaConfirmacao.length > 0),)
     return(
         <div className={style.RecuperarSenhaConteiner}>
             <div className={style.RecuperarSenhaTitulo}>{titulo}</div>
