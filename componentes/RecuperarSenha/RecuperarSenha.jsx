@@ -180,6 +180,7 @@ const InserirInfo = ({
         }
     }
     const AtivarBotao = ()=>{
+        if (value.length>14 && etapa==0) return true
         if(etapa == 0.1) return true
         if (value.length>0 && etapa!=2) return true
         if (value.length>0 && value == novaSenhaConfirmacao && validacaoSenha(novaSenhaConfirmacao).validacao) return true
@@ -216,7 +217,7 @@ const InserirInfo = ({
                             (etapa != 0.1 || etapa == 3)&& 
                             <input 
                                 className={
-                                    ((alert.length>0 && value.length==0 && !alertCPF) || (value != novaSenhaConfirmacao && novaSenhaConfirmacao.length > 0)) ?
+                                    ((alert?.length>0 && value.length==0 && !alertCPF) || (value != novaSenhaConfirmacao && novaSenhaConfirmacao.length > 0)) ?
                                     style.RecuperarSenhaInputErro : 
                                     value.length == 14 && etapa == 0 ? 
                                     cx(style.RecuperarSenhaInput, style[`Input${theme}Sucesso`]) :

@@ -74,7 +74,13 @@ const Login = (props)=>{
                         }
                         <div className={style.LoginCampos}>
                             <input
-                                className={style.LoginCampo} 
+                                className={
+                                    alertCPF ? 
+                                    cx(style.LoginCampo,style.LoginAlert) : 
+                                    resposta ?
+                                    cx(style.LoginCampo,style.LoginError) : 
+                                    style.LoginCampo 
+                                } 
                                 type="text"
                                 placeholder= {props.projeto == 'IP' ? "CPF" : "E-mail"}
                                 rows="2" 
