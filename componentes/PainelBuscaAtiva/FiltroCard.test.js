@@ -16,13 +16,6 @@ const handleCheckboxChange = jest.fn((event, value, setValue) => {
   setValue(valueStateCopy);
 });
 
-function setup(component) {
-  return {
-    user: userEvent.setup(),
-    ...render(component),
-  };
-}
-
 describe('Componente: FiltroCard', () => {
   afterEach(() => {
     jest.clearAllMocks();
@@ -43,7 +36,7 @@ describe('Componente: FiltroCard', () => {
             />
           );
         };
-        setup(<Wrapper />);
+        render(<Wrapper />);
 
         const checkbox = await screen.findByRole('checkbox');
         const checkboxLabel = await screen.findByText(LABEL);
@@ -68,7 +61,8 @@ describe('Componente: FiltroCard', () => {
             />
           );
         };
-        const { user } = setup(<Wrapper />);
+        const user = userEvent.setup();
+        render(<Wrapper />);
         const checkbox = await screen.findByRole('checkbox');
 
         await user.click(checkbox);
@@ -90,7 +84,8 @@ describe('Componente: FiltroCard', () => {
             />
           );
         };
-        const { user } = setup(<Wrapper />);
+        const user = userEvent.setup();
+        render(<Wrapper />);
         const checkbox = await screen.findByRole('checkbox');
 
         await user.click(checkbox);
@@ -113,7 +108,7 @@ describe('Componente: FiltroCard', () => {
             />
           );
         };
-        setup(<Wrapper />);
+        render(<Wrapper />);
 
         const checkbox = await screen.findByRole('checkbox');
         const checkboxLabel = await screen.findByText('1');
@@ -135,7 +130,7 @@ describe('Componente: FiltroCard', () => {
             />
           );
         };
-        setup(<Wrapper />);
+        render(<Wrapper />);
 
         await waitFor(() => expect(screen.queryByRole('checkbox')).not.toBeInTheDocument());
       });
@@ -153,7 +148,7 @@ describe('Componente: FiltroCard', () => {
             />
           );
         };
-        setup(<Wrapper />);
+        render(<Wrapper />);
 
         await waitFor(() => expect(screen.queryByRole('checkbox')).not.toBeInTheDocument());
       });
@@ -173,7 +168,7 @@ describe('Componente: FiltroCard', () => {
             />
           );
         };
-        setup(<Wrapper />);
+        render(<Wrapper />);
 
         const checkboxLabel = await screen.findByText(LABELS);
 
@@ -193,7 +188,7 @@ describe('Componente: FiltroCard', () => {
             />
           );
         };
-        setup(<Wrapper />);
+        render(<Wrapper />);
 
         expect(await screen.findByText(LABELS)).toBeInTheDocument();
         await waitFor(() => expect(screen.queryByText(LABEL)).not.toBeInTheDocument());
@@ -215,7 +210,7 @@ describe('Componente: FiltroCard', () => {
           />
         );
       };
-      setup(<Wrapper />);
+      render(<Wrapper />);
 
       const checkbox = await screen.findByRole('checkbox');
       const checkboxLabel = await screen.findByText(LABEL);
@@ -240,7 +235,8 @@ describe('Componente: FiltroCard', () => {
           />
         );
       };
-      const { user } = setup(<Wrapper />);
+      const user = userEvent.setup();
+      render(<Wrapper />);
       const checkbox = await screen.findByRole('checkbox');
 
       await user.click(checkbox);
