@@ -45,6 +45,10 @@
     display: flex;
     flex-direction: column;
 }
+.InputColorIPAlerta{
+    outline: none !important;
+    border: #EABF2E solid 1px;
+}
 
 .InputColorIP:focus, .InputWhite:focus , .RecuperarSenhaInput:focus{
     outline: none !important;
@@ -149,7 +153,7 @@
     line-height: 150%;
 }
 .CTAAtualizar{
-    color: #2EB280;
+    color: #2EB280 !important;
     font-feature-settings: 'clig' off, 'liga' off;
     font-family: Inter;
     font-size: 14px;

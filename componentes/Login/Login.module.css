@@ -31,7 +31,14 @@
     border-radius: 8px;
     box-sizing: border-box
 }
-
+.LoginAlert{
+    outline: none !important;
+    border: #EABF2E solid 1px;
+}
+.LoginError{
+    outline: none !important;
+    border: #E95F3A solid 1px;
+}
 .LoginCampo:focus {
     outline: 1px solid rgba(113, 114, 119, 0.5);
 }

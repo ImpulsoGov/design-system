@@ -112,7 +112,7 @@ const InserirInfo = ({
                     setEtapa(etapa+0.1)
                     setAlterarSenhaArgs({
                         cpf : value.replace(/\D/g, ''),
-                        telefone : `(**) ****-${response["telefone"]}`
+                        telefone : `(**) ****-${response["telefone"]}.`
                     })
                     setAlert('')
                     setLoading(false);
@@ -180,9 +180,10 @@ const InserirInfo = ({
         }
     }
     const AtivarBotao = ()=>{
+        if(value.length>=14 && etapa==0) return true
         if(etapa == 0.1) return true
-        if (value.length>0 && etapa!=2) return true
-        if (value.length>0 && value == novaSenhaConfirmacao && validacaoSenha(novaSenhaConfirmacao).validacao) return true
+        if(value.length>0 && etapa==1) return true
+        if(value.length>0 && value == novaSenhaConfirmacao && validacaoSenha(novaSenhaConfirmacao).validacao && etapa == 2) return true
         return false
     }
     const [mostrarSenha, setMostrarSenha] = useState(false);
@@ -216,7 +217,7 @@ const InserirInfo = ({
                             (etapa != 0.1 || etapa == 3)&& 
                             <input 
                                 className={
-                                    ((alert.length>0 && value.length==0 && !alertCPF) || (value != novaSenhaConfirmacao && novaSenhaConfirmacao.length > 0)) ?
+                                    ((alert?.length>0 && value.length==0 && !alertCPF) || (value != novaSenhaConfirmacao && novaSenhaConfirmacao.length > 0)) ?
                                     style.RecuperarSenhaInputErro : 
                                     value.length == 14 && etapa == 0 ? 
                                     cx(style.RecuperarSenhaInput, style[`Input${theme}Sucesso`]) :
@@ -453,7 +454,7 @@ const RecuperarSenha = ({
                             titulo = {titulos.verificacao}
                             chamada = {chamadas.verificacao}
                             botaoVoltar = {botaoVoltar}
-                            aviso = "Clique em ENVIAR CÓDIGO"
+                            aviso = "Clique em ENVIAR CÓDIGO."
                             botaoProximo = {{label : "ENVIAR CÓDIGO"}}
                             trocar_telefone = { chamadas.trocar_telefone}
                             alert = {mailAlert}
