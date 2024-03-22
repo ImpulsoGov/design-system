@@ -4,6 +4,8 @@ import userEvent from '@testing-library/user-event';
 import { useState } from 'react';
 import { FiltroCard } from './PainelBuscaAtiva';
 
+// TODO remover Wrapper
+
 const LABEL = 'Alessandra Santos';
 const LABELS = 'Carmen Miranda';
 const FILTRO_ID = 'acs_nome';
@@ -21,14 +23,14 @@ function setup(component) {
   };
 }
 
-describe('FiltroCard', () => {
+describe('Componente: FiltroCard', () => {
   afterEach(() => {
     jest.clearAllMocks();
   });
 
-  describe('When initial checked state is false', () => {
-    describe('And labels property is not provided', () => {
-      it('should render an unchecked checkbox with the provided label', async () => {
+  describe('Quando o estado inicial do checkbox é false', () => {
+    describe('E a propriedade labels não é passada', () => {
+      it('deve exibir um checkbox desmarcado com a label correta', async () => {
         const Wrapper = () => {
           const [value, setValue] = useState({ [LABEL]: false });
           return (
@@ -53,7 +55,7 @@ describe('FiltroCard', () => {
         expect(checkboxLabel).toBeInTheDocument();
       });
 
-      it('should render a checked checkbox after clicking it', async () => {
+      it('deve exibir um checkbox marcado após o click', async () => {
         const Wrapper = () => {
           const [value, setValue] = useState({ [LABEL]: false });
           return (
@@ -75,7 +77,7 @@ describe('FiltroCard', () => {
         expect(checkbox).toBeChecked();
       });
 
-      it('should render an unchecked checkbox after clicking it twice', async () => {
+      it('deve exibir um checkbox desmarcado após clicar duas vezes', async () => {
         const Wrapper = () => {
           const [value, setValue] = useState({ [LABEL]: false });
           return (
@@ -98,7 +100,7 @@ describe('FiltroCard', () => {
         expect(checkbox).not.toBeChecked();
       });
 
-      it('should render a checkbox and the stringfied label when it is a number', async () => {
+      it('deve exibir um checkbox e uma string numérica quando a label é um número', async () => {
         const Wrapper = () => {
           const [value, setValue] = useState({ [1]: false });
           return (
@@ -120,7 +122,7 @@ describe('FiltroCard', () => {
         expect(checkboxLabel).toBeInTheDocument();
       });
 
-      it('should not render a checkbox when the label is null', async () => {
+      it('não deve exibir um checkbox quando a label é nula', async () => {
         const Wrapper = () => {
           const [value, setValue] = useState({ [null]: false });
           return (
@@ -138,7 +140,7 @@ describe('FiltroCard', () => {
         await waitFor(() => expect(screen.queryByRole('checkbox')).not.toBeInTheDocument());
       });
 
-      it('should not render a checkbox when the label is an empty string', async () => {
+      it('não deve exibir um checkbox quando a label é uma string vazia', async () => {
         const Wrapper = () => {
           const [value, setValue] = useState({ '': false });
           return (
@@ -157,8 +159,8 @@ describe('FiltroCard', () => {
       });
     });
 
-    describe('And labels property is provided', () => {
-      it('should render its content if label property is not provided', async () => {
+    describe('E a propriedade labels é passada', () => {
+      it('deve exibir seu conteúdo quando a propriedade label não é passada', async () => {
         const Wrapper = () => {
           const [value, setValue] = useState({ [LABEL]: false });
           return (
@@ -178,7 +180,7 @@ describe('FiltroCard', () => {
         expect(checkboxLabel).toBeInTheDocument();
       });
 
-      it('should render its content even if label property is provided', async () => {
+      it('deve exibir seu conteúdo quando a propriedade label é passada', async () => {
         const Wrapper = () => {
           const [value, setValue] = useState({ [LABEL]: false });
           return (
@@ -199,8 +201,8 @@ describe('FiltroCard', () => {
     });
   });
 
-  describe('When initial checked state is true', () => {
-    it('should render a checked checkbox with the provided label', async () => {
+  describe('Quando o estado inicial do checkbox é true', () => {
+    it('deve exibir um checkbox marcado com a label correta', async () => {
       const Wrapper = () => {
         const [value, setValue] = useState({ [LABEL]: true });
         return (
@@ -225,7 +227,7 @@ describe('FiltroCard', () => {
       expect(checkboxLabel).toBeInTheDocument();
     });
 
-    it('should render an unchecked checkbox after clicking it', async () => {
+    it('deve exibir um checkbox desmarcado após click', async () => {
       const Wrapper = () => {
         const [value, setValue] = useState({ [LABEL]: true });
         return (
