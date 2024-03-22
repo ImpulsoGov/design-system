@@ -9,13 +9,6 @@ const FILTER_PROPERTY = 'acs_nome';
 const FILTER_LABEL = 'Filtrar por nome do Profissional Responsável';
 const handleCheckbox = jest.fn();
 
-function setup(component) {
-  return {
-    user: userEvent.setup(),
-    ...render(component),
-  };
-}
-
 describe('Componente: FiltroBody', () => {
   afterEach(() => {
     jest.clearAllMocks();
@@ -23,7 +16,7 @@ describe('Componente: FiltroBody', () => {
 
   describe('Quando renderizado', () => {
     it('deve exibir o nome do filtro', async () => {
-      setup(
+      render(
         <FiltroBody
           data={ {
             data: [STRING_OPTION_1, STRING_OPTION_2],
@@ -44,7 +37,7 @@ describe('Componente: FiltroBody', () => {
     });
 
     it('deve exibir o botão de mostrar opções de filtro', async () => {
-      setup(
+      render(
         <FiltroBody
           data={ {
             data: [STRING_OPTION_1, STRING_OPTION_2],
@@ -67,7 +60,9 @@ describe('Componente: FiltroBody', () => {
 
   describe('Ao clicar no botão de mostrar opções de filtro', () => {
     it('deve continuar exibindo o nome do filtro', async () => {
-      const { user } = setup(
+      const user = userEvent.setup();
+
+      render(
         <FiltroBody
           data={ {
             data: [STRING_OPTION_2, STRING_OPTION_1],
@@ -91,7 +86,9 @@ describe('Componente: FiltroBody', () => {
     });
 
     it('deve exibir o botão de esconder opções de filtro', async () => {
-      const { user } = setup(
+      const user = userEvent.setup();
+
+      render(
         <FiltroBody
           data={ {
             data: [STRING_OPTION_2, STRING_OPTION_1],
@@ -118,7 +115,9 @@ describe('Componente: FiltroBody', () => {
     it('deve exibir as labels das opções de filtro quando são fornecidas', async () => {
       const LABEL_OPTION_1 = 'ACS 1';
       const LABEL_OPTION_2 = 'ACS 2';
-      const { user } = setup(
+      const user = userEvent.setup();
+
+      render(
         <FiltroBody
           data={ {
             data: [STRING_OPTION_1, STRING_OPTION_2],
@@ -144,7 +143,9 @@ describe('Componente: FiltroBody', () => {
 
     describe('E clicar no botão de esconder opções de filtro', () => {
       it('não deve exibir o botão de esconder opções de filtro', async () => {
-        const { user } = setup(
+        const user = userEvent.setup();
+
+        render(
           <FiltroBody
             data={ {
               data: [STRING_OPTION_1, STRING_OPTION_2],
@@ -171,7 +172,9 @@ describe('Componente: FiltroBody', () => {
       });
 
       it('deve exibir novamente o botão de mostrar opções de filtro', async () => {
-        const { user } = setup(
+        const user = userEvent.setup();
+
+        render(
           <FiltroBody
             data={ {
               data: [STRING_OPTION_1, STRING_OPTION_2],
@@ -198,7 +201,9 @@ describe('Componente: FiltroBody', () => {
       });
 
       it('deve continuar exibindo o nome do filtro', async () => {
-        const { user } = setup(
+        const user = userEvent.setup();
+
+        render(
           <FiltroBody
             data={ {
               data: [STRING_OPTION_1, STRING_OPTION_2],
@@ -227,7 +232,9 @@ describe('Componente: FiltroBody', () => {
       });
 
       it('não deve exibir as opções de filtro', async () => {
-        const { user } = setup(
+        const user = userEvent.setup();
+
+        render(
           <FiltroBody
             data={ {
               data: [STRING_OPTION_1, STRING_OPTION_2],
@@ -256,7 +263,9 @@ describe('Componente: FiltroBody', () => {
 
     describe('As opções de filtro devem ser exibidas em ordem crescente', () => {
       it('quando são strings', async () => {
-        const { user } = setup(
+        const user = userEvent.setup();
+
+        render(
           <FiltroBody
             data={ {
               data: [STRING_OPTION_2, STRING_OPTION_1],
@@ -286,7 +295,9 @@ describe('Componente: FiltroBody', () => {
       it('quando são strings numéricas', async () => {
         const OPTION_1 = '5';
         const OPTION_2 = '56';
-        const { user } = setup(
+        const user = userEvent.setup();
+
+        render(
           <FiltroBody
             data={ {
               data: [OPTION_2, OPTION_1],
@@ -315,7 +326,9 @@ describe('Componente: FiltroBody', () => {
       it('quando são números', async () => {
         const OPTION_1 = 5;
         const OPTION_2 = 56;
-        const { user } = setup(
+        const user = userEvent.setup();
+
+        render(
           <FiltroBody
             data={ {
               data: [OPTION_2, OPTION_1],
