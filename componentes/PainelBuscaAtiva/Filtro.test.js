@@ -360,6 +360,81 @@ describe('Componente: Filtro', () => {
         }]);
       });
     });
+
+    describe('Após selecionar duas opções de filtro', () => {
+      it('deve chamar setData com os dados filtrados pelos dois parâmetros', async () => {
+        const user = userEvent.setup();
+
+        render(
+          <PainelBuscaAtiva
+            painel={ PAINEL }
+            aba={ ABA }
+            sub_aba={ SUB_ABA }
+            dadosFiltros={ dadosDeFiltros }
+            tabela={ { data: dadosDaListaNominal, colunas } }
+            datefiltros={ propriedadesDeData }
+            IntFiltros={ propriedadesInteiras }
+            IDFiltros={ opcoesOrdenacaoPorPropriedade }
+            rotulosfiltros={ opcoesOrdenacao }
+            IDFiltrosOrdenacao={ ordenacaoPorPropriedade }
+            trackObject={ trackObject }
+            atualizacao={ '22/10/2023' }
+            data={ dadosDaListaNominal }
+            setData={ setData }
+          />
+        );
+
+        const botaoMostrarFiltros = await screen.findByRole('button', {
+          name: /filtrar lista nominal/i
+        });
+
+        await user.click(botaoMostrarFiltros);
+
+        const botoesMostrarOpcoesFiltro = await screen.findAllByRole('button', { name: '+'});
+
+        await user.click(botoesMostrarOpcoesFiltro[0]);
+
+        const checkboxesFiltro1 = await screen.findAllByRole('checkbox');
+
+        await user.click(checkboxesFiltro1[0]);
+
+        const botaoEsconderOpcoesFiltro = await screen.findByRole('button', { name: '-' });
+
+        await user.click(botaoEsconderOpcoesFiltro);
+        await user.click(botoesMostrarOpcoesFiltro[1]);
+
+        const checkboxesFiltro2 = await screen.findAllByRole('checkbox');
+
+        await user.click(checkboxesFiltro2[1]);
+
+        // Mais de um botão com o mesmo texto
+        const botoesFiltrarLista = await screen.findAllByRole('button', {
+          name: /filtrar lista nominal/i
+        });
+
+        await user.click(botoesFiltrarLista[0]);
+
+        expect(setData).toHaveBeenCalledWith([
+          {
+            'paciente_nome': 'Carla da Silva',
+            'cidadao_cpf_dt_nascimento': '305.305.305-30',
+            'id_status_usuario': 13,
+            'vencimento_da_coleta': '-',
+            'prazo_proxima_coleta': '31/08/2023',
+            'idade': 64,
+            'id_faixa_etaria': 8,
+            'acs_nome': 'Alessandra Santos',
+            'estabelecimento_cnes': '2872872',
+            'estabelecimento_nome': 'Unidade de Saude da Familia 1',
+            'equipe_ine': '0002277227',
+            'ine_master': '0002277227',
+            'equipe_nome': 'ESF 1',
+            'dt_registro_producao_mais_recente': '2023-10-22'
+          }
+        ]);
+      });
+    });
+  });
     });
   });
 });
