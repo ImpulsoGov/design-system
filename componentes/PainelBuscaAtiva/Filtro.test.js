@@ -435,6 +435,72 @@ describe('Componente: Filtro', () => {
       });
     });
   });
+
+  describe('Ao clicar na opção de limpar filtros', () => {
+    it('deve chamar setModal com o valor false', async () => {
+      const user = userEvent.setup();
+
+      render(
+        <Filtro
+          data={ dadosDeFiltros }
+          setData={ setData }
+          tabela={ dadosDaListaNominal }
+          value={ value }
+          handleCheckbox={ handleCheckbox }
+          chavesFiltros={ chavesFiltros }
+          setChavesFiltros={ setChavesFiltros }
+          setModal={ setModal }
+          trackObject={ trackObject }
+          painel={ PAINEL }
+          aba={ ABA }
+          sub_aba={ SUB_ABA }
+          setOrdenar={ setOrdenar }
+          setOrdenacaoAplicada={ setOrdenacaoAplicada }
+          ordenar={ ordenacao }
+          datefiltros={ propriedadesDeData }
+          IntFiltros={ propriedadesInteiras }
+          IDFiltrosOrdenacao={ ordenacaoPorPropriedade }
+        />
+      );
+
+      const limparFiltros = await screen.findByText(/limpar filtros/i);
+
+      await user.click(limparFiltros);
+
+      expect(setModal).toHaveBeenCalledWith(false);
+    });
+
+    it('deve chamar setData com dados iguais aos recebidos pelo componente', async () => {
+      const user = userEvent.setup();
+
+      render(
+        <Filtro
+          data={ dadosDeFiltros }
+          setData={ setData }
+          tabela={ dadosDaListaNominal }
+          value={ value }
+          handleCheckbox={ handleCheckbox }
+          chavesFiltros={ chavesFiltros }
+          setChavesFiltros={ setChavesFiltros }
+          setModal={ setModal }
+          trackObject={ trackObject }
+          painel={ PAINEL }
+          aba={ ABA }
+          sub_aba={ SUB_ABA }
+          setOrdenar={ setOrdenar }
+          setOrdenacaoAplicada={ setOrdenacaoAplicada }
+          ordenar={ ordenacao }
+          datefiltros={ propriedadesDeData }
+          IntFiltros={ propriedadesInteiras }
+          IDFiltrosOrdenacao={ ordenacaoPorPropriedade }
+        />
+      );
+
+      const limparFiltros = await screen.findByText(/limpar filtros/i);
+
+      await user.click(limparFiltros);
+
+      expect(setData).toHaveBeenCalledWith(dadosDaListaNominal);
     });
   });
 });
