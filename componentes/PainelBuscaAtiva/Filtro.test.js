@@ -1,7 +1,7 @@
 import { jest } from '@jest/globals';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { Filtro, PainelBuscaAtiva } from './PainelBuscaAtiva';
+import { Filtro } from './PainelBuscaAtiva';
 
 const PAINEL = 'citopatológico';
 const ABA = 1;
@@ -45,10 +45,9 @@ const dadosDeFiltros = [
     rotulo: 'Filtrar por status'
   },
 ];
-const value = {
+const valorInicialOpcoesDeFiltro = {
   '12': false,
   '13': false,
-  '15': false,
   'Alessandra Santos': false,
   'Carmen Miranda': false,
   null: false,
@@ -125,9 +124,6 @@ const dadosDaListaNominal = [
     dt_registro_producao_mais_recente: '2023-10-22'
   },
 ];
-const colunas = [{ field: 'id_status_usuario' }, { field: 'acs_nome' }];
-const opcoesOrdenacaoPorPropriedade = { 'NOME DO ACS DE A-Z': 'acs_nome' };
-const opcoesOrdenacao = ['NOME DO ACS DE A-Z'];
 
 describe('Componente: Filtro', () => {
   afterEach(() => {
@@ -141,7 +137,7 @@ describe('Componente: Filtro', () => {
           data={ dadosDeFiltros }
           setData={ setData }
           tabela={ dadosDaListaNominal }
-          value={ value }
+          value={ valorInicialOpcoesDeFiltro }
           handleCheckbox={ handleCheckbox }
           chavesFiltros={ chavesFiltros }
           setChavesFiltros={ setChavesFiltros }
@@ -170,7 +166,7 @@ describe('Componente: Filtro', () => {
           data={ dadosDeFiltros }
           setData={ setData }
           tabela={ dadosDaListaNominal }
-          value={ value }
+          value={ valorInicialOpcoesDeFiltro }
           handleCheckbox={ handleCheckbox }
           chavesFiltros={ chavesFiltros }
           setChavesFiltros={ setChavesFiltros }
@@ -201,7 +197,7 @@ describe('Componente: Filtro', () => {
           data={ dadosDeFiltros }
           setData={ setData }
           tabela={ dadosDaListaNominal }
-          value={ value }
+          value={ valorInicialOpcoesDeFiltro }
           handleCheckbox={ handleCheckbox }
           chavesFiltros={ chavesFiltros }
           setChavesFiltros={ setChavesFiltros }
@@ -234,7 +230,7 @@ describe('Componente: Filtro', () => {
           data={ dadosDeFiltros }
           setData={ setData }
           tabela={ dadosDaListaNominal }
-          value={ value }
+          value={ valorInicialOpcoesDeFiltro }
           handleCheckbox={ handleCheckbox }
           chavesFiltros={ chavesFiltros }
           setChavesFiltros={ setChavesFiltros }
@@ -270,7 +266,7 @@ describe('Componente: Filtro', () => {
             data={ dadosDeFiltros }
             setData={ setData }
             tabela={ dadosDaListaNominal }
-            value={ value }
+            value={ valorInicialOpcoesDeFiltro }
             handleCheckbox={ handleCheckbox }
             chavesFiltros={ chavesFiltros }
             setChavesFiltros={ setChavesFiltros }
@@ -298,49 +294,44 @@ describe('Componente: Filtro', () => {
       });
     });
 
-    describe('Após selecionar uma opção de filtro', () => {
-      it('deve chamar setData com os dados filtrados', async () => {
+    describe('Quando uma opção de filtro está selecionada', () => {
+      it('deve chamar setData com os dados filtrados de acordo com a opção', async () => {
         const user = userEvent.setup();
 
         render(
-          <PainelBuscaAtiva
+          <Filtro
+            data={ dadosDeFiltros }
+            setData={ setData }
+            tabela={ dadosDaListaNominal }
+            value={ {
+              '12': false,
+              '13': false,
+              'Alessandra Santos': false,
+              'Carmen Miranda': true,
+              null: false,
+            } }
+            handleCheckbox={ handleCheckbox }
+            chavesFiltros={ chavesFiltros }
+            setChavesFiltros={ setChavesFiltros }
+            setModal={ setModal }
+            trackObject={ trackObject }
             painel={ PAINEL }
             aba={ ABA }
             sub_aba={ SUB_ABA }
-            dadosFiltros={ dadosDeFiltros }
-            tabela={ { data: dadosDaListaNominal, colunas } }
+            setOrdenar={ setOrdenar }
+            setOrdenacaoAplicada={ setOrdenacaoAplicada }
+            ordenar={ ordenacao }
             datefiltros={ propriedadesDeData }
             IntFiltros={ propriedadesInteiras }
-            IDFiltros={ opcoesOrdenacaoPorPropriedade }
-            rotulosfiltros={ opcoesOrdenacao }
             IDFiltrosOrdenacao={ ordenacaoPorPropriedade }
-            trackObject={ trackObject }
-            atualizacao={ '22/10/2023' }
-            data={ dadosDaListaNominal }
-            setData={ setData }
           />
         );
 
-        const botaoMostrarFiltros = await screen.findByRole('button', {
+        const botaoFiltrarLista = await screen.findByRole('button', {
           name: /filtrar lista nominal/i
         });
 
-        await user.click(botaoMostrarFiltros);
-
-        const botoesMostrarOpcoesFiltro = await screen.findAllByRole('button', { name: '+'});
-
-        await user.click(botoesMostrarOpcoesFiltro[0]);
-
-        const checkboxes = await screen.findAllByRole('checkbox');
-
-        await user.click(checkboxes[1]);
-
-        // Mais de um botão com o mesmo texto
-        const botoesFiltrarLista = await screen.findAllByRole('button', {
-          name: /filtrar lista nominal/i
-        });
-
-        await user.click(botoesFiltrarLista[0]);
+        await user.click(botaoFiltrarLista);
 
         expect(setData).toHaveBeenCalledWith([{
           "acs_nome": "Carmen Miranda",
@@ -362,57 +353,43 @@ describe('Componente: Filtro', () => {
     });
 
     describe('Após selecionar duas opções de filtro', () => {
-      it('deve chamar setData com os dados filtrados pelos dois parâmetros', async () => {
+      it('deve chamar setData com os dados filtrados de acordo com as opções', async () => {
         const user = userEvent.setup();
 
         render(
-          <PainelBuscaAtiva
+          <Filtro
+            data={ dadosDeFiltros }
+            setData={ setData }
+            tabela={ dadosDaListaNominal }
+            value={ {
+              '12': false,
+              '13': true,
+              'Alessandra Santos': true,
+              'Carmen Miranda': false,
+              null: false,
+            } }
+            handleCheckbox={ handleCheckbox }
+            chavesFiltros={ chavesFiltros }
+            setChavesFiltros={ setChavesFiltros }
+            setModal={ setModal }
+            trackObject={ trackObject }
             painel={ PAINEL }
             aba={ ABA }
             sub_aba={ SUB_ABA }
-            dadosFiltros={ dadosDeFiltros }
-            tabela={ { data: dadosDaListaNominal, colunas } }
+            setOrdenar={ setOrdenar }
+            setOrdenacaoAplicada={ setOrdenacaoAplicada }
+            ordenar={ ordenacao }
             datefiltros={ propriedadesDeData }
             IntFiltros={ propriedadesInteiras }
-            IDFiltros={ opcoesOrdenacaoPorPropriedade }
-            rotulosfiltros={ opcoesOrdenacao }
             IDFiltrosOrdenacao={ ordenacaoPorPropriedade }
-            trackObject={ trackObject }
-            atualizacao={ '22/10/2023' }
-            data={ dadosDaListaNominal }
-            setData={ setData }
           />
         );
 
-        const botaoMostrarFiltros = await screen.findByRole('button', {
+        const botaoFiltrarLista = await screen.findByRole('button', {
           name: /filtrar lista nominal/i
         });
 
-        await user.click(botaoMostrarFiltros);
-
-        const botoesMostrarOpcoesFiltro = await screen.findAllByRole('button', { name: '+'});
-
-        await user.click(botoesMostrarOpcoesFiltro[0]);
-
-        const checkboxesFiltro1 = await screen.findAllByRole('checkbox');
-
-        await user.click(checkboxesFiltro1[0]);
-
-        const botaoEsconderOpcoesFiltro = await screen.findByRole('button', { name: '-' });
-
-        await user.click(botaoEsconderOpcoesFiltro);
-        await user.click(botoesMostrarOpcoesFiltro[1]);
-
-        const checkboxesFiltro2 = await screen.findAllByRole('checkbox');
-
-        await user.click(checkboxesFiltro2[1]);
-
-        // Mais de um botão com o mesmo texto
-        const botoesFiltrarLista = await screen.findAllByRole('button', {
-          name: /filtrar lista nominal/i
-        });
-
-        await user.click(botoesFiltrarLista[0]);
+        await user.click(botaoFiltrarLista);
 
         expect(setData).toHaveBeenCalledWith([
           {
@@ -445,7 +422,7 @@ describe('Componente: Filtro', () => {
           data={ dadosDeFiltros }
           setData={ setData }
           tabela={ dadosDaListaNominal }
-          value={ value }
+          value={ valorInicialOpcoesDeFiltro }
           handleCheckbox={ handleCheckbox }
           chavesFiltros={ chavesFiltros }
           setChavesFiltros={ setChavesFiltros }
@@ -478,7 +455,7 @@ describe('Componente: Filtro', () => {
           data={ dadosDeFiltros }
           setData={ setData }
           tabela={ dadosDaListaNominal }
-          value={ value }
+          value={ valorInicialOpcoesDeFiltro }
           handleCheckbox={ handleCheckbox }
           chavesFiltros={ chavesFiltros }
           setChavesFiltros={ setChavesFiltros }
