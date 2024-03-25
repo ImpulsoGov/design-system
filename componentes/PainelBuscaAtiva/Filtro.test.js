@@ -333,22 +333,24 @@ describe('Componente: Filtro', () => {
 
           await user.click(botaoFiltrarLista);
 
-          expect(setData).toHaveBeenCalledWith([{
-            "acs_nome": "Carmen Miranda",
-            "cidadao_cpf_dt_nascimento": "100.100.100-10",
-            "dt_registro_producao_mais_recente": "2023-10-22",
-            "equipe_ine": "0000369369",
-            "equipe_nome": "ESF 2",
-            "estabelecimento_cnes": "2752752",
-            "estabelecimento_nome": "Unidade de Saude da Familia 2",
-            "id_faixa_etaria": 8,
-            "id_status_usuario": 12,
-            "idade": 55,
-            "ine_master": "0000369369",
-            "paciente_nome": "Julia da Silva",
-            "prazo_proxima_coleta": "Em dia",
-            "vencimento_da_coleta": "27/07/2025"
-          }]);
+          const parametroEsperado = [{
+            acs_nome: 'Carmen Miranda',
+            cidadao_cpf_dt_nascimento: '100.100.100-10',
+            dt_registro_producao_mais_recente: '2023-10-22',
+            equipe_ine: '0000369369',
+            equipe_nome: 'ESF 2',
+            estabelecimento_cnes: '2752752',
+            estabelecimento_nome: 'Unidade de Saude da Familia 2',
+            id_faixa_etaria: 8,
+            id_status_usuario: 12,
+            idade: 55,
+            ine_master: '0000369369',
+            paciente_nome: 'Julia da Silva',
+            prazo_proxima_coleta: 'Em dia',
+            vencimento_da_coleta: '27/07/2025'
+          }];
+
+          expect(setData).toHaveBeenCalledWith(parametroEsperado);
         });
       });
 
@@ -486,24 +488,24 @@ describe('Componente: Filtro', () => {
 
         await user.click(botaoFiltrarLista);
 
-        expect(setData).toHaveBeenCalledWith([
-          {
-            'paciente_nome': 'Carla da Silva',
-            'cidadao_cpf_dt_nascimento': '305.305.305-30',
-            'id_status_usuario': 13,
-            'vencimento_da_coleta': '-',
-            'prazo_proxima_coleta': '31/08/2023',
-            'idade': 64,
-            'id_faixa_etaria': 8,
-            'acs_nome': 'Alessandra Santos',
-            'estabelecimento_cnes': '2872872',
-            'estabelecimento_nome': 'Unidade de Saude da Familia 1',
-            'equipe_ine': '0002277227',
-            'ine_master': '0002277227',
-            'equipe_nome': 'ESF 1',
-            'dt_registro_producao_mais_recente': '2023-10-22'
-          }
-        ]);
+        const parametroEsperado = [{
+          paciente_nome: 'Carla da Silva',
+          cidadao_cpf_dt_nascimento: '305.305.305-30',
+          id_status_usuario: 13,
+          vencimento_da_coleta: '-',
+          prazo_proxima_coleta: '31/08/2023',
+          idade: 64,
+          id_faixa_etaria: 8,
+          acs_nome: 'Alessandra Santos',
+          estabelecimento_cnes: '2872872',
+          estabelecimento_nome: 'Unidade de Saude da Familia 1',
+          equipe_ine: '0002277227',
+          ine_master: '0002277227',
+          equipe_nome: 'ESF 1',
+          dt_registro_producao_mais_recente: '2023-10-22'
+        }];
+
+        expect(setData).toHaveBeenCalledWith(parametroEsperado);
       });
     });
   });
