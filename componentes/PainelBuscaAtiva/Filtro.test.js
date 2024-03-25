@@ -55,9 +55,7 @@ const value = {
 };
 const propriedadesDeData = [];
 const propriedadesInteiras = [];
-const ordenacaoPorPropriedade = {
-  acs_nome: 'asc',
-};
+const ordenacaoPorPropriedade = { acs_nome: 'asc' };
 const ordenacao = '1';
 const chavesFiltros = [];
 const dadosDaListaNominal = [
@@ -301,68 +299,67 @@ describe('Componente: Filtro', () => {
     });
 
     describe('Após selecionar uma opção de filtro', () => {
-      describe('Sem ordenação aplicada', () => {
-        it('deve chamar setData com os dados filtrados', async () => {
-          const user = userEvent.setup();
+      it('deve chamar setData com os dados filtrados', async () => {
+        const user = userEvent.setup();
 
-          render(
-            <PainelBuscaAtiva
-              painel={ PAINEL }
-              aba={ ABA }
-              sub_aba={ SUB_ABA }
-              dadosFiltros={ dadosDeFiltros }
-              tabela={ { data: dadosDaListaNominal, colunas } }
-              datefiltros={ propriedadesDeData }
-              IntFiltros={ propriedadesInteiras }
-              IDFiltros={ opcoesOrdenacaoPorPropriedade }
-              rotulosfiltros={ opcoesOrdenacao }
-              IDFiltrosOrdenacao={ ordenacaoPorPropriedade }
-              trackObject={ trackObject }
-              atualizacao={ '22/10/2023' }
-              data={ dadosDaListaNominal }
-              setData={ setData }
-            />
-          );
+        render(
+          <PainelBuscaAtiva
+            painel={ PAINEL }
+            aba={ ABA }
+            sub_aba={ SUB_ABA }
+            dadosFiltros={ dadosDeFiltros }
+            tabela={ { data: dadosDaListaNominal, colunas } }
+            datefiltros={ propriedadesDeData }
+            IntFiltros={ propriedadesInteiras }
+            IDFiltros={ opcoesOrdenacaoPorPropriedade }
+            rotulosfiltros={ opcoesOrdenacao }
+            IDFiltrosOrdenacao={ ordenacaoPorPropriedade }
+            trackObject={ trackObject }
+            atualizacao={ '22/10/2023' }
+            data={ dadosDaListaNominal }
+            setData={ setData }
+          />
+        );
 
-          const botaoMostrarFiltros = await screen.findByRole('button', {
-            name: /filtrar lista nominal/i
-          });
-
-          await user.click(botaoMostrarFiltros);
-
-          const botoesMostrarOpcoesFiltro = await screen.findAllByText('+');
-
-          await user.click(botoesMostrarOpcoesFiltro[0]);
-
-          const checkboxes = await screen.findAllByRole('checkbox');
-
-          await user.click(checkboxes[1]);
-
-          // Mais de um botão com o mesmo texto
-          const botoesFiltrarLista = await screen.findAllByRole('button', {
-            name: /filtrar lista nominal/i
-          });
-
-          await user.click(botoesFiltrarLista[0]);
-
-          expect(setData).toHaveBeenCalledWith([{
-            "acs_nome": "Carmen Miranda",
-            "cidadao_cpf_dt_nascimento": "100.100.100-10",
-            "dt_registro_producao_mais_recente": "2023-10-22",
-            "equipe_ine": "0000369369",
-            "equipe_nome": "ESF 2",
-            "estabelecimento_cnes": "2752752",
-            "estabelecimento_nome": "Unidade de Saude da Familia 2",
-            "id_faixa_etaria": 8,
-            "id_status_usuario": 12,
-            "idade": 55,
-            "ine_master": "0000369369",
-            "paciente_nome": "Julia da Silva",
-            "prazo_proxima_coleta": "Em dia",
-            "vencimento_da_coleta": "27/07/2025"
-          }]);
+        const botaoMostrarFiltros = await screen.findByRole('button', {
+          name: /filtrar lista nominal/i
         });
+
+        await user.click(botaoMostrarFiltros);
+
+        const botoesMostrarOpcoesFiltro = await screen.findAllByRole('button', { name: '+'});
+
+        await user.click(botoesMostrarOpcoesFiltro[0]);
+
+        const checkboxes = await screen.findAllByRole('checkbox');
+
+        await user.click(checkboxes[1]);
+
+        // Mais de um botão com o mesmo texto
+        const botoesFiltrarLista = await screen.findAllByRole('button', {
+          name: /filtrar lista nominal/i
+        });
+
+        await user.click(botoesFiltrarLista[0]);
+
+        expect(setData).toHaveBeenCalledWith([{
+          "acs_nome": "Carmen Miranda",
+          "cidadao_cpf_dt_nascimento": "100.100.100-10",
+          "dt_registro_producao_mais_recente": "2023-10-22",
+          "equipe_ine": "0000369369",
+          "equipe_nome": "ESF 2",
+          "estabelecimento_cnes": "2752752",
+          "estabelecimento_nome": "Unidade de Saude da Familia 2",
+          "id_faixa_etaria": 8,
+          "id_status_usuario": 12,
+          "idade": 55,
+          "ine_master": "0000369369",
+          "paciente_nome": "Julia da Silva",
+          "prazo_proxima_coleta": "Em dia",
+          "vencimento_da_coleta": "27/07/2025"
+        }]);
       });
+    });
     });
   });
 });
