@@ -5,7 +5,6 @@ import { useState } from 'react';
 import { FiltroCard } from './PainelBuscaAtiva';
 
 // TODO remover Wrapper
-// TODO testar caso em que labels é passada com null/undefined e a label deve ser exibida
 
 const LABEL = 'Alessandra Santos';
 const LABELS = 'Carmen Miranda';
@@ -118,7 +117,7 @@ describe('Componente: FiltroCard', () => {
         expect(checkboxLabel).toBeInTheDocument();
       });
 
-      it('não deve exibir um checkbox quando a label é nula', async () => {
+      it('deve exibir um checkbox mesmo quando a label é nula', async () => {
         const Wrapper = () => {
           const [value, setValue] = useState({ [null]: false });
           return (
@@ -133,10 +132,10 @@ describe('Componente: FiltroCard', () => {
         };
         render(<Wrapper />);
 
-        await waitFor(() => expect(screen.queryByRole('checkbox')).not.toBeInTheDocument());
+        expect(await screen.findByRole('checkbox')).toBeInTheDocument();
       });
 
-      it('não deve exibir um checkbox quando a label é uma string vazia', async () => {
+      it('deve exibir um checkbox mesmo quando a label é uma string vazia', async () => {
         const Wrapper = () => {
           const [value, setValue] = useState({ '': false });
           return (
@@ -151,7 +150,7 @@ describe('Componente: FiltroCard', () => {
         };
         render(<Wrapper />);
 
-        await waitFor(() => expect(screen.queryByRole('checkbox')).not.toBeInTheDocument());
+        expect(await screen.findByRole('checkbox')).toBeInTheDocument();
       });
     });
 
@@ -176,7 +175,7 @@ describe('Componente: FiltroCard', () => {
         expect(checkboxLabel).toBeInTheDocument();
       });
 
-      it('deve exibir seu conteúdo quando a propriedade label é passada', async () => {
+      it('deve exibir seu conteúdo mesmo quando a propriedade label é passada', async () => {
         const Wrapper = () => {
           const [value, setValue] = useState({ [LABEL]: false });
           return (
