@@ -1,3 +1,1 @@
 import '@testing-library/jest-dom';
-// In your own jest-setup.js (or any other name)
-import '@testing-library/jest-dom/jest-globals';
