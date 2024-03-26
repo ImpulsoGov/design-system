@@ -144,52 +144,34 @@ const NavBar = (props) => {
                   validarCredencial = {props?.user?.validarCredencial}
                   validacao = {props?.user?.validacao}
                   showEsqueciSenha = {setShowEsqueciSenha}
+                  projeto = {props?.projeto}
+                  trackObject = {props?.trackObject ? props.trackObject : null}
                 />
   
   const EsqueciMinhaSenha = <RecuperarSenha
-                              titulos = { {
-                                mail : "Recuperação de senha",
-                                senha : "Recuperação de senha",
-                                codigo : "Recuperação de senha",
-                                sucesso : "Nova senha criada com sucesso!"
-                              }}
-                              chamadas={{
-                              mail : props?.esqueciMinhaSenha?.chamadas?.mail || CHAMADA_MAIL_PADRAO_ESQUECI_SENHA,
-                              aviso : props?.esqueciMinhaSenha?.chamadas?.aviso || CHAMADA_AVISO_PADRAO,
-                              codigo : "Digite abaixo o código recebido no e-mail cadastrado",
-                              senha : "Escolha uma nova senha",
-                              sucesso : props.esqueciMinhaSenha.chamadas.sucesso,
-                              }}
+                              titulos = { props?.esqueciMinhaSenha?.titulos }
+                              chamadas={props?.esqueciMinhaSenha?.chamadas}
                               botaoVoltar = {{label:"voltar",function : ""}}
                               botaoProximo = {{label:"próximo",function : ""}}
-                              botaoSucesso = "Entrar"
+                              botaoSucesso = "Fazer Login"
                               showEsqueciSenha = {setShowEsqueciSenha}
                               reqs = {props.esqueciMinhaSenha.reqs}
                               theme = {props.theme.cor}
+                              projeto = {props?.projeto}
                             />   
   const PrimeiroAcesso = <RecuperarSenha
-                                titulos = { {
-                                  mail : props?.primeiroAcesso?.titulos?.mail || TITULO_MAIL_PADRAO_PRIMEIRO_ACESSO,
-                                  codigo : "Validação do e-mail",
-                                  senha: "Crie sua senha de acesso",
-                                  sucesso : "Senha criada com sucesso!"
-                                }}
-                                chamadas={{
-                                mail : props?.primeiroAcesso?.chamadas?.mail || CHAMADA_MAIL_PADRAO_PRIMEIRO_ACESSO,
-                                aviso : props?.primeiroAcesso?.chamadas?.aviso || CHAMADA_AVISO_PADRAO,
-                                codigo : "Digite abaixo o código recebido no e-mail cadastrado",
-                                senha : "Crie sua senha de acesso",
-                                sucesso : props.primeiroAcesso.chamadas.sucesso,
-                                }}
+                                titulos = {props?.primeiroAcesso?.titulos}
+                                chamadas={props?.primeiroAcesso?.chamadas}
                                 botaoVoltar = {{label:"voltar",function : ""}}
                                 botaoProximo = {{label:"próximo",function : ""}}
-                                botaoSucesso = "Inicio"
-                                showEsqueciSenha = {(arg)=>{
-                                  setShowModalInicio(!arg)
+                                botaoSucesso = "Fazer Login"
+                                showEsqueciSenha = {(arg,arg2)=>{
                                   setShowPrimeiroAcesso(arg)
+                                  if(arg2) setShowModalInicio(arg2)
                                 }}
                                 reqs = {props.primeiroAcesso.reqs}
                                 theme = {props.theme.cor}
+                                projeto = {props?.projeto}
                               />   
                               
   const ModalInicioChild = <ModalInicio
@@ -198,7 +180,12 @@ const NavBar = (props) => {
                               cardAlert = {props?.ModalInicio.cardAlert}
                               botaoPrincipal = {{
                                 label : props.ModalInicio.botaoPrincipal.label,
-                                submit : ()=>setShowModalInicio(false),
+                                submit : ()=>{
+                                  props?.trackObject?.track('button_click', {
+                                    'button_action': 'entrar_area_restitra',
+                                  });
+                                  setShowModalInicio(false)
+                                },
                                 theme: props.theme.cor
                               }}
                               botaoSecundario = {{
@@ -206,6 +193,10 @@ const NavBar = (props) => {
                                 submit : ()=>{
                                   setShowModalInicio(false)
                                   setShowPrimeiroAcesso(true)
+                                  props?.trackObject?.track('button_click', {
+                                    'button_action': 'inicio_primeiro_acesso',
+                                    'login_flow': 'primeiro_acesso'
+                                  });
                                 }
                               }}
                               botaoAjuda={{

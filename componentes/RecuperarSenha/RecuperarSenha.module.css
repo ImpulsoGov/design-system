@@ -6,7 +6,7 @@
     align-items: flex-start;
     justify-content: center;
     width: 100%;
-    padding: 15px 30px;
+    padding: 25px 70px;
     gap: 24px;
 }
 
@@ -45,10 +45,22 @@
     display: flex;
     flex-direction: column;
 }
+.InputColorIPAlerta{
+    outline: none !important;
+    border: #EABF2E solid 1px;
+}
 
 .InputColorIP:focus, .InputWhite:focus , .RecuperarSenhaInput:focus{
     outline: none !important;
+    border: #EFF5F9 solid 1px;
+}
+.InputColorIPSucesso:focus{
+    outline: none !important;
     border: #2EB280 solid 1px;
+}
+.InputColorIPAlerta:focus{
+    outline: none !important;
+    border: #EABF2E solid 1px;
 }
 
 .InputColorSM:focus, .InputWhiteSM:focus{
@@ -59,11 +71,9 @@
 .RecuperarSenhaInputErro{
     width: 98%;
     height: 56px;
-    border: 1px solid #EFF5F9;
+    border: #E95F3A solid 1px;
     border-radius: 8px;
     padding: 0px 24px 2px;
-
-    background-color:#FCFFE9;
     color: #1F1F1F;
     font-family: 'Inter';
     font-style: normal;
@@ -86,6 +96,21 @@
     align-items: center;
     padding: 10px 16px;
     background: #E95F3A;
+    border-radius: 8px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 150%;
+    color: #FFFFFF;
+}
+.RecuperarSenhaMensagemAlerta{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px 16px;
+    background: #EABF2E;
     border-radius: 8px;
 
     font-family: 'Inter';
@@ -118,7 +143,33 @@
 .RecuperarSenhaBotaoVoltar:hover{
     cursor: pointer;
 }
+.Timer{
+    color: #2EB280;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+}
+.CTAAtualizar{
+    color: #2EB280 !important;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    border-bottom: #2EB280 solid 1px;
+}
 
+.SMS{
+    border-bottom: solid 1px #2EB280;
+    margin-left: 5px;
+}
+.SMS:hover{
+    cursor: pointer;
+}
 .RecuperarSenhaBotaoProximo{
     font-family: 'Inter';
     font-style: normal;
@@ -195,7 +246,7 @@
 }
 
 .showPassword{
-    height: 18px;
+    height: 30px;
     width: auto;
     filter: invert(90%) sepia(15%) saturate(253%) hue-rotate(161deg) brightness(79%) contrast(84%);
 }
