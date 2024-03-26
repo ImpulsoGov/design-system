@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { FiltroCard } from './PainelBuscaAtiva';
 
 // TODO remover Wrapper
+// TODO testar caso em que labels é passada com null/undefined e a label deve ser exibida
 
 const LABEL = 'Alessandra Santos';
 const LABELS = 'Carmen Miranda';
