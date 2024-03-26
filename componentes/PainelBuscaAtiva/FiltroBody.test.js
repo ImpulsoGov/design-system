@@ -112,33 +112,72 @@ describe('Componente: FiltroBody', () => {
       expect(hideOptionsButton).toBeInTheDocument();
     });
 
-    it('deve exibir as labels das opções de filtro quando são fornecidas', async () => {
-      const LABEL_OPTION_1 = 'ACS 1';
-      const LABEL_OPTION_2 = 'ACS 2';
-      const user = userEvent.setup();
+    describe('Quando as labels são passadas', () => {
+      describe('E as opções de filtro são strings de texto', () => {
+        it('não deve exibir as labels no lugar das opções', async () => {
+          const LABEL_OPTION_1 = 'ACS 1';
+          const LABEL_OPTION_2 = 'ACS 2';
+          const user = userEvent.setup();
 
-      render(
-        <FiltroBody
-          data={ {
-            data: [STRING_OPTION_1, STRING_OPTION_2],
-            filtro: FILTER_PROPERTY,
-            rotulo: FILTER_LABEL,
-            labels: [LABEL_OPTION_1, LABEL_OPTION_2]
-          } }
-          value={ {
-            [STRING_OPTION_1]: false,
-            [STRING_OPTION_2]: false
-          } }
-          handleCheckbox={ handleCheckbox }
-        />
-      );
+          render(
+            <FiltroBody
+              data={ {
+                data: [STRING_OPTION_1, STRING_OPTION_2],
+                filtro: FILTER_PROPERTY,
+                rotulo: FILTER_LABEL,
+                labels: [LABEL_OPTION_1, LABEL_OPTION_2]
+              } }
+              value={ {
+                [STRING_OPTION_1]: false,
+                [STRING_OPTION_2]: false
+              } }
+              handleCheckbox={ handleCheckbox }
+            />
+          );
 
-      const showOptionsButton = await screen.findByRole('button', { name: '+' });
+          const showOptionsButton = await screen.findByRole('button', { name: '+' });
 
-      await user.click(showOptionsButton);
+          await user.click(showOptionsButton);
 
-      expect(await screen.findByText(LABEL_OPTION_1)).toBeInTheDocument();
-      expect(await screen.findByText(LABEL_OPTION_2)).toBeInTheDocument();
+          expect(await screen.findByText(STRING_OPTION_1)).toBeInTheDocument();
+          expect(await screen.findByText(STRING_OPTION_2)).toBeInTheDocument();
+          await waitFor(() => expect(screen.queryByText(LABEL_OPTION_1)).not.toBeInTheDocument());
+          await waitFor(() => expect(screen.queryByText(LABEL_OPTION_2)).not.toBeInTheDocument());
+        });
+      });
+
+      describe('E as opções de filtro são strings numéricas', () => {
+        it('deve exibir as labels no lugar das opções', async () => {
+          const OPTION_1 = '0';
+          const OPTION_2 = '1';
+          const LABEL_OPTION_1 = 'ACS 1';
+          const LABEL_OPTION_2 = 'ACS 2';
+          const user = userEvent.setup();
+
+          render(
+            <FiltroBody
+              data={ {
+                data: [OPTION_1, OPTION_2],
+                filtro: FILTER_PROPERTY,
+                rotulo: FILTER_LABEL,
+                labels: [LABEL_OPTION_1, LABEL_OPTION_2]
+              } }
+              value={ {
+                [OPTION_1]: false,
+                [OPTION_2]: false
+              } }
+              handleCheckbox={ handleCheckbox }
+            />
+          );
+
+          const showOptionsButton = await screen.findByRole('button', { name: '+' });
+
+          await user.click(showOptionsButton);
+
+          expect(await screen.findByText(LABEL_OPTION_1)).toBeInTheDocument();
+          expect(await screen.findByText(LABEL_OPTION_2)).toBeInTheDocument();
+        });
+      });
     });
 
     describe('E clicar no botão de esconder opções de filtro', () => {
