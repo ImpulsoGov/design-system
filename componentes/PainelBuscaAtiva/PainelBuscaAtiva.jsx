@@ -6,6 +6,7 @@ import { TabelaHiperDia } from "../TabelaHiperDia";
 import { FiltroCard } from "./components/FiltroCard";
 import { Toast } from "../Toast";
 import { CardAlert } from "../CardAlert";
+import { FiltroBody } from "./components/FiltroBody";
 import style from "./PainelBuscaAtiva.module.css";
 import Tippy from "@tippyjs/react";
 import "./tippy_theme.css";
@@ -300,64 +301,6 @@ const Ordenar = (props)=>{
         </div>
     )
 }
-// TODO remover props não utilizadas
-const FiltroBody = ({
-    data,
-    chavesFiltros,
-    setChavesFiltros,
-    value,
-    handleCheckbox,
-    trackObject,
-    painel,
-    aba,
-    sub_aba,
-    isUnfolded = false,
-    onClick = () => {},
-})=>{
-    const [show,setShow] = useState(false)
-
-    useEffect(() => {
-        setShow(isUnfolded);
-    }, [isUnfolded])
-
-    function handleClick() {
-        setShow((prevState) => !prevState);
-        onClick(data.rotulo);
-    }
-
-    return(
-        <>
-            <div className={style.ConteinerFiltro}>
-                <div className={style.tituloFiltro}>
-                    <p>{data.rotulo}</p>
-                    <button
-                        className={style.ShowFiltros}
-                        onClick={handleClick}
-                    >
-                        {show ? "-" : "+"}
-                    </button>
-            </div>
-                {
-                    show &&
-                    <div className={style.ConteinerFiltros}>
-                        {
-                            data.data.sort().map((item)=>{
-                                return(
-                                    <FiltroCard
-                                        label={data?.labels ? data?.labels[item] : item}
-                                        filtroID={data.filtro}
-                                        handleCheckbox={handleCheckbox}
-                                    />
-                                )
-                            })
-                        }
-                    </div>
-                }
-
-            </div>
-    </>
-)
-}
 const Filtro = ({
     data,
     setData,
@@ -395,16 +338,9 @@ const Filtro = ({
             <div style={{overflowY : 'scroll',height:'70vh',width : '120%'}}>
                 {
                     data.map((filtro)=><FiltroBody
-                        data={filtro} 
+                        data={filtro}
                         key={filtro.rotulo}
-                        chavesFiltros={chavesFiltros}
-                        setChavesFiltros={setChavesFiltros}
-                        value={value}
                         handleCheckbox={handleCheckbox}
-                        trackObject={trackObject}
-                        painel={painel}
-                        aba={aba}
-                        sub_aba={sub_aba}
                         isUnfolded={unfoldedFilter === filtro.rotulo}
                         onClick={updateUnfoldedFilter}
                     />)
@@ -634,5 +570,5 @@ const PainelBuscaAtiva = ({
 }
 
 
-export { Filtro, FiltroBody, PainelBuscaAtiva };
+export { Filtro, PainelBuscaAtiva };
 
