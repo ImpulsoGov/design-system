@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import style from "./PainelBuscaAtiva.module.css";
-import { Modal } from "../Modal/Modal";
-import { ButtonLightSubmit } from "../ButtonLight/ButtonLight";
 import { ButtonColorSubmit } from "../ButtonColor/ButtonColor";
+import { ButtonLightSubmit } from "../ButtonLight/ButtonLight";
+import { Modal } from "../Modal/Modal";
 import { TabelaHiperDia } from "../TabelaHiperDia";
+import { FiltroCard } from "./components/FiltroCard";
+import style from "./PainelBuscaAtiva.module.css";
 
 const stringToDate = (str)=>{
     if(!str) return null
@@ -290,19 +291,10 @@ const FiltroBody = ({
                         {
                             data.data.sort().map((item)=>{
                                 return(
-                                    <FiltroCard 
-                                        label={item} 
+                                    <FiltroCard
+                                        label={data?.labels ? data?.labels[item] : item}
                                         filtroID={data.filtro}
-                                        chavesFiltros={chavesFiltros}
-                                        setChavesFiltros={setChavesFiltros}
-                                        labels={data?.labels ? data?.labels[item] : null}
-                                        value={value}
                                         handleCheckbox={handleCheckbox}
-                                        trackObject={trackObject}
-                                        painel={painel}
-                                        aba={aba}
-                                        sub_aba={sub_aba}
-        
                                     />
                                 )
                             })
@@ -388,29 +380,6 @@ const Filtro = ({
         </div>
     )
 }
-// TODO remover props não utilizadas
-const FiltroCard = ({
-    label,
-    filtroID,
-    chavesFiltros,
-    value,
-    labels,
-    handleCheckbox
-})=>{
-    return(
-        <div className={style.FiltroCard}>
-            <input 
-                className={style.InputFiltroCard} 
-                type="checkbox"
-                onChange={handleCheckbox}
-                name={filtroID}
-                checked={value[label]}
-                id={label}
-            />
-            <p>{labels ? labels : label}</p>
-        </div>
-    )
-}
 const PainelBuscaAtiva = ({
     tabela,
     dadosFiltros,
@@ -448,11 +417,11 @@ const PainelBuscaAtiva = ({
     let valores = {}
     dadosFiltros.forEach((item)=>item.data.forEach((valor)=>valores[valor]=false))
     const [value,setValue] = useState(valores)
-    const handleCheckbox = (event) => {
-        const { name, checked } = event.target;
-        const updateState = {...value}
-        updateState[event.target.id] = checked
-        setValue(updateState)
+    const handleCheckbox = (property, checked) => {
+        setValue({
+            ...value,
+            [property]: checked,
+        })
     };
     useEffect(()=>{
         if(!modal && chavesFiltros.length==0){
@@ -571,4 +540,5 @@ const PainelBuscaAtiva = ({
 }
 
 
-export {PainelBuscaAtiva, Filtro, FiltroCard, FiltroBody}
+export { Filtro, FiltroBody, PainelBuscaAtiva };
+
