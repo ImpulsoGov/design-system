@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import style from "./PainelBuscaAtiva.module.css";
-import { Modal } from "../Modal/Modal";
-import { ButtonLightSubmit } from "../ButtonLight/ButtonLight";
 import { ButtonColorSubmit } from "../ButtonColor/ButtonColor";
+import { ButtonLightSubmit } from "../ButtonLight/ButtonLight";
+import { Modal } from "../Modal/Modal";
 import { TabelaHiperDia } from "../TabelaHiperDia";
+import { FiltroBody } from "./components/FiltroBody";
+import style from "./PainelBuscaAtiva.module.css";
 
 const stringToDate = (str)=>{
     if(!str) return null
@@ -259,60 +260,6 @@ const Ordenar = (props)=>{
         </div>
     )
 }
-const FiltroBody = ({
-    data,
-    chavesFiltros,
-    setChavesFiltros,
-    value,
-    handleCheckbox,
-    trackObject,
-    painel,
-    aba,
-    sub_aba
-})=>{
-    const [show,setShow] = useState(false)
-    return(
-        <>
-            <div className={style.ConteinerFiltro}>
-                <div className={style.tituloFiltro}>
-                    <p>{data.rotulo}</p>
-                    <button
-                        className={style.ShowFiltros}
-                        onClick={()=>setShow(!show)}
-                    >
-                        {show ? "-" : "+"}
-                    </button>
-            </div>
-                {
-                    show &&
-                    <div className={style.ConteinerFiltros}>
-                        {
-                            data.data.sort().map((item)=>{
-                                return(
-                                    <FiltroCard 
-                                        label={item} 
-                                        filtroID={data.filtro}
-                                        chavesFiltros={chavesFiltros}
-                                        setChavesFiltros={setChavesFiltros}
-                                        labels={data?.labels ? data?.labels[item] : null}
-                                        value={value}
-                                        handleCheckbox={handleCheckbox}
-                                        trackObject={trackObject}
-                                        painel={painel}
-                                        aba={aba}
-                                        sub_aba={sub_aba}
-        
-                                    />
-                                )
-                            })
-                        }
-                    </div>
-                }
-
-            </div>
-    </>
-)
-}
 const Filtro = ({
     data,
     setData,
@@ -344,17 +291,9 @@ const Filtro = ({
             <div style={{overflowY : 'scroll',height:'70vh',width : '120%'}}>
                 {
                     data.map((filtro)=><FiltroBody
-                        data={filtro} 
+                        data={filtro}
                         key={filtro.rotulo}
-                        chavesFiltros={chavesFiltros}
-                        setChavesFiltros={setChavesFiltros}
-                        value={value}
                         handleCheckbox={handleCheckbox}
-                        trackObject={trackObject}
-                        painel={painel}
-                        aba={aba}
-                        sub_aba={sub_aba}
-
                     />)
                 }
             </div>
@@ -384,28 +323,6 @@ const Filtro = ({
                 />  
             </div>
             <div className={style.AplicarfiltrosCase}></div>          
-        </div>
-    )
-}
-const FiltroCard = ({
-    label,
-    filtroID,
-    chavesFiltros,
-    value,
-    labels,
-    handleCheckbox
-})=>{
-    return(
-        <div className={style.FiltroCard}>
-            <input 
-                className={style.InputFiltroCard} 
-                type="checkbox"
-                onChange={handleCheckbox}
-                name={filtroID}
-                checked={value[label]}
-                id={label}
-            />
-            <p>{labels ? labels : label}</p>
         </div>
     )
 }
@@ -446,11 +363,11 @@ const PainelBuscaAtiva = ({
     let valores = {}
     dadosFiltros.forEach((item)=>item.data.forEach((valor)=>valores[valor]=false))
     const [value,setValue] = useState(valores)
-    const handleCheckbox = (event) => {
-        const { name, checked } = event.target;
-        const updateState = {...value}
-        updateState[event.target.id] = checked
-        setValue(updateState)
+    const handleCheckbox = (property, checked) => {
+        setValue({
+            ...value,
+            [property]: checked,
+        })
     };
     useEffect(()=>{
         if(!modal && chavesFiltros.length==0){
@@ -569,4 +486,5 @@ const PainelBuscaAtiva = ({
 }
 
 
-export {PainelBuscaAtiva}
+export { Filtro, PainelBuscaAtiva };
+
