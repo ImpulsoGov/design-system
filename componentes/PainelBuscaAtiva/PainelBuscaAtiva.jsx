@@ -4,6 +4,7 @@ import { Modal } from "../Modal/Modal";
 import { ButtonLightSubmit } from "../ButtonLight/ButtonLight";
 import { ButtonColorSubmit } from "../ButtonColor/ButtonColor";
 import { TabelaHiperDia } from "../TabelaHiperDia";
+import { CardFiltro } from "./components/CardFiltro";
 
 const stringToDate = (str)=>{
     if(!str) return null
@@ -195,21 +196,6 @@ const ToolBar = ({
             <ButtonLightSubmit label="FILTRAR LISTA NOMINAL" submit={showFiltros} icon={chavesFiltros.length>0 ? "https://media.graphassets.com/1rnUv5WSTKmCHnvqciuW" : "https://media.graphassets.com/1WHJsCigTXyJbq7Tw47m"}/>
         </div>
     )
-}
-const CardFiltro = (props)=>{
-    const OrdenarPor = ()=>{
-        props.setOrdenar(props.ID[props.label])
-    }
-    return <div 
-                onClick={OrdenarPor} 
-                className={
-                    props.ID[props.label] !== props.ordenar ?
-                    style.cardFiltro :
-                    style.cardFiltroSelected
-                }
-            >
-                {props.label.toUpperCase()}
-            </div>
 }
 const Ordenar = (props)=>{
     const filtros_painel = {
