@@ -2,19 +2,19 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { FiltroCard } from './FiltroCard';
 
-const COMPONENT_NAME = 'FiltroCard';
+const COMPONENT = 'FiltroCard';
 const scenarios = [
   { label: 'Tainá', filtroID: 'acs_nome' },
   { label: 'Alessandra Santos', filtroID: 'acs_nome' },
   { label: '3', filtroID: 'acs_nome' },
 ];
 
-describe(`Componete: ${COMPONENT_NAME}`, () => {
+describe(`Componete: ${COMPONENT}`, () => {
   it('deve renderizar corretamente', async () => {
-    const component = render(<FiltroCard { ...scenarios[0] } />);
-    const filtroCard = component.getByTestId(COMPONENT_NAME);
+    render(<FiltroCard { ...scenarios[0] } />);
+    const component = screen.getByTestId(COMPONENT);
 
-    expect(filtroCard).toMatchSnapshot();
+    expect(component).toMatchSnapshot();
   });
 
   it('deve exibir um checkbox marcado após o click', async () => {
