@@ -1,6 +1,9 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { FiltroBody } from './FiltroBody';
+// import { FiltroBody } from './FiltroBody';
+import { FiltroBody } from '../../PainelBuscaAtiva';
+
+// TODO Subistuir snapshots após teste de primeira renderização por interaç˜ão com RTL
 
 const COMPONENT = 'FiltroBody';
 const OPTION_1 = 'Alessandra Santos';
@@ -15,14 +18,16 @@ const scenarios = [
       data: [OPTION_1, OPTION_2],
       filtro: FILTER_PROPERTY,
       rotulo: FILTER_LABEL
-    }
+    },
+    value: { [OPTION_1]: false, [OPTION_2]: false }
   },
   {
     data: {
       data: [OPTION_2, OPTION_1],
       filtro: FILTER_PROPERTY,
       rotulo: FILTER_LABEL
-    }
+    },
+    value: { [OPTION_1]: false, [OPTION_2]: false }
   },
   {
     data: {
@@ -30,7 +35,8 @@ const scenarios = [
       filtro: FILTER_PROPERTY,
       rotulo: FILTER_LABEL,
       labels: [LABEL_1, LABEL_2]
-    }
+    },
+    value: { [OPTION_1]: false, [OPTION_2]: false }
   },
   {
     data: {
@@ -38,7 +44,8 @@ const scenarios = [
       filtro: FILTER_PROPERTY,
       rotulo: FILTER_LABEL,
       labels: [LABEL_1, LABEL_2]
-    }
+    },
+    value: { '1': false, '0': false }
   },
 ];
 
