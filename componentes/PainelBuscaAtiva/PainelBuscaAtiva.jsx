@@ -301,6 +301,65 @@ const Ordenar = (props)=>{
         </div>
     )
 }
+// TODO remover props não utilizadas
+const FiltroBody = ({
+    data,
+    chavesFiltros,
+    setChavesFiltros,
+    value,
+    handleCheckbox = () => {},
+    trackObject,
+    painel,
+    aba,
+    sub_aba
+})=>{
+    const [show,setShow] = useState(false)
+    return(
+        <div data-testid="FiltroBody">
+            <div className={style.ConteinerFiltro}>
+                <div className={style.tituloFiltro}>
+                    <p>{data.rotulo}</p>
+                    <button
+                        className={style.ShowFiltros}
+                        onClick={()=>setShow(!show)}
+                    >
+                        {show ? "-" : "+"}
+                    </button>
+            </div>
+                {
+                    show &&
+                    <div className={style.ConteinerFiltros}>
+                        {
+                            data.data.sort().map((item)=>{
+                                return(
+                                    <FiltroCard 
+                                        label={
+                                            data?.labels && data?.labels[item]
+                                            ? data?.labels[item]
+                                            : item
+                                        }
+                                        filtroID={data.filtro}
+                                        // chavesFiltros={chavesFiltros}
+                                        // setChavesFiltros={setChavesFiltros}
+                                        // labels={data?.labels ? data?.labels[item] : null}
+                                        value={value}
+                                        handleCheckbox={handleCheckbox}
+                                        // trackObject={trackObject}
+                                        // painel={painel}
+                                        // aba={aba}
+                                        // sub_aba={sub_aba}
+        
+                                    />
+                                )
+                            })
+                        }
+                    </div>
+                }
+
+            </div>
+    </div>
+)
+}
 const Filtro = ({
     data,
     setData,
@@ -338,7 +397,7 @@ const Filtro = ({
             <div style={{overflowY : 'scroll',height:'70vh',width : '120%'}}>
                 {
                     data.map((filtro)=><FiltroBody
-                        data={filtro}
+                        data={filtro} 
                         key={filtro.rotulo}
                         handleCheckbox={handleCheckbox}
                         isUnfolded={unfoldedFilter === filtro.rotulo}
@@ -377,6 +436,34 @@ const Filtro = ({
                 />  
             </div>
             <div className={style.AplicarfiltrosCase}></div>          
+        </div>
+    )
+}
+// TODO remover props não utilizadas
+const FiltroCard = ({
+    label = '',
+    filtroID,
+    value,
+    // labels,
+    handleCheckbox = ()=>{},
+})=>{
+    const [checked, toggleChecked] = useState(value[label]);
+    const handleChange = (event) => {
+        const { id: property, checked } = event.target;
+        toggleChecked(event.target.checked);
+        handleCheckbox(property, checked);
+    }
+    return(
+        <div className={style.FiltroCard} data-testid="FiltroCard">
+            <input 
+                className={style.InputFiltroCard} 
+                type="checkbox"
+                onChange={handleChange}
+                name={filtroID}
+                checked={checked}
+                id={label}
+            />
+            <p>{label}</p>
         </div>
     )
 }
@@ -570,5 +657,4 @@ const PainelBuscaAtiva = ({
 }
 
 
-export { Filtro, PainelBuscaAtiva };
-
+export {PainelBuscaAtiva, Filtro, FiltroCard, FiltroBody}
