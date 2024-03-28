@@ -1,0 +1,1 @@
+export { Filtro } from './Filtro';

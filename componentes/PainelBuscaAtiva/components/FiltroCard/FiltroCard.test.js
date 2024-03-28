@@ -1,12 +1,13 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { FiltroCard } from './FiltroCard';
+// import { FiltroCard } from './FiltroCard';
+import { FiltroCard } from '../../PainelBuscaAtiva';
 
 const COMPONENT = 'FiltroCard';
 const scenarios = [
-  { label: 'Tainá', filtroID: 'acs_nome' },
-  { label: 'Alessandra Santos', filtroID: 'acs_nome' },
-  { label: '3', filtroID: 'acs_nome' },
+  { label: 'Tainá', filtroID: 'acs_nome', value: { 'Tainá': false } },
+  { label: 'Alessandra Santos', filtroID: 'acs_nome', value: { 'Alessandra Santos': false } },
+  { label: '3', filtroID: 'acs_nome', value: { '3': false } },
 ];
 
 describe(`Componete: ${COMPONENT}`, () => {
