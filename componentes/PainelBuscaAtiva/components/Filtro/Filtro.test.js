@@ -1,8 +1,7 @@
 import { jest } from '@jest/globals';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-// import { Filtro } from './Filtro';
-import { Filtro } from '../../PainelBuscaAtiva';
+import { Filtro } from './Filtro';
 
 const PAINEL = 'citopatológico';
 const ABA = 1;
