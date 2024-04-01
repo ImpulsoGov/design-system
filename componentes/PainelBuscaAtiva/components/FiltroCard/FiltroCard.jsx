@@ -23,7 +23,7 @@ export const FiltroCard = ({
         checked={checked}
         id={label}
       />
-      <p>{label}</p>
+      <p data-testid="FiltroCardLabel">{label}</p>
     </div>
   )
 }
