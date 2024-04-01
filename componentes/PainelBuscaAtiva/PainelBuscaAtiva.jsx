@@ -4,63 +4,8 @@ import { Modal } from "../Modal/Modal";
 import { ButtonLightSubmit } from "../ButtonLight/ButtonLight";
 import { ButtonColorSubmit } from "../ButtonColor/ButtonColor";
 import { TabelaHiperDia } from "../TabelaHiperDia";
-
-const stringToDate = (str)=>{
-    if(!str) return null
-    if(str=="-") return null
-    //Essa função considera que str esta no formato aaaa-mm-dd
-    const dataFormatoTraco = (str)=>{
-        const parts = str.split('-');
-        const ano = parseInt(parts[0]);
-        const mes = parseInt(parts[1]) -1;
-        const dia = parseInt(parts[2]);
-        const date = new Date(ano, mes ,dia);
-        return date
-    }
-    //Essa função considera que str esta no formato dd/mm/aaaa
-    const dataFormatoBarra = (str)=>{
-        const parts = str.split('/');
-        const ano = parseInt(parts[2]);
-        const mes = parseInt(parts[1]) -1;
-        const dia = parseInt(parts[0]);
-        const date = new Date(ano, mes ,dia);
-        return date
-    }
-    if(str.includes('/')) return dataFormatoBarra(str) 
-    if(str.includes('-')) return dataFormatoTraco(str) 
-}
-
-const sortByDate = (data, filtro, IDFiltrosOrdenacao)=>{
-    return [...data].sort((a,b) =>{
-        const valueA = stringToDate(a[filtro])
-        const valueB = stringToDate(b[filtro])
-        if (valueA === null && valueB === null) {
-        return 0;
-        } else if (valueA === null) {
-        return 1;
-        } else if (valueB === null) {
-        return -1;
-        }
-        if(IDFiltrosOrdenacao[filtro] == "asc") return valueA - valueB
-        if(IDFiltrosOrdenacao[filtro] == "desc") return valueB - valueA
-    }
-)}
-
-const sortInt = (data, filtro, IDFiltrosOrdenacao)=>[...data].sort((a,b) => IDFiltrosOrdenacao[filtro] == "desc" ? Number(b[filtro]) - Number(a[filtro]) : Number(a[filtro]) - Number(b[filtro]))
-
-const sortByString = (data, filtro)=>[...data].sort((a,b) => a[filtro]?.toString().localeCompare(b[filtro]?.toString()) )
-
-const sortByChoice = (data, filtro, IDFiltrosOrdenacao, datefiltros, IntFiltros) => {
-    if (datefiltros.includes(filtro)) {
-        return sortByDate(data, filtro, IDFiltrosOrdenacao);
-    }
-
-    if (IntFiltros?.includes(filtro)) {
-        return sortInt(data, filtro, IDFiltrosOrdenacao);
-    }
-
-    return sortByString(data, filtro);
-}
+import * as helpers from "./helpers";
+import * as Components from "./components";
 
 const SortData = ({
     data,
@@ -76,7 +21,7 @@ const SortData = ({
     aba,
     sub_aba
 })=>{
-    setData(sortByChoice(data, filtro, IDFiltrosOrdenacao, datefiltros, IntFiltros))
+    setData(helpers.sortByChoice(data, filtro, IDFiltrosOrdenacao, datefiltros, IntFiltros))
 
     trackObject.track('button_click', {
         'button_action': 'aplicar_ordenacao',
@@ -89,65 +34,6 @@ const SortData = ({
     setOrdenacaoAplicada(true)
 }
 
-const agruparChavesIguais =(filtros)=>{
-    const chavesUnicas = [...new Set(filtros.flatMap(objeto => Object.keys(objeto)))];
-    return chavesUnicas.map(chave => {
-        const objetosComChave = filtros.filter(objeto => objeto.hasOwnProperty(chave));
-        const valores = objetosComChave.map(objeto => objeto[chave]);
-        return { [chave]: valores };
-    });
-}
-
-const filterByChoices = (data, filterChoices) => {
-    return data.filter(item => {
-        return filterChoices.every(filter =>{
-            if (!item[Object.keys(filter)[0]]) return false
-            return filter["consultas_pre_natal_validas"] ? true : filter[Object.keys(filter)[0]].includes(item[Object.keys(filter)[0]].toString())
-        });
-    }).filter(item=>{
-        const filtroConsultas = filterChoices.filter(item=>item.hasOwnProperty('consultas_pre_natal_validas'))?.length > 0 ? filterChoices.filter(item=>item.hasOwnProperty('consultas_pre_natal_validas'))[0] : []
-        if(filtroConsultas["consultas_pre_natal_validas"]?.length > 0){
-            if(filtroConsultas["consultas_pre_natal_validas"]=='Maior ou igual a 6' && Number(item["consultas_pre_natal_validas"]) >= 6) return true
-            if(filtroConsultas["consultas_pre_natal_validas"]=='Menor que 6' && Number(item["consultas_pre_natal_validas"]) < 6) return true
-            return false
-        }
-        return true
-    })
-}
-
-const FilterData = (props)=>{
-    const filtros = ValuesToChavesFiltros(props.value,props.setChavesFiltros,props.dadosFiltros)
-    const filtrosAgrupados = agruparChavesIguais(filtros)
-    const dadosFiltrados = filterByChoices(props.data, filtrosAgrupados)
-    const dadosOrdenados = sortByChoice(dadosFiltrados, props.ordenar, props.IDFiltrosOrdenacao, props.datefiltros, props.IntFiltros)
-
-    props.setData(dadosOrdenados)
-
-    props.trackObject.track('button_click', {
-        'button_action': 'aplicar_filtro',
-        'nome_lista_nominal': props.painel,
-        'aba_lista_nominal' : props.aba,
-        'sub_aba_lista_nominal' : props.sub_aba,
-        'button_choices' : filtrosAgrupados
-    });
-
-    props.setModal(false)
-}
-const ValuesToChavesFiltros = (value,setChavesFiltros,dadosFiltros)=>{
-    const checkboxes = Object.keys(value).map(key=>{
-        if(value[key]) return key
-    }) 
-    const chaves = []
-    checkboxes.forEach(checkbox=>{
-        let filtro
-        dadosFiltros.forEach(dadoFiltro=>{
-            if(dadoFiltro.data.includes(checkbox)) filtro = dadoFiltro.filtro
-        })
-        if(filtro) chaves.push({ [filtro] : checkbox})
-    })
-    setChavesFiltros(()=>chaves)
-    return chaves
-}
 const chavesFiltrosToCheckBoxesValues = (chavesFiltros,value,setValue)=>{
     const value_temp = value
     Object.keys(value_temp).forEach(checkbox=>{
@@ -221,9 +107,9 @@ const Ordenar = (props)=>{
         const temFiltrosAplicados = Object.values(props.filtros).some((filtro) => filtro);
 
         if (temFiltrosAplicados) {
-            const filtrosEscolhidos = ValuesToChavesFiltros(props.filtros, props.setChavesFiltros, props.dadosFiltros)
-            const filtrosAgrupados = agruparChavesIguais(filtrosEscolhidos)
-            dados = filterByChoices(props.tabela, filtrosAgrupados)
+            const filtrosEscolhidos = helpers.valuesToChavesFiltros(props.filtros, props.setChavesFiltros, props.dadosFiltros)
+            const filtrosAgrupados = helpers.agruparChavesIguais(filtrosEscolhidos)
+            dados = helpers.filterByChoices(props.tabela, filtrosAgrupados)
         }
 
         props.setOrdenar()
@@ -256,167 +142,6 @@ const Ordenar = (props)=>{
                     aba : props.aba,
                     sub_aba : props.sub_aba
             }}/>            
-        </div>
-    )
-}
-// TODO remover props não utilizadas
-const FiltroBody = ({
-    data,
-    chavesFiltros,
-    setChavesFiltros,
-    value,
-    handleCheckbox = () => {},
-    trackObject,
-    painel,
-    aba,
-    sub_aba
-})=>{
-    const [show,setShow] = useState(false)
-    return(
-        <div data-testid="FiltroBody">
-            <div className={style.ConteinerFiltro}>
-                <div className={style.tituloFiltro}>
-                    <p>{data.rotulo}</p>
-                    <button
-                        className={style.ShowFiltros}
-                        onClick={()=>setShow(!show)}
-                    >
-                        {show ? "-" : "+"}
-                    </button>
-            </div>
-                {
-                    show &&
-                    <div className={style.ConteinerFiltros}>
-                        {
-                            data.data.sort().map((item)=>{
-                                return(
-                                    <FiltroCard 
-                                        label={
-                                            data?.labels && data?.labels[item]
-                                            ? data?.labels[item]
-                                            : item
-                                        }
-                                        filtroID={data.filtro}
-                                        // chavesFiltros={chavesFiltros}
-                                        // setChavesFiltros={setChavesFiltros}
-                                        // labels={data?.labels ? data?.labels[item] : null}
-                                        value={value}
-                                        handleCheckbox={handleCheckbox}
-                                        // trackObject={trackObject}
-                                        // painel={painel}
-                                        // aba={aba}
-                                        // sub_aba={sub_aba}
-        
-                                    />
-                                )
-                            })
-                        }
-                    </div>
-                }
-
-            </div>
-    </div>
-)
-}
-const Filtro = ({
-    data,
-    setData,
-    tabela,
-    value,
-    handleCheckbox,
-    chavesFiltros,
-    setChavesFiltros,
-    setModal,
-    trackObject,
-    painel,
-    aba,
-    sub_aba,
-    setOrdenar,
-    setOrdenacaoAplicada,
-    ordenar,
-    datefiltros,
-    IntFiltros,
-    IDFiltrosOrdenacao,
-})=>{
-    const LimparFiltros = ()=>{
-        setData(sortByChoice(tabela, ordenar, IDFiltrosOrdenacao, datefiltros, IntFiltros))
-        setChavesFiltros([])
-        setModal(false)
-    }
-    return(
-        <div className={style.Filtro}>
-            <div className={style.LimparFiltros} onClick={LimparFiltros}>Limpar Filtros</div>
-            <div style={{overflowY : 'scroll',height:'70vh',width : '120%'}}>
-                {
-                    data.map((filtro)=><FiltroBody
-                        data={filtro} 
-                        key={filtro.rotulo}
-                        chavesFiltros={chavesFiltros}
-                        setChavesFiltros={setChavesFiltros}
-                        value={value}
-                        handleCheckbox={handleCheckbox}
-                        trackObject={trackObject}
-                        painel={painel}
-                        aba={aba}
-                        sub_aba={sub_aba}
-
-                    />)
-                }
-            </div>
-            <div className={style.AplicarFiltros}>
-                <ButtonColorSubmit 
-                    label="FILTRAR LISTA NOMINAL" 
-                    submit={FilterData} 
-                    arg={{
-                        data : tabela,
-                        setData : setData,
-                        filtros : chavesFiltros,
-                        setModal : setModal,
-                        value : value,
-                        setChavesFiltros : setChavesFiltros,
-                        dadosFiltros : data,
-                        trackObject : trackObject,
-                        painel : painel,
-                        aba : aba,
-                        sub_aba : sub_aba,
-                        setOrdenar,
-                        setOrdenacaoAplicada,
-                        ordenar,
-                        datefiltros,
-                        IntFiltros,
-                        IDFiltrosOrdenacao,
-                    }}
-                />  
-            </div>
-            <div className={style.AplicarfiltrosCase}></div>          
-        </div>
-    )
-}
-// TODO remover props não utilizadas
-const FiltroCard = ({
-    label = '',
-    filtroID,
-    value,
-    // labels,
-    handleCheckbox = ()=>{},
-})=>{
-    const [checked, toggleChecked] = useState(value[label]);
-    const handleChange = (event) => {
-        const { id: property, checked } = event.target;
-        toggleChecked(event.target.checked);
-        handleCheckbox(property, checked);
-    }
-    return(
-        <div className={style.FiltroCard} data-testid="FiltroCard">
-            <input 
-                className={style.InputFiltroCard} 
-                type="checkbox"
-                onChange={handleChange}
-                name={filtroID}
-                checked={checked}
-                id={label}
-            />
-            <p>{label}</p>
         </div>
     )
 }
@@ -531,22 +256,19 @@ const PainelBuscaAtiva = ({
                         }
                         {
                             showFiltrosModal &&
-                            <Filtro 
+                            <Components.Filtro
                                 data={dadosFiltros}
-                                setData={setData} 
+                                setData={setData}
                                 tabela={tabela.data}
                                 value={value}
                                 handleCheckbox={handleCheckbox}
-                                chavesFiltros={chavesFiltros}
                                 setChavesFiltros={setChavesFiltros}
                                 setModal={setModal}
                                 trackObject={trackObject}
                                 painel={painel}
                                 aba={aba}
                                 sub_aba={sub_aba}
-                                setOrdenar={setOrdenar} 
-                                setOrdenacaoAplicada={setOrdenacaoAplicada}
-                                ordenar={ordenar} 
+                                ordenar={ordenar}
                                 datefiltros={datefiltros}
                                 IntFiltros={IntFiltros}
                                 IDFiltrosOrdenacao={IDFiltrosOrdenacao}
@@ -580,4 +302,4 @@ const PainelBuscaAtiva = ({
 }
 
 
-export {PainelBuscaAtiva, Filtro, FiltroCard, FiltroBody}
+export {PainelBuscaAtiva}
