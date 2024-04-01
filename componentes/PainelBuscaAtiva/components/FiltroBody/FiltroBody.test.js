@@ -1,14 +1,11 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-// import { FiltroBody } from './FiltroBody';
-import { FiltroBody } from '../../PainelBuscaAtiva';
-
-// TODO Subistuir snapshots após teste de primeira renderização por interaç˜ão com RTL
+import { FiltroBody } from './FiltroBody';
 
 const COMPONENT = 'FiltroBody';
 const OPTION_1 = 'Alessandra Santos';
 const OPTION_2 = 'Carmen Miranda';
-const LABEL_1 = 'ACS 1';
+const LABEL_1 = 'ACS 3';
 const LABEL_2 = 'ACS 2';
 const FILTER_PROPERTY = 'acs_nome';
 const FILTER_LABEL = 'Filtrar por nome do Profissional Responsável';
@@ -19,7 +16,6 @@ const scenarios = [
       filtro: FILTER_PROPERTY,
       rotulo: FILTER_LABEL
     },
-    value: { [OPTION_1]: false, [OPTION_2]: false }
   },
   {
     data: {
@@ -27,7 +23,6 @@ const scenarios = [
       filtro: FILTER_PROPERTY,
       rotulo: FILTER_LABEL
     },
-    value: { [OPTION_1]: false, [OPTION_2]: false }
   },
   {
     data: {
@@ -36,7 +31,6 @@ const scenarios = [
       rotulo: FILTER_LABEL,
       labels: [LABEL_1, LABEL_2]
     },
-    value: { [OPTION_1]: false, [OPTION_2]: false }
   },
   {
     data: {
@@ -45,24 +39,65 @@ const scenarios = [
       rotulo: FILTER_LABEL,
       labels: [LABEL_1, LABEL_2]
     },
-    value: { '1': false, '0': false }
   },
 ];
 
 describe(`Componente: ${COMPONENT}`, () => {
   it('deve renderizar o nome do filtro e o botão de mostrar opções', async () => {
     render(<FiltroBody { ...scenarios[0] } />);
+
     const component = await screen.findByTestId(COMPONENT);
+
     expect(component).toMatchSnapshot();
   });
 
   describe('Ao clicar no botão de mostrar opções de filtro', () => {
-    it('deve renderizar o nome do filtro, o botão de esconder opções e as opções em ordem crescente', async () => {
+    it('deve renderizar o nome do filtro e o botão de esconder opções', async () => {
       const user = userEvent.setup();
+
       render(<FiltroBody { ...scenarios[1] } />);
+
+      const label = await screen.findByText(FILTER_LABEL);
       const showOptionsButton = screen.getByRole('button', { name: '+' });
+
       await user.click(showOptionsButton);
-      expect(screen.getByTestId(COMPONENT)).toMatchSnapshot();
+
+      const hideOptionsButton = await screen.findByRole('button', { name: '-' });
+
+      expect(label).toBeInTheDocument();
+      expect(hideOptionsButton).toBeInTheDocument();
+    });
+
+    it('deve renderizar todas as opções de filtro em ordem crescente quando são strings não numéricas', async () => {
+      const user = userEvent.setup();
+
+      render(<FiltroBody { ...scenarios[1] } />);
+
+      const showOptionsButton = await screen.findByRole('button', { name: '+' });
+
+      await user.click(showOptionsButton);
+
+      const options = await screen.findAllByTestId('FiltroCardLabel');
+
+      expect(options).toHaveLength(2);
+      expect(options[0]).toHaveTextContent(OPTION_1);
+      expect(options[1]).toHaveTextContent(OPTION_2);
+    });
+
+    it('deve renderizar todas as opções de filtro em ordem crescente de valor quando são strings numéricas', async () => {
+      const user = userEvent.setup();
+
+      render(<FiltroBody { ...scenarios[3] } />);
+
+      const showOptionsButton = await screen.findByRole('button', { name: '+' });
+
+      await user.click(showOptionsButton);
+
+      const options = await screen.findAllByTestId('FiltroCardLabel');
+
+      expect(options).toHaveLength(2);
+      expect(options[0]).toHaveTextContent(LABEL_1);
+      expect(options[1]).toHaveTextContent(LABEL_2);
     });
   });
 
@@ -70,20 +105,34 @@ describe(`Componente: ${COMPONENT}`, () => {
     describe('Quando as opções de filtro são strings não numéricas', () => {
       it('não deve exibir as labels no lugar das opções', async () => {
         const user = userEvent.setup();
+
         render(<FiltroBody { ...scenarios[2] } />);
+
         const showOptionsButton = await screen.findByRole('button', { name: '+' });
+
         await user.click(showOptionsButton);
-        expect(screen.getByTestId(COMPONENT)).toMatchSnapshot();
+
+        expect(await screen.findByText(OPTION_1)).toBeInTheDocument();
+        expect(await screen.findByText(OPTION_2)).toBeInTheDocument();
+        expect(screen.queryByText(LABEL_1)).not.toBeInTheDocument();
+        expect(screen.queryByText(LABEL_2)).not.toBeInTheDocument();
       });
     });
 
     describe('Quando as opções de filtro são strings numéricas', () => {
       it('deve exibir as labels no lugar das opções', async () => {
         const user = userEvent.setup();
+
         render(<FiltroBody { ...scenarios[3] } />);
+
         const showOptionsButton = await screen.findByRole('button', { name: '+' });
+
         await user.click(showOptionsButton);
-        expect(screen.getByTestId(COMPONENT)).toMatchSnapshot();
+
+        expect(await screen.findByText(LABEL_1)).toBeInTheDocument();
+        expect(await screen.findByText(LABEL_2)).toBeInTheDocument();
+        expect(screen.queryByText('1')).not.toBeInTheDocument();
+        expect(screen.queryByText('0')).not.toBeInTheDocument();
       });
     });
   });
@@ -91,12 +140,20 @@ describe(`Componente: ${COMPONENT}`, () => {
   describe('Ao clicar no botão de esconder opções de filtro', () => {
     it('deve exibir o nome do filtro e o botão de mostrar opções', async () => {
       const user = userEvent.setup();
-      render(<FiltroBody {...scenarios[0]} />);
+
+      render(<FiltroBody { ...scenarios[0] } />);
+
       const showOptionsButton = await screen.findByRole('button', { name: '+' });
+
       await user.click(showOptionsButton);
+
       const hideOptionsButton = await screen.findByRole('button', { name: '-' });
+
       await user.click(hideOptionsButton);
-      expect(screen.getByTestId(COMPONENT)).toMatchSnapshot();
+
+      expect(await screen.findByText(FILTER_LABEL)).toBeInTheDocument();
+      expect(await screen.findByRole('button', { name: '+' })).toBeInTheDocument();
+      expect(screen.queryByRole('button', { name: '-' })).not.toBeInTheDocument();
     });
   });
 });
