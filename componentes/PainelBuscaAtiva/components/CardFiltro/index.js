@@ -1,0 +1,1 @@
+export { CardFiltro } from './CardFiltro';

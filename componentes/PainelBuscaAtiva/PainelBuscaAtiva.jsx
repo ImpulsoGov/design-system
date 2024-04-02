@@ -1,44 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { ButtonColorSubmit } from "../ButtonColor/ButtonColor";
-import { ButtonLightSubmit, ButtonColorSubmitIcon } from "../ButtonLight/ButtonLight";
+import style from "./PainelBuscaAtiva.module.css";
 import { Modal } from "../Modal/Modal";
+import { ButtonLightSubmit } from "../ButtonLight/ButtonLight";
 import { TabelaHiperDia } from "../TabelaHiperDia";
-import * as helpers from "./helpers";
 import * as Components from "./components";
-
-const SortData = ({
-    data,
-    setData,
-    filtro,
-    datefiltros,
-    IntFiltros,
-    setModal,
-    setOrdenacaoAplicada,
-    IDFiltrosOrdenacao,
-    trackObject,
-    painel,
-    aba,
-    sub_aba,
-    setShowSnackBar,
-})=>{
-    setData(helpers.sortByChoice(data, filtro, IDFiltrosOrdenacao, datefiltros, IntFiltros))
-    setShowSnackBar({
-        open: true,
-        message: "Lista ordenada com sucesso!",
-        background: "#2EB280",
-        color: "white",
-    })
-
-    trackObject.track('button_click', {
-        'button_action': 'aplicar_ordenacao',
-        'nome_lista_nominal': painel,
-        'aba_lista_nominal' : aba,
-        'sub_aba_lista_nominal' : sub_aba,
-        'button_choices' : filtro
-    }) 
-    setModal(false)
-    setOrdenacaoAplicada(true)
-}
 
 const chavesFiltrosToCheckBoxesValues = (chavesFiltros,value,setValue)=>{
     const value_temp = value
@@ -105,73 +70,6 @@ const ToolBar = ({
                 />
                 </div>
             </Tippy>
-        </div>
-    )
-}
-const CardFiltro = (props)=>{
-    const OrdenarPor = ()=>{
-        props.setOrdenar(props.ID[props.label])
-    }
-    return <div 
-                onClick={OrdenarPor} 
-                className={
-                    props.ID[props.label] !== props.ordenar ?
-                    style.cardFiltro :
-                    style.cardFiltroSelected
-                }
-            >
-                {props.label.toUpperCase()}
-            </div>
-}
-const Ordenar = (props)=>{
-    const filtros_painel = {
-        "rotulos" : props.rotulosfiltros,
-        "ID" : props.IDFiltros
-    }
-    const limpar = ()=>{
-        let dados = props.tabela
-        const temFiltrosAplicados = Object.values(props.filtros).some((filtro) => filtro);
-
-        if (temFiltrosAplicados) {
-            const filtrosEscolhidos = helpers.valuesToChavesFiltros(props.filtros, props.setChavesFiltros, props.dadosFiltros)
-            const filtrosAgrupados = helpers.agruparChavesIguais(filtrosEscolhidos)
-            dados = helpers.filterByChoices(props.tabela, filtrosAgrupados)
-        }
-
-        props.setOrdenar()
-        props.setData(dados)
-        props.setModal(false)
-        props.setOrdenacaoAplicada(false)
-    }
-    return(
-        <div className={style.containerOrdenar}>
-            <p className={style.OrdenarPor}>Ordenar por:</p>
-            {filtros_painel.rotulos.map((label)=><CardFiltro label={label} setOrdenar={props.setOrdenar} ordenar={props.ordenar} ID={filtros_painel.ID} key={label} />)}
-            <div className={style.AplicarFiltros}>
-                <ButtonLightSubmit
-                        label="Limpar ordenação" 
-                        submit={limpar} 
-                    />
-
-                <ButtonColorSubmit 
-                    label="ORDENAR LISTA" 
-                    submit={SortData} 
-                    arg={{
-                        data : props.data,
-                        filtro : props.ordenar,
-                        setData:props.setData, 
-                        datefiltros : props.datefiltros,
-                        IntFiltros : props.IntFiltros, 
-                        setModal : props.setModal, 
-                        setOrdenacaoAplicada : props.setOrdenacaoAplicada, 
-                        IDFiltrosOrdenacao : props.IDFiltrosOrdenacao,
-                        trackObject : props.trackObject,
-                        painel : props.painel,
-                        aba : props.aba,
-                        sub_aba : props.sub_aba,
-                        setShowSnackBar: props.setShowSnackBar,
-                }}/>       
-            </div>
         </div>
     )
 }
@@ -276,13 +174,13 @@ const PainelBuscaAtiva = ({
                         setModal={setModal} 
                     > 
                         {
-                            showOrdenarModal && 
-                            <Ordenar 
-                                painel={painel} 
-                                ordenar={ordenar} 
-                                setOrdenar={setOrdenar} 
-                                data={data} 
-                                setData={setData} 
+                            showOrdenarModal &&
+                            <Components.Ordenar
+                                painel={painel}
+                                ordenar={ordenar}
+                                setOrdenar={setOrdenar}
+                                data={data}
+                                setData={setData}
                                 tabela={tabela.data}
                                 datefiltros={datefiltros}
                                 IntFiltros={IntFiltros}
