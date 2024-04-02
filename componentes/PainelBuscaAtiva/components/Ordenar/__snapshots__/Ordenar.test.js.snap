@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Componente: Ordenar deve renderizar corretamente 1`] = `
+<div
+  class="containerOrdenar"
+  data-testid="Ordenar"
+>
+  <div
+    class="limparOrdenacao"
+  >
+    Limpar ordenação
+  </div>
+  <p
+    class="OrdenarPor"
+  >
+    Ordenar por:
+  </p>
+  <div
+    class="cardFiltro"
+    data-testid="CardFiltro"
+  >
+    NOMES DE A-Z
+  </div>
+  <div
+    class="cardFiltro"
+    data-testid="CardFiltro"
+  >
+    VENCIMENTO DA COLETA MAIS ANTIGO
+  </div>
+  <div
+    class="cardFiltro"
+    data-testid="CardFiltro"
+  >
+    IDADE
+  </div>
+  <button
+    class="ButtonColorContainer ColorIP"
+  >
+    ORDENAR LISTA
+  </button>
+</div>
+`;
