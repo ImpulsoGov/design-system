@@ -49,7 +49,10 @@
     outline: none !important;
     border: #EABF2E solid 1px;
 }
-
+.InputCinzaAlerta{
+    outline: none !important;
+    border: #EABF2E solid 1px;
+}
 .InputColorIP:focus, .InputWhite:focus , .RecuperarSenhaInput:focus{
     outline: none !important;
     border: #EFF5F9 solid 1px;
