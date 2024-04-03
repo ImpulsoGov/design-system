@@ -65,7 +65,10 @@
     outline: none !important;
     border: #EABF2E solid 1px;
 }
-
+.InputCinzaAlerta:focus{
+    outline: none !important;
+    border: #EABF2E solid 1px;
+}
 .InputColorSM:focus, .InputWhiteSM:focus{
     outline: none !important;
     border: #5367C9 solid 1px;
