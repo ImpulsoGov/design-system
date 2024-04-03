@@ -24,7 +24,9 @@
     align-items: center;
     text-decoration: none;
 }
-
+.ButtonColorContainer:hover{
+    cursor: pointer;
+}
 .ButtonColorContainerLarge{
     color: #fff;
     border-radius: 100px;
