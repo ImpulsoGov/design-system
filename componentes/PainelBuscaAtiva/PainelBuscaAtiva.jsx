@@ -15,6 +15,8 @@ const chavesFiltrosToCheckBoxesValues = (chavesFiltros,value,setValue)=>{
     })
     setValue(()=>value_temp)
 }
+
+/*
 const ToolBar = ({
     showFiltros,
     showOrdenar,
@@ -52,7 +54,7 @@ const ToolBar = ({
             <ButtonLightSubmit label="FILTRAR LISTA NOMINAL" submit={showFiltros} icon={chavesFiltros.length>0 ? "https://media.graphassets.com/1rnUv5WSTKmCHnvqciuW" : "https://media.graphassets.com/1WHJsCigTXyJbq7Tw47m"}/>
         </div>
     )
-}
+} */
 const PainelBuscaAtiva = ({
     tabela,
     dadosFiltros,
@@ -184,10 +186,10 @@ const PainelBuscaAtiva = ({
                         }
                     </Modal>
                 </div>
-            }
+            } 
             <div className={style.AtualizacaoConteiner}>
                 <div className={style.Atualizacao}>PRODUÇÃO MAIS RECENTE RECEBIDA EM: {atualizacao}</div>
-            </div>
+            </div>  
             <ToolBar 
                 showFiltros={showFiltros} 
                 showOrdenar={showOrdenar} 
@@ -199,7 +201,7 @@ const PainelBuscaAtiva = ({
                 setData={setData}
                 tabela={tabela.data}
                 ordenacaoAplicada={ordenacaoAplicada}
-            />
+            /> 
             <TabelaHiperDia 
                 colunas={tabela.colunas} 
                 data={data} 
