@@ -15,6 +15,8 @@ const chavesFiltrosToCheckBoxesValues = (chavesFiltros,value,setValue)=>{
     })
     setValue(()=>value_temp)
 }
+
+/*
 const ToolBar = ({
     showFiltros,
     showOrdenar,
@@ -72,7 +74,7 @@ const ToolBar = ({
             </Tippy>
         </div>
     )
-}
+} */
 const PainelBuscaAtiva = ({
     tabela,
     dadosFiltros,
@@ -221,10 +223,10 @@ const PainelBuscaAtiva = ({
                         }
                     </Modal>
                 </div>
-            }
+            } 
             <div className={style.AtualizacaoConteiner}>
                 <div className={style.Atualizacao}>PRODUÇÃO MAIS RECENTE RECEBIDA EM: {atualizacao}</div>
-            </div>
+            </div>  
             <ToolBar 
                 showFiltros={showFiltros} 
                 showOrdenar={showOrdenar} 
