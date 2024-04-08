@@ -1,80 +1,10 @@
 import React, { useEffect, useState } from "react";
 import style from "./PainelBuscaAtiva.module.css";
 import { Modal } from "../Modal/Modal";
-import { ButtonLightSubmit } from "../ButtonLight/ButtonLight";
 import { TabelaHiperDia } from "../TabelaHiperDia";
 import * as Components from "./components";
+import * as helpers from "./helpers";
 
-const chavesFiltrosToCheckBoxesValues = (chavesFiltros,value,setValue)=>{
-    const value_temp = value
-    Object.keys(value_temp).forEach(checkbox=>{
-        value_temp[checkbox] = false
-    })
-    chavesFiltros.forEach(valor=>{
-        value_temp[Object.values(valor)[0]] = true
-    })
-    setValue(()=>value_temp)
-}
-
-/*
-const ToolBar = ({
-    showFiltros,
-    showOrdenar,
-    painel,
-    chavesFiltros,
-    ordenar,
-    setOrdenar,
-    data,
-    setData,
-    tabela,
-    ordenacaoAplicada,
-    onPrintClick,
-})=>{
-    const [nome,setNome] =useState('')
-    const filterbyName = ()=>setData(tabela.filter(item=>item[item?.cidadao_nome ? "cidadao_nome" : "paciente_nome"].toUpperCase().includes(nome.toUpperCase())))
-    useEffect(()=>{
-        if(nome.length<=0) setData(tabela)
-    },[nome])
-
-    function handlePrintClick() {
-        onPrintClick(data);
-    }
-
-    return(
-        <div className={style.ToolBar}>
-            <input 
-                className={style.SearchBar} 
-                placeholder="PESQUISE UM NOME" 
-                value={nome}
-                onChange={(e) => {setNome(e.target.value);filterbyName();}}
-            />
-            <ButtonLightSubmit 
-                label="ORDENAR LISTA" 
-                submit={showOrdenar} 
-                arg={{painel,ordenar,setOrdenar,data,setData}}
-                icon={ordenacaoAplicada ?
-                     "https://media.graphassets.com/ZWmQGa3TEGVceKxm4nlw" : 
-                     "https://media.graphassets.com/7E9qXtNTze5w3ozl6a5I"
-                }
-            />
-            <ButtonLightSubmit label="FILTRAR A LISTA" submit={showFiltros} icon={chavesFiltros.length>0 ? "https://media.graphassets.com/1rnUv5WSTKmCHnvqciuW" : "https://media.graphassets.com/1WHJsCigTXyJbq7Tw47m"}/>
-            <Tippy
-                content={ "O número de pacientes na lista é muito grande, aplique algum filtro para que o carregamento da impressão seja mais rápido" }
-                placement="bottom"
-                theme="alert"
-                arrow={true}
-            >
-                <div>
-                <ButtonColorSubmitIcon
-                    label="IMPRIMIR LISTA"
-                    icon="https://media.graphassets.com/3vsKrZXYT9CdxSSyhjhk"
-                    submit={handlePrintClick}
-                />
-                </div>
-            </Tippy>
-        </div>
-    )
-} */
 const PainelBuscaAtiva = ({
     tabela,
     dadosFiltros,
@@ -111,7 +41,7 @@ const PainelBuscaAtiva = ({
         setModal(true)
         setShowOrdenarModal(false)
         setShowFiltrosModal(true)
-        chavesFiltrosToCheckBoxesValues(chavesFiltros,value,setValue)
+        helpers.chavesFiltrosToCheckBoxesValues(chavesFiltros,value,setValue)
     }
     let valores = {}
     dadosFiltros.forEach((item)=>item.data.forEach((valor)=>valores[valor]=false))
@@ -143,7 +73,7 @@ const PainelBuscaAtiva = ({
                 'sub_aba_lista_nominal' : sub_aba
             });
         }
-    
+
         if (showFiltrosModal) {
             trackObject.track('button_click', {
                 'button_action': "abrir_filtro",
@@ -152,7 +82,6 @@ const PainelBuscaAtiva = ({
                 'sub_aba_lista_nominal' : sub_aba
             });
         }
-        
     }, [showOrdenarModal, showFiltrosModal]);
 
     const closeToast = () => {
@@ -163,18 +92,18 @@ const PainelBuscaAtiva = ({
     }
 
     return(
-        <div style={{marginTop : "30px"}}>
+        <div style={{marginTop : "30px"}} data-testid="PainelBuscaAtiva">
             {
-                modal && 
-                <div className={style.ModalContainer}> 
-                    <div 
+                modal &&
+                <div className={style.ModalContainer}>
+                    <div
                         className={style.ModalBlur}
                         onClick={()=>setModal(false)}
                     ></div>
-                    <Modal 
-                        show={modal} 
-                        setModal={setModal} 
-                    > 
+                    <Modal
+                        show={modal}
+                        setModal={setModal}
+                    >
                         {
                             showOrdenarModal &&
                             <Components.Ordenar
@@ -226,10 +155,10 @@ const PainelBuscaAtiva = ({
             } 
             <div className={style.AtualizacaoConteiner}>
                 <div className={style.Atualizacao}>PRODUÇÃO MAIS RECENTE RECEBIDA EM: {atualizacao}</div>
-            </div>  
-            <ToolBar 
-                showFiltros={showFiltros} 
-                showOrdenar={showOrdenar} 
+            </div>
+            <Components.ToolBar
+                showFiltros={showFiltros}
+                showOrdenar={showOrdenar}
                 painel={painel}
                 chavesFiltros={chavesFiltros}
                 setOrdenar={setOrdenar}
@@ -260,6 +189,5 @@ const PainelBuscaAtiva = ({
         </div>
     )
 }
-
 
 export {PainelBuscaAtiva}
