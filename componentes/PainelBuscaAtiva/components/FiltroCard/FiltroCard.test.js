@@ -4,9 +4,9 @@ import { FiltroCard } from './FiltroCard';
 
 const COMPONENT = 'FiltroCard';
 const scenarios = [
-  { label: 'Tainá', filtroID: 'acs_nome' },
-  { label: 'Alessandra Santos', filtroID: 'acs_nome' },
-  { label: '3', filtroID: 'acs_nome' },
+  { label: 'Tainá', filtroID: 'acs_nome', id: '5' },
+  { label: 'Alessandra Santos', filtroID: 'acs_nome', id: 'Alessandra Santos' },
+  { label: '3', filtroID: 'acs_nome', id: 'ACS' },
 ];
 
 describe(`Componete: ${COMPONENT}`, () => {
