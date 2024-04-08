@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import style from "../../PainelBuscaAtiva.module.css";
 
 export const FiltroCard = ({
+  id,
   label = "",
   filtroID,
   handleCheckbox = () => {},
@@ -21,11 +22,11 @@ export const FiltroCard = ({
         onChange={handleChange}
         name={filtroID}
         checked={checked}
-        id={label}
+        id={id}
       />
       <label
         data-testid="FiltroCardLabel"
-        htmlFor={label}
+        htmlFor={id}
       >
         {label}
       </label>
