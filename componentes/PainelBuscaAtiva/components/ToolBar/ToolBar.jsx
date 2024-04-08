@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import style from "./PainelBuscaAtiva.module.css";
-import { ButtonLightSubmit } from "../ButtonLight/ButtonLight";
+import { ButtonLightSubmit } from "../../../ButtonLight/ButtonLight";
 
 export const ToolBar = ({
   showFiltros,
@@ -21,7 +21,7 @@ export const ToolBar = ({
       if(nome.length<=0) setData(tabela)
   },[nome])
   return(
-      <div className={style.ToolBar}>
+      <div className={style.ToolBar} data-testid="ToolBar">
           <input 
               className={style.SearchBar} 
               placeholder="PESQUISE UM NOME" 
