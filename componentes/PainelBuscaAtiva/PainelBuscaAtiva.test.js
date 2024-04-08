@@ -518,6 +518,337 @@ describe(`Componente: ${COMPONENT}`, () => {
         expect(screen.queryByTestId("Modal")).not.toBeInTheDocument();
         expect(scenarios[0].setData).toHaveBeenLastCalledWith(expected);
       });
+
+      describe('E aplicar uma opção de ordenação', () => {
+        it('deve exibir os dados filtrados e ordenados', async () => {
+          render(<PainelBuscaAtiva { ...scenarios[0] } />);
+
+          const btnShowFilterModal = screen.getByRole("button", { name: /filtrar lista nominal/i });
+          await userEvent.click(btnShowFilterModal);
+
+          const [showFilterOptions] = screen.getAllByRole("button", { name: "+" });
+          await userEvent.click(showFilterOptions);
+
+          const filterOption = screen.getByLabelText(/alessandra santos/i);
+          await userEvent.click(filterOption);
+
+          const [btnApplyFilter] = screen.getAllByRole("button", { name: /filtrar lista nominal/i });
+          await userEvent.click(btnApplyFilter);
+
+          const btnShowSortModal = screen.getByRole("button", { name: /ordenar lista/i });
+          await userEvent.click(btnShowSortModal);
+
+          const sortOption = screen.getByText(/idade do paciente/i);
+          await userEvent.click(sortOption);
+
+          const [btnApplySort] = screen.getAllByRole("button", { name: /ordenar lista/i });
+          await userEvent.click(btnApplySort);
+
+          const expected = [
+            {
+              paciente_nome: "Camila da Silva",
+              cidadao_cpf_dt_nascimento: "106.106.106-10",
+              id_status_usuario: 12,
+              vencimento_da_coleta: "-",
+              prazo_proxima_coleta: "31/08/2023",
+              idade: 25,
+              id_faixa_etaria: 8,
+              acs_nome: "Alessandra Santos",
+              estabelecimento_cnes: "2872872",
+              estabelecimento_nome: "Unidade de Saude da Familia 1",
+              equipe_ine: "0002277227",
+              ine_master: "0002277227",
+              equipe_nome: "ESF 1",
+              dt_registro_producao_mais_recente: "2023-10-22"
+            },
+            {
+              paciente_nome: "Maria da Silva",
+              cidadao_cpf_dt_nascimento: "327.327.327-32",
+              id_status_usuario: 12,
+              vencimento_da_coleta: "11/05/2026",
+              prazo_proxima_coleta: "31/08/2023",
+              idade: 35,
+              id_faixa_etaria: 6,
+              acs_nome: "Alessandra Santos",
+              estabelecimento_cnes: "2872872",
+              estabelecimento_nome: "Unidade de Saude da Familia 1",
+              equipe_ine: "0002277227",
+              ine_master: "0002277227",
+              equipe_nome: "ESF 1",
+              dt_registro_producao_mais_recente: "2023-10-22"
+            },
+            {
+              paciente_nome: "Carla da Silva",
+              cidadao_cpf_dt_nascimento: "305.305.305-30",
+              id_status_usuario: 13,
+              vencimento_da_coleta: "-",
+              prazo_proxima_coleta: "31/08/2023",
+              idade: 64,
+              id_faixa_etaria: 8,
+              acs_nome: "Alessandra Santos",
+              estabelecimento_cnes: "2872872",
+              estabelecimento_nome: "Unidade de Saude da Familia 1",
+              equipe_ine: "0002277227",
+              ine_master: "0002277227",
+              equipe_nome: "ESF 1",
+              dt_registro_producao_mais_recente: "2023-10-22"
+            },
+          ];
+
+          expect(scenarios[0].setData).toHaveBeenLastCalledWith(expected);
+        });
+      });
+
+      describe('E clicar em limpar filtros', () => {
+        it('deve exibir os dados sem filtros e fechar o modal de filtro', async () => {
+          render(<PainelBuscaAtiva { ...scenarios[0] } />);
+
+          const btnShowFilterModal = screen.getByRole("button", { name: /filtrar lista nominal/i });
+          await userEvent.click(btnShowFilterModal);
+
+          const [showFilterOptions] = screen.getAllByRole("button", { name: "+" });
+          await userEvent.click(showFilterOptions);
+
+          const filterOption = screen.getByLabelText(/alessandra santos/i);
+          await userEvent.click(filterOption);
+
+          const [btnApplyFilter] = screen.getAllByRole("button", { name: /filtrar lista nominal/i });
+          await userEvent.click(btnApplyFilter);
+
+          await userEvent.click(btnShowFilterModal);
+
+          const clearFilterOption = screen.getByText(/limpar filtros/i);
+          await userEvent.click(clearFilterOption);
+
+          expect(screen.queryByTestId("Modal")).not.toBeInTheDocument();
+          expect(scenarios[0].setData).toHaveBeenLastCalledWith(responses.citoSuccessAPS);
+        });
+
+        describe('Quando há opção de ordenação aplicada', () => {
+          it('deve exibir os dados ordenados e sem filtro', async () => {
+            render(<PainelBuscaAtiva { ...scenarios[0] } />);
+
+            const btnShowFilterModal = screen.getByRole("button", { name: /filtrar lista nominal/i });
+            await userEvent.click(btnShowFilterModal);
+
+            const [_, showFilterOptions] = screen.getAllByRole("button", { name: "+" });
+            await userEvent.click(showFilterOptions);
+
+            const filterOption = screen.getByLabelText(/coleta em dia/i);
+            await userEvent.click(filterOption);
+
+            const [btnApplyFilter] = screen.getAllByRole("button", { name: /filtrar lista nominal/i });
+            await userEvent.click(btnApplyFilter);
+
+            const btnShowSortModal = screen.getByRole("button", { name: /ordenar lista/i });
+            await userEvent.click(btnShowSortModal);
+
+            const sortOption = screen.getByText(/vencimento da coleta mais antigo/i);
+            await userEvent.click(sortOption);
+
+            const [btnApplySort] = screen.getAllByRole("button", { name: /ordenar lista/i });
+            await userEvent.click(btnApplySort);
+
+            await userEvent.click(btnShowFilterModal);
+
+            const clearFilterOption = screen.getByText(/limpar filtros/i);
+            await userEvent.click(clearFilterOption);
+
+            const expected = [
+              {
+                paciente_nome: "Maria da Silva",
+                cidadao_cpf_dt_nascimento: "327.327.327-32",
+                id_status_usuario: 12,
+                vencimento_da_coleta: "11/05/2026",
+                prazo_proxima_coleta: "31/08/2023",
+                idade: 35,
+                id_faixa_etaria: 6,
+                acs_nome: "Alessandra Santos",
+                estabelecimento_cnes: "2872872",
+                estabelecimento_nome: "Unidade de Saude da Familia 1",
+                equipe_ine: "0002277227",
+                ine_master: "0002277227",
+                equipe_nome: "ESF 1",
+                dt_registro_producao_mais_recente: "2023-10-22"
+              },
+              {
+                paciente_nome: "Julia da Silva",
+                cidadao_cpf_dt_nascimento: "100.100.100-10",
+                id_status_usuario: 12,
+                vencimento_da_coleta: "27/07/2025",
+                prazo_proxima_coleta: "Em dia",
+                idade: 55,
+                id_faixa_etaria: 8,
+                acs_nome: "Carmen Miranda",
+                estabelecimento_cnes: "2752752",
+                estabelecimento_nome: "Unidade de Saude da Familia 2",
+                equipe_ine: "0000369369",
+                ine_master: "0000369369",
+                equipe_nome: "ESF 2",
+                dt_registro_producao_mais_recente: "2023-10-22"
+              },
+              {
+                paciente_nome: "Camila da Silva",
+                cidadao_cpf_dt_nascimento: "106.106.106-10",
+                id_status_usuario: 12,
+                vencimento_da_coleta: "-",
+                prazo_proxima_coleta: "31/08/2023",
+                idade: 25,
+                id_faixa_etaria: 8,
+                acs_nome: "Alessandra Santos",
+                estabelecimento_cnes: "2872872",
+                estabelecimento_nome: "Unidade de Saude da Familia 1",
+                equipe_ine: "0002277227",
+                ine_master: "0002277227",
+                equipe_nome: "ESF 1",
+                dt_registro_producao_mais_recente: "2023-10-22"
+              },
+              {
+                paciente_nome: "Carla da Silva",
+                cidadao_cpf_dt_nascimento: "305.305.305-30",
+                id_status_usuario: 13,
+                vencimento_da_coleta: "-",
+                prazo_proxima_coleta: "31/08/2023",
+                idade: 64,
+                id_faixa_etaria: 8,
+                acs_nome: "Alessandra Santos",
+                estabelecimento_cnes: "2872872",
+                estabelecimento_nome: "Unidade de Saude da Familia 1",
+                equipe_ine: "0002277227",
+                ine_master: "0002277227",
+                equipe_nome: "ESF 1",
+                dt_registro_producao_mais_recente: "2023-10-22"
+              },
+            ];
+
+            expect(scenarios[0].setData).toHaveBeenLastCalledWith(expected);
+          });
+        });
+      });
+
+      describe('E abrir o modal de filtro novamente', () => {
+        it('deve exibir a opção de filtro selecionada marcada com check', async () => {
+          render(<PainelBuscaAtiva { ...scenarios[0] } />);
+
+          const btnShowFilterModal = screen.getByRole("button", { name: /filtrar lista nominal/i });
+          await userEvent.click(btnShowFilterModal);
+
+          const [showFilterOptions] = screen.getAllByRole("button", { name: "+" });
+          await userEvent.click(showFilterOptions);
+
+          const filterOption = screen.getByLabelText(/carmen miranda/i);
+          await userEvent.click(filterOption);
+
+          const [btnApplyFilter] = screen.getAllByRole("button", { name: /filtrar lista nominal/i });
+          await userEvent.click(btnApplyFilter);
+
+          await userEvent.click(btnShowFilterModal);
+          await userEvent.click(screen.getAllByRole("button", { name: "+" })[0]);
+
+          expect(screen.getByLabelText(/carmen miranda/i)).toBeChecked();
+        });
+      });
+    });
+
+    describe('Ao aplicar mais de uma opção de filtro', () => {
+      it('deve exibir os dados filtrados por todas as opções selecionadas', async () => {
+        render(<PainelBuscaAtiva { ...scenarios[0] } />);
+
+        const btnShowFilterModal = screen.getByRole("button", { name: /filtrar lista nominal/i });
+        await userEvent.click(btnShowFilterModal);
+
+        const [showACSFilterOptions, showStatusFilterOptions] = screen.getAllByRole("button", { name: "+" });
+
+        await userEvent.click(showStatusFilterOptions);
+
+        const filterOptionStatus = screen.getByLabelText(/coleta em dia/i);
+        await userEvent.click(filterOptionStatus);
+
+        const hideStatusFilterOptions = screen.getByRole("button", { name: "-" });
+        await userEvent.click(hideStatusFilterOptions);
+
+        await userEvent.click(showACSFilterOptions);
+
+        const filterOptionACS = screen.getByLabelText(/carmen miranda/i);
+        await userEvent.click(filterOptionACS);
+
+        const [btnApplyFilter] = screen.getAllByRole("button", { name: /filtrar lista nominal/i });
+        await userEvent.click(btnApplyFilter);
+
+        const expected = [
+          {
+            paciente_nome: "Julia da Silva",
+            cidadao_cpf_dt_nascimento: "100.100.100-10",
+            id_status_usuario: 12,
+            vencimento_da_coleta: "27/07/2025",
+            prazo_proxima_coleta: "Em dia",
+            idade: 55,
+            id_faixa_etaria: 8,
+            acs_nome: "Carmen Miranda",
+            estabelecimento_cnes: "2752752",
+            estabelecimento_nome: "Unidade de Saude da Familia 2",
+            equipe_ine: "0000369369",
+            ine_master: "0000369369",
+            equipe_nome: "ESF 2",
+            dt_registro_producao_mais_recente: "2023-10-22"
+          },
+        ];
+
+        expect(scenarios[0].setData).toHaveBeenLastCalledWith(expected);
+      });
+
+      describe('E remover uma das opções', () => {
+        it('deve exibir os dados filtrados pelas opções restantes', async () => {
+          render(<PainelBuscaAtiva { ...scenarios[0] } />);
+
+          const btnShowFilterModal = screen.getByRole("button", { name: /filtrar lista nominal/i });
+          await userEvent.click(btnShowFilterModal);
+
+          const [showACSFilterOptions, showStatusFilterOptions] = screen.getAllByRole("button", { name: "+" });
+
+          await userEvent.click(showStatusFilterOptions);
+
+          const filterOptionStatus = screen.getByLabelText(/nunca realizou coleta/i);
+          await userEvent.click(filterOptionStatus);
+
+          const hideStatusFilterOptions = screen.getByRole("button", { name: "-" });
+          await userEvent.click(hideStatusFilterOptions);
+
+          await userEvent.click(showACSFilterOptions);
+
+          const filterOptionACS = screen.getByLabelText(/alessandra santos/i);
+          await userEvent.click(filterOptionACS);
+
+          const [btnApplyFilter] = screen.getAllByRole("button", { name: /filtrar lista nominal/i });
+          await userEvent.click(btnApplyFilter);
+
+          await userEvent.click(btnShowFilterModal);
+          await userEvent.click(showACSFilterOptions);
+          await userEvent.click(filterOptionACS);
+          await userEvent.click(btnApplyFilter);
+
+          const expected = [
+            {
+              paciente_nome: "Carla da Silva",
+              cidadao_cpf_dt_nascimento: "305.305.305-30",
+              id_status_usuario: 13,
+              vencimento_da_coleta: "-",
+              prazo_proxima_coleta: "31/08/2023",
+              idade: 64,
+              id_faixa_etaria: 8,
+              acs_nome: "Alessandra Santos",
+              estabelecimento_cnes: "2872872",
+              estabelecimento_nome: "Unidade de Saude da Familia 1",
+              equipe_ine: "0002277227",
+              ine_master: "0002277227",
+              equipe_nome: "ESF 1",
+              dt_registro_producao_mais_recente: "2023-10-22"
+            },
+          ];
+
+          expect(scenarios[0].setData).toHaveBeenLastCalledWith(expected);
+        });
+      });
     });
   });
 });
