@@ -1,4 +1,4 @@
-export const citoSuccess = [
+export const citoSuccessAPS = [
   {
     paciente_nome: "Camila da Silva",
     cidadao_cpf_dt_nascimento: "106.106.106-10",
