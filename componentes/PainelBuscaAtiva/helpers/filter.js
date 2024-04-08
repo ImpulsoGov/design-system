@@ -1,3 +1,9 @@
+/**
+ * Filtra os dados de acordo com as escolhas de filtro
+ * @param {*} data array de objetos com os dados a serem filtrados
+ * @param {*} filterChoices filtros selecionados para aplicar
+ * @returns array de objetos com os dados filtrados
+ */
 export function filterByChoices(data, filterChoices) {
   return data.filter(item => {
     return filterChoices.every(filter => {
