@@ -10,6 +10,7 @@ const config = {
   collectCoverageFrom: [
     'componentes/**/*.{js,jsx}',
     '!componentes/**/*.stories.js',
+    '!componentes/**/__data__/*.js',
   ],
   coverageDirectory: 'coverage',
   coveragePathIgnorePatterns: [
