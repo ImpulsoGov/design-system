@@ -43,6 +43,7 @@ export const FiltroBody = ({
                       ? data?.labels[item]
                       : item
                     }
+                    id={item}
                     filtroID={data.filtro}
                     handleCheckbox={handleCheckbox}
                   />
