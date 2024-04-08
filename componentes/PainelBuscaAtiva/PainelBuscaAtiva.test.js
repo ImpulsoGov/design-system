@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { PainelBuscaAtiva } from "./PainelBuscaAtiva";
 import * as responses from "./__data__";
+import { PainelBuscaAtiva } from "./PainelBuscaAtiva";
 
 // Permite que o DataGrid renderize mais de 3 colunas no ambiente jsdom
 // Referências:
@@ -59,7 +59,7 @@ const scenarios = [
       },
     ],
     tabela: {
-      data: responses.citoSuccess,
+      data: responses.citoSuccessAPS,
       colunas: [
         { field: "paciente_nome", headerName: "NOME" },
         {
@@ -94,7 +94,7 @@ const scenarios = [
     },
     trackObject: { track: jest.fn() },
     atualizacao: "22/10/2023",
-    data: responses.citoSuccess,
+    data: responses.citoSuccessAPS,
     setData: jest.fn(),
   }
 ];
@@ -301,7 +301,7 @@ describe(`Componente: ${COMPONENT}`, () => {
           await userEvent.click(clearSortOption);
 
           expect(screen.queryByTestId("Modal")).not.toBeInTheDocument();
-          expect(scenarios[0].setData).toHaveBeenLastCalledWith(responses.citoSuccess);
+          expect(scenarios[0].setData).toHaveBeenLastCalledWith(responses.citoSuccessAPS);
         });
 
         describe("Quando há opção de filtro aplicada", () => {
