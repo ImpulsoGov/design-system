@@ -9,15 +9,17 @@ export const Ordenar = (props)=>{
     "rotulos" : props.rotulosfiltros,
     "ID" : props.IDFiltros
   }
-  const limpar = ()=>{
-    let dados = props.tabela
-    const temFiltrosAplicados = Object.values(props.filtros).some((filtro) => filtro);
+  const hasFiltersApplied = Object.values(props.filtros).some((value) => value);
 
-    if (temFiltrosAplicados) {
-      const filtrosEscolhidos = helpers.valuesToChavesFiltros(props.filtros, props.setChavesFiltros, props.dadosFiltros)
-      const filtrosAgrupados = helpers.agruparChavesIguais(filtrosEscolhidos)
-      dados = helpers.filterByChoices(props.tabela, filtrosAgrupados)
-    }
+  function filter(data) {
+    const chosenFilters = helpers.valuesToChavesFiltros(props.filtros, props.setChavesFiltros, props.dadosFiltros);
+    const groupedFilters = helpers.agruparChavesIguais(chosenFilters);
+
+    return helpers.filterByChoices(data, groupedFilters);
+  }
+
+  const limpar = ()=>{
+    const dados = hasFiltersApplied ? filter(props.tabela) : props.tabela
 
     props.setOrdenar()
     props.setData(dados)
@@ -39,7 +41,9 @@ export const Ordenar = (props)=>{
     aba,
     sub_aba
   })=>{
-    setData(helpers.sortByChoice(data, filtro, IDFiltrosOrdenacao, datefiltros, IntFiltros))
+    const dados = hasFiltersApplied ? filter(data) : data
+
+    setData(helpers.sortByChoice(dados, filtro, IDFiltrosOrdenacao, datefiltros, IntFiltros))
 
     trackObject.track('button_click', {
       'button_action': 'aplicar_ordenacao',
@@ -57,7 +61,10 @@ export const Ordenar = (props)=>{
       <div
         className={style.limparOrdenacao}
         onClick={limpar}
-      >Limpar ordenação</div>
+      >
+        Limpar ordenação
+      </div>
+
       <p className={style.OrdenarPor}>Ordenar por:</p>
       {filtros_painel.rotulos.map((label)=><CardFiltro label={label} setOrdenar={props.setOrdenar} ordenar={props.ordenar} ID={filtros_painel.ID} key={label} />)}
       <ButtonColorSubmit
