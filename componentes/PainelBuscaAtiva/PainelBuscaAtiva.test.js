@@ -478,4 +478,46 @@ describe(`Componente: ${COMPONENT}`, () => {
       });
     });
   });
+
+  describe('Funcionalidade: filtro', () => {
+    describe('Ao aplicar uma opção de filtro', () => {
+      it('deve exibir os dados filtrados e fechar o modal de filtro', async () => {
+        render(<PainelBuscaAtiva { ...scenarios[0] } />);
+
+        const btnShowFilterModal = screen.getByRole("button", { name: /filtrar lista nominal/i });
+        await userEvent.click(btnShowFilterModal);
+
+        const [_, showFilterOptions] = screen.getAllByRole("button", { name: "+" });
+        await userEvent.click(showFilterOptions);
+
+        const filterOption = screen.getByLabelText(/Nunca realizou coleta/i);
+        await userEvent.click(filterOption);
+
+        const [btnApplyFilter] = screen.getAllByRole("button", { name: /filtrar lista nominal/i });
+        await userEvent.click(btnApplyFilter);
+
+        const expected = [
+          {
+            paciente_nome: "Carla da Silva",
+            cidadao_cpf_dt_nascimento: "305.305.305-30",
+            id_status_usuario: 13,
+            vencimento_da_coleta: "-",
+            prazo_proxima_coleta: "31/08/2023",
+            idade: 64,
+            id_faixa_etaria: 8,
+            acs_nome: "Alessandra Santos",
+            estabelecimento_cnes: "2872872",
+            estabelecimento_nome: "Unidade de Saude da Familia 1",
+            equipe_ine: "0002277227",
+            ine_master: "0002277227",
+            equipe_nome: "ESF 1",
+            dt_registro_producao_mais_recente: "2023-10-22"
+          },
+        ];
+
+        expect(screen.queryByTestId("Modal")).not.toBeInTheDocument();
+        expect(scenarios[0].setData).toHaveBeenLastCalledWith(expected);
+      });
+    });
+  });
 });
