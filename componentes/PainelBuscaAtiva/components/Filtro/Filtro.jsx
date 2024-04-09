@@ -51,7 +51,7 @@ export const Filtro = ({
   }
 
   return (
-    <div className={ style.Filtro }>
+    <div className={ style.Filtro } data-testid="Filtro">
       <div
         className={ style.LimparFiltros }
         onClick={ limparFiltros }
