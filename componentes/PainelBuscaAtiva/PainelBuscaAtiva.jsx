@@ -99,6 +99,7 @@ const PainelBuscaAtiva = ({
                     <div
                         className={style.ModalBlur}
                         onClick={()=>setModal(false)}
+                        data-testid="BlurArea"
                     ></div>
                     <Modal
                         show={modal}
