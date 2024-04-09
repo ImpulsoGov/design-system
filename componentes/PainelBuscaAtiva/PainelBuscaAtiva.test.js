@@ -43,8 +43,6 @@ const STATUS = [
 const scenarios = [
   {
     painel: "citopatológico",
-    aba: 1,
-    sub_aba: 0,
     dadosFiltros: [
       {
         data: ["Alessandra Santos", "Carmen Miranda", null],
@@ -92,7 +90,6 @@ const scenarios = [
       "idade": "asc",
       "vencimento_da_coleta": "desc",
     },
-    trackObject: { track: jest.fn() },
     atualizacao: "22/10/2023",
     data: responses.citoSuccessAPS,
     setData: jest.fn(),
@@ -110,6 +107,44 @@ describe(`Componente: ${COMPONENT}`, () => {
     const component = screen.getByTestId(COMPONENT);
 
     expect(component).toMatchSnapshot();
+  });
+
+  describe('Ao clicar no botão Ordenar Lista', () => {
+    it('deve exibir o modal de ordenação', async () => {
+      render(<PainelBuscaAtiva { ...scenarios[0] } />);
+
+      const btnShowModal = screen.getByRole("button", { name: /ordenar lista/i });
+      await userEvent.click(btnShowModal);
+
+      expect(screen.getByTestId("Modal")).toBeInTheDocument();
+      expect(screen.getByTestId("Ordenar")).toBeInTheDocument();
+    });
+  });
+
+  describe('Ao clicar no botão Filtrar Lista Nominal', () => {
+    it('deve exibir o modal de filtro', async () => {
+      render(<PainelBuscaAtiva { ...scenarios[0] } />);
+
+      const btnShowModal = screen.getByRole("button", { name: /filtrar lista nominal/i });
+      await userEvent.click(btnShowModal);
+
+      expect(screen.getByTestId("Modal")).toBeInTheDocument();
+      expect(screen.getByTestId("Filtro")).toBeInTheDocument();
+    });
+  });
+
+  describe('Ao abrir o modal e clicar fora dele', () => {
+    it('deve fechar o modal', async () => {
+      render(<PainelBuscaAtiva { ...scenarios[0] } />);
+
+      const btnShowModal = screen.getByRole("button", { name: /ordenar lista/i });
+      await userEvent.click(btnShowModal);
+
+      const areaOutsideModal = screen.getByTestId("BlurArea");
+      await userEvent.click(areaOutsideModal);
+
+      expect(screen.queryByTestId("Modal")).not.toBeInTheDocument();
+    });
   });
 
   describe("Funcionalidade: ordenação", () => {
