@@ -169,10 +169,10 @@ const PainelBuscaAtiva = ({
                 ordenacaoAplicada={ordenacaoAplicada}
                 onPrintClick={onPrintClick}
             />
-            <TabelaHiperDia 
-                colunas={tabela.colunas} 
-                data={data} 
-                rowHeight={rowHeight ? rowHeight : null}
+            <TabelaHiperDia
+                colunas={tabela.colunas}
+                data={data}
+                rowHeight={rowHeight}
             />
             <Toast
                 open={showSnackBar.open}
