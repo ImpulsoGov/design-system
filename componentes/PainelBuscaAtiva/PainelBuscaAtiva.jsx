@@ -17,10 +17,10 @@ const PainelBuscaAtiva = ({
     rotulosfiltros,
     IDFiltrosOrdenacao,
     atualizacao,
-    trackObject = null,
+    trackObject = { track: () => {} },
     aba = "",
     sub_aba = "",
-    rowHeight
+    rowHeight = null
 })=>{
     const [showOrdenarModal,setShowOrdenarModal] = useState(false)
     const [showFiltrosModal,setShowFiltrosModal] = useState(false)
@@ -154,7 +154,7 @@ const PainelBuscaAtiva = ({
             <TabelaHiperDia
                 colunas={tabela.colunas}
                 data={data}
-                rowHeight={rowHeight ? rowHeight : null}
+                rowHeight={rowHeight}
             />
         </div>
     )
