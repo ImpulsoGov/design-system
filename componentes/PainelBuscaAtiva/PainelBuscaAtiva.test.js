@@ -111,10 +111,11 @@ describe(`Componente: ${COMPONENT}`, () => {
 
   describe('Ao clicar no botão Ordenar Lista', () => {
     it('deve exibir o modal de ordenação', async () => {
+      const user = userEvent.setup();
       render(<PainelBuscaAtiva { ...scenarios[0] } />);
 
       const btnShowModal = screen.getByRole("button", { name: /ordenar lista/i });
-      await userEvent.click(btnShowModal);
+      await user.click(btnShowModal);
 
       expect(screen.getByTestId("Modal")).toBeInTheDocument();
       expect(screen.getByTestId("Ordenar")).toBeInTheDocument();
@@ -123,10 +124,11 @@ describe(`Componente: ${COMPONENT}`, () => {
 
   describe('Ao clicar no botão Filtrar Lista Nominal', () => {
     it('deve exibir o modal de filtro', async () => {
+      const user = userEvent.setup();
       render(<PainelBuscaAtiva { ...scenarios[0] } />);
 
       const btnShowModal = screen.getByRole("button", { name: /filtrar lista nominal/i });
-      await userEvent.click(btnShowModal);
+      await user.click(btnShowModal);
 
       expect(screen.getByTestId("Modal")).toBeInTheDocument();
       expect(screen.getByTestId("Filtro")).toBeInTheDocument();
@@ -135,13 +137,14 @@ describe(`Componente: ${COMPONENT}`, () => {
 
   describe('Ao abrir o modal e clicar fora dele', () => {
     it('deve fechar o modal', async () => {
+      const user = userEvent.setup();
       render(<PainelBuscaAtiva { ...scenarios[0] } />);
 
       const btnShowModal = screen.getByRole("button", { name: /ordenar lista/i });
-      await userEvent.click(btnShowModal);
+      await user.click(btnShowModal);
 
       const areaOutsideModal = screen.getByTestId("BlurArea");
-      await userEvent.click(areaOutsideModal);
+      await user.click(areaOutsideModal);
 
       expect(screen.queryByTestId("Modal")).not.toBeInTheDocument();
     });
@@ -150,16 +153,17 @@ describe(`Componente: ${COMPONENT}`, () => {
   describe("Funcionalidade: ordenação", () => {
     describe("Ao aplicar uma opção de ordenação", () => {
       it("deve exibir os dados ordenados e fechar o modal de ordenação", async () => {
+        const user = userEvent.setup();
         render(<PainelBuscaAtiva { ...scenarios[0] } />);
 
         const btnShowModal = screen.getByRole("button", { name: /ordenar lista/i });
-        await userEvent.click(btnShowModal);
+        await user.click(btnShowModal);
 
         const sortOption = screen.getByText(/nome do acs de a-z/i);
-        await userEvent.click(sortOption);
+        await user.click(sortOption);
 
         const [btnApplySort] = screen.getAllByRole("button", { name: /ordenar lista/i });
-        await userEvent.click(btnApplySort);
+        await user.click(btnApplySort);
 
         // const contentTable = screen.getByTestId("TabelaHiperDia");
         const expected = [
@@ -239,28 +243,29 @@ describe(`Componente: ${COMPONENT}`, () => {
 
       describe('E aplicar uma opção de filtro', () => {
         it('deve exibir os dados filtrados e ordenados', async () => {
+          const user = userEvent.setup();
           render(<PainelBuscaAtiva { ...scenarios[0] } />);
 
           const btnShowSortModal = screen.getByRole("button", { name: /ordenar lista/i });
-          await userEvent.click(btnShowSortModal);
+          await user.click(btnShowSortModal);
 
           const sortOption = screen.getByText(/vencimento da coleta mais antigo/i);
-          await userEvent.click(sortOption);
+          await user.click(sortOption);
 
           const [btnApplySort] = screen.getAllByRole("button", { name: /ordenar lista/i });
-          await userEvent.click(btnApplySort);
+          await user.click(btnApplySort);
 
           const btnShowFilterModal = screen.getByRole("button", { name: /filtrar lista nominal/i });
-          await userEvent.click(btnShowFilterModal);
+          await user.click(btnShowFilterModal);
 
           const [showFilterOptions] = screen.getAllByRole("button", { name: "+" });
-          await userEvent.click(showFilterOptions);
+          await user.click(showFilterOptions);
 
           const filterOption = screen.getByLabelText(/alessandra santos/i);
-          await userEvent.click(filterOption);
+          await user.click(filterOption);
 
           const [btnApplyFilter] = screen.getAllByRole("button", { name: /filtrar lista nominal/i });
-          await userEvent.click(btnApplyFilter);
+          await user.click(btnApplyFilter);
 
           const expected = [
             {
@@ -319,21 +324,22 @@ describe(`Componente: ${COMPONENT}`, () => {
 
       describe("E clicar em limpar ordenação", () => {
         it("deve exibir os dados desordenados e fechar o modal de ordenação", async () => {
+          const user = userEvent.setup();
           render(<PainelBuscaAtiva { ...scenarios[0] } />);
 
           const btnShowModal = screen.getByRole("button", { name: /ordenar lista/i });
-          await userEvent.click(btnShowModal);
+          await user.click(btnShowModal);
 
           const sortOption = screen.getByText(/nome do acs de a-z/i);
-          await userEvent.click(sortOption);
+          await user.click(sortOption);
 
           const [btnApplySort] = screen.getAllByRole("button", { name: /ordenar lista/i });
-          await userEvent.click(btnApplySort);
+          await user.click(btnApplySort);
 
-          await userEvent.click(btnShowModal);
+          await user.click(btnShowModal);
 
           const clearSortOption = screen.getByText(/limpar ordenação/i);
-          await userEvent.click(clearSortOption);
+          await user.click(clearSortOption);
 
           expect(screen.queryByTestId("Modal")).not.toBeInTheDocument();
           expect(scenarios[0].setData).toHaveBeenLastCalledWith(responses.citoSuccessAPS);
@@ -341,33 +347,34 @@ describe(`Componente: ${COMPONENT}`, () => {
 
         describe("Quando há opção de filtro aplicada", () => {
           it("deve exibir os dados filtrados sem ordenação", async () => {
+            const user = userEvent.setup();
             render(<PainelBuscaAtiva { ...scenarios[0] } />);
 
             const btnShowSortModal = screen.getByRole("button", { name: /ordenar lista/i });
-            await userEvent.click(btnShowSortModal);
+            await user.click(btnShowSortModal);
 
             const sortOption = screen.getByText(/vencimento da coleta mais antigo/i);
-            await userEvent.click(sortOption);
+            await user.click(sortOption);
 
             const [btnApplySort] = screen.getAllByRole("button", { name: /ordenar lista/i });
-            await userEvent.click(btnApplySort);
+            await user.click(btnApplySort);
 
             const btnShowFilterModal = screen.getByRole("button", { name: /filtrar lista nominal/i });
-            await userEvent.click(btnShowFilterModal);
+            await user.click(btnShowFilterModal);
 
             const [showFilterOptions] = screen.getAllByRole("button", { name: "+" });
-            await userEvent.click(showFilterOptions);
+            await user.click(showFilterOptions);
 
             const filterOption = screen.getByLabelText(/alessandra santos/i);
-            await userEvent.click(filterOption);
+            await user.click(filterOption);
 
             const [btnApplyFilter] = screen.getAllByRole("button", { name: /filtrar lista nominal/i });
-            await userEvent.click(btnApplyFilter);
+            await user.click(btnApplyFilter);
 
-            await userEvent.click(btnShowSortModal);
+            await user.click(btnShowSortModal);
 
             const clearSortOption = screen.getByText(/limpar ordenação/i);
-            await userEvent.click(clearSortOption);
+            await user.click(clearSortOption);
 
             const expected = [
               {
@@ -428,19 +435,20 @@ describe(`Componente: ${COMPONENT}`, () => {
 
     describe("Ao selecionar mais de uma opção de ordenação", () => {
       it("deve exibir os dados ordenados apenas com base na última opção selecionada", async () => {
+        const user = userEvent.setup();
         render(<PainelBuscaAtiva { ...scenarios[0] } />);
 
         const btnShowModal = screen.getByRole("button", { name: /ordenar lista/i });
-        await userEvent.click(btnShowModal);
+        await user.click(btnShowModal);
 
         const sortByAcsNameOption = screen.getByText(/nome do acs de a-z/i);
-        await userEvent.click(sortByAcsNameOption);
+        await user.click(sortByAcsNameOption);
 
         const sortByAgeOption = screen.getByText(/idade do paciente/i);
-        await userEvent.click(sortByAgeOption);
+        await user.click(sortByAgeOption);
 
         const [btnApplySort] = screen.getAllByRole("button", { name: /ordenar lista/i });
-        await userEvent.click(btnApplySort);
+        await user.click(btnApplySort);
 
         const expected = [
           {
@@ -517,19 +525,20 @@ describe(`Componente: ${COMPONENT}`, () => {
   describe('Funcionalidade: filtro', () => {
     describe('Ao aplicar uma opção de filtro', () => {
       it('deve exibir os dados filtrados e fechar o modal de filtro', async () => {
+        const user = userEvent.setup();
         render(<PainelBuscaAtiva { ...scenarios[0] } />);
 
         const btnShowFilterModal = screen.getByRole("button", { name: /filtrar lista nominal/i });
-        await userEvent.click(btnShowFilterModal);
+        await user.click(btnShowFilterModal);
 
         const [_, showFilterOptions] = screen.getAllByRole("button", { name: "+" });
-        await userEvent.click(showFilterOptions);
+        await user.click(showFilterOptions);
 
         const filterOption = screen.getByLabelText(/Nunca realizou coleta/i);
-        await userEvent.click(filterOption);
+        await user.click(filterOption);
 
         const [btnApplyFilter] = screen.getAllByRole("button", { name: /filtrar lista nominal/i });
-        await userEvent.click(btnApplyFilter);
+        await user.click(btnApplyFilter);
 
         const expected = [
           {
@@ -556,28 +565,29 @@ describe(`Componente: ${COMPONENT}`, () => {
 
       describe('E aplicar uma opção de ordenação', () => {
         it('deve exibir os dados filtrados e ordenados', async () => {
+          const user = userEvent.setup();
           render(<PainelBuscaAtiva { ...scenarios[0] } />);
 
           const btnShowFilterModal = screen.getByRole("button", { name: /filtrar lista nominal/i });
-          await userEvent.click(btnShowFilterModal);
+          await user.click(btnShowFilterModal);
 
           const [showFilterOptions] = screen.getAllByRole("button", { name: "+" });
-          await userEvent.click(showFilterOptions);
+          await user.click(showFilterOptions);
 
           const filterOption = screen.getByLabelText(/alessandra santos/i);
-          await userEvent.click(filterOption);
+          await user.click(filterOption);
 
           const [btnApplyFilter] = screen.getAllByRole("button", { name: /filtrar lista nominal/i });
-          await userEvent.click(btnApplyFilter);
+          await user.click(btnApplyFilter);
 
           const btnShowSortModal = screen.getByRole("button", { name: /ordenar lista/i });
-          await userEvent.click(btnShowSortModal);
+          await user.click(btnShowSortModal);
 
           const sortOption = screen.getByText(/idade do paciente/i);
-          await userEvent.click(sortOption);
+          await user.click(sortOption);
 
           const [btnApplySort] = screen.getAllByRole("button", { name: /ordenar lista/i });
-          await userEvent.click(btnApplySort);
+          await user.click(btnApplySort);
 
           const expected = [
             {
@@ -636,24 +646,25 @@ describe(`Componente: ${COMPONENT}`, () => {
 
       describe('E clicar em limpar filtros', () => {
         it('deve exibir os dados sem filtros e fechar o modal de filtro', async () => {
+          const user = userEvent.setup();
           render(<PainelBuscaAtiva { ...scenarios[0] } />);
 
           const btnShowFilterModal = screen.getByRole("button", { name: /filtrar lista nominal/i });
-          await userEvent.click(btnShowFilterModal);
+          await user.click(btnShowFilterModal);
 
           const [showFilterOptions] = screen.getAllByRole("button", { name: "+" });
-          await userEvent.click(showFilterOptions);
+          await user.click(showFilterOptions);
 
           const filterOption = screen.getByLabelText(/alessandra santos/i);
-          await userEvent.click(filterOption);
+          await user.click(filterOption);
 
           const [btnApplyFilter] = screen.getAllByRole("button", { name: /filtrar lista nominal/i });
-          await userEvent.click(btnApplyFilter);
+          await user.click(btnApplyFilter);
 
-          await userEvent.click(btnShowFilterModal);
+          await user.click(btnShowFilterModal);
 
           const clearFilterOption = screen.getByText(/limpar filtros/i);
-          await userEvent.click(clearFilterOption);
+          await user.click(clearFilterOption);
 
           expect(screen.queryByTestId("Modal")).not.toBeInTheDocument();
           expect(scenarios[0].setData).toHaveBeenLastCalledWith(responses.citoSuccessAPS);
@@ -661,33 +672,34 @@ describe(`Componente: ${COMPONENT}`, () => {
 
         describe('Quando há opção de ordenação aplicada', () => {
           it('deve exibir os dados ordenados e sem filtro', async () => {
+            const user = userEvent.setup();
             render(<PainelBuscaAtiva { ...scenarios[0] } />);
 
             const btnShowFilterModal = screen.getByRole("button", { name: /filtrar lista nominal/i });
-            await userEvent.click(btnShowFilterModal);
+            await user.click(btnShowFilterModal);
 
             const [_, showFilterOptions] = screen.getAllByRole("button", { name: "+" });
-            await userEvent.click(showFilterOptions);
+            await user.click(showFilterOptions);
 
             const filterOption = screen.getByLabelText(/coleta em dia/i);
-            await userEvent.click(filterOption);
+            await user.click(filterOption);
 
             const [btnApplyFilter] = screen.getAllByRole("button", { name: /filtrar lista nominal/i });
-            await userEvent.click(btnApplyFilter);
+            await user.click(btnApplyFilter);
 
             const btnShowSortModal = screen.getByRole("button", { name: /ordenar lista/i });
-            await userEvent.click(btnShowSortModal);
+            await user.click(btnShowSortModal);
 
             const sortOption = screen.getByText(/vencimento da coleta mais antigo/i);
-            await userEvent.click(sortOption);
+            await user.click(sortOption);
 
             const [btnApplySort] = screen.getAllByRole("button", { name: /ordenar lista/i });
-            await userEvent.click(btnApplySort);
+            await user.click(btnApplySort);
 
-            await userEvent.click(btnShowFilterModal);
+            await user.click(btnShowFilterModal);
 
             const clearFilterOption = screen.getByText(/limpar filtros/i);
-            await userEvent.click(clearFilterOption);
+            await user.click(clearFilterOption);
 
             const expected = [
               {
@@ -763,22 +775,23 @@ describe(`Componente: ${COMPONENT}`, () => {
 
       describe('E abrir o modal de filtro novamente', () => {
         it('deve exibir a opção de filtro selecionada marcada com check', async () => {
+          const user = userEvent.setup();
           render(<PainelBuscaAtiva { ...scenarios[0] } />);
 
           const btnShowFilterModal = screen.getByRole("button", { name: /filtrar lista nominal/i });
-          await userEvent.click(btnShowFilterModal);
+          await user.click(btnShowFilterModal);
 
           const [showFilterOptions] = screen.getAllByRole("button", { name: "+" });
-          await userEvent.click(showFilterOptions);
+          await user.click(showFilterOptions);
 
           const filterOption = screen.getByLabelText(/carmen miranda/i);
-          await userEvent.click(filterOption);
+          await user.click(filterOption);
 
           const [btnApplyFilter] = screen.getAllByRole("button", { name: /filtrar lista nominal/i });
-          await userEvent.click(btnApplyFilter);
+          await user.click(btnApplyFilter);
 
-          await userEvent.click(btnShowFilterModal);
-          await userEvent.click(screen.getAllByRole("button", { name: "+" })[0]);
+          await user.click(btnShowFilterModal);
+          await userEvent.click(screen.getAllByRole("button", { name: user })[0]);
 
           expect(screen.getByLabelText(/carmen miranda/i)).toBeChecked();
         });
@@ -787,28 +800,29 @@ describe(`Componente: ${COMPONENT}`, () => {
 
     describe('Ao aplicar mais de uma opção de filtro', () => {
       it('deve exibir os dados filtrados por todas as opções selecionadas', async () => {
+        const user = userEvent.setup();
         render(<PainelBuscaAtiva { ...scenarios[0] } />);
 
         const btnShowFilterModal = screen.getByRole("button", { name: /filtrar lista nominal/i });
-        await userEvent.click(btnShowFilterModal);
+        await user.click(btnShowFilterModal);
 
         const [showACSFilterOptions, showStatusFilterOptions] = screen.getAllByRole("button", { name: "+" });
 
-        await userEvent.click(showStatusFilterOptions);
+        await user.click(showStatusFilterOptions);
 
         const filterOptionStatus = screen.getByLabelText(/coleta em dia/i);
-        await userEvent.click(filterOptionStatus);
+        await user.click(filterOptionStatus);
 
         const hideStatusFilterOptions = screen.getByRole("button", { name: "-" });
-        await userEvent.click(hideStatusFilterOptions);
+        await user.click(hideStatusFilterOptions);
 
-        await userEvent.click(showACSFilterOptions);
+        await user.click(showACSFilterOptions);
 
         const filterOptionACS = screen.getByLabelText(/carmen miranda/i);
-        await userEvent.click(filterOptionACS);
+        await user.click(filterOptionACS);
 
         const [btnApplyFilter] = screen.getAllByRole("button", { name: /filtrar lista nominal/i });
-        await userEvent.click(btnApplyFilter);
+        await user.click(btnApplyFilter);
 
         const expected = [
           {
@@ -834,33 +848,34 @@ describe(`Componente: ${COMPONENT}`, () => {
 
       describe('E remover uma das opções', () => {
         it('deve exibir os dados filtrados pelas opções restantes', async () => {
+          const user = userEvent.setup();
           render(<PainelBuscaAtiva { ...scenarios[0] } />);
 
           const btnShowFilterModal = screen.getByRole("button", { name: /filtrar lista nominal/i });
-          await userEvent.click(btnShowFilterModal);
+          await user.click(btnShowFilterModal);
 
           const [showACSFilterOptions, showStatusFilterOptions] = screen.getAllByRole("button", { name: "+" });
 
-          await userEvent.click(showStatusFilterOptions);
+          await user.click(showStatusFilterOptions);
 
           const filterOptionStatus = screen.getByLabelText(/nunca realizou coleta/i);
-          await userEvent.click(filterOptionStatus);
+          await user.click(filterOptionStatus);
 
           const hideStatusFilterOptions = screen.getByRole("button", { name: "-" });
-          await userEvent.click(hideStatusFilterOptions);
+          await user.click(hideStatusFilterOptions);
 
-          await userEvent.click(showACSFilterOptions);
+          await user.click(showACSFilterOptions);
 
           const filterOptionACS = screen.getByLabelText(/alessandra santos/i);
-          await userEvent.click(filterOptionACS);
+          await user.click(filterOptionACS);
 
           const [btnApplyFilter] = screen.getAllByRole("button", { name: /filtrar lista nominal/i });
-          await userEvent.click(btnApplyFilter);
+          await user.click(btnApplyFilter);
 
-          await userEvent.click(btnShowFilterModal);
-          await userEvent.click(showACSFilterOptions);
-          await userEvent.click(filterOptionACS);
-          await userEvent.click(btnApplyFilter);
+          await user.click(btnShowFilterModal);
+          await user.click(showACSFilterOptions);
+          await user.click(filterOptionACS);
+          await user.click(btnApplyFilter);
 
           const expected = [
             {
