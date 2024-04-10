@@ -20,26 +20,6 @@ jest.mock("@mui/x-data-grid", () => {
 });
 
 const COMPONENT = "PainelBuscaAtiva";
-const STATUS = [
-  "Sem dados",
-  "Com consulta e aferição de PA em dia",
-  "Sem consulta e aferição de PA em dia",
-  "Sem consulta em dia",
-  "Sem aferição de PA em dia",
-  "Com consulta e solicitação de hemoglobina em dia",
-  "Sem consulta e solicitação de hemoglobina em dia",
-  "Sem solicitação de hemoglobina em dia",
-  "Encerradas por DPP + 14 dias",
-  "Encerradas por parto ou aborto",
-  "Ativas",
-  "Gestantes inválidas",
-  "Coleta em dia",
-  "Nunca realizou coleta",
-  "Coleta com menos de 25 anos",
-  "Vence no final do quadrimestre",
-  "Coleta vencida",
-];
-
 const scenarios = [
   {
     painel: "citopatológico",
@@ -51,7 +31,7 @@ const scenarios = [
       },
       {
         data: ["12", "13"],
-        labels: STATUS,
+        labels: responses.status,
         filtro: "id_status_usuario",
         rotulo: "Filtrar por status"
       },
