@@ -1,14 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Componente: CardFiltro Ao clicar no componente deve renderizar o card contornado 1`] = `
-<div
-  class="cardFiltroSelected"
-  data-testid="CardFiltro"
->
-  NOME DO ACS DE A-Z
-</div>
-`;
-
 exports[`Componente: CardFiltro deve renderizar corretamente 1`] = `
 <div
   class="cardFiltro"
