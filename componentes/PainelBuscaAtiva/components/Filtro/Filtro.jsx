@@ -20,11 +20,14 @@ export const Filtro = ({
   datefiltros,
   IntFiltros,
   IDFiltrosOrdenacao,
+  ordenacaoAplicada,
 }) => {
   function limparFiltros() {
-    // TODO ordenar apenas se houver ordenação aplicada
-    const dadosOrdenados = helpers.sortByChoice(tabela, ordenar, IDFiltrosOrdenacao, datefiltros, IntFiltros);
-    setData(dadosOrdenados);
+    const dados = ordenacaoAplicada
+      ? helpers.sortByChoice(tabela, ordenar, IDFiltrosOrdenacao, datefiltros, IntFiltros)
+      : tabela;
+
+    setData(dados);
     setChavesFiltros([]);
     setModal(false);
   };
@@ -43,9 +46,12 @@ export const Filtro = ({
     const filtrosSelecionados = helpers.valuesToChavesFiltros(value, setChavesFiltros, data);
     const filtrosAgrupados = helpers.agruparChavesIguais(filtrosSelecionados);
     const dadosFiltrados = helpers.filterByChoices(tabela, filtrosAgrupados);
-    const dadosOrdenados = helpers.sortByChoice(dadosFiltrados, ordenar, IDFiltrosOrdenacao, datefiltros, IntFiltros);
 
-    setData(dadosOrdenados);
+    setData(
+      ordenacaoAplicada
+        ? helpers.sortByChoice(dadosFiltrados, ordenar, IDFiltrosOrdenacao, datefiltros, IntFiltros)
+        : dadosFiltrados
+    );
     setModal(false);
     mapClickEvent(filtrosAgrupados);
   }

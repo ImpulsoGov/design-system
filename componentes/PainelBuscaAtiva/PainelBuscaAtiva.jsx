@@ -149,6 +149,7 @@ const PainelBuscaAtiva = ({
                                 IntFiltros={IntFiltros}
                                 IDFiltrosOrdenacao={IDFiltrosOrdenacao}
                                 setShowSnackBar={setShowSnackBar}
+                                ordenacaoAplicada={ordenacaoAplicada}
                             />
                         }
                     </Modal>
