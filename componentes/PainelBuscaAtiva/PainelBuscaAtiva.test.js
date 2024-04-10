@@ -44,8 +44,8 @@ const scenarios = [
           field: "id_status_usuario",
           headerName: "STATUS DA COLETA",
           renderCell: ({ value }) => [
-            { id_status_usuario: 12, status_usuarios_descricao: STATUS[12] },
-            { id_status_usuario: 13, status_usuarios_descricao: STATUS[13] },
+            { id_status_usuario: 12, status_usuarios_descricao: responses.status[12] },
+            { id_status_usuario: 13, status_usuarios_descricao: responses.status[13] },
           ].find(({ id_status_usuario }) => id_status_usuario === value).status_usuarios_descricao
         },
         { field: "acs_nome", headerName: "ACS" },
