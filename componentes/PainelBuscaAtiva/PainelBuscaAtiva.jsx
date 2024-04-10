@@ -132,6 +132,7 @@ const PainelBuscaAtiva = ({
                                 datefiltros={datefiltros}
                                 IntFiltros={IntFiltros}
                                 IDFiltrosOrdenacao={IDFiltrosOrdenacao}
+                                ordenacaoAplicada={ordenacaoAplicada}
                             />
                         }
                     </Modal>
