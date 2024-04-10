@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Filtro } from '.';
-import { citoSuccessAPS, status } from '../../__data__';
+import * as responses from "../../__data__";
 
 const dadosDeFiltros = [
   {
@@ -11,7 +11,7 @@ const dadosDeFiltros = [
   },
   {
     data: ['12', '13'],
-    labels: status,
+    labels: responses.status,
     filtro: 'id_status_usuario',
     rotulo: 'Filtrar por status'
   },
@@ -20,7 +20,7 @@ const scenarios = [
   {
     data: dadosDeFiltros,
     setData: jest.fn(),
-    tabela: citoSuccessAPS,
+    tabela: responses.citoSuccessAPS,
     value: {
       '12': false,
       '13': false,
@@ -40,7 +40,7 @@ const scenarios = [
   {
     data: dadosDeFiltros,
     setData: jest.fn(),
-    tabela: citoSuccessAPS,
+    tabela: responses.citoSuccessAPS,
     value: {
       '12': false,
       '13': false,
@@ -60,7 +60,7 @@ const scenarios = [
   {
     data: dadosDeFiltros,
     setData: jest.fn(),
-    tabela: citoSuccessAPS,
+    tabela: responses.citoSuccessAPS,
     value: {
       '12': true,
       '13': false,
@@ -80,7 +80,7 @@ const scenarios = [
   {
     data: dadosDeFiltros,
     setData: jest.fn(),
-    tabela: citoSuccessAPS,
+    tabela: responses.citoSuccessAPS,
     value: {
       '12': false,
       '13': true,
@@ -100,7 +100,7 @@ const scenarios = [
   {
     data: dadosDeFiltros,
     setData: jest.fn(),
-    tabela: citoSuccessAPS,
+    tabela: responses.citoSuccessAPS,
     value: {
       '12': false,
       '13': false,
@@ -177,7 +177,7 @@ describe('Componente: Filtro', () => {
 
         await user.click(botaoFiltrarLista);
 
-        expect(scenarios[0].setData).toHaveBeenCalledWith(citoSuccessAPS);
+        expect(scenarios[0].setData).toHaveBeenCalledWith(responses.citoSuccessAPS);
       });
     });
 
@@ -335,7 +335,7 @@ describe('Componente: Filtro', () => {
 
         await user.click(limparFiltros);
 
-        expect(scenarios[0].setData).toHaveBeenCalledWith(citoSuccessAPS);
+        expect(scenarios[0].setData).toHaveBeenCalledWith(responses.citoSuccessAPS);
       });
     });
 
