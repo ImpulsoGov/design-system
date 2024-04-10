@@ -63,6 +63,7 @@ export const Filtro = ({
         {data.map((filtro) => (
           <FiltroBody
             data={ filtro }
+            value={ value }
             key={ filtro.rotulo }
             handleCheckbox={ handleCheckbox }
           />

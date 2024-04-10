@@ -4,6 +4,7 @@ import { FiltroCard } from "../FiltroCard";
 
 export const FiltroBody = ({
   data,
+  value = {},
   handleCheckbox = () => {},
   isUnfolded = false,
   onClick = () => {},
@@ -46,6 +47,7 @@ export const FiltroBody = ({
                     id={item}
                     filtroID={data.filtro}
                     handleCheckbox={handleCheckbox}
+                    initiallyChecked={value[item]}
                   />
                 )
               })

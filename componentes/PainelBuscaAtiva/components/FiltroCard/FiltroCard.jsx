@@ -6,8 +6,9 @@ export const FiltroCard = ({
   label = "",
   filtroID,
   handleCheckbox = () => {},
+  initiallyChecked = false,
 })=>{
-  const [checked, toggleChecked] = useState(false);
+  const [checked, toggleChecked] = useState(initiallyChecked);
   const handleChange = (event) => {
     const { id: property, checked } = event.target;
     toggleChecked(checked);
