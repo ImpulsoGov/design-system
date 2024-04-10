@@ -791,7 +791,7 @@ describe(`Componente: ${COMPONENT}`, () => {
           await user.click(btnApplyFilter);
 
           await user.click(btnShowFilterModal);
-          await userEvent.click(screen.getAllByRole("button", { name: user })[0]);
+          await user.click(screen.getAllByRole("button", { name: "+" })[0]);
 
           expect(screen.getByLabelText(/carmen miranda/i)).toBeChecked();
         });
