@@ -4,6 +4,7 @@ import { FiltroCard } from "../FiltroCard";
 
 export const FiltroBody = ({
   data,
+  value = {},
   handleCheckbox = () => {},
 })=>{
   const [show, toggleShow] = useState(false);
@@ -34,6 +35,7 @@ export const FiltroBody = ({
                     id={item}
                     filtroID={data.filtro}
                     handleCheckbox={handleCheckbox}
+                    initiallyChecked={value[item]}
                   />
                 )
               })
