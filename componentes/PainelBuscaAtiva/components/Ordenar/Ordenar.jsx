@@ -74,7 +74,17 @@ export const Ordenar = (props)=>{
       </div>
 
       <p className={style.OrdenarPor}>Ordenar por:</p>
-      {filtros_painel.rotulos.map((label)=><CardFiltro label={label} setOrdenar={props.setOrdenar} ordenar={props.ordenar} ID={filtros_painel.ID} key={label} />)}
+
+      {filtros_painel.rotulos.map((label)=> (
+        <CardFiltro
+          label={label}
+          isSelected={props.ordenar === filtros_painel.ID[label]}
+          sortProperty={filtros_painel.ID[label]}
+          setOrdenar={props.setOrdenar}
+          key={label}
+        />
+      ))}
+
       <ButtonColorSubmit
         label="ORDENAR LISTA"
         submit={SortData}
