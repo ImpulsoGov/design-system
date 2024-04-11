@@ -17,6 +17,7 @@ exports[`Componente: PainelBuscaAtiva deve renderizar corretamente 1`] = `
   </div>
   <div
     class="ToolBar"
+    data-testid="ToolBar"
   >
     <input
       class="SearchBar"
