@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import style from "../../PainelBuscaAtiva.module.css";
 
 export const FiltroCard = ({
+  id,
   label = "",
   filtroID,
   handleCheckbox = () => {},
+  initiallyChecked = false,
 })=>{
-  const [checked, toggleChecked] = useState(false);
+  const [checked, toggleChecked] = useState(initiallyChecked);
   const handleChange = (event) => {
     const { id: property, checked } = event.target;
     toggleChecked(checked);
@@ -21,9 +23,14 @@ export const FiltroCard = ({
         onChange={handleChange}
         name={filtroID}
         checked={checked}
-        id={label}
+        id={id}
       />
-      <p data-testid="FiltroCardLabel">{label}</p>
+      <label
+        data-testid="FiltroCardLabel"
+        htmlFor={id}
+      >
+        {label}
+      </label>
     </div>
   )
 }

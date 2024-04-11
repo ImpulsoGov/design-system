@@ -4,49 +4,60 @@ import * as helpers from "../../helpers";
 import style from "../../PainelBuscaAtiva.module.css";
 import { CardFiltro } from "../CardFiltro";
 
-export const Ordenar = (props)=>{
+export const Ordenar = ({
+  rotulosfiltros,
+  IDFiltros,
+  filtros,
+  setChavesFiltros,
+  dadosFiltros,
+  tabela,
+  setOrdenar,
+  data,
+  ordenar,
+  setData,
+  datefiltros,
+  IntFiltros,
+  setModal,
+  setOrdenacaoAplicada,
+  IDFiltrosOrdenacao,
+  trackObject,
+  painel,
+  aba,
+  sub_aba,
+})=>{
   const filtros_painel = {
-    "rotulos" : props.rotulosfiltros,
-    "ID" : props.IDFiltros
+    "rotulos" : rotulosfiltros,
+    "ID" : IDFiltros
   }
-  const limpar = ()=>{
-    let dados = props.tabela
-    const temFiltrosAplicados = Object.values(props.filtros).some((filtro) => filtro);
+  const hasFiltersApplied = Object.values(filtros).some((value) => value);
 
-    if (temFiltrosAplicados) {
-      const filtrosEscolhidos = helpers.valuesToChavesFiltros(props.filtros, props.setChavesFiltros, props.dadosFiltros)
-      const filtrosAgrupados = helpers.agruparChavesIguais(filtrosEscolhidos)
-      dados = helpers.filterByChoices(props.tabela, filtrosAgrupados)
-    }
+  function filter(data) {
+    const chosenFilters = helpers.valuesToChavesFiltros(filtros, setChavesFiltros, dadosFiltros);
+    const groupedFilters = helpers.agruparChavesIguais(chosenFilters);
 
-    props.setOrdenar()
-    props.setData(dados)
-    props.setModal(false)
-    props.setOrdenacaoAplicada(false)
+    return helpers.filterByChoices(data, groupedFilters);
   }
 
-  const SortData = ({
-    data,
-    setData,
-    filtro,
-    datefiltros,
-    IntFiltros,
-    setModal,
-    setOrdenacaoAplicada,
-    IDFiltrosOrdenacao,
-    trackObject,
-    painel,
-    aba,
-    sub_aba
-  })=>{
-    setData(helpers.sortByChoice(data, filtro, IDFiltrosOrdenacao, datefiltros, IntFiltros))
+  const limparOrdenacao = ()=>{
+    const dados = hasFiltersApplied ? filter(tabela) : tabela
+
+    setOrdenar()
+    setData(dados)
+    setModal(false)
+    setOrdenacaoAplicada(false)
+  }
+
+  const handleButtonClick = ()=>{
+    const dados = hasFiltersApplied ? filter(data) : data
+
+    setData(helpers.sortByChoice(dados, ordenar, IDFiltrosOrdenacao, datefiltros, IntFiltros))
 
     trackObject.track('button_click', {
       'button_action': 'aplicar_ordenacao',
       'nome_lista_nominal': painel,
       'aba_lista_nominal' : aba,
       'sub_aba_lista_nominal' : sub_aba,
-      'button_choices' : filtro
+      'button_choices' : ordenar
     })
     setModal(false)
     setOrdenacaoAplicada(true)
@@ -56,27 +67,27 @@ export const Ordenar = (props)=>{
     <div className={style.containerOrdenar} data-testid="Ordenar">
       <div
         className={style.limparOrdenacao}
-        onClick={limpar}
-      >Limpar ordenação</div>
+        onClick={limparOrdenacao}
+      >
+        Limpar ordenação
+      </div>
+
       <p className={style.OrdenarPor}>Ordenar por:</p>
-      {filtros_painel.rotulos.map((label)=><CardFiltro label={label} setOrdenar={props.setOrdenar} ordenar={props.ordenar} ID={filtros_painel.ID} key={label} />)}
+
+      {filtros_painel.rotulos.map((label)=> (
+        <CardFiltro
+          label={label}
+          isSelected={ordenar === filtros_painel.ID[label]}
+          sortProperty={filtros_painel.ID[label]}
+          setOrdenar={setOrdenar}
+          key={label}
+        />
+      ))}
+
       <ButtonColorSubmit
         label="ORDENAR LISTA"
-        submit={SortData}
-        arg={{
-          data : props.data,
-          filtro : props.ordenar,
-          setData:props.setData,
-          datefiltros : props.datefiltros,
-          IntFiltros : props.IntFiltros,
-          setModal : props.setModal,
-          setOrdenacaoAplicada : props.setOrdenacaoAplicada, 
-          IDFiltrosOrdenacao : props.IDFiltrosOrdenacao,
-          trackObject : props.trackObject,
-          painel : props.painel,
-          aba : props.aba,
-          sub_aba : props.sub_aba
-      }}/>
+        submit={handleButtonClick}
+        arg={{}}/>
     </div>
   )
 }

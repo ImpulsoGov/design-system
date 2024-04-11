@@ -40,6 +40,7 @@ export function stringToDate(str = '') {
   if (str.includes('-')) return dataFormatoTraco(str);
 }
 
+// TODO melhorar descrição das funções
 /**
  * Gera um objeto com as propriedades de filtros selecionados e seus valores a partir de um objeto com estados de seleção das opções de filtros
  * @param {*} value objeto com os estados de seleção das opções de filtros
@@ -64,4 +65,21 @@ export function valuesToChavesFiltros(value, setChavesFiltros, dadosFiltros) {
   setChavesFiltros(chaves);
 
   return chaves;
+}
+
+/**
+ * Converte um array de chaves de filtros num array de valores de filtros
+ * @param {*} chavesFiltros array de objetos com nome das propriedades dos filtros selecionados e seus valores
+ * @param {*} value objeto com os estados de seleção das opções de filtros
+ * @param {*} setValue função de atualização do estado de seleção das opções de filtros
+ */
+export function chavesFiltrosToCheckBoxesValues(chavesFiltros, value, setValue) {
+  const value_temp = value;
+  Object.keys(value_temp).forEach(checkbox => {
+    value_temp[checkbox] = false;
+  });
+  chavesFiltros.forEach(valor => {
+    value_temp[Object.values(valor)[0]] = true;
+  });
+  setValue(() => value_temp);
 }

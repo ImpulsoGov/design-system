@@ -1,28 +1,21 @@
-import React, { useState } from "react";
+import React from "react";
 import style from "../../PainelBuscaAtiva.module.css";
 
 export const CardFiltro = ({
   label,
+  isSelected,
+  sortProperty,
   setOrdenar,
-  ID,
 })=>{
-  const [property, setProperty] = useState("");
-  const OrdenarPor = ()=>{
-    // Atualiza estado local
-    setProperty(ID[label]);
-    // Atualiza estado do pai
-    setOrdenar(ID[label]);
+  function handleClick() {
+    setOrdenar(sortProperty);
   }
 
   return (
     <div
       data-testid="CardFiltro"
-      onClick={OrdenarPor}
-      className={
-        ID[label] !== property ?
-        style.cardFiltro :
-        style.cardFiltroSelected
-      }
+      onClick={handleClick}
+      className={isSelected ? style.cardFiltroSelected : style.cardFiltro}
     >
       {label.toUpperCase()}
     </div>

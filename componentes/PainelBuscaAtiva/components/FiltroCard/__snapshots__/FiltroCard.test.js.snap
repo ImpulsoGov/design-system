@@ -7,14 +7,15 @@ exports[`Componete: FiltroCard deve renderizar corretamente 1`] = `
 >
   <input
     class="InputFiltroCard"
-    id="Tainá"
+    id="5"
     name="acs_nome"
     type="checkbox"
   />
-  <p
+  <label
     data-testid="FiltroCardLabel"
+    for="5"
   >
     Tainá
-  </p>
+  </label>
 </div>
 `;
