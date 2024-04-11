@@ -1,4 +1,5 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import {render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import {ToolBar} from './index';
 
 const COMPONENT = 'ToolBar';
@@ -321,20 +322,19 @@ describe(`Componente: ${COMPONENT}`, () => {
   it('deve renderizar corretamente', () => {
     render(
       <ToolBar {...scenario[0]} />,
-      <ToolBar {...scenario[1]} />,
-      <ToolBar {...scenario[2]} />,
-      <ToolBar {...scenario[3]} />
+     
     );
     const component = screen.getByTestId(COMPONENT);
     expect(component).toMatchSnapshot();
   });
 
   // Testes para o primeiro cenário..
-  it('deve filtrar corretamente quando o valor do input paciente nome é alterado', () => {
+  it('deve filtrar corretamente quando o valor do input paciente nome é alterado', async () => {
+    const user = userEvent.setup();
     render(<ToolBar {...scenario[0]} />);
 
     const input = screen.getByPlaceholderText('PESQUISE UM NOME');
-    fireEvent.change(input, { target: { value: 'Maria' } });
+    await user.type(input, 'Maria');
 
     expect(scenario[0].setData).toHaveBeenCalledWith(
       expect.arrayContaining([
@@ -359,11 +359,12 @@ describe(`Componente: ${COMPONENT}`, () => {
   });
 
   // Testes para o segundo cenário...
-  it('deve filtrar corretamente quando o valor do input cidadao nome é alterado', () => {
+  it('deve filtrar corretamente quando o valor do input cidadao nome é alterado', async () => {
+    const user = userEvent.setup();
     render(<ToolBar {...scenario[1]} />);
 
     const input = screen.getByPlaceholderText('PESQUISE UM NOME');
-    fireEvent.change(input, { target: { value: 'Julia' } });
+    await user.type(input, 'Julia');
 
     expect(scenario[1].setData).toHaveBeenCalledWith(
       expect.arrayContaining([
