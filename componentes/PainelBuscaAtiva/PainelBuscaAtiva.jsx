@@ -137,7 +137,7 @@ const PainelBuscaAtiva = ({
                         }
                     </Modal>
                 </div>
-            }
+            } 
             <div className={style.AtualizacaoConteiner}>
                 <div className={style.Atualizacao}>PRODUÇÃO MAIS RECENTE RECEBIDA EM: {atualizacao}</div>
             </div>
