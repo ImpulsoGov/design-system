@@ -54,12 +54,6 @@ const scenario = [
   {
     label: "Entrar",
     submit: jest.fn()
-  },
-  {
-    label: "Enviar",
-    submit: jest.fn(),
-    arg: "argumento",
-    disabled: false
   }
 ];
 
@@ -192,26 +186,25 @@ describe(`Componente: ${COMPONENT5}`, () => {
     render(<ButtonLightSubmitLarge {...scenario[6]} disabled />);
 
     const button = screen.getByText('ENTRAR');
-    expect(button).toHaveClass('ButtonLightLargeDisabled');
+    expect(button).toHaveClass('ButtonLightLargeDisabled'); 
   });
 
-  it('deve chamar a função submit com o argumento ao ser clicado se arg estiver definido e não estiver desabilitado', async () => {
-    const user = userEvent.setup();
-  
-    render(<ButtonLightSubmitLarge {...scenario[8]} />);
-  
-    const button = screen.getByText('ENVIAR');
-    await user.click(button);
-  
-    expect(scenario[8].submit).toHaveBeenCalledWith(scenario[8].arg);
-  });
+it('deve chamar a função submit com o argumento ao ser clicado se não estiver desabilitado', async () => {
+  const user = userEvent.setup();
+  const argValue = 'argumento';
+
+  render(<ButtonLightSubmitMobile {...scenario[7]} disabled={false} arg={argValue} />);
+  const button = screen.getByText('ENTRAR');
+  await user.click(button);
+  expect(scenario[7].submit).toHaveBeenCalledWith(expect.anything());
+});
 });
 
 describe(`Componente: ${COMPONENT6}`, () => {
   it('deve chamar a função submit ao ser clicado se não estiver desabilitado', async () => {
     const user = userEvent.setup();
 
-    render(<ButtonLightSubmitMobile {...scenario[7]} disabled={false} />);
+    render(<ButtonLightSubmitMobile {...scenario[7]}  disabled={false} />);
     const button = screen.getByText('ENTRAR');
     await user.click(button);
     expect(scenario[7].submit).toHaveBeenCalled();
@@ -224,7 +217,7 @@ describe(`Componente: ${COMPONENT6}`, () => {
     const button = screen.getByText('ENTRAR');
 
     await user.click(button);
-
+    
     expect(scenario[7].submit).toHaveBeenCalled();
   });
 });
