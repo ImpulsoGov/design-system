@@ -1,0 +1,28 @@
+.FiltroCard{
+  display: flex;
+  flex-direction: row;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 150%;
+  gap: 10px;
+  background: #EFF5F9;
+  border-radius: 10px;
+  width: fit-content;
+  padding: 0 6px;
+  margin-left: 15px;
+}
+
+.InputFiltroCard{
+  accent-color: #2EB280;
+  color: white;
+}
+
+.InputFiltroCard:checked::before{
+  color: white !important;
+}
+
+.LabelFiltroCard {
+  padding: 12px 0;
+}

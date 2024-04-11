@@ -1,5 +1,5 @@
 import React from "react";
-import style from "../../PainelBuscaAtiva.module.css";
+import style from "./CardFiltro.module.css";
 
 export const CardFiltro = ({
   label,

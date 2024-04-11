@@ -1,0 +1,42 @@
+.ConteinerFiltro{
+  display: flex;
+  font-family: 'Inter';
+  font-style: normal;
+  flex-direction: column;
+  width: 100%;
+}
+
+.tituloFiltro{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-right: 10px;
+}
+
+.ShowFiltros{
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  width: 20px;
+  height: 20px;
+  color : #2EB280;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  border: solid 2px #2EB280;
+  background-color: white;
+  margin-left: auto;
+}
+
+.ShowFiltros:hover{
+  cursor: pointer;
+}
+
+.ConteinerFiltros{
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
