@@ -3,6 +3,7 @@ import userEvent from '@testing-library/user-event';
 import { Filtro } from '.';
 import * as responses from "../../__data__";
 
+const COMPONENT = 'Filtro';
 const dadosDeFiltros = [
   {
     data: ['Alessandra Santos', 'Carmen Miranda', null],
@@ -124,32 +125,12 @@ describe('Componente: Filtro', () => {
     jest.clearAllMocks();
   });
 
-  describe('Quando renderizado', () => {
-    it('deve exibir o texto \'limpar filtros\'', async () => {
-      render(<Filtro {...scenarios[0]} />);
+  it('deve renderizar corretamente', () => {
+    render(<Filtro {...scenarios[0]} />);
 
-      const limparFiltros = await screen.findByText(/limpar filtros/i);
+    const component = screen.getByTestId(COMPONENT);
 
-      expect(limparFiltros).toBeInTheDocument();
-    });
-
-    it('deve exibir o botão de filtrar lista nominal', async () => {
-      render(<Filtro {...scenarios[0]} />);
-
-      const botaoFiltrarLista = await screen.findByRole('button', {
-        name: /filtrar lista nominal/i
-      });
-
-      expect(botaoFiltrarLista).toBeInTheDocument();
-    });
-
-    it('deve exibir a correta quantidade de filtros', async () => {
-      render(<Filtro {...scenarios[0]} />);
-
-      const botoesMostrarOpcoesDeFiltro = await screen.findAllByText('+');
-
-      expect(botoesMostrarOpcoesDeFiltro).toHaveLength(dadosDeFiltros.length);
-    });
+    expect(component).toMatchSnapshot();
   });
 
   describe('Ao clicar no botão de filtrar lista nominal', () => {
