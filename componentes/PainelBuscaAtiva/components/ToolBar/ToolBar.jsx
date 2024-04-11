@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import style from "../../PainelBuscaAtiva.module.css";
+import style from "./ToolBar.module.css";
 import { ButtonLightSubmit } from "../../../ButtonLight/ButtonLight";
 
 export const ToolBar = ({

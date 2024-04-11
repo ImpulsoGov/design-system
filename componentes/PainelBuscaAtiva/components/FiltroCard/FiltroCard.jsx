@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import style from "../../PainelBuscaAtiva.module.css";
+import style from "./FiltroCard.module.css";
 
 export const FiltroCard = ({
   id,
@@ -26,6 +26,7 @@ export const FiltroCard = ({
         id={id}
       />
       <label
+        className={style.LabelFiltroCard}
         data-testid="FiltroCardLabel"
         htmlFor={id}
       >

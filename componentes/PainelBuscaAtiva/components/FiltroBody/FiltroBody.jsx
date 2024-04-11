@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import style from "../../PainelBuscaAtiva.module.css";
+import style from "./FiltroBody.module.css";
 import { FiltroCard } from "../FiltroCard";
 
 export const FiltroBody = ({
