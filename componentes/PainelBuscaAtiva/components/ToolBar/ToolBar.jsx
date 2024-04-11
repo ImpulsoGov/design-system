@@ -20,7 +20,7 @@ export const ToolBar = ({
     if(nome.length<=0) setData(tabela)
   },[nome])
   return(
-    <div className={style.ToolBar}>
+    <div className={style.ToolBar} data-testid="ToolBar">
       <input
         className={style.SearchBar}
         placeholder="PESQUISE UM NOME"
