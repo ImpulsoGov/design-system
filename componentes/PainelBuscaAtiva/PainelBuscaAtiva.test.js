@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import * as responses from "./__data__";
-import { PainelBuscaAtiva } from "./PainelBuscaAtiva";
+import { PainelBuscaAtiva } from ".";
 
 // Permite que o DataGrid renderize mais de 3 colunas no ambiente jsdom
 // Referências:
