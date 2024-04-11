@@ -1,7 +1,7 @@
 import React from "react";
 import { ButtonColorSubmit } from "../../../ButtonColor";
 import * as helpers from "../../helpers";
-import style from "../../PainelBuscaAtiva.module.css";
+import style from "./Ordenar.module.css";
 import { CardFiltro } from "../CardFiltro";
 
 export const Ordenar = ({

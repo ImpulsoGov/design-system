@@ -1,6 +1,6 @@
 import React from "react";
 import { ButtonColorSubmit } from "../../../ButtonColor";
-import style from "../../PainelBuscaAtiva.module.css";
+import style from "./Filtro.module.css";
 import * as helpers from "../../helpers";
 import { FiltroBody } from "../FiltroBody";
 
@@ -65,7 +65,7 @@ export const Filtro = ({
         Limpar Filtros
       </div>
 
-      <div style={ { overflowY: "scroll", height: "70vh", width: "120%" } }>
+      <div className={style.FiltrosContainer}>
         {data.map((filtro) => (
           <FiltroBody
             data={ filtro }
