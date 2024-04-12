@@ -5,19 +5,22 @@ import { ButtonLightSubmit } from "../../../ButtonLight/ButtonLight";
 export const ToolBar = ({
   showFiltros,
   showOrdenar,
-  painel,
   chavesFiltros,
-  ordenar,
-  setOrdenar,
-  data,
-  setData,
   tabela,
-  ordenacaoAplicada
+  ordenacaoAplicada,
+  updateData,
 })=>{
   const [nome,setNome] =useState('')
-  const filterbyName = ()=>setData(tabela.filter(item=>item[item?.cidadao_nome ? "cidadao_nome" : "paciente_nome"].toUpperCase().includes(nome.toUpperCase())))
+  const filterbyName = ()=>{
+    const filteredData = tabela.filter(item=>{
+      const property = item?.cidadao_nome ? "cidadao_nome" : "paciente_nome";
+      return item[property].toUpperCase().includes(nome.toUpperCase())
+    });
+
+    updateData(filteredData);
+  }
   useEffect(()=>{
-    if(nome.length<=0) setData(tabela)
+    if(nome.length<=0) updateData(tabela)
   },[nome])
   return(
     <div className={style.ToolBar} data-testid="ToolBar">
@@ -30,7 +33,6 @@ export const ToolBar = ({
       <ButtonLightSubmit
         label="ORDENAR LISTA"
         submit={showOrdenar}
-        arg={{painel,ordenar,setOrdenar,data,setData}}
         icon={ordenacaoAplicada ?
           "https://media.graphassets.com/ZWmQGa3TEGVceKxm4nlw" :
           "https://media.graphassets.com/7E9qXtNTze5w3ozl6a5I"
