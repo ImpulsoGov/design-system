@@ -11,7 +11,7 @@ exports[`Componente: Filtro deve renderizar corretamente 1`] = `
     Limpar Filtros
   </div>
   <div
-    style="overflow-y: scroll; height: 70vh; width: 120%;"
+    class="FiltrosContainer"
   >
     <div
       data-testid="FiltroBody"
