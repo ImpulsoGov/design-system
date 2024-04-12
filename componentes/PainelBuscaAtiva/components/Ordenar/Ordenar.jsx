@@ -14,7 +14,6 @@ export const Ordenar = ({
   setOrdenar,
   data,
   ordenar,
-  setData,
   datefiltros,
   IntFiltros,
   setModal,
@@ -24,6 +23,7 @@ export const Ordenar = ({
   painel,
   aba,
   sub_aba,
+  updateData,
 })=>{
   const filtros_painel = {
     "rotulos" : rotulosfiltros,
@@ -42,7 +42,7 @@ export const Ordenar = ({
     const dados = hasFiltersApplied ? filter(tabela) : tabela
 
     setOrdenar()
-    setData(dados)
+    updateData(dados)
     setModal(false)
     setOrdenacaoAplicada(false)
   }
@@ -50,7 +50,7 @@ export const Ordenar = ({
   const handleButtonClick = ()=>{
     const dados = hasFiltersApplied ? filter(data) : data
 
-    setData(helpers.sortByChoice(dados, ordenar, IDFiltrosOrdenacao, datefiltros, IntFiltros))
+    updateData(helpers.sortByChoice(dados, ordenar, IDFiltrosOrdenacao, datefiltros, IntFiltros))
 
     trackObject.track('button_click', {
       'button_action': 'aplicar_ordenacao',
