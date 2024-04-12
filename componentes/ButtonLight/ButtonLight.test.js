@@ -203,7 +203,6 @@ describe(`Componente: ${COMPONENT5}`, () => {
     const button = screen.getByText('ENVIAR');
     await user.click(button);
   
-    // Verifique se a função submit foi chamada com o argumento especificado
     expect(scenario[8].submit).toHaveBeenCalledWith(scenario[8].arg);
   });
 });
