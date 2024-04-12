@@ -14,7 +14,6 @@ export const Ordenar = ({
   setOrdenar,
   data,
   ordenar,
-  setData,
   datefiltros,
   IntFiltros,
   setModal,
@@ -25,6 +24,7 @@ export const Ordenar = ({
   aba,
   sub_aba,
   setShowSnackBar,
+  updateData,
 })=>{
   const filtros_painel = {
     "rotulos" : rotulosfiltros,
@@ -43,7 +43,7 @@ export const Ordenar = ({
     const dados = hasFiltersApplied ? filter(tabela) : tabela
 
     setOrdenar()
-    setData(dados)
+    updateData(dados)
     setModal(false)
     setOrdenacaoAplicada(false)
   }
@@ -51,7 +51,7 @@ export const Ordenar = ({
   const handleButtonClick = ()=>{
     const dados = hasFiltersApplied ? filter(data) : data
 
-    setData(helpers.sortByChoice(dados, ordenar, IDFiltrosOrdenacao, datefiltros, IntFiltros))
+    updateData(helpers.sortByChoice(dados, ordenar, IDFiltrosOrdenacao, datefiltros, IntFiltros))
 
     setShowSnackBar({
       open: true,
