@@ -48,6 +48,7 @@ export const FiltroBody = ({
                     filtroID={data.filtro}
                     handleCheckbox={handleCheckbox}
                     initiallyChecked={value[item]}
+                    key={item}
                   />
                 )
               })
