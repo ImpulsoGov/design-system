@@ -12,6 +12,7 @@ exports[`Componete: FiltroCard deve renderizar corretamente 1`] = `
     type="checkbox"
   />
   <label
+    class="LabelFiltroCard"
     data-testid="FiltroCardLabel"
     for="5"
   >
