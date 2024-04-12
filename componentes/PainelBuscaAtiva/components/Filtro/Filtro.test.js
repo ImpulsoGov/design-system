@@ -20,7 +20,7 @@ const dadosDeFiltros = [
 const scenarios = [
   {
     data: dadosDeFiltros,
-    setData: jest.fn(),
+    updateData: jest.fn(),
     tabela: responses.citoSuccessAPS,
     value: {
       '12': false,
@@ -40,7 +40,7 @@ const scenarios = [
   },
   {
     data: dadosDeFiltros,
-    setData: jest.fn(),
+    updateData: jest.fn(),
     tabela: responses.citoSuccessAPS,
     value: {
       '12': false,
@@ -60,7 +60,7 @@ const scenarios = [
   },
   {
     data: dadosDeFiltros,
-    setData: jest.fn(),
+    updateData: jest.fn(),
     tabela: responses.citoSuccessAPS,
     value: {
       '12': true,
@@ -80,7 +80,7 @@ const scenarios = [
   },
   {
     data: dadosDeFiltros,
-    setData: jest.fn(),
+    updateData: jest.fn(),
     tabela: responses.citoSuccessAPS,
     value: {
       '12': false,
@@ -100,7 +100,7 @@ const scenarios = [
   },
   {
     data: dadosDeFiltros,
-    setData: jest.fn(),
+    updateData: jest.fn(),
     tabela: responses.citoSuccessAPS,
     value: {
       '12': false,
@@ -158,7 +158,7 @@ describe('Componente: Filtro', () => {
 
         await user.click(botaoFiltrarLista);
 
-        expect(scenarios[0].setData).toHaveBeenCalledWith(responses.citoSuccessAPS);
+        expect(scenarios[0].updateData).toHaveBeenCalledWith(responses.citoSuccessAPS);
       });
     });
 
@@ -191,7 +191,7 @@ describe('Componente: Filtro', () => {
             vencimento_da_coleta: '27/07/2025'
           }];
 
-          expect(scenarios[1].setData).toHaveBeenCalledWith(parametroEsperado);
+          expect(scenarios[1].updateData).toHaveBeenCalledWith(parametroEsperado);
         });
       });
 
@@ -257,7 +257,7 @@ describe('Componente: Filtro', () => {
             },
           ];
 
-          expect(scenarios[2].setData).toHaveBeenCalledWith(parametroEsperado);
+          expect(scenarios[2].updateData).toHaveBeenCalledWith(parametroEsperado);
         });
       });
     });
@@ -290,7 +290,7 @@ describe('Componente: Filtro', () => {
           dt_registro_producao_mais_recente: '2023-10-22'
         }];
 
-        expect(scenarios[3].setData).toHaveBeenCalledWith(parametroEsperado);
+        expect(scenarios[3].updateData).toHaveBeenCalledWith(parametroEsperado);
       });
     });
   });
@@ -316,7 +316,7 @@ describe('Componente: Filtro', () => {
 
         await user.click(limparFiltros);
 
-        expect(scenarios[0].setData).toHaveBeenCalledWith(responses.citoSuccessAPS);
+        expect(scenarios[0].updateData).toHaveBeenCalledWith(responses.citoSuccessAPS);
       });
     });
 
@@ -396,7 +396,7 @@ describe('Componente: Filtro', () => {
           },
         ];
 
-        expect(scenarios[4].setData).toHaveBeenCalledWith(parametroEsperado);
+        expect(scenarios[4].updateData).toHaveBeenCalledWith(parametroEsperado);
       });
     });
   });
