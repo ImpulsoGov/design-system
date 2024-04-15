@@ -1,17 +1,29 @@
 import React, {useState} from "react";
 import style from "./Modal.module.css"
 
-const Modal= (props)=>{
+const Modal= ({
+    show = false,
+    setModal,
+    children,
+})=>{
+    const [visible, toggleVisible] = useState(show);
+
+    function closeModal(){
+        toggleVisible(false);
+        setModal(false);
+    }
+
     return(
         <>
             {
-                props.show &&
+                visible &&
                 <div className={style.ModalContainer} data-testid="Modal">
-                    <a 
+                    <a
+                        data-testid="ModalExit"
                         className={style.ModalExit}
-                        onClick={()=>props.setModal(false)}
+                        onClick={closeModal}
                     ></a>
-                    {props.children}
+                    {children}
                 </div>
             }
         </>
