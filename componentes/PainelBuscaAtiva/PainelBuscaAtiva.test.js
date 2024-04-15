@@ -602,4 +602,23 @@ describe(`Componente: ${COMPONENT}`, () => {
       });
     });
   });
+
+  describe('Funcionalidade: busca por nome', () => {
+    describe('Ao digitar na input de busca', () => {
+      it('deve exibir os dados cujo nome do cidadão possui o texto digitado', async () => {
+        const user = userEvent.setup();
+        render(<PainelBuscaAtiva { ...scenarios[0] } />);
+
+        const searchInput = screen.getByPlaceholderText(/pesquise um nome/i);
+        await user.type(searchInput, "ca");
+
+        const rows = screen.getAllByRole("row");
+
+        expect(rows).toHaveLength(3);
+        expect(within(rows[0]).getByText(/nome/i)).toBeInTheDocument();
+        expect(within(rows[1]).getByText(/camila da silva/i)).toBeInTheDocument();
+        expect(within(rows[2]).getByText(/carla da silva/i)).toBeInTheDocument();
+      });
+    });
+  });
 });
