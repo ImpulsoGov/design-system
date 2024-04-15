@@ -142,7 +142,8 @@ describe(`Componente: ${COMPONENT}`, () => {
         const sortOption = screen.getByText(/nome do acs de a-z/i);
         await user.click(sortOption);
 
-        const [btnApplySort] = screen.getAllByRole("button", { name: /ordenar lista/i });
+        const sortModal = screen.getByTestId("Ordenar");
+        const btnApplySort = within(sortModal).getByRole("button", { name: /ordenar lista/i });
         await user.click(btnApplySort);
 
         const rows = screen.getAllByRole("row");
@@ -177,7 +178,8 @@ describe(`Componente: ${COMPONENT}`, () => {
           const sortOption = screen.getByText(/vencimento da coleta mais antigo/i);
           await user.click(sortOption);
 
-          const [btnApplySort] = screen.getAllByRole("button", { name: /ordenar lista/i });
+          const sortModal = screen.getByTestId("Ordenar");
+          const btnApplySort = within(sortModal).getByRole("button", { name: /ordenar lista/i });
           await user.click(btnApplySort);
 
           const btnShowFilterModal = screen.getByRole("button", { name: /filtrar lista nominal/i });
@@ -189,7 +191,8 @@ describe(`Componente: ${COMPONENT}`, () => {
           const filterOption = screen.getByLabelText(/alessandra santos/i);
           await user.click(filterOption);
 
-          const [btnApplyFilter] = screen.getAllByRole("button", { name: /filtrar lista nominal/i });
+          const filterModal = screen.getByTestId("Filtro");
+          const btnApplyFilter = within(filterModal).getByRole("button", { name: /filtrar lista nominal/i });
           await user.click(btnApplyFilter);
 
           const rows = screen.getAllByRole("row");
@@ -225,7 +228,8 @@ describe(`Componente: ${COMPONENT}`, () => {
           const sortOption = screen.getByText(/nome do acs de a-z/i);
           await user.click(sortOption);
 
-          const [btnApplySort] = screen.getAllByRole("button", { name: /ordenar lista/i });
+          const sortModal = screen.getByTestId("Ordenar");
+          const btnApplySort = within(sortModal).getByRole("button", { name: /ordenar lista/i });
           await user.click(btnApplySort);
 
           await user.click(btnShowModal);
@@ -255,7 +259,8 @@ describe(`Componente: ${COMPONENT}`, () => {
             const sortOption = screen.getByText(/vencimento da coleta mais antigo/i);
             await user.click(sortOption);
 
-            const [btnApplySort] = screen.getAllByRole("button", { name: /ordenar lista/i });
+            const sortModal = screen.getByTestId("Ordenar");
+            const btnApplySort = within(sortModal).getByRole("button", { name: /ordenar lista/i });
             await user.click(btnApplySort);
 
             const btnShowFilterModal = screen.getByRole("button", { name: /filtrar lista nominal/i });
@@ -267,7 +272,8 @@ describe(`Componente: ${COMPONENT}`, () => {
             const filterOption = screen.getByLabelText(/alessandra santos/i);
             await user.click(filterOption);
 
-            const [btnApplyFilter] = screen.getAllByRole("button", { name: /filtrar lista nominal/i });
+            const filterModal = screen.getByTestId("Filtro");
+            const btnApplyFilter = within(filterModal).getByRole("button", { name: /filtrar lista nominal/i });
             await user.click(btnApplyFilter);
 
             await user.click(btnShowSortModal);
@@ -313,7 +319,8 @@ describe(`Componente: ${COMPONENT}`, () => {
         const sortByAgeOption = screen.getByText(/idade do paciente/i);
         await user.click(sortByAgeOption);
 
-        const [btnApplySort] = screen.getAllByRole("button", { name: /ordenar lista/i });
+        const sortModal = screen.getByTestId("Ordenar");
+        const btnApplySort = within(sortModal).getByRole("button", { name: /ordenar lista/i });
         await user.click(btnApplySort);
 
         const rows = screen.getAllByRole("row");
@@ -353,7 +360,8 @@ describe(`Componente: ${COMPONENT}`, () => {
         const filterOption = screen.getByLabelText(/Nunca realizou coleta/i);
         await user.click(filterOption);
 
-        const [btnApplyFilter] = screen.getAllByRole("button", { name: /filtrar lista nominal/i });
+        const filterModal = screen.getByTestId("Filtro");
+        const btnApplyFilter = within(filterModal).getByRole("button", { name: /filtrar lista nominal/i });
         await user.click(btnApplyFilter);
 
         const rows = screen.getAllByRole("row");
@@ -380,7 +388,8 @@ describe(`Componente: ${COMPONENT}`, () => {
           const filterOption = screen.getByLabelText(/alessandra santos/i);
           await user.click(filterOption);
 
-          const [btnApplyFilter] = screen.getAllByRole("button", { name: /filtrar lista nominal/i });
+          const filterModal = screen.getByTestId("Filtro");
+          const btnApplyFilter = within(filterModal).getByRole("button", { name: /filtrar lista nominal/i });
           await user.click(btnApplyFilter);
 
           const btnShowSortModal = screen.getByRole("button", { name: /ordenar lista/i });
@@ -389,7 +398,8 @@ describe(`Componente: ${COMPONENT}`, () => {
           const sortOption = screen.getByText(/idade do paciente/i);
           await user.click(sortOption);
 
-          const [btnApplySort] = screen.getAllByRole("button", { name: /ordenar lista/i });
+          const sortModal = screen.getByTestId("Ordenar");
+          const btnApplySort = within(sortModal).getByRole("button", { name: /ordenar lista/i });
           await user.click(btnApplySort);
 
           const rows = screen.getAllByRole("row");
@@ -424,7 +434,8 @@ describe(`Componente: ${COMPONENT}`, () => {
           const filterOption = screen.getByLabelText(/alessandra santos/i);
           await user.click(filterOption);
 
-          const [btnApplyFilter] = screen.getAllByRole("button", { name: /filtrar lista nominal/i });
+          const filterModal = screen.getByTestId("Filtro");
+          const btnApplyFilter = within(filterModal).getByRole("button", { name: /filtrar lista nominal/i });
           await user.click(btnApplyFilter);
 
           await user.click(btnShowFilterModal);
@@ -457,7 +468,8 @@ describe(`Componente: ${COMPONENT}`, () => {
             const filterOption = screen.getByLabelText(/coleta em dia/i);
             await user.click(filterOption);
 
-            const [btnApplyFilter] = screen.getAllByRole("button", { name: /filtrar lista nominal/i });
+            const filterModal = screen.getByTestId("Filtro");
+            const btnApplyFilter = within(filterModal).getByRole("button", { name: /filtrar lista nominal/i });
             await user.click(btnApplyFilter);
 
             const btnShowSortModal = screen.getByRole("button", { name: /ordenar lista/i });
@@ -466,7 +478,8 @@ describe(`Componente: ${COMPONENT}`, () => {
             const sortOption = screen.getByText(/vencimento da coleta mais antigo/i);
             await user.click(sortOption);
 
-            const [btnApplySort] = screen.getAllByRole("button", { name: /ordenar lista/i });
+            const sortModal = screen.getByTestId("Ordenar");
+            const btnApplySort = within(sortModal).getByRole("button", { name: /ordenar lista/i });
             await user.click(btnApplySort);
 
             await user.click(btnShowFilterModal);
@@ -510,7 +523,8 @@ describe(`Componente: ${COMPONENT}`, () => {
           const filterOption = screen.getByLabelText(/carmen miranda/i);
           await user.click(filterOption);
 
-          const [btnApplyFilter] = screen.getAllByRole("button", { name: /filtrar lista nominal/i });
+          const filterModal = screen.getByTestId("Filtro");
+          const btnApplyFilter = within(filterModal).getByRole("button", { name: /filtrar lista nominal/i });
           await user.click(btnApplyFilter);
 
           await user.click(btnShowFilterModal);
@@ -544,7 +558,8 @@ describe(`Componente: ${COMPONENT}`, () => {
         const filterOptionACS = screen.getByLabelText(/carmen miranda/i);
         await user.click(filterOptionACS);
 
-        const [btnApplyFilter] = screen.getAllByRole("button", { name: /filtrar lista nominal/i });
+        const filterModal = screen.getByTestId("Filtro");
+        const btnApplyFilter = within(filterModal).getByRole("button", { name: /filtrar lista nominal/i });
         await user.click(btnApplyFilter);
 
         const rows = screen.getAllByRole("row");
@@ -581,7 +596,8 @@ describe(`Componente: ${COMPONENT}`, () => {
           const filterOptionACS = screen.getByLabelText(/alessandra santos/i);
           await user.click(filterOptionACS);
 
-          const [btnApplyFilter] = screen.getAllByRole("button", { name: /filtrar lista nominal/i });
+          const filterModal = screen.getByTestId("Filtro");
+          const btnApplyFilter = within(filterModal).getByRole("button", { name: /filtrar lista nominal/i });
           await user.click(btnApplyFilter);
 
           await user.click(btnShowFilterModal);
