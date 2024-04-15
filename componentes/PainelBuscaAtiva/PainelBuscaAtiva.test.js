@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import * as responses from "./__data__";
 import { PainelBuscaAtiva } from ".";
@@ -145,80 +145,25 @@ describe(`Componente: ${COMPONENT}`, () => {
         const [btnApplySort] = screen.getAllByRole("button", { name: /ordenar lista/i });
         await user.click(btnApplySort);
 
-        // const contentTable = screen.getByTestId("TabelaHiperDia");
-        const expected = [
-          {
-            paciente_nome: "Camila da Silva",
-            cidadao_cpf_dt_nascimento: "106.106.106-10",
-            id_status_usuario: 12,
-            vencimento_da_coleta: "-",
-            prazo_proxima_coleta: "31/08/2023",
-            idade: 25,
-            id_faixa_etaria: 8,
-            acs_nome: "Alessandra Santos",
-            estabelecimento_cnes: "2872872",
-            estabelecimento_nome: "Unidade de Saude da Familia 1",
-            equipe_ine: "0002277227",
-            ine_master: "0002277227",
-            equipe_nome: "ESF 1",
-            dt_registro_producao_mais_recente: "2023-10-22"
-          },
-          {
-            paciente_nome: "Maria da Silva",
-            cidadao_cpf_dt_nascimento: "327.327.327-32",
-            id_status_usuario: 12,
-            vencimento_da_coleta: "11/05/2026",
-            prazo_proxima_coleta: "31/08/2023",
-            idade: 35,
-            id_faixa_etaria: 6,
-            acs_nome: "Alessandra Santos",
-            estabelecimento_cnes: "2872872",
-            estabelecimento_nome: "Unidade de Saude da Familia 1",
-            equipe_ine: "0002277227",
-            ine_master: "0002277227",
-            equipe_nome: "ESF 1",
-            dt_registro_producao_mais_recente: "2023-10-22"
-          },
-          {
-            paciente_nome: "Carla da Silva",
-            cidadao_cpf_dt_nascimento: "305.305.305-30",
-            id_status_usuario: 13,
-            vencimento_da_coleta: "-",
-            prazo_proxima_coleta: "31/08/2023",
-            idade: 64,
-            id_faixa_etaria: 8,
-            acs_nome: "Alessandra Santos",
-            estabelecimento_cnes: "2872872",
-            estabelecimento_nome: "Unidade de Saude da Familia 1",
-            equipe_ine: "0002277227",
-            ine_master: "0002277227",
-            equipe_nome: "ESF 1",
-            dt_registro_producao_mais_recente: "2023-10-22"
-          },
-          {
-            paciente_nome: "Julia da Silva",
-            cidadao_cpf_dt_nascimento: "100.100.100-10",
-            id_status_usuario: 12,
-            vencimento_da_coleta: "27/07/2025",
-            prazo_proxima_coleta: "Em dia",
-            idade: 55,
-            id_faixa_etaria: 8,
-            acs_nome: "Carmen Miranda",
-            estabelecimento_cnes: "2752752",
-            estabelecimento_nome: "Unidade de Saude da Familia 2",
-            equipe_ine: "0000369369",
-            ine_master: "0000369369",
-            equipe_nome: "ESF 2",
-            dt_registro_producao_mais_recente: "2023-10-22"
-          },
-        ];
+        const rows = screen.getAllByRole("row");
 
+        expect(rows).toHaveLength(5);
+
+        expect(within(rows[0]).getByText(/acs/i)).toBeInTheDocument();
+        expect(within(rows[0]).getByText(/nome/i)).toBeInTheDocument();
+
+        expect(within(rows[1]).getByText(/alessandra santos/i)).toBeInTheDocument();
+        expect(within(rows[1]).getByText(/camila da silva/i)).toBeInTheDocument();
+
+        expect(within(rows[2]).getByText(/alessandra santos/i)).toBeInTheDocument();
+        expect(within(rows[2]).getByText(/maria da silva/i)).toBeInTheDocument();
+
+        expect(within(rows[3]).getByText(/alessandra santos/i)).toBeInTheDocument();
+        expect(within(rows[3]).getByText(/carla da silva/i)).toBeInTheDocument();
+
+        expect(within(rows[4]).getByText(/carmen miranda/i)).toBeInTheDocument();
+        expect(within(rows[4]).getByText(/julia da silva/i)).toBeInTheDocument();
         expect(screen.queryByTestId("Modal")).not.toBeInTheDocument();
-        // Embora seja um teste de implementação, acredito fazer sentido pois
-        // assim garanto que os dados chegam corretamente na tabela, que, por
-        // sua vez, é o DataGrid do Material-UI, portanto não precisamos testá-la
-        // aqui já a lib é testada em seu próprio repositório
-        expect(scenarios[0].setData).toHaveBeenLastCalledWith(expected);
       });
 
       describe('E aplicar uma opção de filtro', () => {
@@ -247,58 +192,25 @@ describe(`Componente: ${COMPONENT}`, () => {
           const [btnApplyFilter] = screen.getAllByRole("button", { name: /filtrar lista nominal/i });
           await user.click(btnApplyFilter);
 
-          const expected = [
-            {
-              paciente_nome: "Maria da Silva",
-              cidadao_cpf_dt_nascimento: "327.327.327-32",
-              id_status_usuario: 12,
-              vencimento_da_coleta: "11/05/2026",
-              prazo_proxima_coleta: "31/08/2023",
-              idade: 35,
-              id_faixa_etaria: 6,
-              acs_nome: "Alessandra Santos",
-              estabelecimento_cnes: "2872872",
-              estabelecimento_nome: "Unidade de Saude da Familia 1",
-              equipe_ine: "0002277227",
-              ine_master: "0002277227",
-              equipe_nome: "ESF 1",
-              dt_registro_producao_mais_recente: "2023-10-22"
-            },
-            {
-              paciente_nome: "Camila da Silva",
-              cidadao_cpf_dt_nascimento: "106.106.106-10",
-              id_status_usuario: 12,
-              vencimento_da_coleta: "-",
-              prazo_proxima_coleta: "31/08/2023",
-              idade: 25,
-              id_faixa_etaria: 8,
-              acs_nome: "Alessandra Santos",
-              estabelecimento_cnes: "2872872",
-              estabelecimento_nome: "Unidade de Saude da Familia 1",
-              equipe_ine: "0002277227",
-              ine_master: "0002277227",
-              equipe_nome: "ESF 1",
-              dt_registro_producao_mais_recente: "2023-10-22"
-            },
-            {
-              paciente_nome: "Carla da Silva",
-              cidadao_cpf_dt_nascimento: "305.305.305-30",
-              id_status_usuario: 13,
-              vencimento_da_coleta: "-",
-              prazo_proxima_coleta: "31/08/2023",
-              idade: 64,
-              id_faixa_etaria: 8,
-              acs_nome: "Alessandra Santos",
-              estabelecimento_cnes: "2872872",
-              estabelecimento_nome: "Unidade de Saude da Familia 1",
-              equipe_ine: "0002277227",
-              ine_master: "0002277227",
-              equipe_nome: "ESF 1",
-              dt_registro_producao_mais_recente: "2023-10-22"
-            },
-          ];
+          const rows = screen.getAllByRole("row");
 
-          expect(scenarios[0].setData).toHaveBeenLastCalledWith(expected);
+          expect(rows).toHaveLength(4);
+
+          expect(within(rows[0]).getByText(/acs/i)).toBeInTheDocument();
+          expect(within(rows[0]).getByText(/vencimento da coleta/i)).toBeInTheDocument();
+          expect(within(rows[0]).getByText(/nome/i)).toBeInTheDocument();
+
+          expect(within(rows[1]).getByText(/alessandra santos/i)).toBeInTheDocument();
+          expect(within(rows[1]).getByText("11/05/2026")).toBeInTheDocument();
+          expect(within(rows[1]).getByText(/maria da silva/i)).toBeInTheDocument();
+
+          expect(within(rows[2]).getByText(/alessandra santos/i)).toBeInTheDocument();
+          expect(within(rows[2]).getByText("-")).toBeInTheDocument();
+          expect(within(rows[2]).getByText(/camila da silva/i)).toBeInTheDocument();
+
+          expect(within(rows[3]).getByText(/alessandra santos/i)).toBeInTheDocument();
+          expect(within(rows[3]).getByText("-")).toBeInTheDocument();
+          expect(within(rows[3]).getByText(/carla da silva/i)).toBeInTheDocument();
         });
       });
 
@@ -321,8 +233,15 @@ describe(`Componente: ${COMPONENT}`, () => {
           const clearSortOption = screen.getByText(/limpar ordenação/i);
           await user.click(clearSortOption);
 
+          const rows = screen.getAllByRole("row");
+
+          expect(rows).toHaveLength(5);
+          expect(within(rows[0]).getByText(/nome/i)).toBeInTheDocument();
+          expect(within(rows[1]).getByText(/camila da silva/i)).toBeInTheDocument();
+          expect(within(rows[2]).getByText(/maria da silva/i)).toBeInTheDocument();
+          expect(within(rows[3]).getByText(/julia da silva/i)).toBeInTheDocument();
+          expect(within(rows[4]).getByText(/carla da silva/i)).toBeInTheDocument();
           expect(screen.queryByTestId("Modal")).not.toBeInTheDocument();
-          expect(scenarios[0].setData).toHaveBeenLastCalledWith(responses.citoSuccessAPS);
         });
 
         describe("Quando há opção de filtro aplicada", () => {
@@ -356,58 +275,25 @@ describe(`Componente: ${COMPONENT}`, () => {
             const clearSortOption = screen.getByText(/limpar ordenação/i);
             await user.click(clearSortOption);
 
-            const expected = [
-              {
-                paciente_nome: "Camila da Silva",
-                cidadao_cpf_dt_nascimento: "106.106.106-10",
-                id_status_usuario: 12,
-                vencimento_da_coleta: "-",
-                prazo_proxima_coleta: "31/08/2023",
-                idade: 25,
-                id_faixa_etaria: 8,
-                acs_nome: "Alessandra Santos",
-                estabelecimento_cnes: "2872872",
-                estabelecimento_nome: "Unidade de Saude da Familia 1",
-                equipe_ine: "0002277227",
-                ine_master: "0002277227",
-                equipe_nome: "ESF 1",
-                dt_registro_producao_mais_recente: "2023-10-22"
-              },
-              {
-                paciente_nome: "Maria da Silva",
-                cidadao_cpf_dt_nascimento: "327.327.327-32",
-                id_status_usuario: 12,
-                vencimento_da_coleta: "11/05/2026",
-                prazo_proxima_coleta: "31/08/2023",
-                idade: 35,
-                id_faixa_etaria: 6,
-                acs_nome: "Alessandra Santos",
-                estabelecimento_cnes: "2872872",
-                estabelecimento_nome: "Unidade de Saude da Familia 1",
-                equipe_ine: "0002277227",
-                ine_master: "0002277227",
-                equipe_nome: "ESF 1",
-                dt_registro_producao_mais_recente: "2023-10-22"
-              },
-              {
-                paciente_nome: "Carla da Silva",
-                cidadao_cpf_dt_nascimento: "305.305.305-30",
-                id_status_usuario: 13,
-                vencimento_da_coleta: "-",
-                prazo_proxima_coleta: "31/08/2023",
-                idade: 64,
-                id_faixa_etaria: 8,
-                acs_nome: "Alessandra Santos",
-                estabelecimento_cnes: "2872872",
-                estabelecimento_nome: "Unidade de Saude da Familia 1",
-                equipe_ine: "0002277227",
-                ine_master: "0002277227",
-                equipe_nome: "ESF 1",
-                dt_registro_producao_mais_recente: "2023-10-22"
-              },
-            ];
+            const rows = screen.getAllByRole("row");
 
-            expect(scenarios[0].setData).toHaveBeenLastCalledWith(expected);
+            expect(rows).toHaveLength(4);
+
+            expect(within(rows[0]).getByText(/acs/i)).toBeInTheDocument();
+            expect(within(rows[0]).getByText(/nome/i)).toBeInTheDocument();
+            expect(within(rows[0]).getByText(/vencimento da coleta/i)).toBeInTheDocument();
+
+            expect(within(rows[1]).getByText(/alessandra santos/i)).toBeInTheDocument();
+            expect(within(rows[1]).getByText(/camila da silva/i)).toBeInTheDocument();
+            expect(within(rows[1]).getByText("-")).toBeInTheDocument();
+
+            expect(within(rows[2]).getByText(/alessandra santos/i)).toBeInTheDocument();
+            expect(within(rows[2]).getByText(/maria da silva/i)).toBeInTheDocument();
+            expect(within(rows[2]).getByText("11/05/2026")).toBeInTheDocument();
+
+            expect(within(rows[3]).getByText(/alessandra santos/i)).toBeInTheDocument();
+            expect(within(rows[3]).getByText(/carla da silva/i)).toBeInTheDocument();
+            expect(within(rows[3]).getByText("-")).toBeInTheDocument();
           });
         });
       });
@@ -430,74 +316,24 @@ describe(`Componente: ${COMPONENT}`, () => {
         const [btnApplySort] = screen.getAllByRole("button", { name: /ordenar lista/i });
         await user.click(btnApplySort);
 
-        const expected = [
-          {
-            paciente_nome: "Camila da Silva",
-            cidadao_cpf_dt_nascimento: "106.106.106-10",
-            id_status_usuario: 12,
-            vencimento_da_coleta: "-",
-            prazo_proxima_coleta: "31/08/2023",
-            idade: 25,
-            id_faixa_etaria: 8,
-            acs_nome: "Alessandra Santos",
-            estabelecimento_cnes: "2872872",
-            estabelecimento_nome: "Unidade de Saude da Familia 1",
-            equipe_ine: "0002277227",
-            ine_master: "0002277227",
-            equipe_nome: "ESF 1",
-            dt_registro_producao_mais_recente: "2023-10-22"
-          },
-          {
-            paciente_nome: "Maria da Silva",
-            cidadao_cpf_dt_nascimento: "327.327.327-32",
-            id_status_usuario: 12,
-            vencimento_da_coleta: "11/05/2026",
-            prazo_proxima_coleta: "31/08/2023",
-            idade: 35,
-            id_faixa_etaria: 6,
-            acs_nome: "Alessandra Santos",
-            estabelecimento_cnes: "2872872",
-            estabelecimento_nome: "Unidade de Saude da Familia 1",
-            equipe_ine: "0002277227",
-            ine_master: "0002277227",
-            equipe_nome: "ESF 1",
-            dt_registro_producao_mais_recente: "2023-10-22"
-          },
-          {
-            paciente_nome: "Julia da Silva",
-            cidadao_cpf_dt_nascimento: "100.100.100-10",
-            id_status_usuario: 12,
-            vencimento_da_coleta: "27/07/2025",
-            prazo_proxima_coleta: "Em dia",
-            idade: 55,
-            id_faixa_etaria: 8,
-            acs_nome: "Carmen Miranda",
-            estabelecimento_cnes: "2752752",
-            estabelecimento_nome: "Unidade de Saude da Familia 2",
-            equipe_ine: "0000369369",
-            ine_master: "0000369369",
-            equipe_nome: "ESF 2",
-            dt_registro_producao_mais_recente: "2023-10-22"
-          },
-          {
-            paciente_nome: "Carla da Silva",
-            cidadao_cpf_dt_nascimento: "305.305.305-30",
-            id_status_usuario: 13,
-            vencimento_da_coleta: "-",
-            prazo_proxima_coleta: "31/08/2023",
-            idade: 64,
-            id_faixa_etaria: 8,
-            acs_nome: "Alessandra Santos",
-            estabelecimento_cnes: "2872872",
-            estabelecimento_nome: "Unidade de Saude da Familia 1",
-            equipe_ine: "0002277227",
-            ine_master: "0002277227",
-            equipe_nome: "ESF 1",
-            dt_registro_producao_mais_recente: "2023-10-22"
-          },
-        ];
+        const rows = screen.getAllByRole("row");
 
-        expect(scenarios[0].setData).toHaveBeenLastCalledWith(expected);
+        expect(rows).toHaveLength(5);
+
+        expect(within(rows[0]).getByText(/acs/i)).toBeInTheDocument();
+        expect(within(rows[0]).getByText(/idade/i)).toBeInTheDocument();
+
+        expect(within(rows[1]).getByText(/alessandra santos/i)).toBeInTheDocument();
+        expect(within(rows[1]).getByText("25")).toBeInTheDocument();
+
+        expect(within(rows[2]).getByText(/alessandra santos/i)).toBeInTheDocument();
+        expect(within(rows[2]).getByText("35")).toBeInTheDocument();
+
+        expect(within(rows[3]).getByText(/carmen miranda/i)).toBeInTheDocument();
+        expect(within(rows[3]).getByText("55")).toBeInTheDocument();
+
+        expect(within(rows[4]).getByText(/alessandra santos/i)).toBeInTheDocument();
+        expect(within(rows[4]).getByText("64")).toBeInTheDocument();
       });
     });
   });
@@ -520,27 +356,14 @@ describe(`Componente: ${COMPONENT}`, () => {
         const [btnApplyFilter] = screen.getAllByRole("button", { name: /filtrar lista nominal/i });
         await user.click(btnApplyFilter);
 
-        const expected = [
-          {
-            paciente_nome: "Carla da Silva",
-            cidadao_cpf_dt_nascimento: "305.305.305-30",
-            id_status_usuario: 13,
-            vencimento_da_coleta: "-",
-            prazo_proxima_coleta: "31/08/2023",
-            idade: 64,
-            id_faixa_etaria: 8,
-            acs_nome: "Alessandra Santos",
-            estabelecimento_cnes: "2872872",
-            estabelecimento_nome: "Unidade de Saude da Familia 1",
-            equipe_ine: "0002277227",
-            ine_master: "0002277227",
-            equipe_nome: "ESF 1",
-            dt_registro_producao_mais_recente: "2023-10-22"
-          },
-        ];
+        const rows = screen.getAllByRole("row");
 
+        expect(rows).toHaveLength(2);
+        expect(within(rows[0]).getByText(/vencimento da coleta/i)).toBeInTheDocument();
+        expect(within(rows[0]).getByText(/nome/i)).toBeInTheDocument();
+        expect(within(rows[1]).getByText(/nunca realizou coleta/i)).toBeInTheDocument();
+        expect(within(rows[1]).getByText(/carla da silva/i)).toBeInTheDocument();
         expect(screen.queryByTestId("Modal")).not.toBeInTheDocument();
-        expect(scenarios[0].setData).toHaveBeenLastCalledWith(expected);
       });
 
       describe('E aplicar uma opção de ordenação', () => {
@@ -569,58 +392,21 @@ describe(`Componente: ${COMPONENT}`, () => {
           const [btnApplySort] = screen.getAllByRole("button", { name: /ordenar lista/i });
           await user.click(btnApplySort);
 
-          const expected = [
-            {
-              paciente_nome: "Camila da Silva",
-              cidadao_cpf_dt_nascimento: "106.106.106-10",
-              id_status_usuario: 12,
-              vencimento_da_coleta: "-",
-              prazo_proxima_coleta: "31/08/2023",
-              idade: 25,
-              id_faixa_etaria: 8,
-              acs_nome: "Alessandra Santos",
-              estabelecimento_cnes: "2872872",
-              estabelecimento_nome: "Unidade de Saude da Familia 1",
-              equipe_ine: "0002277227",
-              ine_master: "0002277227",
-              equipe_nome: "ESF 1",
-              dt_registro_producao_mais_recente: "2023-10-22"
-            },
-            {
-              paciente_nome: "Maria da Silva",
-              cidadao_cpf_dt_nascimento: "327.327.327-32",
-              id_status_usuario: 12,
-              vencimento_da_coleta: "11/05/2026",
-              prazo_proxima_coleta: "31/08/2023",
-              idade: 35,
-              id_faixa_etaria: 6,
-              acs_nome: "Alessandra Santos",
-              estabelecimento_cnes: "2872872",
-              estabelecimento_nome: "Unidade de Saude da Familia 1",
-              equipe_ine: "0002277227",
-              ine_master: "0002277227",
-              equipe_nome: "ESF 1",
-              dt_registro_producao_mais_recente: "2023-10-22"
-            },
-            {
-              paciente_nome: "Carla da Silva",
-              cidadao_cpf_dt_nascimento: "305.305.305-30",
-              id_status_usuario: 13,
-              vencimento_da_coleta: "-",
-              prazo_proxima_coleta: "31/08/2023",
-              idade: 64,
-              id_faixa_etaria: 8,
-              acs_nome: "Alessandra Santos",
-              estabelecimento_cnes: "2872872",
-              estabelecimento_nome: "Unidade de Saude da Familia 1",
-              equipe_ine: "0002277227",
-              ine_master: "0002277227",
-              equipe_nome: "ESF 1",
-              dt_registro_producao_mais_recente: "2023-10-22"
-            },
-          ];
+          const rows = screen.getAllByRole("row");
 
-          expect(scenarios[0].setData).toHaveBeenLastCalledWith(expected);
+          expect(rows).toHaveLength(4);
+
+          expect(within(rows[0]).getByText(/idade/i)).toBeInTheDocument();
+          expect(within(rows[0]).getByText(/acs/i)).toBeInTheDocument();
+
+          expect(within(rows[1]).getByText(/25/i)).toBeInTheDocument();
+          expect(within(rows[1]).getByText(/alessandra santos/i)).toBeInTheDocument();
+
+          expect(within(rows[2]).getByText(/35/i)).toBeInTheDocument();
+          expect(within(rows[2]).getByText(/alessandra santos/i)).toBeInTheDocument();
+
+          expect(within(rows[3]).getByText(/64/i)).toBeInTheDocument();
+          expect(within(rows[3]).getByText(/alessandra santos/i)).toBeInTheDocument();
         });
       });
 
@@ -646,8 +432,15 @@ describe(`Componente: ${COMPONENT}`, () => {
           const clearFilterOption = screen.getByText(/limpar filtros/i);
           await user.click(clearFilterOption);
 
+          const rows = screen.getAllByRole("row");
+
+          expect(rows).toHaveLength(5);
+          expect(within(rows[0]).getByText(/nome/i)).toBeInTheDocument();
+          expect(within(rows[1]).getByText(/camila da silva/i)).toBeInTheDocument();
+          expect(within(rows[2]).getByText(/maria da silva/i)).toBeInTheDocument();
+          expect(within(rows[3]).getByText(/julia da silva/i)).toBeInTheDocument();
+          expect(within(rows[4]).getByText(/carla da silva/i)).toBeInTheDocument();
           expect(screen.queryByTestId("Modal")).not.toBeInTheDocument();
-          expect(scenarios[0].setData).toHaveBeenLastCalledWith(responses.citoSuccessAPS);
         });
 
         describe('Quando há opção de ordenação aplicada', () => {
@@ -681,74 +474,24 @@ describe(`Componente: ${COMPONENT}`, () => {
             const clearFilterOption = screen.getByText(/limpar filtros/i);
             await user.click(clearFilterOption);
 
-            const expected = [
-              {
-                paciente_nome: "Maria da Silva",
-                cidadao_cpf_dt_nascimento: "327.327.327-32",
-                id_status_usuario: 12,
-                vencimento_da_coleta: "11/05/2026",
-                prazo_proxima_coleta: "31/08/2023",
-                idade: 35,
-                id_faixa_etaria: 6,
-                acs_nome: "Alessandra Santos",
-                estabelecimento_cnes: "2872872",
-                estabelecimento_nome: "Unidade de Saude da Familia 1",
-                equipe_ine: "0002277227",
-                ine_master: "0002277227",
-                equipe_nome: "ESF 1",
-                dt_registro_producao_mais_recente: "2023-10-22"
-              },
-              {
-                paciente_nome: "Julia da Silva",
-                cidadao_cpf_dt_nascimento: "100.100.100-10",
-                id_status_usuario: 12,
-                vencimento_da_coleta: "27/07/2025",
-                prazo_proxima_coleta: "Em dia",
-                idade: 55,
-                id_faixa_etaria: 8,
-                acs_nome: "Carmen Miranda",
-                estabelecimento_cnes: "2752752",
-                estabelecimento_nome: "Unidade de Saude da Familia 2",
-                equipe_ine: "0000369369",
-                ine_master: "0000369369",
-                equipe_nome: "ESF 2",
-                dt_registro_producao_mais_recente: "2023-10-22"
-              },
-              {
-                paciente_nome: "Camila da Silva",
-                cidadao_cpf_dt_nascimento: "106.106.106-10",
-                id_status_usuario: 12,
-                vencimento_da_coleta: "-",
-                prazo_proxima_coleta: "31/08/2023",
-                idade: 25,
-                id_faixa_etaria: 8,
-                acs_nome: "Alessandra Santos",
-                estabelecimento_cnes: "2872872",
-                estabelecimento_nome: "Unidade de Saude da Familia 1",
-                equipe_ine: "0002277227",
-                ine_master: "0002277227",
-                equipe_nome: "ESF 1",
-                dt_registro_producao_mais_recente: "2023-10-22"
-              },
-              {
-                paciente_nome: "Carla da Silva",
-                cidadao_cpf_dt_nascimento: "305.305.305-30",
-                id_status_usuario: 13,
-                vencimento_da_coleta: "-",
-                prazo_proxima_coleta: "31/08/2023",
-                idade: 64,
-                id_faixa_etaria: 8,
-                acs_nome: "Alessandra Santos",
-                estabelecimento_cnes: "2872872",
-                estabelecimento_nome: "Unidade de Saude da Familia 1",
-                equipe_ine: "0002277227",
-                ine_master: "0002277227",
-                equipe_nome: "ESF 1",
-                dt_registro_producao_mais_recente: "2023-10-22"
-              },
-            ];
+            const rows = screen.getAllByRole("row");
 
-            expect(scenarios[0].setData).toHaveBeenLastCalledWith(expected);
+            expect(rows).toHaveLength(5);
+
+            expect(within(rows[0]).getByText(/vencimento da coleta/i)).toBeInTheDocument();
+            expect(within(rows[0]).getByText(/status/i)).toBeInTheDocument();
+
+            expect(within(rows[1]).getByText("11/05/2026")).toBeInTheDocument();
+            expect(within(rows[1]).getByText(/coleta em dia/i)).toBeInTheDocument();
+
+            expect(within(rows[2]).getByText("27/07/2025")).toBeInTheDocument();
+            expect(within(rows[2]).getByText(/coleta em dia/i)).toBeInTheDocument();
+
+            expect(within(rows[3]).getByText("-")).toBeInTheDocument();
+            expect(within(rows[3]).getByText(/coleta em dia/i)).toBeInTheDocument();
+
+            expect(within(rows[4]).getByText("-")).toBeInTheDocument();
+            expect(within(rows[4]).getByText(/nunca realizou coleta/i)).toBeInTheDocument();
           });
         });
       });
@@ -804,26 +547,15 @@ describe(`Componente: ${COMPONENT}`, () => {
         const [btnApplyFilter] = screen.getAllByRole("button", { name: /filtrar lista nominal/i });
         await user.click(btnApplyFilter);
 
-        const expected = [
-          {
-            paciente_nome: "Julia da Silva",
-            cidadao_cpf_dt_nascimento: "100.100.100-10",
-            id_status_usuario: 12,
-            vencimento_da_coleta: "27/07/2025",
-            prazo_proxima_coleta: "Em dia",
-            idade: 55,
-            id_faixa_etaria: 8,
-            acs_nome: "Carmen Miranda",
-            estabelecimento_cnes: "2752752",
-            estabelecimento_nome: "Unidade de Saude da Familia 2",
-            equipe_ine: "0000369369",
-            ine_master: "0000369369",
-            equipe_nome: "ESF 2",
-            dt_registro_producao_mais_recente: "2023-10-22"
-          },
-        ];
+        const rows = screen.getAllByRole("row");
 
-        expect(scenarios[0].setData).toHaveBeenLastCalledWith(expected);
+        expect(rows).toHaveLength(2);
+
+        expect(within(rows[0]).getByText(/status/i)).toBeInTheDocument();
+        expect(within(rows[0]).getByText(/acs/i)).toBeInTheDocument();
+
+        expect(within(rows[1]).getByText(/carmen miranda/i)).toBeInTheDocument();
+        expect(within(rows[1]).getByText(/coleta em dia/i)).toBeInTheDocument();
       });
 
       describe('E remover uma das opções', () => {
@@ -857,26 +589,15 @@ describe(`Componente: ${COMPONENT}`, () => {
           await user.click(filterOptionACS);
           await user.click(btnApplyFilter);
 
-          const expected = [
-            {
-              paciente_nome: "Carla da Silva",
-              cidadao_cpf_dt_nascimento: "305.305.305-30",
-              id_status_usuario: 13,
-              vencimento_da_coleta: "-",
-              prazo_proxima_coleta: "31/08/2023",
-              idade: 64,
-              id_faixa_etaria: 8,
-              acs_nome: "Alessandra Santos",
-              estabelecimento_cnes: "2872872",
-              estabelecimento_nome: "Unidade de Saude da Familia 1",
-              equipe_ine: "0002277227",
-              ine_master: "0002277227",
-              equipe_nome: "ESF 1",
-              dt_registro_producao_mais_recente: "2023-10-22"
-            },
-          ];
+          const rows = screen.getAllByRole("row");
 
-          expect(scenarios[0].setData).toHaveBeenLastCalledWith(expected);
+          expect(rows).toHaveLength(2);
+
+          expect(within(rows[0]).getByText(/acs/i)).toBeInTheDocument();
+          expect(within(rows[0]).getByText(/status/i)).toBeInTheDocument();
+
+          expect(within(rows[1]).getByText(/alessandra santos/i)).toBeInTheDocument();
+          expect(within(rows[1]).getByText(/nunca realizou coleta/i)).toBeInTheDocument();
         });
       });
     });
