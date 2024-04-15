@@ -9,7 +9,6 @@ const PainelBuscaAtiva = ({
     tabela,
     dadosFiltros,
     painel,
-    data,
     setData,
     datefiltros,
     IntFiltros,
@@ -22,12 +21,19 @@ const PainelBuscaAtiva = ({
     sub_aba = "",
     rowHeight = null
 })=>{
+    const [tableData, setTableData] = useState(tabela.data)
     const [showOrdenarModal,setShowOrdenarModal] = useState(false)
     const [showFiltrosModal,setShowFiltrosModal] = useState(false)
     const [ordenar,setOrdenar] = useState('1')
     const [ordenacaoAplicada,setOrdenacaoAplicada] = useState(false)
     const [modal,setModal] = useState(false)
     const [chavesFiltros,setChavesFiltros] = useState([])
+
+    function updateData(newData){
+        setData(newData);
+        setTableData(newData);
+    }
+
     const showOrdenar = ()=>{
         setModal(true)
         setShowOrdenarModal(true)
@@ -96,8 +102,8 @@ const PainelBuscaAtiva = ({
                                 painel={painel}
                                 ordenar={ordenar}
                                 setOrdenar={setOrdenar}
-                                data={data}
-                                setData={setData}
+                                data={tableData}
+                                updateData={updateData}
                                 tabela={tabela.data}
                                 datefiltros={datefiltros}
                                 IntFiltros={IntFiltros}
@@ -118,7 +124,7 @@ const PainelBuscaAtiva = ({
                             showFiltrosModal &&
                             <Components.Filtro
                                 data={dadosFiltros}
-                                setData={setData}
+                                updateData={updateData}
                                 tabela={tabela.data}
                                 value={value}
                                 handleCheckbox={handleCheckbox}
@@ -144,18 +150,14 @@ const PainelBuscaAtiva = ({
             <Components.ToolBar
                 showFiltros={showFiltros}
                 showOrdenar={showOrdenar}
-                painel={painel}
                 chavesFiltros={chavesFiltros}
-                setOrdenar={setOrdenar}
-                ordenar={ordenar}
-                data={data}
-                setData={setData}
+                updateData={updateData}
                 tabela={tabela.data}
                 ordenacaoAplicada={ordenacaoAplicada}
             />
             <TabelaHiperDia
                 colunas={tabela.colunas}
-                data={data}
+                data={tableData}
                 rowHeight={rowHeight}
             />
         </div>
