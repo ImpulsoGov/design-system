@@ -1,0 +1,142 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Componente: ButtonLight deve renderizar corretamente com ícone a direita e duvidas 1`] = `
+<a
+  data-testid="ButtonLight"
+  href="/"
+>
+  <a
+    class="ButtonLightIconContainer"
+  >
+    <img
+      class="IconeRight"
+      src="https://media.graphassets.com/Eu5DAy5SnCFbpRetwKSl"
+    />
+    DÚVIDAS E SUGESTÕES
+  </a>
+</a>
+`;
+
+exports[`Componente: ButtonLight deve renderizar corretamente com ícone à direita 1`] = `
+<a
+  data-testid="ButtonLight"
+  href="/"
+>
+  <a
+    class="ButtonLightIconContainer"
+  >
+    <img
+      class="IconeRight"
+      src="https://media.graphassets.com/8NbkQQkyRSiouNfFpLOG"
+    />
+    VOLTAR
+  </a>
+</a>
+`;
+
+exports[`Componente: ButtonLight deve renderizar corretamente com ícone à direita para o WhatsApp 1`] = `
+<a
+  data-testid="ButtonLight"
+  href="/"
+>
+  <a
+    class="ButtonLightIconContainer"
+  >
+    <img
+      class="IconeRight"
+      src="https://media.graphassets.com/X8qAQFkrTLapqBDlfkMO"
+    />
+    ENTRAR NO GRUPO DO WHATSAPP
+  </a>
+</a>
+`;
+
+exports[`Componente: ButtonLight deve renderizar corretamente sem ícone 1`] = `
+<a
+  data-testid="ButtonLight"
+  href="indicadores"
+>
+  <a
+    class="ButtonLightIconContainer"
+  >
+    INDICADORES DE DESEMPENHO
+  </a>
+</a>
+`;
+
+exports[`Componente: ButtonLight deve renderizar corretamente sem ícone e desabilitado 1`] = `
+<a
+  data-testid="ButtonLight"
+  href="indicadores"
+>
+  <a
+    class="ButtonLightDisabled"
+  >
+    INDICADORES DE DESEMPENHO
+  </a>
+</a>
+`;
+
+exports[`Componente: ButtonLightMobile deve renderizar corretamente com ícone a direita e duvidas 1`] = `
+<a
+  data-testid="ButtonLightMobile"
+  href="/"
+>
+  <a
+    class="ButtonLightMobile"
+  >
+    <img
+      class="IconeRightMobile"
+      src="https://media.graphassets.com/Eu5DAy5SnCFbpRetwKSl"
+    />
+    DÚVIDAS E SUGESTÕES
+  </a>
+</a>
+`;
+
+exports[`Componente: ButtonLightMobile deve renderizar corretamente com ícone à direita 1`] = `
+<a
+  data-testid="ButtonLightMobile"
+  href="/"
+>
+  <a
+    class="ButtonLightMobile"
+  >
+    <img
+      class="IconeRightMobile"
+      src="https://media.graphassets.com/8NbkQQkyRSiouNfFpLOG"
+    />
+    VOLTAR
+  </a>
+</a>
+`;
+
+exports[`Componente: ButtonLightMobile deve renderizar corretamente com ícone à direita para o WhatsApp 1`] = `
+<a
+  data-testid="ButtonLightMobile"
+  href="/"
+>
+  <a
+    class="ButtonLightMobile"
+  >
+    <img
+      class="IconeRightMobile"
+      src="https://media.graphassets.com/X8qAQFkrTLapqBDlfkMO"
+    />
+    ENTRAR NO GRUPO DO WHATSAPP
+  </a>
+</a>
+`;
+
+exports[`Componente: ButtonLightMobile deve renderizar corretamente sem ícone e desabilitado 1`] = `
+<a
+  data-testid="ButtonLightMobile"
+  href="indicadores"
+>
+  <a
+    class="ButtonLightDisabled"
+  >
+    INDICADORES DE DESEMPENHO
+  </a>
+</a>
+`;
