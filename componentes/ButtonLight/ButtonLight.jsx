@@ -20,6 +20,7 @@ const ButtonLight = ({
     )
   }
 
+
 const ButtonLightLarge = ({
     label,
     link
@@ -40,7 +41,9 @@ const ButtonLightMobile = ({
     disabled
 })=>{
     return(
-        <Link href={link} >
+        <Link
+            href={link}
+        >
             <a className={disabled ? style.ButtonLightDisabled : style.ButtonLightMobile}>
                 {icone?.posicao=='right' && <img className={style.IconeRightMobile} src={icone?.url} />}
                 {label} 
@@ -49,6 +52,8 @@ const ButtonLightMobile = ({
         </Link>
     )
 }
+
+
 const ButtonLightSubmit = ({
     label,
     submit,
