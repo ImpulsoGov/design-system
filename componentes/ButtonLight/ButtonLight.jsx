@@ -10,7 +10,7 @@ const ButtonLight = ({
     disabled
 })=>{
     return(
-          <Link href={link}>
+          <Link href={link} data-testid="ButtonLight">
             <a className={disabled ? style.ButtonLightDisabled : style.ButtonLightIconContainer}>
                 {icone?.posicao=='right' && <img className={style.IconeRight} src={icone?.url} />}
                 {label} 
@@ -20,13 +20,12 @@ const ButtonLight = ({
     )
   }
 
-
 const ButtonLightLarge = ({
     label,
     link
 })=>{
     return(
-          <Link target="_blank" href={link}>
+          <Link target="_blank" href={link} data-testid="ButtonLightLarge">
             <a target="_blank" className={style.ButtonLightLarge}>
                 {label} 
             </a>
@@ -41,9 +40,7 @@ const ButtonLightMobile = ({
     disabled
 })=>{
     return(
-        <Link
-            href={link}
-        >
+        <Link href={link} data-testid="ButtonLightMobile">
             <a className={disabled ? style.ButtonLightDisabled : style.ButtonLightMobile}>
                 {icone?.posicao=='right' && <img className={style.IconeRightMobile} src={icone?.url} />}
                 {label} 
@@ -52,8 +49,6 @@ const ButtonLightMobile = ({
         </Link>
     )
 }
-
-
 const ButtonLightSubmit = ({
     label,
     submit,
