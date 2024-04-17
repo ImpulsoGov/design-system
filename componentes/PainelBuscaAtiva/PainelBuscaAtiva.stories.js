@@ -1,5 +1,7 @@
 import React, {useState} from 'react'
 import { PainelBuscaAtiva } from './index'
+import * as ReactDOMServer from 'react-dom/server';
+import { TabelaCitoImpressao } from '../TabelaHiperDia';
 
 export default {
   title: "Componentes/PainelBuscaAtiva",
@@ -931,6 +933,46 @@ const Template = (args) =>{
   return <PainelBuscaAtiva {...args}/>
 }
 
+const imprimir = (escala,child)=>{
+  console.log(escala,child);
+  if (typeof window !== 'undefined') {
+    const largura = window.innerWidth;
+    const altura = window.innerHeight;
+    const janelaImpressao = window.open('', '', `width=${largura},height=${altura}`);
+    const conteudo = ReactDOMServer.renderToString(child);
+    janelaImpressao.document.write(`
+    <html>
+        <head>
+        <style>
+            @media print {
+                @page {
+                    transform: scale(${escala});
+                    transform-origin: top left;
+                }
+                body {
+                    margin: 0;
+                }
+            }
+        </style>
+        </head>
+        <body>${conteudo}</body>
+    </html>
+    `);
+    janelaImpressao.document.close();
+    janelaImpressao.print();
+  }
+}
+
+const printDataCito = (data)=> imprimir(
+  0.78,
+  <TabelaCitoImpressao
+    data={data}
+    colunas={colunasCito}
+    status_usuario_descricao={{ data: status_usuario_descricao }}
+    fontFamily="sans-serif"
+  />
+)
+
 export const Diabetes = Template.bind({});
 
 Diabetes.args={
@@ -983,10 +1025,11 @@ Cito.args={
     const dataAtual = new Date(objeto.dt_registro_producao_mais_recente);
     const dataMaisRecenteAnterior = new Date(maisRecente);
     return dataAtual > dataMaisRecenteAnterior ? objeto.dt_registro_producao_mais_recente : maisRecente
-}, "2000-01-01")).toLocaleString('pt-BR', { 
-  timeZone: 'UTC',
-  year: 'numeric',
-  month: '2-digit',
-  day: '2-digit'
- })
+  }, "2000-01-01")).toLocaleString('pt-BR', { 
+    timeZone: 'UTC',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit'
+  }),
+  printData: printDataCito,
 }

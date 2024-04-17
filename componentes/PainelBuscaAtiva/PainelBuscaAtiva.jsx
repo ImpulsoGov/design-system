@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import style from "./PainelBuscaAtiva.module.css";
 import { Modal } from "../Modal/Modal";
 import { ButtonLightSubmit } from "../ButtonLight/ButtonLight";
-import { ButtonColorSubmit } from "../ButtonColor/ButtonColor";
+import { ButtonColorSubmit, ButtonColorSubmitIcon } from "../ButtonColor/ButtonColor";
 import { TabelaHiperDia } from "../TabelaHiperDia";
+import { useGridApiRef } from '@mui/x-data-grid';
 
 const stringToDate = (str)=>{
     if(!str) return null
@@ -168,13 +169,20 @@ const ToolBar = ({
     data,
     setData,
     tabela,
-    ordenacaoAplicada
+    ordenacaoAplicada,
+    printData,
 })=>{
     const [nome,setNome] =useState('')
     const filterbyName = ()=>setData(tabela.filter(item=>item[item?.cidadao_nome ? "cidadao_nome" : "paciente_nome"].toUpperCase().includes(nome.toUpperCase())))
     useEffect(()=>{
         if(nome.length<=0) setData(tabela)
     },[nome])
+
+    function handlePrintClick() {
+        printData(data);
+        // printData();
+    }
+
     return(
         <div className={style.ToolBar}>
             <input 
@@ -192,7 +200,12 @@ const ToolBar = ({
                      "https://media.graphassets.com/7E9qXtNTze5w3ozl6a5I"
                 }
             />
-            <ButtonLightSubmit label="FILTRAR LISTA NOMINAL" submit={showFiltros} icon={chavesFiltros.length>0 ? "https://media.graphassets.com/1rnUv5WSTKmCHnvqciuW" : "https://media.graphassets.com/1WHJsCigTXyJbq7Tw47m"}/>
+            <ButtonLightSubmit label="FILTRAR A LISTA" submit={showFiltros} icon={chavesFiltros.length>0 ? "https://media.graphassets.com/1rnUv5WSTKmCHnvqciuW" : "https://media.graphassets.com/1WHJsCigTXyJbq7Tw47m"}/>
+            <ButtonColorSubmitIcon
+                label="IMPRIMIR LISTA"
+                icon="https://media.graphassets.com/3vsKrZXYT9CdxSSyhjhk"
+                submit={handlePrintClick}
+            />
         </div>
     )
 }
@@ -424,8 +437,10 @@ const PainelBuscaAtiva = ({
     trackObject = null,
     aba = "",
     sub_aba = "",
-    rowHeight
+    rowHeight,
+    printData = () => {}
 })=>{
+    // const apiRef = useGridApiRef();
     const [showOrdenarModal,setShowOrdenarModal] = useState(false)
     const [showFiltrosModal,setShowFiltrosModal] = useState(false)
     const [ordenar,setOrdenar] = useState('1')
@@ -558,11 +573,14 @@ const PainelBuscaAtiva = ({
                 setData={setData}
                 tabela={tabela.data}
                 ordenacaoAplicada={ordenacaoAplicada}
+                printData={printData}
+                // printData={() => apiRef.current.exportDataAsPrint()}
             />
             <TabelaHiperDia 
                 colunas={tabela.colunas} 
                 data={data} 
                 rowHeight={rowHeight ? rowHeight : null}
+                // apiRef={apiRef}
             />
         </div>
     )
