@@ -192,6 +192,8 @@
     padding: 15px;
     bottom: 0;
     background-color: #FFF;
+    display: flex;
+    gap: 50px;
 }
 .AplicarfiltrosCase{
     width : 100%;

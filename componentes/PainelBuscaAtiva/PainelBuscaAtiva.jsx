@@ -29,7 +29,6 @@ const stringToDate = (str)=>{
     if(str.includes('/')) return dataFormatoBarra(str) 
     if(str.includes('-')) return dataFormatoTraco(str) 
 }
-
 const sortByDate = (data, filtro, IDFiltrosOrdenacao)=>{
     return [...data].sort((a,b) =>{
         const valueA = stringToDate(a[filtro])
@@ -45,7 +44,6 @@ const sortByDate = (data, filtro, IDFiltrosOrdenacao)=>{
         if(IDFiltrosOrdenacao[filtro] == "desc") return valueB - valueA
     }
 )}
-
 const sortInt = (data, filtro, IDFiltrosOrdenacao)=>[...data].sort((a,b) => IDFiltrosOrdenacao[filtro] == "desc" ? Number(b[filtro]) - Number(a[filtro]) : Number(a[filtro]) - Number(b[filtro]))
 
 const sortByString = (data, filtro)=>[...data].sort((a,b) => a[filtro]?.toString().localeCompare(b[filtro]?.toString()) )
@@ -359,8 +357,12 @@ const Filtro = ({
                 }
             </div>
             <div className={style.AplicarFiltros}>
+                <ButtonLightSubmit
+                    label="LIMPAR FILTROS" 
+                    submit={LimparFiltros} 
+                />
                 <ButtonColorSubmit 
-                    label="FILTRAR LISTA NOMINAL" 
+                    label="FILTRAR LISTA" 
                     submit={FilterData} 
                     arg={{
                         data : tabela,
