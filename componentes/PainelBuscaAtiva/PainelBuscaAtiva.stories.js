@@ -1057,13 +1057,4 @@ Cito.args={
     day: '2-digit'
   }),
   printData: printDataCito,
-  // printOptions: {
-  //   scale: 0.78,
-  //   component: <TabelaCitoImpressao
-  //     data={data}
-  //     colunas={colunasCito}
-  //     status_usuario_descricao={{ data: status_usuario_descricao }}
-  //     fontFamily="sans-serif"
-  //   />
-  // }
 }
