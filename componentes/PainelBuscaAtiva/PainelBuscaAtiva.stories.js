@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import { PainelBuscaAtiva } from './index'
 import * as ReactDOMServer from 'react-dom/server';
-import { TabelaCitoImpressao } from '../TabelaHiperDia';
+import { TabelaCitoImpressao, TabelaHiperDiaImpressao } from '../TabelaHiperDia';
 
 export default {
   title: "Componentes/PainelBuscaAtiva",
@@ -934,7 +934,6 @@ const Template = (args) =>{
 }
 
 const imprimir = (escala,child)=>{
-  console.log(escala,child);
   if (typeof window !== 'undefined') {
     const largura = window.innerWidth;
     const altura = window.innerHeight;
@@ -973,6 +972,24 @@ const printDataCito = (data)=> imprimir(
   />
 )
 
+const printDataDiabetes = (data)=> imprimir(
+  0.78,
+  <TabelaHiperDiaImpressao
+    data={data}
+    colunas={colunasDiabetes}
+    fontFamily="sans-serif"
+  />
+)
+
+const printDataHipertensao = (data)=> imprimir(
+  0.78,
+  <TabelaHiperDiaImpressao
+    data={data}
+    colunas={colunas}
+    fontFamily="sans-serif"
+  />
+)
+
 export const Diabetes = Template.bind({});
 
 Diabetes.args={
@@ -986,7 +1003,11 @@ Diabetes.args={
   IDFiltros : IDFiltrosDiabetes,
   rotulosfiltros : rotulosfiltrosDiabetes,
   IDFiltrosOrdenacao : IDFiltrosOrdenacaoDiabetes,
-  atualizacao : "20/10/2023"
+  atualizacao : "20/10/2023",
+  trackObject : {
+    track : (evento, propriedades)=> console.log(evento, propriedades)
+  },
+  printData: printDataDiabetes,
 }
 
 export const Hipertensao = Template.bind({});
@@ -1001,7 +1022,11 @@ Hipertensao.args={
   datefiltros : datefiltros,
   IDFiltros : IDFiltrosHipertensao,
   rotulosfiltros : rotulosfiltrosHipertensao,
-  IDFiltrosOrdenacao : IDFiltrosOrdenacaoHipertensao
+  IDFiltrosOrdenacao : IDFiltrosOrdenacaoHipertensao,
+  trackObject : {
+    track : (evento, propriedades)=> console.log(evento, propriedades)
+  },
+  printData: printDataHipertensao,
 }
 
 export const Cito = Template.bind({});
@@ -1032,4 +1057,13 @@ Cito.args={
     day: '2-digit'
   }),
   printData: printDataCito,
+  // printOptions: {
+  //   scale: 0.78,
+  //   component: <TabelaCitoImpressao
+  //     data={data}
+  //     colunas={colunasCito}
+  //     status_usuario_descricao={{ data: status_usuario_descricao }}
+  //     fontFamily="sans-serif"
+  //   />
+  // }
 }
