@@ -4,7 +4,8 @@ import { Modal } from "../Modal/Modal";
 import { ButtonLightSubmit } from "../ButtonLight/ButtonLight";
 import { ButtonColorSubmit, ButtonColorSubmitIcon } from "../ButtonColor/ButtonColor";
 import { TabelaHiperDia } from "../TabelaHiperDia";
-import { useGridApiRef } from '@mui/x-data-grid';
+// import * as utilities from "../utilities";
+// import { useGridApiRef } from '@mui/x-data-grid';
 
 const stringToDate = (str)=>{
     if(!str) return null
@@ -171,6 +172,10 @@ const ToolBar = ({
     tabela,
     ordenacaoAplicada,
     printData,
+    // trackObject,
+    // aba,
+    // sub_aba,
+    // printOptions = { scale: 0.78, component: <></> },
 })=>{
     const [nome,setNome] =useState('')
     const filterbyName = ()=>setData(tabela.filter(item=>item[item?.cidadao_nome ? "cidadao_nome" : "paciente_nome"].toUpperCase().includes(nome.toUpperCase())))
@@ -178,9 +183,19 @@ const ToolBar = ({
         if(nome.length<=0) setData(tabela)
     },[nome])
 
+    // function mapPrintEvent() {
+    //     trackObject.track('button_click', {
+    //         'button_action': "imprimir_lista",
+    //         'nome_lista_nominal': painel,
+    //         'aba_lista_nominal' : aba,
+    //         'sub_aba_lista_nominal' : sub_aba
+    //     });
+    // }
+
     function handlePrintClick() {
+        // mapPrintEvent();
+        // utilities.print(printOptions.scale, printOptions.component);
         printData(data);
-        // printData();
     }
 
     return(
@@ -438,9 +453,9 @@ const PainelBuscaAtiva = ({
     aba = "",
     sub_aba = "",
     rowHeight,
-    printData = () => {}
+    printData = () => {},
+    // printOptions = { scale: 0.78, component: <></> },
 })=>{
-    // const apiRef = useGridApiRef();
     const [showOrdenarModal,setShowOrdenarModal] = useState(false)
     const [showFiltrosModal,setShowFiltrosModal] = useState(false)
     const [ordenar,setOrdenar] = useState('1')
@@ -574,13 +589,15 @@ const PainelBuscaAtiva = ({
                 tabela={tabela.data}
                 ordenacaoAplicada={ordenacaoAplicada}
                 printData={printData}
-                // printData={() => apiRef.current.exportDataAsPrint()}
+                // trackObject={trackObject}
+                // aba={aba}
+                // sub_aba={sub_aba}
+                // printOptions={printOptions}
             />
             <TabelaHiperDia 
                 colunas={tabela.colunas} 
                 data={data} 
                 rowHeight={rowHeight ? rowHeight : null}
-                // apiRef={apiRef}
             />
         </div>
     )
