@@ -129,6 +129,10 @@
   cursor: pointer;
 }
 
+.PanelSelectorButton:hover{
+  background-color: #2EB280;
+  color: #141919;
+}
 
 .PanelSelectorTitleButtonSelected {
   display: flex;
@@ -174,13 +178,18 @@
   cursor: pointer;
 }
 
+.PanelSelectorTitleButton:hover{
+  background-color: #2EB280;
+  color: #141919;
+}
+
 .PanelSelectorComponents {
   padding: 0 9%;
 }
 
 .PanelSelectorComponentsIP {
   padding: 0 0%;
-}
+} 
 
 @media(max-width: 639px){
   .PanelSelectorMain{
