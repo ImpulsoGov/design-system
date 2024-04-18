@@ -35,6 +35,7 @@
   overflow-x: scroll;
   scrollbar-width: none;
 }
+
 .PanelSelectorContainerIP {
   display: flex;
   gap: 24px;
@@ -66,13 +67,13 @@
   font-size: small;
   overflow-x: scroll;
   scrollbar-width: none;
-
 }
 
 .PanelSelectorContainer::-webkit-scrollbar {
   background: none;
   height: 5px;
 }
+
 .PanelSelectorContainerIP::-webkit-scrollbar {
   background: none;
   height: 5px;
@@ -102,7 +103,11 @@
   
   transition: 0.3s;
   cursor: pointer;
-  houver: #2EB280;
+}
+
+.PanelSelectorButtonSelected:hover{
+  background-color: #2EB280;
+  color: #141919;
 }
 
 .PanelSelectorButton {
@@ -143,7 +148,11 @@
   
   transition: 0.3s;
   cursor: pointer;
-  houver: #2EB280;
+}
+
+.PanelSelectorTitleButtonSelected:hover {
+  background-color: #2EB280;
+  color: #141919;
 }
 
 .PanelSelectorTitleButton {
@@ -172,7 +181,6 @@
 .PanelSelectorComponentsIP {
   padding: 0 0%;
 }
-
 
 @media(max-width: 639px){
   .PanelSelectorMain{
