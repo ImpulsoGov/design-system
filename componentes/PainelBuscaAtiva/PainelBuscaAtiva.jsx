@@ -169,7 +169,7 @@ const ToolBar = ({
     setData,
     tabela,
     ordenacaoAplicada,
-    printData,
+    onPrintClick,
 })=>{
     const [nome,setNome] =useState('')
     const filterbyName = ()=>setData(tabela.filter(item=>item[item?.cidadao_nome ? "cidadao_nome" : "paciente_nome"].toUpperCase().includes(nome.toUpperCase())))
@@ -178,7 +178,7 @@ const ToolBar = ({
     },[nome])
 
     function handlePrintClick() {
-        printData(data);
+        onPrintClick(data);
     }
 
     return(
@@ -436,7 +436,7 @@ const PainelBuscaAtiva = ({
     aba = "",
     sub_aba = "",
     rowHeight,
-    printData = () => {},
+    onPrintClick = () => {},
 })=>{
     const [showOrdenarModal,setShowOrdenarModal] = useState(false)
     const [showFiltrosModal,setShowFiltrosModal] = useState(false)
@@ -570,7 +570,7 @@ const PainelBuscaAtiva = ({
                 setData={setData}
                 tabela={tabela.data}
                 ordenacaoAplicada={ordenacaoAplicada}
-                printData={printData}
+                onPrintClick={onPrintClick}
             />
             <TabelaHiperDia 
                 colunas={tabela.colunas} 

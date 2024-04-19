@@ -1007,7 +1007,7 @@ Diabetes.args={
   trackObject : {
     track : (evento, propriedades)=> console.log(evento, propriedades)
   },
-  printData: printDataDiabetes,
+  onPrintClick: printDataDiabetes,
 }
 
 export const Hipertensao = Template.bind({});
@@ -1026,7 +1026,7 @@ Hipertensao.args={
   trackObject : {
     track : (evento, propriedades)=> console.log(evento, propriedades)
   },
-  printData: printDataHipertensao,
+  onPrintClick: printDataHipertensao,
 }
 
 export const Cito = Template.bind({});
@@ -1056,5 +1056,5 @@ Cito.args={
     month: '2-digit',
     day: '2-digit'
   }),
-  printData: printDataCito,
+  onPrintClick: printDataCito,
 }
