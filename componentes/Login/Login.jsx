@@ -77,7 +77,7 @@ const Login = (props)=>{
                                 className={
                                     alertCPF ? 
                                     cx(style.LoginCampo,style.LoginAlert) : 
-                                    resposta ?
+                                    (resposta != 'A senha digitada é incorreta.' && resposta) ?
                                     cx(style.LoginCampo,style.LoginError) : 
                                     style.LoginCampo 
                                 } 
@@ -102,7 +102,11 @@ const Login = (props)=>{
                             }
                             <div className={style.InputSenhaContainer}>
                                 <input
-                                    className={style.LoginCampo}
+                                    className={                                    
+                                        resposta == 'A senha digitada é incorreta.' ? 
+                                        cx(style.LoginCampo,style.LoginError) : 
+                                        style.LoginCampo 
+                                    }
                                     type={ mostraSenha ? "text" : "password" }
                                     placeholder="Senha"
                                     value={senha}
