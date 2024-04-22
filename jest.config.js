@@ -14,13 +14,24 @@ const config = {
   ],
   coverageDirectory: 'coverage',
   coveragePathIgnorePatterns: [
-    '/node_modules/',
-    '/dist/',
-    '/docs/',
+    '<rootDir>/node_modules/',
+    '<rootDir>/dist/',
+    '<rootDir>/docs/',
   ],
   coverageProvider: 'babel',
   testEnvironment: 'jsdom',
+  testPathIgnorePatterns: [
+    '<rootDir>/node_modules/',
+    '<rootDir>/dist/',
+    '<rootDir>/docs/',
+    '<rootDir>/pages/',
+  ],
   setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
+  transformIgnorePatterns: [
+    '/node_modules/',
+    '<rootDir>/pages/*.tsx',
+    '<rootDir>/pages/*.ts'
+  ],
 };
 
 module.exports = createJestConfig(config);
