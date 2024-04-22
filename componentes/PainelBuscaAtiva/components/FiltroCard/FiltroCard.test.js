@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { act, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { FiltroCard } from './FiltroCard';
 
@@ -20,21 +20,24 @@ describe(`Componete: ${COMPONENT}`, () => {
   it('deve exibir um checkbox marcado após o click', async () => {
     const user = userEvent.setup();
     render(<FiltroCard { ...scenarios[1] } />);
-    const checkbox = await screen.findByRole('checkbox');
+    expect(screen.getByRole('checkbox')).not.toBeChecked();
 
-    await user.click(checkbox);
+    await act(async () => {
+      await user.click(screen.getByRole('checkbox'));
+    });
 
-    expect(checkbox).toBeChecked();
+    expect(screen.getByRole('checkbox')).toBeChecked();
   });
 
   it('deve exibir um checkbox desmarcado após dois clicks', async () => {
     const user = userEvent.setup();
     render(<FiltroCard { ...scenarios[2] } />);
-    const checkbox = await screen.findByRole('checkbox');
 
-    await user.click(checkbox);
-    await user.click(checkbox);
+    await act(async () => {
+      await user.click(screen.getByRole('checkbox'));
+      await user.click(screen.getByRole('checkbox'));
+    });
 
-    expect(checkbox).not.toBeChecked();
+    expect(screen.getByRole('checkbox')).not.toBeChecked();
   });
 });
