@@ -926,8 +926,16 @@ const Template = (args) =>{
     "cito" : dataCito
   }
   const [data,setData]=useState(dados[args.painel])
+  const [showSnackBar, setShowSnackBar] = useState({
+    open: false,
+    message: "",
+    background: "",
+    color: "",
+  })
   args["data"] = data
   args["setData"] = setData
+  args["showSnackBar"] = showSnackBar
+  args["setShowSnackBar"] = setShowSnackBar
   return <PainelBuscaAtiva {...args}/>
 }
 
