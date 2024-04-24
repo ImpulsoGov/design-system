@@ -81,13 +81,13 @@ describe(`Componente: ${COMPONENT}`, () => {
     jest.clearAllMocks();
   });
 
-  // it("deve renderizar corretamente", () => {
-  //   render(<PainelBuscaAtiva { ...scenarios[0] } />);
+  it("deve renderizar corretamente", () => {
+    render(<PainelBuscaAtiva { ...scenarios[0] } />);
 
-  //   const component = screen.getByTestId(COMPONENT);
+    const component = screen.getByTestId(COMPONENT);
 
-  //   expect(component).toMatchSnapshot();
-  // });
+    expect(component).toMatchSnapshot();
+  });
 
   describe('Ao clicar no botão Ordenar Lista', () => {
     it('deve exibir o modal de ordenação', async () => {

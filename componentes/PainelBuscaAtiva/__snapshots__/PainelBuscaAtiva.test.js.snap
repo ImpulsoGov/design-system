@@ -50,7 +50,7 @@ exports[`Componente: PainelBuscaAtiva deve renderizar corretamente 1`] = `
       aria-colcount="5"
       aria-multiselectable="false"
       aria-rowcount="5"
-      class="MuiDataGrid-root MuiDataGrid-root--densityStandard MuiDataGrid-withBorderColor css-1lgvhhl-MuiDataGrid-root"
+      class="MuiDataGrid-root MuiDataGrid-root--densityStandard MuiDataGrid-withBorderColor css-1v1z4up-MuiDataGrid-root"
       role="grid"
     >
       <div
@@ -58,7 +58,6 @@ exports[`Componente: PainelBuscaAtiva deve renderizar corretamente 1`] = `
       >
         <div
           class="MuiDataGrid-columnHeaders MuiDataGrid-withBorderColor css-1iyq7zh-MuiDataGrid-columnHeaders"
-          role="presentation"
           style="min-height: 56px; max-height: 56px; line-height: 56px;"
         >
           <div
@@ -84,11 +83,9 @@ exports[`Componente: PainelBuscaAtiva deve renderizar corretamente 1`] = `
                 <div
                   class="MuiDataGrid-columnHeaderDraggableContainer"
                   draggable="false"
-                  role="presentation"
                 >
                   <div
                     class="MuiDataGrid-columnHeaderTitleContainer"
-                    role="presentation"
                   >
                     <div
                       class="MuiDataGrid-columnHeaderTitleContainerContent"
@@ -159,11 +156,9 @@ exports[`Componente: PainelBuscaAtiva deve renderizar corretamente 1`] = `
                 <div
                   class="MuiDataGrid-columnHeaderDraggableContainer"
                   draggable="false"
-                  role="presentation"
                 >
                   <div
                     class="MuiDataGrid-columnHeaderTitleContainer"
-                    role="presentation"
                   >
                     <div
                       class="MuiDataGrid-columnHeaderTitleContainerContent"
@@ -234,11 +229,9 @@ exports[`Componente: PainelBuscaAtiva deve renderizar corretamente 1`] = `
                 <div
                   class="MuiDataGrid-columnHeaderDraggableContainer"
                   draggable="false"
-                  role="presentation"
                 >
                   <div
                     class="MuiDataGrid-columnHeaderTitleContainer"
-                    role="presentation"
                   >
                     <div
                       class="MuiDataGrid-columnHeaderTitleContainerContent"
@@ -309,11 +302,9 @@ exports[`Componente: PainelBuscaAtiva deve renderizar corretamente 1`] = `
                 <div
                   class="MuiDataGrid-columnHeaderDraggableContainer"
                   draggable="false"
-                  role="presentation"
                 >
                   <div
                     class="MuiDataGrid-columnHeaderTitleContainer"
-                    role="presentation"
                   >
                     <div
                       class="MuiDataGrid-columnHeaderTitleContainerContent"
@@ -384,11 +375,9 @@ exports[`Componente: PainelBuscaAtiva deve renderizar corretamente 1`] = `
                 <div
                   class="MuiDataGrid-columnHeaderDraggableContainer"
                   draggable="false"
-                  role="presentation"
                 >
                   <div
                     class="MuiDataGrid-columnHeaderTitleContainer"
-                    role="presentation"
                   >
                     <div
                       class="MuiDataGrid-columnHeaderTitleContainerContent"
@@ -450,18 +439,15 @@ exports[`Componente: PainelBuscaAtiva deve renderizar corretamente 1`] = `
           </div>
         </div>
         <div
-          class="MuiDataGrid-virtualScroller css-qvtrhg-MuiDataGrid-virtualScroller"
-          role="presentation"
+          class="MuiDataGrid-virtualScroller css-axafay-MuiDataGrid-virtualScroller"
           style="overflow-x: hidden;"
         >
           <div
             class="MuiDataGrid-virtualScrollerContent MuiDataGrid-virtualScrollerContent--overflowed css-1kwdphh-MuiDataGrid-virtualScrollerContent"
-            role="presentation"
             style="width: auto; height: 140px; min-height: auto;"
           >
             <div
               class="MuiDataGrid-virtualScrollerRenderZone css-s1v7zr-MuiDataGrid-virtualScrollerRenderZone"
-              role="rowgroup"
               style="transform: translate3d(0px, 0px, 0px);"
             >
               <div
@@ -485,7 +471,6 @@ exports[`Componente: PainelBuscaAtiva deve renderizar corretamente 1`] = `
                 >
                   <div
                     class="MuiDataGrid-cellContent"
-                    role="presentation"
                     title="Camila da Silva"
                   >
                     Camila da Silva
@@ -515,7 +500,6 @@ exports[`Componente: PainelBuscaAtiva deve renderizar corretamente 1`] = `
                 >
                   <div
                     class="MuiDataGrid-cellContent"
-                    role="presentation"
                     title="Alessandra Santos"
                   >
                     Alessandra Santos
@@ -533,7 +517,6 @@ exports[`Componente: PainelBuscaAtiva deve renderizar corretamente 1`] = `
                 >
                   <div
                     class="MuiDataGrid-cellContent"
-                    role="presentation"
                     title="25"
                   >
                     25
@@ -551,7 +534,6 @@ exports[`Componente: PainelBuscaAtiva deve renderizar corretamente 1`] = `
                 >
                   <div
                     class="MuiDataGrid-cellContent"
-                    role="presentation"
                     title="-"
                   >
                     -
@@ -579,7 +561,6 @@ exports[`Componente: PainelBuscaAtiva deve renderizar corretamente 1`] = `
                 >
                   <div
                     class="MuiDataGrid-cellContent"
-                    role="presentation"
                     title="Maria da Silva"
                   >
                     Maria da Silva
@@ -609,7 +590,6 @@ exports[`Componente: PainelBuscaAtiva deve renderizar corretamente 1`] = `
                 >
                   <div
                     class="MuiDataGrid-cellContent"
-                    role="presentation"
                     title="Alessandra Santos"
                   >
                     Alessandra Santos
@@ -627,7 +607,6 @@ exports[`Componente: PainelBuscaAtiva deve renderizar corretamente 1`] = `
                 >
                   <div
                     class="MuiDataGrid-cellContent"
-                    role="presentation"
                     title="35"
                   >
                     35
@@ -645,7 +624,6 @@ exports[`Componente: PainelBuscaAtiva deve renderizar corretamente 1`] = `
                 >
                   <div
                     class="MuiDataGrid-cellContent"
-                    role="presentation"
                     title="11/05/2026"
                   >
                     11/05/2026
@@ -673,7 +651,6 @@ exports[`Componente: PainelBuscaAtiva deve renderizar corretamente 1`] = `
                 >
                   <div
                     class="MuiDataGrid-cellContent"
-                    role="presentation"
                     title="Julia da Silva"
                   >
                     Julia da Silva
@@ -703,7 +680,6 @@ exports[`Componente: PainelBuscaAtiva deve renderizar corretamente 1`] = `
                 >
                   <div
                     class="MuiDataGrid-cellContent"
-                    role="presentation"
                     title="Carmen Miranda"
                   >
                     Carmen Miranda
@@ -721,7 +697,6 @@ exports[`Componente: PainelBuscaAtiva deve renderizar corretamente 1`] = `
                 >
                   <div
                     class="MuiDataGrid-cellContent"
-                    role="presentation"
                     title="55"
                   >
                     55
@@ -739,7 +714,6 @@ exports[`Componente: PainelBuscaAtiva deve renderizar corretamente 1`] = `
                 >
                   <div
                     class="MuiDataGrid-cellContent"
-                    role="presentation"
                     title="27/07/2025"
                   >
                     27/07/2025
@@ -767,7 +741,6 @@ exports[`Componente: PainelBuscaAtiva deve renderizar corretamente 1`] = `
                 >
                   <div
                     class="MuiDataGrid-cellContent"
-                    role="presentation"
                     title="Carla da Silva"
                   >
                     Carla da Silva
@@ -797,7 +770,6 @@ exports[`Componente: PainelBuscaAtiva deve renderizar corretamente 1`] = `
                 >
                   <div
                     class="MuiDataGrid-cellContent"
-                    role="presentation"
                     title="Alessandra Santos"
                   >
                     Alessandra Santos
@@ -815,7 +787,6 @@ exports[`Componente: PainelBuscaAtiva deve renderizar corretamente 1`] = `
                 >
                   <div
                     class="MuiDataGrid-cellContent"
-                    role="presentation"
                     title="64"
                   >
                     64
@@ -833,7 +804,6 @@ exports[`Componente: PainelBuscaAtiva deve renderizar corretamente 1`] = `
                 >
                   <div
                     class="MuiDataGrid-cellContent"
-                    role="presentation"
                     title="-"
                   >
                     -
@@ -864,16 +834,15 @@ exports[`Componente: PainelBuscaAtiva deve renderizar corretamente 1`] = `
               Linhas por página:
             </p>
             <div
-              class="MuiInputBase-root MuiInputBase-colorPrimary MuiTablePagination-input css-16c50h-MuiInputBase-root-MuiTablePagination-select"
+              class="MuiInputBase-root MuiInputBase-colorPrimary css-16c50h-MuiInputBase-root-MuiTablePagination-select"
             >
               <div
-                aria-controls=":r2:"
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-labelledby=":r1: :r0:"
                 class="MuiSelect-select MuiTablePagination-select MuiSelect-standard MuiInputBase-input css-194a1fa-MuiSelect-select-MuiInputBase-input"
                 id=":r0:"
-                role="combobox"
+                role="button"
                 tabindex="0"
               >
                 100
