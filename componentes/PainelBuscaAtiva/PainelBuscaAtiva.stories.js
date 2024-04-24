@@ -928,6 +928,7 @@ const Template = (args) =>{
     "cito" : dataCito
   }
   const [data,setData]=useState(dados[args.painel])
+  const [filtrosAplicados, setFiltrosAplicados] = useState(false)
   const [showSnackBar, setShowSnackBar] = useState({
     open: false,
     message: "",
@@ -938,6 +939,7 @@ const Template = (args) =>{
   args["setData"] = setData
   args["showSnackBar"] = showSnackBar
   args["setShowSnackBar"] = setShowSnackBar
+  args["setFiltros_aplicados"] = setFiltrosAplicados
   return <PainelBuscaAtiva {...args}/>
 }
 

@@ -4,8 +4,6 @@ import { Modal } from "../Modal/Modal";
 import { ButtonLightSubmit } from "../ButtonLight/ButtonLight";
 import { ButtonColorSubmit, ButtonColorSubmitIcon } from "../ButtonColor/ButtonColor";
 import { TabelaHiperDia } from "../TabelaHiperDia";
-import { Toast } from "../Toast";
-import { CardAlert } from "../CardAlert";
 
 const stringToDate = (str)=>{
     if(!str) return null
@@ -456,7 +454,6 @@ const PainelBuscaAtiva = ({
     sub_aba = "",
     rowHeight,
     onPrintClick = () => {},
-    showSnackBar,
     setShowSnackBar,
 })=>{
     const [showOrdenarModal,setShowOrdenarModal] = useState(false)
@@ -517,13 +514,6 @@ const PainelBuscaAtiva = ({
         }
         
     }, [showOrdenarModal, showFiltrosModal]);
-
-    const closeToast = () => {
-        setShowSnackBar((prevState) => ({
-            ...prevState,
-            open: false,
-        }))
-    }
 
     return(
         <div style={{marginTop : "30px"}}>
@@ -611,18 +601,6 @@ const PainelBuscaAtiva = ({
                 data={data} 
                 rowHeight={rowHeight ? rowHeight : null}
             />
-            <Toast
-                open={showSnackBar.open}
-                autoHideDuration={4000}
-                onClose={closeToast}
-            >
-                <CardAlert
-                    msg={showSnackBar.message}
-                    color={showSnackBar.color}
-                    background={showSnackBar.background}
-                    margin="0px"
-                />
-            </Toast>
         </div>
     )
 }
