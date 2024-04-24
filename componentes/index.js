@@ -52,6 +52,7 @@ export { TabelaVacinacaoImpressao } from "./TabelaVacinacao/TabelaVacinacao";
 export { TabelaGestantesImpressao } from "./TabelaGestantes/TabelaGestantes";
 export { TextCol } from "./TextCol/TextCol";
 export { TituloSmallTexto, TituloTexto, NovoTituloTexto } from "./TituloTexto/TituloTexto";
+export { Toast } from "./Toast";
 export { ToggleList } from "./ToggleList/ToggleList";
 export { ToggleListElementBlock } from "./ToggleListElementBlock/ToggleListElementBlock";
 export { ToggleText } from "./ToggleText/ToggleText";
