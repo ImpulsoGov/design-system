@@ -83,7 +83,7 @@ const SortData = ({
     setShowSnackBar({
         open: true,
         message: "Lista ordenada com sucesso!",
-        background: "green",
+        background: "#2EB280",
         color: "white",
     })
 
@@ -134,7 +134,7 @@ const FilterData = (props)=>{
     props.setShowSnackBar({
         open: true,
         message: "Filtros aplicados com sucesso!",
-        background: "green",
+        background: "#2EB280",
         color: "white",
     })
 
