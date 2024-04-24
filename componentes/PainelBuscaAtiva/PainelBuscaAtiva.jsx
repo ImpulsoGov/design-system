@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import style from "./PainelBuscaAtiva.module.css";
 import { Modal } from "../Modal/Modal";
 import { ButtonLightSubmit } from "../ButtonLight/ButtonLight";
-import { ButtonColorSubmit } from "../ButtonColor/ButtonColor";
+import { ButtonColorSubmit, ButtonColorSubmitIcon } from "../ButtonColor/ButtonColor";
 import { TabelaHiperDia } from "../TabelaHiperDia";
 import { Toast } from "../Toast";
 import { CardAlert } from "../CardAlert";
@@ -183,13 +183,19 @@ const ToolBar = ({
     data,
     setData,
     tabela,
-    ordenacaoAplicada
+    ordenacaoAplicada,
+    onPrintClick,
 })=>{
     const [nome,setNome] =useState('')
     const filterbyName = ()=>setData(tabela.filter(item=>item[item?.cidadao_nome ? "cidadao_nome" : "paciente_nome"].toUpperCase().includes(nome.toUpperCase())))
     useEffect(()=>{
         if(nome.length<=0) setData(tabela)
     },[nome])
+
+    function handlePrintClick() {
+        onPrintClick(data);
+    }
+
     return(
         <div className={style.ToolBar}>
             <input 
@@ -207,7 +213,12 @@ const ToolBar = ({
                      "https://media.graphassets.com/7E9qXtNTze5w3ozl6a5I"
                 }
             />
-            <ButtonLightSubmit label="FILTRAR LISTA NOMINAL" submit={showFiltros} icon={chavesFiltros.length>0 ? "https://media.graphassets.com/1rnUv5WSTKmCHnvqciuW" : "https://media.graphassets.com/1WHJsCigTXyJbq7Tw47m"}/>
+            <ButtonLightSubmit label="FILTRAR A LISTA" submit={showFiltros} icon={chavesFiltros.length>0 ? "https://media.graphassets.com/1rnUv5WSTKmCHnvqciuW" : "https://media.graphassets.com/1WHJsCigTXyJbq7Tw47m"}/>
+            <ButtonColorSubmitIcon
+                label="IMPRIMIR LISTA"
+                icon="https://media.graphassets.com/3vsKrZXYT9CdxSSyhjhk"
+                submit={handlePrintClick}
+            />
         </div>
     )
 }
@@ -444,6 +455,7 @@ const PainelBuscaAtiva = ({
     aba = "",
     sub_aba = "",
     rowHeight,
+    onPrintClick = () => {},
     showSnackBar,
     setShowSnackBar,
 })=>{
@@ -592,6 +604,7 @@ const PainelBuscaAtiva = ({
                 setData={setData}
                 tabela={tabela.data}
                 ordenacaoAplicada={ordenacaoAplicada}
+                onPrintClick={onPrintClick}
             />
             <TabelaHiperDia 
                 colunas={tabela.colunas} 

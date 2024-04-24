@@ -44,8 +44,9 @@
 .ToolBar{
     display: flex;
     gap: 15px;
-    width: 100%;
     justify-content: center;
+    margin-left: 85px;
+    margin-right: 7%;
 }
 .SearchBar{
     background: #EFF5F9;
@@ -57,7 +58,7 @@
     font-weight: 400;
     font-size: 12px;
     line-height: 150%;
-    width: 52%;
+    width: 40%;
 }
 .SearchBar:focus { 
     outline: none !important;
@@ -252,10 +253,16 @@
         padding-right : 100px;
     }
 
+    .SearchBar {
+        width: 90%;
+    }
 }
 @media screen and (min-width : 1920px) {
     .AtualizacaoConteiner{
         padding-right : 200px;
     }
 
+    .SearchBar {
+        width: 90%;
+    }
 }
