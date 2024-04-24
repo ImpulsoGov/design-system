@@ -120,7 +120,7 @@ const FilterData = (props)=>{
     const filtrosAgrupados = agruparChavesIguais(filtros)
     const dadosFiltrados = filterByChoices(props.data, filtrosAgrupados)
     const dadosOrdenados = sortByChoice(dadosFiltrados, props.ordenar, props.IDFiltrosOrdenacao, props.datefiltros, props.IntFiltros)
-
+    console.log(props)
     props.setData(dadosOrdenados)
 
     props.trackObject.track('button_click', {
@@ -421,6 +421,7 @@ const PainelBuscaAtiva = ({
     rotulosfiltros,
     IDFiltrosOrdenacao,
     atualizacao,
+    setFiltros_aplicados,
     trackObject = null,
     aba = "",
     sub_aba = "",
@@ -453,6 +454,9 @@ const PainelBuscaAtiva = ({
         setValue(updateState)
     };
     useEffect(()=>{
+        setFiltros_aplicados(Object.values(value).some(value=> value==true))
+    },[value])
+    useEffect(()=>{ 
         if(!modal && chavesFiltros.length==0){
             const value_temp = {}
             Object.keys(value).forEach(checkbox=>{
