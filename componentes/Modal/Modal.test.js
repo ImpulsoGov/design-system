@@ -23,14 +23,14 @@ describe(`Componente: ${COMPONENT}`, () => {
     expect(component).toMatchSnapshot();
   });
 
-  it('não deve ser renderizado após clicar no botão de fechar', async () => {
+  it('deve chamar setModal com o valor false ao clicar no botão de fechar', async () => {
     const user = userEvent.setup();
     render(<Modal {...scenarios[0]}>{children}</Modal>);
 
     const closeBtn = screen.getByTestId("ModalExit");
     await user.click(closeBtn);
 
-    expect(screen.queryByTestId("Modal")).not.toBeInTheDocument();
+    expect(scenarios[0].setModal).toHaveBeenCalledWith(false);
   });
 
   it('não deve ser renderizado quando a visibilidade inicial é false', () => {
