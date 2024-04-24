@@ -8,6 +8,7 @@
   height: 85px;
   padding: 2px;
   margin-bottom: 54px;
+  overflow-x: hidden;
 }
 
 .PanelSelectorMain p{
