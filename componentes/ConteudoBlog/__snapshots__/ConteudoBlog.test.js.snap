@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Componente: ConteudoBlog deve renderizar corretamente 1`] = `
+<div
+  class="ConteudoBlogContainer"
+  data-testid="ConteudoBlog"
+>
+  <div>
+    <div
+      class="ConteudoBlogTitulo"
+    >
+      Lorem ipsum
+    </div>
+    <img
+      class="ConteudoBlogCapa"
+      src="https://media.graphassets.com/53A911TkTVeKdKeLllnS"
+    />
+  </div>
+  <div
+    class="ConteudoBlogAutor"
+  >
+    <img
+      alt="https://media.graphassets.com/53A911TkTVeKdKeLllnS"
+      class="ConteudoBlogAutorAvatar"
+      src="https://media.graphassets.com/53A911TkTVeKdKeLllnS"
+    />
+    <div>
+      Carmen
+       
+      <span
+        class="ConteudoBlogData"
+      >
+          ·  
+        Janeiro
+         
+        2024
+      </span>
+    </div>
+  </div>
+  <div
+    class="ConteudoBlogTexto"
+  >
+    Lorem ipsum dolor sit amet.
+  </div>
+</div>
+`;
