@@ -31,7 +31,6 @@ const stringToDate = (str)=>{
     if(str.includes('/')) return dataFormatoBarra(str) 
     if(str.includes('-')) return dataFormatoTraco(str) 
 }
-
 const sortByDate = (data, filtro, IDFiltrosOrdenacao)=>{
     return [...data].sort((a,b) =>{
         const valueA = stringToDate(a[filtro])
@@ -47,7 +46,6 @@ const sortByDate = (data, filtro, IDFiltrosOrdenacao)=>{
         if(IDFiltrosOrdenacao[filtro] == "desc") return valueB - valueA
     }
 )}
-
 const sortInt = (data, filtro, IDFiltrosOrdenacao)=>[...data].sort((a,b) => IDFiltrosOrdenacao[filtro] == "desc" ? Number(b[filtro]) - Number(a[filtro]) : Number(a[filtro]) - Number(b[filtro]))
 
 const sortByString = (data, filtro)=>[...data].sort((a,b) => a[filtro]?.toString().localeCompare(b[filtro]?.toString()) )
@@ -259,30 +257,32 @@ const Ordenar = (props)=>{
     }
     return(
         <div className={style.containerOrdenar}>
-            <div 
-                className={style.limparOrdenacao}
-                onClick={limpar}
-            >Limpar ordenação</div>
             <p className={style.OrdenarPor}>Ordenar por:</p>
             {filtros_painel.rotulos.map((label)=><CardFiltro label={label} setOrdenar={props.setOrdenar} ordenar={props.ordenar} ID={filtros_painel.ID} key={label} />)}
-            <ButtonColorSubmit 
-                label="ORDENAR LISTA" 
-                submit={SortData} 
-                arg={{
-                    data : props.data,
-                    filtro : props.ordenar,
-                    setData:props.setData, 
-                    datefiltros : props.datefiltros,
-                    IntFiltros : props.IntFiltros, 
-                    setModal : props.setModal, 
-                    setOrdenacaoAplicada : props.setOrdenacaoAplicada, 
-                    IDFiltrosOrdenacao : props.IDFiltrosOrdenacao,
-                    trackObject : props.trackObject,
-                    painel : props.painel,
-                    aba : props.aba,
-                    sub_aba : props.sub_aba,
-                    setShowSnackBar: props.setShowSnackBar,
-            }}/>
+            <div className={style.AplicarFiltros}>
+                <ButtonLightSubmit
+                        label="Limpar ordenação" 
+                        submit={limpar} 
+                    />
+
+                <ButtonColorSubmit 
+                    label="ORDENAR LISTA" 
+                    submit={SortData} 
+                    arg={{
+                        data : props.data,
+                        filtro : props.ordenar,
+                        setData:props.setData, 
+                        datefiltros : props.datefiltros,
+                        IntFiltros : props.IntFiltros, 
+                        setModal : props.setModal, 
+                        setOrdenacaoAplicada : props.setOrdenacaoAplicada, 
+                        IDFiltrosOrdenacao : props.IDFiltrosOrdenacao,
+                        trackObject : props.trackObject,
+                        painel : props.painel,
+                        aba : props.aba,
+                        sub_aba : props.sub_aba
+                }}/>       
+            </div>
         </div>
     )
 }
@@ -368,7 +368,6 @@ const Filtro = ({
     }
     return(
         <div className={style.Filtro}>
-            <div className={style.LimparFiltros} onClick={LimparFiltros}>Limpar Filtros</div>
             <div style={{overflowY : 'scroll',height:'70vh',width : '120%'}}>
                 {
                     data.map((filtro)=><FiltroBody
@@ -387,8 +386,12 @@ const Filtro = ({
                 }
             </div>
             <div className={style.AplicarFiltros}>
+                <ButtonLightSubmit
+                    label="LIMPAR FILTROS" 
+                    submit={LimparFiltros} 
+                />
                 <ButtonColorSubmit 
-                    label="FILTRAR LISTA NOMINAL" 
+                    label="FILTRAR LISTA" 
                     submit={FilterData} 
                     arg={{
                         data : tabela,
