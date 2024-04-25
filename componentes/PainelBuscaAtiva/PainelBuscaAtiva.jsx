@@ -280,7 +280,8 @@ const Ordenar = (props)=>{
                         trackObject : props.trackObject,
                         painel : props.painel,
                         aba : props.aba,
-                        sub_aba : props.sub_aba
+                        sub_aba : props.sub_aba,
+                        setShowSnackBar: props.setShowSnackBar,
                 }}/>       
             </div>
         </div>
