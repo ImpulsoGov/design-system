@@ -6,6 +6,9 @@ import { ButtonColorSubmit, ButtonColorSubmitIcon } from "../ButtonColor/ButtonC
 import { TabelaHiperDia } from "../TabelaHiperDia";
 import { Toast } from "../Toast";
 import { CardAlert } from "../CardAlert";
+import Tippy from "@tippyjs/react";
+import "./tippy_theme.css";
+import 'tippy.js/dist/svg-arrow.css';
 
 const stringToDate = (str)=>{
     if(!str) return null
@@ -212,11 +215,20 @@ const ToolBar = ({
                 }
             />
             <ButtonLightSubmit label="FILTRAR A LISTA" submit={showFiltros} icon={chavesFiltros.length>0 ? "https://media.graphassets.com/1rnUv5WSTKmCHnvqciuW" : "https://media.graphassets.com/1WHJsCigTXyJbq7Tw47m"}/>
-            <ButtonColorSubmitIcon
-                label="IMPRIMIR LISTA"
-                icon="https://media.graphassets.com/3vsKrZXYT9CdxSSyhjhk"
-                submit={handlePrintClick}
-            />
+            <Tippy
+                content={ "O número de pacientes na lista é muito grande, aplique algum filtro para que o carregamento da impressão seja mais rápido" }
+                placement="bottom"
+                theme="alert"
+                arrow={true}
+            >
+                <div>
+                <ButtonColorSubmitIcon
+                    label="IMPRIMIR LISTA"
+                    icon="https://media.graphassets.com/3vsKrZXYT9CdxSSyhjhk"
+                    submit={handlePrintClick}
+                />
+                </div>
+            </Tippy>
         </div>
     )
 }
