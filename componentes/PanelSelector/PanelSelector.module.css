@@ -197,18 +197,23 @@
   .PanelSelectorButtonSelected {
     white-space: normal;
     text-align: center;
+    justify-content: center;
     cursor: pointer;
-    width: 11.5%;
+    width: min-content;
+    min-width: 11%;
   }
 
   .PanelSelectorButton {
     white-space: normal;
     text-align: center;
+    justify-content: center;
     cursor: pointer;
-    width: 11.5%;
+    width: min-content;
+    min-width: 11%;
   }
 
   .PanelSelectorTitleButtonSelected {
+    width: min-content;
     width: 21%;
     align-items: flex-end;
     white-space: normal;
@@ -216,6 +221,7 @@
   }
 
   .PanelSelectorTitleButton {
+    width: min-content;
     width: 21%;
     align-items: flex-end;
     white-space: normal;
@@ -227,7 +233,8 @@
   }
 
   .PanelSelectorContainerIP {
-    height: 6vh;
+    height: max-content;
+    min-height: 40px;
   }
 
   .PanelSelectorMain {
