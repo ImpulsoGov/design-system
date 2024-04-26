@@ -193,3 +193,44 @@
   }
 }
 
+@media screen and (max-width: 1365px) and (min-width: 640px){
+  .PanelSelectorButtonSelected {
+    white-space: normal;
+    text-align: center;
+    cursor: pointer;
+    width: 11.5%;
+  }
+
+  .PanelSelectorButton {
+    white-space: normal;
+    text-align: center;
+    cursor: pointer;
+    width: 11.5%;
+  }
+
+  .PanelSelectorTitleButtonSelected {
+    width: 21%;
+    align-items: flex-end;
+    white-space: normal;
+    cursor: pointer;
+  }
+
+  .PanelSelectorTitleButton {
+    width: 21%;
+    align-items: flex-end;
+    white-space: normal;
+    cursor: pointer;
+  }
+
+  .PanelSelectorTitles {
+    height: 8vh;
+  }
+
+  .PanelSelectorContainerIP {
+    height: 6vh;
+  }
+
+  .PanelSelectorMain {
+    height: fit-content;
+  }
+}
