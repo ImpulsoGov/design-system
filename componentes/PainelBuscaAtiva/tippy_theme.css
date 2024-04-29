@@ -1,0 +1,9 @@
+.tippy-box[data-theme~='alert'] {
+    font-family: 'Inter';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    text-align: center;
+    background-color: #FFF0E1;
+    color: #1F1F1F;
+}

@@ -44,8 +44,17 @@
 .ToolBar{
     display: flex;
     gap: 15px;
-    width: 100%;
     justify-content: center;
+    margin-left: 85px;
+    margin-right: 7%;
+}
+.CardInfoTooltip {
+    font-family: 'Inter';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    text-align: center;
+    background-color: #FFF0E1;
 }
 .SearchBar{
     background: #EFF5F9;
@@ -57,7 +66,7 @@
     font-weight: 400;
     font-size: 12px;
     line-height: 150%;
-    width: 52%;
+    width: 40%;
 }
 .SearchBar:focus { 
     outline: none !important;
@@ -192,6 +201,8 @@
     padding: 15px;
     bottom: 0;
     background-color: #FFF;
+    display: flex;
+    gap: 50px;
 }
 .AplicarfiltrosCase{
     width : 100%;
@@ -252,10 +263,16 @@
         padding-right : 100px;
     }
 
+    .SearchBar {
+        width: 90%;
+    }
 }
 @media screen and (min-width : 1920px) {
     .AtualizacaoConteiner{
         padding-right : 200px;
     }
 
+    .SearchBar {
+        width: 90%;
+    }
 }

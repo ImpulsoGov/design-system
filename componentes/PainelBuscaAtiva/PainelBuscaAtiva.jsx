@@ -2,8 +2,13 @@ import React, { useEffect, useState } from "react";
 import style from "./PainelBuscaAtiva.module.css";
 import { Modal } from "../Modal/Modal";
 import { ButtonLightSubmit } from "../ButtonLight/ButtonLight";
-import { ButtonColorSubmit } from "../ButtonColor/ButtonColor";
+import { ButtonColorSubmit, ButtonColorSubmitIcon } from "../ButtonColor/ButtonColor";
 import { TabelaHiperDia } from "../TabelaHiperDia";
+import { Toast } from "../Toast";
+import { CardAlert } from "../CardAlert";
+import Tippy from "@tippyjs/react";
+import "./tippy_theme.css";
+import 'tippy.js/dist/svg-arrow.css';
 
 const stringToDate = (str)=>{
     if(!str) return null
@@ -29,7 +34,6 @@ const stringToDate = (str)=>{
     if(str.includes('/')) return dataFormatoBarra(str) 
     if(str.includes('-')) return dataFormatoTraco(str) 
 }
-
 const sortByDate = (data, filtro, IDFiltrosOrdenacao)=>{
     return [...data].sort((a,b) =>{
         const valueA = stringToDate(a[filtro])
@@ -45,7 +49,6 @@ const sortByDate = (data, filtro, IDFiltrosOrdenacao)=>{
         if(IDFiltrosOrdenacao[filtro] == "desc") return valueB - valueA
     }
 )}
-
 const sortInt = (data, filtro, IDFiltrosOrdenacao)=>[...data].sort((a,b) => IDFiltrosOrdenacao[filtro] == "desc" ? Number(b[filtro]) - Number(a[filtro]) : Number(a[filtro]) - Number(b[filtro]))
 
 const sortByString = (data, filtro)=>[...data].sort((a,b) => a[filtro]?.toString().localeCompare(b[filtro]?.toString()) )
@@ -74,9 +77,16 @@ const SortData = ({
     trackObject,
     painel,
     aba,
-    sub_aba
+    sub_aba,
+    setShowSnackBar,
 })=>{
     setData(sortByChoice(data, filtro, IDFiltrosOrdenacao, datefiltros, IntFiltros))
+    setShowSnackBar({
+        open: true,
+        message: "Lista ordenada com sucesso!",
+        background: "#2EB280",
+        color: "white",
+    })
 
     trackObject.track('button_click', {
         'button_action': 'aplicar_ordenacao',
@@ -120,8 +130,14 @@ const FilterData = (props)=>{
     const filtrosAgrupados = agruparChavesIguais(filtros)
     const dadosFiltrados = filterByChoices(props.data, filtrosAgrupados)
     const dadosOrdenados = sortByChoice(dadosFiltrados, props.ordenar, props.IDFiltrosOrdenacao, props.datefiltros, props.IntFiltros)
-
+    console.log(props)
     props.setData(dadosOrdenados)
+    props.setShowSnackBar({
+        open: true,
+        message: "Filtros aplicados com sucesso!",
+        background: "#2EB280",
+        color: "white",
+    })
 
     props.trackObject.track('button_click', {
         'button_action': 'aplicar_filtro',
@@ -168,13 +184,19 @@ const ToolBar = ({
     data,
     setData,
     tabela,
-    ordenacaoAplicada
+    ordenacaoAplicada,
+    onPrintClick,
 })=>{
     const [nome,setNome] =useState('')
     const filterbyName = ()=>setData(tabela.filter(item=>item[item?.cidadao_nome ? "cidadao_nome" : "paciente_nome"].toUpperCase().includes(nome.toUpperCase())))
     useEffect(()=>{
         if(nome.length<=0) setData(tabela)
     },[nome])
+
+    function handlePrintClick() {
+        onPrintClick(data);
+    }
+
     return(
         <div className={style.ToolBar}>
             <input 
@@ -192,7 +214,21 @@ const ToolBar = ({
                      "https://media.graphassets.com/7E9qXtNTze5w3ozl6a5I"
                 }
             />
-            <ButtonLightSubmit label="FILTRAR LISTA NOMINAL" submit={showFiltros} icon={chavesFiltros.length>0 ? "https://media.graphassets.com/1rnUv5WSTKmCHnvqciuW" : "https://media.graphassets.com/1WHJsCigTXyJbq7Tw47m"}/>
+            <ButtonLightSubmit label="FILTRAR A LISTA" submit={showFiltros} icon={chavesFiltros.length>0 ? "https://media.graphassets.com/1rnUv5WSTKmCHnvqciuW" : "https://media.graphassets.com/1WHJsCigTXyJbq7Tw47m"}/>
+            <Tippy
+                content={ "O número de pacientes na lista é muito grande, aplique algum filtro para que o carregamento da impressão seja mais rápido" }
+                placement="bottom"
+                theme="alert"
+                arrow={true}
+            >
+                <div>
+                <ButtonColorSubmitIcon
+                    label="IMPRIMIR LISTA"
+                    icon="https://media.graphassets.com/3vsKrZXYT9CdxSSyhjhk"
+                    submit={handlePrintClick}
+                />
+                </div>
+            </Tippy>
         </div>
     )
 }
@@ -233,29 +269,33 @@ const Ordenar = (props)=>{
     }
     return(
         <div className={style.containerOrdenar}>
-            <div 
-                className={style.limparOrdenacao}
-                onClick={limpar}
-            >Limpar ordenação</div>
             <p className={style.OrdenarPor}>Ordenar por:</p>
             {filtros_painel.rotulos.map((label)=><CardFiltro label={label} setOrdenar={props.setOrdenar} ordenar={props.ordenar} ID={filtros_painel.ID} key={label} />)}
-            <ButtonColorSubmit 
-                label="ORDENAR LISTA" 
-                submit={SortData} 
-                arg={{
-                    data : props.data,
-                    filtro : props.ordenar,
-                    setData:props.setData, 
-                    datefiltros : props.datefiltros,
-                    IntFiltros : props.IntFiltros, 
-                    setModal : props.setModal, 
-                    setOrdenacaoAplicada : props.setOrdenacaoAplicada, 
-                    IDFiltrosOrdenacao : props.IDFiltrosOrdenacao,
-                    trackObject : props.trackObject,
-                    painel : props.painel,
-                    aba : props.aba,
-                    sub_aba : props.sub_aba
-            }}/>            
+            <div className={style.AplicarFiltros}>
+                <ButtonLightSubmit
+                        label="Limpar ordenação" 
+                        submit={limpar} 
+                    />
+
+                <ButtonColorSubmit 
+                    label="ORDENAR LISTA" 
+                    submit={SortData} 
+                    arg={{
+                        data : props.data,
+                        filtro : props.ordenar,
+                        setData:props.setData, 
+                        datefiltros : props.datefiltros,
+                        IntFiltros : props.IntFiltros, 
+                        setModal : props.setModal, 
+                        setOrdenacaoAplicada : props.setOrdenacaoAplicada, 
+                        IDFiltrosOrdenacao : props.IDFiltrosOrdenacao,
+                        trackObject : props.trackObject,
+                        painel : props.painel,
+                        aba : props.aba,
+                        sub_aba : props.sub_aba,
+                        setShowSnackBar: props.setShowSnackBar,
+                }}/>       
+            </div>
         </div>
     )
 }
@@ -332,6 +372,7 @@ const Filtro = ({
     datefiltros,
     IntFiltros,
     IDFiltrosOrdenacao,
+    setShowSnackBar,
 })=>{
     const LimparFiltros = ()=>{
         setData(sortByChoice(tabela, ordenar, IDFiltrosOrdenacao, datefiltros, IntFiltros))
@@ -340,7 +381,6 @@ const Filtro = ({
     }
     return(
         <div className={style.Filtro}>
-            <div className={style.LimparFiltros} onClick={LimparFiltros}>Limpar Filtros</div>
             <div style={{overflowY : 'scroll',height:'70vh',width : '120%'}}>
                 {
                     data.map((filtro)=><FiltroBody
@@ -359,8 +399,12 @@ const Filtro = ({
                 }
             </div>
             <div className={style.AplicarFiltros}>
+                <ButtonLightSubmit
+                    label="LIMPAR FILTROS" 
+                    submit={LimparFiltros} 
+                />
                 <ButtonColorSubmit 
-                    label="FILTRAR LISTA NOMINAL" 
+                    label="FILTRAR LISTA" 
                     submit={FilterData} 
                     arg={{
                         data : tabela,
@@ -380,6 +424,7 @@ const Filtro = ({
                         datefiltros,
                         IntFiltros,
                         IDFiltrosOrdenacao,
+                        setShowSnackBar,
                     }}
                 />  
             </div>
@@ -421,10 +466,14 @@ const PainelBuscaAtiva = ({
     rotulosfiltros,
     IDFiltrosOrdenacao,
     atualizacao,
+    setFiltros_aplicados,
     trackObject = null,
     aba = "",
     sub_aba = "",
-    rowHeight
+    rowHeight,
+    onPrintClick = () => {},
+    showSnackBar,
+    setShowSnackBar,
 })=>{
     const [showOrdenarModal,setShowOrdenarModal] = useState(false)
     const [showFiltrosModal,setShowFiltrosModal] = useState(false)
@@ -453,6 +502,9 @@ const PainelBuscaAtiva = ({
         setValue(updateState)
     };
     useEffect(()=>{
+        setFiltros_aplicados(Object.values(value).some(value=> value==true))
+    },[value])
+    useEffect(()=>{ 
         if(!modal && chavesFiltros.length==0){
             const value_temp = {}
             Object.keys(value).forEach(checkbox=>{
@@ -481,6 +533,14 @@ const PainelBuscaAtiva = ({
         }
         
     }, [showOrdenarModal, showFiltrosModal]);
+
+    const closeToast = () => {
+        setShowSnackBar((prevState) => ({
+            ...prevState,
+            open: false,
+        }))
+    }
+
     return(
         <div style={{marginTop : "30px"}}>
             {
@@ -516,6 +576,7 @@ const PainelBuscaAtiva = ({
                                 filtros={value}
                                 setChavesFiltros={setChavesFiltros}
                                 dadosFiltros={dadosFiltros}
+                                setShowSnackBar={setShowSnackBar}
                             />
                         }
                         {
@@ -539,6 +600,7 @@ const PainelBuscaAtiva = ({
                                 datefiltros={datefiltros}
                                 IntFiltros={IntFiltros}
                                 IDFiltrosOrdenacao={IDFiltrosOrdenacao}
+                                setShowSnackBar={setShowSnackBar}
                             />
                         }
                     </Modal>
@@ -558,12 +620,25 @@ const PainelBuscaAtiva = ({
                 setData={setData}
                 tabela={tabela.data}
                 ordenacaoAplicada={ordenacaoAplicada}
+                onPrintClick={onPrintClick}
             />
             <TabelaHiperDia 
                 colunas={tabela.colunas} 
                 data={data} 
                 rowHeight={rowHeight ? rowHeight : null}
             />
+            <Toast
+                open={showSnackBar.open}
+                autoHideDuration={4000}
+                onClose={closeToast}
+            >
+                <CardAlert
+                    msg={showSnackBar.message}
+                    color={showSnackBar.color}
+                    background={showSnackBar.background}
+                    margin="0px"
+                />
+            </Toast>
         </div>
     )
 }
