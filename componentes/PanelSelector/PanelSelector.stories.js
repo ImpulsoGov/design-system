@@ -134,6 +134,106 @@ const titlesComponentes = [
   }
 ]
 
+const dsLinksPreNatal =[
+  [
+    "https://www.impulsogov.org/",
+    "https://saude.sp.gov.br/"
+  ],
+  [
+    "http://cnes.datasus.gov.br/",
+    "https://aps.saude.gov.br/gestor/financiamento"
+  ],
+  [
+    "https://www.impulsogov.org/",
+    "https://saude.sp.gov.br/"
+  ],
+  [
+    "http://cnes.datasus.gov.br/",
+    "https://aps.saude.gov.br/gestor/financiamento"
+  ],
+  [
+    "https://www.impulsogov.org/",
+    "https://saude.sp.gov.br/"
+  ],
+  [
+    "http://cnes.datasus.gov.br/",
+    "https://aps.saude.gov.br/gestor/financiamento"
+  ],
+  [
+    "https://www.impulsogov.org/",
+    "https://saude.sp.gov.br/"
+  ],
+  [
+    "http://cnes.datasus.gov.br/",
+    "https://aps.saude.gov.br/gestor/financiamento"
+  ]
+]
+
+const labelsPreNatal = [
+  [
+    {
+      label: `GRÁFICO Q1/24`
+
+    },
+    {
+      label: `GRÁFICO Q1/24 + Q1/24 + Q1/24`
+    },
+    {
+      label: 'GESTANTES ATIVAS'
+    },
+    {
+      label: 'GESTANTES ENCERRADAS'
+    },
+  ],
+  [
+    {
+      label: `GRÁFICO Q1/24`
+    },
+    {
+      label: `GRÁFICO Q1/24 + Q1/24 + Q1/24`
+    },
+    {
+      label: 'GESTANTES ATIVAS'
+    },
+    {
+      label: 'GESTANTES ENCERRADAS'
+    },
+  ],
+  [
+    {
+      label: `GRÁFICO Q1/24`
+    },
+    {
+      label: `GRÁFICO Q1/24 + Q1/24 + Q1/24`
+    },
+      {
+      label: 'GESTANTES ATIVAS'
+    },
+    {
+      label: 'GESTANTES ENCERRADAS' 
+    },
+  ],
+  [
+    {
+      label: 'GESTANTES SEM DUM'
+    },
+  ]
+]
+
+const titlesPreNatal = [
+  {
+      label: 'INDICADOR 1 (6 CONSULTAS)'
+  },
+  {
+      label: 'INDICADOR 2 (EXAME DE HIV E SÍFILIS)'
+  },
+  {
+      label: 'INDICADOR 3 (ATENDIMENTO ODONTO)'
+  },
+  {
+    label: 'GESTANTES SEM DUM'
+  },
+]
 
 export default {
     title: "Componentes/PanelSelector",
@@ -199,4 +299,12 @@ Componentes.args={
   conteudo : "components",
   components : children
 }
-  
+
+export const ComQuebraDeLinha = Template.bind({});
+ComQuebraDeLinha.args={
+  links: dsLinksPreNatal,
+  list: labelsPreNatal,
+  titles: titlesPreNatal,
+  initialTitle: 1,
+  breakTitlesLine: true
+}
