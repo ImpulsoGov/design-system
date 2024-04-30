@@ -251,6 +251,22 @@ export default {
             name:'titles',
             description:'Array de objetos contento os rótulos das abas *array/object* \n\n **titles:** Rótulos da aba "Análises" dos paineis do Impulso Previne  \n\n **titlesBuscaAtiva** e **titlesBuscaAtivaEquipe:** Rótulos das abas do painel de busca ativa'
         },
+        conteudo:{
+            name:'conteudo',
+            description:'Tipo de conteúdo a ser exibido no painel *string* \n\n **iframe:** Painel do data studio *string* \n\n **components:** Componentes React *string*'
+        },
+        components:{
+            name:'components',
+            description:'Componentes React a serem exibidos no painel *array/array* \n\n **children:** Componentes React *array*'
+        },
+        breakTitlesLine:{
+            name:'breakTitlesLine',
+            description:'Define se é feita quebra de linha dos títulos das abas e subabas *boolean*'
+        },
+        states:{
+            name:'states',
+            description:'Estados do painel *object* \n\n **activeTabIndex:** Índice da subaba ativa *number* \n\n **setActiveTabIndex:** Função que altera o índice da subaba ativa *function* \n\n **activeTitleTabIndex:** Índice da aba ativa *number* \n\n **setActiveTitleTabIndex:** Função que altera o índice da subaba ativa *function*'
+        }
     },
   };
 
