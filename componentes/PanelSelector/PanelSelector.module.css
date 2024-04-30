@@ -198,7 +198,6 @@
     white-space: normal;
     text-align: center;
     justify-content: center;
-    cursor: pointer;
     width: min-content;
     min-width: 11%;
   }
@@ -208,7 +207,6 @@
     width: 21%;
     align-items: flex-end;
     white-space: normal;
-    cursor: pointer;
   }
 
   .PanelSelectorMainLineBreak {
