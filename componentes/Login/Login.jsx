@@ -24,12 +24,6 @@ const Login = (props)=>{
             // Procura todos os caracteres não numericos
             let naoNumeros = value.match(/[^\d.-]/g)
             setAlertCPF(naoNumeros ? true : false)
-            if (props.trackObject) {
-                props.trackObject.track('validation_error', {
-                    'button_action': 'digitou_caractere_nao_numerico',
-                    'error_message' : "Agora não utilizamos mais e-mail para login. Você deve utilizar seu CPF e senha cadastrada."
-                });
-            }
             // Remove qualquer caractere que não seja um dígito numerico
             value = value.replace(/\D/g, '');
             // Se o valor tem mais de 3 dígitos, adicione um ponto após os primeiros 3 dígitos
