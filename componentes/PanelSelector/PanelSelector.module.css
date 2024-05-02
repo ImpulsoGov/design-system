@@ -194,50 +194,27 @@
 }
 
 @media screen and (max-width: 1365px) and (min-width: 640px){
-  .PanelSelectorButtonSelected {
+  .PanelSelectorButtonLineBreak {
     white-space: normal;
     text-align: center;
     justify-content: center;
-    cursor: pointer;
     width: min-content;
     min-width: 11%;
   }
 
-  .PanelSelectorButton {
-    white-space: normal;
-    text-align: center;
-    justify-content: center;
-    cursor: pointer;
-    width: min-content;
-    min-width: 11%;
-  }
-
-  .PanelSelectorTitleButtonSelected {
+  .PanelSelectorTitleButtonLineBreak {
     width: min-content;
     width: 21%;
     align-items: flex-end;
     white-space: normal;
-    cursor: pointer;
   }
 
-  .PanelSelectorTitleButton {
-    width: min-content;
-    width: 21%;
-    align-items: flex-end;
-    white-space: normal;
-    cursor: pointer;
-  }
-
-  .PanelSelectorTitles {
-    height: 8vh;
-  }
-
-  .PanelSelectorContainerIP {
-    height: max-content;
-    min-height: 40px;
-  }
-
-  .PanelSelectorMain {
+  .PanelSelectorMainLineBreak {
     height: fit-content;
+  }
+
+  .PanelSelectorContainerIPLineBreak {
+    height: max-content;
+    min-height: 50px;
   }
 }

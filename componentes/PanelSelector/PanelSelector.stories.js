@@ -134,6 +134,106 @@ const titlesComponentes = [
   }
 ]
 
+const dsLinksPreNatal =[
+  [
+    "https://www.impulsogov.org/",
+    "https://saude.sp.gov.br/"
+  ],
+  [
+    "http://cnes.datasus.gov.br/",
+    "https://aps.saude.gov.br/gestor/financiamento"
+  ],
+  [
+    "https://www.impulsogov.org/",
+    "https://saude.sp.gov.br/"
+  ],
+  [
+    "http://cnes.datasus.gov.br/",
+    "https://aps.saude.gov.br/gestor/financiamento"
+  ],
+  [
+    "https://www.impulsogov.org/",
+    "https://saude.sp.gov.br/"
+  ],
+  [
+    "http://cnes.datasus.gov.br/",
+    "https://aps.saude.gov.br/gestor/financiamento"
+  ],
+  [
+    "https://www.impulsogov.org/",
+    "https://saude.sp.gov.br/"
+  ],
+  [
+    "http://cnes.datasus.gov.br/",
+    "https://aps.saude.gov.br/gestor/financiamento"
+  ]
+]
+
+const labelsPreNatal = [
+  [
+    {
+      label: `GRÁFICO Q1/24`
+
+    },
+    {
+      label: `GRÁFICO Q1/24 + Q1/24 + Q1/24`
+    },
+    {
+      label: 'GESTANTES ATIVAS'
+    },
+    {
+      label: 'GESTANTES ENCERRADAS'
+    },
+  ],
+  [
+    {
+      label: `GRÁFICO Q1/24`
+    },
+    {
+      label: `GRÁFICO Q1/24 + Q1/24 + Q1/24`
+    },
+    {
+      label: 'GESTANTES ATIVAS'
+    },
+    {
+      label: 'GESTANTES ENCERRADAS'
+    },
+  ],
+  [
+    {
+      label: `GRÁFICO Q1/24`
+    },
+    {
+      label: `GRÁFICO Q1/24 + Q1/24 + Q1/24`
+    },
+      {
+      label: 'GESTANTES ATIVAS'
+    },
+    {
+      label: 'GESTANTES ENCERRADAS' 
+    },
+  ],
+  [
+    {
+      label: 'GESTANTES SEM DUM'
+    },
+  ]
+]
+
+const titlesPreNatal = [
+  {
+      label: 'INDICADOR 1 (6 CONSULTAS)'
+  },
+  {
+      label: 'INDICADOR 2 (EXAME DE HIV E SÍFILIS)'
+  },
+  {
+      label: 'INDICADOR 3 (ATENDIMENTO ODONTO)'
+  },
+  {
+    label: 'GESTANTES SEM DUM'
+  },
+]
 
 export default {
     title: "Componentes/PanelSelector",
@@ -151,6 +251,22 @@ export default {
             name:'titles',
             description:'Array de objetos contento os rótulos das abas *array/object* \n\n **titles:** Rótulos da aba "Análises" dos paineis do Impulso Previne  \n\n **titlesBuscaAtiva** e **titlesBuscaAtivaEquipe:** Rótulos das abas do painel de busca ativa'
         },
+        conteudo:{
+            name:'conteudo',
+            description:'Tipo de conteúdo a ser exibido no painel *string* \n\n **iframe:** Painel do data studio *string* \n\n **components:** Componentes React *string*'
+        },
+        components:{
+            name:'components',
+            description:'Componentes React a serem exibidos no painel *array/array* \n\n **children:** Componentes React *array*'
+        },
+        breakTitlesLine:{
+            name:'breakTitlesLine',
+            description:'Define se é feita quebra de linha dos títulos das abas e subabas *boolean*'
+        },
+        states:{
+            name:'states',
+            description:'Estados do painel *object* \n\n **activeTabIndex:** Índice da subaba ativa *number* \n\n **setActiveTabIndex:** Função que altera o índice da subaba ativa *function* \n\n **activeTitleTabIndex:** Índice da aba ativa *number* \n\n **setActiveTitleTabIndex:** Função que altera o índice da subaba ativa *function*'
+        }
     },
   };
 
@@ -199,4 +315,12 @@ Componentes.args={
   conteudo : "components",
   components : children
 }
-  
+
+export const ComQuebraDeLinha = Template.bind({});
+ComQuebraDeLinha.args={
+  links: dsLinksPreNatal,
+  list: labelsPreNatal,
+  titles: titlesPreNatal,
+  initialTitle: 1,
+  breakTitlesLine: true
+}
