@@ -10,7 +10,7 @@ const PanelSelector = ({
   links,
   components,
   states,
-  breakTitlesLine = false,
+  breakLines = false,
 }) => {
   const [distanciaSubAba,setDistanciaSubAba] = useState(0)
   const titleRefs = titles.map(() => useRef(null));
@@ -44,7 +44,7 @@ const PanelSelector = ({
   }, [titleRefs, states.activeTitleTabIndex]);
   return (
     <div style={{zIndex:90,width:'100%'}}>
-      <div className={cx(style.PanelSelectorMain, breakTitlesLine && style.PanelSelectorMainLineBreak)}>
+      <div className={cx(style.PanelSelectorMain, breakLines && style.PanelSelectorMainLineBreak)}>
         <div className={style.PanelSelectorTitles}>
           {titles.map((item, index) => (
             <div
@@ -57,7 +57,7 @@ const PanelSelector = ({
                 states.activeTitleTabIndex === index
                   ? style.PanelSelectorTitleButtonSelected
                   : style.PanelSelectorTitleButton,
-                breakTitlesLine && style.PanelSelectorTitleButtonLineBreak
+                breakLines && style.PanelSelectorTitleButtonLineBreak
               )}
             >
               {item.label}
@@ -68,7 +68,7 @@ const PanelSelector = ({
         <div
           className={cx(
             style.PanelSelectorContainerIP,
-            breakTitlesLine && style.PanelSelectorContainerIPLineBreak
+            breakLines && style.PanelSelectorContainerIPLineBreak
           )}
           style={PanelSelectorContainerPosition}
         >
@@ -82,7 +82,7 @@ const PanelSelector = ({
                 states.activeTabIndex === index
                   ? style.PanelSelectorButtonSelected
                   : style.PanelSelectorButton,
-                breakTitlesLine && style.PanelSelectorButtonLineBreak
+                breakLines && style.PanelSelectorButtonLineBreak
             )}
             >
               {item.label}
