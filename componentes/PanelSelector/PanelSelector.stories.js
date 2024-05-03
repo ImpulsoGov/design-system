@@ -259,9 +259,9 @@ export default {
             name:'components',
             description:'Componentes React a serem exibidos no painel *array/array* \n\n **children:** Componentes React *array*'
         },
-        breakTitlesLine:{
-            name:'breakTitlesLine',
-            description:'Define se é feita quebra de linha dos títulos das abas e subabas *boolean*'
+        breakLines:{
+            name:'breakLines',
+            description:'Define se é feita quebra de linha dos títulos das abas e subabas em telas com largura intermediária *boolean*'
         },
         states:{
             name:'states',
@@ -322,5 +322,5 @@ ComQuebraDeLinha.args={
   list: labelsPreNatal,
   titles: titlesPreNatal,
   initialTitle: 1,
-  breakTitlesLine: true
+  breakLines: true
 }
