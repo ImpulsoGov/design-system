@@ -308,9 +308,21 @@ const FiltroBody = ({
     trackObject,
     painel,
     aba,
-    sub_aba
+    sub_aba,
+    isUnfolded = false,
+    onClick = () => {},
 })=>{
     const [show,setShow] = useState(false)
+
+    useEffect(() => {
+        setShow(isUnfolded);
+    }, [isUnfolded])
+
+    function handleClick() {
+        setShow((prevState) => !prevState);
+        onClick(data.rotulo);
+    }
+
     return(
         <>
             <div className={style.ConteinerFiltro}>
@@ -318,7 +330,7 @@ const FiltroBody = ({
                     <p>{data.rotulo}</p>
                     <button
                         className={style.ShowFiltros}
-                        onClick={()=>setShow(!show)}
+                        onClick={handleClick}
                     >
                         {show ? "-" : "+"}
                     </button>
@@ -341,7 +353,6 @@ const FiltroBody = ({
                                         painel={painel}
                                         aba={aba}
                                         sub_aba={sub_aba}
-        
                                     />
                                 )
                             })
@@ -374,6 +385,12 @@ const Filtro = ({
     IDFiltrosOrdenacao,
     setShowSnackBar,
 })=>{
+    const [unfoldedFilter, setUnfoldedFilter] = useState('')
+
+    function updateUnfoldedFilter(filterName) {
+        setUnfoldedFilter(filterName);
+    }
+
     const LimparFiltros = ()=>{
         setData(sortByChoice(tabela, ordenar, IDFiltrosOrdenacao, datefiltros, IntFiltros))
         setChavesFiltros([])
@@ -394,7 +411,8 @@ const Filtro = ({
                         painel={painel}
                         aba={aba}
                         sub_aba={sub_aba}
-
+                        isUnfolded={unfoldedFilter === filtro.rotulo}
+                        onClick={updateUnfoldedFilter}
                     />)
                 }
             </div>
