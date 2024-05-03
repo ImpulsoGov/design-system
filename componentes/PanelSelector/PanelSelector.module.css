@@ -200,6 +200,7 @@
     justify-content: center;
     width: min-content;
     min-width: 11%;
+    padding: 0px;
   }
 
   .PanelSelectorTitleButtonLineBreak {
@@ -207,6 +208,7 @@
     width: 21%;
     align-items: flex-end;
     white-space: normal;
+    padding: 0px;
   }
 
   .PanelSelectorMainLineBreak {
