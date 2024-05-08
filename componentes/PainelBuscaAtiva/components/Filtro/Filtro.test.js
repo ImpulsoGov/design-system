@@ -138,7 +138,7 @@ describe('Componente: Filtro', () => {
       const user = userEvent.setup();
       render(<Filtro {...scenarios[0]} />);
 
-      const botaoFiltrarLista = await screen.findByRole('button', {
+      const botaoFiltrarLista = screen.getByRole('button', {
         name: /filtrar lista nominal/i
       });
 
@@ -152,7 +152,7 @@ describe('Componente: Filtro', () => {
         const user = userEvent.setup();
         render(<Filtro {...scenarios[0]} />);
 
-        const botaoFiltrarLista = await screen.findByRole('button', {
+        const botaoFiltrarLista = screen.getByRole('button', {
           name: /filtrar lista nominal/i
         });
 
@@ -168,7 +168,7 @@ describe('Componente: Filtro', () => {
           const user = userEvent.setup();
           render(<Filtro {...scenarios[1]} />);
 
-          const botaoFiltrarLista = await screen.findByRole('button', {
+          const botaoFiltrarLista = screen.getByRole('button', {
             name: /filtrar lista nominal/i
           });
 
@@ -200,7 +200,7 @@ describe('Componente: Filtro', () => {
           const user = userEvent.setup();
           render(<Filtro {...scenarios[2]} />);
 
-          const botaoFiltrarLista = await screen.findByRole('button', {
+          const botaoFiltrarLista = screen.getByRole('button', {
             name: /filtrar lista nominal/i
           });
 
@@ -267,7 +267,7 @@ describe('Componente: Filtro', () => {
         const user = userEvent.setup();
         render(<Filtro {...scenarios[3]} />);
 
-        const botaoFiltrarLista = await screen.findByRole('button', {
+        const botaoFiltrarLista = screen.getByRole('button', {
           name: /filtrar lista nominal/i
         });
 
@@ -300,7 +300,7 @@ describe('Componente: Filtro', () => {
       const user = userEvent.setup();
       render(<Filtro {...scenarios[0]} />);
 
-      const limparFiltros = await screen.findByText(/limpar filtros/i);
+      const limparFiltros = screen.getByText(/limpar filtros/i);
 
       await user.click(limparFiltros);
 
@@ -312,7 +312,7 @@ describe('Componente: Filtro', () => {
         const user = userEvent.setup();
         render(<Filtro {...scenarios[0]} />);
 
-        const limparFiltros = await screen.findByText(/limpar filtros/i);
+        const limparFiltros = screen.getByText(/limpar filtros/i);
 
         await user.click(limparFiltros);
 
@@ -325,7 +325,7 @@ describe('Componente: Filtro', () => {
         const user = userEvent.setup();
         render(<Filtro {...scenarios[4]} />);
 
-        const limparFiltros = await screen.findByText(/limpar filtros/i);
+        const limparFiltros = screen.getByText(/limpar filtros/i);
 
         await user.click(limparFiltros);
 
