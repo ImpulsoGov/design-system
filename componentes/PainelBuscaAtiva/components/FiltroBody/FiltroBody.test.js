@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { act, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { FiltroBody } from './FiltroBody';
 
@@ -57,15 +57,11 @@ describe(`Componente: ${COMPONENT}`, () => {
 
       render(<FiltroBody { ...scenarios[1] } />);
 
-      const label = await screen.findByText(FILTER_LABEL);
       const showOptionsButton = screen.getByRole('button', { name: '+' });
+      await act(async () => await user.click(showOptionsButton));
 
-      await user.click(showOptionsButton);
-
-      const hideOptionsButton = await screen.findByRole('button', { name: '-' });
-
-      expect(label).toBeInTheDocument();
-      expect(hideOptionsButton).toBeInTheDocument();
+      expect(screen.getByText(FILTER_LABEL)).toBeInTheDocument();
+      expect(screen.getByRole('button', { name: '-' })).toBeInTheDocument();
     });
 
     it('deve renderizar todas as opções de filtro em ordem crescente quando são strings não numéricas', async () => {
@@ -73,11 +69,10 @@ describe(`Componente: ${COMPONENT}`, () => {
 
       render(<FiltroBody { ...scenarios[1] } />);
 
-      const showOptionsButton = await screen.findByRole('button', { name: '+' });
+      const showOptionsButton = screen.getByRole('button', { name: '+' });
+      await act(async () => await user.click(showOptionsButton));
 
-      await user.click(showOptionsButton);
-
-      const options = await screen.findAllByTestId('FiltroCardLabel');
+      const options = screen.getAllByTestId('FiltroCardLabel');
 
       expect(options).toHaveLength(2);
       expect(options[0]).toHaveTextContent(OPTION_1);
@@ -89,11 +84,10 @@ describe(`Componente: ${COMPONENT}`, () => {
 
       render(<FiltroBody { ...scenarios[3] } />);
 
-      const showOptionsButton = await screen.findByRole('button', { name: '+' });
+      const showOptionsButton = screen.getByRole('button', { name: '+' });
+      await act(async () => await user.click(showOptionsButton));
 
-      await user.click(showOptionsButton);
-
-      const options = await screen.findAllByTestId('FiltroCardLabel');
+      const options = screen.getAllByTestId('FiltroCardLabel');
 
       expect(options).toHaveLength(2);
       expect(options[0]).toHaveTextContent(LABEL_1);
@@ -108,12 +102,11 @@ describe(`Componente: ${COMPONENT}`, () => {
 
         render(<FiltroBody { ...scenarios[2] } />);
 
-        const showOptionsButton = await screen.findByRole('button', { name: '+' });
+        const showOptionsButton = screen.getByRole('button', { name: '+' });
+        await act(async () => await user.click(showOptionsButton));
 
-        await user.click(showOptionsButton);
-
-        expect(await screen.findByText(OPTION_1)).toBeInTheDocument();
-        expect(await screen.findByText(OPTION_2)).toBeInTheDocument();
+        expect(screen.getByText(OPTION_1)).toBeInTheDocument();
+        expect(screen.getByText(OPTION_2)).toBeInTheDocument();
         expect(screen.queryByText(LABEL_1)).not.toBeInTheDocument();
         expect(screen.queryByText(LABEL_2)).not.toBeInTheDocument();
       });
@@ -125,12 +118,11 @@ describe(`Componente: ${COMPONENT}`, () => {
 
         render(<FiltroBody { ...scenarios[3] } />);
 
-        const showOptionsButton = await screen.findByRole('button', { name: '+' });
+        const showOptionsButton = screen.getByRole('button', { name: '+' });
+        await act(async () => await user.click(showOptionsButton));
 
-        await user.click(showOptionsButton);
-
-        expect(await screen.findByText(LABEL_1)).toBeInTheDocument();
-        expect(await screen.findByText(LABEL_2)).toBeInTheDocument();
+        expect(screen.getByText(LABEL_1)).toBeInTheDocument();
+        expect(screen.getByText(LABEL_2)).toBeInTheDocument();
         expect(screen.queryByText('1')).not.toBeInTheDocument();
         expect(screen.queryByText('0')).not.toBeInTheDocument();
       });
@@ -143,16 +135,14 @@ describe(`Componente: ${COMPONENT}`, () => {
 
       render(<FiltroBody { ...scenarios[0] } />);
 
-      const showOptionsButton = await screen.findByRole('button', { name: '+' });
+      const showOptionsButton = screen.getByRole('button', { name: '+' });
+      await act(async () => await user.click(showOptionsButton));
 
-      await user.click(showOptionsButton);
+      const hideOptionsButton = screen.getByRole('button', { name: '-' });
+      await act(async () => await user.click(hideOptionsButton));
 
-      const hideOptionsButton = await screen.findByRole('button', { name: '-' });
-
-      await user.click(hideOptionsButton);
-
-      expect(await screen.findByText(FILTER_LABEL)).toBeInTheDocument();
-      expect(await screen.findByRole('button', { name: '+' })).toBeInTheDocument();
+      expect(screen.getByText(FILTER_LABEL)).toBeInTheDocument();
+      expect(screen.getByRole('button', { name: '+' })).toBeInTheDocument();
       expect(screen.queryByRole('button', { name: '-' })).not.toBeInTheDocument();
     });
   });
