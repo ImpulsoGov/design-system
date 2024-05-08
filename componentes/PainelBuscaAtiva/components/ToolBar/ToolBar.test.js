@@ -171,6 +171,10 @@ const scenario = [
 ];
 
 describe(`Componente: ${COMPONENT}`, () => {
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   it('deve renderizar corretamente', () => {
     render(
       <ToolBar {...scenario[0]} />,
@@ -188,9 +192,9 @@ describe(`Componente: ${COMPONENT}`, () => {
     const input = screen.getByPlaceholderText('PESQUISE UM NOME');
     await act(async () => await user.type(input, 'Maria'));
 
-    expect(scenario[0].updateData).toHaveBeenCalledWith(
-      expect.arrayContaining([
-        expect.objectContaining({
+    expect(scenario[0].updateData).toHaveBeenLastCalledWith(
+      [
+        {
           paciente_nome: "Maria da Silva",
           cidadao_cpf_dt_nascimento: "327.327.327-32",
           id_status_usuario: 12,
@@ -205,8 +209,8 @@ describe(`Componente: ${COMPONENT}`, () => {
           ine_master: "0002277227",
           equipe_nome: "ESF 1",
           dt_registro_producao_mais_recente: "2023-10-22"
-        })
-      ])
+        }
+      ]
     );
   });
 
@@ -218,9 +222,8 @@ describe(`Componente: ${COMPONENT}`, () => {
     const input = screen.getByPlaceholderText('PESQUISE UM NOME');
     await act(async () => await user.type(input, 'Julia'));
 
-    expect(scenario[1].updateData).toHaveBeenCalledWith(
-      expect.arrayContaining([
-        expect.objectContaining({
+    expect(scenario[1].updateData).toHaveBeenLastCalledWith([
+        {
           cidadao_nome: "Julia da Silva",
           cidadao_cpf_dt_nascimento: "100.100.100-10",
           id_status_usuario: 12,
@@ -235,8 +238,8 @@ describe(`Componente: ${COMPONENT}`, () => {
           ine_master: "0000369369",
           equipe_nome: "ESF 2",
           dt_registro_producao_mais_recente: "2023-10-22"
-        })
-      ])
+        }
+      ]
     );
   });
 
