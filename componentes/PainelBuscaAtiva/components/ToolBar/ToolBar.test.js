@@ -1,4 +1,4 @@
-import {render, screen } from '@testing-library/react';
+import { act, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import {ToolBar} from './index';
 
@@ -186,7 +186,7 @@ describe(`Componente: ${COMPONENT}`, () => {
     render(<ToolBar {...scenario[0]} />);
 
     const input = screen.getByPlaceholderText('PESQUISE UM NOME');
-    await user.type(input, 'Maria');
+    await act(async () => await user.type(input, 'Maria'));
 
     expect(scenario[0].updateData).toHaveBeenCalledWith(
       expect.arrayContaining([
@@ -216,7 +216,7 @@ describe(`Componente: ${COMPONENT}`, () => {
     render(<ToolBar {...scenario[1]} />);
 
     const input = screen.getByPlaceholderText('PESQUISE UM NOME');
-    await user.type(input, 'Julia');
+    await act(async () => await user.type(input, 'Julia'));
 
     expect(scenario[1].updateData).toHaveBeenCalledWith(
       expect.arrayContaining([
