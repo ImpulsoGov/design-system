@@ -73,6 +73,9 @@ const scenarios = [
     atualizacao: "22/10/2023",
     data: responses.citoSuccessAPS,
     setData: jest.fn(),
+    setFiltros_aplicados: jest.fn(),
+    showSnackBar: false,
+    setShowSnackBar: jest.fn(),
   }
 ];
 
@@ -106,7 +109,7 @@ describe(`Componente: ${COMPONENT}`, () => {
       const user = userEvent.setup();
       render(<PainelBuscaAtiva { ...scenarios[0] } />);
 
-      await act(async () => await user.click(screen.getByRole("button", { name: /filtrar lista nominal/i })));
+      await act(async () => await user.click(screen.getByRole("button", { name: /filtrar a lista/i })));
 
       expect(screen.getByTestId("Modal")).toBeInTheDocument();
       expect(screen.getByTestId("Filtro")).toBeInTheDocument();
@@ -180,7 +183,7 @@ describe(`Componente: ${COMPONENT}`, () => {
           const btnApplySort = within(sortModal).getByRole("button", { name: /ordenar lista/i });
           await act(async () => await user.click(btnApplySort));
 
-          const btnShowFilterModal = screen.getByRole("button", { name: /filtrar lista nominal/i });
+          const btnShowFilterModal = screen.getByRole("button", { name: /filtrar a lista/i });
           await act(async () => await user.click(btnShowFilterModal));
 
           const [showFilterOptions] = screen.getAllByRole("button", { name: "+" });
@@ -190,7 +193,7 @@ describe(`Componente: ${COMPONENT}`, () => {
           await act(async () => await user.click(filterOption));
 
           const filterModal = screen.getByTestId("Filtro");
-          const btnApplyFilter = within(filterModal).getByRole("button", { name: /filtrar lista nominal/i });
+          const btnApplyFilter = within(filterModal).getByRole("button", { name: /filtrar lista/i });
           await act(async () => await user.click(btnApplyFilter));
 
           const rows = screen.getAllByRole("row");
@@ -261,7 +264,7 @@ describe(`Componente: ${COMPONENT}`, () => {
             const btnApplySort = within(sortModal).getByRole("button", { name: /ordenar lista/i });
             await act(async () => await user.click(btnApplySort));
 
-            const btnShowFilterModal = screen.getByRole("button", { name: /filtrar lista nominal/i });
+            const btnShowFilterModal = screen.getByRole("button", { name: /filtrar a lista/i });
             await act(async () => await user.click(btnShowFilterModal));
 
             const [showFilterOptions] = screen.getAllByRole("button", { name: "+" });
@@ -271,7 +274,7 @@ describe(`Componente: ${COMPONENT}`, () => {
             await act(async () => await user.click(filterOption));
 
             const filterModal = screen.getByTestId("Filtro");
-            const btnApplyFilter = within(filterModal).getByRole("button", { name: /filtrar lista nominal/i });
+            const btnApplyFilter = within(filterModal).getByRole("button", { name: /filtrar lista/i });
             await act(async () => await user.click(btnApplyFilter));
 
             await act(async () => await user.click(btnShowSortModal));
@@ -349,7 +352,7 @@ describe(`Componente: ${COMPONENT}`, () => {
         const user = userEvent.setup();
         render(<PainelBuscaAtiva { ...scenarios[0] } />);
 
-        const btnShowFilterModal = screen.getByRole("button", { name: /filtrar lista nominal/i });
+        const btnShowFilterModal = screen.getByRole("button", { name: /filtrar a lista/i });
         await act(async () => await user.click(btnShowFilterModal));
 
         const [_, showFilterOptions] = screen.getAllByRole("button", { name: "+" });
@@ -359,7 +362,7 @@ describe(`Componente: ${COMPONENT}`, () => {
         await act(async () => await user.click(filterOption));
 
         const filterModal = screen.getByTestId("Filtro");
-        const btnApplyFilter = within(filterModal).getByRole("button", { name: /filtrar lista nominal/i });
+        const btnApplyFilter = within(filterModal).getByRole("button", { name: /filtrar lista/i });
         await act(async () => await user.click(btnApplyFilter));
 
         const rows = screen.getAllByRole("row");
@@ -377,7 +380,7 @@ describe(`Componente: ${COMPONENT}`, () => {
           const user = userEvent.setup();
           render(<PainelBuscaAtiva { ...scenarios[0] } />);
 
-          const btnShowFilterModal = screen.getByRole("button", { name: /filtrar lista nominal/i });
+          const btnShowFilterModal = screen.getByRole("button", { name: /filtrar a lista/i });
           await act(async () => await user.click(btnShowFilterModal));
 
           const [showFilterOptions] = screen.getAllByRole("button", { name: "+" });
@@ -387,7 +390,7 @@ describe(`Componente: ${COMPONENT}`, () => {
           await act(async () => await user.click(filterOption));
 
           const filterModal = screen.getByTestId("Filtro");
-          const btnApplyFilter = within(filterModal).getByRole("button", { name: /filtrar lista nominal/i });
+          const btnApplyFilter = within(filterModal).getByRole("button", { name: /filtrar lista/i });
           await act(async () => await user.click(btnApplyFilter));
 
           const btnShowSortModal = screen.getByRole("button", { name: /ordenar lista/i });
@@ -423,7 +426,7 @@ describe(`Componente: ${COMPONENT}`, () => {
           const user = userEvent.setup();
           render(<PainelBuscaAtiva { ...scenarios[0] } />);
 
-          const btnShowFilterModal = screen.getByRole("button", { name: /filtrar lista nominal/i });
+          const btnShowFilterModal = screen.getByRole("button", { name: /filtrar a lista/i });
           await act(async () => await user.click(btnShowFilterModal));
 
           const [showFilterOptions] = screen.getAllByRole("button", { name: "+" });
@@ -433,7 +436,7 @@ describe(`Componente: ${COMPONENT}`, () => {
           await act(async () => await user.click(filterOption));
 
           const filterModal = screen.getByTestId("Filtro");
-          const btnApplyFilter = within(filterModal).getByRole("button", { name: /filtrar lista nominal/i });
+          const btnApplyFilter = within(filterModal).getByRole("button", { name: /filtrar lista/i });
           await act(async () => await user.click(btnApplyFilter));
 
           await act(async () => await user.click(btnShowFilterModal));
@@ -457,7 +460,7 @@ describe(`Componente: ${COMPONENT}`, () => {
             const user = userEvent.setup();
             render(<PainelBuscaAtiva { ...scenarios[0] } />);
 
-            const btnShowFilterModal = screen.getByRole("button", { name: /filtrar lista nominal/i });
+            const btnShowFilterModal = screen.getByRole("button", { name: /filtrar a lista/i });
             await act(async () => await user.click(btnShowFilterModal)  );
 
             const [_, showFilterOptions] = screen.getAllByRole("button", { name: "+" });
@@ -467,7 +470,7 @@ describe(`Componente: ${COMPONENT}`, () => {
             await act(async () => await user.click(filterOption)  );
 
             const filterModal = screen.getByTestId("Filtro");
-            const btnApplyFilter = within(filterModal).getByRole("button", { name: /filtrar lista nominal/i });
+            const btnApplyFilter = within(filterModal).getByRole("button", { name: /filtrar lista/i });
             await act(async () => await user.click(btnApplyFilter)  );
 
             const btnShowSortModal = screen.getByRole("button", { name: /ordenar lista/i });
@@ -512,7 +515,7 @@ describe(`Componente: ${COMPONENT}`, () => {
           const user = userEvent.setup();
           render(<PainelBuscaAtiva { ...scenarios[0] } />);
 
-          const btnShowFilterModal = screen.getByRole("button", { name: /filtrar lista nominal/i });
+          const btnShowFilterModal = screen.getByRole("button", { name: /filtrar a lista/i });
           await act(async () => await user.click(btnShowFilterModal));
 
           const [showFilterOptions] = screen.getAllByRole("button", { name: "+" });
@@ -522,7 +525,7 @@ describe(`Componente: ${COMPONENT}`, () => {
           await act(async () => await user.click(filterOption));
 
           const filterModal = screen.getByTestId("Filtro");
-          const btnApplyFilter = within(filterModal).getByRole("button", { name: /filtrar lista nominal/i });
+          const btnApplyFilter = within(filterModal).getByRole("button", { name: /filtrar lista/i });
           await act(async () => await user.click(btnApplyFilter));
 
           await act(async () => await user.click(btnShowFilterModal));
@@ -538,7 +541,7 @@ describe(`Componente: ${COMPONENT}`, () => {
         const user = userEvent.setup();
         render(<PainelBuscaAtiva { ...scenarios[0] } />);
 
-        const btnShowFilterModal = screen.getByRole("button", { name: /filtrar lista nominal/i });
+        const btnShowFilterModal = screen.getByRole("button", { name: /filtrar a lista/i });
         await act(async () => await user.click(btnShowFilterModal));
 
         const [showACSFilterOptions, showStatusFilterOptions] = screen.getAllByRole("button", { name: "+" });
@@ -557,7 +560,7 @@ describe(`Componente: ${COMPONENT}`, () => {
         await act(async () => await user.click(filterOptionACS));
 
         const filterModal = screen.getByTestId("Filtro");
-        const btnApplyFilter = within(filterModal).getByRole("button", { name: /filtrar lista nominal/i });
+        const btnApplyFilter = within(filterModal).getByRole("button", { name: /filtrar lista/i });
         await act(async () => await user.click(btnApplyFilter));
 
         const rows = screen.getAllByRole("row");
@@ -576,7 +579,7 @@ describe(`Componente: ${COMPONENT}`, () => {
           const user = userEvent.setup();
           render(<PainelBuscaAtiva { ...scenarios[0] } />);
 
-          const btnShowFilterModal = screen.getByRole("button", { name: /filtrar lista nominal/i });
+          const btnShowFilterModal = screen.getByRole("button", { name: /filtrar a lista/i });
           await act(async () => await user.click(btnShowFilterModal));
 
           const [showACSFilterOptions, showStatusFilterOptions] = screen.getAllByRole("button", { name: "+" });
@@ -594,7 +597,7 @@ describe(`Componente: ${COMPONENT}`, () => {
           await act(async () => await user.click(filterOptionACS));
 
           const filterModal = screen.getByTestId("Filtro");
-          const btnApplyFilter = within(filterModal).getByRole("button", { name: /filtrar lista nominal/i });
+          const btnApplyFilter = within(filterModal).getByRole("button", { name: /filtrar lista/i });
           await act(async () => await user.click(btnApplyFilter));
 
           await act(async () => await user.click(btnShowFilterModal));

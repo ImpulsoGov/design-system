@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import style from "./PainelBuscaAtiva.module.css";
 import { Modal } from "../Modal/Modal";
 import { TabelaHiperDia } from "../TabelaHiperDia";
+import { Toast } from "../Toast";
+import { CardAlert } from "../CardAlert";
 import * as Components from "./components";
 import * as helpers from "./helpers";
 
@@ -17,10 +19,10 @@ const PainelBuscaAtiva = ({
     IDFiltrosOrdenacao,
     atualizacao,
     setFiltros_aplicados,
-    trackObject = null,
+    trackObject = { track: () => {} },
     aba = "",
     sub_aba = "",
-    rowHeight,
+    rowHeight = null,
     onPrintClick = () => {},
     showSnackBar,
     setShowSnackBar,
@@ -97,6 +99,10 @@ const PainelBuscaAtiva = ({
         }))
     }
 
+    function handlePrintClick() {
+        onPrintClick(tableData);
+    }
+
     return(
         <div style={{marginTop : "30px"}} data-testid="PainelBuscaAtiva">
             {
@@ -171,7 +177,7 @@ const PainelBuscaAtiva = ({
                 updateData={updateData}
                 tabela={tabela.data}
                 ordenacaoAplicada={ordenacaoAplicada}
-                onPrintClick={onPrintClick}
+                handlePrintClick={handlePrintClick}
             />
             <TabelaHiperDia
                 colunas={tabela.colunas}

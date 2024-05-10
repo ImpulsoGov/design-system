@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
 import style from "./ToolBar.module.css";
 import { ButtonLightSubmit } from "../../../ButtonLight/ButtonLight";
+import { ButtonColorSubmitIcon } from "../../../ButtonColor/ButtonColor";
+import Tippy from "@tippyjs/react";
+import "./tippy_theme.css";
+import 'tippy.js/dist/svg-arrow.css';
 
 export const ToolBar = ({
   showFiltros,
@@ -8,10 +12,11 @@ export const ToolBar = ({
   chavesFiltros,
   tabela,
   ordenacaoAplicada,
-  onPrintClick,
+  handlePrintClick,
   updateData,
 })=>{
   const [nome,setNome] =useState('')
+
   const filterbyName = ()=>{
     const filteredData = tabela.filter(item=>{
       const property = item?.cidadao_nome ? "cidadao_nome" : "paciente_nome";
@@ -20,9 +25,11 @@ export const ToolBar = ({
 
     updateData(filteredData);
   }
+
   useEffect(()=>{
     if(nome.length<=0) updateData(tabela)
   },[nome])
+
   return(
     <div className={style.ToolBar} data-testid="ToolBar">
       <input
@@ -31,6 +38,7 @@ export const ToolBar = ({
         value={nome}
         onChange={(e) => {setNome(e.target.value);filterbyName();}}
       />
+
       <ButtonLightSubmit
         label="ORDENAR LISTA"
         submit={showOrdenar}
@@ -39,7 +47,27 @@ export const ToolBar = ({
           "https://media.graphassets.com/7E9qXtNTze5w3ozl6a5I"
         }
       />
-      <ButtonLightSubmit label="FILTRAR LISTA NOMINAL" submit={showFiltros} icon={chavesFiltros.length>0 ? "https://media.graphassets.com/1rnUv5WSTKmCHnvqciuW" : "https://media.graphassets.com/1WHJsCigTXyJbq7Tw47m"}/>
+
+      <ButtonLightSubmit
+        label="FILTRAR A LISTA"
+        submit={showFiltros}
+        icon={chavesFiltros.length>0 ? "https://media.graphassets.com/1rnUv5WSTKmCHnvqciuW" : "https://media.graphassets.com/1WHJsCigTXyJbq7Tw47m"}
+      />
+
+      <Tippy
+        content={ "O número de pacientes na lista é muito grande, aplique algum filtro para que o carregamento da impressão seja mais rápido" }
+        placement="bottom"
+        theme="alert"
+        arrow={true}
+      >
+        <div>
+          <ButtonColorSubmitIcon
+            label="IMPRIMIR LISTA"
+            icon="https://media.graphassets.com/3vsKrZXYT9CdxSSyhjhk"
+            submit={handlePrintClick}
+          />
+        </div>
+      </Tippy>
     </div>
   )
 }

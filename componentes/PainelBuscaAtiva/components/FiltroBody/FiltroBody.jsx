@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import style from "./FiltroBody.module.css";
+import React, { useEffect, useState } from "react";
 import { FiltroCard } from "../FiltroCard";
+import style from "./FiltroBody.module.css";
 
 export const FiltroBody = ({
   data,
@@ -9,10 +9,10 @@ export const FiltroBody = ({
   isUnfolded = false,
   onClick = () => {},
 })=>{
-  const [show, toggleShow] = useState(false);
+  const [show, setShow] = useState(false);
 
   useEffect(() => {
-    toggleShow(isUnfolded);
+    setShow(isUnfolded);
   }, [isUnfolded])
 
   function handleClick() {
@@ -31,7 +31,7 @@ export const FiltroBody = ({
           >
             {show ? "-" : "+"}
           </button>
-      </div>
+        </div>
         {
           show &&
           <div className={style.ConteinerFiltros}>

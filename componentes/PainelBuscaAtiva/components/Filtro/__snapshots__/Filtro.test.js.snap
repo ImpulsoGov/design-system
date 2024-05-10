@@ -6,11 +6,6 @@ exports[`Componente: Filtro deve renderizar corretamente 1`] = `
   data-testid="Filtro"
 >
   <div
-    class="LimparFiltros"
-  >
-    Limpar Filtros
-  </div>
-  <div
     class="FiltrosContainer"
   >
     <div
@@ -58,9 +53,14 @@ exports[`Componente: Filtro deve renderizar corretamente 1`] = `
     class="AplicarFiltros"
   >
     <button
+      class="ButtonLightContainer"
+    >
+      LIMPAR FILTROS
+    </button>
+    <button
       class="ButtonColorContainer ColorIP"
     >
-      FILTRAR LISTA NOMINAL
+      FILTRAR LISTA
     </button>
   </div>
   <div

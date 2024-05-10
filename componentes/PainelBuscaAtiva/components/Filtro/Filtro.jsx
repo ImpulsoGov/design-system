@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { ButtonColorSubmit } from "../../../ButtonColor";
+import { ButtonLightSubmit } from "../../../ButtonLight";
 import style from "./Filtro.module.css";
 import * as helpers from "../../helpers";
 import { FiltroBody } from "../FiltroBody";
@@ -21,7 +22,14 @@ export const Filtro = ({
   IDFiltrosOrdenacao,
   ordenacaoAplicada,
   updateData,
+  setShowSnackBar,
 }) => {
+  const [unfoldedFilter, setUnfoldedFilter] = useState('');
+
+  function updateUnfoldedFilter(filterName) {
+    setUnfoldedFilter(filterName);
+  }
+
   function limparFiltros() {
     const dados = ordenacaoAplicada
       ? helpers.sortByChoice(tabela, ordenar, IDFiltrosOrdenacao, datefiltros, IntFiltros)
@@ -42,7 +50,7 @@ export const Filtro = ({
     });
   }
 
-  function handleButtonClick(){
+  function handleFilterClick(){
     const filtrosSelecionados = helpers.valuesToChavesFiltros(value, setChavesFiltros, data);
     const filtrosAgrupados = helpers.agruparChavesIguais(filtrosSelecionados);
     const dadosFiltrados = helpers.filterByChoices(tabela, filtrosAgrupados);
@@ -52,19 +60,18 @@ export const Filtro = ({
         ? helpers.sortByChoice(dadosFiltrados, ordenar, IDFiltrosOrdenacao, datefiltros, IntFiltros)
         : dadosFiltrados
     );
+    setShowSnackBar({
+      open: true,
+      message: "Filtros aplicados com sucesso!",
+      background: "#2EB280",
+      color: "white",
+    });
     setModal(false);
     mapClickEvent(filtrosAgrupados);
   }
 
   return (
     <div className={ style.Filtro } data-testid="Filtro">
-      <div
-        className={ style.LimparFiltros }
-        onClick={ limparFiltros }
-      >
-        Limpar Filtros
-      </div>
-
       <div className={style.FiltrosContainer}>
         {data.map((filtro) => (
           <FiltroBody
@@ -72,14 +79,21 @@ export const Filtro = ({
             value={ value }
             key={ filtro.rotulo }
             handleCheckbox={ handleCheckbox }
+            isUnfolded={unfoldedFilter === filtro.rotulo}
+            onClick={updateUnfoldedFilter}
           />
         ))}
       </div>
 
       <div className={ style.AplicarFiltros }>
+        <ButtonLightSubmit
+          label="LIMPAR FILTROS"
+          submit={limparFiltros}
+        />
+
         <ButtonColorSubmit
-          label="FILTRAR LISTA NOMINAL"
-          submit={ handleButtonClick }
+          label="FILTRAR LISTA"
+          submit={ handleFilterClick }
           arg={ {} }
         />
       </div>

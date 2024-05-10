@@ -30,3 +30,12 @@
   color: #1F1F1F;
 }
 
+.AplicarOrdenacao {
+  position: fixed;
+  width : 100%;
+  padding: 15px;
+  bottom: 0;
+  background-color: #FFF;
+  display: flex;
+  gap: 50px;
+}

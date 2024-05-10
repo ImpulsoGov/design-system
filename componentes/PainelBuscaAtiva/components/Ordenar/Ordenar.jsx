@@ -1,5 +1,6 @@
 import React from "react";
 import { ButtonColorSubmit } from "../../../ButtonColor";
+import { ButtonLightSubmit } from "../../../ButtonLight";
 import * as helpers from "../../helpers";
 import style from "./Ordenar.module.css";
 import { CardFiltro } from "../CardFiltro";
@@ -48,7 +49,7 @@ export const Ordenar = ({
     setOrdenacaoAplicada(false)
   }
 
-  const handleButtonClick = ()=>{
+  const handleSortClick = ()=>{
     const dados = hasFiltersApplied ? filter(data) : data
 
     updateData(helpers.sortByChoice(dados, ordenar, IDFiltrosOrdenacao, datefiltros, IntFiltros))
@@ -73,13 +74,6 @@ export const Ordenar = ({
 
   return(
     <div className={style.containerOrdenar} data-testid="Ordenar">
-      <div
-        className={style.limparOrdenacao}
-        onClick={limparOrdenacao}
-      >
-        Limpar ordenação
-      </div>
-
       <p className={style.OrdenarPor}>Ordenar por:</p>
 
       {filtros_painel.rotulos.map((label)=> (
@@ -92,10 +86,18 @@ export const Ordenar = ({
         />
       ))}
 
-      <ButtonColorSubmit
-        label="ORDENAR LISTA"
-        submit={handleButtonClick}
-        arg={{}}/>
+      <div className={style.AplicarOrdenacao}>
+        <ButtonLightSubmit
+          label="Limpar ordenação"
+          submit={limparOrdenacao}
+        />
+
+        <ButtonColorSubmit
+          label="ORDENAR LISTA"
+          submit={handleSortClick}
+          arg={{}}
+        />
+      </div>
     </div>
   )
 }

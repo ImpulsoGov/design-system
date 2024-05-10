@@ -37,6 +37,7 @@ const scenarios = [
     IntFiltros: [],
     IDFiltrosOrdenacao: { acs_nome: 'asc' },
     ordenacaoAplicada: false,
+    setShowSnackBar: jest.fn(),
   },
   {
     data: dadosDeFiltros,
@@ -57,6 +58,7 @@ const scenarios = [
     IntFiltros: [],
     IDFiltrosOrdenacao: { acs_nome: 'asc' },
     ordenacaoAplicada: false,
+    setShowSnackBar: jest.fn(),
   },
   {
     data: dadosDeFiltros,
@@ -77,6 +79,7 @@ const scenarios = [
     IntFiltros: [],
     IDFiltrosOrdenacao: { acs_nome: 'asc' },
     ordenacaoAplicada: true,
+    setShowSnackBar: jest.fn(),
   },
   {
     data: dadosDeFiltros,
@@ -97,6 +100,7 @@ const scenarios = [
     IntFiltros: [],
     IDFiltrosOrdenacao: { acs_nome: 'asc' },
     ordenacaoAplicada: false,
+    setShowSnackBar: jest.fn(),
   },
   {
     data: dadosDeFiltros,
@@ -117,6 +121,7 @@ const scenarios = [
     IntFiltros: [],
     IDFiltrosOrdenacao: { acs_nome: 'asc' },
     ordenacaoAplicada: true,
+    setShowSnackBar: jest.fn(),
   },
 ];
 
@@ -139,7 +144,7 @@ describe('Componente: Filtro', () => {
       render(<Filtro {...scenarios[0]} />);
 
       const botaoFiltrarLista = screen.getByRole('button', {
-        name: /filtrar lista nominal/i
+        name: /filtrar lista/i
       });
 
       await user.click(botaoFiltrarLista);
@@ -153,7 +158,7 @@ describe('Componente: Filtro', () => {
         render(<Filtro {...scenarios[0]} />);
 
         const botaoFiltrarLista = screen.getByRole('button', {
-          name: /filtrar lista nominal/i
+          name: /filtrar lista/i
         });
 
         await user.click(botaoFiltrarLista);
@@ -169,7 +174,7 @@ describe('Componente: Filtro', () => {
           render(<Filtro {...scenarios[1]} />);
 
           const botaoFiltrarLista = screen.getByRole('button', {
-            name: /filtrar lista nominal/i
+            name: /filtrar lista/i
           });
 
           await user.click(botaoFiltrarLista);
@@ -201,7 +206,7 @@ describe('Componente: Filtro', () => {
           render(<Filtro {...scenarios[2]} />);
 
           const botaoFiltrarLista = screen.getByRole('button', {
-            name: /filtrar lista nominal/i
+            name: /filtrar lista/i
           });
 
           await user.click(botaoFiltrarLista);
@@ -268,7 +273,7 @@ describe('Componente: Filtro', () => {
         render(<Filtro {...scenarios[3]} />);
 
         const botaoFiltrarLista = screen.getByRole('button', {
-          name: /filtrar lista nominal/i
+          name: /filtrar lista/i
         });
 
         await user.click(botaoFiltrarLista);

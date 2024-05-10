@@ -1,8 +1,18 @@
 .ToolBar{
   display: flex;
   gap: 15px;
-  width: 100%;
   justify-content: center;
+  margin-left: 85px;
+  margin-right: 7%;
+}
+
+.CardInfoTooltip {
+  font-family: 'Inter';
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  text-align: center;
+  background-color: #FFF0E1;
 }
 
 .SearchBar{
@@ -15,7 +25,7 @@
   font-weight: 400;
   font-size: 12px;
   line-height: 150%;
-  width: 52%;
+  width: 40%;
 }
 
 .SearchBar:focus { 
@@ -39,5 +49,17 @@
 @media screen and (max-width : 1365px) {
   .SearchBar{
     width: 40%;
+  }
+}
+
+@media screen and (max-width : 1919px) {
+  .SearchBar {
+    width: 90%;
+  }
+}
+
+@media screen and (min-width : 1920px) {
+  .SearchBar {
+    width: 90%;
   }
 }

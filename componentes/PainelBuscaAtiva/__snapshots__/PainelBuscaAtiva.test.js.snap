@@ -40,8 +40,20 @@ exports[`Componente: PainelBuscaAtiva deve renderizar corretamente 1`] = `
         class="IconeRight"
         src="https://media.graphassets.com/1WHJsCigTXyJbq7Tw47m"
       />
-      FILTRAR LISTA NOMINAL
+      FILTRAR A LISTA
     </button>
+    <div>
+      <button
+        class="ButtonColorContainer ColorIP"
+        style="cursor: pointer;"
+      >
+        <img
+          class="IconeRight"
+          src="https://media.graphassets.com/3vsKrZXYT9CdxSSyhjhk"
+        />
+        IMPRIMIR LISTA
+      </button>
+    </div>
   </div>
   <div
     style="padding: 20px 40px 40px 40px; height: 80vh; width: 93%; margin-left: 45px;"
@@ -920,5 +932,8 @@ exports[`Componente: PainelBuscaAtiva deve renderizar corretamente 1`] = `
       </div>
     </div>
   </div>
+  <div
+    class="Snackbar"
+  />
 </div>
 `;

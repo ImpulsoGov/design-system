@@ -1,6 +1,6 @@
 import { act, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import {ToolBar} from './index';
+import { ToolBar } from './index';
 
 const COMPONENT = 'ToolBar';
 const scenario = [
@@ -176,10 +176,7 @@ describe(`Componente: ${COMPONENT}`, () => {
   });
 
   it('deve renderizar corretamente', () => {
-    render(
-      <ToolBar {...scenario[0]} />,
-     
-    );
+    render(<ToolBar { ...scenario[0] } />);
     const component = screen.getByTestId(COMPONENT);
     expect(component).toMatchSnapshot();
   });
@@ -187,7 +184,7 @@ describe(`Componente: ${COMPONENT}`, () => {
   // Testes para o primeiro cenário..
   it('deve filtrar corretamente quando o valor do input paciente nome é alterado', async () => {
     const user = userEvent.setup();
-    render(<ToolBar {...scenario[0]} />);
+    render(<ToolBar { ...scenario[0] } />);
 
     const input = screen.getByPlaceholderText('PESQUISE UM NOME');
     await act(async () => await user.type(input, 'Maria'));
@@ -217,36 +214,36 @@ describe(`Componente: ${COMPONENT}`, () => {
   // Testes para o segundo cenário...
   it('deve filtrar corretamente quando o valor do input cidadao nome é alterado', async () => {
     const user = userEvent.setup();
-    render(<ToolBar {...scenario[1]} />);
+    render(<ToolBar { ...scenario[1] } />);
 
     const input = screen.getByPlaceholderText('PESQUISE UM NOME');
     await act(async () => await user.type(input, 'Julia'));
 
     expect(scenario[1].updateData).toHaveBeenLastCalledWith([
-        {
-          cidadao_nome: "Julia da Silva",
-          cidadao_cpf_dt_nascimento: "100.100.100-10",
-          id_status_usuario: 12,
-          vencimento_da_coleta: "27/07/2025",
-          prazo_proxima_coleta: "Em dia",
-          idade: 55,
-          id_faixa_etaria: 8,
-          acs_nome: "Carmen Miranda",
-          estabelecimento_cnes: "2752752",
-          estabelecimento_nome: "Unidade de Saude da Familia 2",
-          equipe_ine: "0000369369",
-          ine_master: "0000369369",
-          equipe_nome: "ESF 2",
-          dt_registro_producao_mais_recente: "2023-10-22"
-        }
-      ]
+      {
+        cidadao_nome: "Julia da Silva",
+        cidadao_cpf_dt_nascimento: "100.100.100-10",
+        id_status_usuario: 12,
+        vencimento_da_coleta: "27/07/2025",
+        prazo_proxima_coleta: "Em dia",
+        idade: 55,
+        id_faixa_etaria: 8,
+        acs_nome: "Carmen Miranda",
+        estabelecimento_cnes: "2752752",
+        estabelecimento_nome: "Unidade de Saude da Familia 2",
+        equipe_ine: "0000369369",
+        ine_master: "0000369369",
+        equipe_nome: "ESF 2",
+        dt_registro_producao_mais_recente: "2023-10-22"
+      }
+    ]
     );
   });
 
   //teste para ordenação aplicada sendo true
   it('deve renderizar corretamente quando ordenacaoAplicada é true', () => {
-    render(<ToolBar {...scenario[2]} />);
-    
+    render(<ToolBar { ...scenario[2] } />);
+
     const ordenarButton = screen.getByRole('button', { name: /ORDENAR LISTA/ });
     const ordenarButtonIcon = ordenarButton.querySelector('img');
     expect(ordenarButtonIcon).toHaveAttribute('src', 'https://media.graphassets.com/ZWmQGa3TEGVceKxm4nlw');
@@ -254,11 +251,11 @@ describe(`Componente: ${COMPONENT}`, () => {
 
   //teste para chaveFiltros sendo vazio
   it('deve renderizar corretamente quando chavesFiltros é um array vazio', () => {
-    render(<ToolBar {...scenario[3]} />);
-    
-    const filtrarButton = screen.getByRole('button', { name: /FILTRAR LISTA NOMINAL/ });
+    render(<ToolBar { ...scenario[3] } />);
+
+    const filtrarButton = screen.getByRole('button', { name: /FILTRAR A LISTA/ });
     const filtrarButtonIcon = filtrarButton.querySelector('img');
     expect(filtrarButtonIcon).toHaveAttribute('src', 'https://media.graphassets.com/1WHJsCigTXyJbq7Tw47m');
   });
-  
+
 });

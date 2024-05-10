@@ -5,11 +5,6 @@ exports[`Componente: Ordenar deve renderizar corretamente 1`] = `
   class="containerOrdenar"
   data-testid="Ordenar"
 >
-  <div
-    class="limparOrdenacao"
-  >
-    Limpar ordenação
-  </div>
   <p
     class="OrdenarPor"
   >
@@ -33,10 +28,19 @@ exports[`Componente: Ordenar deve renderizar corretamente 1`] = `
   >
     IDADE
   </div>
-  <button
-    class="ButtonColorContainer ColorIP"
+  <div
+    class="AplicarOrdenacao"
   >
-    ORDENAR LISTA
-  </button>
+    <button
+      class="ButtonLightContainer"
+    >
+      LIMPAR ORDENAÇÃO
+    </button>
+    <button
+      class="ButtonColorContainer ColorIP"
+    >
+      ORDENAR LISTA
+    </button>
+  </div>
 </div>
 `;

@@ -63,18 +63,10 @@
     .AtualizacaoConteiner{
         padding-right : 100px;
     }
-
-    .SearchBar {
-        width: 90%;
-    }
 }
 
 @media screen and (min-width : 1920px) {
     .AtualizacaoConteiner{
         padding-right : 200px;
-    }
-
-    .SearchBar {
-        width: 90%;
     }
 }
