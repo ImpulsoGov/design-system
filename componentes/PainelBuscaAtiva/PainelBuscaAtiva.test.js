@@ -104,7 +104,7 @@ describe(`Componente: ${COMPONENT}`, () => {
     });
   });
 
-  describe('Ao clicar no botão Filtrar Lista Nominal', () => {
+  describe('Ao clicar no botão Filtrar A Lista', () => {
     it('deve exibir o modal de filtro', async () => {
       const user = userEvent.setup();
       render(<PainelBuscaAtiva { ...scenarios[0] } />);

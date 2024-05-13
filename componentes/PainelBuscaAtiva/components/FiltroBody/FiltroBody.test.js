@@ -29,7 +29,10 @@ const scenarios = [
       data: [OPTION_1, OPTION_2],
       filtro: FILTER_PROPERTY,
       rotulo: FILTER_LABEL,
-      labels: [LABEL_1, LABEL_2]
+      labels: {
+        [OPTION_1]: LABEL_1,
+        [OPTION_2]: LABEL_2,
+      }
     },
   },
   {
@@ -37,7 +40,10 @@ const scenarios = [
       data: ['1', '0'],
       filtro: FILTER_PROPERTY,
       rotulo: FILTER_LABEL,
-      labels: [LABEL_1, LABEL_2]
+      labels: {
+        '1': LABEL_1,
+        '0': LABEL_2,
+      }
     },
   },
 ];
@@ -90,42 +96,24 @@ describe(`Componente: ${COMPONENT}`, () => {
       const options = screen.getAllByTestId('FiltroCardLabel');
 
       expect(options).toHaveLength(2);
-      expect(options[0]).toHaveTextContent(LABEL_1);
-      expect(options[1]).toHaveTextContent(LABEL_2);
+      expect(options[0]).toHaveTextContent(LABEL_2);
+      expect(options[1]).toHaveTextContent(LABEL_1);
     });
   });
 
   describe('Ao passar a propriedade labels', () => {
-    describe('Quando as opções de filtro são strings não numéricas', () => {
-      it('não deve exibir as labels no lugar das opções', async () => {
-        const user = userEvent.setup();
+    it('deve exibir as labels no lugar das opções', async () => {
+      const user = userEvent.setup();
 
-        render(<FiltroBody { ...scenarios[2] } />);
+      render(<FiltroBody { ...scenarios[3] } />);
 
-        const showOptionsButton = screen.getByRole('button', { name: '+' });
-        await act(async () => await user.click(showOptionsButton));
+      const showOptionsButton = screen.getByRole('button', { name: '+' });
+      await act(async () => await user.click(showOptionsButton));
 
-        expect(screen.getByText(OPTION_1)).toBeInTheDocument();
-        expect(screen.getByText(OPTION_2)).toBeInTheDocument();
-        expect(screen.queryByText(LABEL_1)).not.toBeInTheDocument();
-        expect(screen.queryByText(LABEL_2)).not.toBeInTheDocument();
-      });
-    });
-
-    describe('Quando as opções de filtro são strings numéricas', () => {
-      it('deve exibir as labels no lugar das opções', async () => {
-        const user = userEvent.setup();
-
-        render(<FiltroBody { ...scenarios[3] } />);
-
-        const showOptionsButton = screen.getByRole('button', { name: '+' });
-        await act(async () => await user.click(showOptionsButton));
-
-        expect(screen.getByText(LABEL_1)).toBeInTheDocument();
-        expect(screen.getByText(LABEL_2)).toBeInTheDocument();
-        expect(screen.queryByText('1')).not.toBeInTheDocument();
-        expect(screen.queryByText('0')).not.toBeInTheDocument();
-      });
+      expect(screen.getByText(LABEL_1)).toBeInTheDocument();
+      expect(screen.getByText(LABEL_2)).toBeInTheDocument();
+      expect(screen.queryByText('1')).not.toBeInTheDocument();
+      expect(screen.queryByText('0')).not.toBeInTheDocument();
     });
   });
 
