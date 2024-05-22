@@ -1,5 +1,6 @@
 import "./style.css"
 import theme from './theme';
+
 const customViewports = {
   small: {
     name: 'small',
