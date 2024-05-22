@@ -1,6 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import { DataGrid, ptBR } from '@mui/x-data-grid';
-import style from "./TabelaHiperDia.module.css"
+import style from "./TabelaHiperDia.module.css";
+
+export const VERIFICADO = "https://media.graphassets.com/wOzzseVhRriXENS9OhcG";
+export const ATENCAO = "https://media.graphassets.com/NPk8ggUoQzK18KSyAGL6";
+export const AMPULHETA = "https://media.graphassets.com/OEg0Ik1ITqO9yqRT4fnd";
+
 
 const TabelaHiperDia = ({
   data,
@@ -78,27 +83,42 @@ const TabelaHiperDia = ({
 )}
 
 const PrazoProximaConsultaStyle = (value)=> {
-    const emDia = {
-        backgroundColor: "#E7FBF3",
-        border: "1px solid #9DEECD",
-        borderRadius: "5px",
-        color: "#1D856C",
-        padding: "2px",
-        fontWeight : 550,
-        width : "fit-content",
-    }
-    const prazo = {
-        backgroundColor: "#FFF0E1",
-        border: "1px solid #F4CCAB",
-        borderRadius: "5px",
-        color: "#E98633",
-        padding: "2px",
-        fontWeight : 550,
-        width : "fit-content",
-    }
-    const style = (value=="Em dia") ? emDia : prazo
-    return <div style={style}>{value}</div>
+  const emDia = {
+    backgroundColor: "#E7FBF3",
+    border: "1px solid #9DEECD",
+    borderRadius: "5px",
+    color: "#1D856C",
+    padding: "3px 10px",
+    fontWeight: "600",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: "5px",
+    width: "fit-content",
   }
+  const prazo = {
+    backgroundColor: "#FFF0E1",
+    border: "1px solid #F4CCAB",
+    borderRadius: "5px",
+    color: "#E98633",
+    padding: "3px 10px",
+    fontWeight: "600",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: "5px",
+    width: "fit-content",
+  }
+  const style = (value == "Em dia") ? emDia : prazo
+  const icone = (value == "Em dia") ? VERIFICADO : ATENCAO
+
+  return (
+    <div style={ style }>
+      <img src={ icone } width={ 16 } height={ 16 } />
+      <div>{ value }</div>
+    </div>
+  )
+}
   
   const FormatarData = (str)=>{
     if(!str) return null
@@ -106,7 +126,8 @@ const PrazoProximaConsultaStyle = (value)=> {
     const dia = parts[2];
     const mes = parts[1];
     const ano = parts[0];
-    const date = `${dia}/${mes}/${ano}`
+    const ano2Digitos = ano.slice(-2);
+    const date = `${dia}/${mes}/${ano2Digitos}`
     return date
   }
   const FormatarDataNascimento = (str)=>{ 
@@ -120,6 +141,30 @@ const PrazoProximaConsultaStyle = (value)=> {
     }
     return str.includes('-') ?  date : str
   }
+
+const exibirTagDataAusente = (texto) => {
+  const estiloTag = {
+    borderRadius: "5px",
+    border: "1px solid #A6B5BE",
+    color: "#606E78",
+    fontWeight: "600",
+    display: "flex",
+    padding: "3px 10px",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: "5px",
+    width: "fit-content",
+  };
+
+  return (
+    <div style={ estiloTag }>
+      <img src={ AMPULHETA } width={ 16 } height={ 16 } />
+      <div>{ texto }</div>
+    </div>
+  );
+};
+
+const tratarData = (data) => data ? FormatarData(data) : exibirTagDataAusente("Não realizada");
 
 const prazoStyle = (value)=>{
   const check = {
@@ -229,19 +274,19 @@ const TabelaHiperDiaImpressao = ({ data, colunas, fontFamily = "Inter" }) => {
                 >
                   {
                     coluna.field=="dt_consulta_mais_recente"  &&
-                    FormatarData(item[coluna.field])
+                    tratarData(item[coluna.field])
                   }
                   {
                     coluna.field=="dt_ultima_consulta"  &&
-                    FormatarData(item[coluna.field])
+                    tratarData(item[coluna.field])
                   }
                   {
                     coluna.field=="dt_afericao_pressao_mais_recente"  &&
-                    FormatarData(item[coluna.field])
+                    tratarData(item[coluna.field])
                   }
                   {
                     coluna.field=="dt_solicitacao_hemoglobina_glicada_mais_recente"  &&
-                    FormatarData(item[coluna.field])
+                    tratarData(item[coluna.field])
                   }
                   {
                     coluna.field=="cidadao_cpf_dt_nascimento" && FormatarDataNascimento(item[coluna.field])
