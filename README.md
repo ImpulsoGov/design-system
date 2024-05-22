@@ -22,7 +22,6 @@ A iniciativa potencializa a eficiência e a eficácia dos usuários na utilizaç
 
  ## :milky_way: Estrutura do repositório
 
-
 ```plain
 root
 ├─ .storybook
