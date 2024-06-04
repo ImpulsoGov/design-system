@@ -32,7 +32,7 @@ export { ListaArtigos } from "./ListaArtigos/ListaArtigos";
 export { Login } from "./Login/Login";
 export { Margem } from "./Margem/Margem"
 export { Modal } from "./Modal/Modal";
-export { Alert, Alert_v2, AtualizacaoCadastral, ModalAlert , NPS , CardAlertModal } from "./ModalAlert/ModalAlert";
+export { Alert, Alert_v2, AtualizacaoCadastral,Alert_v4 , ModalAlert , NPS , CardAlertModal } from "./ModalAlert/ModalAlert";
 export { ModalLogged } from "./ModalLogged/ModalLogged";
 export { MateriaisComplementares, ModulosTrilha } from "./ModulosTrilha/ModulosTrilha";
 export { NavBar } from "./NavBar/NavBar";

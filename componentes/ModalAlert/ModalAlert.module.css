@@ -69,6 +69,19 @@
     line-height: 120%;
     color: #1F1F1F;
 }
+.ContainerInfo2{
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 10px;
+    width: 100%;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 19.2162px;
+    line-height: 120%;
+    color: #1F1F1F;
+}
+
 .Info{
     display: flex;
     flex-direction: row;

@@ -41,7 +41,22 @@ const CardProfissionalV2 = ({cardProfissional})=>{
         </div>
     )
 }
-
+const CardProfissionalV4 = ({cardProfissional})=>{
+    return(
+        <div className={style.CardProfissional}>
+            <div className={style.CardProfissionalContainer}>
+                <div className={style.Profissional}>
+                    <img src={cardProfissional.profissional} alt="profissional" width="75px"/>
+                </div>
+                <div className={style.ProfissionalLogo}>
+                    <img src={cardProfissional.logo} alt="logo" width="75px" />
+                </div>
+            </div>
+            <p className={style.ProfissionalInfo}>{cardProfissional.nome}</p>
+            <p className={style.ProfissionalInfo}>{cardProfissional.cargo}</p>
+        </div>
+    )
+}
 const Alert = ({
     refModal,
     props
@@ -149,7 +164,49 @@ const AtualizacaoCadastral = ({
         </div>
     )
 }
-
+const Alert_v4 = ({
+    refModal,
+    props
+})=>{
+    return (
+        <div className={style.Alert} ref={refModal}>
+            <div className={style.close}>
+                <a 
+                    className={style.ModalExit}
+                    onClick={()=>props.setDisplay(false)}
+                ></a>
+            </div>
+            <div style={{display : "flex", flexDirection : "row", gap : "60px"}}>
+                <div style={{display : "flex", flexDirection : "column", gap : "60px"}}>
+                    <div className={style.Container}>
+                        <div className={style.ContainerTitulo}>
+                            <div className={style.SubTitulo}>{props.titulos.SubTitulo}</div>
+                            <div className={style.Titulo}>{props.titulos.Titulo}</div>
+                        </div>
+                    </div>
+                    <div className={style.ContainerInfo2}>
+                        {
+                            props.Info.map((item,index)=>{
+                                return(
+                                    <div className={style.Info} key={index}>
+                                        <img src={item.icon} alt="icon"/>
+                                        <div>{item.info}</div>
+                                    </div>
+                                )
+                            })
+                        }
+                    </div>
+                    <div style={{width : "100%",display : "flex", justifyContent : "center"}}><ButtonColor label={props.botao.label} link={props.botao.url} /></div>
+                    <div className={style.botaoMobile}><ButtonColorMobile label={props.botao.label} link={props.botao.url} /></div>
+                </div>
+                <div>
+                    <CardProfissionalV4 cardProfissional={props.cardProfissional} />
+                    <CardProfissionalV4 cardProfissional={props.cardProfissional} />
+                </div>
+            </div>
+        </div>
+    )
+}
 const NPS = ({props})=>{
     const [avaliacao,setAvaliacao] = useState(0)
     const [avaliacaoHover,setAvaliacaoHover] = useState(0)
@@ -235,4 +292,4 @@ const ModalAlertOff= ({Child,childProps,display,setDisplay})=>{
     )
 }
 
-export { ModalAlert,Alert,CardAlertModal,ModalAlertOff,NPS, Alert_v2, AtualizacaoCadastral }
+export { ModalAlert,Alert,CardAlertModal,ModalAlertOff,NPS, Alert_v2, AtualizacaoCadastral , Alert_v4 }
