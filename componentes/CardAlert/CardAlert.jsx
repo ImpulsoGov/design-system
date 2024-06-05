@@ -8,15 +8,13 @@ const CardAlert = ({
     background,
     margin,
     padding,
-    color,
-    fontSize
+    color
 })=>{
     const cardStyle = {
         background: background || "#F4CCAB",
         margin : margin || "0px 80px",
         padding: padding || "10px 16px",
-        color: color || "#1F1F1F",
-        fontSize: fontSize || "14px",
+        color: color || "#1F1F1F"
       };
     return(
         <div className={style.CardAlert} style={cardStyle}>
