@@ -21,6 +21,10 @@ export default {
       name: "height",
       description: "Altura atribuída ao card *string* ou *number*"
     },
+    imagemStyle: {
+      name: "imagemStyle",
+      description: "Estilo aplicado à imagem *object*"
+    },
   }
 }
 const Template = (args) => <CardImg {...args}/>
@@ -28,5 +32,8 @@ export const Completo = Template.bind({});
 Completo.args={
     indicador:"Conteúdos e materiais com dicas",
     descricao:"Semanalmente enviamos para o seu e-mail sugestões para melhorar sua rotina de trabalho e mantemos você informado sobre as atualizações da APS.",
-    imagemSrc: "url_da_sua_imagem",
+    imagemSrc: "https://media.graphassets.com/7KgUfR5QK24Tgxw79bIQ",
+    imagemStyle: {
+      height: "40vh"
+    }
 }
