@@ -1,0 +1,29 @@
+.cardFiltroSelected{
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 150%;
+  background: #EFF5F9;
+  width: fit-content;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1.5px solid #2EB380;
+}
+
+.cardFiltro{
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 150%;
+  background: #EFF5F9;
+  width: fit-content;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.cardFiltro:hover{
+  border: 1.5px solid #2EB380;
+  cursor: pointer;
+}

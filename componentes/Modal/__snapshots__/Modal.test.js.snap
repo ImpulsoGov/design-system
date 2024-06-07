@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Componente: Modal deve renderizar corretamente 1`] = `
+<div
+  class="ModalContainer"
+  data-testid="Modal"
+>
+  <a
+    class="ModalExit"
+    data-testid="ModalExit"
+  />
+  <p>
+    Teste
+  </p>
+</div>
+`;

@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Componente: ToolBar deve renderizar corretamente 1`] = `
+<div
+  class="ToolBar"
+  data-testid="ToolBar"
+>
+  <input
+    class="SearchBar"
+    placeholder="PESQUISE UM NOME"
+    value=""
+  />
+  <button
+    class="ButtonLightContainer"
+  >
+    <img
+      class="IconeRight"
+      src="https://media.graphassets.com/7E9qXtNTze5w3ozl6a5I"
+    />
+    ORDENAR LISTA
+  </button>
+  <button
+    class="ButtonLightContainer"
+  >
+    <img
+      class="IconeRight"
+      src="https://media.graphassets.com/1rnUv5WSTKmCHnvqciuW"
+    />
+    FILTRAR A LISTA
+  </button>
+  <div>
+    <button
+      class="ButtonColorContainer ColorIP"
+      style="cursor: pointer;"
+    >
+      <img
+        class="IconeRight"
+        src="https://media.graphassets.com/3vsKrZXYT9CdxSSyhjhk"
+      />
+      IMPRIMIR LISTA
+    </button>
+  </div>
+</div>
+`;

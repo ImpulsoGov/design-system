@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import style from "./Modal.module.css"
 
 const Modal= (props)=>{
@@ -6,8 +6,9 @@ const Modal= (props)=>{
         <>
             {
                 props.show &&
-                <div className={style.ModalContainer}>
-                    <a 
+                <div className={style.ModalContainer} data-testid="Modal">
+                    <a
+                        data-testid="ModalExit"
                         className={style.ModalExit}
                         onClick={()=>props.setModal(false)}
                     ></a>

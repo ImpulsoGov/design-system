@@ -14,7 +14,7 @@ const ConteudoBlog = ({
     const ano = new Date(autor.data).getFullYear()
 
     return (
-      <div className={style.ConteudoBlogContainer}>
+      <div className={style.ConteudoBlogContainer} data-testid="ConteudoBlog">
         <div>
             <div 
               className={style.ConteudoBlogTitulo}

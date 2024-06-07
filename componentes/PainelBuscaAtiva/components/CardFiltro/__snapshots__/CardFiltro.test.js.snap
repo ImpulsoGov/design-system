@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Componente: CardFiltro deve renderizar corretamente 1`] = `
+<div
+  class="cardFiltro"
+  data-testid="CardFiltro"
+>
+  NOME DO ACS DE A-Z
+</div>
+`;
