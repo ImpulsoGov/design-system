@@ -1249,17 +1249,17 @@ const imprimir_deprecated = (escala,child)=>{
     janelaImpressao.print();
   }
 }
-const imprimir = (data)=>{
-  const targetRef = useRef();
-  <TabelaCitoImpressao
-    data={data}
-    colunas={colunasCito}
-    status_usuario_descricao={{ data: status_usuario_descricao }}
-    targetRef={targetRef}
-    fontFamily="sans-serif"
-  />
-  generatePDF(targetRef, {filename: 'page.pdf'})
-}
+// const imprimir = (data)=>{
+//   const targetRef = useRef();
+//   <TabelaCitoImpressao
+//     data={data}
+//     colunas={colunasCito}
+//     status_usuario_descricao={{ data: status_usuario_descricao }}
+//     targetRef={targetRef}
+//     fontFamily="sans-serif"
+//   />
+//   generatePDF(targetRef, {filename: 'page.pdf'})
+// }
 
 const printDataCito = (data)=> imprimir(data)
 

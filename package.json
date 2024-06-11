@@ -33,6 +33,7 @@
     "react-echarts-wrapper": "^1.0.3",
     "react-to-pdf": "^1.0.1",
     "react-to-print": "^2.14.13",
+    "storybook": "^8.1.6",
     "styled-components": "^6.0.1"
   },
   "scripts": {
