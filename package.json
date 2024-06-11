@@ -27,11 +27,12 @@
     "echarts": "^5.4.1",
     "echarts-for-react": "^3.0.2",
     "form-data": "^4.0.0",
-    "next": "^13.0.3",
+    "next": "^14.2.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-echarts-wrapper": "^1.0.3",
     "react-to-print": "^2.14.13",
+    "storybook": "^8.1.6",
     "styled-components": "^6.0.1"
   },
   "scripts": {
@@ -42,9 +43,9 @@
     "test:watch": "jest --coverage=false --watch",
     "test:coverage": "jest --coverage --watchAll=false --bail",
     "eject": "react-scripts eject",
-    "sb": "start-storybook -p 6006",
-    "sb1": "export NODE_OPTIONS=--openssl-legacy-provider && start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "sb": "storybook dev",
+    "sb1": "export NODE_OPTIONS=--openssl-legacy-provider && storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "eslintConfig": {
     "extends": [
@@ -68,16 +69,18 @@
     "access": "public"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^6.5.9",
-    "@storybook/addon-essentials": "^6.5.9",
-    "@storybook/addon-interactions": "^6.5.9",
-    "@storybook/addon-links": "^6.5.9",
-    "@storybook/addons": "^6.5.13",
-    "@storybook/builder-webpack4": "^6.5.9",
-    "@storybook/manager-webpack4": "^6.5.9",
-    "@storybook/react": "^6.5.9",
-    "@storybook/testing-library": "^0.0.13",
-    "@storybook/theming": "^6.5.13",
+    "@chromatic-com/storybook": "^1",
+    "@storybook/addon-actions": "^8.1.6",
+    "@storybook/addon-essentials": "^8.1.6",
+    "@storybook/addon-interactions": "^8.1.6",
+    "@storybook/addon-links": "^8.1.6",
+    "@storybook/addon-mdx-gfm": "^8.1.6",
+    "@storybook/addons": "^7.6.17",
+    "@storybook/cli": "^8.1.6",
+    "@storybook/nextjs": "^8.1.6",
+    "@storybook/react": "^8.1.6",
+    "@storybook/testing-library": "^0.2.2",
+    "@storybook/theming": "^8.1.6",
     "@testing-library/jest-dom": "^6.4.2",
     "@testing-library/react": "^14.2.1",
     "@testing-library/user-event": "^14.5.2",
