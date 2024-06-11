@@ -1,7 +1,8 @@
-import React, {useState} from 'react'
+import React, { useState,useRef} from 'react'
 import { PainelBuscaAtiva } from './index'
 import * as ReactDOMServer from 'react-dom/server';
 import { TabelaCitoImpressao, TabelaHiperDiaImpressao } from '../TabelaHiperDia';
+import { usePDF } from 'react-to-pdf';
 
 export default {
   title: "Componentes/PainelBuscaAtiva",
@@ -733,6 +734,86 @@ const dataCito = [
         "dt_registro_producao_mais_recente" : "2023-10-22"
     },
     {
+      "paciente_nome": "ABIGAIR DE SOUZA BADA",
+      "cidadao_cpf_dt_nascimento": "106.106.638-01",
+      "id_status_usuario": 15,
+      "vencimento_da_coleta": "-",
+      "prazo_proxima_coleta": "31/08/2023",
+      "idade": 5,
+      "id_faixa_etaria": 8,
+      "acs_nome": "Alessandra de Fatima Pereira",
+      "estabelecimento_cnes": "2879085",
+      "estabelecimento_nome": "Unidade de Saude da Familia Taboao",
+      "equipe_ine": "0002277573",
+      "ine_master": "0002277573",
+      "equipe_nome": "ESF GOIANA",
+      "dt_registro_producao_mais_recente" : "2023-10-22"
+      },
+      {
+        "paciente_nome": "ABIGAIR DE SOUZA BADA",
+        "cidadao_cpf_dt_nascimento": "106.106.638-01",
+        "id_status_usuario": 15,
+        "vencimento_da_coleta": "-",
+        "prazo_proxima_coleta": "31/08/2023",
+        "idade": 5,
+        "id_faixa_etaria": 8,
+        "acs_nome": "Alessandra de Fatima Pereira",
+        "estabelecimento_cnes": "2879085",
+        "estabelecimento_nome": "Unidade de Saude da Familia Taboao",
+        "equipe_ine": "0002277573",
+        "ine_master": "0002277573",
+        "equipe_nome": "ESF GOIANA",
+        "dt_registro_producao_mais_recente" : "2023-10-22"
+    },
+    {
+      "paciente_nome": "ABIGAIR DE SOUZA BADA",
+      "cidadao_cpf_dt_nascimento": "106.106.638-01",
+      "id_status_usuario": 15,
+      "vencimento_da_coleta": "-",
+      "prazo_proxima_coleta": "31/08/2023",
+      "idade": 5,
+      "id_faixa_etaria": 8,
+      "acs_nome": "Alessandra de Fatima Pereira",
+      "estabelecimento_cnes": "2879085",
+      "estabelecimento_nome": "Unidade de Saude da Familia Taboao",
+      "equipe_ine": "0002277573",
+      "ine_master": "0002277573",
+      "equipe_nome": "ESF GOIANA",
+      "dt_registro_producao_mais_recente" : "2023-10-22"
+    },
+        {
+          "paciente_nome": "ABIGAIR DE SOUZA BADA",
+          "cidadao_cpf_dt_nascimento": "106.106.638-01",
+          "id_status_usuario": 15,
+          "vencimento_da_coleta": "-",
+          "prazo_proxima_coleta": "31/08/2023",
+          "idade": 5,
+          "id_faixa_etaria": 8,
+          "acs_nome": "Alessandra de Fatima Pereira",
+          "estabelecimento_cnes": "2879085",
+          "estabelecimento_nome": "Unidade de Saude da Familia Taboao",
+          "equipe_ine": "0002277573",
+          "ine_master": "0002277573",
+          "equipe_nome": "ESF GOIANA",
+          "dt_registro_producao_mais_recente" : "2023-10-22"
+      },
+      {
+        "paciente_nome": "ABIGAIR DE SOUZA BADA",
+        "cidadao_cpf_dt_nascimento": "106.106.638-01",
+        "id_status_usuario": 15,
+        "vencimento_da_coleta": "-",
+        "prazo_proxima_coleta": "31/08/2023",
+        "idade": 5,
+        "id_faixa_etaria": 8,
+        "acs_nome": "Alessandra de Fatima Pereira",
+        "estabelecimento_cnes": "2879085",
+        "estabelecimento_nome": "Unidade de Saude da Familia Taboao",
+        "equipe_ine": "0002277573",
+        "ine_master": "0002277573",
+        "equipe_nome": "ESF GOIANA",
+        "dt_registro_producao_mais_recente" : "2023-10-22"
+      },
+      {
         "paciente_nome": "ACSA DOS SANTOS LOPES",
         "cidadao_cpf_dt_nascimento": "327.043.598-30",
         "id_status_usuario": 12,
@@ -832,7 +913,204 @@ const dataCito = [
         "equipe_nome": "ESF GOIANA",
         "dt_registro_producao_mais_recente" : "2023-10-22"
 
-    }
+    },
+    {
+      "paciente_nome": "ABIGAIR DE SOUZA BADA",
+      "cidadao_cpf_dt_nascimento": "106.106.638-01",
+      "id_status_usuario": 15,
+      "vencimento_da_coleta": "-",
+      "prazo_proxima_coleta": "31/08/2023",
+      "idade": 5,
+      "id_faixa_etaria": 8,
+      "acs_nome": "Alessandra de Fatima Pereira",
+      "estabelecimento_cnes": "2879085",
+      "estabelecimento_nome": "Unidade de Saude da Familia Taboao",
+      "equipe_ine": "0002277573",
+      "ine_master": "0002277573",
+      "equipe_nome": "ESF GOIANA",
+      "dt_registro_producao_mais_recente" : "2023-10-22"
+  },
+  {
+    "paciente_nome": "ABIGAIR DE SOUZA BADA",
+    "cidadao_cpf_dt_nascimento": "106.106.638-01",
+    "id_status_usuario": 15,
+    "vencimento_da_coleta": "-",
+    "prazo_proxima_coleta": "31/08/2023",
+    "idade": 5,
+    "id_faixa_etaria": 8,
+    "acs_nome": "Alessandra de Fatima Pereira",
+    "estabelecimento_cnes": "2879085",
+    "estabelecimento_nome": "Unidade de Saude da Familia Taboao",
+    "equipe_ine": "0002277573",
+    "ine_master": "0002277573",
+    "equipe_nome": "ESF GOIANA",
+    "dt_registro_producao_mais_recente" : "2023-10-22"
+    },
+    {
+      "paciente_nome": "ABIGAIR DE SOUZA BADA",
+      "cidadao_cpf_dt_nascimento": "106.106.638-01",
+      "id_status_usuario": 15,
+      "vencimento_da_coleta": "-",
+      "prazo_proxima_coleta": "31/08/2023",
+      "idade": 5,
+      "id_faixa_etaria": 8,
+      "acs_nome": "Alessandra de Fatima Pereira",
+      "estabelecimento_cnes": "2879085",
+      "estabelecimento_nome": "Unidade de Saude da Familia Taboao",
+      "equipe_ine": "0002277573",
+      "ine_master": "0002277573",
+      "equipe_nome": "ESF GOIANA",
+      "dt_registro_producao_mais_recente" : "2023-10-22"
+  },
+  {
+    "paciente_nome": "ABIGAIR DE SOUZA BADA",
+    "cidadao_cpf_dt_nascimento": "106.106.638-01",
+    "id_status_usuario": 15,
+    "vencimento_da_coleta": "-",
+    "prazo_proxima_coleta": "31/08/2023",
+    "idade": 5,
+    "id_faixa_etaria": 8,
+    "acs_nome": "Alessandra de Fatima Pereira",
+    "estabelecimento_cnes": "2879085",
+    "estabelecimento_nome": "Unidade de Saude da Familia Taboao",
+    "equipe_ine": "0002277573",
+    "ine_master": "0002277573",
+    "equipe_nome": "ESF GOIANA",
+    "dt_registro_producao_mais_recente" : "2023-10-22"
+  },
+      {
+        "paciente_nome": "ABIGAIR DE SOUZA BADA",
+        "cidadao_cpf_dt_nascimento": "106.106.638-01",
+        "id_status_usuario": 15,
+        "vencimento_da_coleta": "-",
+        "prazo_proxima_coleta": "31/08/2023",
+        "idade": 5,
+        "id_faixa_etaria": 8,
+        "acs_nome": "Alessandra de Fatima Pereira",
+        "estabelecimento_cnes": "2879085",
+        "estabelecimento_nome": "Unidade de Saude da Familia Taboao",
+        "equipe_ine": "0002277573",
+        "ine_master": "0002277573",
+        "equipe_nome": "ESF GOIANA",
+        "dt_registro_producao_mais_recente" : "2023-10-22"
+    },
+    {
+      "paciente_nome": "ABIGAIR DE SOUZA BADA",
+      "cidadao_cpf_dt_nascimento": "106.106.638-01",
+      "id_status_usuario": 15,
+      "vencimento_da_coleta": "-",
+      "prazo_proxima_coleta": "31/08/2023",
+      "idade": 5,
+      "id_faixa_etaria": 8,
+      "acs_nome": "Alessandra de Fatima Pereira",
+      "estabelecimento_cnes": "2879085",
+      "estabelecimento_nome": "Unidade de Saude da Familia Taboao",
+      "equipe_ine": "0002277573",
+      "ine_master": "0002277573",
+      "equipe_nome": "ESF GOIANA",
+      "dt_registro_producao_mais_recente" : "2023-10-22"
+    },
+    {
+      "paciente_nome": "ACSA DOS SANTOS LOPES",
+      "cidadao_cpf_dt_nascimento": "327.043.598-30",
+      "id_status_usuario": 12,
+      "vencimento_da_coleta": "11/05/2026",
+      "prazo_proxima_coleta": "31/08/2023",
+      "idade": 35,
+      "id_faixa_etaria": 6,
+      "acs_nome": "Raquel Nascimento da Silva",
+      "estabelecimento_cnes": "2752506",
+      "estabelecimento_nome": "Posto de Saude do Goiana",
+      "equipe_ine": "0001540971",
+      "ine_master": "0001540971",
+      "equipe_nome": "ESF GOIANA",
+      "dt_registro_producao_mais_recente" : "2023-10-22"
+  },
+  {
+      "paciente_nome": "ADAGUIMAR DE CASTRO SANTOS",
+      "cidadao_cpf_dt_nascimento": "100.941.638-39",
+      "id_status_usuario": 12,
+      "vencimento_da_coleta": "27/07/2025",
+      "prazo_proxima_coleta": "Em dia",
+      "idade": 55,
+      "id_faixa_etaria": 8,
+      "acs_nome": "Estela Ribeiro",
+      "estabelecimento_cnes": "2752522",
+      "estabelecimento_nome": "Posto de Saude de Mailasqui Sao Roque",
+      "equipe_ine": "0000369799",
+      "ine_master": "0000369799",
+      "equipe_nome": "ESF MAILASQUI 1.2",
+      "dt_registro_producao_mais_recente" : "2023-10-22"
+
+  },
+  {
+      "paciente_nome": "ADA IMACULADA PADILHA DO SANOS",
+      "cidadao_cpf_dt_nascimento": "305.569.958-05",
+      "id_status_usuario": 13,
+      "vencimento_da_coleta": "-",
+      "prazo_proxima_coleta": "31/08/2023",
+      "idade": 64,
+      "id_faixa_etaria": 8,
+      "acs_nome": "Rafaela Aparecida de Moraes",
+      "estabelecimento_cnes": "2793377",
+      "estabelecimento_nome": "Unidade de Saude da Familia Carmo Sao Roque",
+      "equipe_ine": "0000369802",
+      "ine_master": "0000369802",
+      "equipe_nome": "ESF CARMO",
+      "dt_registro_producao_mais_recente" : "2023-10-22"
+
+  },
+  {
+      "paciente_nome": "ADEILDES DE JESUS SOARES DOS SANTOS",
+      "cidadao_cpf_dt_nascimento": "391.395.288-80",
+      "id_status_usuario": 13,
+      "vencimento_da_coleta": "-",
+      "prazo_proxima_coleta": "31/08/2023",
+      "idade": 34,
+      "id_faixa_etaria": 6,
+      "acs_nome": "Marco Alberto Costa Santi",
+      "estabelecimento_cnes": "2752506",
+      "estabelecimento_nome": "Posto de Saude do Goiana",
+      "equipe_ine": "0001540971",
+      "ine_master": "0001540971",
+      "equipe_nome": "ESF GOIANA",
+      "dt_registro_producao_mais_recente" : "2023-10-22"
+
+  },
+  {
+      "paciente_nome": "ADEITA SOARES DE OLIVEIRA",
+      "cidadao_cpf_dt_nascimento": "164.405.328-47",
+      "id_status_usuario": 12,
+      "vencimento_da_coleta": "15/02/2026",
+      "prazo_proxima_coleta": "Em dia",
+      "idade": 51,
+      "id_faixa_etaria": 8,
+      "acs_nome": "Lucineia Pereira de Souza",
+      "estabelecimento_cnes": "2793377",
+      "estabelecimento_nome": "Unidade de Saude da Familia Carmo Sao Roque",
+      "equipe_ine": "0000369802",
+      "ine_master": "0000369802",
+      "equipe_nome": "ESF CARMO",
+      "dt_registro_producao_mais_recente" : "2023-10-22"
+
+  },
+  {
+      "paciente_nome": "ADELAIDE GOMES FERREIRA",
+      "cidadao_cpf_dt_nascimento": "167.328.578-35",
+      "id_status_usuario": 12,
+      "vencimento_da_coleta": "03/07/2026",
+      "prazo_proxima_coleta": "Em dia",
+      "idade": 49,
+      "id_faixa_etaria": 7,
+      "acs_nome": null,
+      "estabelecimento_cnes": "2752506",
+      "estabelecimento_nome": "Posto de Saude do Goiana",
+      "equipe_ine": "0001540971",
+      "ine_master": "0001540971",
+      "equipe_nome": "ESF GOIANA",
+      "dt_registro_producao_mais_recente" : "2023-10-22"
+
+  }
 ]
 const datefiltrosDiabetes = [
   "dt_consulta_mais_recente",
@@ -943,7 +1221,7 @@ const Template = (args) =>{
   return <PainelBuscaAtiva {...args}/>
 }
 
-const imprimir = (escala,child)=>{
+const imprimir_deprecated = (escala,child)=>{
   if (typeof window !== 'undefined') {
     const largura = window.innerWidth;
     const altura = window.innerHeight;
@@ -971,16 +1249,19 @@ const imprimir = (escala,child)=>{
     janelaImpressao.print();
   }
 }
-
-const printDataCito = (data)=> imprimir(
-  0.78,
+const imprimir = (data)=>{
+  const targetRef = useRef();
   <TabelaCitoImpressao
     data={data}
     colunas={colunasCito}
     status_usuario_descricao={{ data: status_usuario_descricao }}
+    targetRef={targetRef}
     fontFamily="sans-serif"
   />
-)
+  generatePDF(targetRef, {filename: 'page.pdf'})
+}
+
+const printDataCito = (data)=> imprimir(data)
 
 const printDataDiabetes = (data)=> imprimir(
   0.78,

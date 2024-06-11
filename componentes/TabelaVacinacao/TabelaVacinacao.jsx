@@ -320,7 +320,8 @@ const TabelaVacinacaoImpressao = ({ data, colunas, fontFamily = "Inter" }) => {
                       display : "table cell",
                       justifyContent : "center",
                       alignItems : "center",
-                      marginTop : "4px"
+                      marginTop : "4px",
+                      textAlign: "left",
                   }}
               >
                 {

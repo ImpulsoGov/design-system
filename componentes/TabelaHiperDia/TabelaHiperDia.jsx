@@ -416,11 +416,73 @@ const selecionar_status_usuario_descricao = (value,status_usuario_descricao)=> {
       </div>
   }
 
-  const TabelaCitoImpressao = ({ data, colunas, status_usuario_descricao, fontFamily = "Inter"}) => {
-    return (
+const TabelaCitoImpressao = ({ data, colunas, status_usuario_descricao,targetRef, fontFamily = "Inter"}) => {
+  const filtros_aplicados = ["status da coleta coleta em dia", "status da coleta Vence no final do quadrimestre"]
+  const divisao_por_equipes = data.reduce((acumulador, objetoAtual) => {
+    const { equipe_nome } = objetoAtual;
+    if (!acumulador[equipe_nome]) {
+      acumulador[equipe_nome] = [];
+    }
+    acumulador[equipe_nome].push(objetoAtual);
+    return acumulador;
+  }, {});
+  return (
+    <div ref={targetRef}>
+      <div style={{
+        display : "flex",
+        flexDirection : "row"
+      }}>
+        <p>LISTA NOMINAL CITOPATOLOGICO - PRODUÇÃO MAIS RECENTE RECEBIDA EM : XX/XX/XX</p>
+        <div style={{
+          width : "200px",
+          height : "30px",
+          backgroundColor: "green",
+          marginLeft: "auto"
+        }}>LOGO</div>
+      </div>
+      <div style={{
+        display : "flex",
+        flexDirection : "row",
+        alignItems: "center",
+        gap : "10px"
+      }}>
+        <p>Filtros aplicados: </p>
+        {
+          filtros_aplicados.map((filtro,index)=>{
+            return(
+              <div style={{
+                border : "solid 1px grey",
+                borderRadius : "5px",
+                padding : "5px"
+              }}>
+                {filtro}
+              </div>
+            )
+          })
+        }
+      </div>
+      {
+        Object.keys(divisao_por_equipes).map((registro,index)=>{
+            return <div style={{breakBefore: index > 0 ? "page" : ""}}>
+              <p>{registro}</p>
+              <TabelaUnitaria
+                data = {divisao_por_equipes[registro]}
+                colunas = {colunas}
+                status_usuario_descricao = {status_usuario_descricao}
+                fontFamily = "Inter"
+                indexTabela={index}
+              />
+            </div>
+        })
+      }
+    </div>
+  );
+};
+const TabelaUnitaria = ({ data, colunas, status_usuario_descricao, fontFamily = "Inter", indexTabela}) => {
+  return (
+    <>
       <table style={{
         borderCollapse: "collapse",
-        margin: "15px",
         color:  "#1F1F1F",
         textAlign: "center",
         fontSize: "12px",
@@ -431,34 +493,42 @@ const selecionar_status_usuario_descricao = (value,status_usuario_descricao)=> {
         <thead>
           <tr style={{
                 backgroundColor: "#C9D2D8",
-                borderRadius: "10px"
+                borderRadius: "10px",
             }}>
-            {colunas.map((coluna) => (
-              <th className={style.colunaTitulo} key={coluna.headerName}>{coluna.headerName}</th>
+            {colunas.map((coluna,index) => (
+              <th style={{
+                padding : "18px",
+                width: "150px",
+                borderTopLeftRadius: index!=0 ? "0" : "15px",
+                borderBottomLeftRadius: index!=0 ? "0" : "15px",
+                borderTopRightRadius: index!=6 ? "0" : "15px",
+                borderBottomRightRadius: index!=6 ? "0" : "15px",
+                marginRight : index==1 ? "5px" : "",
+                borderRight : index==1 ? "solid 1px black" : "",
+                textAlign: "left"
+              }} key={coluna.headerName}>{coluna.headerName}</th>
             ))}
           </tr>
         </thead>
         <tbody>
-          {data.map((item) => (
+          {data.map((item,index) => (
             <tr 
                 key={item.id}
                 style={{
-                    backgroundColor : "#EFF5F9",
-                    border : "solid 4px white",
+                    borderBottom: "solid 1px black",
                 }}
             >
               {colunas.map((coluna,index) => (
                 <td 
                     key={`${item.id}-${coluna}-${index}`}
                     style={{
-                        borderTopLeftRadius: index!=0 ? "0" : "15px",
-                        borderBottomLeftRadius: index!=0 ? "0" : "15px",
-                        borderTopRightRadius: index!=7 ? "0" : "15px",
-                        borderBottomRightRadius: index!=7 ? "0" : "15px",
                         display : index==4 || index==6 ? "flex" : "table cell",
                         justifyContent : "center",
                         alignItems : "center",
-                        marginTop : "4px"
+                        textAlign: "left",
+                        width: "150px",
+                        padding : "14px",
+                        borderRight: index==1 ? "solid 1px black" : ""
                     }}
                 >
                   {
@@ -470,13 +540,15 @@ const selecionar_status_usuario_descricao = (value,status_usuario_descricao)=> {
                   {
                     coluna.field!="id_status_usuario" && coluna.field!="prazo_proxima_coleta" && item[coluna.field]
                   }
+                  {index}
                   </td>
               ))}
             </tr>
           ))}
         </tbody>
       </table>
-    );
-  };
+    </>
+  );
+};
 
 export {TabelaHiperDia, TabelaHiperDiaImpressao , TabelaCitoImpressao};
