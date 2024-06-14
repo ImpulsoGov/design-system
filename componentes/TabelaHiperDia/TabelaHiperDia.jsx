@@ -10,7 +10,7 @@ export const AMPULHETA = "https://media.graphassets.com/OEg0Ik1ITqO9yqRT4fnd";
 const TabelaHiperDia = ({
   data,
   colunas,
-  rowHeight
+  rowHeight,
   }) => {
     const styles = {
       padding:"20px 40px 40px 40px",
@@ -416,66 +416,70 @@ const selecionar_status_usuario_descricao = (value,status_usuario_descricao)=> {
       </div>
   }
 
-  const TabelaCitoImpressao = ({ data, colunas, status_usuario_descricao, fontFamily = "Inter"}) => {
+  const TabelaCitoImpressao = ({ data, colunas, status_usuario_descricao, fontFamily = "Inter", targetRef}) => {
     return (
-      <table style={{
-        borderCollapse: "collapse",
-        margin: "15px",
-        color:  "#1F1F1F",
-        textAlign: "center",
-        fontSize: "12px",
-        fontFamily,
-        letterSpacing: "-0.12px",
-        textTransform: "uppercase",
-      }}>
-        <thead>
-          <tr style={{
-                backgroundColor: "#C9D2D8",
-                borderRadius: "10px"
-            }}>
-            {colunas.map((coluna) => (
-              <th className={style.colunaTitulo} key={coluna.headerName}>{coluna.headerName}</th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {data.map((item) => (
-            <tr 
-                key={item.id}
-                style={{
-                    backgroundColor : "#EFF5F9",
-                    border : "solid 4px white",
-                }}
-            >
-              {colunas.map((coluna,index) => (
-                <td 
-                    key={`${item.id}-${coluna}-${index}`}
-                    style={{
-                        borderTopLeftRadius: index!=0 ? "0" : "15px",
-                        borderBottomLeftRadius: index!=0 ? "0" : "15px",
-                        borderTopRightRadius: index!=7 ? "0" : "15px",
-                        borderBottomRightRadius: index!=7 ? "0" : "15px",
-                        display : index==4 || index==6 ? "flex" : "table cell",
-                        justifyContent : "center",
-                        alignItems : "center",
-                        marginTop : "4px"
-                    }}
-                >
-                  {
-                    coluna.field=="id_status_usuario" && selecionar_status_usuario_descricao(item[coluna.field],status_usuario_descricao)
-                  }
-                  { 
-                    coluna.field=="prazo_proxima_coleta"  && prazoStyle(item[coluna.field])
-                  }
-                  {
-                    coluna.field!="id_status_usuario" && coluna.field!="prazo_proxima_coleta" && item[coluna.field]
-                  }
-                  </td>
+      <div 
+        ref={targetRef}
+        >
+        <table style={{
+          borderCollapse: "collapse",
+          margin: "15px",
+          color:  "#1F1F1F",
+          textAlign: "center",
+          fontSize: "12px",
+          fontFamily,
+          letterSpacing: "-0.12px",
+          textTransform: "uppercase",
+        }}>
+          <thead>
+            <tr style={{
+                  backgroundColor: "#C9D2D8",
+                  borderRadius: "10px"
+              }}>
+              {colunas.map((coluna) => (
+                <th className={style.colunaTitulo} key={coluna.headerName}>{coluna.headerName}</th>
               ))}
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {data.map((item) => (
+              <tr 
+                  key={item.id}
+                  style={{
+                      backgroundColor : "#EFF5F9",
+                      border : "solid 4px white",
+                  }}
+              >
+                {colunas.map((coluna,index) => (
+                  <td 
+                      key={`${item.id}-${coluna}-${index}`}
+                      style={{
+                          borderTopLeftRadius: index!=0 ? "0" : "15px",
+                          borderBottomLeftRadius: index!=0 ? "0" : "15px",
+                          borderTopRightRadius: index!=7 ? "0" : "15px",
+                          borderBottomRightRadius: index!=7 ? "0" : "15px",
+                          display : index==4 || index==6 ? "flex" : "table cell",
+                          justifyContent : "center",
+                          alignItems : "center",
+                          marginTop : "4px"
+                      }}
+                  >
+                    {
+                      coluna.field=="id_status_usuario" && selecionar_status_usuario_descricao(item[coluna.field],status_usuario_descricao)
+                    }
+                    { 
+                      coluna.field=="prazo_proxima_coleta"  && prazoStyle(item[coluna.field])
+                    }
+                    {
+                      coluna.field!="id_status_usuario" && coluna.field!="prazo_proxima_coleta" && item[coluna.field]
+                    }
+                    </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     );
   };
 
