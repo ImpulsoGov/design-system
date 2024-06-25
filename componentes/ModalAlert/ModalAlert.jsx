@@ -2,6 +2,7 @@ import React, {useState,useRef,useEffect} from "react";
 import style from "./ModalAlert.module.css";
 import style_v2 from "./ModalAlertV2.module.css";
 import style_v3 from "./ModalAlertV3.module.css";
+import style_v4 from "./ModalAlertV4.module.css";
 import { ButtonColor,ButtonColorMobile, ButtonColorSubmit } from "../ButtonColor";
 
 const CardProfissional = ({cardProfissional})=>{
@@ -41,7 +42,19 @@ const CardProfissionalV2 = ({cardProfissional})=>{
         </div>
     )
 }
-
+const CardProfissionalV4 = ({cardProfissional})=>{
+    return(
+        <div className={style_v4.CardProfissional}>
+            <div className={style_v4.CardProfissionalContainer}>
+                <div className={style_v4.Profissional}>
+                    <img src={cardProfissional.profissional} alt="profissional" width="75px"/>
+                </div>
+            </div>
+            <div className={style_v4.ProfissionalInfoNome}>{cardProfissional.nome}</div>
+            <div className={style_v4.ProfissionalInfoCargo}>{cardProfissional.cargo}</div>
+        </div>
+    )
+}
 const Alert = ({
     refModal,
     props
@@ -149,7 +162,48 @@ const AtualizacaoCadastral = ({
         </div>
     )
 }
-
+const Alert_v4 = ({
+    refModal,
+    props
+})=>{
+    return (
+        <div className={style_v4.Alert} ref={refModal}>
+            <div className={style_v4.close}>
+                <a 
+                    className={style_v4.ModalExit}
+                    onClick={()=>props.setDisplay(false)}
+                ></a>
+            </div>
+            <div style={{display : "flex", flexDirection : "row",  width : "100%"}}>
+                <div style={{display : "flex", flexDirection : "column", gap : "50px"}}>
+                    <div className={style_v4.Container}>
+                        <div className={style_v4.ContainerTitulo}>
+                            <div className={style_v4.SubTitulo}>{props.titulos.SubTitulo}</div>
+                            <div className={style_v4.Titulo}>{props.titulos.Titulo}</div>
+                        </div>
+                    </div>
+                    <div className={style_v4.ContainerInfo2}>
+                        {
+                            props.Info.map((item,index)=>{
+                                return(
+                                    <div className={style_v4.Info} key={index}>
+                                        <img src={item.icon} alt="icon"/>
+                                        <div>{item.info}</div>
+                                    </div>
+                                )
+                            })
+                        }
+                    </div>
+                    <div style={{width : "100%",display : "flex", justifyContent : "flex-end"}}><ButtonColor label={props.botao.label} link={props.botao.url} /></div>
+                </div>
+                <div className={style_v4.CardsProfissionalConteiner}>
+                    <CardProfissionalV4 cardProfissional={props.cardProfissional} />
+                    <CardProfissionalV4 cardProfissional={props.cardProfissional} />
+                </div>
+            </div>
+        </div>
+    )
+}
 const NPS = ({props})=>{
     const [avaliacao,setAvaliacao] = useState(0)
     const [avaliacaoHover,setAvaliacaoHover] = useState(0)
@@ -235,4 +289,4 @@ const ModalAlertOff= ({Child,childProps,display,setDisplay})=>{
     )
 }
 
-export { ModalAlert,Alert,CardAlertModal,ModalAlertOff,NPS, Alert_v2, AtualizacaoCadastral }
+export { ModalAlert,Alert,CardAlertModal,ModalAlertOff,NPS, Alert_v2, AtualizacaoCadastral , Alert_v4 }

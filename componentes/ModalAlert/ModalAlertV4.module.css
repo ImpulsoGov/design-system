@@ -29,6 +29,11 @@
     align-items: center;
     width: 100%;
 }
+.ContainerTitulo{
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+}
 .SubTitulo{
     font-family: 'Inter';
     font-style: normal;
@@ -49,14 +54,25 @@
     display: flex;
     flex-direction: row;
 }
-.ProfissionalInfo{
+.ProfissionalInfoNome{
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
     line-height: 120%;
     color: #1F1F1F;
+    margin-bottom: 10px;
 }
+.ProfissionalInfoCargo{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 120%;
+    color: #1F1F1F;
+    margin-bottom: 10px;
+}
+
 .ContainerInfo{
     display: flex;
     flex-direction: row;
@@ -73,7 +89,7 @@
     display: grid;
     grid-template-columns: auto auto;
     gap: 10px;
-    width: 100%;
+    width: 65%;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
@@ -88,6 +104,11 @@
     justify-content: center;
     align-items: center;
     gap: 5px;
+}
+.CardsProfissionalConteiner{
+    display : flex;
+    flex-direction : column;
+    gap : 15px;
 }
 .close{
     width: 100%;
@@ -179,6 +200,9 @@
     }
     .escala{
         width: 100% !important;
+    }
+    .CardsProfissionalConteiner{
+        display: none;
     }
 }
 .NPS{
