@@ -7,7 +7,8 @@ const CardImg = ({
   imagemSrc,
   indicador,
   descricao,
-  height
+  height,
+  imagemStyle,
 }) => {
   return (
     <div
@@ -18,6 +19,7 @@ const CardImg = ({
       <div className={style.CardInfoImagemContainer}>
         {imagemSrc && (
           <img
+            style={{...imagemStyle}}
             src={imagemSrc}
             alt="Imagem do card"
             className={style.CardInfoImagem}
@@ -40,13 +42,15 @@ const CardImg = ({
 CardImg.defaultProps = {
   height: "100%",
   imagemSrc: "",
+  imagemStyle: {},
 }
 
 CardImg.propTypes = {
   height: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,
-  ])
+  ]),
+  imagemStyle: PropTypes.object,
 }
 
 export { CardImg };

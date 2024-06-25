@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Componente: Filtro deve renderizar corretamente 1`] = `
+<div
+  class="Filtro"
+  data-testid="Filtro"
+>
+  <div
+    class="FiltrosContainer"
+  >
+    <div
+      data-testid="FiltroBody"
+    >
+      <div
+        class="ConteinerFiltro"
+      >
+        <div
+          class="tituloFiltro"
+        >
+          <p>
+            Filtrar por nome do Profissional Responsável
+          </p>
+          <button
+            class="ShowFiltros"
+          >
+            +
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      data-testid="FiltroBody"
+    >
+      <div
+        class="ConteinerFiltro"
+      >
+        <div
+          class="tituloFiltro"
+        >
+          <p>
+            Filtrar por status
+          </p>
+          <button
+            class="ShowFiltros"
+          >
+            +
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="AplicarFiltros"
+  >
+    <button
+      class="ButtonLightContainer"
+    >
+      LIMPAR FILTROS
+    </button>
+    <button
+      class="ButtonColorContainer ColorIP"
+    >
+      FILTRAR LISTA
+    </button>
+  </div>
+  <div
+    class="AplicarfiltrosCase"
+  />
+</div>
+`;

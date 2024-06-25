@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Componente: FiltroBody deve renderizar o nome do filtro e o botão de mostrar opções 1`] = `
+<div
+  data-testid="FiltroBody"
+>
+  <div
+    class="ConteinerFiltro"
+  >
+    <div
+      class="tituloFiltro"
+    >
+      <p>
+        Filtrar por nome do Profissional Responsável
+      </p>
+      <button
+        class="ShowFiltros"
+      >
+        +
+      </button>
+    </div>
+  </div>
+</div>
+`;

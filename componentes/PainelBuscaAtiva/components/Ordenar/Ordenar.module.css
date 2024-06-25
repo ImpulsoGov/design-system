@@ -1,0 +1,41 @@
+.containerOrdenar{
+  padding: 5px 40px;
+  display: flex;
+  flex-direction: column;
+  gap:15px;
+}
+
+.limparOrdenacao{
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: #2EB380;
+  border-bottom: #2EB380 solid 1.5px;
+  width: fit-content;
+}
+
+.limparOrdenacao:hover{
+  cursor: pointer;
+}
+
+.OrdenarPor{
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 130%;
+  letter-spacing: -0.02em;
+  color: #1F1F1F;
+}
+
+.AplicarOrdenacao {
+  position: fixed;
+  width : 100%;
+  padding: 15px;
+  bottom: 0;
+  background-color: #FFF;
+  display: flex;
+  gap: 50px;
+}

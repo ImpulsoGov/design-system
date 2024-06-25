@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Componente: Greeting deve renderizar corretamente 1`] = `
+<div
+  class="Greeting"
+  data-testid="Greeting"
+>
+  <div
+    class="GreetingcargoMunicipio"
+  >
+    IMPULSER
+     · 
+    BA
+  </div>
+  <div
+    class="GreetingNome"
+  >
+    Boas-vindas
+    , 
+    Carmen
+  </div>
+  <div
+    class="GreetingTexto"
+  />
+</div>
+`;

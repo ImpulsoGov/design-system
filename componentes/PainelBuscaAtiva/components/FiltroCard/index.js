@@ -1,0 +1,1 @@
+export { FiltroCard } from "./FiltroCard";

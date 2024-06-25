@@ -1,0 +1,939 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Componente: PainelBuscaAtiva deve renderizar corretamente 1`] = `
+<div
+  data-testid="PainelBuscaAtiva"
+  style="margin-top: 30px;"
+>
+  <div
+    class="AtualizacaoConteiner"
+  >
+    <div
+      class="Atualizacao"
+    >
+      PRODUÇÃO MAIS RECENTE RECEBIDA EM: 
+      22/10/2023
+    </div>
+  </div>
+  <div
+    class="ToolBar"
+    data-testid="ToolBar"
+  >
+    <input
+      class="SearchBar"
+      placeholder="PESQUISE UM NOME"
+      value=""
+    />
+    <button
+      class="ButtonLightContainer"
+    >
+      <img
+        class="IconeRight"
+        src="https://media.graphassets.com/7E9qXtNTze5w3ozl6a5I"
+      />
+      ORDENAR LISTA
+    </button>
+    <button
+      class="ButtonLightContainer"
+    >
+      <img
+        class="IconeRight"
+        src="https://media.graphassets.com/1WHJsCigTXyJbq7Tw47m"
+      />
+      FILTRAR A LISTA
+    </button>
+    <div>
+      <button
+        class="ButtonColorContainer ColorIP"
+        style="cursor: pointer;"
+      >
+        <img
+          class="IconeRight"
+          src="https://media.graphassets.com/3vsKrZXYT9CdxSSyhjhk"
+        />
+        IMPRIMIR LISTA
+      </button>
+    </div>
+  </div>
+  <div
+    style="padding: 20px 40px 40px 40px; height: 80vh; width: 93%; margin-left: 45px;"
+  >
+    <div
+      aria-colcount="5"
+      aria-multiselectable="false"
+      aria-rowcount="5"
+      class="MuiDataGrid-root MuiDataGrid-root--densityStandard MuiDataGrid-withBorderColor css-1v1z4up-MuiDataGrid-root"
+      role="grid"
+    >
+      <div
+        class="MuiDataGrid-main css-204u17-MuiDataGrid-main"
+      >
+        <div
+          class="MuiDataGrid-columnHeaders MuiDataGrid-withBorderColor css-1iyq7zh-MuiDataGrid-columnHeaders"
+          style="min-height: 56px; max-height: 56px; line-height: 56px;"
+        >
+          <div
+            class="MuiDataGrid-columnHeadersInner MuiDataGrid-columnHeadersInner--scrollable css-gl260s-MuiDataGrid-columnHeadersInner"
+            role="rowgroup"
+            style="transform: translate3d(0px, 0px, 0px);"
+          >
+            <div
+              aria-rowindex="1"
+              class="css-yrdy0g-MuiDataGrid-columnHeaderRow"
+              role="row"
+            >
+              <div
+                aria-colindex="1"
+                aria-label="NOME"
+                aria-sort="none"
+                class="MuiDataGrid-columnHeader MuiDataGrid-columnHeader--sortable MuiDataGrid-withBorderColor"
+                data-field="paciente_nome"
+                role="columnheader"
+                style="height: 56px; width: 100px; min-width: 100px; max-width: 100px;"
+                tabindex="0"
+              >
+                <div
+                  class="MuiDataGrid-columnHeaderDraggableContainer"
+                  draggable="false"
+                >
+                  <div
+                    class="MuiDataGrid-columnHeaderTitleContainer"
+                  >
+                    <div
+                      class="MuiDataGrid-columnHeaderTitleContainerContent"
+                    >
+                      <div
+                        aria-label=""
+                        class="MuiDataGrid-columnHeaderTitle css-t89xny-MuiDataGrid-columnHeaderTitle"
+                        data-mui-internal-clone-element="true"
+                      >
+                        NOME
+                      </div>
+                    </div>
+                    <div
+                      class="MuiDataGrid-iconButtonContainer css-ltf0zy-MuiDataGrid-iconButtonContainer"
+                    >
+                      <button
+                        aria-label="Ordenar"
+                        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-1pe4mpk-MuiButtonBase-root-MuiIconButton-root"
+                        tabindex="-1"
+                        title="Ordenar"
+                        type="button"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall MuiDataGrid-sortIcon css-ptiqhd-MuiSvgIcon-root"
+                          data-testid="ArrowUpwardIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"
+                          />
+                        </svg>
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="MuiDataGrid-columnSeparator MuiDataGrid-columnSeparator--sideRight"
+                  style="min-height: 56px; opacity: 1;"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiDataGrid-iconSeparator css-i4bv87-MuiSvgIcon-root"
+                    data-testid="SeparatorIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M11 19V5h2v14z"
+                    />
+                  </svg>
+                </div>
+              </div>
+              <div
+                aria-colindex="2"
+                aria-label="STATUS DA COLETA"
+                aria-sort="none"
+                class="MuiDataGrid-columnHeader MuiDataGrid-columnHeader--sortable MuiDataGrid-withBorderColor"
+                data-field="id_status_usuario"
+                role="columnheader"
+                style="height: 56px; width: 100px; min-width: 100px; max-width: 100px;"
+                tabindex="-1"
+              >
+                <div
+                  class="MuiDataGrid-columnHeaderDraggableContainer"
+                  draggable="false"
+                >
+                  <div
+                    class="MuiDataGrid-columnHeaderTitleContainer"
+                  >
+                    <div
+                      class="MuiDataGrid-columnHeaderTitleContainerContent"
+                    >
+                      <div
+                        aria-label=""
+                        class="MuiDataGrid-columnHeaderTitle css-t89xny-MuiDataGrid-columnHeaderTitle"
+                        data-mui-internal-clone-element="true"
+                      >
+                        STATUS DA COLETA
+                      </div>
+                    </div>
+                    <div
+                      class="MuiDataGrid-iconButtonContainer css-ltf0zy-MuiDataGrid-iconButtonContainer"
+                    >
+                      <button
+                        aria-label="Ordenar"
+                        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-1pe4mpk-MuiButtonBase-root-MuiIconButton-root"
+                        tabindex="-1"
+                        title="Ordenar"
+                        type="button"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall MuiDataGrid-sortIcon css-ptiqhd-MuiSvgIcon-root"
+                          data-testid="ArrowUpwardIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"
+                          />
+                        </svg>
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="MuiDataGrid-columnSeparator MuiDataGrid-columnSeparator--sideRight"
+                  style="min-height: 56px; opacity: 1;"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiDataGrid-iconSeparator css-i4bv87-MuiSvgIcon-root"
+                    data-testid="SeparatorIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M11 19V5h2v14z"
+                    />
+                  </svg>
+                </div>
+              </div>
+              <div
+                aria-colindex="3"
+                aria-label="ACS"
+                aria-sort="none"
+                class="MuiDataGrid-columnHeader MuiDataGrid-columnHeader--sortable MuiDataGrid-withBorderColor"
+                data-field="acs_nome"
+                role="columnheader"
+                style="height: 56px; width: 100px; min-width: 100px; max-width: 100px;"
+                tabindex="-1"
+              >
+                <div
+                  class="MuiDataGrid-columnHeaderDraggableContainer"
+                  draggable="false"
+                >
+                  <div
+                    class="MuiDataGrid-columnHeaderTitleContainer"
+                  >
+                    <div
+                      class="MuiDataGrid-columnHeaderTitleContainerContent"
+                    >
+                      <div
+                        aria-label=""
+                        class="MuiDataGrid-columnHeaderTitle css-t89xny-MuiDataGrid-columnHeaderTitle"
+                        data-mui-internal-clone-element="true"
+                      >
+                        ACS
+                      </div>
+                    </div>
+                    <div
+                      class="MuiDataGrid-iconButtonContainer css-ltf0zy-MuiDataGrid-iconButtonContainer"
+                    >
+                      <button
+                        aria-label="Ordenar"
+                        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-1pe4mpk-MuiButtonBase-root-MuiIconButton-root"
+                        tabindex="-1"
+                        title="Ordenar"
+                        type="button"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall MuiDataGrid-sortIcon css-ptiqhd-MuiSvgIcon-root"
+                          data-testid="ArrowUpwardIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"
+                          />
+                        </svg>
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="MuiDataGrid-columnSeparator MuiDataGrid-columnSeparator--sideRight"
+                  style="min-height: 56px; opacity: 1;"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiDataGrid-iconSeparator css-i4bv87-MuiSvgIcon-root"
+                    data-testid="SeparatorIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M11 19V5h2v14z"
+                    />
+                  </svg>
+                </div>
+              </div>
+              <div
+                aria-colindex="4"
+                aria-label="IDADE"
+                aria-sort="none"
+                class="MuiDataGrid-columnHeader MuiDataGrid-columnHeader--sortable MuiDataGrid-withBorderColor"
+                data-field="idade"
+                role="columnheader"
+                style="height: 56px; width: 100px; min-width: 100px; max-width: 100px;"
+                tabindex="-1"
+              >
+                <div
+                  class="MuiDataGrid-columnHeaderDraggableContainer"
+                  draggable="false"
+                >
+                  <div
+                    class="MuiDataGrid-columnHeaderTitleContainer"
+                  >
+                    <div
+                      class="MuiDataGrid-columnHeaderTitleContainerContent"
+                    >
+                      <div
+                        aria-label=""
+                        class="MuiDataGrid-columnHeaderTitle css-t89xny-MuiDataGrid-columnHeaderTitle"
+                        data-mui-internal-clone-element="true"
+                      >
+                        IDADE
+                      </div>
+                    </div>
+                    <div
+                      class="MuiDataGrid-iconButtonContainer css-ltf0zy-MuiDataGrid-iconButtonContainer"
+                    >
+                      <button
+                        aria-label="Ordenar"
+                        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-1pe4mpk-MuiButtonBase-root-MuiIconButton-root"
+                        tabindex="-1"
+                        title="Ordenar"
+                        type="button"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall MuiDataGrid-sortIcon css-ptiqhd-MuiSvgIcon-root"
+                          data-testid="ArrowUpwardIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"
+                          />
+                        </svg>
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="MuiDataGrid-columnSeparator MuiDataGrid-columnSeparator--sideRight"
+                  style="min-height: 56px; opacity: 1;"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiDataGrid-iconSeparator css-i4bv87-MuiSvgIcon-root"
+                    data-testid="SeparatorIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M11 19V5h2v14z"
+                    />
+                  </svg>
+                </div>
+              </div>
+              <div
+                aria-colindex="5"
+                aria-label="VENCIMENTO DA COLETA"
+                aria-sort="none"
+                class="MuiDataGrid-columnHeader MuiDataGrid-columnHeader--sortable MuiDataGrid-withBorderColor"
+                data-field="vencimento_da_coleta"
+                role="columnheader"
+                style="height: 56px; width: 100px; min-width: 100px; max-width: 100px;"
+                tabindex="-1"
+              >
+                <div
+                  class="MuiDataGrid-columnHeaderDraggableContainer"
+                  draggable="false"
+                >
+                  <div
+                    class="MuiDataGrid-columnHeaderTitleContainer"
+                  >
+                    <div
+                      class="MuiDataGrid-columnHeaderTitleContainerContent"
+                    >
+                      <div
+                        aria-label=""
+                        class="MuiDataGrid-columnHeaderTitle css-t89xny-MuiDataGrid-columnHeaderTitle"
+                        data-mui-internal-clone-element="true"
+                      >
+                        VENCIMENTO DA COLETA
+                      </div>
+                    </div>
+                    <div
+                      class="MuiDataGrid-iconButtonContainer css-ltf0zy-MuiDataGrid-iconButtonContainer"
+                    >
+                      <button
+                        aria-label="Ordenar"
+                        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-1pe4mpk-MuiButtonBase-root-MuiIconButton-root"
+                        tabindex="-1"
+                        title="Ordenar"
+                        type="button"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall MuiDataGrid-sortIcon css-ptiqhd-MuiSvgIcon-root"
+                          data-testid="ArrowUpwardIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"
+                          />
+                        </svg>
+                        <span
+                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                        />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="MuiDataGrid-columnSeparator MuiDataGrid-columnSeparator--sideRight"
+                  style="min-height: 56px; opacity: 1;"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiDataGrid-iconSeparator css-i4bv87-MuiSvgIcon-root"
+                    data-testid="SeparatorIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M11 19V5h2v14z"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="MuiDataGrid-virtualScroller css-axafay-MuiDataGrid-virtualScroller"
+          style="overflow-x: hidden;"
+        >
+          <div
+            class="MuiDataGrid-virtualScrollerContent MuiDataGrid-virtualScrollerContent--overflowed css-1kwdphh-MuiDataGrid-virtualScrollerContent"
+            style="width: auto; height: 140px; min-height: auto;"
+          >
+            <div
+              class="MuiDataGrid-virtualScrollerRenderZone css-s1v7zr-MuiDataGrid-virtualScrollerRenderZone"
+              style="transform: translate3d(0px, 0px, 0px);"
+            >
+              <div
+                aria-rowindex="2"
+                aria-selected="false"
+                class="MuiDataGrid-row"
+                data-id="0"
+                data-rowindex="0"
+                role="row"
+                style="max-height: 35px; min-height: 35px;"
+              >
+                <div
+                  aria-colindex="1"
+                  aria-colspan="1"
+                  class="MuiDataGrid-cell MuiDataGrid-cell--textLeft MuiDataGrid-withBorderColor"
+                  data-colindex="0"
+                  data-field="paciente_nome"
+                  role="cell"
+                  style="min-width: 100px; max-width: 100px; min-height: 35px; max-height: 35px;"
+                  tabindex="-1"
+                >
+                  <div
+                    class="MuiDataGrid-cellContent"
+                    title="Camila da Silva"
+                  >
+                    Camila da Silva
+                  </div>
+                </div>
+                <div
+                  aria-colindex="2"
+                  aria-colspan="1"
+                  class="MuiDataGrid-cell--withRenderer MuiDataGrid-cell MuiDataGrid-cell--textLeft MuiDataGrid-withBorderColor"
+                  data-colindex="1"
+                  data-field="id_status_usuario"
+                  role="cell"
+                  style="min-width: 100px; max-width: 100px; min-height: 35px; max-height: 35px;"
+                  tabindex="-1"
+                >
+                  Coleta em dia
+                </div>
+                <div
+                  aria-colindex="3"
+                  aria-colspan="1"
+                  class="MuiDataGrid-cell MuiDataGrid-cell--textLeft MuiDataGrid-withBorderColor"
+                  data-colindex="2"
+                  data-field="acs_nome"
+                  role="cell"
+                  style="min-width: 100px; max-width: 100px; min-height: 35px; max-height: 35px;"
+                  tabindex="-1"
+                >
+                  <div
+                    class="MuiDataGrid-cellContent"
+                    title="Alessandra Santos"
+                  >
+                    Alessandra Santos
+                  </div>
+                </div>
+                <div
+                  aria-colindex="4"
+                  aria-colspan="1"
+                  class="MuiDataGrid-cell MuiDataGrid-cell--textLeft MuiDataGrid-withBorderColor"
+                  data-colindex="3"
+                  data-field="idade"
+                  role="cell"
+                  style="min-width: 100px; max-width: 100px; min-height: 35px; max-height: 35px;"
+                  tabindex="-1"
+                >
+                  <div
+                    class="MuiDataGrid-cellContent"
+                    title="25"
+                  >
+                    25
+                  </div>
+                </div>
+                <div
+                  aria-colindex="5"
+                  aria-colspan="1"
+                  class="MuiDataGrid-cell MuiDataGrid-cell--textLeft MuiDataGrid-withBorderColor"
+                  data-colindex="4"
+                  data-field="vencimento_da_coleta"
+                  role="cell"
+                  style="min-width: 100px; max-width: 100px; min-height: 35px; max-height: 35px;"
+                  tabindex="-1"
+                >
+                  <div
+                    class="MuiDataGrid-cellContent"
+                    title="-"
+                  >
+                    -
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-rowindex="3"
+                aria-selected="false"
+                class="MuiDataGrid-row"
+                data-id="1"
+                data-rowindex="1"
+                role="row"
+                style="max-height: 35px; min-height: 35px;"
+              >
+                <div
+                  aria-colindex="1"
+                  aria-colspan="1"
+                  class="MuiDataGrid-cell MuiDataGrid-cell--textLeft MuiDataGrid-withBorderColor"
+                  data-colindex="0"
+                  data-field="paciente_nome"
+                  role="cell"
+                  style="min-width: 100px; max-width: 100px; min-height: 35px; max-height: 35px;"
+                  tabindex="-1"
+                >
+                  <div
+                    class="MuiDataGrid-cellContent"
+                    title="Maria da Silva"
+                  >
+                    Maria da Silva
+                  </div>
+                </div>
+                <div
+                  aria-colindex="2"
+                  aria-colspan="1"
+                  class="MuiDataGrid-cell--withRenderer MuiDataGrid-cell MuiDataGrid-cell--textLeft MuiDataGrid-withBorderColor"
+                  data-colindex="1"
+                  data-field="id_status_usuario"
+                  role="cell"
+                  style="min-width: 100px; max-width: 100px; min-height: 35px; max-height: 35px;"
+                  tabindex="-1"
+                >
+                  Coleta em dia
+                </div>
+                <div
+                  aria-colindex="3"
+                  aria-colspan="1"
+                  class="MuiDataGrid-cell MuiDataGrid-cell--textLeft MuiDataGrid-withBorderColor"
+                  data-colindex="2"
+                  data-field="acs_nome"
+                  role="cell"
+                  style="min-width: 100px; max-width: 100px; min-height: 35px; max-height: 35px;"
+                  tabindex="-1"
+                >
+                  <div
+                    class="MuiDataGrid-cellContent"
+                    title="Alessandra Santos"
+                  >
+                    Alessandra Santos
+                  </div>
+                </div>
+                <div
+                  aria-colindex="4"
+                  aria-colspan="1"
+                  class="MuiDataGrid-cell MuiDataGrid-cell--textLeft MuiDataGrid-withBorderColor"
+                  data-colindex="3"
+                  data-field="idade"
+                  role="cell"
+                  style="min-width: 100px; max-width: 100px; min-height: 35px; max-height: 35px;"
+                  tabindex="-1"
+                >
+                  <div
+                    class="MuiDataGrid-cellContent"
+                    title="35"
+                  >
+                    35
+                  </div>
+                </div>
+                <div
+                  aria-colindex="5"
+                  aria-colspan="1"
+                  class="MuiDataGrid-cell MuiDataGrid-cell--textLeft MuiDataGrid-withBorderColor"
+                  data-colindex="4"
+                  data-field="vencimento_da_coleta"
+                  role="cell"
+                  style="min-width: 100px; max-width: 100px; min-height: 35px; max-height: 35px;"
+                  tabindex="-1"
+                >
+                  <div
+                    class="MuiDataGrid-cellContent"
+                    title="11/05/2026"
+                  >
+                    11/05/2026
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-rowindex="4"
+                aria-selected="false"
+                class="MuiDataGrid-row"
+                data-id="2"
+                data-rowindex="2"
+                role="row"
+                style="max-height: 35px; min-height: 35px;"
+              >
+                <div
+                  aria-colindex="1"
+                  aria-colspan="1"
+                  class="MuiDataGrid-cell MuiDataGrid-cell--textLeft MuiDataGrid-withBorderColor"
+                  data-colindex="0"
+                  data-field="paciente_nome"
+                  role="cell"
+                  style="min-width: 100px; max-width: 100px; min-height: 35px; max-height: 35px;"
+                  tabindex="-1"
+                >
+                  <div
+                    class="MuiDataGrid-cellContent"
+                    title="Julia da Silva"
+                  >
+                    Julia da Silva
+                  </div>
+                </div>
+                <div
+                  aria-colindex="2"
+                  aria-colspan="1"
+                  class="MuiDataGrid-cell--withRenderer MuiDataGrid-cell MuiDataGrid-cell--textLeft MuiDataGrid-withBorderColor"
+                  data-colindex="1"
+                  data-field="id_status_usuario"
+                  role="cell"
+                  style="min-width: 100px; max-width: 100px; min-height: 35px; max-height: 35px;"
+                  tabindex="-1"
+                >
+                  Coleta em dia
+                </div>
+                <div
+                  aria-colindex="3"
+                  aria-colspan="1"
+                  class="MuiDataGrid-cell MuiDataGrid-cell--textLeft MuiDataGrid-withBorderColor"
+                  data-colindex="2"
+                  data-field="acs_nome"
+                  role="cell"
+                  style="min-width: 100px; max-width: 100px; min-height: 35px; max-height: 35px;"
+                  tabindex="-1"
+                >
+                  <div
+                    class="MuiDataGrid-cellContent"
+                    title="Carmen Miranda"
+                  >
+                    Carmen Miranda
+                  </div>
+                </div>
+                <div
+                  aria-colindex="4"
+                  aria-colspan="1"
+                  class="MuiDataGrid-cell MuiDataGrid-cell--textLeft MuiDataGrid-withBorderColor"
+                  data-colindex="3"
+                  data-field="idade"
+                  role="cell"
+                  style="min-width: 100px; max-width: 100px; min-height: 35px; max-height: 35px;"
+                  tabindex="-1"
+                >
+                  <div
+                    class="MuiDataGrid-cellContent"
+                    title="55"
+                  >
+                    55
+                  </div>
+                </div>
+                <div
+                  aria-colindex="5"
+                  aria-colspan="1"
+                  class="MuiDataGrid-cell MuiDataGrid-cell--textLeft MuiDataGrid-withBorderColor"
+                  data-colindex="4"
+                  data-field="vencimento_da_coleta"
+                  role="cell"
+                  style="min-width: 100px; max-width: 100px; min-height: 35px; max-height: 35px;"
+                  tabindex="-1"
+                >
+                  <div
+                    class="MuiDataGrid-cellContent"
+                    title="27/07/2025"
+                  >
+                    27/07/2025
+                  </div>
+                </div>
+              </div>
+              <div
+                aria-rowindex="5"
+                aria-selected="false"
+                class="MuiDataGrid-row MuiDataGrid-row--lastVisible"
+                data-id="3"
+                data-rowindex="3"
+                role="row"
+                style="max-height: 35px; min-height: 35px;"
+              >
+                <div
+                  aria-colindex="1"
+                  aria-colspan="1"
+                  class="MuiDataGrid-cell MuiDataGrid-cell--textLeft MuiDataGrid-withBorderColor"
+                  data-colindex="0"
+                  data-field="paciente_nome"
+                  role="cell"
+                  style="min-width: 100px; max-width: 100px; min-height: 35px; max-height: 35px;"
+                  tabindex="-1"
+                >
+                  <div
+                    class="MuiDataGrid-cellContent"
+                    title="Carla da Silva"
+                  >
+                    Carla da Silva
+                  </div>
+                </div>
+                <div
+                  aria-colindex="2"
+                  aria-colspan="1"
+                  class="MuiDataGrid-cell--withRenderer MuiDataGrid-cell MuiDataGrid-cell--textLeft MuiDataGrid-withBorderColor"
+                  data-colindex="1"
+                  data-field="id_status_usuario"
+                  role="cell"
+                  style="min-width: 100px; max-width: 100px; min-height: 35px; max-height: 35px;"
+                  tabindex="-1"
+                >
+                  Nunca realizou coleta
+                </div>
+                <div
+                  aria-colindex="3"
+                  aria-colspan="1"
+                  class="MuiDataGrid-cell MuiDataGrid-cell--textLeft MuiDataGrid-withBorderColor"
+                  data-colindex="2"
+                  data-field="acs_nome"
+                  role="cell"
+                  style="min-width: 100px; max-width: 100px; min-height: 35px; max-height: 35px;"
+                  tabindex="-1"
+                >
+                  <div
+                    class="MuiDataGrid-cellContent"
+                    title="Alessandra Santos"
+                  >
+                    Alessandra Santos
+                  </div>
+                </div>
+                <div
+                  aria-colindex="4"
+                  aria-colspan="1"
+                  class="MuiDataGrid-cell MuiDataGrid-cell--textLeft MuiDataGrid-withBorderColor"
+                  data-colindex="3"
+                  data-field="idade"
+                  role="cell"
+                  style="min-width: 100px; max-width: 100px; min-height: 35px; max-height: 35px;"
+                  tabindex="-1"
+                >
+                  <div
+                    class="MuiDataGrid-cellContent"
+                    title="64"
+                  >
+                    64
+                  </div>
+                </div>
+                <div
+                  aria-colindex="5"
+                  aria-colspan="1"
+                  class="MuiDataGrid-cell MuiDataGrid-cell--textLeft MuiDataGrid-withBorderColor"
+                  data-colindex="4"
+                  data-field="vencimento_da_coleta"
+                  role="cell"
+                  style="min-width: 100px; max-width: 100px; min-height: 35px; max-height: 35px;"
+                  tabindex="-1"
+                >
+                  <div
+                    class="MuiDataGrid-cellContent"
+                    title="-"
+                  >
+                    -
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="MuiDataGrid-footerContainer MuiDataGrid-withBorderColor css-wop1k0-MuiDataGrid-footerContainer"
+      >
+        <div />
+        <div
+          class="MuiTablePagination-root css-rtrcn9-MuiTablePagination-root"
+        >
+          <div
+            class="MuiToolbar-root MuiToolbar-gutters MuiToolbar-regular MuiTablePagination-toolbar css-78c6dr-MuiToolbar-root-MuiTablePagination-toolbar"
+          >
+            <div
+              class="MuiTablePagination-spacer css-1psng7p-MuiTablePagination-spacer"
+            />
+            <p
+              class="MuiTablePagination-selectLabel css-pdct74-MuiTablePagination-selectLabel"
+              id=":r1:"
+            >
+              Linhas por página:
+            </p>
+            <div
+              class="MuiInputBase-root MuiInputBase-colorPrimary css-16c50h-MuiInputBase-root-MuiTablePagination-select"
+            >
+              <div
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-labelledby=":r1: :r0:"
+                class="MuiSelect-select MuiTablePagination-select MuiSelect-standard MuiInputBase-input css-194a1fa-MuiSelect-select-MuiInputBase-input"
+                id=":r0:"
+                role="button"
+                tabindex="0"
+              >
+                100
+              </div>
+              <input
+                aria-hidden="true"
+                aria-invalid="false"
+                class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+                tabindex="-1"
+                value="100"
+              />
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiTablePagination-selectIcon MuiSelect-iconStandard css-pqjvzy-MuiSvgIcon-root-MuiSelect-icon"
+                data-testid="ArrowDropDownIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M7 10l5 5 5-5z"
+                />
+              </svg>
+            </div>
+            <p
+              class="MuiTablePagination-displayedRows css-levciy-MuiTablePagination-displayedRows"
+            >
+              1–4 de 4
+            </p>
+            <div
+              class="MuiTablePagination-actions"
+            >
+              <button
+                aria-label="Ir para a página anterior"
+                class="MuiButtonBase-root Mui-disabled MuiIconButton-root Mui-disabled MuiIconButton-colorInherit MuiIconButton-sizeMedium css-zylse7-MuiButtonBase-root-MuiIconButton-root"
+                disabled=""
+                tabindex="-1"
+                title="Ir para a página anterior"
+                type="button"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                  data-testid="KeyboardArrowLeftIcon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M15.41 16.09l-4.58-4.59 4.58-4.59L14 5.5l-6 6 6 6z"
+                  />
+                </svg>
+              </button>
+              <button
+                aria-label="Ir para a próxima página"
+                class="MuiButtonBase-root Mui-disabled MuiIconButton-root Mui-disabled MuiIconButton-colorInherit MuiIconButton-sizeMedium css-zylse7-MuiButtonBase-root-MuiIconButton-root"
+                disabled=""
+                tabindex="-1"
+                title="Ir para a próxima página"
+                type="button"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                  data-testid="KeyboardArrowRightIcon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="Snackbar"
+  />
+</div>
+`;

@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Componete: FiltroCard deve renderizar corretamente 1`] = `
+<div
+  class="FiltroCard"
+  data-testid="FiltroCard"
+>
+  <input
+    class="InputFiltroCard"
+    id="5"
+    name="acs_nome"
+    type="checkbox"
+  />
+  <label
+    class="LabelFiltroCard"
+    data-testid="FiltroCardLabel"
+    for="5"
+  >
+    Tainá
+  </label>
+</div>
+`;
