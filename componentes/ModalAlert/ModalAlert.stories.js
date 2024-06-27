@@ -125,7 +125,7 @@ Webnar_v4.args ={
         cardProfissional_2 : {
             profissional : "https://media.graphassets.com/2sqDyLFbTJylgJKYorEy",
             logo : "https://media.graphassets.com/et6MBNobT9OA39JxsjNi",
-            nome : "Isabela dos Santos",
+            nome : "Fernanda Soares",
             cargo : "Especialista em Saúde Coletiva"
         },
 
