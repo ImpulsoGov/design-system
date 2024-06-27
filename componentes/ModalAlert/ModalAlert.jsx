@@ -174,8 +174,8 @@ const Alert_v4 = ({
                     onClick={()=>props.setDisplay(false)}
                 ></a>
             </div>
-            <div style={{display : "flex", flexDirection : "row",  width : "100%", gap : "90px"}}>
-                <div style={{display : "flex", flexDirection : "column", gap : "50px"}}>
+            <div style={{display : "flex", flexDirection : "row",  width : "100%"}}>
+                <div className={style_v4.ConteinerData}>
                     <div className={style_v4.Container}>
                         <div className={style_v4.ContainerTitulo}>
                             <div className={style_v4.SubTitulo}>{props.titulos.SubTitulo}</div>
@@ -194,11 +194,11 @@ const Alert_v4 = ({
                             })
                         }
                     </div>
-                    <div style={{width : "100%",display : "flex", justifyContent : "flex-end"}}><ButtonColor label={props.botao.label} link={props.botao.url} /></div>
+                    <div className={style_v4.ConteinerButton}><ButtonColor label={props.botao.label} link={props.botao.url} /></div>
                 </div>
                 <div className={style_v4.CardsProfissionalConteiner}>
-                    <CardProfissionalV4 cardProfissional={props.cardProfissional} />
-                    <CardProfissionalV4 cardProfissional={props.cardProfissional} />
+                    <CardProfissionalV4 cardProfissional={props.cardProfissional_1} />
+                    <CardProfissionalV4 cardProfissional={props.cardProfissional_2} />
                 </div>
             </div>
         </div>
