@@ -174,7 +174,7 @@ const Alert_v4 = ({
                     onClick={()=>props.setDisplay(false)}
                 ></a>
             </div>
-            <div style={{display : "flex", flexDirection : "row",  width : "100%"}}>
+            <div style={{display : "flex", flexDirection : "row",  width : "100%", gap : "90px"}}>
                 <div style={{display : "flex", flexDirection : "column", gap : "50px"}}>
                     <div className={style_v4.Container}>
                         <div className={style_v4.ContainerTitulo}>
