@@ -95,8 +95,8 @@ Webnar_v4.args ={
     Child : Alert_v4,
     childProps : {
         titulos : {
-            Titulo : "Citopatológico",
-            SubTitulo : "Capacitação sobre o Previne Brasil:"
+            Titulo : "Qualificação do cuidado da população",
+            SubTitulo : "Capacitação sobre Monitoramento na APS:"
         },
         Info : [
             {
