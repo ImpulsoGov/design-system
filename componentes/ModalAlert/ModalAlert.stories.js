@@ -116,12 +116,19 @@ Webnar_v4.args ={
                 info : "Gratuito"
             },
         ],
-        cardProfissional : {
+        cardProfissional_1 : {
             profissional : "https://media.graphassets.com/2sqDyLFbTJylgJKYorEy",
             logo : "https://media.graphassets.com/et6MBNobT9OA39JxsjNi",
             nome : "Isabela dos Santos",
             cargo : "Especialista em Saúde Coletiva"
         },
+        cardProfissional_2 : {
+            profissional : "https://media.graphassets.com/2sqDyLFbTJylgJKYorEy",
+            logo : "https://media.graphassets.com/et6MBNobT9OA39JxsjNi",
+            nome : "Isabela dos Santos",
+            cargo : "Especialista em Saúde Coletiva"
+        },
+
         botao : {
             label : "QUERO ME INSCREVER",
             url : "https://bit.ly/inscricao-webinar-9"

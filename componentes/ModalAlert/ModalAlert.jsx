@@ -197,8 +197,8 @@ const Alert_v4 = ({
                     <div className={style_v4.ConteinerButton}><ButtonColor label={props.botao.label} link={props.botao.url} /></div>
                 </div>
                 <div className={style_v4.CardsProfissionalConteiner}>
-                    <CardProfissionalV4 cardProfissional={props.cardProfissional} />
-                    <CardProfissionalV4 cardProfissional={props.cardProfissional} />
+                    <CardProfissionalV4 cardProfissional={props.cardProfissional_1} />
+                    <CardProfissionalV4 cardProfissional={props.cardProfissional_2} />
                 </div>
             </div>
         </div>
