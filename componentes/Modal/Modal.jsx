@@ -7,11 +7,11 @@ const Modal= (props)=>{
             {
                 props.show &&
                 <div className={style.ModalContainer} data-testid="Modal">
-                    <a
+                    <div
                         data-testid="ModalExit"
                         className={style.ModalExit}
                         onClick={()=>props.setModal(false)}
-                    ></a>
+                    ></div>
                     {props.children}
                 </div>
             }

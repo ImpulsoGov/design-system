@@ -11,7 +11,7 @@ const Menus = ({menus})=>{
         { menus.map((menu)=>{
                 return (
                         <Link href={menu.url} key={menu.label}>
-                            <a>{menu.label}</a> 
+                            {menu.label}
                         </Link>
                     )
             })}

@@ -25,10 +25,11 @@ const Menu = ({
   tema
 }) => {
   return (
-    <Link href={link.url}>
-      <a className={style["theme" + tema]}>
+    <Link 
+      href={link.url}
+      className={style["theme" + tema]}
+    >
         {link.label}
-      </a>
     </Link>
   )
 }
@@ -102,9 +103,7 @@ const DropdownMenuMoblie = (attr) => {
   }
   return (
     <Link href={attr.link.url}>
-      <a>
         {attr.link.label}
-      </a>
     </Link>
   )
 }
@@ -226,13 +225,11 @@ const NavBar = (props) => {
         <div className={style.logoWrapper_navbar}>
           <div className={style.logo_navbar}>
             <Link href={props.theme.logoLink}>
-              <a>
                 <img
                   className={style.logoWrapper_navbar}
                   alt="impulso-previne-logo_navbar"
                   src={String(props.theme.logoProjeto)}
                 />
-              </a>
             </Link>
           </div>
         </div>
@@ -262,10 +259,11 @@ const NavBar = (props) => {
                             return(
                               <>
                                 <div className={cx(style.NavBarSubMenuContainer, style[`NavBarSubMenuContainer${props.theme.cor}`])} key={subContent.label} >
-                                  <Link href={subContent.url}>
-                                    <a className={style.NavBarSubMenuAnchor}>
+                                  <Link 
+                                    href={subContent.url}
+                                    className={style.NavBarSubMenuAnchor}
+                                  >
                                       {subContent.label} 
-                                    </a>
                                   </Link>
                                 </div>
                                 {   subContent.item &&
@@ -274,10 +272,11 @@ const NavBar = (props) => {
                                         subContent.item.map((subcontent, index) => {
                                           return(
                                             <div  className={cx(style.NavBarSubMenuItem, style[`NavBarSubMenuItem${props.theme.cor}`])} key={subcontent.label}>
-                                              <Link href={subcontent.url}>
-                                                <a className={style.NavBarSubMenuItemAnchor}>
+                                              <Link 
+                                                href={subcontent.url}
+                                                className={style.NavBarSubMenuItemAnchor}
+                                              >
                                                   {subcontent.label} 
-                                                </a>
                                               </Link>
                                             </div>
                                           )

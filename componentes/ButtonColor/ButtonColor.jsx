@@ -14,26 +14,24 @@ const ButtonColor = ({
         <>
             {
                 icone &&
-                <Link href={link}>
-                    <a  
-                        className={style.ButtonColorIconContainer}
-                        target={nova_aba ? "_blank" : "_self"}
-                    >
-                        {icone?.posicao=='right' && <img className={style.IconeRight} src={icone?.url} />}
-                        {label} 
-                        {icone?.posicao=='left' && <img className={style.IconeLeft} src={icone?.url} />}
-                    </a>
+                <Link 
+                    href={link}
+                    className={style.ButtonColorIconContainer}
+                    target={nova_aba ? "_blank" : "_self"}
+                >
+                    {icone?.posicao=='right' && <img className={style.IconeRight} src={icone?.url} />}
+                    {label} 
+                    {icone?.posicao=='left' && <img className={style.IconeLeft} src={icone?.url} />}
                 </Link>
             }
             {
                 (icone == null) && 
-                <Link href={link}>
-                    <a  
-                        className={style.ButtonColorIconContainerTexto}
-                        target={nova_aba ? "_blank" : "_self"}
-                    >
-                        {label} 
-                    </a>
+                <Link 
+                    href={link}
+                    className={style.ButtonColorIconContainerTexto}
+                    target={nova_aba ? "_blank" : "_self"}
+                >
+                    {label} 
                 </Link>
             }
         </>
@@ -45,12 +43,13 @@ const ButtonColorMobile = ({
     link
 })=>{
     return(
-        <Link href={link}>
-                <a  className={style.ButtonColorIconContainerMobile}>
-                    {icone?.posicao=='right' && <img className={style.IconeRight} src={icone?.url} />}
-                    {label} 
-                    {icone?.posicao=='left' && <img className={style.IconeLeft} src={icone?.url} />}
-                </a>
+        <Link 
+            href={link}
+            className={style.ButtonColorIconContainerMobile}
+        >
+            {icone?.posicao=='right' && <img className={style.IconeRight} src={icone?.url} />}
+            {label} 
+            {icone?.posicao=='left' && <img className={style.IconeLeft} src={icone?.url} />}
         </Link>
     )
 }
@@ -128,11 +127,12 @@ const ButtonColorLarge = ({
     link
 })=>{
     return(
-          <Link href={link}>
-            <a className={style.ButtonColorLarge}>
-                {label} 
-            </a>
-          </Link>
+        <Link 
+        href={link}
+        className={style.ButtonColorLarge}
+        >
+            {label} 
+        </Link>
     )
   }
 

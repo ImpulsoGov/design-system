@@ -444,7 +444,7 @@ const dadosFiltrosDiabetes = [
   },
 ]
 
-const data=[
+const dataHipertensao=[
   {
       "cidadao_nome": "DAVIDSON MUSTAFA ZEHED",
       "cidadao_cpf": "32702133878",
@@ -924,9 +924,10 @@ const IDFiltrosOrdenacaoCito = {
 const Template = (args) =>{
   const dados = {
     "diabetes" : dataDiabetes,
-    "hipertensao" : data,
+    "hipertensao" : dataHipertensao,
     "cito" : dataCito
   }
+
   const [data,setData]=useState(dados[args.painel])
   const [filtrosAplicados, setFiltrosAplicados] = useState(false)
   const [showSnackBar, setShowSnackBar] = useState({
@@ -1027,7 +1028,7 @@ Hipertensao.args={
   dadosFiltros : dadosFiltros,
   tabela : {
       colunas : colunas,
-      data : data
+      data : dataHipertensao
   },
   datefiltros : datefiltros,
   IDFiltros : IDFiltrosHipertensao,
