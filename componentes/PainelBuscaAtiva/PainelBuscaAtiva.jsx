@@ -208,7 +208,7 @@ const PainelBuscaAtiva = ({
         setShowImpressao(false)
     }
 
-    const mostrarModalImpressao = () => {
+    const handleModalImpressaoClick = () => {
         const equipesFiltradas = helpers.buscarFiltroPorPropriedade(chavesFiltros, propAgrupamentoImpressao);
 
         equipesFiltradas.length === 1
@@ -292,7 +292,7 @@ const PainelBuscaAtiva = ({
                 updateData={updateData}
                 tabela={tabela.data}
                 ordenacaoAplicada={ordenacaoAplicada}
-                handlePrintClick={mostrarModalImpressao}
+                handlePrintClick={handleModalImpressaoClick}
             />
             <TabelaHiperDia
                 colunas={tabela.colunas}
