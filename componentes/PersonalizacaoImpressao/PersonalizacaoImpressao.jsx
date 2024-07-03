@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { ButtonColorSubmitIcon } from "../ButtonColor/ButtonColor";
 import style from "./PersonalizacaoImpressao.module.css";
+import Image from "next/image";
 
 export const PersonalizacaoImpressao = ({
   labels = {
@@ -57,7 +58,15 @@ export const PersonalizacaoImpressao = ({
         />
       </div>
 
-      <h4 className={style.Titulo}>{labels.titulo}</h4>
+      <div className={style.TituloContainer}>
+        <Image
+          src="https://media.graphassets.com/tkjDWpANQ9SzsdACBiEI"
+          width={32}
+          height={32}
+          alt="Picture of the author"
+        />
+        <h4 className={style.Titulo}>{labels.titulo}</h4>
+      </div>
 
       <h5 className={style.TituloPersonalizacaoPrincipal}>
         {labels.personalizacaoPrincipal.titulo}
@@ -108,6 +117,12 @@ export const PersonalizacaoImpressao = ({
 
             <div className={style.ContainerPersonalizacoesSecundarias}>
               <div className={style.Recomendacao}>
+                <Image
+                  src="https://media.graphassets.com/WMvmmV6JTKZ1OhELfymQ"
+                  width={14}
+                  height={14}
+                  alt="Picture of the author"
+                />
                 <span className={style.TextoRecomendacao}>
                   {labels.personalizacaoSecundaria.recomendacao}
                 </span>
