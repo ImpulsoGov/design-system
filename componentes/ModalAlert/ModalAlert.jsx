@@ -3,6 +3,7 @@ import style from "./ModalAlert.module.css";
 import style_v2 from "./ModalAlertV2.module.css";
 import style_v3 from "./ModalAlertV3.module.css";
 import style_v4 from "./ModalAlertV4.module.css";
+import styleControlled from "./ModalAlertControlled.module.css";
 import { ButtonColor,ButtonColorMobile, ButtonColorSubmit } from "../ButtonColor";
 
 const CardProfissional = ({cardProfissional})=>{
@@ -289,4 +290,18 @@ const ModalAlertOff= ({Child,childProps,display,setDisplay})=>{
     )
 }
 
-export { ModalAlert,Alert,CardAlertModal,ModalAlertOff,NPS, Alert_v2, AtualizacaoCadastral , Alert_v4 }
+const ModalAlertControlled = ({children, display, close})=>{
+      return(
+            display &&(
+            <div className={styleControlled.Modal}> 
+                {children}
+                <div
+                    className={styleControlled.BlurArea}
+                    onClick={close}
+                />
+            </div>
+        )
+    )
+}
+
+export { ModalAlert,Alert,CardAlertModal,ModalAlertOff,NPS, Alert_v2, AtualizacaoCadastral , Alert_v4, ModalAlertControlled }
