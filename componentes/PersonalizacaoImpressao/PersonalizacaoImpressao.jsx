@@ -26,7 +26,6 @@ export const PersonalizacaoImpressao = ({
   },
   handleClick = () => {},
   handleClose = () => {},
-  // handleChange,
 }) => {
   const valoresAgrupamento = { sim: "sim", nao: "não" };
 
@@ -45,10 +44,6 @@ export const PersonalizacaoImpressao = ({
     });
   }
 
-  // function handleClick() {
-    
-  // }
-
   return (
     <div className={style.Container}>
       <div className={style.Close}>
@@ -61,9 +56,9 @@ export const PersonalizacaoImpressao = ({
       <div className={style.TituloContainer}>
         <Image
           src="https://media.graphassets.com/tkjDWpANQ9SzsdACBiEI"
-          width={32}
-          height={32}
-          alt="Picture of the author"
+          width={30}
+          height={30}
+          alt="Icone de brilho"
         />
         <h4 className={style.Titulo}>{labels.titulo}</h4>
       </div>
@@ -121,7 +116,7 @@ export const PersonalizacaoImpressao = ({
                   src="https://media.graphassets.com/WMvmmV6JTKZ1OhELfymQ"
                   width={14}
                   height={14}
-                  alt="Picture of the author"
+                  alt="Ícone de estrela"
                 />
                 <span className={style.TextoRecomendacao}>
                   {labels.personalizacaoSecundaria.recomendacao}

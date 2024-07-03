@@ -120,10 +120,16 @@
 
 .OpcaoPersonalizacaoSecundaria {
   display: flex;
+  align-items: center;
   gap: 10px;
   padding: 0px 12px;
   margin-top: 16px;
   accent-color: #145C56;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: -0.01em;
+  text-align: left;
 }
 
 .ContainerPersonalizacoesSecundarias input {
@@ -147,7 +153,7 @@
   width: fit-content;
   position: absolute;
   z-index: 1000;
-  top: 480px;
+  top: 487px;
   padding: 3px 10px;
   border-radius: 5px;
   border: 1px solid #916A20;
@@ -160,4 +166,97 @@
   line-height: 19.5px;
   text-align: left;
   color: #4F3D0C;
+}
+
+@media screen and (max-width: 1023px) {
+  .Container {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .Container {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .TituloContainer {
+    margin-bottom: 10px;
+  }
+
+  .Titulo {
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: -0.01em;
+  }
+
+  .TituloPersonalizacaoPrincipal {
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+  }
+
+  .DescricaoPersonalizacaoPrincipal {
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: -0.01em;
+    margin-bottom: 16px;
+  }
+
+  .OpcaoPersonalizacaoPrincipal {
+    padding: 6px;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+    letter-spacing: -0.01em;
+  }
+
+  .TituloPersonalizacoesSecundarias {
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: -0.02em;
+    padding: 6px 0;
+    margin-bottom: 24px;
+  }
+
+  .Linha {
+    margin: 10px 0;
+  }
+
+  .OpcaoPersonalizacaoSecundaria {
+    padding: 0px 6px;
+    margin-top: 12px;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: -0.01em;
+  }
+
+  .ContainerPersonalizacoesSecundarias {
+    padding: 12px 8px 18px 8px;
+  }
+
+  .Close{
+    margin-bottom: 16px;
+  }
+
+  .Recomendacao {
+    top: 397px;
+    padding: 3px 6px;
+    width: 70%;
+  }
+
+  .TextoRecomendacao {
+    font-size: 10px;
+    line-height: 14px;
+  }
+
+  .ContainerBotao {
+    margin-top: 16px;
+  }
+
+  .ContainerPersonalizacoesSecundarias input {
+    width: 14px;
+    height: 14px;
+  }
 }
