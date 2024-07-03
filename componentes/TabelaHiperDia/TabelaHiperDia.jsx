@@ -183,10 +183,10 @@ const prazoStyle = (value)=>{
   }
 
   const atencao = {
-    backgroundColor: "#F4CCAB",
-    border: "1px solid #E98633",
+    backgroundColor: "#FFF0E1",
+    border: "1px solid #DD6500",
     borderRadius: "5px",
-    color: "#E98633",
+    color: "#DD6500",
     padding: "2px",
     fontWeight : 550,
     width : "fit-content",
@@ -194,13 +194,14 @@ const prazoStyle = (value)=>{
     gap : "5px",
     alignItems: "center",
     justifyContent : "center",
-    padding : "3px 10px"
+    padding : "3px 10px",
+    margin : "6px"
   }
   const atencaoSymbolStyle = {
     border: "2px solid #E98633",
     borderRadius : "100%",
-    width : "18px",
-    height : "18px",
+    width : "16px",
+    height : "16px",
     fontSize : "8px",
     fontWeight : "600",
     display : "flex",
@@ -324,7 +325,7 @@ const TabelaHiperDiaImpressao = ({ data, colunas, fontFamily = "Inter" }) => {
   };
 const selecionar_status_usuario_descricao = (value,status_usuario_descricao)=> {
     const alert = {
-      backgroundColor: "#F8BBAE",
+      backgroundColor: "#FFECEC",
       border: "1px solid #EF565D",
       borderRadius: "5px",
       color: "#EF565D",
@@ -338,10 +339,10 @@ const selecionar_status_usuario_descricao = (value,status_usuario_descricao)=> {
       padding : "3px 10px"
     }
     const atencao = {
-      backgroundColor: "#F4CCAB",
-      border: "1px solid #E98633",
-      borderRadius: "5px",
-      color: "#E98633",
+      backgroundColor: "#FFF0E1",
+      border: "1px solid #DD6500",
+      borderRadius: "4px",
+      color: "#DD6500",
       padding: "2px",
       fontWeight : 550,
       width : "90%",
@@ -387,9 +388,9 @@ const selecionar_status_usuario_descricao = (value,status_usuario_descricao)=> {
     const atencaoSymbolStyle = {
       border: "2px solid #E98633",
       borderRadius : "100%",
-      width : "18px",
-      height : "18px",
-      fontSize : "8px",
+      width : "16px",
+      height : "16px",
+      fontSize : "9px",
       fontWeight : "600",
       display : "flex",
       alignItems: "center",
@@ -416,67 +417,171 @@ const selecionar_status_usuario_descricao = (value,status_usuario_descricao)=> {
       </div>
   }
 
-  const TabelaCitoImpressao = ({ data, colunas, status_usuario_descricao, fontFamily = "Inter"}) => {
+  const TabelaCitoImpressao = ({ 
+    data, 
+    colunas, 
+    status_usuario_descricao,
+    targetRef, 
+    filtros_aplicados_tabela, //Vem do componente PainelBuscaAtiva
+    divisao_dados, //vem do front-end via componente PainelBuscaAtiva
+    divisao_paginas, //vem do front-end via componente PainelBuscaAtiva
+    fontFamily = "Inter"
+  }) => {
+    const filtros_aplicados = ["status da coleta coleta em dia", "status da coleta Vence no final do quadrimestre"]
+    const divisao_por_equipes = data.reduce((acumulador, objetoAtual) => {
+      const { equipe_nome } = objetoAtual;
+      if (!acumulador[equipe_nome]) {
+        acumulador[equipe_nome] = [];
+      }
+      acumulador[equipe_nome].push(objetoAtual);
+      return acumulador;
+    }, {});
     return (
-      <table style={{
-        borderCollapse: "collapse",
-        margin: "15px",
-        color:  "#1F1F1F",
-        textAlign: "center",
-        fontSize: "12px",
-        fontFamily,
-        letterSpacing: "-0.12px",
-        textTransform: "uppercase",
-      }}>
-        <thead>
-          <tr style={{
-                backgroundColor: "#C9D2D8",
-                borderRadius: "10px"
-            }}>
-            {colunas.map((coluna) => (
-              <th className={style.colunaTitulo} key={coluna.headerName}>{coluna.headerName}</th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {data.map((item) => (
-            <tr 
-                key={item.id}
-                style={{
-                    backgroundColor : "#EFF5F9",
-                    border : "solid 4px white",
-                }}
-            >
-              {colunas.map((coluna,index) => (
-                <td 
-                    key={`${item.id}-${coluna}-${index}`}
-                    style={{
-                        borderTopLeftRadius: index!=0 ? "0" : "15px",
-                        borderBottomLeftRadius: index!=0 ? "0" : "15px",
-                        borderTopRightRadius: index!=7 ? "0" : "15px",
-                        borderBottomRightRadius: index!=7 ? "0" : "15px",
-                        display : index==4 || index==6 ? "flex" : "table cell",
-                        justifyContent : "center",
-                        alignItems : "center",
-                        marginTop : "4px"
-                    }}
-                >
-                  {
-                    coluna.field=="id_status_usuario" && selecionar_status_usuario_descricao(item[coluna.field],status_usuario_descricao)
-                  }
-                  { 
-                    coluna.field=="prazo_proxima_coleta"  && prazoStyle(item[coluna.field])
-                  }
-                  {
-                    coluna.field!="id_status_usuario" && coluna.field!="prazo_proxima_coleta" && item[coluna.field]
-                  }
-                  </td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <div 
+        ref={targetRef}
+        style={{
+          paddingLeft : "15px",
+          fontFamily : "Inter",
+          width : "110%",
+        }}
+      >
+        <div style={{
+          display : "flex",
+          flexDirection : "row",
+          fontFamily : "Inter",
+          fontSize : "14px"
+        }}>
+          <p><b>LISTA NOMINAL CITOPATOLOGICO</b><i> - PRODUÇÃO MAIS RECENTE RECEBIDA EM : XX/XX/XX</i></p>
+          <div style={{
+            width : "200px",
+            height : "30px",
+            marginLeft: "auto",
+            marginTop : "15px"
+          }}>
+            <img src="https://media.graphassets.com/So3qSHePTKd4qiqAMgfA" alt="logo"/>
+          </div>
+        </div>
+        <div style={{
+          display : "flex",
+          flexDirection : "row",
+          alignItems: "center",
+          gap : "10px",
+          fontSize : "14px"
+        }}>
+          <p><b>Filtros aplicados: </b></p>
+          {
+            filtros_aplicados.map((filtro,index)=>{
+              return(
+                <div style={{
+                  border : "solid 1px #757574",
+                  borderRadius : "5px",
+                  padding : "6px",
+                  fontSize : "12px",
+                  backgroundColor : "#F5F5F5"
+                }}>
+                  {filtro}
+                </div>
+              )
+            })
+          }
+        </div>
+        {
+          Object.keys(divisao_por_equipes).map((registro,index)=>{
+              return <div style={{breakBefore: index > 0 ? "page" : ""}}>
+                <p>{registro}</p>
+                <TabelaUnitaria
+                  data = {divisao_por_equipes[registro]}
+                  colunas = {colunas}
+                  status_usuario_descricao = {status_usuario_descricao}
+                  fontFamily = "Inter"
+                  indexTabela={index}
+                />
+              </div>
+          })
+        }
+      </div>
     );
   };
-
-export {TabelaHiperDia, TabelaHiperDiaImpressao , TabelaCitoImpressao};
+  const TabelaUnitaria = ({ data, colunas, status_usuario_descricao, fontFamily = "Inter", indexTabela}) => {
+    const larguraColunas = {
+      0 : "180px",
+      1 : "20px",
+      2 : "300px",
+      3 : "80px",
+      4 : "180px",
+      5 : "20px",
+      6 : "150px",
+    }
+    return (
+      <>
+        <table style={{
+          borderCollapse: "collapse",
+          color:  "#1F1F1F",
+          textAlign: "center",
+          fontSize: "9px",
+          fontFamily,
+          letterSpacing: "-0.12px",
+          textTransform: "uppercase",
+          width: "100%"
+        }}>
+          <thead>
+            <tr style={{
+                  backgroundColor: "#E7E7E7",
+                  borderRadius: "10px",
+              }}>
+              {colunas.map((coluna,index) => (
+                <th style={{
+                  padding : "18px",
+                  width:`${larguraColunas[index]} !important`,
+                  borderTopLeftRadius: index!=0 ? "0" : "15px",
+                  borderBottomLeftRadius: index!=0 ? "0" : "15px",
+                  borderTopRightRadius: index!=6 ? "0" : "15px",
+                  borderBottomRightRadius: index!=6 ? "0" : "15px",
+                  marginRight : index==1 ? "5px" : "",
+                  borderRight : index== 1 || index== 4 ? "solid 1px black" : "",
+                  textAlign: "left"
+                }} key={coluna.headerName}>{coluna.headerName}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {data.map((item,index) => (
+              <tr 
+                  key={item.id}
+                  style={{
+                      borderBottom: "solid 1px black",
+                  }}
+              >
+                {colunas.map((coluna,index) => (
+                  <td 
+                      key={`${item.id}-${coluna}-${index}`}
+                      style={{
+                          display : index==4 || index==6 ? "flex" : "table cell",
+                          justifyContent : "center",
+                          alignItems : "center",
+                          textAlign: "left",
+                          width: larguraColunas[index],
+                          padding : "14px",
+                          borderRight: (index== 1 || index== 4) ? "solid 1px black" : ""
+                      }}
+                  >
+                    {
+                      coluna.field=="id_status_usuario" && selecionar_status_usuario_descricao(item[coluna.field],status_usuario_descricao)
+                    }
+                    { 
+                      coluna.field=="prazo_proxima_coleta"  && prazoStyle(item[coluna.field])
+                    }
+                    {
+                      coluna.field!="id_status_usuario" && coluna.field!="prazo_proxima_coleta" && item[coluna.field]
+                    }
+                    </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </>
+    );
+  };
+  
+  export {TabelaHiperDia, TabelaHiperDiaImpressao , TabelaCitoImpressao};

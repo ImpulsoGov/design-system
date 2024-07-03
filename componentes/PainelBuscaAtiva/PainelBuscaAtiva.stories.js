@@ -1057,6 +1057,7 @@ Cito.args={
   trackObject : {
     track : (evento, propriedades)=> console.log(evento, propriedades)
   },
+  TabelaImpressao : TabelaCitoImpressao,
   atualizacao : new Date(dataCito.reduce((maisRecente, objeto) => {
     const dataAtual = new Date(objeto.dt_registro_producao_mais_recente);
     const dataMaisRecenteAnterior = new Date(maisRecente);
