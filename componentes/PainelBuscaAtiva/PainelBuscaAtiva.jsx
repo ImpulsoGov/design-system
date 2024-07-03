@@ -7,6 +7,8 @@ import { CardAlert } from "../CardAlert";
 import * as Components from "./components";
 import * as helpers from "./helpers";
 import generatePDF,{ usePDF } from 'react-to-pdf';
+import { PersonalizacaoImpressao } from "../PersonalizacaoImpressao/PersonalizacaoImpressao";
+import { ModalAlertControlled } from "../ModalAlert/ModalAlert";
 
 const status_usuario_descricao = [
     {
@@ -125,6 +127,7 @@ const PainelBuscaAtiva = ({
     const [modal,setModal] = useState(false)
     const [chavesFiltros,setChavesFiltros] = useState([])
     const [showImpressao,setShowImpressao] = useState(false)
+    const [showModalImpressao, setShowModalImpressao] = useState(false);
     const { toPDF, targetRef } = usePDF({
         filename: 'page.pdf',
         method : 'open',
@@ -203,6 +206,9 @@ const PainelBuscaAtiva = ({
         await imprimirPDF()
         setShowImpressao(false)
     }
+    const mostrarModalImpressao = ()=> setShowModalImpressao(true)
+    const fecharModalImpressao = ()=> setShowModalImpressao(false)
+
     return(
         <div style={{marginTop : "30px"}} data-testid="PainelBuscaAtiva">
             {
@@ -277,7 +283,7 @@ const PainelBuscaAtiva = ({
                 updateData={updateData}
                 tabela={tabela.data}
                 ordenacaoAplicada={ordenacaoAplicada}
-                handlePrintClick={handlePrintClick}
+                handlePrintClick={mostrarModalImpressao}
             />
             <TabelaHiperDia
                 colunas={tabela.colunas}
@@ -296,6 +302,34 @@ const PainelBuscaAtiva = ({
                     margin="0px"
                 />
             </Toast>
+            <ModalAlertControlled
+                display={showModalImpressao}
+                close={fecharModalImpressao}
+            >
+                <PersonalizacaoImpressao
+                    labels={{
+                        titulo: "PERSONALIZAR A IMPRESSÃO",
+                        personalizacaoPrincipal: {
+                            titulo: "Deseja fazer uma impressão personalizada por Equipes?",
+                            descricao: "A impressão personalizada agrupa os pacientes de acordo com as Equipes correspondentes. Qualquer filtrou ou ordenação selecionados anteriormente serão mantidos e aplicados dentro do agrupamento por equipes",
+                            opcoes: {
+                            agrupamentoSim: "Sim",
+                            agrupamentoNao: "Não",
+                            },
+                        },
+                        personalizacaoSecundaria: {
+                            titulo: "Outras personalizações de impressão:",
+                            recomendacao: "Recomendadas para distribuição para coordenadoras de equipe",
+                            opcoes: {
+                            separacaoGrupoPorFolha: "Imprimir grupos de pacientes por Equipes em folhas separadas",
+                            ordenacao: "Ordenar pacientes por ACS",
+                            },
+                        },
+                        botao: "IMPRIMIR LISTA",
+                    }}
+                    handleClose={fecharModalImpressao}
+                />
+            </ModalAlertControlled>
             {
                 showImpressao &&
                 <TabelaImpressao
