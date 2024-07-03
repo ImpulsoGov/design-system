@@ -20,3 +20,12 @@ export function filterByChoices(data, filterChoices) {
     return true;
   });
 }
+
+/**
+ * @param {*} filtros Array de filtros no formato {propriedade do filtro: valor do filtro}.
+ * @param {*} propriedade Propriedade do filtro a ser buscado no array de filtros.
+ * @returns Array com as opções de filtro encontradas a partir da propriedade. Caso filtros não existam, retorna um array vazio.
+ */
+export function buscarFiltroPorPropriedade(filtros, propriedade) {
+  return filtros.filter(item => item.hasOwnProperty(propriedade));
+}

@@ -118,6 +118,7 @@ const PainelBuscaAtiva = ({
     TabelaImpressao,
     showSnackBar,
     setShowSnackBar,
+    propAgrupamentoImpressao = "",
 })=>{
     const [tableData, setTableData] = useState(tabela.data)
     const [showOrdenarModal,setShowOrdenarModal] = useState(false)
@@ -206,8 +207,16 @@ const PainelBuscaAtiva = ({
         await imprimirPDF()
         setShowImpressao(false)
     }
-    const mostrarModalImpressao = ()=> setShowModalImpressao(true)
-    const fecharModalImpressao = ()=> setShowModalImpressao(false)
+
+    const mostrarModalImpressao = () => {
+        const equipesFiltradas = helpers.buscarFiltroPorPropriedade(chavesFiltros, propAgrupamentoImpressao);
+
+        equipesFiltradas.length === 1
+            ? handlePrintClick()
+            : setShowModalImpressao(true);
+    }
+
+    const fecharModalImpressao = () => setShowModalImpressao(false)
 
     return(
         <div style={{marginTop : "30px"}} data-testid="PainelBuscaAtiva">
@@ -333,7 +342,7 @@ const PainelBuscaAtiva = ({
             {
                 showImpressao &&
                 <TabelaImpressao
-                    data={tabela.data}
+                    data={tableData}
                     colunas={tabela.colunas}
                     status_usuario_descricao={{ data: status_usuario_descricao }}
                     targetRef={targetRef}

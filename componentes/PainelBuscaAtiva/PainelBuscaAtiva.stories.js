@@ -1069,4 +1069,5 @@ Cito.args={
     day: '2-digit'
   }),
   onPrintClick: printDataCito,
+  propAgrupamentoImpressao: "equipe_nome",
 }
