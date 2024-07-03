@@ -89,8 +89,7 @@
   width: 20px;
   height: 20px;
   padding: 0 2px;
-  /* essa cor é muito clara e deixa a input com baixo contrates, por isso parte da input fica com funco preto */
-  /* accent-color: #2EB280; */
+  accent-color: #145C56;
 }
 
 .Linha {
@@ -118,6 +117,7 @@
   gap: 10px;
   padding: 0px 12px;
   margin-top: 16px;
+  accent-color: #145C56;
 }
 
 .ContainerPersonalizacoesSecundarias input {
