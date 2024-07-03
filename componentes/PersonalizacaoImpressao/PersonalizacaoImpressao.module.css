@@ -1,0 +1,156 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.Container {
+  padding-top: 32px;
+  padding-right: 32px;
+  padding-left: 32px;
+  padding-bottom: 48px;
+  box-sizing: border-box;
+  font-family: 'Inter';
+  color: #1F1F1F;
+  width: 900px;
+  height: fit-content;
+  background-color: #fff;
+  border-radius: 20px;
+  position: relative;
+  z-index: 9000;
+}
+
+.ModalExit{
+  color:#fff;
+  background-color: black;
+  border-radius: 100%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+
+.ModalExit:before{
+  content: "✖";
+  cursor: pointer;
+  padding:0.5em;
+}
+
+.Close{
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 24px;
+}
+
+.Titulo {
+  display: flex;
+  margin-bottom: 16px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: -0.01em;
+  text-align: left;
+  color: #1D856C;
+}
+
+.TituloPersonalizacaoPrincipal {
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 41.6px;
+  letter-spacing: -0.02em;
+  text-align: left;
+  margin-bottom: 24px;
+}
+
+.DescricaoPersonalizacaoPrincipal {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: -0.01em;
+  text-align: left;
+  margin-bottom: 24px;
+}
+
+.OpcaoPersonalizacaoPrincipal {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: -0.01em;
+  text-align: left;
+}
+
+.InputPersonalizacaoPrincipal {
+  width: 20px;
+  height: 20px;
+  padding: 0 2px;
+  /* essa cor é muito clara e deixa a input com baixo contrates, por isso parte da input fica com funco preto */
+  /* accent-color: #2EB280; */
+}
+
+.Linha {
+  margin: 24px 0;
+}
+
+.TituloPersonalizacoesSecundarias {
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 31.2px;
+  letter-spacing: -0.02em;
+  text-align: left;
+  padding: 10px 0;
+  margin-bottom: 24px;
+}
+
+.ContainerPersonalizacoesSecundarias {
+  padding: 18px 11px 24px 11px;
+  border-radius: 8px;
+  border: 1.5px solid #916A20;
+}
+
+.OpcaoPersonalizacaoSecundaria {
+  display: flex;
+  gap: 10px;
+  padding: 0px 12px;
+  margin-top: 16px;
+}
+
+.ContainerPersonalizacoesSecundarias input {
+  width: 17px;
+  height: 19px;
+  padding: 1.19px 0px 1.19px 0px;
+  position: relative;
+}
+
+.ContainerBotao {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 24px;
+}
+
+.Recomendacao {
+  display: flex;
+  gap: 5px;
+  width: fit-content;
+  position: absolute;
+  z-index: 1000;
+  top: 480px;
+  padding: 3px 10px;
+  border-radius: 5px;
+  border: 1px solid #916A20;
+  background-color: #FFEFB9;
+}
+
+.TextoRecomendacao {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 19.5px;
+  text-align: left;
+  color: #4F3D0C;
+}
