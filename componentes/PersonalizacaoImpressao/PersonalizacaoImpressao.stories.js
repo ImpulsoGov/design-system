@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { PersonalizacaoImpressao } from './PersonalizacaoImpressao';
 
 export default {
@@ -8,7 +8,27 @@ export default {
   },
 };
 
-const Template = (args) => <PersonalizacaoImpressao {...args}/>
+const VALORES_AGRUPAMENTO_IMPRESSAO = { sim: "sim", nao: "não" };
+
+const Template = (args) => {
+  const [personalizacao, setPersonalizacao] = useState({
+    agrupamento: VALORES_AGRUPAMENTO_IMPRESSAO.sim,
+      separacaoGrupoPorFolha: false,
+      ordenacao: false,
+  });
+
+  args["personalizacao"] = personalizacao;
+  args["valoresAgrupamento"] = VALORES_AGRUPAMENTO_IMPRESSAO;
+  args["handleChange"] = (e) => {
+    const { name, value, checked, type } = e.target;
+
+    setPersonalizacao({
+      ...personalizacao,
+      [name]: type === "checkbox" ? checked : value
+    });
+  }
+  return <PersonalizacaoImpressao {...args}/>
+}
 
 export const Default = Template.bind({});
 
