@@ -98,6 +98,8 @@ const status_usuario_descricao = [
     }
 ]
 
+const VALORES_AGRUPAMENTO_IMPRESSAO = { sim: "sim", nao: "não" };
+
 const PainelBuscaAtiva = ({
     tabela,
     dadosFiltros,
@@ -136,6 +138,20 @@ const PainelBuscaAtiva = ({
             orientation: 'landscape'
         }
     });
+    const [personalizacao, setPersonalizacao] = useState({
+        agrupamento: VALORES_AGRUPAMENTO_IMPRESSAO.sim,
+        separacaoGrupoPorFolha: false,
+        ordenacao: false,
+    });
+
+    function handlePersonalizacaoChange(e) {
+        const { name, value, checked, type } = e.target;
+
+        setPersonalizacao({
+            ...personalizacao,
+            [name]: type === "checkbox" ? checked : value
+        });
+    }
 
     function updateData(newData){
         setData(newData);
@@ -208,15 +224,20 @@ const PainelBuscaAtiva = ({
         setShowImpressao(false)
     }
 
-    const handleModalImpressaoClick = () => {
-        const equipesFiltradas = helpers.buscarFiltroPorPropriedade(chavesFiltros, propAgrupamentoImpressao);
+    const processarPedidoDeImpressao = () => {
+        const filtros = helpers.buscarFiltroPorPropriedade(chavesFiltros, propAgrupamentoImpressao);
 
-        equipesFiltradas.length === 1
+        filtros.length === 1
             ? handlePrintClick()
             : setShowModalImpressao(true);
     }
 
     const fecharModalImpressao = () => setShowModalImpressao(false)
+
+    const personalizarImpressao = () => {
+        handlePrintClick();
+        fecharModalImpressao();
+    }
 
     return(
         <div style={{marginTop : "30px"}} data-testid="PainelBuscaAtiva">
@@ -292,7 +313,7 @@ const PainelBuscaAtiva = ({
                 updateData={updateData}
                 tabela={tabela.data}
                 ordenacaoAplicada={ordenacaoAplicada}
-                handlePrintClick={handleModalImpressaoClick}
+                handlePrintClick={painel === "aps" ? processarPedidoDeImpressao : handlePrintClick}
             />
             <TabelaHiperDia
                 colunas={tabela.colunas}
@@ -319,7 +340,7 @@ const PainelBuscaAtiva = ({
                     titulo="PERSONALIZAR A IMPRESSÃO"
                     labelsPersonalizacaoPrincipal={{
                         titulo: "Deseja fazer uma impressão personalizada por Equipes?",
-                        descricao: "A impressão personalizada agrupa os pacientes de acordo com as Equipes correspondentes. Qualquer filtrou ou ordenação selecionados anteriormente serão mantidos e aplicados dentro do agrupamento por equipes",
+                        descricao: "A impressão personalizada agrupa os pacientes de acordo com as Equipes correspondentes. Qualquer filtro ou ordenação selecionados anteriormente serão mantidos e aplicados dentro do agrupamento por equipes",
                         agrupamentoSim: "Sim",
                         agrupamentoNao: "Não",
                     }}
@@ -331,9 +352,12 @@ const PainelBuscaAtiva = ({
                     }}
                     botao={{
                         label: "IMPRIMIR LISTA",
-                        handleClick: () => {},
+                        handleClick: personalizarImpressao,
                     }}
                     handleClose={fecharModalImpressao}
+                    handleChange={handlePersonalizacaoChange}
+                    valoresAgrupamento={VALORES_AGRUPAMENTO_IMPRESSAO}
+                    personalizacao={personalizacao}
                 />
             </ModalAlertControlled>
             {

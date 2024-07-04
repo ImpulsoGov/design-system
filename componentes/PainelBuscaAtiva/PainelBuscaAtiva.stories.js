@@ -1043,7 +1043,7 @@ Hipertensao.args={
 export const Cito = Template.bind({});
 
 Cito.args={
-  painel : "cito",
+  painel : "aps",
   dadosFiltros : dadosFiltrosCito,
   tabela : {
       colunas : colunasCito,

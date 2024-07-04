@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { ButtonColorSubmitIcon } from "../ButtonColor/ButtonColor";
 import style from "./PersonalizacaoImpressao.module.css";
 import Image from "next/image";
+import cx from "classnames";
 
 export const PersonalizacaoImpressao = ({
   titulo = "",
@@ -22,24 +23,10 @@ export const PersonalizacaoImpressao = ({
     handleClick: () => {},
   },
   handleClose = () => {},
+  handleChange = () => {},
+  valoresAgrupamento,
+  personalizacao,
 }) => {
-  const valoresAgrupamento = { sim: "sim", nao: "não" };
-
-  const [opcoes, setOpcoes] = useState({
-    agrupamento: valoresAgrupamento.sim,
-    separacaoGrupoPorFolha: false,
-    ordenacao: false,
-  });
-
-  function handleChange(e) {
-    const { name, value, checked, type } = e.target;
-
-    setOpcoes({
-      ...opcoes,
-      [name]: type === "checkbox" ? checked : value
-    });
-  }
-
   return (
     <div className={style.Container}>
       <div className={style.Close}>
@@ -52,18 +39,20 @@ export const PersonalizacaoImpressao = ({
       <div className={style.TituloContainer}>
         <Image
           src="https://media.graphassets.com/tkjDWpANQ9SzsdACBiEI"
-          width={30}
-          height={30}
+          width={28}
+          height={28}
           alt="Icone de brilho"
         />
-        <h4 className={style.Titulo}>{titulo}</h4>
+        <h4 className={cx(style.Titulo, style.ResetEspacamento)}>
+          {titulo}
+        </h4>
       </div>
 
-      <h5 className={style.TituloPersonalizacaoPrincipal}>
+      <h5 className={cx(style.TituloPersonalizacaoPrincipal, style.ResetEspacamento)}>
         {labelsPersonalizacaoPrincipal.titulo}
       </h5>
 
-      <p className={style.DescricaoPersonalizacaoPrincipal}>
+      <p className={cx(style.DescricaoPersonalizacaoPrincipal, style.ResetEspacamento)}>
         {labelsPersonalizacaoPrincipal.descricao}
       </p>
 
@@ -73,7 +62,7 @@ export const PersonalizacaoImpressao = ({
           className={style.InputPersonalizacaoPrincipal}
           type="radio"
           value={valoresAgrupamento.sim}
-          checked={opcoes.agrupamento === valoresAgrupamento.sim}
+          checked={personalizacao.agrupamento === valoresAgrupamento.sim}
           name="agrupamento"
           id="agrupamentoSim"
         />
@@ -88,7 +77,7 @@ export const PersonalizacaoImpressao = ({
           className={style.InputPersonalizacaoPrincipal}
           type="radio"
           value={valoresAgrupamento.nao}
-          checked={opcoes.agrupamento === valoresAgrupamento.nao}
+          checked={personalizacao.agrupamento === valoresAgrupamento.nao}
           name="agrupamento"
           id="agrupamentoNao"
         />
@@ -98,11 +87,11 @@ export const PersonalizacaoImpressao = ({
       </div>
 
       {
-        opcoes.agrupamento === valoresAgrupamento.sim && (
+        personalizacao.agrupamento === valoresAgrupamento.sim && (
           <>
             <hr className={style.Linha}/>
 
-            <h5 className={style.TituloPersonalizacoesSecundarias}>
+            <h5 className={cx(style.TituloPersonalizacoesSecundarias, style.ResetEspacamento)}>
               {labelsPersonalizacaoSecundaria.titulo}
             </h5>
 
@@ -123,7 +112,7 @@ export const PersonalizacaoImpressao = ({
                 <input
                   onChange={handleChange}
                   type="checkbox"
-                  checked={opcoes.separacaoGrupoPorFolha}
+                  checked={personalizacao.separacaoGrupoPorFolha}
                   name="separacaoGrupoPorFolha"
                   id="separacaoGrupoPorFolha"
                 />
@@ -136,7 +125,7 @@ export const PersonalizacaoImpressao = ({
                 <input
                   onChange={handleChange}
                   type="checkbox"
-                  checked={opcoes.ordenacao}
+                  checked={personalizacao.ordenacao}
                   name="ordenacao"
                   id="ordenacao"
                 />
