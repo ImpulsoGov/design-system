@@ -4,27 +4,23 @@ import style from "./PersonalizacaoImpressao.module.css";
 import Image from "next/image";
 
 export const PersonalizacaoImpressao = ({
-  labels = {
+  titulo = "",
+  labelsPersonalizacaoPrincipal = {
     titulo: "",
-    personalizacaoPrincipal: {
-      titulo: "",
-      descricao: "",
-      opcoes: {
-        agrupamentoSim: "",
-        agrupamentoNao: "",
-      },
-    },
-    personalizacaoSecundaria: {
-      titulo: "",
-      recomendacao: "",
-      opcoes: {
-        separacaoGrupoPorFolha: "",
-        ordenacao: "",
-      },
-    },
-    botao: "",
+    descricao: "",
+    agrupamentoSim: "",
+    agrupamentoNao: "",
   },
-  handleClick = () => {},
+  labelsPersonalizacaoSecundaria = {
+    titulo: "",
+    recomendacao: "",
+    separacaoGrupoPorFolha: "",
+    ordenacao: "",
+  },
+  botao = {
+    label: "",
+    handleClick: () => {},
+  },
   handleClose = () => {},
 }) => {
   const valoresAgrupamento = { sim: "sim", nao: "não" };
@@ -60,15 +56,15 @@ export const PersonalizacaoImpressao = ({
           height={30}
           alt="Icone de brilho"
         />
-        <h4 className={style.Titulo}>{labels.titulo}</h4>
+        <h4 className={style.Titulo}>{titulo}</h4>
       </div>
 
       <h5 className={style.TituloPersonalizacaoPrincipal}>
-        {labels.personalizacaoPrincipal.titulo}
+        {labelsPersonalizacaoPrincipal.titulo}
       </h5>
 
       <p className={style.DescricaoPersonalizacaoPrincipal}>
-        {labels.personalizacaoPrincipal.descricao}
+        {labelsPersonalizacaoPrincipal.descricao}
       </p>
 
       <div className={style.OpcaoPersonalizacaoPrincipal}>
@@ -82,7 +78,7 @@ export const PersonalizacaoImpressao = ({
           id="agrupamentoSim"
         />
         <label htmlFor="agrupamentoSim">
-          {labels.personalizacaoPrincipal.opcoes.agrupamentoSim}
+          {labelsPersonalizacaoPrincipal.agrupamentoSim}
         </label>
       </div>
 
@@ -97,7 +93,7 @@ export const PersonalizacaoImpressao = ({
           id="agrupamentoNao"
         />
         <label htmlFor="agrupamentoNao">
-          {labels.personalizacaoPrincipal.opcoes.agrupamentoNao}
+          {labelsPersonalizacaoPrincipal.agrupamentoNao}
         </label>
       </div>
 
@@ -107,7 +103,7 @@ export const PersonalizacaoImpressao = ({
             <hr className={style.Linha}/>
 
             <h5 className={style.TituloPersonalizacoesSecundarias}>
-              {labels.personalizacaoSecundaria.titulo}
+              {labelsPersonalizacaoSecundaria.titulo}
             </h5>
 
             <div className={style.ContainerPersonalizacoesSecundarias}>
@@ -119,7 +115,7 @@ export const PersonalizacaoImpressao = ({
                   alt="Ícone de estrela"
                 />
                 <span className={style.TextoRecomendacao}>
-                  {labels.personalizacaoSecundaria.recomendacao}
+                  {labelsPersonalizacaoSecundaria.recomendacao}
                 </span>
               </div>
 
@@ -132,7 +128,7 @@ export const PersonalizacaoImpressao = ({
                   id="separacaoGrupoPorFolha"
                 />
                 <label htmlFor="separacaoGrupoPorFolha">
-                  {labels.personalizacaoSecundaria.opcoes.separacaoGrupoPorFolha}
+                  {labelsPersonalizacaoSecundaria.separacaoGrupoPorFolha}
                 </label>
               </div>
 
@@ -145,7 +141,7 @@ export const PersonalizacaoImpressao = ({
                   id="ordenacao"
                 />
                 <label htmlFor="ordenacao">
-                  {labels.personalizacaoSecundaria.opcoes.ordenacao}
+                  {labelsPersonalizacaoSecundaria.ordenacao}
                 </label>
               </div>
             </div>
@@ -155,8 +151,8 @@ export const PersonalizacaoImpressao = ({
 
       <div className={style.ContainerBotao}>
         <ButtonColorSubmitIcon
-          label={labels.botao}
-          submit={handleClick}
+          label={botao.label}
+          submit={botao.handleClick}
         />
       </div>
     </div>
