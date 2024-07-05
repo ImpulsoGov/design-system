@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { ButtonColorSubmitIcon } from "../ButtonColor/ButtonColor";
 import style from "./PersonalizacaoImpressao.module.css";
 import Image from "next/image";
@@ -42,6 +42,7 @@ export const PersonalizacaoImpressao = ({
           width={28}
           height={28}
           alt="Icone de brilho"
+          className={style.IconeTitulo}
         />
         <h4 className={cx(style.Titulo, style.ResetEspacamento)}>
           {titulo}
@@ -102,6 +103,7 @@ export const PersonalizacaoImpressao = ({
                   width={14}
                   height={14}
                   alt="Ícone de estrela"
+                  className={style.IconeRecomendacao}
                 />
                 <span className={style.TextoRecomendacao}>
                   {labelsPersonalizacaoSecundaria.recomendacao}

@@ -95,6 +95,7 @@
   width: 20px;
   height: 20px;
   padding: 0 2px;
+  margin: 0;
   accent-color: #145C56;
 }
 
@@ -113,6 +114,7 @@
 }
 
 .ContainerPersonalizacoesSecundarias {
+  position: relative;
   padding: 18px 11px 24px 11px;
   border-radius: 8px;
   border: 1.5px solid #916A20;
@@ -136,6 +138,7 @@
   width: 17px;
   height: 19px;
   padding: 1.19px 0px 1.19px 0px;
+  margin: 0;
   position: relative;
 }
 
@@ -153,7 +156,7 @@
   width: fit-content;
   position: absolute;
   z-index: 1000;
-  top: 485px;
+  top: -8px;
   padding: 3px 10px;
   border-radius: 5px;
   border: 1px solid #916A20;
@@ -168,15 +171,150 @@
   color: #4F3D0C;
 }
 
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 1440px) {
+  .Container {
+    width: 800px;
+  }
+
+  .TituloContainer {
+    margin-bottom: 13px;
+  }
+
+  .Titulo {
+    font-size: 13px;
+    line-height: 20px;
+  }
+
+  .TituloPersonalizacaoPrincipal {
+    font-size: 25px;
+    line-height: 33px;
+    margin-bottom: 20px;
+  }
+
+  .DescricaoPersonalizacaoPrincipal {
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 20px;
+  }
+
+  .OpcaoPersonalizacaoPrincipal {
+    padding: 8px 10px;
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .InputPersonalizacaoPrincipal {
+    width: 18px;
+    height: 18px;
+    padding: 0;
+  }
+
+  .TituloPersonalizacoesSecundarias {
+    font-size: 20px;
+    line-height: 25px;
+    padding: 8px 0;
+    margin-bottom: 20px;
+  }
+
+  .Linha {
+    margin: 17px 0;
+  }
+
+  .OpcaoPersonalizacaoSecundaria {
+    padding: 0px 9px;
+    margin-top: 14px;
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .ContainerPersonalizacoesSecundarias {
+    padding: 15px 9px 21px 9px;
+  }
+
+  .Close{
+    margin-bottom: 20px;
+  }
+
+  .Recomendacao {
+    padding: 3px 8px;
+  }
+
+  .TextoRecomendacao {
+    font-size: 12px;
+    line-height: 17px;
+  }
+
+  .ContainerPersonalizacoesSecundarias input {
+    width: 15px;
+    height: 17px;
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .Container {
+    width: 80%;
+  }
+
+  .IconeTitulo {
+    width: 24px;
+    height: 24px;
+  }
+
+  .TituloContainer {
+    margin-bottom: 11px;
+  }
+
+  .TituloPersonalizacaoPrincipal {
+    font-size: 23px;
+    line-height: 31px;
+    margin-bottom: 18px;
+  }
+
+  .DescricaoPersonalizacaoPrincipal {
+    margin-bottom: 18px;
+  }
+
+  .OpcaoPersonalizacaoPrincipal {
+    padding: 6px 10px;
+  }
+
+  .TituloPersonalizacoesSecundarias {
+    font-size: 18px;
+    line-height: 23px;
+    padding: 6px 0;
+    margin-bottom: 18px;
+  }
+
+  .Linha {
+    margin: 16px 0;
+  }
+
+  .OpcaoPersonalizacaoSecundaria {
+    margin-top: 12px;
+  }
+
+  .ContainerPersonalizacoesSecundarias {
+    padding: 15px 9px 19px 9px;
+  }
+
+  .Close{
+    margin-bottom: 18px;
+  }
+}
+
+@media screen and (max-width: 768px) {
   .Container {
     width: 90%;
+    padding-top: 26px;
+    padding-right: 26px;
+    padding-left: 26px;
+    padding-bottom: 34px;
   }
 }
 
 @media screen and (max-width: 360px) {
   .Container {
-    width: 90%;
     padding: 20px;
   }
 
@@ -187,20 +325,17 @@
   .Titulo {
     font-size: 12px;
     line-height: 16px;
-    letter-spacing: -0.01em;
   }
 
   .TituloPersonalizacaoPrincipal {
     font-size: 18px;
     line-height: 22px;
-    letter-spacing: -0.02em;
     margin-bottom: 16px;
   }
 
   .DescricaoPersonalizacaoPrincipal {
     font-size: 12px;
     line-height: 16px;
-    letter-spacing: -0.01em;
     margin-bottom: 16px;
   }
 
@@ -209,13 +344,11 @@
     font-size: 12px;
     font-weight: 400;
     line-height: 16px;
-    letter-spacing: -0.01em;
   }
 
   .TituloPersonalizacoesSecundarias {
     font-size: 16px;
     line-height: 20px;
-    letter-spacing: -0.02em;
     padding: 6px 0;
     margin-bottom: 24px;
   }
@@ -229,7 +362,6 @@
     margin-top: 12px;
     font-size: 12px;
     line-height: 16px;
-    letter-spacing: -0.01em;
   }
 
   .ContainerPersonalizacoesSecundarias {
@@ -241,9 +373,9 @@
   }
 
   .Recomendacao {
-    top: 397px;
     padding: 3px 6px;
-    width: 70%;
+    width: 90%;
+    top: -18px;
   }
 
   .TextoRecomendacao {
@@ -258,5 +390,15 @@
   .ContainerPersonalizacoesSecundarias input {
     width: 14px;
     height: 14px;
+  }
+
+  .IconeTitulo {
+    width: 18px;
+    height: 18px;
+  }
+
+  .IconeRecomendacao {
+    width: 13px;
+    height: 13px;
   }
 }
