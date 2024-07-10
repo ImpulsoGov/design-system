@@ -13,8 +13,8 @@ const VALORES_AGRUPAMENTO_IMPRESSAO = { sim: "sim", nao: "não" };
 const Template = (args) => {
   const [personalizacao, setPersonalizacao] = useState({
     agrupamento: VALORES_AGRUPAMENTO_IMPRESSAO.sim,
-      separacaoGrupoPorFolha: false,
-      ordenacao: false,
+    separacaoGrupoPorFolha: false,
+    ordenacao: false,
   });
 
   args["personalizacao"] = personalizacao;
