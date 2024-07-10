@@ -5,25 +5,25 @@ import Image from "next/image";
 import cx from "classnames";
 
 export const PersonalizacaoImpressao = ({
-  titulo = "",
-  labelsPersonalizacaoPrincipal = {
+  labels = {
     titulo: "",
-    descricao: "",
-    agrupamentoSim: "",
-    agrupamentoNao: "",
-  },
-  labelsPersonalizacaoSecundaria = {
-    titulo: "",
-    recomendacao: "",
-    separacaoGrupoPorFolha: "",
-    ordenacao: "",
-  },
-  botao = {
-    label: "",
-    handleClick: () => {},
+    personalizacaoPrincipal: {
+      titulo: "",
+      descricao: "",
+      agrupamentoSim: "",
+      agrupamentoNao: "",
+    },
+    personalizacaoSecundaria: {
+      titulo: "",
+      recomendacao: "",
+      separacaoGrupoPorFolha: "",
+      ordenacao: "",
+    },
+    botao: "",
   },
   handleClose = () => {},
   handleChange = () => {},
+  handleButtonClick = () => {},
   valoresAgrupamento,
   personalizacao,
 }) => {
@@ -45,16 +45,16 @@ export const PersonalizacaoImpressao = ({
           className={style.IconeTitulo}
         />
         <h4 className={cx(style.Titulo, style.ResetEspacamento)}>
-          {titulo}
+          {labels.titulo}
         </h4>
       </div>
 
       <h5 className={cx(style.TituloPersonalizacaoPrincipal, style.ResetEspacamento)}>
-        {labelsPersonalizacaoPrincipal.titulo}
+        {labels.personalizacaoPrincipal.titulo}
       </h5>
 
       <p className={cx(style.DescricaoPersonalizacaoPrincipal, style.ResetEspacamento)}>
-        {labelsPersonalizacaoPrincipal.descricao}
+        {labels.personalizacaoPrincipal.descricao}
       </p>
 
       <div className={style.OpcaoPersonalizacaoPrincipal}>
@@ -68,7 +68,7 @@ export const PersonalizacaoImpressao = ({
           id="agrupamentoSim"
         />
         <label htmlFor="agrupamentoSim">
-          {labelsPersonalizacaoPrincipal.agrupamentoSim}
+          {labels.personalizacaoPrincipal.agrupamentoSim}
         </label>
       </div>
 
@@ -83,7 +83,7 @@ export const PersonalizacaoImpressao = ({
           id="agrupamentoNao"
         />
         <label htmlFor="agrupamentoNao">
-          {labelsPersonalizacaoPrincipal.agrupamentoNao}
+          {labels.personalizacaoPrincipal.agrupamentoNao}
         </label>
       </div>
 
@@ -93,7 +93,7 @@ export const PersonalizacaoImpressao = ({
             <hr className={style.Linha}/>
 
             <h5 className={cx(style.TituloPersonalizacoesSecundarias, style.ResetEspacamento)}>
-              {labelsPersonalizacaoSecundaria.titulo}
+              {labels.personalizacaoSecundaria.titulo}
             </h5>
 
             <div className={style.ContainerPersonalizacoesSecundarias}>
@@ -106,7 +106,7 @@ export const PersonalizacaoImpressao = ({
                   className={style.IconeRecomendacao}
                 />
                 <span className={style.TextoRecomendacao}>
-                  {labelsPersonalizacaoSecundaria.recomendacao}
+                  {labels.personalizacaoSecundaria.recomendacao}
                 </span>
               </div>
 
@@ -119,7 +119,7 @@ export const PersonalizacaoImpressao = ({
                   id="separacaoGrupoPorFolha"
                 />
                 <label htmlFor="separacaoGrupoPorFolha">
-                  {labelsPersonalizacaoSecundaria.separacaoGrupoPorFolha}
+                  {labels.personalizacaoSecundaria.separacaoGrupoPorFolha}
                 </label>
               </div>
 
@@ -132,7 +132,7 @@ export const PersonalizacaoImpressao = ({
                   id="ordenacao"
                 />
                 <label htmlFor="ordenacao">
-                  {labelsPersonalizacaoSecundaria.ordenacao}
+                  {labels.personalizacaoSecundaria.ordenacao}
                 </label>
               </div>
             </div>
@@ -142,8 +142,8 @@ export const PersonalizacaoImpressao = ({
 
       <div className={style.ContainerBotao}>
         <ButtonColorSubmitIcon
-          label={botao.label}
-          submit={botao.handleClick}
+          label={labels.botao}
+          submit={handleButtonClick}
         />
       </div>
     </div>

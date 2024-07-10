@@ -1070,4 +1070,20 @@ Cito.args={
   }),
   onPrintClick: printDataCito,
   propAgrupamentoImpressao: "equipe_nome",
+  labelsModalImpressao: {
+    titulo: "IMPRESSÃO POR EQUIPES",
+    personalizacaoPrincipal: {
+      titulo: "Deseja imprimir as listas divididas por Equipes?",
+      descricao: "Essa impressão agrupa os cidadãos de acordo com as Equipes correspondentes. Qualquer filtro ou ordenação selecionados anteriormente serão mantidos e aplicados dentro desses grupos.",
+      agrupamentoSim: "Sim, dividir listas por equipes.",
+      agrupamentoNao: "Não, imprimir a lista como ela está.",
+    },
+    personalizacaoSecundaria: {
+      titulo: "Outras opções de impressão:",
+      recomendacao: "Ideal para distribuir listas para coordenadoras de equipe",
+      separacaoGrupoPorFolha: "Dividir equipes em folhas separadas",
+      ordenacao: "Ordenar listas por profissional responsável",
+    },
+    botao: "IMPRIMIR LISTA",
+  },
 }
