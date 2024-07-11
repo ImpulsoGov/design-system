@@ -1079,7 +1079,7 @@ Cito.args={
       agrupamentoNao: "Não, imprimir a lista como ela está.",
     },
     personalizacaoSecundaria: {
-      titulo: "Outras opções de impressão:",
+      titulo: "Outras opções de impressão por equipes:",
       recomendacao: "Ideal para distribuir listas para coordenadoras de equipe",
       separacaoGrupoPorFolha: "Também dividir equipes em folhas separadas",
       ordenacao: "Também ordenar listas por profissional responsável",
