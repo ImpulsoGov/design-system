@@ -1081,8 +1081,8 @@ Cito.args={
     personalizacaoSecundaria: {
       titulo: "Outras opções de impressão:",
       recomendacao: "Ideal para distribuir listas para coordenadoras de equipe",
-      separacaoGrupoPorFolha: "Dividir equipes em folhas separadas",
-      ordenacao: "Ordenar listas por profissional responsável",
+      separacaoGrupoPorFolha: "Também dividir equipes em folhas separadas",
+      ordenacao: "Também ordenar listas por profissional responsável",
     },
     botao: "IMPRIMIR LISTA",
   },
