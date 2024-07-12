@@ -716,13 +716,29 @@ const dadosFiltrosCito = [
 ]
 
 const dataCito = [
+      {
+        "paciente_nome": "MARIA DE SOUZA MACHADO",
+        "cidadao_cpf_dt_nascimento": "106.106.638-01",
+        "id_status_usuario": 15,
+        "vencimento_da_coleta": "-",
+        "prazo_proxima_coleta": "31/08/2023",
+        "idade": 5,
+        "id_faixa_etaria": 8,
+        "acs_nome": "Alessandra de Fatima Pereira",
+        "estabelecimento_cnes": "2879085",
+        "estabelecimento_nome": "Unidade de Saude da Familia Taboao",
+        "equipe_ine": "0002277573",
+        "ine_master": "0002277573",
+        "equipe_nome": "ESF GOIANA",
+        "dt_registro_producao_mais_recente" : "2023-10-22"
+    },
     {
         "paciente_nome": "ABIGAIR DE SOUZA BADA",
         "cidadao_cpf_dt_nascimento": "106.106.638-01",
         "id_status_usuario": 15,
         "vencimento_da_coleta": "-",
         "prazo_proxima_coleta": "31/08/2023",
-        "idade": 5,
+        "idade": 55,
         "id_faixa_etaria": 8,
         "acs_nome": "Alessandra de Fatima Pereira",
         "estabelecimento_cnes": "2879085",
@@ -763,6 +779,23 @@ const dataCito = [
         "ine_master": "0000369799",
         "equipe_nome": "ESF MAILASQUI 1.2",
         "dt_registro_producao_mais_recente" : "2023-10-22"
+
+    },
+    {
+      "paciente_nome": "CARLOS MEANDRO ANDRADE",
+      "cidadao_cpf_dt_nascimento": "100.941.638-39",
+      "id_status_usuario": 12,
+      "vencimento_da_coleta": "27/07/2025",
+      "prazo_proxima_coleta": "Em dia",
+      "idade": 47,
+      "id_faixa_etaria": 8,
+      "acs_nome": "Estela Ribeiro",
+      "estabelecimento_cnes": "2752522",
+      "estabelecimento_nome": "Posto de Saude de Mailasqui Sao Roque",
+      "equipe_ine": "0000369799",
+      "ine_master": "0000369799",
+      "equipe_nome": "ESF MAILASQUI 1.2",
+      "dt_registro_producao_mais_recente" : "2023-10-22"
 
     },
     {
@@ -1070,6 +1103,7 @@ Cito.args={
   }),
   onPrintClick: printDataCito,
   propAgrupamentoImpressao: "equipe_nome",
+  propOrdenacaoImpressao: "acs_nome",
   labelsModalImpressao: {
     titulo: "IMPRESSÃO POR EQUIPES",
     personalizacaoPrincipal: {

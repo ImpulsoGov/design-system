@@ -485,19 +485,30 @@ const selecionar_status_usuario_descricao = (value,status_usuario_descricao)=> {
             })
           }
         </div>
-        {
-          Object.keys(divisao_por_equipes).map((registro,index)=>{
-              return <div style={{breakBefore: index > 0 ? "page" : ""}}>
-                <p>{registro}</p>
-                <TabelaUnitaria
-                  data = {divisao_por_equipes[registro]}
-                  colunas = {colunas}
-                  status_usuario_descricao = {status_usuario_descricao}
-                  fontFamily = "Inter"
-                  indexTabela={index}
-                />
-              </div>
-          })
+        {divisao_dados
+          ? (
+            Object.keys(divisao_por_equipes).map((registro,index)=>{
+                return <div style={{breakBefore: index > 0 ? "page" : ""}}>
+                  <p>{registro}</p>
+                  <TabelaUnitaria
+                    data = {divisao_por_equipes[registro]}
+                    colunas = {colunas}
+                    status_usuario_descricao = {status_usuario_descricao}
+                    fontFamily = "Inter"
+                    indexTabela={index}
+                  />
+                </div>
+            })
+          )
+          : (
+            <TabelaUnitaria
+              data = {data}
+              colunas = {colunas}
+              status_usuario_descricao = {status_usuario_descricao}
+              fontFamily = "Inter"
+              indexTabela={0}
+            />
+          )
         }
       </div>
     );

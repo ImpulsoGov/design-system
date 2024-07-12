@@ -99,6 +99,7 @@ const status_usuario_descricao = [
 ]
 
 const VALORES_AGRUPAMENTO_IMPRESSAO = { sim: "sim", nao: "não" };
+const NUMERO_DE_FILTROS_PARA_IMPRESSAO_DIRETA = 1;
 
 const PainelBuscaAtiva = ({
     tabela,
@@ -121,6 +122,7 @@ const PainelBuscaAtiva = ({
     showSnackBar,
     setShowSnackBar,
     propAgrupamentoImpressao = "",
+    propOrdenacaoImpressao = "",
     labelsModalImpressao = {
         titulo: "",
         personalizacaoPrincipal: {},
@@ -129,6 +131,7 @@ const PainelBuscaAtiva = ({
     },
 })=>{
     const [tableData, setTableData] = useState(tabela.data)
+    const [dadosImpressao, setDadosImpressao] = useState(tabela.data);
     const [showOrdenarModal,setShowOrdenarModal] = useState(false)
     const [showFiltrosModal,setShowFiltrosModal] = useState(false)
     const [ordenar,setOrdenar] = useState('1')
@@ -150,14 +153,9 @@ const PainelBuscaAtiva = ({
         ordenacao: false,
     });
 
-    function handlePersonalizacaoChange(e) {
-        const { name, value, checked, type } = e.target;
-
-        setPersonalizacao({
-            ...personalizacao,
-            [name]: type === "checkbox" ? checked : value
-        });
-    }
+    useEffect(() => {
+        setDadosImpressao(tableData);
+    }, [tableData])
 
     function updateData(newData){
         setData(newData);
@@ -233,14 +231,20 @@ const PainelBuscaAtiva = ({
     const processarPedidoDeImpressao = () => {
         const filtros = helpers.buscarFiltroPorPropriedade(chavesFiltros, propAgrupamentoImpressao);
 
-        filtros.length === 1
+        filtros.length === NUMERO_DE_FILTROS_PARA_IMPRESSAO_DIRETA
             ? handlePrintClick()
             : setShowModalImpressao(true);
     }
 
     const fecharModalImpressao = () => setShowModalImpressao(false)
 
-    const personalizarImpressao = () => {
+    const personalizarImpressao = (opcoes) => {
+        setPersonalizacao(opcoes);
+        setDadosImpressao(
+            opcoes.ordenacao && opcoes.agrupamento === VALORES_AGRUPAMENTO_IMPRESSAO.sim
+                ? helpers.sortByString(tableData, propOrdenacaoImpressao)
+                : tableData
+        );
         handlePrintClick();
         fecharModalImpressao();
     }
@@ -346,19 +350,19 @@ const PainelBuscaAtiva = ({
                     labels={labelsModalImpressao}
                     handleButtonClick={personalizarImpressao}
                     handleClose={fecharModalImpressao}
-                    handleChange={handlePersonalizacaoChange}
                     valoresAgrupamento={VALORES_AGRUPAMENTO_IMPRESSAO}
-                    personalizacao={personalizacao}
                 />
             </ModalAlertControlled>
             {
                 showImpressao &&
                 <TabelaImpressao
-                    data={tableData}
+                    data={dadosImpressao}
                     colunas={tabela.colunas}
                     status_usuario_descricao={{ data: status_usuario_descricao }}
                     targetRef={targetRef}
                     fontFamily="sans-serif"
+                    divisao_dados={personalizacao.agrupamento === VALORES_AGRUPAMENTO_IMPRESSAO.sim}
+                    divisao_paginas={personalizacao.separacaoGrupoPorFolha}
                 />
             }
         </div>

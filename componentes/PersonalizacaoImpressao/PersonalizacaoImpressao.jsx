@@ -1,32 +1,47 @@
-import React from "react";
+import React, { useState } from "react";
 import { ButtonColorSubmitIcon } from "../ButtonColor/ButtonColor";
 import style from "./PersonalizacaoImpressao.module.css";
 import Image from "next/image";
 import cx from "classnames";
 
-export const PersonalizacaoImpressao = ({
-  labels = {
+const DEFAULT_LABELS = {
+  titulo: "",
+  personalizacaoPrincipal: {
     titulo: "",
-    personalizacaoPrincipal: {
-      titulo: "",
-      descricao: "",
-      agrupamentoSim: "",
-      agrupamentoNao: "",
-    },
-    personalizacaoSecundaria: {
-      titulo: "",
-      recomendacao: "",
-      separacaoGrupoPorFolha: "",
-      ordenacao: "",
-    },
-    botao: "",
+    descricao: "",
+    agrupamentoSim: "",
+    agrupamentoNao: "",
   },
+  personalizacaoSecundaria: {
+    titulo: "",
+    recomendacao: "",
+    separacaoGrupoPorFolha: "",
+    ordenacao: "",
+  },
+  botao: "",
+};
+
+export const PersonalizacaoImpressao = ({
+  labels = DEFAULT_LABELS,
   handleClose = () => {},
-  handleChange = () => {},
   handleButtonClick = () => {},
   valoresAgrupamento,
-  personalizacao,
 }) => {
+  const [personalizacao, setPersonalizacao] = useState({
+    agrupamento: valoresAgrupamento.sim,
+    separacaoGrupoPorFolha: false,
+    ordenacao: false,
+  });
+
+  function handleChange(e) {
+    const { name, value, checked, type } = e.target;
+
+    setPersonalizacao({
+        ...personalizacao,
+        [name]: type === "checkbox" ? checked : value
+    });
+}
+
   return (
     <div className={style.Container}>
       <div className={style.Close}>
@@ -143,7 +158,7 @@ export const PersonalizacaoImpressao = ({
       <div className={style.ContainerBotao}>
         <ButtonColorSubmitIcon
           label={labels.botao}
-          submit={handleButtonClick}
+          submit={() => handleButtonClick(personalizacao)}
         />
       </div>
     </div>
