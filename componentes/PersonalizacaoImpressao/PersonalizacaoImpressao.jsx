@@ -37,10 +37,10 @@ export const PersonalizacaoImpressao = ({
     const { name, value, checked, type } = e.target;
 
     setPersonalizacao({
-        ...personalizacao,
-        [name]: type === "checkbox" ? checked : value
+      ...personalizacao,
+      [name]: type === "checkbox" ? checked : value
     });
-}
+  }
 
   return (
     <div className={style.Container}>
