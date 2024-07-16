@@ -673,7 +673,7 @@ const dataDiabetes=[
 const dadosFiltrosCito = [
   {
     rotulo : "Filtrar por nome da equipe",
-    data :  ["ESF TABOAO 2","ESF GOIANA","ESF MAILASQUI 1.2"],
+    data :  ["ESF TABOAO 2","ESF GOIANA","ESF MAILASQUI 1.2","SEM EQUIPE RESPONSÁVEL"],
     filtro : "equipe_nome"
   },
   {
@@ -865,7 +865,58 @@ const dataCito = [
         "equipe_nome": "ESF GOIANA",
         "dt_registro_producao_mais_recente" : "2023-10-22"
 
-    }
+    },
+    {
+      "paciente_nome": "ADELIA OLIVEIRA",
+      "cidadao_cpf_dt_nascimento": "164.405.328-47",
+      "id_status_usuario": 12,
+      "vencimento_da_coleta": "15/02/2026",
+      "prazo_proxima_coleta": "Em dia",
+      "idade": 51,
+      "id_faixa_etaria": 8,
+      "acs_nome": "Luana Pereira",
+      "estabelecimento_cnes": "2793377",
+      "estabelecimento_nome": "Unidade de Saude da Familia Carmo Sao Roque",
+      "equipe_ine": "0",
+      "ine_master": "0000369802",
+      "equipe_nome": "SEM EQUIPE RESPONSÁVEL",
+      "dt_registro_producao_mais_recente" : "2023-10-22"
+
+  },
+  {
+      "paciente_nome": "ADA GOMES",
+      "cidadao_cpf_dt_nascimento": "167.328.578-35",
+      "id_status_usuario": 12,
+      "vencimento_da_coleta": "03/07/2026",
+      "prazo_proxima_coleta": "Em dia",
+      "idade": 49,
+      "id_faixa_etaria": 7,
+      "acs_nome": null,
+      "estabelecimento_cnes": "2752506",
+      "estabelecimento_nome": "Posto de Saude do Goiana",
+      "equipe_ine": "0",
+      "ine_master": "0001540971",
+      "equipe_nome": "SEM EQUIPE RESPONSÁVEL",
+      "dt_registro_producao_mais_recente" : "2023-10-22"
+
+  },
+  {
+      "paciente_nome": "ALICE SANTOS",
+      "cidadao_cpf_dt_nascimento": "167.328.578-35",
+      "id_status_usuario": 12,
+      "vencimento_da_coleta": "03/07/2026",
+      "prazo_proxima_coleta": "Em dia",
+      "idade": 49,
+      "id_faixa_etaria": 7,
+      "acs_nome": "Elisa Soares",
+      "estabelecimento_cnes": "2752506",
+      "estabelecimento_nome": "Posto de Saude do Goiana",
+      "equipe_ine": "0",
+      "ine_master": "0001540971",
+      "equipe_nome": "TATU",
+      "dt_registro_producao_mais_recente" : "2023-10-22"
+
+  }
 ]
 const datefiltrosDiabetes = [
   "dt_consulta_mais_recente",
