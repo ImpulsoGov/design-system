@@ -428,18 +428,20 @@ const selecionar_status_usuario_descricao = (value,status_usuario_descricao)=> {
     fontFamily = "Inter"
   }) => {
     const filtros_aplicados = ["status da coleta coleta em dia", "status da coleta Vence no final do quadrimestre"]
-    const divisao_por_equipes = data.reduce((acumulador, objetoAtual) => {
-      const { equipe_nome } = objetoAtual;
-      if (!acumulador[equipe_nome]) {
-        acumulador[equipe_nome] = [];
-      }
-      acumulador[equipe_nome].push(objetoAtual);
-      return acumulador;
-    }, {});
+    const divisao_por_equipes = divisao_dados
+      ? data.reduce((acumulador, objetoAtual) => {
+        const { equipe_nome } = objetoAtual;
+        if (!acumulador[equipe_nome]) {
+          acumulador[equipe_nome] = [];
+        }
+        acumulador[equipe_nome].push(objetoAtual);
+        return acumulador;
+      }, {})
+      : {};
 
     function ordenarEquipes(atual, seguinte) {
-      const valorAtualMaiusculo = String(atual).toUpperCase();
-      const valorSeguinteMaiusculo = String(seguinte).toUpperCase();
+      const valorAtualMaiusculo = String(atual).toUpperCase() ?? "";
+      const valorSeguinteMaiusculo = String(seguinte).toUpperCase() ?? "";
 
       return valorSeguinteMaiusculo === "SEM EQUIPE RESPONSÁVEL"
         ? -1
