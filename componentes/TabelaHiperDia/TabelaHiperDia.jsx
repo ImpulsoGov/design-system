@@ -487,7 +487,7 @@ const selecionar_status_usuario_descricao = (value,status_usuario_descricao)=> {
         </div>
         {divisao_dados
           ? (
-            Object.keys(divisao_por_equipes).map((registro,index)=>{
+            Object.keys(divisao_por_equipes).sort().map((registro,index)=>{
                 return <div style={{breakBefore: index > 0 ? "page" : ""}}>
                   <p>{registro}</p>
                   <TabelaUnitaria
