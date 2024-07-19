@@ -246,6 +246,7 @@ const PainelBuscaAtiva = ({
                 : tableData
         );
         handlePrintClick();
+        onPrintClick();
         fecharModalImpressao();
     }
 
