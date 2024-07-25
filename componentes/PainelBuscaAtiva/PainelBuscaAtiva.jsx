@@ -6,7 +6,7 @@ import { Toast } from "../Toast";
 import { CardAlert } from "../CardAlert";
 import * as Components from "./components";
 import * as helpers from "./helpers";
-import generatePDF,{ usePDF } from 'react-to-pdf';
+import generatePDF,{ Margin, usePDF } from 'react-to-pdf';
 
 const status_usuario_descricao = [
     {
@@ -116,6 +116,7 @@ const PainelBuscaAtiva = ({
     TabelaImpressao,
     showSnackBar,
     setShowSnackBar,
+    listas_auxiliares
 })=>{
     const [tableData, setTableData] = useState(tabela.data)
     const [showOrdenarModal,setShowOrdenarModal] = useState(false)
@@ -129,7 +130,7 @@ const PainelBuscaAtiva = ({
         filename: 'page.pdf',
         method : 'open',
         page : {
-            orientation: 'landscape'
+            orientation: 'landscape',
         }
     });
 
@@ -301,8 +302,9 @@ const PainelBuscaAtiva = ({
                 <TabelaImpressao
                     data={tabela.data}
                     colunas={tabela.colunas}
-                    status_usuario_descricao={{ data: status_usuario_descricao }}
+                    listas_auxiliares={listas_auxiliares}
                     targetRef={targetRef}
+                    data_producao_mais_recente = {atualizacao}
                     fontFamily="sans-serif"
                 />
             }
