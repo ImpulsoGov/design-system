@@ -1,6 +1,7 @@
 import React from "react";
 import { DataGrid, ptBR } from '@mui/x-data-grid';
 import style from "./TabelaHiperDia.module.css";
+import * as utils from "../utils";
 
 export const VERIFICADO = "https://media.graphassets.com/wOzzseVhRriXENS9OhcG";
 export const ATENCAO = "https://media.graphassets.com/NPk8ggUoQzK18KSyAGL6";
@@ -439,21 +440,6 @@ const selecionar_status_usuario_descricao = (value,status_usuario_descricao)=> {
       }, {})
       : {};
 
-    function ordenarEquipes(atual, seguinte) {
-      const valorAtualMaiusculo = String(atual).toUpperCase() ?? "";
-      const valorSeguinteMaiusculo = String(seguinte).toUpperCase() ?? "";
-
-      if (valorSeguinteMaiusculo === "SEM EQUIPE RESPONSÁVEL") {
-        return -1
-      }
-
-      if (valorAtualMaiusculo === "SEM EQUIPE RESPONSÁVEL") {
-        return 1;
-      }
-
-      return valorAtualMaiusculo.localeCompare(valorSeguinteMaiusculo);
-    }
-
     return (
       <div 
         ref={targetRef}
@@ -505,7 +491,7 @@ const selecionar_status_usuario_descricao = (value,status_usuario_descricao)=> {
         </div>
         {divisao_dados
           ? (
-            Object.keys(divisao_por_equipes).sort(ordenarEquipes).map((registro,index)=>{
+            Object.keys(divisao_por_equipes).sort(utils.ordenarEquipes).map((registro,index)=>{
                 return <div style={{breakBefore: index > 0 ? "page" : ""}}>
                   <p>{registro}</p>
                   <TabelaUnitaria
