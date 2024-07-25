@@ -443,9 +443,15 @@ const selecionar_status_usuario_descricao = (value,status_usuario_descricao)=> {
       const valorAtualMaiusculo = String(atual).toUpperCase() ?? "";
       const valorSeguinteMaiusculo = String(seguinte).toUpperCase() ?? "";
 
-      return valorSeguinteMaiusculo === "SEM EQUIPE RESPONSÁVEL"
-        ? -1
-        : valorAtualMaiusculo.localeCompare(valorSeguinteMaiusculo);
+      if (valorSeguinteMaiusculo === "SEM EQUIPE RESPONSÁVEL") {
+        return -1
+      }
+
+      if (valorAtualMaiusculo === "SEM EQUIPE RESPONSÁVEL") {
+        return 1;
+      }
+
+      return valorAtualMaiusculo.localeCompare(valorSeguinteMaiusculo);
     }
 
     return (
