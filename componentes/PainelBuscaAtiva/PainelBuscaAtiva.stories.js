@@ -1152,7 +1152,7 @@ Cito.args={
     month: '2-digit',
     day: '2-digit'
   }),
-  onPrintClick: printDataCito,
+  onPrintClick: () => console.log("onPrintClick"),
   propAgrupamentoImpressao: "equipe_nome",
   propOrdenacaoImpressao: "acs_nome",
   labelsModalImpressao: {

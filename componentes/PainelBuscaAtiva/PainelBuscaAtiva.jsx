@@ -234,6 +234,7 @@ const PainelBuscaAtiva = ({
         filtros.length === NUMERO_DE_FILTROS_PARA_IMPRESSAO_DIRETA
             ? handlePrintClick()
             : setShowModalImpressao(true);
+        onPrintClick();
     }
 
     const fecharModalImpressao = () => setShowModalImpressao(false)
@@ -246,7 +247,6 @@ const PainelBuscaAtiva = ({
                 : tableData
         );
         handlePrintClick();
-        onPrintClick();
         fecharModalImpressao();
     }
 
@@ -324,7 +324,13 @@ const PainelBuscaAtiva = ({
                 updateData={updateData}
                 tabela={tabela.data}
                 ordenacaoAplicada={ordenacaoAplicada}
-                handlePrintClick={painel === "aps" ? processarPedidoDeImpressao : handlePrintClick}
+                handlePrintClick={painel === "aps"
+                    ? processarPedidoDeImpressao
+                    : () => {
+                        handlePrintClick();
+                        onPrintClick();
+                    }
+                }
             />
             <TabelaHiperDia
                 colunas={tabela.colunas}
