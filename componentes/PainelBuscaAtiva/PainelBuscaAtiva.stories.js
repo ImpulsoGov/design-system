@@ -1930,7 +1930,6 @@ Cito.args={
   listas_auxiliares : {
     status_usuario_descricao
   },
-  onPrintClick: printDataCito,
   propAgrupamentoImpressao: "equipe_nome",
   propOrdenacaoImpressao: "acs_nome",
   labelsModalImpressao: {

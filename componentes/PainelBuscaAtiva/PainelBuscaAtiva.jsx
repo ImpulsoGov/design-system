@@ -66,6 +66,8 @@ const PainelBuscaAtiva = ({
         separacaoGrupoPorFolha: false,
         ordenacao: false,
     });
+    const divisao_dados = personalizacao.agrupamento === VALORES_AGRUPAMENTO_IMPRESSAO.sim
+    const divisao_paginas = personalizacao.separacaoGrupoPorFolha
 
     useEffect(() => {
         setDadosImpressao(tableData);
@@ -283,8 +285,8 @@ const PainelBuscaAtiva = ({
                     targetRef={targetRef}
                     data_producao_mais_recente = {atualizacao}
                     fontFamily="sans-serif"
-                    divisao_dados={personalizacao.agrupamento === VALORES_AGRUPAMENTO_IMPRESSAO.sim}
-                    divisao_paginas={personalizacao.separacaoGrupoPorFolha}
+                    divisao_dados={divisao_dados}
+                    divisao_paginas={divisao_paginas}
                 />
             }
         </div>
