@@ -9,7 +9,7 @@ import * as helpers from "./helpers";
 import { usePDF } from 'react-to-pdf';
 import { PersonalizacaoImpressao } from "../PersonalizacaoImpressao/PersonalizacaoImpressao";
 import { ModalAlertControlled } from "../ModalAlert/ModalAlert";
-
+import { filtrosAplicadosImpressao } from "./components/Impressao/helpers/filtrosAplicadosImpressao";
 
 const VALORES_AGRUPAMENTO_IMPRESSAO = { sim: "sim", nao: "não" };
 const NUMERO_DE_FILTROS_PARA_IMPRESSAO_DIRETA = 1;
@@ -18,6 +18,8 @@ const PainelBuscaAtiva = ({
     tabela,
     dadosFiltros,
     painel,
+    lista,
+    largura_colunas_impressao,
     setData,
     datefiltros,
     IntFiltros,
@@ -54,6 +56,7 @@ const PainelBuscaAtiva = ({
     const [chavesFiltros,setChavesFiltros] = useState([])
     const [showImpressao,setShowImpressao] = useState(false)
     const [showModalImpressao, setShowModalImpressao] = useState(false);
+    const [filtros_aplicados_impressao,set_filtros_aplicados_impressao] = useState()
     const { toPDF, targetRef } = usePDF({
         filename: 'page.pdf',
         method : 'open',
@@ -68,7 +71,10 @@ const PainelBuscaAtiva = ({
     });
     const divisao_dados = personalizacao.agrupamento === VALORES_AGRUPAMENTO_IMPRESSAO.sim
     const divisao_paginas = personalizacao.separacaoGrupoPorFolha
-
+    useEffect(()=>{
+        set_filtros_aplicados_impressao(filtrosAplicadosImpressao(chavesFiltros))
+        console.log(chavesFiltros)
+    },[chavesFiltros])
     useEffect(() => {
         setDadosImpressao(tableData);
     }, [tableData])
@@ -77,7 +83,6 @@ const PainelBuscaAtiva = ({
         setData(newData);
         setTableData(newData);
     }
-
     const showOrdenar = ()=>{
         setModal(true)
         setShowOrdenarModal(true)
@@ -281,12 +286,15 @@ const PainelBuscaAtiva = ({
                 <TabelaImpressao
                     data={dadosImpressao}
                     colunas={tabela.colunas}
+                    lista={lista}
                     listas_auxiliares={listas_auxiliares}
                     targetRef={targetRef}
                     data_producao_mais_recente = {atualizacao}
                     fontFamily="sans-serif"
                     divisao_dados={divisao_dados}
                     divisao_paginas={divisao_paginas}
+                    filtros_aplicados={filtros_aplicados_impressao}
+                    largura_colunas_impressao={largura_colunas_impressao}
                 />
             }
         </div>

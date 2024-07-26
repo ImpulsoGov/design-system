@@ -1,6 +1,7 @@
 export const CabecalhoPagina = ({
     filtros_aplicados,
-    data_producao_mais_recente
+    data_producao_mais_recente,
+    lista,
 })=>{
     return(
       <>
@@ -11,7 +12,7 @@ export const CabecalhoPagina = ({
           fontSize : "11px",
           marginTop : "25px"
         }}>
-          <p><b>LISTA NOMINAL CITOPATOLOGICO</b><i> - PRODUÇÃO MAIS RECENTE RECEBIDA EM : {data_producao_mais_recente}</i></p>
+          <p><b>LISTA NOMINAL {lista}</b><i> - PRODUÇÃO MAIS RECENTE RECEBIDA EM : {data_producao_mais_recente}</i></p>
         </div>
         <div style={{
           display : "flex",
@@ -23,6 +24,7 @@ export const CabecalhoPagina = ({
         }}>
           <p><b>Filtros aplicados: </b></p>
           {
+            filtros_aplicados && filtros_aplicados.length>0 ?
             filtros_aplicados.map((filtro,index)=>{
               return(
                 <div 
@@ -38,7 +40,8 @@ export const CabecalhoPagina = ({
                   {filtro}
                 </div>
               )
-            })
+            }) :
+            ["Sem filtros aplicados"]
           }
           <div style={{
             width : "fit-content",

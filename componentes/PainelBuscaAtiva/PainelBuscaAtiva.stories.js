@@ -1859,6 +1859,15 @@ const printDataHipertensao = (data)=> imprimir(
     fontFamily="sans-serif"
   />
 )
+const larguraColunasCito = {
+  0 : "250px",
+  1 : "80px",
+  2 : "280px",
+  3 : "50px",
+  4 : "100px",
+  5 : "20px",
+  6 : "280px",
+}
 
 export const Diabetes = Template.bind({});
 
@@ -1903,6 +1912,8 @@ export const Cito = Template.bind({});
 
 Cito.args={
   painel : "aps",
+  lista : "CITOPATOLOGICO",
+  largura_colunas_impressao : larguraColunasCito,
   dadosFiltros : dadosFiltrosCito,
   tabela : {
       colunas : colunasCito,
@@ -1940,12 +1951,12 @@ Cito.args={
       agrupamentoSim: "Sim, dividir listas por equipes.",
       agrupamentoNao: "Não, imprimir a lista como ela está.",
     },
-    personalizacaoSecundaria: {
-      titulo: "Outras opções de impressão por equipes:",
-      recomendacao: "Ideal para distribuir listas para coordenadoras de equipe",
-      separacaoGrupoPorFolha: "Também dividir equipes em folhas separadas",
-      ordenacao: "Também ordenar listas por profissional responsável",
-    },
-    botao: "IMPRIMIR LISTA",
+  personalizacaoSecundaria: {
+    titulo: "Outras opções de impressão por equipes:",
+    recomendacao: "Ideal para distribuir listas para coordenadoras de equipe",
+    separacaoGrupoPorFolha: "Também dividir equipes em folhas separadas",
+    ordenacao: "Também ordenar listas por profissional responsável",
+  },
+  botao: "IMPRIMIR LISTA",
   },
 }

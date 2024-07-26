@@ -1,15 +1,6 @@
 import { Selecionar_status_usuario_descricao } from "./auxiliares/Selecionar_status_usuario_descricao";
 import { PrazoStyle } from "./auxiliares/PrazoStyle";
-export const TabelaUnitaria = ({ data, colunas, status_usuario_descricao, fontFamily = "Inter", indexTabela}) => {
-    const larguraColunas = {
-      0 : "250px",
-      1 : "80px",
-      2 : "280px",
-      3 : "50px",
-      4 : "100px",
-      5 : "20px",
-      6 : "280px",
-    }
+export const TabelaUnitaria = ({ data, colunas, status_usuario_descricao, fontFamily = "Inter", divisorVertical , larguraColunas}) => {
     return (
       <>
         <table style={{

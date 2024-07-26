@@ -1,9 +1,9 @@
 export const obterLimitesPaginas = (dados,equipe_inicio)=>{
-    const ALTURA_FOLHA_A4_PAISAGEM_PX = 960
+    const ALTURA_FOLHA_A4_PAISAGEM_PX = 793
     const ALTURA_CABECALHO_PAGINA = 82
-    const ALTURA_TITULO_TABELA = 36
-    const ALTURA_CABECALHO_TABELA = 34
-    const ALTURA_LINHA_CITOPATOLOGICO = 38
+    const ALTURA_TITULO_TABELA = 27
+    const ALTURA_CABECALHO_TABELA = 31
+    const ALTURA_LINHA_CITOPATOLOGICO = 27
     let limiteDaPaginaUltrapassado = false
     let alturaPaginaUtilizada = ALTURA_CABECALHO_PAGINA
     let ultimaEquipe

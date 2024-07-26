@@ -1569,6 +1569,15 @@ const colunasCito=[
     width: 250
   }
 ]
+const larguraColunasCito = {
+  0 : "250px",
+  1 : "80px",
+  2 : "280px",
+  3 : "50px",
+  4 : "100px",
+  5 : "20px",
+  6 : "280px",
+}
 
 const Template = (args) => <TabelaImpressao {...args}/>
 
@@ -1577,6 +1586,8 @@ export const Citopatologico = Template.bind({});
 Citopatologico.args={
   data : dataCito,
   colunas : colunasCito,
+  lista : "CITOPATOLOGICO",
+  largura_colunas_impressao : larguraColunasCito,
   status_usuario_descricao : status_usuario_descricao,
   data_producao_mais_recente : new Date(dataCito.reduce((maisRecente, objeto) => {
     const dataAtual = new Date(objeto.dt_registro_producao_mais_recente);
