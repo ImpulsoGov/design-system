@@ -5,7 +5,7 @@ exports[`Componente: Modal deve renderizar corretamente 1`] = `
   class="ModalContainer"
   data-testid="Modal"
 >
-  <a
+  <div
     class="ModalExit"
     data-testid="ModalExit"
   />
