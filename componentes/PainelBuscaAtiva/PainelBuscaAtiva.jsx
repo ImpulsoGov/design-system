@@ -10,6 +10,7 @@ import { usePDF } from 'react-to-pdf';
 import { PersonalizacaoImpressao } from "../PersonalizacaoImpressao/PersonalizacaoImpressao";
 import { ModalAlertControlled } from "../ModalAlert/ModalAlert";
 import { filtrosAplicadosImpressao } from "./components/Impressao/helpers/filtrosAplicadosImpressao";
+import { TabelaImpressao } from "./components/Impressao/componentes/TabelaImpressao";
 
 const VALORES_AGRUPAMENTO_IMPRESSAO = { sim: "sim", nao: "não" };
 const NUMERO_DE_FILTROS_PARA_IMPRESSAO_DIRETA = 1;
@@ -19,6 +20,7 @@ const PainelBuscaAtiva = ({
     dadosFiltros,
     painel,
     lista,
+    divisorVertical,
     largura_colunas_impressao,
     setData,
     datefiltros,
@@ -33,7 +35,6 @@ const PainelBuscaAtiva = ({
     sub_aba = "",
     rowHeight = null,
     onPrintClick = () => {},
-    TabelaImpressao,
     showSnackBar,
     setShowSnackBar,
     listas_auxiliares,
@@ -73,7 +74,7 @@ const PainelBuscaAtiva = ({
     const divisao_paginas = personalizacao.separacaoGrupoPorFolha
     useEffect(()=>{
         set_filtros_aplicados_impressao(filtrosAplicadosImpressao(chavesFiltros))
-        console.log(chavesFiltros)
+        console.log(filtrosAplicadosImpressao(chavesFiltros))
     },[chavesFiltros])
     useEffect(() => {
         setDadosImpressao(tableData);
@@ -295,6 +296,7 @@ const PainelBuscaAtiva = ({
                     divisao_paginas={divisao_paginas}
                     filtros_aplicados={filtros_aplicados_impressao}
                     largura_colunas_impressao={largura_colunas_impressao}
+                    divisorVertical={divisorVertical}
                 />
             }
         </div>

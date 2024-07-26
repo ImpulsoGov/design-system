@@ -7,7 +7,7 @@ export const MultiplasEquipesPorPagina = ({
     quebrasDePaginas,
 })=>{
     return(
-        Object.keys(dadosDivididosPorEquipeComQuebraDePagina).map((registro,index)=>{
+        Object.keys(dadosDivididosPorEquipeComQuebraDePagina).sort().map((registro,index)=>{
             return( 
             <div key={registro+index}>
               { 
@@ -25,7 +25,7 @@ export const MultiplasEquipesPorPagina = ({
                 <TabelaUnitaria
                   data = {dadosDivididosPorEquipeComQuebraDePagina[registro]}
                   colunas = {tabelas.colunas}
-                  status_usuario_descricao = {tabelas.listas_auxiliares.status_usuario_descricao}
+                  listas_auxiliares = {tabelas.listas_auxiliares}
                   divisorVertical={tabelas.divisorVertical}
                   fontFamily = "Inter"
                   indexTabela={index}
