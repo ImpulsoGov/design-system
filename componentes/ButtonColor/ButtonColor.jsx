@@ -1,8 +1,8 @@
 import Link from "next/link";
 import React from "react";
 import style from "./ButtonColor.module.css";
-import PropTypes from 'prop-types';
-import cx from 'classnames';
+import PropTypes from "prop-types";
+import cx from "classnames";
 
 const ButtonColor = ({
     icone,
@@ -58,7 +58,7 @@ const ButtonColorSubmit = ({
     label,
     submit,
     arg,
-    theme,
+    theme = "ColorIP",
     icon,
     disable
 })=>{
@@ -77,7 +77,7 @@ const ButtonColorSubmitIcon = ({
     submit,
     icon,
     disable,
-    theme
+    theme = "ColorIP",
 })=>{
     return(
         <button 
@@ -95,7 +95,7 @@ const ButtonColorSubmitMobile = ({
     label,
     submit,
     arg,
-    theme
+    theme = "ColorIP",
 })=>{
     return(
         <button 
@@ -110,7 +110,7 @@ const ButtonColorSubmitMobile = ({
 const ButtonColorSubmitMultiple = ({
     label,
     submit,
-    theme
+    theme = "ColorIP",
 })=>{
     return(
         <button 
@@ -153,22 +153,6 @@ const ButtonColorSubmitLarge = ({
             {label?.toUpperCase()}
         </button>
     )
-}
-
-ButtonColorSubmit.defaultProps = {
-    theme: 'ColorIP'
-}
-
-ButtonColorSubmitMobile.defaultProps = {
-    theme: 'ColorIP'
-}
-
-ButtonColorSubmitIcon.defaultProps = {
-    theme: 'ColorIP'
-}
-
-ButtonColorSubmitMultiple.defaultProps = {
-    theme: 'ColorIP'
 }
 
 ButtonColorSubmit.propTypes = {

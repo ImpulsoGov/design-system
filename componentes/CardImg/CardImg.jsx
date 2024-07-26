@@ -4,11 +4,11 @@ import "tippy.js/themes/light.css";
 import style from "./CardImg.module.css";
 
 const CardImg = ({
-  imagemSrc,
+  imagemSrc = "",
   indicador,
   descricao,
-  height,
-  imagemStyle,
+  height = "100%",
+  imagemStyle = {},
 }) => {
   return (
     <div
@@ -38,12 +38,6 @@ const CardImg = ({
     </div>
   );
 };
-
-CardImg.defaultProps = {
-  height: "100%",
-  imagemSrc: "",
-  imagemStyle: {},
-}
 
 CardImg.propTypes = {
   height: PropTypes.oneOfType([

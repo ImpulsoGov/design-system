@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import cx from "classnames";
 import { sanitize } from "../sanitize";
 
-const ToggleList = ({ list, title, direction, icon, theme }) => {
+const ToggleList = ({ list, title, direction = "Row", icon, theme = "Light" }) => {
 
   return (
     <div
@@ -53,11 +53,6 @@ const ToggleList = ({ list, title, direction, icon, theme }) => {
       </div>
     </div>
   )
-}
-
-ToggleList.defaultProps = {
-  direction: "Row",
-  theme: "Light"
 }
 
 ToggleList.propTypes = {

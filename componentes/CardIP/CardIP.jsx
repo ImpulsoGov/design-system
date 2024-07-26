@@ -7,7 +7,7 @@ const CardIP = ({
     titulo,
     indicador,
     descricao,
-    height
+    height = "100%"
 }) => {
     return (
         <div
@@ -31,10 +31,6 @@ const CardIP = ({
         </div>
     );
 };
-
-CardIP.defaultProps = {
-    height: "100%"
-}
 
 CardIP.propTypes = {
     height: PropTypes.oneOfType([

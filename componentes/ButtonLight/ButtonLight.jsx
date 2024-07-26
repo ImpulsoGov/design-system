@@ -7,7 +7,7 @@ const ButtonLight = ({
     icone,
     label,
     link,
-    disabled
+    disabled = false
 })=>{
     return(
           <Link href={link}>
@@ -38,7 +38,7 @@ const ButtonLightMobile = ({
     icone,
     label,
     link,
-    disabled
+    disabled = false
 })=>{
     return(
         <Link
@@ -118,16 +118,8 @@ const ButtonLightSubmitMobile = ({
     )
 }
 
-ButtonLight.defaultProps = {
-    disabled: false
-}
-
 ButtonLight.propTypes = {
     disabled: PropTypes.bool,
-}
-
-ButtonLightMobile.defaultProps = {
-    disabled: false
 }
 
 ButtonLightMobile.propTypes = {

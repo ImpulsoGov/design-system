@@ -6,7 +6,7 @@ import style from "./PanelSelector.module.css";
 const PanelSelector = ({
   titles,
   list,
-  conteudo,
+  conteudo = "iframe",
   links,
   components,
   states,
@@ -101,10 +101,6 @@ const PanelSelector = ({
     </div>
   );
 };
-
-PanelSelector.defaultProps = {
-  conteudo: 'iframe'
-}
 
 
 const PanelSelectorSM = (props) => {

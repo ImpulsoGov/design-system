@@ -4,7 +4,7 @@ import styles from "./Grid12Col.module.css";
 
 const PROPORCOES_ACEITAS = ["6-6", "5-7", "7-5", "4-8", "3-9", "4-4-4", "2-5-5", "3-3-3-3", "2-2-4-4"];
 
-const Grid12Col = ({ items, proporcao }) => {
+const Grid12Col = ({ items, proporcao = "6-6" }) => {
   return (
     <div className={styles.GridContainer}>
       {items.map((item) => (
@@ -18,10 +18,6 @@ const Grid12Col = ({ items, proporcao }) => {
       ))}
     </div>
   )
-}
-
-Grid12Col.defaultProps = {
-  proporcao: "6-6"
 }
 
 Grid12Col.propTypes = {

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import styles from './Spinner.module.css';
 
-const Spinner = ({ theme, height }) => {
+const Spinner = ({ theme = 'ColorIP', height = 'fit-content' }) => {
   return (
     <div
       className={ cx(styles.SpinnerContainer, styles[`Theme${theme}`]) }
@@ -16,11 +16,6 @@ const Spinner = ({ theme, height }) => {
       />
     </div>
   );
-};
-
-Spinner.defaultProps = {
-  theme: 'ColorIP',
-  height: 'fit-content'
 };
 
 Spinner.propTypes = {

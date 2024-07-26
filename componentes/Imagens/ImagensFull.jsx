@@ -20,7 +20,7 @@ const ImagensFull = ({
 
   const ImagensFull2 = ({
     imagem,
-    width
+    width = "100%"
     }) => {
       return (
         <div className={style2.containerBanner2}>
@@ -45,9 +45,6 @@ const ImagensFull = ({
           </div>
       )};
 
-ImagensFull2.defaultProps = {
-  width: "100%"
-}
 
 ImagensFull2.propTypes = {
   width: PropTypes.oneOfType([

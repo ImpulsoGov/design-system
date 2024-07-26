@@ -14,41 +14,45 @@ const UserAvatar = (props)=>{
     )
 }
 
-const ModalLogged = (props)=>{
+const ModalLogged = ({
+    botaoAuxiliar = null,
+    label,
+    nome,
+    cargo,
+    equipe,
+    setModal = () => {},
+    logout,
+})=>{
     return(
         <div className={style.LoggedContainer}>
             <UserAvatar 
-                label = {props.label}
-                nome = {props.nome}
-                cargo = {props.cargo}
-                equipe = {props.equipe}
+                label = {label}
+                nome = {nome}
+                cargo = {cargo}
+                equipe = {equipe}
             />
 
-            {props.botaoAuxiliar &&
+            {botaoAuxiliar &&
                 <button
                     className={cx(style.Button, style.MargemComButtonAuxiliar)}
                     onClick={ () => {
-                        props.botaoAuxiliar.handelClick()
-                        props.setModal(false)
+                        botaoAuxiliar.handelClick()
+                        setModal(false)
                     }}
                 >
-                    {props.botaoAuxiliar.label}
+                    {botaoAuxiliar.label}
                 </button>
             }
 
             <button
                 className={cx(
                     style.Button,
-                    props.botaoAuxiliar ? style.MargemComButtonAuxiliar : style.MargemSemButtonAuxiliar
+                    botaoAuxiliar ? style.MargemComButtonAuxiliar : style.MargemSemButtonAuxiliar
                 )}
-                onClick={()=>props.logout()}
+                onClick={()=>logout()}
             >SAIR</button>
         </div>
     )
-}
-
-ModalLogged.defaultProps = {
-    botaoAuxiliar: null
 }
 
 ModalLogged.propTypes = {
