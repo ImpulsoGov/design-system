@@ -2,9 +2,6 @@ import React, { useEffect, useState } from "react";
 import style from "./ToolBar.module.css";
 import { ButtonLightSubmit } from "../../../ButtonLight/ButtonLight";
 import { ButtonColorSubmitIcon } from "../../../ButtonColor/ButtonColor";
-import Tippy from "@tippyjs/react";
-import "./tippy_theme.css";
-import 'tippy.js/dist/svg-arrow.css';
 
 export const ToolBar = ({
   showFiltros,
@@ -54,20 +51,11 @@ export const ToolBar = ({
         icon={chavesFiltros.length>0 ? "https://media.graphassets.com/1rnUv5WSTKmCHnvqciuW" : "https://media.graphassets.com/1WHJsCigTXyJbq7Tw47m"}
       />
 
-      <Tippy
-        content={ "O número de pacientes na lista é muito grande, aplique algum filtro para que o carregamento da impressão seja mais rápido" }
-        placement="bottom"
-        theme="alert"
-        arrow={true}
-      >
-        <div>
-          <ButtonColorSubmitIcon
-            label="IMPRIMIR LISTA"
-            icon="https://media.graphassets.com/3vsKrZXYT9CdxSSyhjhk"
-            submit={handlePrintClick}
-          />
-        </div>
-      </Tippy>
+      <ButtonColorSubmitIcon
+        label="IMPRIMIR LISTA"
+        icon="https://media.graphassets.com/3vsKrZXYT9CdxSSyhjhk"
+        submit={handlePrintClick}
+      />
     </div>
   )
 }
