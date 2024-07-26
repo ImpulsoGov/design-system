@@ -109,7 +109,20 @@ export const TabelaUnitaria = ({ data, colunas, listas_auxiliares, fontFamily = 
                       />
                     }
                     {
-                      coluna.field!="id_status_usuario" && coluna.field!="prazo_proxima_coleta" && item[coluna.field]
+                      coluna.field!="id_status_usuario"
+                      && coluna.field!="prazo_proxima_coleta"
+                      && coluna.field!="prazo_proxima_afericao_pa"
+                      && coluna.field!="prazo_proxima_consulta"
+                      && coluna.field!="prazo_proxima_solicitacao_hemoglobina"
+                      && coluna.field!="gestacao_idade_gestacional_primeiro_atendimento"
+                      && coluna.field!="consultas_pre_natal_validas"
+                      && coluna.field!="dt_consulta_mais_recente"
+                      && coluna.field!="dt_afericao_pressao_mais_recente"
+                      && coluna.field!="dt_solicitacao_hemoglobina_glicada_mais_recente"
+                      && coluna.field!="gestacao_data_dpp"
+                      && coluna.field!="id_exame_hiv_sifilis"
+                      && coluna.field!="id_atendimento_odontologico"
+                      && item[coluna.field]
                     }
                     </td>
                 ))}
