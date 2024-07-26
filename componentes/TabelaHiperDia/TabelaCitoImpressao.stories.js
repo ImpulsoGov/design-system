@@ -1587,6 +1587,7 @@ Citopatologico.args={
   data : dataCito,
   colunas : colunasCito,
   lista : "CITOPATOLOGICO",
+  divisorVertical : [1,4],
   largura_colunas_impressao : larguraColunasCito,
   status_usuario_descricao : status_usuario_descricao,
   data_producao_mais_recente : new Date(dataCito.reduce((maisRecente, objeto) => {

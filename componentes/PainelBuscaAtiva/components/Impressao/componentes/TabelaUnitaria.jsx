@@ -26,13 +26,13 @@ export const TabelaUnitaria = ({ data, colunas, listas_auxiliares, fontFamily = 
               }}>
               {colunas.map((coluna,index) => (
                 <th style={{
-                  padding : (index == 0 || index ==2) ? "5px 5px 5px 13px" : "5px",
+                  padding : [...divisorVertical.map(item=>item+1),0].includes(index) ? "5px 5px 5px 12px" : "5px",
                   width: larguraColunas[index],
                   borderTopLeftRadius: index!=0 ? "0" : "8px",
                   borderBottomLeftRadius: index!=0 ? "0" : "8px",
                   borderTopRightRadius: index!=6 ? "0" : "8px",
                   borderBottomRightRadius: index!=6 ? "0" : "8px",
-                  borderRight : index== 1 || index== 4 ? "solid 1px black" : "",
+                  borderRight : divisorVertical.includes(index) ? "solid 1px black" : "",
                   textAlign: "left",
                   boxSizing : "border-box"
                 }} key={coluna.headerName+index}>{coluna.headerName}</th>
@@ -55,8 +55,8 @@ export const TabelaUnitaria = ({ data, colunas, listas_auxiliares, fontFamily = 
                           alignItems : "center",
                           textAlign: "left",
                           width: larguraColunas[index],
-                          padding : index == 2 || index==0 || index==5 ? "4px 4px 4px 12px" : "4px",
-                          borderRight: (index== 1 || index== 4) ? "solid 1px black" : "",
+                          padding : [...divisorVertical.map(item=>item+1),0].includes(index) ? "4px 4px 4px 12px" : "4px",
+                          borderRight: divisorVertical.includes(index) ? "solid 1px black" : "",
                           boxSizing : "border-box"
                       }}
                   >
