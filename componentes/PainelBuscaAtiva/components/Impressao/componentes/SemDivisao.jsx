@@ -24,7 +24,7 @@ export const SemDivisao =({
                 <TabelaUnitaria
                   data = {page}
                   colunas = {tabelas.colunas}
-                  status_usuario_descricao = {tabelas.listas_auxiliares.status_usuario_descricao}
+                  listas_auxiliares = {tabelas.listas_auxiliares}
                   divisorVertical={tabelas.divisorVertical}
                   fontFamily = "Inter"
                   indexTabela={0}
