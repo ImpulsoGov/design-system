@@ -4,11 +4,11 @@ export function ordenarEquipes(atual, seguinte) {
   const valorAtualMaiusculo = String(atual).toUpperCase() ?? "";
   const valorSeguinteMaiusculo = String(seguinte).toUpperCase() ?? "";
 
-  if (valorSeguinteMaiusculo === ULTIMA_EQUIPE) {
+  if (valorSeguinteMaiusculo.includes(ULTIMA_EQUIPE)) {
     return -1
   }
 
-  if (valorAtualMaiusculo === ULTIMA_EQUIPE) {
+  if (valorAtualMaiusculo.includes(ULTIMA_EQUIPE)) {
     return 1;
   }
 

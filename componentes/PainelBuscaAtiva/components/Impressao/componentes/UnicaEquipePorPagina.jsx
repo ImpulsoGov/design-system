@@ -1,3 +1,4 @@
+import { ordenarEquipes } from "../helpers/ordenarEquipes";
 import { CabecalhoPagina } from "./CabecalhoPagina"
 import { TabelaUnitaria } from "./TabelaUnitaria"
 
@@ -8,7 +9,7 @@ export const UnicaEquipePorPagina = ({
     quebrasDePaginasEquipe,
 })=>{
     return(
-        Object.keys(EquipesPorPagina).sort().map((registro,index)=>{
+        Object.keys(EquipesPorPagina).sort(ordenarEquipes).map((registro,index)=>{
             return( 
             <>
               <div 
