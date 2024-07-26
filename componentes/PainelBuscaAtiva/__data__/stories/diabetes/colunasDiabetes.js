@@ -44,7 +44,7 @@ export const colunasDiabetes=[
     },
     {
       align: 'center',
-      field: 'prazo_proxima_afericao_pa',
+      field: 'prazo_proxima_solicitacao_hemoglobina',
       headerAlign: 'center',
       headerName: 'PRAZO PARA PRÓXIMA SOLICITAÇÃO DE HEMOGLOBINA GLICADA',
       renderCell: function noRefCheck() {},
