@@ -48,6 +48,14 @@ export const colunasCito=[
     },
     {
       align: 'center',
+      field: 'equipe_nome',
+      headerAlign: 'center',
+      headerName: 'EQUIPE',
+      width: 250,
+      sortable : false
+    },
+    {
+      align: 'center',
       field: 'acs_nome',
       headerAlign: 'center',
       headerName: 'Profissional Responsável',
