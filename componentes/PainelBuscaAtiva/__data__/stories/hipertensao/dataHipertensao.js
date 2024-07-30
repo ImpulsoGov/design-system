@@ -3,13 +3,14 @@ export const dataHipertensao=[
         "cidadao_nome": "DAVIDSON MUSTAFA ZEHED",
         "cidadao_cpf": "32702133878",
         "identificacao_condicao_hipertensao": "Autorreferida",
-        "dt_consulta_mais_recente": "2020-09-23",
+        "dt_consulta_mais_recente": null,
         "prazo_proxima_consulta": "Até 31/Agosto",
         "dt_afericao_pressao_mais_recente": null,
         "prazo_proxima_afericao_pa": "Até 31/Agosto",
         "acs_nome_cadastro": "Fernanda Soares Ferreira",
         "equipe_ine_cadastro": "0001540971",
-        "equipe_nome_cadastro": "ESF GOIANA"
+        "equipe_nome_cadastro": "ESF GOIANA",
+        "cidadao_idade": 47
     },
     {
         "cidadao_nome": "JOSE GALDINO ALVES DA PAZ",
@@ -21,7 +22,8 @@ export const dataHipertensao=[
         "prazo_proxima_afericao_pa": "Em dia",
         "acs_nome_cadastro": "Fabiana Matias de Oliveira",
         "equipe_ine_cadastro": "0001540971",
-        "equipe_nome_cadastro": "ESF GOIANA"
+        "equipe_nome_cadastro": "ESF GOIANA",
+        "cidadao_idade": 47
     },
     {
         "cidadao_nome": "ACSA DOS SANTOS LOPES",
@@ -33,7 +35,8 @@ export const dataHipertensao=[
         "prazo_proxima_afericao_pa": "Até 31/Agosto",
         "acs_nome_cadastro": "Thais Jensen",
         "equipe_ine_cadastro": "0001540971",
-        "equipe_nome_cadastro": "ESF GOIANA"
+        "equipe_nome_cadastro": "ESF GOIANA",
+        "cidadao_idade": 47
     },
     {
         "cidadao_nome": "ANA PAULA DA SILVA SOARES",
@@ -45,7 +48,8 @@ export const dataHipertensao=[
         "prazo_proxima_afericao_pa": "Até 31/Agosto",
         "acs_nome_cadastro": "Fernanda Soares Ferreira",
         "equipe_ine_cadastro": "0001540971",
-        "equipe_nome_cadastro": "ESF GOIANA"
+        "equipe_nome_cadastro": "ESF GOIANA",
+        "cidadao_idade": 47
     },
     {
         "cidadao_nome": "APARECIDA VANESSA DO AMARAL",
@@ -57,7 +61,8 @@ export const dataHipertensao=[
         "prazo_proxima_afericao_pa": "Até 31/Agosto",
         "acs_nome_cadastro": "Marco Alberto Costa Santi",
         "equipe_ine_cadastro": "0001540971",
-        "equipe_nome_cadastro": "ESF GOIANA"
+        "equipe_nome_cadastro": "ESF GOIANA",
+        "cidadao_idade": 47
     },
     {
         "cidadao_nome": "CLAUDINEI DO ROSARIO",
@@ -69,7 +74,8 @@ export const dataHipertensao=[
         "prazo_proxima_afericao_pa": "Até 31/Agosto",
         "acs_nome_cadastro": "Marco Alberto Costa Santi",
         "equipe_ine_cadastro": "0001540971",
-        "equipe_nome_cadastro": "ESF GOIANA"
+        "equipe_nome_cadastro": "ESF GOIANA",
+        "cidadao_idade": 47
     },
     {
         "cidadao_nome": "CRISTIANE DELGADO SEMO",
@@ -81,7 +87,8 @@ export const dataHipertensao=[
         "prazo_proxima_afericao_pa": "Até 31/Agosto",
         "acs_nome_cadastro": "Fernanda Soares Ferreira",
         "equipe_ine_cadastro": "0001540971",
-        "equipe_nome_cadastro": "ESF GOIANA"
+        "equipe_nome_cadastro": "ESF GOIANA",
+        "cidadao_idade": 47
     },
     {
         "cidadao_nome": "DEBORA CAROLINA SOUZA",
@@ -93,7 +100,8 @@ export const dataHipertensao=[
         "prazo_proxima_afericao_pa": "Em dia",
         "acs_nome_cadastro": "Marco Alberto Costa Santi",
         "equipe_ine_cadastro": "0001540971",
-        "equipe_nome_cadastro": "ESF GOIANA"
+        "equipe_nome_cadastro": "ESF GOIANA",
+        "cidadao_idade": 47
     },
     {
         "cidadao_nome": "FAUSTINO DA COSTA JUNIOR",
@@ -105,7 +113,8 @@ export const dataHipertensao=[
         "prazo_proxima_afericao_pa": "Até 31/Agosto",
         "acs_nome_cadastro": "Fernanda Soares Ferreira",
         "equipe_ine_cadastro": "0001540971",
-        "equipe_nome_cadastro": "ESF GOIANA"
+        "equipe_nome_cadastro": "ESF GOIANA",
+        "cidadao_idade": 47
     },
     {
         "cidadao_nome": "FRANCIELE DE DEUS BOA VENTURA",
@@ -117,7 +126,8 @@ export const dataHipertensao=[
         "prazo_proxima_afericao_pa": "Até 31/Agosto",
         "acs_nome_cadastro": "Raquel Nascimento da Silva",
         "equipe_ine_cadastro": "0001540971",
-        "equipe_nome_cadastro": "ESF GOIANA"
+        "equipe_nome_cadastro": "ESF GOIANA",
+        "cidadao_idade": 47
     },
     {
         "cidadao_nome": "GABRIEL DE ALMEIDA FERNANDES",
@@ -129,7 +139,8 @@ export const dataHipertensao=[
         "prazo_proxima_afericao_pa": "Até 31/Agosto",
         "acs_nome_cadastro": "Fernanda Soares Ferreira",
         "equipe_ine_cadastro": "0001540971",
-        "equipe_nome_cadastro": "ESF GOIANA"
+        "equipe_nome_cadastro": "SEM EQUIPE RESPONSÁVEL",
+        "cidadao_idade": 47
     },
   ]
   
