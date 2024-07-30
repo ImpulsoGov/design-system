@@ -8,7 +8,7 @@ export const dadosFiltrosDiabetes = [
     {
       rotulo : "Filtrar por nome da equipe",
       data :  ["equipe sol","equipe lua","equipe estrela"],
-      filtro : "nome_equipe"
+      filtro : "equipe_nome_cadastro"
     },
     {
       rotulo : "Filtrar por INE da equipe",

@@ -7,7 +7,9 @@ export const dataDiabetes=[
       "prazo_proxima_consulta": "Até 31/Agosto",
       "dt_solicitacao_hemoglobina_glicada_mais_recente": null,
       "prazo_proxima_solicitacao_hemoglobina": "Até 31/Agosto",
-      "acs_nome_cadastro": "Soraia"
+      "acs_nome_cadastro": "Soraia",
+      "cidadao_idade": 35,
+      "equipe_nome_cadastro": "equipe estrela"
     },
     {
       "cidadao_nome": "DESUITA JANSEN",
@@ -17,7 +19,9 @@ export const dataDiabetes=[
       "prazo_proxima_consulta": "Até 31/Agosto",
       "dt_solicitacao_hemoglobina_glicada_mais_recente": null,
       "prazo_proxima_solicitacao_hemoglobina": "Até 31/Agosto",
-      "acs_nome_cadastro": "Samira"
+      "acs_nome_cadastro": "Samira",
+      "cidadao_idade": 35,
+      "equipe_nome_cadastro": "equipe estrela"
     },
     {
       "cidadao_nome": "EDMILSON CASTRO SILVA",
@@ -27,7 +31,9 @@ export const dataDiabetes=[
       "prazo_proxima_consulta": "Em dia",
       "dt_solicitacao_hemoglobina_glicada_mais_recente": "2023-03-15",
       "prazo_proxima_solicitacao_hemoglobina": "Em dia",
-      "acs_nome_cadastro": "Karliane Cunha Gomes"
+      "acs_nome_cadastro": "Karliane Cunha Gomes",
+      "cidadao_idade": 35,
+      "equipe_nome_cadastro": "equipe estrela"
     },
     {
       "cidadao_nome": "GILMARA MACHADO SANTOS",
@@ -37,7 +43,9 @@ export const dataDiabetes=[
       "prazo_proxima_consulta": "Até 31/Agosto",
       "dt_solicitacao_hemoglobina_glicada_mais_recente": null,
       "prazo_proxima_solicitacao_hemoglobina": "Até 31/Agosto",
-      "acs_nome_cadastro": "Genilson Nascimento Lindoso"
+      "acs_nome_cadastro": "Genilson Nascimento Lindoso",
+      "cidadao_idade": 35,
+      "equipe_nome_cadastro": "equipe lua"
     },
     {
       "cidadao_nome": "JOAO PEDRO MENDES",
@@ -47,7 +55,9 @@ export const dataDiabetes=[
       "prazo_proxima_consulta": "Até 31/Agosto",
       "dt_solicitacao_hemoglobina_glicada_mais_recente": null,
       "prazo_proxima_solicitacao_hemoglobina": "Até 31/Agosto",
-      "acs_nome_cadastro": "Nerita Maia Travassos"
+      "acs_nome_cadastro": "Nerita Maia Travassos",
+      "cidadao_idade": 35,
+      "equipe_nome_cadastro": "equipe lua"
     },
     {
       "cidadao_nome": "JOSE ROBERTO PINHEIRO CAMARA",
@@ -57,7 +67,9 @@ export const dataDiabetes=[
       "prazo_proxima_consulta": "Até 31/Agosto",
       "dt_solicitacao_hemoglobina_glicada_mais_recente": null,
       "prazo_proxima_solicitacao_hemoglobina": "Até 31/Agosto",
-      "acs_nome_cadastro": "Ines Pinheiro Costa"
+      "acs_nome_cadastro": "Ines Pinheiro Costa",
+      "cidadao_idade": 35,
+      "equipe_nome_cadastro": "equipe lua"
     },
     {
       "cidadao_nome": "RAIMUNDA COSTA DOS SANTOS",
@@ -67,7 +79,9 @@ export const dataDiabetes=[
       "prazo_proxima_consulta": "Até 31/Agosto",
       "dt_solicitacao_hemoglobina_glicada_mais_recente": "2022-09-05",
       "prazo_proxima_solicitacao_hemoglobina": "Até 31/Agosto",
-      "acs_nome_cadastro": "Ana Lucia Correa"
+      "acs_nome_cadastro": "Ana Lucia Correa",
+      "cidadao_idade": 35,
+      "equipe_nome_cadastro": "equipe sol"
     },
     {
       "cidadao_nome": "ADRIEL ARAUJO MENDONCA",
@@ -77,7 +91,9 @@ export const dataDiabetes=[
       "prazo_proxima_consulta": "Até 31/Agosto",
       "dt_solicitacao_hemoglobina_glicada_mais_recente": null,
       "prazo_proxima_solicitacao_hemoglobina": "Até 31/Agosto",
-      "acs_nome_cadastro": "Joao Gutemberg Pereira Soeiro"
+      "acs_nome_cadastro": "Joao Gutemberg Pereira Soeiro",
+      "cidadao_idade": 35,
+      "equipe_nome_cadastro": "equipe sol"
     },
     {
       "cidadao_nome": "ALEXANDRINA MATA MAIA",
@@ -87,6 +103,8 @@ export const dataDiabetes=[
       "prazo_proxima_consulta": "Até 31/Agosto",
       "dt_solicitacao_hemoglobina_glicada_mais_recente": "2021-08-24",
       "prazo_proxima_solicitacao_hemoglobina": "Até 31/Agosto",
-      "acs_nome_cadastro": "Raimundo Rosa Barros"
+      "acs_nome_cadastro": "Raimundo Rosa Barros",
+      "cidadao_idade": 35,
+      "equipe_nome_cadastro": "equipe sol"
     },
   ]
