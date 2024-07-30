@@ -1,5 +1,4 @@
-import { PrazoStyle } from "../../../components/Impressao/componentes/auxiliares/PrazoStyle";
-import { StatusDataConsulta } from "../../../components/Impressao/componentes/auxiliares/StatusDataConsulta";
+import { StatusEsquema } from "../../../components/Impressao/componentes/auxiliares/StatusEsquema";
 
 export const colunasVacinacao=[
   {
@@ -7,7 +6,7 @@ export const colunasVacinacao=[
     field: 'cidadao_nome',
     headerAlign: 'center',
     headerName: 'NOME DA CRIANÇA',
-    width: 320,
+    width: 240,
     sortable : false,
     showOnPrint: true
     // renderCell : formatar_nome,
@@ -17,7 +16,7 @@ export const colunasVacinacao=[
     field: 'cidadao_cpf_dt_nascimento',
     headerName: 'CPF / DATA DE NASCIMENTO',
     align: 'center',
-    width: 140,
+    width: 120,
     sortable : false,
     showOnPrint: true
     // renderCell : cpf_style,
@@ -28,7 +27,7 @@ export const colunasVacinacao=[
     headerAlign: 'center',
     headerName: 'IDADE (MESES)',
     // renderCell : idade_style,
-    width: 100,
+    width: 80,
     sortable : false,
     showOnPrint: true
   },
@@ -37,10 +36,10 @@ export const colunasVacinacao=[
     field: 'id_status_polio',
     headerAlign: 'center',
     headerName: 'STATUS DO ESQUEMA POLIOMIELITE',
-    width: 120,
+    width: 160,
     sortable : false,
-    showOnPrint: true
-    // renderCell : STYLE_STATUS_POLIO
+    showOnPrint: true,
+    renderCell : StatusEsquema
   },
   {
     align: 'center',
@@ -91,10 +90,10 @@ export const colunasVacinacao=[
       field: 'id_status_penta',
       headerAlign: 'center',
       headerName: 'STATUS DO ESQUEMA PENTAVALENTE',
-      width: 120,
+      width: 160,
       sortable : false,
-      showOnPrint: true
-      // renderCell : STYLE_STATUS_PENTA
+      showOnPrint: true,
+      renderCell : StatusEsquema
   },
   {
     align: 'center',
@@ -146,7 +145,7 @@ export const colunasVacinacao=[
     headerAlign: 'center',
     headerName: 'NOME DO RESPONSÁVEL FAMILIAR',
     align : 'center',
-    width: 320,
+    width: 300,
     sortable : false,
     showOnPrint: true
   },

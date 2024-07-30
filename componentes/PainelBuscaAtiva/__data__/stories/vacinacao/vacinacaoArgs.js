@@ -6,6 +6,8 @@ import { IDFiltrosVacinacao } from "./IDFiltrosVacinacao"
 import { rotulosfiltrosVacinacao } from "./rotulosfiltrosVacinacao"
 import { IDFiltrosOrdenacaoVacinacao } from "./IDFiltrosOrdenacaoVacinacao"
 import { larguraColunasVacinacao } from "./larguraColunasVacinacao"
+import { intFiltrosVacinacao } from "./intFiltrosVacinacao";
+
 
 export const vacinacaoArgs = {
     painel : "aps",
@@ -18,6 +20,7 @@ export const vacinacaoArgs = {
         data : dataVacinacao
     },
     datefiltros : datefiltrosVacinacao,
+    IntFiltros: intFiltrosVacinacao,
     IDFiltros : IDFiltrosVacinacao,
     rotulosfiltros : rotulosfiltrosVacinacao,
     IDFiltrosOrdenacao : IDFiltrosOrdenacaoVacinacao,
