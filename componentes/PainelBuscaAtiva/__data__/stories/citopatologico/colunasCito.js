@@ -5,6 +5,7 @@ export const colunasCito=[
     {
       align: 'left',
       field: 'paciente_nome',
+      showOnPrint: true,
       headerAlign: 'center',
       headerName: 'NOME',
       width: 320
@@ -12,6 +13,7 @@ export const colunasCito=[
     {
       align: 'center',
       field: 'cidadao_cpf_dt_nascimento',
+      showOnPrint: true,
       headerAlign: 'center',
       headerName: 'CPF / DATA DE NASCIMENTO',
       width: 140
@@ -19,6 +21,7 @@ export const colunasCito=[
     {
       align: 'center',
       field: 'id_status_usuario',
+      showOnPrint: true,
       headerAlign: 'center',
       headerName: 'STATUS DA COLETA',
       renderCell : selecionar_status_usuario_descricao,
@@ -27,6 +30,7 @@ export const colunasCito=[
     {
       align: 'center',
       field: 'vencimento_da_coleta',
+      showOnPrint: true,
       headerAlign: 'center',
       headerName: 'VENCIMENTO DA COLETA',
       width: 100
@@ -34,6 +38,7 @@ export const colunasCito=[
     {
       align: 'center',
       field: 'prazo_proxima_coleta',
+      showOnPrint: true,
       headerAlign: 'center',
       headerName: 'PRAZO PARA PRÓXIMA COLETA',
       renderCell: PrazoStyle,
@@ -42,6 +47,7 @@ export const colunasCito=[
     {
       align: 'center',
       field: 'idade',
+      showOnPrint: true,
       headerAlign: 'center',
       headerName: 'IDADE',
       width: 80
@@ -49,6 +55,7 @@ export const colunasCito=[
     {
       align: 'center',
       field: 'equipe_nome',
+      showOnPrint: true,
       headerAlign: 'center',
       headerName: 'EQUIPE',
       width: 250,
@@ -57,6 +64,7 @@ export const colunasCito=[
     {
       align: 'center',
       field: 'acs_nome',
+      showOnPrint: true,
       headerAlign: 'center',
       headerName: 'Profissional Responsável',
       width: 250

@@ -5,6 +5,7 @@ export const colunasHipertensao=[
   {
     align: 'left',
     field: 'cidadao_nome',
+    showOnPrint: true,
     headerAlign: 'center',
     headerName: 'NOME',
     // renderCell: formatar_nome,
@@ -14,6 +15,7 @@ export const colunasHipertensao=[
   {
     align: 'center',
     field: 'cidadao_cpf',
+    showOnPrint: true,
     headerAlign: 'center',
     headerName: 'CPF/DATA DE NASCIMENTO',
     // renderCell: FormatarDataNascimento,
@@ -23,6 +25,7 @@ export const colunasHipertensao=[
   {
     align: 'center',
     field: 'identificacao_condicao_hipertensao',
+    showOnPrint: true,
     headerAlign: 'center',
     headerName: 'TIPO DE DIAGNÓSTICO',
     width: 150,
@@ -31,6 +34,7 @@ export const colunasHipertensao=[
   {
     align: 'center',
     field: 'cidadao_idade',
+    showOnPrint: true,
     headerAlign: 'center',
     headerName: 'IDADE (ANOS)',
     width: 70,
@@ -39,6 +43,7 @@ export const colunasHipertensao=[
   {
     align: 'center',
     field: 'dt_consulta_mais_recente',
+    showOnPrint: true,
     headerAlign: 'center',
     headerName: 'DATA DA ÚLTIMA CONSULTA',
     renderCell: StatusDataConsulta,
@@ -48,6 +53,7 @@ export const colunasHipertensao=[
   {
     align: 'center',
     field: 'prazo_proxima_consulta',
+    showOnPrint: true,
     headerAlign: 'center',
     headerName: 'PRAZO PARA PRÓXIMA CONSULTA',
     renderCell: PrazoStyle,
@@ -57,6 +63,7 @@ export const colunasHipertensao=[
   {
     align: 'center',
     field: 'dt_afericao_pressao_mais_recente',
+    showOnPrint: true,
     headerAlign: 'center',
     headerName: 'DATA DA ÚLTIMA AFERIÇÃO DE PA',
     renderCell: StatusDataConsulta,
@@ -66,6 +73,7 @@ export const colunasHipertensao=[
   {
     align: 'center',
     field: 'prazo_proxima_afericao_pa',
+    showOnPrint: true,
     headerAlign: 'center',
     headerName: 'PRAZO PARA PRÓXIMA AFERIÇÃO DE PA',
     renderCell: PrazoStyle,
@@ -75,6 +83,7 @@ export const colunasHipertensao=[
   {
     align: 'center',
     field: 'equipe_nome_cadastro',
+    showOnPrint: true,
     headerAlign: 'center',
     headerName: 'EQUIPE',
     width: 250,
@@ -83,6 +92,7 @@ export const colunasHipertensao=[
   {
     align: 'center',
     field: 'acs_nome_cadastro',
+    showOnPrint: true,
     headerAlign: 'center',
     headerName: 'PROFISSIONAL RESPONSÁVEL',
     width: 250,
