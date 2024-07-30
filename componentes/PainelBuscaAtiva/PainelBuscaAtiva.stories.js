@@ -6,6 +6,7 @@ import { dataHipertensao } from './__data__/stories/hipertensao/dataHipertensao'
 import { CitoArgs } from './__data__/stories/citopatologico/CitoArgs';
 import { DiabetesArgs } from './__data__/stories/diabetes/DiabetesArgs';
 import { HipertensaoArgs } from './__data__/stories/hipertensao/HipertensaoArgs';
+import { vacinacaoArgs } from './__data__/stories/vacinacao/vacinacaoArgs';
 
 export default {
   title: "Componentes/PainelBuscaAtiva",
@@ -40,3 +41,5 @@ export const Hipertensao = Template.bind({});
 Hipertensao.args=HipertensaoArgs
 export const Cito = Template.bind({});
 Cito.args=CitoArgs
+export const Vacinacao = Template.bind({});
+Vacinacao.args = vacinacaoArgs

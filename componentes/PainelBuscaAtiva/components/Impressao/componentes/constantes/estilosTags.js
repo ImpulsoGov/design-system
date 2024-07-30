@@ -11,6 +11,20 @@ export const tagCinzaComIcone = {
   color: "#606E78",
 };
 
+export const tagCinzaPreenchidaComIcone = {
+  backgroundColor: "#EFF5F9",
+  border: "1px solid #A6B5BE",
+  color: "#606E78",
+  borderRadius: "5px",
+  fontWeight: 550,
+  display: "flex",
+  gap: "5px",
+  alignItems: "center",
+  justifyContent: "center",
+  padding: "3px",
+  width: "90%",
+};
+
 export const tagVerdeSemIcone = {
   backgroundColor: "#E7FBF3",
   border: "1px solid #1D856C",

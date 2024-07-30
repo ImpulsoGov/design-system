@@ -1,11 +1,13 @@
+import { DatasDoses } from "./auxiliares/DatasDoses";
 import { PrazoStyle } from "./auxiliares/PrazoStyle";
 import { Selecionar_status_usuario_descricao } from "./auxiliares/Selecionar_status_usuario_descricao";
-import { StatusDataConsulta } from "./auxiliares/StatusDataConsulta";
-import { StatusIdadeGestacional } from "./auxiliares/StatusIdadeGestacional";
-import { StatusExameSifilisHIV } from "./auxiliares/StatusExameSifilisHIV";
-import { StatusTotalConsultasValidas } from "./auxiliares/StatusTotalConsultasValidas";
 import { StatusAtendimentoOdontologico } from "./auxiliares/StatusAtendimentoOdontologico";
+import { StatusDataConsulta } from "./auxiliares/StatusDataConsulta";
 import { StatusDDP } from "./auxiliares/StatusDDP";
+import { StatusExameSifilisHIV } from "./auxiliares/StatusExameSifilisHIV";
+import { StatusIdadeGestacional } from "./auxiliares/StatusIdadeGestacional";
+import { StatusEsquema } from "./auxiliares/StatusEsquema";
+import { StatusTotalConsultasValidas } from "./auxiliares/StatusTotalConsultasValidas";
 
 export const TabelaUnitaria = ({ data, colunas, listas_auxiliares, fontFamily = "Inter", divisorVertical , larguraColunas}) => {
     return (
@@ -24,7 +26,7 @@ export const TabelaUnitaria = ({ data, colunas, listas_auxiliares, fontFamily = 
             <tr style={{
                   backgroundColor: "#E7E7E7",
               }}>
-              {colunas.map((coluna,index) => (
+              {colunas.map((coluna,index) => coluna.showOnPrint && (
                 <th style={{
                   padding : [...divisorVertical.map(item=>item+1),0].includes(index) ? "5px 5px 5px 12px" : "5px",
                   width: larguraColunas[index],
@@ -47,7 +49,7 @@ export const TabelaUnitaria = ({ data, colunas, listas_auxiliares, fontFamily = 
                       borderBottom: "solid 1px black",
                   }}
               >
-                {colunas.map((coluna,index) => (
+                {colunas.map((coluna,index) => coluna.showOnPrint && (
                   <td 
                       key={`${item.id}-${coluna}-${index}`}
                       style={{
@@ -109,6 +111,18 @@ export const TabelaUnitaria = ({ data, colunas, listas_auxiliares, fontFamily = 
                       />
                     }
                     {
+                      coluna.field === "datas_doses_penta" && <DatasDoses value={item[coluna.field]} />
+                    }
+                    {
+                      coluna.field === "datas_doses_polio" && <DatasDoses value={item[coluna.field]} />
+                    }
+                    {
+                      coluna.field === "id_status_polio" && <StatusEsquema value={item[coluna.field]} />
+                    }
+                    {
+                      coluna.field === "id_status_penta" && <StatusEsquema value={item[coluna.field]} />
+                    }
+                    {
                       coluna.field!="id_status_usuario"
                       && coluna.field!="prazo_proxima_coleta"
                       && coluna.field!="prazo_proxima_afericao_pa"
@@ -122,6 +136,10 @@ export const TabelaUnitaria = ({ data, colunas, listas_auxiliares, fontFamily = 
                       && coluna.field!="gestacao_data_dpp"
                       && coluna.field!="id_exame_hiv_sifilis"
                       && coluna.field!="id_atendimento_odontologico"
+                      && coluna.field!="datas_doses_penta"
+                      && coluna.field!="datas_doses_polio"
+                      && coluna.field!="id_status_polio"
+                      && coluna.field!="id_status_penta"
                       && item[coluna.field]
                     }
                     </td>
