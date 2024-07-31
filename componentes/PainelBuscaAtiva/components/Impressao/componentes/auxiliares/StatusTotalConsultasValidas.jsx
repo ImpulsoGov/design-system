@@ -10,8 +10,11 @@ const STYLE = {
 }
 
 export const StatusTotalConsultasValidas = ({values})=> {
-
   const colorCode = useMemo(() => {
+    if(!values.consultas_pre_natal_validas) {
+      return 0;
+    }
+
     if(
       values.gestacao_idade_gestacional_primeiro_atendimento <= 12
       && values.consultas_pre_natal_validas <= 5
@@ -28,10 +31,6 @@ export const StatusTotalConsultasValidas = ({values})=> {
       && values.consultas_pre_natal_validas >= 6
     ) {
       return 3;
-    }
-
-    if(!values.consultas_pre_natal_validas) {
-      return 0;
     }
   }, [values]);
 
