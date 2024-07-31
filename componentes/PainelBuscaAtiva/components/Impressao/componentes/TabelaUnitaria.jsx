@@ -82,9 +82,12 @@ export const TabelaUnitaria = ({ data, colunas, listas_auxiliares, fontFamily = 
                       coluna.field === "gestacao_idade_gestacional_primeiro_atendimento" && <StatusIdadeGestacional value={item[coluna.field]} />
                     }
                     {
+                      coluna.field === "gestacao_idade_gestacional_atual" && <StatusIdadeGestacional value={item.gestacao_idade_gestacional_primeiro_atendimento} />
+                    }
+                    {
                       coluna.field === "consultas_pre_natal_validas" && <StatusTotalConsultasValidas values={{
-                        gestacao_idade_gestacional_primeiro_atendimento,
-                        consultas_pre_natal_validas,
+                        gestacao_idade_gestacional_primeiro_atendimento: item.gestacao_idade_gestacional_primeiro_atendimento,
+                        consultas_pre_natal_validas: item[coluna.field],
                       }} />
                     }
                     {
@@ -145,6 +148,7 @@ export const TabelaUnitaria = ({ data, colunas, listas_auxiliares, fontFamily = 
                       && coluna.field!="id_status_polio"
                       && coluna.field!="id_status_penta"
                       && coluna.field!="id_registro_parto"
+                      && coluna.field!="gestacao_idade_gestacional_atual"
                       && item[coluna.field]
                     }
                     </td>

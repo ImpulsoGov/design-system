@@ -59,7 +59,7 @@ export const tagNulaSemIcone = {
   padding: "3px",
   width: "90%",
   color: '#1F1F1F',
-  backgroundColor: '#FFF',
+  backgroundColor: '#EFF5F9',
   textAlign: 'center',
   display: "flex",
   alignItems: "center",
@@ -117,6 +117,6 @@ export const tagNulaComIcone = {
   padding: "3px",
   width: "90%",
   color: '#1F1F1F',
-  backgroundColor: '#FFF',
+  backgroundColor: '#EFF5F9',
   borderRadius: "5px",
 };
