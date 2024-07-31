@@ -1,5 +1,5 @@
 import { StatusDDP } from "../../../../components/Impressao/componentes/auxiliares/StatusDDP";
-import { formatarCPFOuDataNascimento } from "../../../../components/Impressao/helpers/formatarCPF";
+import { formatarCPFOuDataNascimento, formatarDataNascimento } from "../../../../components/Impressao/helpers/formatarCPF";
 
 export const colunasSemDum = [
   {
@@ -8,7 +8,6 @@ export const colunasSemDum = [
     showOnPrint: true,
     headerAlign: 'center',
     headerName: 'NOME',
-    // renderCell : formatar_nome,
     width: 320,
     sortable: false
   },
@@ -39,7 +38,6 @@ export const colunasSemDum = [
     headerName: 'IG (1ª CONSULTA)',
     width: 90,
     sortable: false,
-    // renderCell : StatusIdadeGestacional,
 
   },
   {
@@ -50,7 +48,6 @@ export const colunasSemDum = [
     headerName: 'IG ATUAL',
     width: 65,
     sortable: false,
-    // renderCell : IG_ATUAL_STYLE
   },
   {
     align: 'center',
@@ -60,7 +57,6 @@ export const colunasSemDum = [
     headerName: 'TOTAL DE CONSULTAS VALIDAS',
     width: 100,
     sortable: false,
-    // renderCell : StatusTotalConsultasValidas
   },
   {
     align: 'center',
@@ -70,7 +66,7 @@ export const colunasSemDum = [
     headerName: 'ÚLTIMA CONSULTA',
     width: 115,
     sortable: false,
-    // renderCell : FormatarData
+    renderCell : formatarDataNascimento
   },
   {
     align: 'center',
@@ -80,7 +76,6 @@ export const colunasSemDum = [
     headerName: 'EXAME DE HIV/SÍFILIS',
     width: 150,
     sortable: false,
-    // renderCell : StatusExameSifilisHIV
   },
   {
     align: 'center',
@@ -90,7 +85,6 @@ export const colunasSemDum = [
     headerName: 'ATENDIMENTO ODONTOLÓGICO',
     width: 120,
     sortable: false,
-    // renderCell : StatusAtendimentoOdontologico
   },
   {
     align: 'center',

@@ -1,4 +1,4 @@
-import { formatarCPFOuDataNascimento } from "../helpers/formatarCPF";
+import { formatarCPFOuDataNascimento, formatarDataNascimento } from "../helpers/formatarCPF";
 import { formatarRegistroDeParto } from "../helpers/formatarRegistroDeParto";
 import { DatasDoses } from "./auxiliares/DatasDoses";
 import { PrazoStyle } from "./auxiliares/PrazoStyle";
@@ -134,6 +134,9 @@ export const TabelaUnitaria = ({ data, colunas, listas_auxiliares, fontFamily = 
                       coluna.field === "cidadao_cpf_dt_nascimento" && formatarCPFOuDataNascimento({ value: item[coluna.field] })
                     }
                     {
+                      coluna.field === "consulta_prenatal_ultima_data" && formatarDataNascimento({ value: item[coluna.field] })
+                    }
+                    {
                       coluna.field!="id_status_usuario"
                       && coluna.field!="prazo_proxima_coleta"
                       && coluna.field!="prazo_proxima_afericao_pa"
@@ -154,6 +157,7 @@ export const TabelaUnitaria = ({ data, colunas, listas_auxiliares, fontFamily = 
                       && coluna.field!="id_registro_parto"
                       && coluna.field!="gestacao_idade_gestacional_atual"
                       && coluna.field!="cidadao_cpf_dt_nascimento"
+                      && coluna.field!="consulta_prenatal_ultima_data"
                       && item[coluna.field]
                     }
                     </td>
