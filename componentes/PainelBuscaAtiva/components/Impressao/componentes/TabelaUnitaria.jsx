@@ -10,7 +10,7 @@ import { StatusEsquema } from "./auxiliares/StatusEsquema";
 import { StatusTotalConsultasValidas } from "./auxiliares/StatusTotalConsultasValidas";
 
 export const TabelaUnitaria = ({ data, colunas, listas_auxiliares, fontFamily = "Inter", divisorVertical , larguraColunas}) => {
-    return (
+  return (
       <>
         <table style={{
           borderCollapse: "collapse",
@@ -82,8 +82,8 @@ export const TabelaUnitaria = ({ data, colunas, listas_auxiliares, fontFamily = 
                     }
                     {
                       coluna.field === "consultas_pre_natal_validas" && <StatusTotalConsultasValidas values={{
-                        gestacao_idade_gestacional_primeiro_atendimento,
-                        consultas_pre_natal_validas,
+                        gestacao_idade_gestacional_primeiro_atendimento: item.gestacao_idade_gestacional_primeiro_atendimento,
+                        consultas_pre_natal_validas: item[coluna.field],
                       }} />
                     }
                     {

@@ -74,7 +74,6 @@ const PainelBuscaAtiva = ({
     const divisao_paginas = personalizacao.separacaoGrupoPorFolha
     useEffect(()=>{
         set_filtros_aplicados_impressao(filtrosAplicadosImpressao(chavesFiltros))
-        console.log(filtrosAplicadosImpressao(chavesFiltros))
     },[chavesFiltros])
     useEffect(() => {
         setDadosImpressao(tableData);
