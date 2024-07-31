@@ -9,6 +9,7 @@ import { HipertensaoArgs } from './__data__/stories/hipertensao/HipertensaoArgs'
 import { vacinacaoArgs } from './__data__/stories/vacinacao/vacinacaoArgs';
 import { GestantesIndicador1Args } from './__data__/stories/gestantes/indicador_1/GestantesIndicador1Args';
 import { GestantesIndicador2Args } from './__data__/stories/gestantes/indicador_2/GestantesIndicador2Args';
+import { indicador3Args } from './__data__/stories/gestantesIndicador3/indicador3Args';
 
 export default {
   title: "Componentes/PainelBuscaAtiva",
@@ -49,3 +50,5 @@ export const GestantesIndicador1 = Template.bind({});
 GestantesIndicador1.args = GestantesIndicador1Args
 export const GestantesIndicador2 = Template.bind({});
 GestantesIndicador2.args = GestantesIndicador2Args
+export const GestantesIndicador3 = Template.bind({});
+GestantesIndicador3.args = indicador3Args
