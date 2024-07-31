@@ -1,7 +1,5 @@
-// import { StatusAtendimentoOdontologico } from "../../../components/Impressao/componentes/auxiliares/StatusAtendimentoOdontologico";
-// import { StatusExameSifilisHIV } from "../../../components/Impressao/componentes/auxiliares/StatusExameSifilisHIV";
-
 import { StatusDDP } from "../../../../components/Impressao/componentes/auxiliares/StatusDDP";
+import { formatarCPFOuDataNascimento } from "../../../../components/Impressao/helpers/formatarCPF";
 
 export const colunasSemDum = [
   {
@@ -20,7 +18,8 @@ export const colunasSemDum = [
     showOnPrint: true,
     headerName: 'CPF / DATA DE NASCIMENTO',
     width: 140,
-    sortable: false
+    sortable: false,
+    renderCell: formatarCPFOuDataNascimento
   },
   {
     align: 'center',
