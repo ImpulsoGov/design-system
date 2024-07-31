@@ -11,7 +11,8 @@ import { StatusIdadeGestacional } from "./auxiliares/StatusIdadeGestacional";
 import { StatusTotalConsultasValidas } from "./auxiliares/StatusTotalConsultasValidas";
 
 export const TabelaUnitaria = ({ data, colunas, listas_auxiliares, fontFamily = "Inter", divisorVertical , larguraColunas}) => {
-    return (
+  console.log(listas_auxiliares)
+  return (
       <>
         <table style={{
           borderCollapse: "collapse",
@@ -105,7 +106,7 @@ export const TabelaUnitaria = ({ data, colunas, listas_auxiliares, fontFamily = 
                     {
                       coluna.field === "id_exame_hiv_sifilis" && <StatusExameSifilisHIV
                         value={item[coluna.field]}
-                        identificacao_exame_hiv_sifilis={listas_auxiliares.identificacao_exame_hiv_sifilis}
+                        identificacao_exame_hiv_sifilis={listas_auxiliares.identificacao_exame_sifilis_hiv}
                       />
                     }
                     {

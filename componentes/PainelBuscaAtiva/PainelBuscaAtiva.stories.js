@@ -7,7 +7,9 @@ import { CitoArgs } from './__data__/stories/citopatologico/CitoArgs';
 import { DiabetesArgs } from './__data__/stories/diabetes/DiabetesArgs';
 import { HipertensaoArgs } from './__data__/stories/hipertensao/HipertensaoArgs';
 import { vacinacaoArgs } from './__data__/stories/vacinacao/vacinacaoArgs';
-import { indicador3Args } from './__data__/stories/gestantesIndicador3/indicador3Args';
+import { GestantesIndicador1Args } from './__data__/stories/gestantes/indicador_1/GestantesIndicador1Args';
+import { GestantesIndicador2Args } from './__data__/stories/gestantes/indicador_2/GestantesIndicador2Args';
+import { GestantesIndicador3Args } from './__data__/stories/gestantes/indicador_3/GestantesIndicador3Args';
 import { semDumArgs } from './__data__/stories/gestantesSemDum/semDumArgs';
 
 export default {
@@ -45,7 +47,11 @@ export const Cito = Template.bind({});
 Cito.args=CitoArgs
 export const Vacinacao = Template.bind({});
 Vacinacao.args = vacinacaoArgs
+export const GestantesIndicador1 = Template.bind({});
+GestantesIndicador1.args = GestantesIndicador1Args
+export const GestantesIndicador2 = Template.bind({});
+GestantesIndicador2.args = GestantesIndicador2Args
 export const GestantesIndicador3 = Template.bind({});
-GestantesIndicador3.args = indicador3Args
+GestantesIndicador3.args = GestantesIndicador3Args
 export const GestantesSemDum = Template.bind({});
 GestantesSemDum.args = semDumArgs

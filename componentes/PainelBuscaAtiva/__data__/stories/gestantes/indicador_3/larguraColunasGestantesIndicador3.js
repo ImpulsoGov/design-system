@@ -1,4 +1,4 @@
-export const larguraColunasIndicador3 = {
+export const larguraColunasGestantesIndicador3 = {
   0: "240px",
   1: "120px",
   2: "120px",
