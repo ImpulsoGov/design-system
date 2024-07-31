@@ -6,11 +6,11 @@ import { IDFiltrosGestantesIndicador2 } from "./IDFiltrosGestantesIndicador2"
 import { rotulosfiltrosGestantesIndicador2 } from "./rotulosfiltrosGestantesIndicador2"
 import { IDFiltrosOrdenacaoGestantesIndicador2 } from "./IDFiltrosOrdenacaoGestantesIndicador2"
 import { larguraColunasGestantesIndicador2 } from "./larguraColunasGestantesIndicador2"
-
+import { identificacao_exame_sifilis_hiv } from "./identificacao_exame_hiv_sifilis"
 export const GestantesIndicador2Args = {
     painel : "aps",
     lista : "GESTANTES",
-    divisorVertical : [0,4],
+    divisorVertical : [0,3],
     largura_colunas_impressao : larguraColunasGestantesIndicador2,
     dadosFiltros : dadosFiltrosGestantesIndicador2,
     tabela : {
@@ -35,7 +35,7 @@ export const GestantesIndicador2Args = {
     day: '2-digit'
     }),
     listas_auxiliares : {
-    
+        identificacao_exame_sifilis_hiv : identificacao_exame_sifilis_hiv
     },
     propAgrupamentoImpressao: "equipe_nome",
     propOrdenacaoImpressao: "acs_nome",

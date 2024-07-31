@@ -1,4 +1,4 @@
-export const dataIndicador3 = [
+export const dataGestantesIndicador3 = [
   {
     "chave_id_gestacao": "40",
     "municipio_id_sus": "111111",

@@ -1,4 +1,4 @@
-export const dadosFiltrosIndicador3 = [
+export const dadosFiltrosGestantesIndicador3 = [
   {
     rotulo: "Filtrar por nome da equipe",
     data: [

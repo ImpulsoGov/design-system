@@ -12,7 +12,7 @@ const STYLE = {
 
 export const StatusExameSifilisHIV = ({value, identificacao_exame_hiv_sifilis})=> {
   const descricao = useMemo(() => {
-    return identificacao_exame_hiv_sifilis.identificacao_exame_hiv_sifilis.find(item => item.id_exame_hiv_sifilis == value).exame_hiv_sifilis_descricao;
+    return identificacao_exame_hiv_sifilis.find(item => item.id_exame_hiv_sifilis == value).exame_hiv_sifilis_descricao;
   }, [identificacao_exame_hiv_sifilis, value]);
 
   return (

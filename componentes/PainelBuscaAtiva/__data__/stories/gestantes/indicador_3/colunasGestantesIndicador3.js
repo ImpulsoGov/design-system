@@ -1,14 +1,13 @@
-import { StatusDDP } from "../../../components/Impressao/componentes/auxiliares/StatusDDP";
-import { formatarRegistroDeParto } from "../../../components/Impressao/helpers/formatarRegistroDeParto";
+import { StatusDDP } from "../../../../components/Impressao/componentes/auxiliares/StatusDDP";
+import { formatarRegistroDeParto } from "../../../../components/Impressao/helpers/formatarRegistroDeParto";
 
-export const colunasIndicador3 = [
+export const colunasGestantesIndicador3 = [
   {
     align: 'left',
     field: 'cidadao_nome',
     showOnPrint: true,
     headerAlign: 'center',
     headerName: 'NOME',
-    // renderCell : formatar_nome,
     width: 320,
     sortable: false
   },
@@ -30,7 +29,6 @@ export const colunasIndicador3 = [
     headerName: 'ATENDIMENTO ODONTOLÓGICO',
     width: 120,
     sortable: false,
-    // renderCell : StatusAtendimentoOdontologico
   },
   {
     align: 'center',

@@ -1,31 +1,31 @@
-import { colunasIndicador3 } from "./colunasIndicador3";
-import { dadosFiltrosIndicador3 } from "./dadosFiltrosIndicador3";
-import { dataIndicador3 } from "./dataIndicador3";
-import { datefiltrosIndicador3 } from "./dateFiltrosIndicador3";
-import { IDFiltrosIndicador3 } from "./IDFiltrosIndicador3";
-import { IDFiltrosOrdenacaoIndicador3 } from "./IDFiltrosOrdenacaoIndicador3";
-import { larguraColunasIndicador3 } from "./larguraColunasIndicador3";
-import listasAuxiliares from "./listasAuxiliaresIndicador3.json";
-import { rotulosfiltrosIndicador3 } from "./rotulosfiltrosIndicador3";
+import { colunasGestantesIndicador3 } from "./colunasGestantesIndicador3";
+import { dadosFiltrosGestantesIndicador3  } from "./dadosFiltrosGestantesIndicador3";
+import { dataGestantesIndicador3  } from "./dataGestantesIndicador3";
+import { datefiltrosGestantesIndicador3  } from "./dateFiltrosGestantesIndicador3";
+import { IDFiltrosGestantesIndicador3  } from "./IDFiltrosGestantesIndicador3";
+import { IDFiltrosOrdenacaoGestantesIndicador3  } from "./IDFiltrosOrdenacaoGestantesIndicador3";
+import { larguraColunasGestantesIndicador3  } from "./larguraColunasGestantesIndicador3";
+import listasAuxiliares from "./listasAuxiliaresGestantesIndicador3.json";
+import { rotulosfiltrosGestantesIndicador3 } from "./rotulosfiltrosGestantesIndicador3";
 
-export const indicador3Args = {
+export const GestantesIndicador3Args = {
   painel: "aps",
-  lista: "GETANTES",
+  lista: "GESTANTES",
   divisorVertical: [0, 3],
-  largura_colunas_impressao: larguraColunasIndicador3,
-  dadosFiltros: dadosFiltrosIndicador3,
+  largura_colunas_impressao: larguraColunasGestantesIndicador3,
+  dadosFiltros: dadosFiltrosGestantesIndicador3,
   tabela: {
-    colunas: colunasIndicador3,
-    data: dataIndicador3
+    colunas: colunasGestantesIndicador3,
+    data: dataGestantesIndicador3
   },
-  datefiltros: datefiltrosIndicador3,
-  IDFiltros: IDFiltrosIndicador3,
-  rotulosfiltros: rotulosfiltrosIndicador3,
-  IDFiltrosOrdenacao: IDFiltrosOrdenacaoIndicador3,
+  datefiltros: datefiltrosGestantesIndicador3,
+  IDFiltros: IDFiltrosGestantesIndicador3,
+  rotulosfiltros: rotulosfiltrosGestantesIndicador3,
+  IDFiltrosOrdenacao: IDFiltrosOrdenacaoGestantesIndicador3,
   trackObject: {
     track: (evento, propriedades) => console.log(evento, propriedades)
   },
-  atualizacao: new Date(dataIndicador3.reduce((maisRecente, objeto) => {
+  atualizacao: new Date(dataGestantesIndicador3.reduce((maisRecente, objeto) => {
     const dataAtual = new Date(objeto.dt_registro_producao_mais_recente);
     const dataMaisRecenteAnterior = new Date(maisRecente);
     return dataAtual > dataMaisRecenteAnterior ? objeto.dt_registro_producao_mais_recente : maisRecente;
