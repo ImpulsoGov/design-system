@@ -5,7 +5,7 @@ import { datefiltrosGestantesIndicador3  } from "./dateFiltrosGestantesIndicador
 import { IDFiltrosGestantesIndicador3  } from "./IDFiltrosGestantesIndicador3";
 import { IDFiltrosOrdenacaoGestantesIndicador3  } from "./IDFiltrosOrdenacaoGestantesIndicador3";
 import { larguraColunasGestantesIndicador3  } from "./larguraColunasGestantesIndicador3";
-import listasAuxiliares from "./listasAuxiliaresGestantesIndicador3.json";
+import * as listasAuxiliares from "./listasAuxiliaresGestantesIndicador3";
 import { rotulosfiltrosGestantesIndicador3 } from "./rotulosfiltrosGestantesIndicador3";
 
 export const GestantesIndicador3Args = {
@@ -36,7 +36,7 @@ export const GestantesIndicador3Args = {
     day: '2-digit'
   }),
   listas_auxiliares: {
-    identificacao_atendimento_odontologico: listasAuxiliares
+    identificacao_atendimento_odontologico: listasAuxiliares.identificacao_atendimento_odontologico
   },
   propAgrupamentoImpressao: "equipe_nome",
   propOrdenacaoImpressao: "acs_nome",

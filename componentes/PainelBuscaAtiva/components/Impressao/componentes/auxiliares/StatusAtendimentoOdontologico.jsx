@@ -10,7 +10,7 @@ const STYLE = {
 
 export const StatusAtendimentoOdontologico = ({value, identificacao_atendimento_odontologico})=> {
   const descricao = useMemo(() => {
-    return identificacao_atendimento_odontologico.identificacao_atendimento_odontologico.find(item => item.id_atendimento_odontologico == value).atendimento_odontologico_descricao;
+    return identificacao_atendimento_odontologico.find(item => item.id_atendimento_odontologico == value).atendimento_odontologico_descricao;
   }, [identificacao_atendimento_odontologico, value]);
 
   return (

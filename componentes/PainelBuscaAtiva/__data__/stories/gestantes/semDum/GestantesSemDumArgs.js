@@ -1,15 +1,14 @@
-import atendimentoOdontologico from "./atendimentoOdontologico.json";
-import { colunasSemDum } from "./colunasSemDum";
-import { dadosFiltrosSemDum } from "./dadosFiltrosSemDum";
-import { dataSemDum } from "./dataSemDum";
-import { datefiltrosSemDum } from "./dateFiltrosSemDum";
-import exameSifilisHiv from "./exameSifilisHiv.json";
-import { IDFiltrosOrdenacaoSemDum } from "./IDFiltrosOrdenacaoSemDum";
-import { IDFiltrosSemDum } from "./IDFiltrosSemDum";
-import { larguraColunasSemDum } from "./larguraColunasSemDum";
-import { rotulosfiltrosSemDum } from "./rotulosfiltrosSemDum";
+import * as listasAuxiliares from "./listasAuxiliaresGestantesSemDum";
+import { colunasSemDum } from "./colunasGestantesSemDum";
+import { dadosFiltrosSemDum } from "./dadosFiltrosGestantesSemDum";
+import { dataSemDum } from "./dataGestantesSemDum";
+import { datefiltrosSemDum } from "./dateFiltrosGestantesSemDum";
+import { IDFiltrosOrdenacaoSemDum } from "./IDFiltrosOrdenacaoGestantesSemDum";
+import { IDFiltrosSemDum } from "./IDFiltrosGestantesSemDum";
+import { larguraColunasSemDum } from "./larguraColunasGestantesSemDum";
+import { rotulosfiltrosSemDum } from "./rotulosfiltrosGestantesSemDum";
 
-export const semDumArgs = {
+export const GestantesSemDumArgs = {
   painel: "aps",
   lista: "GETANTES",
   divisorVertical: [1, 8],
@@ -37,8 +36,8 @@ export const semDumArgs = {
     day: '2-digit'
   }),
   listas_auxiliares: {
-    identificacao_atendimento_odontologico: atendimentoOdontologico,
-    identificacao_exame_hiv_sifilis: exameSifilisHiv
+    identificacao_atendimento_odontologico: listasAuxiliares.identificacao_atendimento_odontologico,
+    identificacao_exame_sifilis_hiv: listasAuxiliares.identificacao_exame_hiv_sifilis,
   },
   propAgrupamentoImpressao: "equipe_nome",
   propOrdenacaoImpressao: "acs_nome",

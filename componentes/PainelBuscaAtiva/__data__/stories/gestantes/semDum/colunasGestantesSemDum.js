@@ -1,8 +1,7 @@
 // import { StatusAtendimentoOdontologico } from "../../../components/Impressao/componentes/auxiliares/StatusAtendimentoOdontologico";
-import { StatusDDP } from "../../../components/Impressao/componentes/auxiliares/StatusDDP";
 // import { StatusExameSifilisHIV } from "../../../components/Impressao/componentes/auxiliares/StatusExameSifilisHIV";
-import { StatusIdadeGestacional } from "../../../components/Impressao/componentes/auxiliares/StatusIdadeGestacional";
-import { StatusTotalConsultasValidas } from "../../../components/Impressao/componentes/auxiliares/StatusTotalConsultasValidas";
+
+import { StatusDDP } from "../../../../components/Impressao/componentes/auxiliares/StatusDDP";
 
 export const colunasSemDum = [
   {
@@ -13,7 +12,7 @@ export const colunasSemDum = [
     headerName: 'NOME',
     // renderCell : formatar_nome,
     width: 320,
-    sortable : false
+    sortable: false
   },
   {
     align: 'center',
@@ -21,7 +20,7 @@ export const colunasSemDum = [
     showOnPrint: true,
     headerName: 'CPF / DATA DE NASCIMENTO',
     width: 140,
-    sortable : false
+    sortable: false
   },
   {
     align: 'center',
@@ -30,8 +29,8 @@ export const colunasSemDum = [
     headerAlign: 'center',
     headerName: 'DPP + 14 DIAS',
     width: 130,
-    sortable : false,
-    renderCell : StatusDDP
+    sortable: false,
+    renderCell: StatusDDP
   },
   {
     align: 'center',
@@ -40,7 +39,7 @@ export const colunasSemDum = [
     headerAlign: 'center',
     headerName: 'IG (1ª CONSULTA)',
     width: 90,
-    sortable : false,
+    sortable: false,
     // renderCell : StatusIdadeGestacional,
 
   },
@@ -51,7 +50,7 @@ export const colunasSemDum = [
     headerAlign: 'center',
     headerName: 'IG ATUAL',
     width: 65,
-    sortable : false,
+    sortable: false,
     // renderCell : IG_ATUAL_STYLE
   },
   {
@@ -61,7 +60,7 @@ export const colunasSemDum = [
     headerAlign: 'center',
     headerName: 'TOTAL DE CONSULTAS VALIDAS',
     width: 100,
-    sortable : false,
+    sortable: false,
     // renderCell : StatusTotalConsultasValidas
   },
   {
@@ -71,7 +70,7 @@ export const colunasSemDum = [
     headerAlign: 'center',
     headerName: 'ÚLTIMA CONSULTA',
     width: 115,
-    sortable : false,
+    sortable: false,
     // renderCell : FormatarData
   },
   {
@@ -81,7 +80,7 @@ export const colunasSemDum = [
     headerAlign: 'center',
     headerName: 'EXAME DE HIV/SÍFILIS',
     width: 150,
-    sortable : false,
+    sortable: false,
     // renderCell : StatusExameSifilisHIV
   },
   {
@@ -91,7 +90,7 @@ export const colunasSemDum = [
     headerAlign: 'center',
     headerName: 'ATENDIMENTO ODONTOLÓGICO',
     width: 120,
-    sortable : false,
+    sortable: false,
     // renderCell : StatusAtendimentoOdontologico
   },
   {
@@ -101,7 +100,7 @@ export const colunasSemDum = [
     headerAlign: 'center',
     headerName: 'EQUIPE',
     width: 250,
-    sortable : false
+    sortable: false
   },
   {
     align: 'center',
@@ -110,6 +109,6 @@ export const colunasSemDum = [
     headerAlign: 'center',
     headerName: 'PROFISSIONAL RESPONSÁVEL',
     width: 250,
-    sortable : false
+    sortable: false
   },
 ];

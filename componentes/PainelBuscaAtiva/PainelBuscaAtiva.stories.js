@@ -10,7 +10,7 @@ import { vacinacaoArgs } from './__data__/stories/vacinacao/vacinacaoArgs';
 import { GestantesIndicador1Args } from './__data__/stories/gestantes/indicador_1/GestantesIndicador1Args';
 import { GestantesIndicador2Args } from './__data__/stories/gestantes/indicador_2/GestantesIndicador2Args';
 import { GestantesIndicador3Args } from './__data__/stories/gestantes/indicador_3/GestantesIndicador3Args';
-import { semDumArgs } from './__data__/stories/gestantesSemDum/semDumArgs';
+import { GestantesSemDumArgs } from './__data__/stories/gestantes/semDum/GestantesSemDumArgs';
 
 export default {
   title: "Componentes/PainelBuscaAtiva",
@@ -54,4 +54,4 @@ GestantesIndicador2.args = GestantesIndicador2Args
 export const GestantesIndicador3 = Template.bind({});
 GestantesIndicador3.args = GestantesIndicador3Args
 export const GestantesSemDum = Template.bind({});
-GestantesSemDum.args = semDumArgs
+GestantesSemDum.args = GestantesSemDumArgs
