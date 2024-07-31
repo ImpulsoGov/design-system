@@ -1,12 +1,13 @@
+import { formatarRegistroDeParto } from "../helpers/formatarRegistroDeParto";
 import { DatasDoses } from "./auxiliares/DatasDoses";
 import { PrazoStyle } from "./auxiliares/PrazoStyle";
 import { Selecionar_status_usuario_descricao } from "./auxiliares/Selecionar_status_usuario_descricao";
 import { StatusAtendimentoOdontologico } from "./auxiliares/StatusAtendimentoOdontologico";
 import { StatusDataConsulta } from "./auxiliares/StatusDataConsulta";
 import { StatusDDP } from "./auxiliares/StatusDDP";
+import { StatusEsquema } from "./auxiliares/StatusEsquema";
 import { StatusExameSifilisHIV } from "./auxiliares/StatusExameSifilisHIV";
 import { StatusIdadeGestacional } from "./auxiliares/StatusIdadeGestacional";
-import { StatusEsquema } from "./auxiliares/StatusEsquema";
 import { StatusTotalConsultasValidas } from "./auxiliares/StatusTotalConsultasValidas";
 
 export const TabelaUnitaria = ({ data, colunas, listas_auxiliares, fontFamily = "Inter", divisorVertical , larguraColunas}) => {
@@ -123,6 +124,9 @@ export const TabelaUnitaria = ({ data, colunas, listas_auxiliares, fontFamily = 
                       coluna.field === "id_status_penta" && <StatusEsquema value={item[coluna.field]} />
                     }
                     {
+                      coluna.field === "id_registro_parto" && formatarRegistroDeParto({ value: item[coluna.field] })
+                    }
+                    {
                       coluna.field!="id_status_usuario"
                       && coluna.field!="prazo_proxima_coleta"
                       && coluna.field!="prazo_proxima_afericao_pa"
@@ -140,6 +144,7 @@ export const TabelaUnitaria = ({ data, colunas, listas_auxiliares, fontFamily = 
                       && coluna.field!="datas_doses_polio"
                       && coluna.field!="id_status_polio"
                       && coluna.field!="id_status_penta"
+                      && coluna.field!="id_registro_parto"
                       && item[coluna.field]
                     }
                     </td>
