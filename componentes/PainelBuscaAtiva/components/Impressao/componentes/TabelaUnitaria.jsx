@@ -61,7 +61,7 @@ export const TabelaUnitaria = ({ data, colunas, listas_auxiliares, fontFamily = 
                           justifyContent : "center",
                           alignItems : "center",
                           textAlign: "left",
-                          width: larguraColunas[index],
+                          width: larguraColunas[coluna.field],
                           padding : [...divisorVertical.map(item=>item+1),0].includes(index) ? "4px 4px 4px 12px" : "4px",
                           borderRight: divisorVertical.includes(index) ? "solid 1px black" : "",
                           boxSizing : "border-box"
