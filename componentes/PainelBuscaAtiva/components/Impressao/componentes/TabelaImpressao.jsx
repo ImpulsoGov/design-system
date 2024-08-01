@@ -1,6 +1,4 @@
 import { divisaoPorEquipes } from "../helpers/divisaoPorEquipes";
-import { dividirDadosPorPaginaComMultiplasEquipes } from "../helpers/DivisaoPorEquipeMesmaPagina/dividirDadosPorPaginaComMultiplasEquipes";
-import { dividirEquipes } from "../helpers/DivisaoPorEquipePorPagina/dividirEquipesPorPagina"
 import { MultiplasEquipesPorPagina } from "./MultiplasEquipesPorPagina";
 import { UnicaEquipePorPagina } from "./UnicaEquipePorPagina";
 import { SemDivisao } from "./SemDivisao";
@@ -13,18 +11,13 @@ export const TabelaImpressao = ({
     targetRef, 
     filtros_aplicados,
     divisao_dados=true, 
-    divisao_paginas=true, 
+    divisao_paginas=false, 
     data_producao_mais_recente,
     listas_auxiliares,
     largura_colunas_impressao,
     divisorVertical
   }) => {
-    //const filtros_aplicados = ["status da coleta coleta em dia", "status da coleta Vence no final do quadrimestre"]
-    const divisao_por_equipes = divisaoPorEquipes(data)
-    //varias equipes por pagina
-    const { dadosDivididosPorEquipeComQuebraDePagina,quebrasDePaginas } = dividirDadosPorPaginaComMultiplasEquipes(divisao_por_equipes)
-    //uma equipe por pagina
-    const { EquipesPorPagina, quebrasDePaginasEquipe } = dividirEquipes(divisao_por_equipes)
+    const divisao_por_equipes = divisao_dados ? divisaoPorEquipes(data) : []
     return (
       <div 
         ref={targetRef}
@@ -35,9 +28,9 @@ export const TabelaImpressao = ({
         }}
       >
         {
-          divisao_dados && !divisao_paginas && dadosDivididosPorEquipeComQuebraDePagina &&
+          divisao_dados && !divisao_paginas && divisao_por_equipes &&
           <MultiplasEquipesPorPagina
-            dadosDivididosPorEquipeComQuebraDePagina={dadosDivididosPorEquipeComQuebraDePagina}
+            divisao_por_equipes={divisao_por_equipes}
             cabecalho={{
               filtros_aplicados : filtros_aplicados,
               data_producao_mais_recente : data_producao_mais_recente,
@@ -49,13 +42,12 @@ export const TabelaImpressao = ({
               largura_colunas_impressao : largura_colunas_impressao,
               divisorVertical : divisorVertical
             }}
-            quebrasDePaginas={quebrasDePaginas}
           />
         }
         {
           divisao_paginas && divisao_dados &&
           <UnicaEquipePorPagina
-            EquipesPorPagina={EquipesPorPagina}
+            divisao_por_equipes={divisao_por_equipes}
             cabecalho={{
               filtros_aplicados : filtros_aplicados,
               data_producao_mais_recente : data_producao_mais_recente,
@@ -67,7 +59,6 @@ export const TabelaImpressao = ({
               largura_colunas_impressao : largura_colunas_impressao,
               divisorVertical : divisorVertical
             }}
-            quebrasDePaginasEquipe={quebrasDePaginasEquipe}
           />
         }
         {

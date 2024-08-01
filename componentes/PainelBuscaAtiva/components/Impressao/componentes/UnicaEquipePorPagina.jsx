@@ -3,19 +3,18 @@ import { CabecalhoPagina } from "./CabecalhoPagina"
 import { TabelaUnitaria } from "./TabelaUnitaria"
 
 export const UnicaEquipePorPagina = ({
-    EquipesPorPagina,
-    cabecalho,
-    tabelas,
-    quebrasDePaginasEquipe,
+  divisao_por_equipes,
+  cabecalho,
+  tabelas,
 })=>{
     return(
-        Object.keys(EquipesPorPagina).sort(ordenarEquipes).map((registro,index)=>{
+        Object.keys(divisao_por_equipes).sort(ordenarEquipes).map((registro,index)=>{
             return( 
             <>
               <div 
                 key={registro+index} 
                 style={{
-                  marginBottom : `${quebrasDePaginasEquipe[registro]}px`,
+                  pageBreakAfter : "always"
                 }}
               >
                 <CabecalhoPagina 
@@ -27,7 +26,7 @@ export const UnicaEquipePorPagina = ({
                   fontSize : "11px",
                 }}><b>{registro}</b></p>
                 <TabelaUnitaria
-                  data = {EquipesPorPagina[registro]}
+                  data = {divisao_por_equipes[registro]}
                   colunas = {tabelas.colunas}
                   listas_auxiliares = {tabelas.listas_auxiliares}
                   divisorVertical={tabelas.divisorVertical}
@@ -38,6 +37,5 @@ export const UnicaEquipePorPagina = ({
               </div>
             </>
           )})
-
     )
 }

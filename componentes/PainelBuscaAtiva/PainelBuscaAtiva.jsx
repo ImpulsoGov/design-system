@@ -296,6 +296,7 @@ const PainelBuscaAtiva = ({
                     filtros_aplicados={filtros_aplicados_impressao}
                     largura_colunas_impressao={largura_colunas_impressao}
                     divisorVertical={divisorVertical}
+                    propAgrupamentoImpressao={propAgrupamentoImpressao}
                 />
             }
         </div>

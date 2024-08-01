@@ -1,5 +1,5 @@
 export const formatarDataNascimento = (data)=>{ 
-  const parts = data.value.split('-');
+  const parts = data.split('-');
   const dia = parts[2];
   const mes = parts[1];
   const ano = parts[0];

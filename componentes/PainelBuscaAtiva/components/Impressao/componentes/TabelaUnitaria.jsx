@@ -23,10 +23,12 @@ export const TabelaUnitaria = ({ data, colunas, listas_auxiliares, fontFamily = 
           letterSpacing: "-0.12px",
           textTransform: "uppercase",
           width : "fit-content",
+          pageBreakAfter: "auto"
         }}>
           <thead>
             <tr style={{
                   backgroundColor: "#E7E7E7",
+                  width : "1080px"
               }}>
               {colunas.map((coluna,index) => coluna.showOnPrint && (
                 <th style={{
