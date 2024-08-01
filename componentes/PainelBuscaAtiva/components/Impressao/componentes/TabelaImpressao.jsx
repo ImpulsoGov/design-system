@@ -15,16 +15,17 @@ export const TabelaImpressao = ({
     data_producao_mais_recente,
     listas_auxiliares,
     largura_colunas_impressao,
-    divisorVertical
+    divisorVertical,
+    fontFamily="sans-serif"
   }) => {
     const divisao_por_equipes = divisao_dados ? divisaoPorEquipes(data) : []
     return (
       <div 
         ref={targetRef}
         style={{
-          fontFamily : "Inter",
           width : "1200px",
-          border : "solid 1px black"
+          fontFamily: `${fontFamily}, sans-serif`,
+          width : "1080px",
         }}
       >
         {
@@ -42,6 +43,7 @@ export const TabelaImpressao = ({
               largura_colunas_impressao : largura_colunas_impressao,
               divisorVertical : divisorVertical
             }}
+            fontFamily={fontFamily}
           />
         }
         {
@@ -59,6 +61,7 @@ export const TabelaImpressao = ({
               largura_colunas_impressao : largura_colunas_impressao,
               divisorVertical : divisorVertical
             }}
+            fontFamily={fontFamily}
           />
         }
         {
@@ -77,6 +80,7 @@ export const TabelaImpressao = ({
               divisorVertical : divisorVertical
             }}
             blocosPorPagina={blocosPorPagina}
+            fontFamily={fontFamily}
           />
         }
       </div>

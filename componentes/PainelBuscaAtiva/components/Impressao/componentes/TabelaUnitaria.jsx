@@ -11,7 +11,7 @@ import { StatusExameSifilisHIV } from "./auxiliares/StatusExameSifilisHIV";
 import { StatusIdadeGestacional } from "./auxiliares/StatusIdadeGestacional";
 import { StatusTotalConsultasValidas } from "./auxiliares/StatusTotalConsultasValidas";
 
-export const TabelaUnitaria = ({ data, colunas, listas_auxiliares, fontFamily = "Inter", divisorVertical , larguraColunas}) => {
+export const TabelaUnitaria = ({ data, colunas, listas_auxiliares, fontFamily = "sans-serif", divisorVertical , larguraColunas}) => {
   return (
       <>
         <table style={{
@@ -19,7 +19,7 @@ export const TabelaUnitaria = ({ data, colunas, listas_auxiliares, fontFamily = 
           color:  "#1F1F1F",
           textAlign: "center",
           fontSize: "9px",
-          fontFamily,
+          fontFamily: `${fontFamily}, sans-serif`,
           letterSpacing: "-0.12px",
           textTransform: "uppercase",
           width : "fit-content",
