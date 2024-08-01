@@ -34,7 +34,7 @@ export const TabelaUnitaria = ({ data, colunas, listas_auxiliares, fontFamily = 
               {colunas.map((coluna,index) => coluna.showOnPrint && (
                 <th style={{
                   padding : [...divisorVertical.map(item=>item+1),0].includes(index) ? "5px 5px 5px 12px" : "5px",
-                  width: larguraColunas[index],
+                  width: larguraColunas[coluna.field],
                   borderTopLeftRadius: index!=0 ? "0" : "8px",
                   borderBottomLeftRadius: index!=0 ? "0" : "8px",
                   borderTopRightRadius: index!=(colunas.length-1) ? "0" : "8px",

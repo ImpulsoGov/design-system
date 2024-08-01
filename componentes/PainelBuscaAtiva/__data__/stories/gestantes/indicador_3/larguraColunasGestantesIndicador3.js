@@ -1,8 +1,8 @@
 export const larguraColunasGestantesIndicador3 = {
-  0: "320px",
-  1: "120px",
-  2: "120px",
-  3: "120px",
-  4: "200px",
-  5: "320px",
+  'cidadao_nome': "320px",
+  'gestacao_data_dpp': "120px",
+  'id_atendimento_odontologico': "120px",
+  'id_registro_parto': "120px",
+  'equipe_nome': "200px",
+  'acs_nome': "320px",
 };

@@ -25,7 +25,6 @@ export const TabelaImpressao = ({
         style={{
           width : "1200px",
           fontFamily: `${fontFamily}, sans-serif`,
-          width : "1080px",
         }}
       >
         {

@@ -1,10 +1,10 @@
 export const larguraColunasCito = {
-    0 : "250px",
-    1 : "80px",
-    2 : "280px",
-    3 : "50px",
-    4 : "100px",
-    5 : "80px",
-    6 : "120px",
-    7 : "240px",
+    'paciente_nome' : "250px",
+    'cidadao_cpf_dt_nascimento' : "80px",
+    'id_status_usuario' : "280px",
+    'vencimento_da_coleta' : "50px",
+    'prazo_proxima_coleta' : "100px",
+    'idade' : "80px",
+    'equipe_nome' : "120px",
+    'acs_nome' : "240px",
   }
