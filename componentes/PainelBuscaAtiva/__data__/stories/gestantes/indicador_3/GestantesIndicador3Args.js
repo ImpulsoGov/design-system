@@ -10,7 +10,7 @@ import { rotulosfiltrosGestantesIndicador3 } from "./rotulosfiltrosGestantesIndi
 
 export const GestantesIndicador3Args = {
   painel: "aps",
-  lista: "GESTANTES",
+  lista: "pré-natal- INDICADOR 3 (ATENDIMENTO ODONTOLÓGICO)",
   divisorVertical: [0, 3],
   largura_colunas_impressao: larguraColunasGestantesIndicador3,
   dadosFiltros: dadosFiltrosGestantesIndicador3,

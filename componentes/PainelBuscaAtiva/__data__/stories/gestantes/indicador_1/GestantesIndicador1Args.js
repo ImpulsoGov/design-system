@@ -9,7 +9,7 @@ import { larguraColunasGestantesIndicador1 } from "./larguraColunasGestantesIndi
 
 export const GestantesIndicador1Args = {
     painel : "aps",
-    lista : "GESTANTES",
+    lista : "PRÉ-NATAL INDICADOR 1 (6 CONSULTAS)",
     divisorVertical : [0,4],
     largura_colunas_impressao : larguraColunasGestantesIndicador1,
     dadosFiltros : dadosFiltrosGestantesIndicador1,

@@ -10,7 +10,7 @@ import { rotulosfiltrosSemDum } from "./rotulosfiltrosGestantesSemDum";
 
 export const GestantesSemDumArgs = {
   painel: "aps",
-  lista: "GETANTES",
+  lista: "GESTANTES SEM DUM",
   divisorVertical: [1, 8],
   largura_colunas_impressao: larguraColunasSemDum,
   dadosFiltros: dadosFiltrosSemDum,

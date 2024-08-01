@@ -9,7 +9,7 @@ import { larguraColunasGestantesIndicador2 } from "./larguraColunasGestantesIndi
 import { identificacao_exame_sifilis_hiv } from "./identificacao_exame_hiv_sifilis"
 export const GestantesIndicador2Args = {
     painel : "aps",
-    lista : "GESTANTES",
+    lista : "PRÉ-NATAL - INDICADOR 2 (EXAME DE HIV E SÍFILIS)",
     divisorVertical : [0,3],
     largura_colunas_impressao : larguraColunasGestantesIndicador2,
     dadosFiltros : dadosFiltrosGestantesIndicador2,
