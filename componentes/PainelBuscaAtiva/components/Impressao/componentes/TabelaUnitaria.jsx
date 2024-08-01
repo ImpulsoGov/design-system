@@ -136,7 +136,7 @@ export const TabelaUnitaria = ({ data, colunas, listas_auxiliares, fontFamily = 
                       coluna.field === "cidadao_cpf_dt_nascimento" && formatarCPFOuDataNascimento({ value: item[coluna.field] })
                     }
                     {
-                      coluna.field === "consulta_prenatal_ultima_data" && formatarDataNascimento({ value: item[coluna.field] })
+                      coluna.field === "consulta_prenatal_ultima_data" && formatarDataNascimento(item[coluna.field])
                     }
                     {
                       coluna.field!="id_status_usuario"

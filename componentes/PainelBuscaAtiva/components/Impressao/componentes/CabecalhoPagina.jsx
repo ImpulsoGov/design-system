@@ -11,7 +11,7 @@ export const CabecalhoPagina = ({
           fontFamily : "Inter",
           fontSize : "11px",
           marginTop : "25px",
-          display : "table-header-group"
+          // display : "table-header-group"
         }}>
           <p><b>LISTA NOMINAL {lista}</b><i> - PRODUÇÃO MAIS RECENTE RECEBIDA EM : {data_producao_mais_recente}</i></p>
         </div>

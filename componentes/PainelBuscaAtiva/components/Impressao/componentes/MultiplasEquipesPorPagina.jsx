@@ -21,7 +21,6 @@ export const MultiplasEquipesPorPagina = ({
                 <div 
                   key={index}
                   style={{
-                    pageBreakInside : "avoid",
                     display : "table-header-group",
                   }}
                 >

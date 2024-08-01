@@ -13,7 +13,8 @@ export const SemDivisao =({
               <div
                 style={{
                   marginBottom : "30px",
-                  pageBreakAfter : "always"
+                  pageBreakAfter : "always",
+                  pageBreakInside : "avoid"
                 }}
                 key={index}
               >

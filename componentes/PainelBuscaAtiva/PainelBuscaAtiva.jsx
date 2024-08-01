@@ -11,6 +11,7 @@ import { PersonalizacaoImpressao } from "../PersonalizacaoImpressao/Personalizac
 import { ModalAlertControlled } from "../ModalAlert/ModalAlert";
 import { filtrosAplicadosImpressao } from "./components/Impressao/helpers/filtrosAplicadosImpressao";
 import { TabelaImpressao } from "./components/Impressao/componentes/TabelaImpressao";
+import { Imprimir } from "./components/Impressao/helpers/Imprimir";
 
 const VALORES_AGRUPAMENTO_IMPRESSAO = { sim: "sim", nao: "não" };
 const NUMERO_DE_FILTROS_PARA_IMPRESSAO_DIRETA = 1;
@@ -55,7 +56,6 @@ const PainelBuscaAtiva = ({
     const [ordenacaoAplicada,setOrdenacaoAplicada] = useState(false)
     const [modal,setModal] = useState(false)
     const [chavesFiltros,setChavesFiltros] = useState([])
-    const [showImpressao,setShowImpressao] = useState(false)
     const [showModalImpressao, setShowModalImpressao] = useState(false);
     const [filtros_aplicados_impressao,set_filtros_aplicados_impressao] = useState()
     const { toPDF, targetRef } = usePDF({
@@ -70,8 +70,6 @@ const PainelBuscaAtiva = ({
         separacaoGrupoPorFolha: false,
         ordenacao: false,
     });
-    const divisao_dados = personalizacao.agrupamento === VALORES_AGRUPAMENTO_IMPRESSAO.sim
-    const divisao_paginas = personalizacao.separacaoGrupoPorFolha
     useEffect(()=>{
         set_filtros_aplicados_impressao(filtrosAplicadosImpressao(chavesFiltros))
     },[chavesFiltros])
@@ -161,13 +159,29 @@ const PainelBuscaAtiva = ({
     const fecharModalImpressao = () => setShowModalImpressao(false)
 
     const personalizarImpressao = (opcoes) => {
-        setPersonalizacao(opcoes);
+        // setPersonalizacao(opcoes);
         setDadosImpressao(
             opcoes.ordenacao && opcoes.agrupamento === VALORES_AGRUPAMENTO_IMPRESSAO.sim
                 ? helpers.sortByString(tableData, propOrdenacaoImpressao)
                 : tableData
         );
-        handlePrintClick();
+        const TabelaImpressaoMounted = <TabelaImpressao
+            data={dadosImpressao}
+            colunas={tabela.colunas}
+            lista={lista}
+            listas_auxiliares={listas_auxiliares}
+            targetRef={targetRef}
+            data_producao_mais_recente = {atualizacao}
+            fontFamily="sans-serif"
+            divisao_dados={opcoes.agrupamento === VALORES_AGRUPAMENTO_IMPRESSAO.sim}
+            divisao_paginas={opcoes.separacaoGrupoPorFolha}
+            filtros_aplicados={filtros_aplicados_impressao}
+            largura_colunas_impressao={largura_colunas_impressao}
+            divisorVertical={divisorVertical}
+            propAgrupamentoImpressao={propAgrupamentoImpressao}
+        />
+        console.log(opcoes)
+        Imprimir(1,TabelaImpressaoMounted,painel,aba,sub_aba,trackObject)
         fecharModalImpressao();
     }
 
@@ -279,26 +293,15 @@ const PainelBuscaAtiva = ({
                     handleButtonClick={personalizarImpressao}
                     handleClose={fecharModalImpressao}
                     valoresAgrupamento={VALORES_AGRUPAMENTO_IMPRESSAO}
+                    propsImpressao={{
+                        escala : "",
+                        child : "",
+                        lista : "",
+                        aba : "",
+                        sub_aba : "",
+                    }}
                 />
             </ModalAlertControlled>
-            {
-                showImpressao &&
-                <TabelaImpressao
-                    data={dadosImpressao}
-                    colunas={tabela.colunas}
-                    lista={lista}
-                    listas_auxiliares={listas_auxiliares}
-                    targetRef={targetRef}
-                    data_producao_mais_recente = {atualizacao}
-                    fontFamily="sans-serif"
-                    divisao_dados={divisao_dados}
-                    divisao_paginas={divisao_paginas}
-                    filtros_aplicados={filtros_aplicados_impressao}
-                    largura_colunas_impressao={largura_colunas_impressao}
-                    divisorVertical={divisorVertical}
-                    propAgrupamentoImpressao={propAgrupamentoImpressao}
-                />
-            }
         </div>
     )
 }
