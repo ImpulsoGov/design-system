@@ -14,7 +14,7 @@ export const StatusAtendimentoOdontologico = ({value, identificacao_atendimento_
   }, [identificacao_atendimento_odontologico, value]);
 
   return (
-    <div style={STYLE[value]}>
+    <div style={{...STYLE[value], width: "55%"}}>
       {value == 1 && <img src={icones.check_simbolo} />}
       {value == 2 && <img src={icones.alerta_simbolo} />}
       {descricao}

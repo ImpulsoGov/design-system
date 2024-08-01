@@ -14,7 +14,7 @@ export const DatasDoses = ({value})=> {
         const dose = splitValue[0]
         const data = splitValue[1]
         const dataFormatada = formatarDataNascimento(data)
-        return <span key={index}>{`${dose} : ${dataFormatada}`}</span>
+        return <span key={index}>{`${dose}: ${dataFormatada}`}</span>
       })}
     </div>
   )

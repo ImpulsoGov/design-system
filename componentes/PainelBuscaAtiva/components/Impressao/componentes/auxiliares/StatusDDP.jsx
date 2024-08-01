@@ -18,7 +18,7 @@ export const StatusDDP = ({value})=> {
     <>
       {value
         ? <div>{dataFormatada}</div>
-        : <div style={estilos.tagVermelhaComIcone}>sem DUM</div>
+        : <div style={{...estilos.tagVermelhaComIcone, width: "80%"}}>sem DUM</div>
       }
     </>
   )

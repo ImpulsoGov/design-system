@@ -10,5 +10,9 @@ export const StatusIdadeGestacional = ({value})=> {
     return estilos.tagNulaSemIcone;
   }, [value]);
 
-  return <div style={style}>{value ? value : "-"}</div>
+  return (
+    <div style={{...style, width: "35%"}}>
+      {value ? value : "-"}
+    </div>
+  );
 }

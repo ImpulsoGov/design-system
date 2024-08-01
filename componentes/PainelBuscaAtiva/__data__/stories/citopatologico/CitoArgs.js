@@ -11,7 +11,7 @@ import { status_usuario_descricao } from "./status_usuario_descricao";
 
 export const CitoArgs = {
     painel : "aps",
-    lista : "CITOPATOLOGICO",
+    lista : "CITOPATOLÓGICO",
     divisorVertical : [1,4],
     largura_colunas_impressao : larguraColunasCito,
     dadosFiltros : dadosFiltrosCito,

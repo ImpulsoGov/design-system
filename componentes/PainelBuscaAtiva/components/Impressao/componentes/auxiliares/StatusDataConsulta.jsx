@@ -21,7 +21,7 @@ export const StatusDataConsulta = ({value})=> {
       {dataFormatada
         ? <span>{dataFormatada}</span>
         : (
-          <div style={ estilos.tagCinzaComIcone }>
+          <div style={{...estilos.tagCinzaComIcone, width: "75%"}}>
             <img width={9} height={9} src={ icones.ampulheta_simbolo } />
             <div>Não realizada</div>
           </div>

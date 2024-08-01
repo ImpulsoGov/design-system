@@ -66,7 +66,6 @@ export const colunasSemDum = [
     headerName: 'ÚLTIMA CONSULTA',
     width: 115,
     sortable: false,
-    renderCell : formatarDataNascimento
   },
   {
     align: 'center',

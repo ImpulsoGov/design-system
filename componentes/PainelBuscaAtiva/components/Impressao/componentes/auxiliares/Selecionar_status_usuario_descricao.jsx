@@ -16,7 +16,7 @@ export const Selecionar_status_usuario_descricao = ({value,status_usuario_descri
   }
 
   const descricao = status_usuario_descricao.find(item => item?.id_status_usuario == value)?.status_usuario_descricao
-  return <div style={styleStatus[value]}> 
+  return <div style={{...styleStatus[value], width: "73%"}}> 
     {[13,14,16].includes(value) &&  <img src={icones.alerta_simbolo}/>} 
     {[15].includes(value) &&  <img src={icones.atencao_simbolo}/>} 
     {[12].includes(value) &&  <img src={icones.check_simbolo}/>} 

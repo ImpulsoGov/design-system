@@ -35,7 +35,7 @@ export const StatusTotalConsultasValidas = ({values})=> {
   }, [values]);
 
   return (
-    <div style={STYLE[colorCode]}>
+    <div style={{...STYLE[colorCode], width: "40%"}}>
       {(colorCode == 0) && <span>-</span>}
       {(colorCode == 1) && <img src={icones.atencao_simbolo} /> }
       {colorCode == 2 && <img src={icones.alerta_simbolo} /> }
