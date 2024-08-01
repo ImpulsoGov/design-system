@@ -17,7 +17,7 @@ const DESCRICOES = {
 
 export const StatusEsquema = ({value})=> {
   return (
-    <div style={STYLE[value]}>
+    <div style={{...STYLE[value], width: "80%"}}>
       {value == 1 && <img src={icones.check_simbolo} width={9} height={9} />}
       {value == 2 && <img src={icones.andamento_simbolo} width={9} height={9} />}
       {value == 3 && <img src={icones.relogio_simbolo} width={9} height={9} />}
