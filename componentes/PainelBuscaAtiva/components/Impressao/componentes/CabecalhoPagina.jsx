@@ -8,9 +8,10 @@ export const CabecalhoPagina = ({
         <div style={{
           display : "flex",
           flexDirection : "row",
-          fontFamily : "Inter",
+          fontFamily : "Arial,sans-serif",
           fontSize : "11px",
           marginTop : "25px",
+          width: "1200px"
           // display : "table-header-group"
         }}>
           <p><b>LISTA NOMINAL {lista}</b><i> - PRODUÇÃO MAIS RECENTE RECEBIDA EM : {data_producao_mais_recente}</i></p>

@@ -22,9 +22,9 @@ export const TabelaImpressao = ({
       <div 
         ref={targetRef}
         style={{
-          paddingLeft : "45px",
           fontFamily : "Inter",
-          width : "1080px",
+          width : "1200px",
+          border : "solid 1px black"
         }}
       >
         {

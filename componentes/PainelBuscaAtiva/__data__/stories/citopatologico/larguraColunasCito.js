@@ -6,5 +6,5 @@ export const larguraColunasCito = {
     4 : "100px",
     5 : "80px",
     6 : "120px",
-    7 : "120px",
+    7 : "240px",
   }

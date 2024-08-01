@@ -91,7 +91,7 @@ export const tagLaranjaComIcone = {
   alignItems: "center",
   justifyContent: "center",
   padding: "3px",
-  width: "90%"
+  width: "90%",
 };
 
 export const tagVermelhaComIcone = {
