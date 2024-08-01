@@ -5,7 +5,6 @@ export const colunasGestantesIndicador3 = [
   {
     align: 'left',
     field: 'cidadao_nome',
-    showOnPrint: true,
     headerAlign: 'center',
     headerName: 'NOME',
     width: 320,
@@ -14,7 +13,6 @@ export const colunasGestantesIndicador3 = [
   {
     align: 'center',
     field: 'gestacao_data_dpp',
-    showOnPrint: true,
     headerAlign: 'center',
     headerName: 'DPP + 14 DIAS',
     width: 100,
@@ -24,7 +22,6 @@ export const colunasGestantesIndicador3 = [
   {
     align: 'center',
     field: 'id_atendimento_odontologico',
-    showOnPrint: true,
     headerAlign: 'center',
     headerName: 'ATENDIMENTO ODONTOLÓGICO',
     width: 120,
@@ -33,7 +30,6 @@ export const colunasGestantesIndicador3 = [
   {
     align: 'center',
     field: 'id_registro_parto',
-    showOnPrint: true,
     headerAlign: 'center',
     headerName: 'REGISTRO DE PARTO',
     width: 100,
@@ -43,7 +39,6 @@ export const colunasGestantesIndicador3 = [
   {
     align: 'center',
     field: 'equipe_nome',
-    showOnPrint: true,
     headerAlign: 'center',
     headerName: 'EQUIPE',
     width: 250,
@@ -52,7 +47,6 @@ export const colunasGestantesIndicador3 = [
   {
     align: 'center',
     field: 'acs_nome',
-    showOnPrint: true,
     headerAlign: 'center',
     headerName: 'PROFISSIONAL RESPONSÁVEL',
     width: 300,

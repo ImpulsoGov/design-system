@@ -47,6 +47,7 @@ const PainelBuscaAtiva = ({
         personalizacaoSecundaria: {},
         botao: "",
     },
+    colunasImpressao=[]
 })=>{
     const [tableData, setTableData] = useState(tabela.data)
     const [dadosImpressao, setDadosImpressao] = useState(tabela.data);
@@ -167,7 +168,7 @@ const PainelBuscaAtiva = ({
         );
         const TabelaImpressaoMounted = <TabelaImpressao
             data={dadosImpressao}
-            colunas={tabela.colunas}
+            colunas={colunasImpressao}
             lista={lista}
             listas_auxiliares={listas_auxiliares}
             targetRef={targetRef}

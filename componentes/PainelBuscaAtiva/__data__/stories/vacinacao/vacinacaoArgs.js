@@ -7,6 +7,7 @@ import { rotulosfiltrosVacinacao } from "./rotulosfiltrosVacinacao"
 import { IDFiltrosOrdenacaoVacinacao } from "./IDFiltrosOrdenacaoVacinacao"
 import { larguraColunasVacinacao } from "./larguraColunasVacinacao"
 import { intFiltrosVacinacao } from "./intFiltrosVacinacao";
+import { colunasImpressaoVacinacao } from "./colunasImpressaoVacinacao";
 
 
 export const vacinacaoArgs = {
@@ -40,6 +41,7 @@ export const vacinacaoArgs = {
         listas_auxiliares : {
         
         },
+        colunasImpressao: colunasImpressaoVacinacao,
         propAgrupamentoImpressao: "equipe_nome",
         propOrdenacaoImpressao: "acs_nome",
         labelsModalImpressao: {

@@ -31,7 +31,7 @@ export const TabelaUnitaria = ({ data, colunas, listas_auxiliares, fontFamily = 
                   backgroundColor: "#E7E7E7",
                   width : "1200px"
               }}>
-              {colunas.map((coluna,index) => coluna.showOnPrint && (
+              {colunas.map((coluna,index) => (
                 <th style={{
                   padding : [...divisorVertical.map(item=>item+1),0].includes(index) ? "5px 5px 5px 12px" : "5px",
                   width: larguraColunas[coluna.field],
@@ -54,7 +54,7 @@ export const TabelaUnitaria = ({ data, colunas, listas_auxiliares, fontFamily = 
                       borderBottom: "solid 1px black",
                   }}
               >
-                {colunas.map((coluna,index) => coluna.showOnPrint && (
+                {colunas.map((coluna,index) => (
                   <td 
                       key={`${item.id}-${coluna}-${index}`}
                       style={{

@@ -1,4 +1,5 @@
 import { colunasGestantesIndicador3 } from "./colunasGestantesIndicador3";
+import { colunasImpressaoIndicador3 } from "./colunasImpressaoGestantesIndicador3";
 import { dadosFiltrosGestantesIndicador3  } from "./dadosFiltrosGestantesIndicador3";
 import { dataGestantesIndicador3  } from "./dataGestantesIndicador3";
 import { datefiltrosGestantesIndicador3  } from "./dateFiltrosGestantesIndicador3";
@@ -38,6 +39,7 @@ export const GestantesIndicador3Args = {
   listas_auxiliares: {
     identificacao_atendimento_odontologico: listasAuxiliares.identificacao_atendimento_odontologico
   },
+  colunasImpressao: colunasImpressaoIndicador3,
   propAgrupamentoImpressao: "equipe_nome",
   propOrdenacaoImpressao: "acs_nome",
   labelsModalImpressao: {

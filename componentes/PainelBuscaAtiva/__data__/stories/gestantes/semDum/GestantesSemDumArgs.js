@@ -7,6 +7,7 @@ import { IDFiltrosOrdenacaoSemDum } from "./IDFiltrosOrdenacaoGestantesSemDum";
 import { IDFiltrosSemDum } from "./IDFiltrosGestantesSemDum";
 import { larguraColunasSemDum } from "./larguraColunasGestantesSemDum";
 import { rotulosfiltrosSemDum } from "./rotulosfiltrosGestantesSemDum";
+import { colunasImpressaoSemDum } from "./colunasImpressaoGestantesSemDum";
 
 export const GestantesSemDumArgs = {
   painel: "aps",
@@ -39,6 +40,7 @@ export const GestantesSemDumArgs = {
     identificacao_atendimento_odontologico: listasAuxiliares.identificacao_atendimento_odontologico,
     identificacao_exame_sifilis_hiv: listasAuxiliares.identificacao_exame_hiv_sifilis,
   },
+  colunasImpressao: colunasImpressaoSemDum,
   propAgrupamentoImpressao: "equipe_nome",
   propOrdenacaoImpressao: "acs_nome",
   labelsModalImpressao: {

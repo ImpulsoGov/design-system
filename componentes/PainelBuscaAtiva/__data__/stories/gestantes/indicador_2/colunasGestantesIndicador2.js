@@ -6,7 +6,6 @@ export const colunasGestantesIndicador2 =[
     headerName: 'NOME',
     width: 320,
     sortable : false,
-    showOnPrint : true
   },
   {
     align: 'center',
@@ -15,7 +14,6 @@ export const colunasGestantesIndicador2 =[
     headerName: 'DPP + 14 DIAS',
     width: 100,
     sortable : false,
-    showOnPrint : true
   },
   {
       align: 'center',
@@ -24,7 +22,6 @@ export const colunasGestantesIndicador2 =[
       headerName: 'EXAME DE HIV/SÍFILIS',
       width: 250,
       sortable : false,
-      showOnPrint : true
     },
   {
       align: 'center',
@@ -33,7 +30,6 @@ export const colunasGestantesIndicador2 =[
       headerName: 'REGISTRO DE PARTO',
       width: 100,
       sortable : false,
-      showOnPrint : true
     },
   {
     align: 'center',
@@ -42,7 +38,6 @@ export const colunasGestantesIndicador2 =[
     headerName: 'EQUIPE',
     width: 250,
     sortable : false,
-    showOnPrint : true
   },
   {
     align: 'center',
@@ -51,7 +46,6 @@ export const colunasGestantesIndicador2 =[
     headerName: 'PROFISSIONAL RESPONSÁVEL',
     width: 300,
     sortable : false,
-    showOnPrint : true
   },
     
 ]
