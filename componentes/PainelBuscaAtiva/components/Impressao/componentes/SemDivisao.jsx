@@ -6,6 +6,7 @@ export const SemDivisao =({
     cabecalho,
     tabelas,
     blocosPorPagina,
+    fontFamily="sans-serif"
 })=>{
     return(
         blocosPorPagina(data,23).map((page,index)=>{
@@ -22,13 +23,14 @@ export const SemDivisao =({
                   filtros_aplicados={cabecalho.filtros_aplicados}
                   data_producao_mais_recente={cabecalho.data_producao_mais_recente}
                   lista={cabecalho.lista}
+                  fontFamily = {fontFamily}
                 />
                 <TabelaUnitaria
                   data = {page}
                   colunas = {tabelas.colunas}
                   listas_auxiliares = {tabelas.listas_auxiliares}
                   divisorVertical={tabelas.divisorVertical}
-                  fontFamily = "Inter"
+                  fontFamily = {fontFamily}
                   indexTabela={0}
                   larguraColunas={tabelas.largura_colunas_impressao}
                 />

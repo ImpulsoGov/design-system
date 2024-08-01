@@ -172,7 +172,7 @@ const PainelBuscaAtiva = ({
             listas_auxiliares={listas_auxiliares}
             targetRef={targetRef}
             data_producao_mais_recente = {atualizacao}
-            fontFamily="sans-serif"
+            fontFamily="Arial"
             divisao_dados={opcoes.agrupamento === VALORES_AGRUPAMENTO_IMPRESSAO.sim}
             divisao_paginas={opcoes.separacaoGrupoPorFolha}
             filtros_aplicados={filtros_aplicados_impressao}

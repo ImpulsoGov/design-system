@@ -2,13 +2,14 @@ export const CabecalhoPagina = ({
     filtros_aplicados,
     data_producao_mais_recente,
     lista,
+    fontFamily="sans-serif"
 })=>{
     return(
       <>
         <div style={{
           display : "flex",
           flexDirection : "row",
-          fontFamily : "Inter",
+          fontFamily: `${fontFamily}, sans-serif`,
           fontSize : "11px",
           marginTop : "25px",
           // display : "table-header-group"
@@ -21,7 +22,8 @@ export const CabecalhoPagina = ({
           alignItems: "center",
           gap : "10px",
           fontSize : "11px",
-          marginBottom : "10px"
+          marginBottom : "10px",
+          fontFamily: `${fontFamily}, sans-serif`,
         }}>
           <p><b>Filtros aplicados: </b></p>
           {
