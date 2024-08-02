@@ -40,7 +40,7 @@ export const HipertensaoArgs = {
         
         },
         propAgrupamentoImpressao: "equipe_nome_cadastro",
-        propOrdenacaoImpressao: "acs_nome",
+        propOrdenacaoImpressao: "acs_nome_cadastro",
         labelsModalImpressao: {
         titulo: "IMPRESSÃO POR EQUIPES",
         personalizacaoPrincipal: {
