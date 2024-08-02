@@ -154,13 +154,12 @@ const PainelBuscaAtiva = ({
     const fecharModalImpressao = () => setShowModalImpressao(false)
 
     const personalizarImpressao = (opcoes) => {
-        setDadosImpressao(
-            opcoes.ordenacao && opcoes.agrupamento === VALORES_AGRUPAMENTO_IMPRESSAO.sim
-                ? helpers.sortByString(tableData, propOrdenacaoImpressao)
-                : tableData
-        );
+        const dadosTabelaImpressao = opcoes.ordenacao && opcoes.agrupamento === VALORES_AGRUPAMENTO_IMPRESSAO.sim
+            ? helpers.sortByString(tableData, propOrdenacaoImpressao)
+            : tableData
+
         const TabelaImpressaoMounted = <TabelaImpressao
-            data={dadosImpressao}
+            data={dadosTabelaImpressao}
             colunas={colunasImpressao}
             lista={lista}
             listas_auxiliares={listas_auxiliares}
