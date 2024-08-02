@@ -17,8 +17,8 @@ export const Imprimir = (
     if(typeof window !== 'undefined') {
         const largura = window.innerWidth;
         const altura = window.innerHeight;
-        const janelaImpressao = window.open('', '', `width=${largura},height=${altura}`);
         const conteudo = ReactDOMServer.renderToString(child);
+        const janelaImpressao = window.open('', '', `width=${largura},height=${altura}`);
         janelaImpressao.document.write(`
         <html>
             <head>
@@ -38,6 +38,32 @@ export const Imprimir = (
         </html>
         `);
         janelaImpressao.document.close();
-        janelaImpressao.print();
+
+        //aguarda imagens carregarem 
+        const imagens = janelaImpressao.document.images;
+        let carregadas = 0;
+        const totalImagens = imagens.length;
+        for (let i = 0; i < totalImagens; i++) {
+            if (imagens[i].complete) {
+                carregadas++;
+            } else {
+                imagens[i].onload = () => {
+                    carregadas++;
+                    if (carregadas === totalImagens) {
+                        janelaImpressao.print();
+                    }
+                };
+                imagens[i].onerror = () => {
+                    carregadas++;
+                    if (carregadas === totalImagens) {
+                        janelaImpressao.print();
+                    }
+                };
+            }
+        }
+
+        if (carregadas === totalImagens) {
+            janelaImpressao.print();
+        }
     }
 }
