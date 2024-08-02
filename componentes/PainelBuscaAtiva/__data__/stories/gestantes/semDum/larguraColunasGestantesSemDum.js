@@ -1,5 +1,5 @@
 export const larguraColunasSemDum = {
-  'cidadao_nome': "170px",
+  'cidadao_nome': "175px",
   'cidadao_cpf_dt_nascimento': "80px",
   'gestacao_data_dpp': "80px",
   'gestacao_idade_gestacional_primeiro_atendimento': "80px",
@@ -9,5 +9,5 @@ export const larguraColunasSemDum = {
   'id_exame_hiv_sifilis': "80px",
   'id_atendimento_odontologico': "80px",
   'equipe_nome': "170px",
-  'acs_nome': "170px",
+  'acs_nome': "175px",
 };
