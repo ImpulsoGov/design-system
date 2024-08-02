@@ -66,11 +66,6 @@ const PainelBuscaAtiva = ({
             orientation: 'landscape',
         }
     });
-    const [personalizacao, setPersonalizacao] = useState({
-        agrupamento: VALORES_AGRUPAMENTO_IMPRESSAO.sim,
-        separacaoGrupoPorFolha: false,
-        ordenacao: false,
-    });
     useEffect(()=>{
         set_filtros_aplicados_impressao(filtrosAplicadosImpressao(chavesFiltros))
     },[chavesFiltros])
@@ -145,7 +140,6 @@ const PainelBuscaAtiva = ({
     const handlePrintClick = async()=> {
         await mostrarImpressao()
         await imprimirPDF()
-        setShowImpressao(false)
     }
 
     const processarPedidoDeImpressao = () => {
@@ -160,7 +154,6 @@ const PainelBuscaAtiva = ({
     const fecharModalImpressao = () => setShowModalImpressao(false)
 
     const personalizarImpressao = (opcoes) => {
-        // setPersonalizacao(opcoes);
         setDadosImpressao(
             opcoes.ordenacao && opcoes.agrupamento === VALORES_AGRUPAMENTO_IMPRESSAO.sim
                 ? helpers.sortByString(tableData, propOrdenacaoImpressao)
@@ -181,7 +174,6 @@ const PainelBuscaAtiva = ({
             divisorVertical={divisorVertical}
             propAgrupamentoImpressao={propAgrupamentoImpressao}
         />
-        console.log(opcoes)
         Imprimir(1,TabelaImpressaoMounted,painel,aba,sub_aba,trackObject)
         fecharModalImpressao();
     }

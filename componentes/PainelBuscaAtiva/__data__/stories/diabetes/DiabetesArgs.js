@@ -6,6 +6,7 @@ import { IDFiltrosDiabetes } from "./IDFiltrosDiabetes"
 import { rotulosfiltrosDiabetes } from "./rotulosfiltrosDiabetes"
 import { IDFiltrosOrdenacaoDiabetes } from "./IDFiltrosOrdenacaoDiabetes"
 import { larguraColunasDiabetes } from "./larguraColunasDiabetes"
+import { colunasImpressaoDiabetes } from "./colunasImpressaoDiabetes"
 
 export const DiabetesArgs = {
     painel : "aps",
@@ -17,6 +18,7 @@ export const DiabetesArgs = {
         colunas : colunasDiabetes,
         data : dataDiabetes
     },
+    colunasImpressao : colunasImpressaoDiabetes,
     datefiltros : datefiltrosDiabetes,
     IDFiltros : IDFiltrosDiabetes,
     rotulosfiltros : rotulosfiltrosDiabetes,

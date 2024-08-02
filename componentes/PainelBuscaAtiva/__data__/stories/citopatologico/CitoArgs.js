@@ -8,6 +8,7 @@ import { IDFiltrosCito } from "./IDFiltrosCito";
 import { rotulosfiltrosCito } from "./rotulosfiltrosCito";
 import { IDFiltrosOrdenacaoCito } from "./IDFiltrosOrdenacaoCito";
 import { status_usuario_descricao } from "./status_usuario_descricao";
+import { colunasImpressaoCito } from "./colunasImpressaoCito";
 
 export const CitoArgs = {
     painel : "aps",
@@ -19,6 +20,7 @@ export const CitoArgs = {
         colunas : colunasCito,
         data : dataCito
     },
+    colunasImpressao : colunasImpressaoCito,
     datefiltros : datefiltrosCito,
     IntFiltros : IntfiltrosCito,
     IDFiltros : IDFiltrosCito,

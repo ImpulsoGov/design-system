@@ -6,6 +6,7 @@ import { IDFiltrosHipertensao } from "./IDFiltrosHipertensao"
 import { rotulosfiltrosHipertensao } from "./rotulosfiltrosHipertensao"
 import { IDFiltrosOrdenacaoHipertensao } from "./IDFiltrosOrdenacaoHipertensao"
 import { larguraColunasHipertensao } from "./larguraColunasHipertensao"
+import { colunasImpressaoHipertensao } from "./colunasImpressaoHipertensao"
 
 export const HipertensaoArgs = {
     painel : "aps",
@@ -17,6 +18,7 @@ export const HipertensaoArgs = {
         colunas : colunasHipertensao,
         data : dataHipertensao
     },
+    colunasImpressao : colunasImpressaoHipertensao,
     datefiltros : datefiltrosHipertensao,
     IDFiltros : IDFiltrosHipertensao,
     rotulosfiltros : rotulosfiltrosHipertensao,
