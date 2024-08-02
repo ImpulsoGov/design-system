@@ -1,8 +1,9 @@
-export const divisaoPorEquipes = data => data.reduce((acumulador, objetoAtual) => {
-    const { equipe_nome } = objetoAtual;
-    if (!acumulador[equipe_nome]) {
-      acumulador[equipe_nome] = [];
+export const divisaoPorEquipes = (data,propAgrupamentoImpressao) => 
+  data.reduce((acumulador, objetoAtual) => {
+    const chaveAgrupamento = objetoAtual[propAgrupamentoImpressao];
+    if (!acumulador[chaveAgrupamento]) {
+      acumulador[chaveAgrupamento] = [];
     }
-    acumulador[equipe_nome].push(objetoAtual);
+    acumulador[chaveAgrupamento].push(objetoAtual);
     return acumulador;
   }, {});

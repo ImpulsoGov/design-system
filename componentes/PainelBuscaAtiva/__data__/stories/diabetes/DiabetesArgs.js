@@ -39,7 +39,7 @@ export const DiabetesArgs = {
     listas_auxiliares : {
     
     },
-    propAgrupamentoImpressao: "equipe_nome",
+    propAgrupamentoImpressao: "equipe_nome_cadastro",
     propOrdenacaoImpressao: "acs_nome",
     labelsModalImpressao: {
     titulo: "IMPRESSÃO POR EQUIPES",

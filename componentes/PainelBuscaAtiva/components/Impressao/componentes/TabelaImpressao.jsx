@@ -16,9 +16,10 @@ export const TabelaImpressao = ({
     listas_auxiliares,
     largura_colunas_impressao,
     divisorVertical,
-    fontFamily="sans-serif"
+    fontFamily="sans-serif",
+    propAgrupamentoImpressao
   }) => {
-    const divisao_por_equipes = divisao_dados ? divisaoPorEquipes(data) : []
+    const divisao_por_equipes = divisao_dados ? divisaoPorEquipes(data,propAgrupamentoImpressao) : []
     return (
       <div 
         ref={targetRef}
@@ -43,6 +44,7 @@ export const TabelaImpressao = ({
               divisorVertical : divisorVertical
             }}
             fontFamily={fontFamily}
+            propAgrupamentoImpressao={propAgrupamentoImpressao}
           />
         }
         {

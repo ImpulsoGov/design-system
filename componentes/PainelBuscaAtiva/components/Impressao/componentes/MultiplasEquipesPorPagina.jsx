@@ -5,8 +5,10 @@ export const MultiplasEquipesPorPagina = ({
     divisao_por_equipes,
     cabecalho,
     tabelas,
-    fontFamily="sans-serif"
+    fontFamily="sans-serif",
+    propAgrupamentoImpressao
 })=>{
+  console.log(divisao_por_equipes)
     return(
       <div>
         <CabecalhoPagina 
