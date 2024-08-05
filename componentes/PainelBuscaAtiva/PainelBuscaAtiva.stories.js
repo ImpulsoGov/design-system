@@ -11,6 +11,7 @@ import { GestantesIndicador1Args } from './__data__/stories/gestantes/indicador_
 import { GestantesIndicador2Args } from './__data__/stories/gestantes/indicador_2/GestantesIndicador2Args';
 import { GestantesIndicador3Args } from './__data__/stories/gestantes/indicador_3/GestantesIndicador3Args';
 import { GestantesSemDumArgs } from './__data__/stories/gestantes/semDum/GestantesSemDumArgs';
+import { CitoEquipeArgs } from './__data__/stories/citopatologico/CitoEquipeArgs';
 
 export default {
   title: "Componentes/PainelBuscaAtiva",
@@ -45,6 +46,8 @@ export const Hipertensao = Template.bind({});
 Hipertensao.args=HipertensaoArgs
 export const Cito = Template.bind({});
 Cito.args=CitoArgs
+export const CitoEquipe = Template.bind({});
+CitoEquipe.args = CitoEquipeArgs
 export const Vacinacao = Template.bind({});
 Vacinacao.args = vacinacaoArgs
 export const GestantesIndicador1 = Template.bind({});

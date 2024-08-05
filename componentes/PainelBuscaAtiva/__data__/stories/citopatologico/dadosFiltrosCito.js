@@ -1,7 +1,7 @@
 export const dadosFiltrosCito = [
     {
       rotulo : "Filtrar por nome da equipe",
-      data :  ["ESF TABOAO 2","ESF GOIANA","ESF MAILASQUI 1.2","SEM EQUIPE RESPONSÁVEL"],
+      data :  ["EMULTIPROF APS BONFIM RR","ESF CRISTINO","ESF DIMINIZ","ESF NOVA ESPERANCA", "ESF SAO FRANCISCO", "ESF TUCANO", "ESF VILENA", "SEM EQUIPE RESPONSÁVEL"],
       filtro : "equipe_nome"
     },
     {
