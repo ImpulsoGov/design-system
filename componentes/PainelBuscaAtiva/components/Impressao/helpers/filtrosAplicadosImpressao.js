@@ -229,7 +229,11 @@ const SelecionarRotulosValores = (chave,valor)=>rotuloValoresData[chave].find(it
 export const filtrosAplicadosImpressao = (chavesFiltros)=>{
     const filtros_aplicados = []
     chavesFiltros.forEach(chaveFiltro => {
-        filtros_aplicados.push(`${rotuloFiltro[Object.keys(chaveFiltro)[0]]} : ${SelecionarRotulosValores(Object.keys(chaveFiltro)[0],chaveFiltro[Object.keys(chaveFiltro)[0]])}`)
+        const chave = Object.keys(chaveFiltro)[0]
+        const valor = chaveFiltro[chave]
+        filtros_aplicados.push(`${rotuloFiltro[chave]} : ${rotuloValoresData[chave]
+            ? SelecionarRotulosValores(chave,valor)
+            : valor}`)
     });
     return filtros_aplicados
 }
