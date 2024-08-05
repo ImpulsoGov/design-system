@@ -14,7 +14,7 @@ import { TabelaImpressao } from "./components/Impressao/componentes/TabelaImpres
 import { Imprimir } from "./components/Impressao/helpers/Imprimir";
 
 const VALORES_AGRUPAMENTO_IMPRESSAO = { sim: "sim", nao: "não" };
-const NUMERO_DE_FILTROS_PARA_IMPRESSAO_DIRETA = 1;
+const NUMERO_DE_FILTROS_PARA_IMPRESSAO_SEM_PERSONALIZACAO = 1;
 
 const PainelBuscaAtiva = ({
     tabela,
@@ -142,39 +142,51 @@ const PainelBuscaAtiva = ({
         await imprimirPDF()
     }
 
+    const fecharModalImpressao = () => setShowModalImpressao(false)
+
+    const handlePrint = (dados, personalizacao) => {
+        const TabelaImpressaoMounted = <TabelaImpressao
+            data={dados}
+            colunas={colunasImpressao}
+            lista={lista}
+            listas_auxiliares={listas_auxiliares}
+            targetRef={null}
+            data_producao_mais_recente = {atualizacao}
+            fontFamily="Arial"
+            divisao_dados={personalizacao.agrupamento === VALORES_AGRUPAMENTO_IMPRESSAO.sim}
+            divisao_paginas={personalizacao.separacaoGrupoPorFolha}
+            filtros_aplicados={filtros_aplicados_impressao}
+            largura_colunas_impressao={largura_colunas_impressao}
+            divisorVertical={divisorVertical}
+            propAgrupamentoImpressao={propAgrupamentoImpressao}
+        />
+
+        Imprimir(1,TabelaImpressaoMounted,painel,aba,sub_aba,trackObject)
+    }
+
     const processarPedidoDeImpressao = () => {
         const filtros = helpers.buscarFiltroPorPropriedade(chavesFiltros, propAgrupamentoImpressao);
 
-        filtros.length === NUMERO_DE_FILTROS_PARA_IMPRESSAO_DIRETA
-            ? handlePrintClick()
+        filtros.length === NUMERO_DE_FILTROS_PARA_IMPRESSAO_SEM_PERSONALIZACAO
+            ? handlePrint(tableData, {
+                agrupamento: VALORES_AGRUPAMENTO_IMPRESSAO.nao,
+                separacaoGrupoPorFolha: false,
+                ordenacao: false,
+            })
             : setShowModalImpressao(true);
-        onPrintClick();
     }
-
-    const fecharModalImpressao = () => setShowModalImpressao(false)
 
     const personalizarImpressao = (opcoes) => {
         const dadosTabelaImpressao = opcoes.ordenacao && opcoes.agrupamento === VALORES_AGRUPAMENTO_IMPRESSAO.sim
             ? helpers.sortByString(tableData, propOrdenacaoImpressao)
             : tableData
 
-        const TabelaImpressaoMounted = <TabelaImpressao
-            data={dadosTabelaImpressao}
-            colunas={colunasImpressao}
-            lista={lista}
-            listas_auxiliares={listas_auxiliares}
-            targetRef={targetRef}
-            data_producao_mais_recente = {atualizacao}
-            fontFamily="Arial"
-            divisao_dados={opcoes.agrupamento === VALORES_AGRUPAMENTO_IMPRESSAO.sim}
-            divisao_paginas={opcoes.separacaoGrupoPorFolha}
-            filtros_aplicados={filtros_aplicados_impressao}
-            largura_colunas_impressao={largura_colunas_impressao}
-            divisorVertical={divisorVertical}
-            propAgrupamentoImpressao={propAgrupamentoImpressao}
-        />
-        Imprimir(1,TabelaImpressaoMounted,painel,aba,sub_aba,trackObject)
+        handlePrint(dadosTabelaImpressao, opcoes);
         fecharModalImpressao();
+    }
+
+    const imprimirVersaoLegada = () => {
+        onPrintClick(tableData);
     }
 
     return(
@@ -251,13 +263,7 @@ const PainelBuscaAtiva = ({
                 updateData={updateData}
                 tabela={tabela.data}
                 ordenacaoAplicada={ordenacaoAplicada}
-                handlePrintClick={painel === "aps"
-                    ? processarPedidoDeImpressao
-                    : () => {
-                        handlePrintClick();
-                        onPrintClick();
-                    }
-                }
+                handlePrintClick={painel === "aps" ? processarPedidoDeImpressao : imprimirVersaoLegada}
             />
             <TabelaHiperDia
                 colunas={tabela.colunas}
@@ -285,13 +291,6 @@ const PainelBuscaAtiva = ({
                     handleButtonClick={personalizarImpressao}
                     handleClose={fecharModalImpressao}
                     valoresAgrupamento={VALORES_AGRUPAMENTO_IMPRESSAO}
-                    propsImpressao={{
-                        escala : "",
-                        child : "",
-                        lista : "",
-                        aba : "",
-                        sub_aba : "",
-                    }}
                 />
             </ModalAlertControlled>
         </div>
