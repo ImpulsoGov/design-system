@@ -1,4 +1,4 @@
-import { larguraColunasCito } from "./larguraColunasCito";
+import { larguraColunasCitoPaisagem, larguraColunasCitoRetrato } from "./larguraColunasCito";
 import { dadosFiltrosCito } from "./dadosFiltrosCito";
 import { colunasCito } from "./colunasCito";
 import { dataCito } from "./dataCito";
@@ -14,7 +14,10 @@ export const CitoArgs = {
     painel : "aps",
     lista : "CITOPATOLÓGICO",
     divisorVertical : [1,4],
-    largura_colunas_impressao : larguraColunasCito,
+    largura_colunas_impressao : {
+      paisagem : larguraColunasCitoPaisagem,
+      retrato : larguraColunasCitoRetrato
+    },
     dadosFiltros : dadosFiltrosCito,
     tabela : {
         colunas : colunasCito,

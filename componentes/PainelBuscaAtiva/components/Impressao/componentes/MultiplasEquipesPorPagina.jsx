@@ -6,9 +6,7 @@ export const MultiplasEquipesPorPagina = ({
     cabecalho,
     tabelas,
     fontFamily="sans-serif",
-    propAgrupamentoImpressao
 })=>{
-  console.log(divisao_por_equipes)
     return(
       <div>
         <CabecalhoPagina 
@@ -21,17 +19,16 @@ export const MultiplasEquipesPorPagina = ({
           Object.keys(divisao_por_equipes).sort(ordenarEquipes).map((registro,index)=>{
             return( 
               <>
-              <div key={registro+index}>
-                <div 
-                  key={index}
-                  style={{
-                    display : "table-header-group",
-                  }}
-                >
+              <div 
+                key={registro+index}
+              >
+                <div key={index}>
                   <p 
                   style={{
                     fontSize : "11px",
                     fontFamily: `${fontFamily}, sans-serif`,
+                    marginTop : "17px",
+                    marginBottom : "17px"
                   }}><b>{registro}</b></p>
                   <TabelaUnitaria
                     data = {divisao_por_equipes[registro]}
@@ -40,14 +37,24 @@ export const MultiplasEquipesPorPagina = ({
                     divisorVertical={tabelas.divisorVertical}
                     fontFamily = {fontFamily}
                     indexTabela={index}
-                    larguraColunas={tabelas.largura_colunas_impressao}
+                    larguraColunas={tabelas.largura_colunas_impressao.retrato}
+                    orientacao="retrato"
+                  />
+                  <TabelaUnitaria
+                    data = {divisao_por_equipes[registro]}
+                    colunas = {tabelas.colunas}
+                    listas_auxiliares = {tabelas.listas_auxiliares}
+                    divisorVertical={tabelas.divisorVertical}
+                    fontFamily = {fontFamily}
+                    indexTabela={index}
+                    larguraColunas={tabelas.largura_colunas_impressao.paisagem}
+                    orientacao="paisagem"
                   />
                 </div>
               </div>
               </>
           )})
-        }     
-      </div>
-
+        }   
+        </div>  
     )
 }

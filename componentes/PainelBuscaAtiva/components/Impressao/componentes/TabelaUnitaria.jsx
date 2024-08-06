@@ -11,9 +11,11 @@ import { StatusExameSifilisHIV } from "./auxiliares/StatusExameSifilisHIV";
 import { StatusIdadeGestacional } from "./auxiliares/StatusIdadeGestacional";
 import { StatusTotalConsultasValidas } from "./auxiliares/StatusTotalConsultasValidas";
 
-export const TabelaUnitaria = ({ data, colunas, listas_auxiliares, fontFamily = "sans-serif", divisorVertical , larguraColunas}) => {
+export const TabelaUnitaria = ({ data, colunas, listas_auxiliares, fontFamily = "sans-serif", divisorVertical , larguraColunas, orientacao}) => {
   return (
-      <>
+      <div 
+        className={orientacao=="paisagem" ? "paisagem" : "retrato"}
+      >
         <table style={{
           borderCollapse: "collapse",
           color:  "#1F1F1F",
@@ -23,13 +25,14 @@ export const TabelaUnitaria = ({ data, colunas, listas_auxiliares, fontFamily = 
           letterSpacing: "-0.12px",
           textTransform: "uppercase",
           width : "fit-content",
-          pageBreakAfter: "auto",
-          marginBottom: "10px"
+          marginBottom: "10px",
         }}>
           <thead>
-            <tr style={{
+            <tr 
+              className="largura"
+              style={{
                   backgroundColor: "#E7E7E7",
-                  width : "1200px"
+                  marginTop : "82px",
               }}>
               {colunas.map((coluna,index) => (
                 <th style={{
@@ -49,10 +52,10 @@ export const TabelaUnitaria = ({ data, colunas, listas_auxiliares, fontFamily = 
           <tbody>
             {data.map((item,index) => (
               <tr 
-                  key={index}
-                  style={{
-                      borderBottom: "solid 1px black",
-                  }}
+                key={index}
+                style={{
+                    borderBottom: "solid 1px black",
+                }}
               >
                 {colunas.map((coluna,index) => (
                   <td 
@@ -64,7 +67,8 @@ export const TabelaUnitaria = ({ data, colunas, listas_auxiliares, fontFamily = 
                           width: larguraColunas[coluna.field],
                           padding : [...divisorVertical.map(item=>item+1),0].includes(index) ? "4px 4px 4px 12px" : "4px",
                           borderRight: divisorVertical.includes(index) ? "solid 1px black" : "",
-                          boxSizing : "border-box"
+                          boxSizing : "border-box",
+                          lineHeight : "140%"
                       }}
                   >
                     {
@@ -169,6 +173,6 @@ export const TabelaUnitaria = ({ data, colunas, listas_auxiliares, fontFamily = 
             ))}
           </tbody>
         </table>
-      </>
+      </div>
     );
   };

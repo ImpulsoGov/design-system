@@ -5,7 +5,7 @@ export const DatasDoses = ({value})=> {
     <div style={{
       display: "flex",
       flexDirection: "column",
-      fontSize: "8px",
+      fontSize: "7px",
       fontWeight: "500",
       lineHeight: "10.5px",
     }}>
