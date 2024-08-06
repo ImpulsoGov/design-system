@@ -4,14 +4,14 @@
 }
 
 .Container {
-  padding-top: 32px;
-  padding-right: 32px;
-  padding-left: 32px;
-  padding-bottom: 40px;
+  padding-top: 28px;
+  padding-right: 28px;
+  padding-left: 28px;
+  padding-bottom: 36px;
   box-sizing: border-box;
   font-family: 'Inter';
   color: #1F1F1F;
-  width: 900px;
+  width: 800px;
   max-height: 80vh;
   min-height: fit-content;
   background-color: #fff;
@@ -39,17 +39,17 @@
 }
 
 .Close{
+  margin-bottom: 20px;
   width: 100%;
   display: flex;
   justify-content: flex-end;
-  margin-bottom: 24px;
 }
 
 .TituloContainer {
   display: flex;
   gap: 8px;
   align-items: center;
-  margin-bottom: 16px;
+  margin-bottom: 13px;
 }
 
 .Titulo {
@@ -63,82 +63,82 @@
 }
 
 .TituloPersonalizacaoPrincipal {
-  font-size: 32px;
+  font-size: 25px;
+  line-height: 33px;
+  margin-bottom: 20px;
   font-weight: 400;
-  line-height: 41.6px;
   letter-spacing: -0.02em;
   text-align: left;
-  margin-bottom: 24px;
 }
 
 .DescricaoPersonalizacaoPrincipal {
-  font-size: 16px;
+  font-size: 14px;
+  line-height: 20px;
+  margin-bottom: 20px;
   font-weight: 400;
-  line-height: 24px;
   letter-spacing: -0.01em;
   text-align: left;
-  margin-bottom: 24px;
 }
 
 .OpcaoPersonalizacaoPrincipal {
+  padding: 8px 10px;
+  font-size: 14px;
+  line-height: 20px;
   display: flex;
   gap: 10px;
   align-items: center;
-  padding: 10px;
-  font-size: 16px;
   font-weight: 400;
-  line-height: 24px;
   letter-spacing: -0.01em;
   text-align: left;
 }
 
 .InputPersonalizacaoPrincipal {
-  width: 20px;
-  height: 20px;
-  padding: 0 2px;
+  width: 18px;
+  height: 18px;
+  padding: 0;
   margin: 0;
   accent-color: #145C56;
 }
 
 .Linha {
-  margin: 24px 0;
+  margin: 17px 0;
 }
 
 .TituloPersonalizacoesSecundarias {
-  font-size: 24px;
+  font-size: 20px;
+  line-height: 25px;
+  padding: 8px 0;
+  margin-bottom: 20px;
   font-weight: 400;
-  line-height: 31.2px;
   letter-spacing: -0.02em;
   text-align: left;
-  padding: 10px 0;
-  margin-bottom: 24px;
 }
 
 .ContainerPersonalizacoesSecundarias {
+  padding: 15px 9px 21px 9px;
   position: relative;
-  padding: 18px 11px 24px 11px;
   border-radius: 8px;
   border: 1.5px solid #916A20;
 }
 
 .OpcaoPersonalizacaoSecundaria {
+  padding: 0px 9px;
+  margin-top: 14px;
+  font-size: 14px;
+  line-height: 20px;
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 0px 12px;
-  margin-top: 16px;
   accent-color: #145C56;
-  font-size: 16px;
   font-weight: 400;
-  line-height: 24px;
   letter-spacing: -0.01em;
   text-align: left;
 }
 
 .ContainerPersonalizacoesSecundarias input {
-  width: 17px;
-  height: 19px;
-  padding: 1.19px 0px 1.19px 0px;
+  width: 15px;
+  height: 17px;
+  padding: 0;
   margin: 0;
   position: relative;
 }
@@ -151,6 +151,7 @@
 }
 
 .Recomendacao {
+  padding: 3px 8px;
   display: flex;
   gap: 5px;
   align-items: center;
@@ -158,16 +159,15 @@
   position: absolute;
   z-index: 1000;
   top: -8px;
-  padding: 3px 10px;
   border-radius: 5px;
   border: 1px solid #916A20;
   background-color: #FFEFB9;
 }
 
 .TextoRecomendacao {
-  font-size: 13px;
+  font-size: 12px;
+  line-height: 17px;
   font-weight: 600;
-  line-height: 19.5px;
   text-align: left;
   color: #4F3D0C;
 }
@@ -200,94 +200,72 @@
   }
 }
 
-@media screen and (max-width: 1440px) {
+@media screen and (max-width: 1366px) {
   .Container {
-    width: 800px;
+    width: 700px;
+    padding-top: 22px;
+    padding-right: 22px;
+    padding-left: 22px;
+    padding-bottom: 24px;
   }
 
   .TituloContainer {
-    margin-bottom: 13px;
+    margin-bottom: 8px;
   }
 
   .TituloPersonalizacaoPrincipal {
-    font-size: 25px;
-    line-height: 33px;
-    margin-bottom: 20px;
+    font-size: 23px;
+    line-height: 28px;
+    margin-bottom: 15px;
   }
 
   .DescricaoPersonalizacaoPrincipal {
-    font-size: 14px;
     line-height: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 12px;
   }
 
   .OpcaoPersonalizacaoPrincipal {
-    padding: 8px 10px;
-    font-size: 14px;
-    line-height: 20px;
-  }
-
-  .InputPersonalizacaoPrincipal {
-    width: 18px;
-    height: 18px;
-    padding: 0;
+    padding: 6px 10px;
+    line-height: 15px;
   }
 
   .TituloPersonalizacoesSecundarias {
-    font-size: 20px;
-    line-height: 25px;
-    padding: 8px 0;
-    margin-bottom: 20px;
+    line-height: 18px;
+    padding: 6px 0;
+    margin-bottom: 16px;
   }
 
   .Linha {
-    margin: 17px 0;
+    margin: 10px 0;
   }
 
   .OpcaoPersonalizacaoSecundaria {
-    padding: 0px 9px;
-    margin-top: 14px;
-    font-size: 14px;
-    line-height: 20px;
+    margin-top: 10px;
+    line-height: 15px;
   }
 
   .ContainerPersonalizacoesSecundarias {
-    padding: 15px 9px 21px 9px;
+    padding: 15px 9px 16px 9px;
   }
 
   .Close{
-    margin-bottom: 20px;
+    margin-bottom: 12px;
   }
 
-  .Recomendacao {
-    padding: 3px 8px;
-  }
-
-  .TextoRecomendacao {
-    font-size: 12px;
-    line-height: 17px;
-  }
-
-  .ContainerPersonalizacoesSecundarias input {
-    width: 15px;
-    height: 17px;
-    padding: 0;
+  .ContainerBotao {
+    margin-top: 18px;
   }
 }
 
 @media screen and (max-width: 1024px) {
   .Container {
-    width: 80%;
+    width: 70%;
   }
 }
 
 @media screen and (max-width: 768px) {
   .Container {
     width: 90%;
-    padding-top: 26px;
-    padding-right: 26px;
-    padding-left: 26px;
-    padding-bottom: 34px;
   }
 }
 
