@@ -49,7 +49,6 @@ const PainelBuscaAtiva = ({
     liberarPesquisa = () => {},
 })=>{
     const [tableData, setTableData] = useState(tabela.data)
-    const [dadosImpressao, setDadosImpressao] = useState(tabela.data);
     const [showOrdenarModal,setShowOrdenarModal] = useState(false)
     const [showFiltrosModal,setShowFiltrosModal] = useState(false)
     const [ordenar,setOrdenar] = useState('1')
@@ -61,9 +60,6 @@ const PainelBuscaAtiva = ({
     useEffect(()=>{
         set_filtros_aplicados_impressao(filtrosAplicadosImpressao(chavesFiltros))
     },[chavesFiltros])
-    useEffect(() => {
-        setDadosImpressao(tableData);
-    }, [tableData])
 
     function updateData(newData){
         setData(newData);
@@ -126,9 +122,6 @@ const PainelBuscaAtiva = ({
             ...prevState,
             open: false,
         }))
-    }
-    const handlePrintClick = async()=> {
-        await mostrarImpressao()
     }
 
     const fecharModalImpressao = () => setShowModalImpressao(false)
