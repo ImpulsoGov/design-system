@@ -57,5 +57,6 @@ export const GestantesIndicador3Args = {
       ordenacao: "Também ordenar listas por profissional responsável",
     },
     botao: "IMPRIMIR LISTA",
+    liberarPesquisa: () => console.log("liberar pesquisa"),
   },
 };

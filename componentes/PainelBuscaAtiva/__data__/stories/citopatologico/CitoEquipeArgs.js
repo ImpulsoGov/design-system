@@ -61,5 +61,6 @@ export const CitoEquipeArgs = {
     },
     botao: "IMPRIMIR LISTA",
     },
-    onPrintClick: imprimirCitoLegado
+    onPrintClick: imprimirCitoLegado,
+    liberarPesquisa: () => console.log("liberar pesquisa"),
   }

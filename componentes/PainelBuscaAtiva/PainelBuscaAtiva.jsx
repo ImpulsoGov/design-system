@@ -46,7 +46,8 @@ const PainelBuscaAtiva = ({
         personalizacaoSecundaria: {},
         botao: "",
     },
-    colunasImpressao=[]
+    colunasImpressao = [],
+    liberarPesquisa = () => {},
 })=>{
     const [tableData, setTableData] = useState(tabela.data)
     const [dadosImpressao, setDadosImpressao] = useState(tabela.data);
@@ -173,6 +174,8 @@ const PainelBuscaAtiva = ({
                 ordenacao: false,
             })
             : setShowModalImpressao(true);
+
+        liberarPesquisa();
     }
 
     const personalizarImpressao = (opcoes) => {

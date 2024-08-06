@@ -60,4 +60,5 @@ export const CitoArgs = {
     },
     botao: "IMPRIMIR LISTA",
     },
+    liberarPesquisa: () => console.log("liberar pesquisa"),
   }

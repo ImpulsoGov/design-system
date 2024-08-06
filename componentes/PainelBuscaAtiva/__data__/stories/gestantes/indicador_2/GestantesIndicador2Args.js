@@ -57,4 +57,5 @@ export const GestantesIndicador2Args = {
     },
     botao: "IMPRIMIR LISTA",
     },
+    liberarPesquisa: () => console.log("liberar pesquisa"),
 }

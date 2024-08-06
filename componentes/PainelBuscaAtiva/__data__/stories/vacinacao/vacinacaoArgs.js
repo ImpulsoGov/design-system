@@ -60,4 +60,5 @@ export const vacinacaoArgs = {
         },
         botao: "IMPRIMIR LISTA",
         },
+    liberarPesquisa: () => console.log("liberar pesquisa"),
 }

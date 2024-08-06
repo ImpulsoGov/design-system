@@ -59,4 +59,5 @@ export const GestantesSemDumArgs = {
     },
     botao: "IMPRIMIR LISTA",
   },
+  liberarPesquisa: () => console.log("liberar pesquisa"),
 };

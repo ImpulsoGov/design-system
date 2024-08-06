@@ -57,4 +57,5 @@ export const DiabetesArgs = {
     },
     botao: "IMPRIMIR LISTA",
     },
+    liberarPesquisa: () => console.log("liberar pesquisa"),
 }
