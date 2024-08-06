@@ -12,7 +12,7 @@ export const CabecalhoPagina = ({
             display : "flex",
             flexDirection : "row",
             fontFamily: `${fontFamily}, sans-serif`,
-            fontSize : "12px",
+            fontSize : "16px",
           }}
         >
           <p style={{marginTop : 0}}><b>LISTA NOMINAL {lista}</b><i> - PRODUÇÃO MAIS RECENTE RECEBIDA EM : {data_producao_mais_recente}</i></p>
@@ -22,7 +22,7 @@ export const CabecalhoPagina = ({
           flexDirection : "row",
           alignItems: "center",
           gap : "10px",
-          fontSize : "12px",
+          fontSize : "16px",
           marginBottom : "10px",
           fontFamily: `${fontFamily}, sans-serif`,
         }}>

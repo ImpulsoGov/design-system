@@ -5,7 +5,7 @@ import { datefiltrosVacinacao } from "./dateFiltrosVacinacao"
 import { IDFiltrosVacinacao } from "./IDFiltrosVacinacao"
 import { rotulosfiltrosVacinacao } from "./rotulosfiltrosVacinacao"
 import { IDFiltrosOrdenacaoVacinacao } from "./IDFiltrosOrdenacaoVacinacao"
-import { larguraColunasVacinacao } from "./larguraColunasVacinacao"
+import { larguraColunasVacinacaoPaisagem, larguraColunasVacinacaoRetrato } from "./larguraColunasVacinacao"
 import { intFiltrosVacinacao } from "./intFiltrosVacinacao";
 import { colunasImpressaoVacinacao } from "./colunasImpressaoVacinacao";
 
@@ -14,7 +14,10 @@ export const vacinacaoArgs = {
     painel : "aps",
     lista : "VACINAÇÃO",
     divisorVertical : [2,4],
-    largura_colunas_impressao : larguraColunasVacinacao,
+    largura_colunas_impressao : {
+        retrato : larguraColunasVacinacaoRetrato,
+        paisagem : larguraColunasVacinacaoPaisagem
+    },
     dadosFiltros : dadosFiltrosVacinacao,
     tabela : {
         colunas : colunasVacinacao,
