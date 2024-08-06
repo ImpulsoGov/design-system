@@ -78,7 +78,6 @@ export const TabelaImpressao = ({
               largura_colunas_impressao : largura_colunas_impressao,
               divisorVertical : divisorVertical
             }}
-            blocosPorPagina={blocosPorPagina}
             fontFamily={fontFamily}
           />
         }
