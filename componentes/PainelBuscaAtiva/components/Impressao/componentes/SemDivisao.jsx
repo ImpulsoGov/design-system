@@ -29,6 +29,17 @@ export const SemDivisao =({
           fontFamily = {fontFamily}
           indexTabela={0}
           larguraColunas={tabelas.largura_colunas_impressao}
+          orientacao="paisagem"
+        />
+        <TabelaUnitaria
+          data = {data}
+          colunas = {tabelas.colunas}
+          listas_auxiliares = {tabelas.listas_auxiliares}
+          divisorVertical={tabelas.divisorVertical}
+          fontFamily = {fontFamily}
+          indexTabela={0}
+          larguraColunas={tabelas.largura_colunas_impressao}
+          orientacao="retrato"
         />
       </div>
 )} 
