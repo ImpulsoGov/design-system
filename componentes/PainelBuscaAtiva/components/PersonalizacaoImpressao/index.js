@@ -1,0 +1,1 @@
+export { PersonalizacaoImpressao } from './PersonalizacaoImpressao';

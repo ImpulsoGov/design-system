@@ -7,7 +7,6 @@ import { CardAlert } from "../CardAlert";
 import * as Components from "./components";
 import * as helpers from "./helpers";
 import { usePDF } from 'react-to-pdf';
-import { PersonalizacaoImpressao } from "../PersonalizacaoImpressao/PersonalizacaoImpressao";
 import { ModalAlertControlled } from "../ModalAlert/ModalAlert";
 import { filtrosAplicadosImpressao } from "./components/Impressao/helpers/filtrosAplicadosImpressao";
 import { TabelaImpressao } from "./components/Impressao/componentes/TabelaImpressao";
@@ -286,7 +285,7 @@ const PainelBuscaAtiva = ({
                 display={showModalImpressao}
                 close={fecharModalImpressao}
             >
-                <PersonalizacaoImpressao
+                <Components.PersonalizacaoImpressao
                     labels={labelsModalImpressao}
                     handleButtonClick={personalizarImpressao}
                     handleClose={fecharModalImpressao}

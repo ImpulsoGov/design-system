@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ButtonColorSubmitIcon } from "../ButtonColor/ButtonColor";
+import { ButtonColorSubmitIcon } from "../../../ButtonColor/ButtonColor";
 import style from "./PersonalizacaoImpressao.module.css";
 import Image from "next/image";
 import cx from "classnames";
