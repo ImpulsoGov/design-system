@@ -12,7 +12,8 @@
   font-family: 'Inter';
   color: #1F1F1F;
   width: 900px;
-  height: fit-content;
+  max-height: 80vh;
+  min-height: fit-content;
   background-color: #fff;
   border-radius: 20px;
   position: relative;
@@ -171,6 +172,34 @@
   color: #4F3D0C;
 }
 
+@media screen and (max-height: 1024px) {
+  .Container {
+    max-height: 72vh;
+    min-height: fit-content;
+  }
+}
+
+@media screen and (max-height: 900px) {
+  .Container {
+    max-height: 85vh;
+    min-height: fit-content;
+  }
+}
+
+@media screen and (max-height: 800px) {
+  .Container {
+    max-height: 85vh;
+    min-height: fit-content;
+  }
+}
+
+@media screen and (max-height: 640px) {
+  .Container {
+    max-height: 96vh;
+    min-height: fit-content;
+  }
+}
+
 @media screen and (max-width: 1440px) {
   .Container {
     width: 800px;
@@ -249,47 +278,6 @@
 @media screen and (max-width: 1024px) {
   .Container {
     width: 80%;
-  }
-
-  .TituloContainer {
-    margin-bottom: 11px;
-  }
-
-  .TituloPersonalizacaoPrincipal {
-    font-size: 23px;
-    line-height: 31px;
-    margin-bottom: 18px;
-  }
-
-  .DescricaoPersonalizacaoPrincipal {
-    margin-bottom: 18px;
-  }
-
-  .OpcaoPersonalizacaoPrincipal {
-    padding: 6px 10px;
-  }
-
-  .TituloPersonalizacoesSecundarias {
-    font-size: 18px;
-    line-height: 23px;
-    padding: 6px 0;
-    margin-bottom: 18px;
-  }
-
-  .Linha {
-    margin: 16px 0;
-  }
-
-  .OpcaoPersonalizacaoSecundaria {
-    margin-top: 12px;
-  }
-
-  .ContainerPersonalizacoesSecundarias {
-    padding: 15px 9px 19px 9px;
-  }
-
-  .Close{
-    margin-bottom: 18px;
   }
 }
 
