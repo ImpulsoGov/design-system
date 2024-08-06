@@ -8,7 +8,6 @@ export const TabelaImpressao = ({
     data, 
     colunas, 
     lista,
-    targetRef, 
     filtros_aplicados,
     divisao_dados=true, 
     divisao_paginas=false, 
@@ -22,9 +21,8 @@ export const TabelaImpressao = ({
     const divisao_por_equipes = divisao_dados ? divisaoPorEquipes(data,propAgrupamentoImpressao) : []
     return (
       <div 
-        ref={targetRef}
+        className="largura"
         style={{
-          width : "1200px",
           fontFamily: `${fontFamily}, sans-serif`,
         }}
       >

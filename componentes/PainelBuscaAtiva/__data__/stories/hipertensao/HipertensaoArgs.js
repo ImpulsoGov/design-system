@@ -5,14 +5,17 @@ import { datefiltrosHipertensao } from "./dateFiltrosHipertensao"
 import { IDFiltrosHipertensao } from "./IDFiltrosHipertensao"
 import { rotulosfiltrosHipertensao } from "./rotulosfiltrosHipertensao"
 import { IDFiltrosOrdenacaoHipertensao } from "./IDFiltrosOrdenacaoHipertensao"
-import { larguraColunasHipertensao } from "./larguraColunasHipertensao"
+import { larguraColunasHipertensaoPaisagem, larguraColunasHipertensaoRetrato } from "./larguraColunasHipertensao"
 import { colunasImpressaoHipertensao } from "./colunasImpressaoHipertensao"
 
 export const HipertensaoArgs = {
     painel : "aps",
     lista : "HIPERTENSÃO",
     divisorVertical : [3,5],
-    largura_colunas_impressao : larguraColunasHipertensao,
+    largura_colunas_impressao : {
+        retrato : larguraColunasHipertensaoRetrato,
+        paisagem : larguraColunasHipertensaoPaisagem
+    },
     dadosFiltros : dadosFiltrosHipertensao,
     tabela : {
         colunas : colunasHipertensao,

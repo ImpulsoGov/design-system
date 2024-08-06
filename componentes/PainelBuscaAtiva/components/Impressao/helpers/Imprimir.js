@@ -23,13 +23,42 @@ export const Imprimir = (
         <html>
             <head>
             <style>
-                @media print {
+                @media print and (orientation: landscape){
                     @page {
                         transform: scale(${escala});
                         transform-origin: top left;
+                        margin : 14px;
                     }
                     body {
                         margin: 0;
+                    }
+                    .largura {
+                        width : 1215px;
+                    }
+                    .retrato{
+                        display : none
+                    }
+                    .paisagem{
+                        display : block;
+                    }
+                }
+                @media print and (orientation: portrait){
+                    @page {
+                        transform: scale(${escala});
+                        transform-origin: top left;
+
+                    }
+                    body {
+                        margin: 0;
+                    }
+                    .largura {
+                        width : 868px
+                    }
+                    .retrato{
+                        display : block;
+                    }
+                    .paisagem{
+                        display : none;
                     }
                 }
             </style>

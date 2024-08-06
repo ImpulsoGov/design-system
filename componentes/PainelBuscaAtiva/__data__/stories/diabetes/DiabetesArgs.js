@@ -5,14 +5,17 @@ import { datefiltrosDiabetes } from "./dateFiltrosDiabetes"
 import { IDFiltrosDiabetes } from "./IDFiltrosDiabetes"
 import { rotulosfiltrosDiabetes } from "./rotulosfiltrosDiabetes"
 import { IDFiltrosOrdenacaoDiabetes } from "./IDFiltrosOrdenacaoDiabetes"
-import { larguraColunasDiabetes } from "./larguraColunasDiabetes"
+import { larguraColunasDiabetesPaisagem, larguraColunasDiabetesRetrato } from "./larguraColunasDiabetes"
 import { colunasImpressaoDiabetes } from "./colunasImpressaoDiabetes"
 
 export const DiabetesArgs = {
     painel : "aps",
     lista : "DIABETES",
     divisorVertical : [3,5],
-    largura_colunas_impressao : larguraColunasDiabetes,
+    largura_colunas_impressao : {
+        retrato : larguraColunasDiabetesRetrato,
+        paisagem : larguraColunasDiabetesPaisagem
+    },
     dadosFiltros : dadosFiltrosDiabetes,
     tabela : {
         colunas : colunasDiabetes,

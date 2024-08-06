@@ -6,7 +6,6 @@ import { Toast } from "../Toast";
 import { CardAlert } from "../CardAlert";
 import * as Components from "./components";
 import * as helpers from "./helpers";
-import { usePDF } from 'react-to-pdf';
 import { ModalAlertControlled } from "../ModalAlert/ModalAlert";
 import { filtrosAplicadosImpressao } from "./components/Impressao/helpers/filtrosAplicadosImpressao";
 import { TabelaImpressao } from "./components/Impressao/componentes/TabelaImpressao";
@@ -59,13 +58,6 @@ const PainelBuscaAtiva = ({
     const [chavesFiltros,setChavesFiltros] = useState([])
     const [showModalImpressao, setShowModalImpressao] = useState(false);
     const [filtros_aplicados_impressao,set_filtros_aplicados_impressao] = useState()
-    const { toPDF, targetRef } = usePDF({
-        filename: 'page.pdf',
-        method : 'open',
-        page : {
-            orientation: 'landscape',
-        }
-    });
     useEffect(()=>{
         set_filtros_aplicados_impressao(filtrosAplicadosImpressao(chavesFiltros))
     },[chavesFiltros])
@@ -135,11 +127,8 @@ const PainelBuscaAtiva = ({
             open: false,
         }))
     }
-    const imprimirPDF = async ()=> toPDF()
-    const mostrarImpressao = async ()=> setShowImpressao(true)
     const handlePrintClick = async()=> {
         await mostrarImpressao()
-        await imprimirPDF()
     }
 
     const fecharModalImpressao = () => setShowModalImpressao(false)

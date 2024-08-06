@@ -5,24 +5,24 @@ export const CabecalhoPagina = ({
     fontFamily="sans-serif"
 })=>{
     return(
-      <>
-        <div style={{
-          display : "flex",
-          flexDirection : "row",
-          fontFamily: `${fontFamily}, sans-serif`,
-          fontSize : "11px",
-          marginTop : "25px",
-          width: "1200px"
-          // display : "table-header-group"
-        }}>
-          <p><b>LISTA NOMINAL {lista}</b><i> - PRODUÇÃO MAIS RECENTE RECEBIDA EM : {data_producao_mais_recente}</i></p>
+      <div>
+        <div 
+          className="largura"
+          style={{
+            display : "flex",
+            flexDirection : "row",
+            fontFamily: `${fontFamily}, sans-serif`,
+            fontSize : "12px",
+          }}
+        >
+          <p style={{marginTop : 0}}><b>LISTA NOMINAL {lista}</b><i> - PRODUÇÃO MAIS RECENTE RECEBIDA EM : {data_producao_mais_recente}</i></p>
         </div>
         <div style={{
           display : "flex",
           flexDirection : "row",
           alignItems: "center",
           gap : "10px",
-          fontSize : "11px",
+          fontSize : "12px",
           marginBottom : "10px",
           fontFamily: `${fontFamily}, sans-serif`,
         }}>
@@ -54,14 +54,14 @@ export const CabecalhoPagina = ({
             marginTop : "-45px"
           }}>
             <img 
-              src="https://media.graphassets.com/VTP6e8dLSrC2j2zNABfV" 
+              src="https://media.graphassets.com/3HLHjLzQQDmQIxkp7Ifq" 
               alt="logo"
-              width="160px"
+              width="150px"
               height="65px"
             />
           </div>
 
         </div>
-      </>
+      </div>
     )
   }
