@@ -5,14 +5,17 @@ import { datefiltrosGestantesIndicador2 } from "./dateFiltrosGestantesIndicador2
 import { IDFiltrosGestantesIndicador2 } from "./IDFiltrosGestantesIndicador2"
 import { rotulosfiltrosGestantesIndicador2 } from "./rotulosfiltrosGestantesIndicador2"
 import { IDFiltrosOrdenacaoGestantesIndicador2 } from "./IDFiltrosOrdenacaoGestantesIndicador2"
-import { larguraColunasGestantesIndicador2 } from "./larguraColunasGestantesIndicador2"
+import { larguraColunasGestantesIndicador2Paisagem, larguraColunasGestantesIndicador2Retrato } from "./larguraColunasGestantesIndicador2"
 import { identificacao_exame_sifilis_hiv } from "./identificacao_exame_hiv_sifilis"
 import { colunasImpressaoIndicador2 } from "./colunasImpressaoGestantesIndicador2";
 export const GestantesIndicador2Args = {
     painel : "aps",
     lista : "PRÉ-NATAL - INDICADOR 2 (EXAME DE HIV E SÍFILIS)",
     divisorVertical : [0,3],
-    largura_colunas_impressao : larguraColunasGestantesIndicador2,
+    largura_colunas_impressao : {
+        paisagem : larguraColunasGestantesIndicador2Paisagem,
+        retrato : larguraColunasGestantesIndicador2Retrato
+    },
     dadosFiltros : dadosFiltrosGestantesIndicador2,
     tabela : {
         colunas : colunasGestantesIndicador2,

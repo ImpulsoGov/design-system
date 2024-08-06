@@ -5,7 +5,7 @@ import { dataGestantesIndicador3  } from "./dataGestantesIndicador3";
 import { datefiltrosGestantesIndicador3  } from "./dateFiltrosGestantesIndicador3";
 import { IDFiltrosGestantesIndicador3  } from "./IDFiltrosGestantesIndicador3";
 import { IDFiltrosOrdenacaoGestantesIndicador3  } from "./IDFiltrosOrdenacaoGestantesIndicador3";
-import { larguraColunasGestantesIndicador3  } from "./larguraColunasGestantesIndicador3";
+import { larguraColunasGestantesIndicador3Paisagem, larguraColunasGestantesIndicador3Retrato  } from "./larguraColunasGestantesIndicador3";
 import * as listasAuxiliares from "./listasAuxiliaresGestantesIndicador3";
 import { rotulosfiltrosGestantesIndicador3 } from "./rotulosfiltrosGestantesIndicador3";
 
@@ -13,7 +13,10 @@ export const GestantesIndicador3Args = {
   painel: "aps",
   lista: "PRÉ-NATAL - INDICADOR 3 (ATENDIMENTO ODONTOLÓGICO)",
   divisorVertical: [0, 3],
-  largura_colunas_impressao: larguraColunasGestantesIndicador3,
+  largura_colunas_impressao: {
+    paisagem : larguraColunasGestantesIndicador3Paisagem,
+    retrato : larguraColunasGestantesIndicador3Retrato
+  },
   dadosFiltros: dadosFiltrosGestantesIndicador3,
   tabela: {
     colunas: colunasGestantesIndicador3,

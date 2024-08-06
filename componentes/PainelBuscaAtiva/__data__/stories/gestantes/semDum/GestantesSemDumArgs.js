@@ -5,7 +5,7 @@ import { dataSemDum } from "./dataGestantesSemDum";
 import { datefiltrosSemDum } from "./dateFiltrosGestantesSemDum";
 import { IDFiltrosOrdenacaoSemDum } from "./IDFiltrosOrdenacaoGestantesSemDum";
 import { IDFiltrosSemDum } from "./IDFiltrosGestantesSemDum";
-import { larguraColunasSemDum } from "./larguraColunasGestantesSemDum";
+import { larguraColunasSemDumPaisagem, larguraColunasSemDumRetrato } from "./larguraColunasGestantesSemDum";
 import { rotulosfiltrosSemDum } from "./rotulosfiltrosGestantesSemDum";
 import { colunasImpressaoSemDum } from "./colunasImpressaoGestantesSemDum";
 
@@ -13,7 +13,10 @@ export const GestantesSemDumArgs = {
   painel: "aps",
   lista: "GESTANTES SEM DUM",
   divisorVertical: [1, 8],
-  largura_colunas_impressao: larguraColunasSemDum,
+  largura_colunas_impressao: {
+    paisagem : larguraColunasSemDumPaisagem,
+    retrato : larguraColunasSemDumRetrato
+  },
   dadosFiltros: dadosFiltrosSemDum,
   tabela: {
     colunas: colunasSemDum,

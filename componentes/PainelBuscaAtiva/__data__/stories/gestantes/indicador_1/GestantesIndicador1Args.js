@@ -5,14 +5,17 @@ import { datefiltrosGestantesIndicador1 } from "./dateFiltrosGestantesIndicador1
 import { IDFiltrosGestantesIndicador1 } from "./IDFiltrosGestantesIndicador1"
 import { rotulosfiltrosGestantesIndicador1 } from "./rotulosfiltrosGestantesIndicador1"
 import { IDFiltrosOrdenacaoGestantesIndicador1 } from "./IDFiltrosOrdenacaoGestantesIndicador1"
-import { larguraColunasGestantesIndicador1 } from "./larguraColunasGestantesIndicador1"
+import { larguraColunasGestantesIndicador1Paisagem, larguraColunasGestantesIndicador1Retrato } from "./larguraColunasGestantesIndicador1"
 import { colunasImpressaoGestantesIndicador1 } from "./colunasImpressaoGestantesIndicador1"
 
 export const GestantesIndicador1Args = {
     painel : "aps",
     lista : "PRÉ-NATAL INDICADOR 1 (6 CONSULTAS)",
     divisorVertical : [0,4],
-    largura_colunas_impressao : larguraColunasGestantesIndicador1,
+    largura_colunas_impressao : {
+        paisagem : larguraColunasGestantesIndicador1Paisagem,
+        retrato : larguraColunasGestantesIndicador1Retrato
+    },
     dadosFiltros : dadosFiltrosGestantesIndicador1,
     tabela : {
         colunas : colunasGestantesIndicador1,
