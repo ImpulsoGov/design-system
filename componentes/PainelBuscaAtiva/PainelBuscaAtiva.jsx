@@ -161,11 +161,20 @@ const PainelBuscaAtiva = ({
     }
 
     const personalizarImpressao = (opcoes) => {
-        const dadosTabelaImpressao = opcoes.ordenacao && opcoes.agrupamento === VALORES_AGRUPAMENTO_IMPRESSAO.sim
-            ? helpers.sortByString(tableData, propOrdenacaoImpressao)
-            : tableData
+        if (opcoes.agrupamento === VALORES_AGRUPAMENTO_IMPRESSAO.nao) {
+            handlePrint(tableData, {
+                agrupamento: opcoes.agrupamento,
+                separacaoGrupoPorFolha: false,
+                ordenacao: false,
+            });
+        } else {
+            const dadosImpressao = opcoes.ordenacao
+                ? helpers.sortByString(tableData, propOrdenacaoImpressao)
+                : tableData;
 
-        handlePrint(dadosTabelaImpressao, opcoes);
+            handlePrint(dadosImpressao, opcoes);
+        }
+
         fecharModalImpressao();
     }
 
