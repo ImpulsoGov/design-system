@@ -20,7 +20,7 @@ export const TabelaUnitaria = ({ data, colunas, listas_auxiliares, fontFamily = 
           borderCollapse: "collapse",
           color:  "#1F1F1F",
           textAlign: "center",
-          fontSize: "9px",
+          fontSize: "10px",
           fontFamily: `${fontFamily}, sans-serif`,
           letterSpacing: "-0.12px",
           textTransform: "uppercase",
@@ -68,7 +68,8 @@ export const TabelaUnitaria = ({ data, colunas, listas_auxiliares, fontFamily = 
                           padding : [...divisorVertical.map(item=>item+1),0].includes(index) ? "4px 4px 4px 12px" : "4px",
                           borderRight: divisorVertical.includes(index) ? "solid 1px black" : "",
                           boxSizing : "border-box",
-                          lineHeight : "140%"
+                          lineHeight : "140%",
+                          minHeight : "24px"
                       }}
                   >
                     {

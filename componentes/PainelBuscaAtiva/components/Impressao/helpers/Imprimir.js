@@ -46,7 +46,7 @@ export const Imprimir = (
                     @page {
                         transform: scale(${escala});
                         transform-origin: top left;
-
+                        margin : 14px;
                     }
                     body {
                         margin: 0;
