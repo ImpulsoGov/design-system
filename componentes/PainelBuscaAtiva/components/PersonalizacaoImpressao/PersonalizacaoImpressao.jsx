@@ -52,10 +52,10 @@ export const PersonalizacaoImpressao = ({
       </div>
 
       <div className={style.TituloContainer}>
-        <Image
+        <img
           src="https://media.graphassets.com/tkjDWpANQ9SzsdACBiEI"
-          width={28}
-          height={28}
+          width="28px"
+          height="28px"
           alt="Icone de brilho"
           className={style.IconeTitulo}
         />
@@ -113,10 +113,10 @@ export const PersonalizacaoImpressao = ({
 
             <div className={style.ContainerPersonalizacoesSecundarias}>
               <div className={style.Recomendacao}>
-                <Image
+                <img
                   src="https://media.graphassets.com/WMvmmV6JTKZ1OhELfymQ"
-                  width={14}
-                  height={14}
+                  width="14px"
+                  height="14px"
                   alt="Ícone de estrela"
                   className={style.IconeRecomendacao}
                 />

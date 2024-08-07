@@ -2,7 +2,7 @@ import { divisaoPorEquipes } from "../helpers/divisaoPorEquipes";
 import { MultiplasEquipesPorPagina } from "./MultiplasEquipesPorPagina";
 import { UnicaEquipePorPagina } from "./UnicaEquipePorPagina";
 import { SemDivisao } from "./SemDivisao";
-import { blocosPorPagina } from "../helpers/SemDivisao/blocosPorPagina";
+import React from "react";
 
 export const TabelaImpressao = ({ 
     data, 
