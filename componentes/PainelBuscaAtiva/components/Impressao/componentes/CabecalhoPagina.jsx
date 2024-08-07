@@ -1,3 +1,5 @@
+import React from "react";
+
 export const CabecalhoPagina = ({
     filtros_aplicados,
     data_producao_mais_recente,

@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import * as estilos from "../constantes/estilosTags";
 import * as icones from "../constantes/icones";
+import React from "react";
 
 export const StatusDataConsulta = ({value})=> {
   const dataFormatada = useMemo(() => {

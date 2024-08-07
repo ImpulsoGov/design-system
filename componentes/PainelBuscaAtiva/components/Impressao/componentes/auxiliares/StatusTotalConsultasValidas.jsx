@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import * as icones from "../constantes/icones";
 import * as estilos from "../constantes/estilosTags";
+import React from "react";
 
 const STYLE = {
   0: estilos.tagNulaComIcone,

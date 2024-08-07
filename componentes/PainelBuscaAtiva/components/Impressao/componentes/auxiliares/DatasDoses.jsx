@@ -1,4 +1,5 @@
 import { formatarDataNascimento } from "../../helpers/formatarCPF"
+import React from "react";
 
 export const DatasDoses = ({value})=> {
   return (

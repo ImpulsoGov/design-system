@@ -1,6 +1,8 @@
 import { ordenarEquipes } from "../helpers/ordenarEquipes";
 import { CabecalhoPagina } from "./CabecalhoPagina";
 import { TabelaUnitaria } from "./TabelaUnitaria";
+import React from "react";
+
 export const MultiplasEquipesPorPagina = ({
     divisao_por_equipes,
     cabecalho,
