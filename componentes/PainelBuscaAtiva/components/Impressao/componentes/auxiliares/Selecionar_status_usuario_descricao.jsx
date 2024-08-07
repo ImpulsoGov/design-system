@@ -1,4 +1,5 @@
 import { status_usuario_descricao } from "../../../../__data__/stories/citopatologico/status_usuario_descricao"
+import React from "react";
 
 const atencao_simbolo = "https://media.graphassets.com/FmWKs2qkSOywVyzapKcg"
 const alerta_simbolo  = "https://media.graphassets.com/Xc6Ac1QQfqcYdblW18rg"

@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import * as estilos from "../constantes/estilosTags";
+import React from "react";
 
 export const StatusIdadeGestacional = ({value})=> {
   const style = useMemo(() => {

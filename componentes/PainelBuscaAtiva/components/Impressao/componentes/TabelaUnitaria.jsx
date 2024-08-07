@@ -10,6 +10,7 @@ import { StatusEsquema } from "./auxiliares/StatusEsquema";
 import { StatusExameSifilisHIV } from "./auxiliares/StatusExameSifilisHIV";
 import { StatusIdadeGestacional } from "./auxiliares/StatusIdadeGestacional";
 import { StatusTotalConsultasValidas } from "./auxiliares/StatusTotalConsultasValidas";
+import React from "react";
 
 export const TabelaUnitaria = ({ data, colunas, listas_auxiliares, fontFamily = "sans-serif", divisorVertical , larguraColunas, orientacao}) => {
   return (

@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import * as estilos from "../constantes/estilosTags";
 import * as icones from "../constantes/icones";
+import React from "react";
 
 const STYLE = {
   1: estilos.tagLaranjaComIcone,
