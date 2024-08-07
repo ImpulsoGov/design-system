@@ -8,6 +8,7 @@ import { IDFiltrosOrdenacaoVacinacao } from "./IDFiltrosOrdenacaoVacinacao"
 import { larguraColunasVacinacaoPaisagem, larguraColunasVacinacaoRetrato } from "./larguraColunasVacinacao"
 import { intFiltrosVacinacao } from "./intFiltrosVacinacao";
 import { colunasImpressaoVacinacao } from "./colunasImpressaoVacinacao";
+import { complementoCabecalho } from "./complementoCabecalho"
 
 
 export const vacinacaoArgs = {
@@ -16,8 +17,9 @@ export const vacinacaoArgs = {
     divisorVertical : [2,4],
     largura_colunas_impressao : {
         retrato : larguraColunasVacinacaoRetrato,
-        paisagem : larguraColunasVacinacaoPaisagem
+        paisagem : larguraColunasVacinacaoPaisagem,
     },
+    complementoCabecalho : complementoCabecalho,
     dadosFiltros : dadosFiltrosVacinacao,
     tabela : {
         colunas : colunasVacinacao,

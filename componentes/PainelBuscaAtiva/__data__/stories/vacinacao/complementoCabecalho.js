@@ -1,11 +1,11 @@
-export const colunasImpressaoVacinacao = [
+export const complementoCabecalho = [
   {
     field: 'cidadao_nome',
     headerName: 'PACIENTE',
   },
   {
     field: 'cidadao_cpf_dt_nascimento',
-    headerName: 'CPF/DATA DE NASCIMENTO',
+    headerName: 'CPF / DATA DE NASCIMENTO',
   },
   {
     field: 'cidadao_idade_meses',
@@ -13,7 +13,7 @@ export const colunasImpressaoVacinacao = [
   },
   {
     field: 'id_status_polio',
-    headerName: 'STATUS ESQUEMA',
+    headerName: 'ESQUEMA POLIO',
   },
   {
     field: 'datas_doses_polio',
@@ -21,7 +21,7 @@ export const colunasImpressaoVacinacao = [
   },
   {
       field: 'id_status_penta',
-      headerName: 'STATUS ESQUEMA',
+      headerName: 'ESQUEMA PENTA',
   },
   {
     field: 'datas_doses_penta',

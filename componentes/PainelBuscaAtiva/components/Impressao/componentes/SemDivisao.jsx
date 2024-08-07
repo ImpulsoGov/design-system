@@ -6,7 +6,8 @@ export const SemDivisao =({
     data,
     cabecalho,
     tabelas,
-    fontFamily="sans-serif"
+    fontFamily="sans-serif",
+    complementoCabecalho
 })=>{
     return(
       <div
@@ -31,6 +32,7 @@ export const SemDivisao =({
           indexTabela={0}
           larguraColunas={tabelas.largura_colunas_impressao}
           orientacao="paisagem"
+          complementoCabecalho = {complementoCabecalho}
         />
         <TabelaUnitaria
           data = {data}
@@ -41,6 +43,7 @@ export const SemDivisao =({
           indexTabela={0}
           larguraColunas={tabelas.largura_colunas_impressao}
           orientacao="retrato"
+          complementoCabecalho = {complementoCabecalho}
         />
       </div>
 )} 

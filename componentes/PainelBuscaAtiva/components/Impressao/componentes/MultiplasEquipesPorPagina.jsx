@@ -8,6 +8,7 @@ export const MultiplasEquipesPorPagina = ({
     cabecalho,
     tabelas,
     fontFamily="sans-serif",
+    complementoCabecalho
 })=>{
     return(
       <div>
@@ -41,6 +42,7 @@ export const MultiplasEquipesPorPagina = ({
                     indexTabela={index}
                     larguraColunas={tabelas.largura_colunas_impressao.retrato}
                     orientacao="retrato"
+                    complementoCabecalho = {complementoCabecalho}
                   />
                   <TabelaUnitaria
                     data = {divisao_por_equipes[registro]}
@@ -51,6 +53,7 @@ export const MultiplasEquipesPorPagina = ({
                     indexTabela={index}
                     larguraColunas={tabelas.largura_colunas_impressao.paisagem}
                     orientacao="paisagem"
+                    complementoCabecalho = {complementoCabecalho}
                   />
                 </div>
               </div>

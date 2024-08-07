@@ -12,7 +12,16 @@ import { StatusIdadeGestacional } from "./auxiliares/StatusIdadeGestacional";
 import { StatusTotalConsultasValidas } from "./auxiliares/StatusTotalConsultasValidas";
 import React from "react";
 
-export const TabelaUnitaria = ({ data, colunas, listas_auxiliares, fontFamily = "sans-serif", divisorVertical , larguraColunas, orientacao}) => {
+export const TabelaUnitaria = ({ 
+  data, 
+  colunas, 
+  listas_auxiliares, 
+  fontFamily = "sans-serif", 
+  divisorVertical , 
+  larguraColunas, 
+  orientacao,
+  lista="VACINAÇÃO",
+}) => {
   return (
       <div 
         className={orientacao=="paisagem" ? "paisagem" : "retrato"}
@@ -39,14 +48,25 @@ export const TabelaUnitaria = ({ data, colunas, listas_auxiliares, fontFamily = 
                 <th style={{
                   padding : [...divisorVertical.map(item=>item+1),0].includes(index) ? "5px 5px 5px 12px" : "5px",
                   width: larguraColunas[coluna.field],
-                  borderTopLeftRadius: index!=0 ? "0" : "8px",
                   borderBottomLeftRadius: index!=0 ? "0" : "8px",
-                  borderTopRightRadius: index!=(colunas.length-1) ? "0" : "8px",
                   borderBottomRightRadius: index!=(colunas.length-1) ? "0" : "8px",
                   borderRight : divisorVertical.includes(index) ? "solid 1px black" : "",
                   textAlign: "left",
                   boxSizing : "border-box"
-                }} key={coluna.headerName+index}>{coluna.headerName}</th>
+                }} key={coluna.headerName+index}>
+                  {index==3 && lista == "VACINAÇÃO" && <div style={{marginBottom : "6px"}}>Esquema Polio</div>}
+                  {index==5 && lista == "VACINAÇÃO" && <div style={{marginBottom : "6px"}}>Esquema Penta</div>}
+                  {
+                    [4,6].includes(index) && lista == "VACINAÇÃO" &&
+                    <div 
+                      style={{
+                        visibility : "hidden", 
+                        display : orientacao == "retrato" ? "none" : "block",
+                        marginBottom  : "6px"
+                      }}>{coluna.headerName}</div>
+                  }
+                  <div>{coluna.headerName}</div>
+                  </th>
               ))}
             </tr>
           </thead>

@@ -19,6 +19,7 @@ const PainelBuscaAtiva = ({
     dadosFiltros,
     painel,
     lista,
+    complementoCabecalho,
     divisorVertical,
     largura_colunas_impressao,
     setData,
@@ -141,6 +142,7 @@ const PainelBuscaAtiva = ({
             largura_colunas_impressao={largura_colunas_impressao}
             divisorVertical={divisorVertical}
             propAgrupamentoImpressao={propAgrupamentoImpressao}
+            complementoCabecalho = {complementoCabecalho}
         />
 
         Imprimir(1,TabelaImpressaoMounted,painel,aba,sub_aba,trackObject)
