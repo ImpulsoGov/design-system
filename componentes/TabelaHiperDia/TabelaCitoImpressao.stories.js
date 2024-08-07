@@ -1,6 +1,6 @@
 import React from 'react'
 import { TabelaImpressao } from '../PainelBuscaAtiva/components/Impressao/componentes/TabelaImpressao';
-import { larguraColunasCito } from "../PainelBuscaAtiva/__data__/stories/citopatologico/larguraColunasCito";
+import { larguraColunasCitoPaisagem, larguraColunasCitoRetrato } from "../PainelBuscaAtiva/__data__/stories/citopatologico/larguraColunasCito";
 import { dadosFiltrosCito } from "../PainelBuscaAtiva/__data__/stories/citopatologico/dadosFiltrosCito";
 import { colunasCito } from "../PainelBuscaAtiva/__data__/stories/citopatologico/colunasCito";
 import { dataCito } from "../PainelBuscaAtiva/__data__/stories/citopatologico/dataCito";
@@ -43,7 +43,10 @@ Citopatologico.args= {
   divisao_dados : true,
   divisao_paginas : false,
   filtros_aplicados : [],
-  largura_colunas_impressao : larguraColunasCito,
+  largura_colunas_impressao : {
+    paisagem: larguraColunasCitoPaisagem,
+    retrato: larguraColunasCitoRetrato
+  },
   divisorVertical : [1,4],
   propAgrupamentoImpressao : 'equipe_nome',
 }
