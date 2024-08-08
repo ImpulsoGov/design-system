@@ -1,8 +1,10 @@
-import { useMemo } from "react";
+import React, { useMemo } from "react";
 import * as estilos from "../constantes/estilosTags";
-import React from "react";
 
-export const StatusIdadeGestacional = ({value})=> {
+export const StatusIdadeGestacional = ({
+  value,
+  orientacao = "paisagem"
+})=> {
   const style = useMemo(() => {
     if(value){
       return Number(value) <= 12 ? estilos.tagVerdeSemIcone : estilos.tagVermelhaSemIcone;
@@ -12,7 +14,11 @@ export const StatusIdadeGestacional = ({value})=> {
   }, [value]);
 
   return (
-    <div style={{...style, width: "35%"}}>
+    <div style={{
+      ...style,
+      width: "35%",
+      fontSize: orientacao === "retrato" && "9px"
+    }}>
       {value ? value : "-"}
     </div>
   );

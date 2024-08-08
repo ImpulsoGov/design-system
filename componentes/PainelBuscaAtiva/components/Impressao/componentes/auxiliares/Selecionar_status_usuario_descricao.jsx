@@ -1,13 +1,17 @@
-import { status_usuario_descricao } from "../../../../__data__/stories/citopatologico/status_usuario_descricao"
 import React from "react";
+import { status_usuario_descricao } from "../../../../__data__/stories/citopatologico/status_usuario_descricao";
+import * as estilos from "../constantes/estilosTags";
+import * as icones from "../constantes/icones";
 
 const atencao_simbolo = "https://media.graphassets.com/FmWKs2qkSOywVyzapKcg"
 const alerta_simbolo  = "https://media.graphassets.com/Xc6Ac1QQfqcYdblW18rg"
 const check_simbolo  = "https://media.graphassets.com/7u3RZBCRjeP22EvTQxd9"
-import * as icones from "../constantes/icones";
-import * as estilos from "../constantes/estilosTags";
 
-export const Selecionar_status_usuario_descricao = ({value,status_usuario_descricao})=> {
+export const Selecionar_status_usuario_descricao = ({
+  value,
+  status_usuario_descricao,
+  orientacao = "paisagem"
+})=> {
   const styleStatus = {
     12: estilos.tagVerdeComIcone,
     13: estilos.tagVermelhaComIcone,
@@ -17,10 +21,15 @@ export const Selecionar_status_usuario_descricao = ({value,status_usuario_descri
   }
 
   const descricao = status_usuario_descricao.find(item => item?.id_status_usuario == value)?.status_usuario_descricao
-  return <div style={{...styleStatus[value], width: "73%"}}> 
-    {[13,14,16].includes(value) &&  <img src={icones.alerta_simbolo}/>} 
-    {[15].includes(value) &&  <img src={icones.atencao_simbolo}/>} 
-    {[12].includes(value) &&  <img src={icones.check_simbolo}/>} 
+
+  return <div style={{
+    ...styleStatus[value],
+    width: "73%",
+    fontSize: orientacao === "retrato" && "9px"
+  }}>
+    {[13,14,16].includes(value) &&  <img src={icones.alerta_simbolo}/>}
+    {[15].includes(value) &&  <img src={icones.atencao_simbolo}/>}
+    {[12].includes(value) &&  <img src={icones.check_simbolo}/>}
     <span>{descricao}</span>
   </div>
 }

@@ -1,8 +1,10 @@
-import { useMemo } from "react";
+import React, { useMemo } from "react";
 import * as estilos from "../constantes/estilosTags";
-import React from "react";
 
-export const StatusDDP = ({value})=> {
+export const StatusDDP = ({
+  value,
+  orientacao = "paisagem"
+})=> {
   const dataFormatada = useMemo(() => {
     if(!value) return null
 
@@ -19,7 +21,15 @@ export const StatusDDP = ({value})=> {
     <>
       {value
         ? <div>{dataFormatada}</div>
-        : <div style={{...estilos.tagVermelhaComIcone, width: "80%"}}>sem DUM</div>
+        : (
+          <div style={{
+            ...estilos.tagVermelhaComIcone,
+            width: "80%",
+            fontSize: orientacao === "retrato" && "9px"
+          }}>
+            sem DUM
+          </div>
+        )
       }
     </>
   )

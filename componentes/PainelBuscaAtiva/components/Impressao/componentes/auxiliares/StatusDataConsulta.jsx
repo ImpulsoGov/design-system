@@ -1,9 +1,11 @@
-import { useMemo } from "react";
+import React, { useMemo } from "react";
 import * as estilos from "../constantes/estilosTags";
 import * as icones from "../constantes/icones";
-import React from "react";
 
-export const StatusDataConsulta = ({value})=> {
+export const StatusDataConsulta = ({
+  value,
+  orientacao = "paisagem"
+})=> {
   const dataFormatada = useMemo(() => {
     if(!value) return null;
 
@@ -22,7 +24,11 @@ export const StatusDataConsulta = ({value})=> {
       {dataFormatada
         ? <span>{dataFormatada}</span>
         : (
-          <div style={{...estilos.tagCinzaComIcone, width: "75%"}}>
+          <div style={{
+            ...estilos.tagCinzaComIcone,
+            width: "75%",
+            fontSize: orientacao === "retrato" && "9px"
+          }}>
             <img width={9} height={9} src={ icones.ampulheta_simbolo } />
             <div>Não realizada</div>
           </div>

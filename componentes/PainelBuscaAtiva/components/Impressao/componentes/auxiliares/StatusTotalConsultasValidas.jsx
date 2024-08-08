@@ -1,7 +1,6 @@
-import { useMemo } from "react";
-import * as icones from "../constantes/icones";
+import React, { useMemo } from "react";
 import * as estilos from "../constantes/estilosTags";
-import React from "react";
+import * as icones from "../constantes/icones";
 
 const STYLE = {
   0: estilos.tagNulaComIcone,
@@ -10,7 +9,10 @@ const STYLE = {
   3: estilos.tagVerdeComIcone
 }
 
-export const StatusTotalConsultasValidas = ({values})=> {
+export const StatusTotalConsultasValidas = ({
+  values,
+  orientacao = "paisagem"
+})=> {
   const colorCode = useMemo(() => {
     if(!values.consultas_pre_natal_validas) {
       return 0;
@@ -36,7 +38,11 @@ export const StatusTotalConsultasValidas = ({values})=> {
   }, [values]);
 
   return (
-    <div style={{...STYLE[colorCode], width: "40%"}}>
+    <div style={{
+      ...STYLE[colorCode],
+      width: "40%",
+      fontSize: orientacao === "retrato" && "9px"
+    }}>
       {(colorCode == 0) && <span>-</span>}
       {(colorCode == 1) && <img src={icones.atencao_simbolo} /> }
       {colorCode == 2 && <img src={icones.alerta_simbolo} /> }

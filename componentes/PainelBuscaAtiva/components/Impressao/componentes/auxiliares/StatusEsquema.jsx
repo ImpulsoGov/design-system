@@ -1,6 +1,6 @@
+import React from "react";
 import * as estilos from "../constantes/estilosTags";
 import * as icones from "../constantes/icones";
-import React from "react";
 
 const STYLE = {
   1: estilos.tagVerdeComIcone,
@@ -16,9 +16,16 @@ const DESCRICOES = {
   4: "Não iniciado"
 };
 
-export const StatusEsquema = ({value})=> {
+export const StatusEsquema = ({
+  value,
+  orientacao = "paisagem"
+})=> {
   return (
-    <div style={{...STYLE[value], width: "90%"}}>
+    <div style={{
+      ...STYLE[value],
+      width: "90%",
+      fontSize: orientacao === "retrato" && "9px"
+    }}>
       {value == 1 && <img src={icones.check_simbolo} width={9} height={9} />}
       {value == 2 && <img src={icones.andamento_simbolo} width={9} height={9} />}
       {value == 3 && <img src={icones.relogio_simbolo} width={9} height={9} />}
