@@ -1,5 +1,5 @@
 export const larguraColunasSemDumRetrato = {
-  'cidadao_nome': "125px",
+  'cidadao_nome': "100px",
   'cidadao_cpf_dt_nascimento': "80px",
   'gestacao_data_dpp': "130px",
   'gestacao_idade_gestacional_primeiro_atendimento': "60px",
@@ -8,8 +8,8 @@ export const larguraColunasSemDumRetrato = {
   'consulta_prenatal_ultima_data': "60px",
   'id_exame_hiv_sifilis': "60px",
   'id_atendimento_odontologico': "60px",
-  'equipe_nome': "120px",
-  'acs_nome': "125px",
+  'equipe_nome': "98px",
+  'acs_nome': "100px",
 };
 
 export const larguraColunasSemDumPaisagem = {
@@ -22,6 +22,6 @@ export const larguraColunasSemDumPaisagem = {
   'consulta_prenatal_ultima_data': "80px",
   'id_exame_hiv_sifilis': "80px",
   'id_atendimento_odontologico': "80px",
-  'equipe_nome': "170px",
+  'equipe_nome': "185px",
   'acs_nome': "175px",
 };
