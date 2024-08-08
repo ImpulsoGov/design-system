@@ -14,18 +14,24 @@ export const colunasImpressaoVacinacao = [
   {
     field: 'id_status_polio',
     headerName: 'STATUS ESQUEMA',
+    headerComplement: 'ESQUEMA POLIO',
+    visibleHeaderComplement: true
   },
   {
     field: 'datas_doses_polio',
     headerName: 'DATAS DOSES',
+    headerComplement: 'DATAS DOSES'
   },
   {
-      field: 'id_status_penta',
-      headerName: 'STATUS ESQUEMA',
+    field: 'id_status_penta',
+    headerName: 'STATUS ESQUEMA',
+    headerComplement: 'ESQUEMA PENTA',
+    visibleHeaderComplement: true
   },
   {
     field: 'datas_doses_penta',
     headerName: 'DATAS DOSES',
+    headerComplement: 'DATAS DOSES'
   },
   {
     field: 'cidadao_nome_responsavel',
@@ -39,4 +45,4 @@ export const colunasImpressaoVacinacao = [
     field: 'acs_nome',
     headerName: 'PROFISSIONAL RESPONSÁVEL',
   },
-]
+];
