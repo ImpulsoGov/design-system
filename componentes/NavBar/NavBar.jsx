@@ -224,13 +224,13 @@ const NavBar = (props) => {
       <div className={cx(style.container_navbar, style["theme" + props.theme.cor])}>
         <div className={style.logoWrapper_navbar}>
           <div className={style.logo_navbar}>
-            <a href={props.theme.logoLink}>
+            <Link href={props.theme.logoLink}>
                 <img
                   className={style.logoWrapper_navbar}
                   alt="impulso-previne-logo_navbar"
                   src={String(props.theme.logoProjeto)}
                 />
-            </a>
+            </Link>
           </div>
         </div>
         <div className={style.NavBarSearchConteinerMoblie}>
@@ -259,12 +259,12 @@ const NavBar = (props) => {
                             return(
                               <>
                                 <div className={cx(style.NavBarSubMenuContainer, style[`NavBarSubMenuContainer${props.theme.cor}`])} key={subContent.label} >
-                                  <a
+                                  <Link 
                                     href={subContent.url}
                                     className={style.NavBarSubMenuAnchor}
                                   >
                                       {subContent.label} 
-                                  </a>
+                                  </Link>
                                 </div>
                                 {   subContent.item &&
                                     <div className={style.NavBarSubMenuItemContainer} style={NavBarSubMenuContainerPosition} key={subContent.item}>
