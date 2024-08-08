@@ -30,7 +30,7 @@ export const MultiplasEquipesPorPagina = ({
                   style={{
                     fontSize : "11px",
                     fontFamily: `${fontFamily}, sans-serif`,
-                    marginTop : "17px",
+                    marginTop : "40px",
                     marginBottom : "17px"
                   }}><b>{registro}</b></p>
                   <TabelaUnitaria
