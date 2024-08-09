@@ -11,6 +11,7 @@ import { StatusEsquema } from "./auxiliares/StatusEsquema";
 import { StatusExameSifilisHIV } from "./auxiliares/StatusExameSifilisHIV";
 import { StatusIdadeGestacional } from "./auxiliares/StatusIdadeGestacional";
 import { StatusTotalConsultasValidas } from "./auxiliares/StatusTotalConsultasValidas";
+import { CpfEIdentificacaoCondicao } from "./auxiliares/CpfEIdentificacaoCondicao";
 
 export const TabelaUnitaria = ({ 
   data, 
@@ -91,14 +92,15 @@ export const TabelaUnitaria = ({
                           borderRight: divisorVertical.includes(index) ? "solid 1px black" : "",
                           boxSizing : "border-box",
                           lineHeight : "140%",
-                          minHeight : "24px"
+                          minHeight : "24px",
+                          wordBreak: "break-word"
                       }}
                   >
                     {
                       coluna.field=="id_status_usuario" && <Selecionar_status_usuario_descricao orientacao={orientacao} value={item[coluna.field]} status_usuario_descricao={listas_auxiliares.status_usuario_descricao} />
                     }
                     {
-                      coluna.field=="prazo_proxima_coleta"  && <PrazoStyle orientacao={orientacao} value={item[coluna.field]} />
+                      coluna.field=="prazo_proxima_coleta"  && <PrazoStyle width="75%" orientacao={orientacao} value={item[coluna.field]} />
                     }
                     {
                       coluna.field=="prazo_proxima_afericao_pa"  && <PrazoStyle orientacao={orientacao} value={item[coluna.field]} />
@@ -167,6 +169,9 @@ export const TabelaUnitaria = ({
                       coluna.field === "consulta_prenatal_ultima_data" && formatarDataNascimento(item[coluna.field])
                     }
                     {
+                      coluna.field === "cpf_e_identificacao_condicao" && <CpfEIdentificacaoCondicao value={item[coluna.field]} />
+                    }
+                    {
                       coluna.field!="id_status_usuario"
                       && coluna.field!="prazo_proxima_coleta"
                       && coluna.field!="prazo_proxima_afericao_pa"
@@ -188,6 +193,7 @@ export const TabelaUnitaria = ({
                       && coluna.field!="gestacao_idade_gestacional_atual"
                       && coluna.field!="cidadao_cpf_dt_nascimento"
                       && coluna.field!="consulta_prenatal_ultima_data"
+                      && coluna.field!="cpf_e_identificacao_condicao"
                       && item[coluna.field]
                     }
                     </td>

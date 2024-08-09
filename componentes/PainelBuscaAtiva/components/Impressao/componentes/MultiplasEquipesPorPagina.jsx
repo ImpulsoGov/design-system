@@ -8,7 +8,7 @@ export const MultiplasEquipesPorPagina = ({
     cabecalho,
     tabelas,
     fontFamily="sans-serif",
-    complementoCabecalho
+    legendaImpressao
 })=>{
     return(
       <div>
@@ -16,7 +16,8 @@ export const MultiplasEquipesPorPagina = ({
           filtros_aplicados={cabecalho.filtros_aplicados}
           data_producao_mais_recente={cabecalho.data_producao_mais_recente}
           lista={cabecalho.lista}
-          fontFamily = {fontFamily}
+          fontFamily={fontFamily}
+          legendaImpressao={legendaImpressao}
         />
         {
           Object.keys(divisao_por_equipes).sort(ordenarEquipes).map((registro,index)=>{
@@ -42,7 +43,6 @@ export const MultiplasEquipesPorPagina = ({
                     indexTabela={index}
                     larguraColunas={tabelas.largura_colunas_impressao.retrato}
                     orientacao="retrato"
-                    complementoCabecalho = {complementoCabecalho}
                   />
                   <TabelaUnitaria
                     data = {divisao_por_equipes[registro]}
@@ -53,7 +53,6 @@ export const MultiplasEquipesPorPagina = ({
                     indexTabela={index}
                     larguraColunas={tabelas.largura_colunas_impressao.paisagem}
                     orientacao="paisagem"
-                    complementoCabecalho = {complementoCabecalho}
                   />
                 </div>
               </div>

@@ -17,7 +17,7 @@ export const TabelaImpressao = ({
     divisorVertical,
     fontFamily="sans-serif",
     propAgrupamentoImpressao,
-    complementoCabecalho
+    legendaImpressao
   }) => {
     const divisao_por_equipes = divisao_dados ? divisaoPorEquipes(data,propAgrupamentoImpressao) : []
     return (
@@ -36,7 +36,7 @@ export const TabelaImpressao = ({
               data_producao_mais_recente : data_producao_mais_recente,
               lista : lista
             }}
-            complementoCabecalho = {complementoCabecalho}
+            legendaImpressao={legendaImpressao}
             tabelas={{
               colunas : colunas,
               listas_auxiliares : listas_auxiliares,
@@ -56,7 +56,7 @@ export const TabelaImpressao = ({
               data_producao_mais_recente : data_producao_mais_recente,
               lista : lista
             }}
-            complementoCabecalho = {complementoCabecalho}
+            legendaImpressao={legendaImpressao}
             tabelas={{
               colunas : colunas,
               listas_auxiliares : listas_auxiliares,
@@ -75,7 +75,7 @@ export const TabelaImpressao = ({
               data_producao_mais_recente : data_producao_mais_recente,
               lista : lista
             }}
-            complementoCabecalho = {complementoCabecalho}
+            legendaImpressao={legendaImpressao}
             tabelas={{
               colunas : colunas,
               listas_auxiliares : listas_auxiliares,

@@ -4,7 +4,8 @@ export const CabecalhoPagina = ({
     filtros_aplicados,
     data_producao_mais_recente,
     lista,
-    fontFamily="sans-serif"
+    fontFamily="sans-serif",
+    legendaImpressao=""
 })=>{
     return(
       <div>
@@ -65,6 +66,17 @@ export const CabecalhoPagina = ({
             ["Sem filtros aplicados"]
           }
         </div>
+        {legendaImpressao &&
+          <div style={{
+            fontSize : "16px",
+            fontFamily: `${fontFamily}, sans-serif`,
+            lineHeight: "15px",
+            marginBottom: "15px"
+          }}>
+            <span style={{ fontWeight: "bold" }}>Legenda: </span>
+            {legendaImpressao}
+          </div>
+        }
       </div>
     )
   }

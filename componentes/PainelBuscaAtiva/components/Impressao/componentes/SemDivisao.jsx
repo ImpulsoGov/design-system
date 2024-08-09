@@ -7,7 +7,7 @@ export const SemDivisao =({
     cabecalho,
     tabelas,
     fontFamily="sans-serif",
-    complementoCabecalho
+    legendaImpressao
 })=>{
     return(
       <div
@@ -22,6 +22,7 @@ export const SemDivisao =({
           data_producao_mais_recente={cabecalho.data_producao_mais_recente}
           lista={cabecalho.lista}
           fontFamily = {fontFamily}
+          legendaImpressao={legendaImpressao}
         />
         <TabelaUnitaria
           data = {data}
@@ -30,9 +31,8 @@ export const SemDivisao =({
           divisorVertical={tabelas.divisorVertical}
           fontFamily = {fontFamily}
           indexTabela={0}
-          larguraColunas={tabelas.largura_colunas_impressao}
+          larguraColunas={tabelas.largura_colunas_impressao.paisagem}
           orientacao="paisagem"
-          complementoCabecalho = {complementoCabecalho}
         />
         <TabelaUnitaria
           data = {data}
@@ -41,9 +41,8 @@ export const SemDivisao =({
           divisorVertical={tabelas.divisorVertical}
           fontFamily = {fontFamily}
           indexTabela={0}
-          larguraColunas={tabelas.largura_colunas_impressao}
+          larguraColunas={tabelas.largura_colunas_impressao.retrato}
           orientacao="retrato"
-          complementoCabecalho = {complementoCabecalho}
         />
       </div>
 )} 

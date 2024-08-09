@@ -11,7 +11,8 @@ import { colunasImpressaoHipertensao } from "./colunasImpressaoHipertensao"
 export const HipertensaoArgs = {
     painel : "aps",
     lista : "HIPERTENSÃO",
-    divisorVertical : [3,5],
+    legendaImpressao: "Aferição de PA = Aferição de Pressão Arterial",
+    divisorVertical : [2,4,6],
     largura_colunas_impressao : {
         retrato : larguraColunasHipertensaoRetrato,
         paisagem : larguraColunasHipertensaoPaisagem

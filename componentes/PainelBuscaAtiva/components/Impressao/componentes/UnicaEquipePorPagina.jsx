@@ -8,7 +8,7 @@ export const UnicaEquipePorPagina = ({
   cabecalho,
   tabelas,
   fontFamily="sans-serif",
-  complementoCabecalho
+  legendaImpressao
 })=>{
     return(
         Object.keys(divisao_por_equipes).sort(ordenarEquipes).map((registro,index)=>{
@@ -25,6 +25,7 @@ export const UnicaEquipePorPagina = ({
                   data_producao_mais_recente={cabecalho.data_producao_mais_recente}
                   lista={cabecalho.lista}
                   fontFamily = {fontFamily}
+                  legendaImpressao={legendaImpressao}
                 />
                 <p style={{
                   fontSize : "11px",
@@ -37,9 +38,8 @@ export const UnicaEquipePorPagina = ({
                   divisorVertical={tabelas.divisorVertical}
                   fontFamily = {fontFamily}
                   indexTabela={index}
-                  larguraColunas={tabelas.largura_colunas_impressao}
+                  larguraColunas={tabelas.largura_colunas_impressao.retrato}
                   orientacao="retrato"
-                  complementoCabecalho = {complementoCabecalho}
                   />
                 <TabelaUnitaria
                   data = {divisao_por_equipes[registro]}
@@ -48,9 +48,8 @@ export const UnicaEquipePorPagina = ({
                   divisorVertical={tabelas.divisorVertical}
                   fontFamily = {fontFamily}
                   indexTabela={index}
-                  larguraColunas={tabelas.largura_colunas_impressao}
+                  larguraColunas={tabelas.largura_colunas_impressao.paisagem}
                   orientacao="paisagem"
-                  complementoCabecalho = {complementoCabecalho}
                 />
               </div>
             </>

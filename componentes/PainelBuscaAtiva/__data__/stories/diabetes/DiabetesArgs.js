@@ -11,7 +11,8 @@ import { colunasImpressaoDiabetes } from "./colunasImpressaoDiabetes"
 export const DiabetesArgs = {
     painel : "aps",
     lista : "DIABETES",
-    divisorVertical : [3,5],
+    legendaImpressao: "Solicit. HbA1c = Solicitação de hemoglobina glicada",
+    divisorVertical : [2,4,6],
     largura_colunas_impressao : {
         retrato : larguraColunasDiabetesRetrato,
         paisagem : larguraColunasDiabetesPaisagem

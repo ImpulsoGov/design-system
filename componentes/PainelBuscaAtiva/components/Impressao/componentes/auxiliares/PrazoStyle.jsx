@@ -4,7 +4,8 @@ import * as icones from "../constantes/icones";
 
 export const PrazoStyle = ({
   value,
-  orientacao = "paisagem"
+  orientacao = "paisagem",
+  width = "90%"
 })=>{
   const style = value != "Em dia"
     ? {...estilos.tagLaranjaComIcone}
@@ -13,7 +14,7 @@ export const PrazoStyle = ({
   return (
     <div style={{
       ...style,
-      width: "75%",
+      width,
       fontSize: orientacao === "retrato" && "9px"
     }}>
       {value != "Em dia" && <img src={icones.atencao_simbolo}/>}

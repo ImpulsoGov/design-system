@@ -1,4 +1,4 @@
-export const dataHipertensao=[
+const data=[
     {
         "cidadao_nome": "DAVIDSON MUSTAFA ZEHED",
         "cidadao_cpf": "32702133878",
@@ -429,4 +429,13 @@ export const dataHipertensao=[
         "cidadao_idade": 47
     },
   ]
-  
+
+export const dataHipertensao = data.map((item) => {
+    return {
+        ...item,
+        cpf_e_identificacao_condicao: {
+            cpf: item.cidadao_cpf,
+            identificacao_condicao: item.identificacao_condicao_hipertensao
+        }
+    }
+});
