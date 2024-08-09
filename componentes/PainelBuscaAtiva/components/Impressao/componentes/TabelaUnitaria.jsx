@@ -42,11 +42,14 @@ export const TabelaUnitaria = ({
               style={{
                   backgroundColor: "#E7E7E7",
                   marginTop : "82px",
+                  borderBottom : "solid 1px black"
               }}>
               {colunas.map((coluna,index) => (
                 <th style={{
                   padding : [...divisorVertical.map(item=>item+1),0].includes(index) ? "5px 5px 5px 12px" : "5px",
                   width: larguraColunas[coluna.field],
+                  borderTopLeftRadius: index!=0 ? "0" : "8px",
+                  borderTopRightRadius: index!=(colunas.length-1) ? "0" : "8px",
                   borderBottomLeftRadius: index!=0 ? "0" : "8px",
                   borderBottomRightRadius: index!=(colunas.length-1) ? "0" : "8px",
                   borderRight : divisorVertical.includes(index) ? "solid 1px black" : "",

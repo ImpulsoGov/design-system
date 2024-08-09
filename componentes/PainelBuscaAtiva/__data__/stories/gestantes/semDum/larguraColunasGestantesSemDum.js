@@ -22,6 +22,6 @@ export const larguraColunasSemDumPaisagem = {
   'consulta_prenatal_ultima_data': "80px",
   'id_exame_hiv_sifilis': "80px",
   'id_atendimento_odontologico': "80px",
-  'equipe_nome': "185px",
+  'equipe_nome': "180px",
   'acs_nome': "175px",
 };

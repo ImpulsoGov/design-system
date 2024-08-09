@@ -8,10 +8,10 @@ export const larguraColunasGestantesIndicador2Retrato = {
 }
 
 export const larguraColunasGestantesIndicador2Paisagem = {
-  'cidadao_nome' : "370px",
+  'cidadao_nome' : "350px",
   'gestacao_data_dpp' : "80px",
   'id_exame_hiv_sifilis' : "250px",
-  'id_registro_parto' : "50px",
+  'id_registro_parto' : "80px",
   'equipe_nome' : "100px",
-  'acs_nome' : "365px",
+  'acs_nome' : "355px",
 }

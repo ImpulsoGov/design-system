@@ -5,7 +5,7 @@ export const colunasImpressaoCito = [
     },
     {
       field: 'cidadao_cpf_dt_nascimento',
-      headerName: 'CPF / DATA DE NASCIMENTO',
+      headerName: 'CPF/DATA DE NASCIMENTO',
     },
     {
       field: 'id_status_usuario',

@@ -12,7 +12,7 @@ import { colunasImpressaoVacinacao } from "./colunasImpressaoVacinacao";
 
 export const vacinacaoArgs = {
     painel : "aps",
-    lista : "VACINAÇÃO",
+    lista : "VACINAÇÃO: POLIOMIELITE E PENTAVALENTE",
     divisorVertical : [2,4],
     largura_colunas_impressao : {
         retrato : larguraColunasVacinacaoRetrato,

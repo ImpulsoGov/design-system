@@ -24,7 +24,7 @@ export const Selecionar_status_usuario_descricao = ({
 
   return <div style={{
     ...styleStatus[value],
-    width: "73%",
+    width: orientacao === "retrato" ? "90%" : "73%",
     fontSize: orientacao === "retrato" && "9px"
   }}>
     {[13,14,16].includes(value) &&  <img src={icones.alerta_simbolo}/>}

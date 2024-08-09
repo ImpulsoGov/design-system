@@ -24,7 +24,7 @@ export const StatusDDP = ({
         : (
           <div style={{
             ...estilos.tagVermelhaComIcone,
-            width: "80%",
+            width: "fit-content",
             fontSize: orientacao === "retrato" && "9px"
           }}>
             sem DUM

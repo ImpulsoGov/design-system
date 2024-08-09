@@ -76,7 +76,7 @@ export const status_usuario_descricao = [
     },
     {
       "id_status_usuario" : 15,
-      "status_usuario_descricao" : "Vence no final do quadrimestre",
+      "status_usuario_descricao" : "Vence neste quadrimestre",
       "atualizacao_data" : "2023-07-03T03:00:00.000Z"
     },
     {
