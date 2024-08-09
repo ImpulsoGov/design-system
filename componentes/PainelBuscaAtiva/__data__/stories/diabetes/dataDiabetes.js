@@ -1,4 +1,4 @@
-export const dataDiabetes=[
+const data=[
   {
       "cidadao_nome": "ADALGISA BRAZIL MENEZES",
       "cidadao_cpf_dt_nascimento": "11905727778",
@@ -9936,3 +9936,13 @@ export const dataDiabetes=[
       "cidadao_idade": 76
   },
 ]
+
+export const dataDiabetes = data.map((item) => {
+    return {
+        ...item,
+        cpf_e_identificacao_condicao: {
+            cpf: item.cidadao_cpf_dt_nascimento,
+            identificacao_condicao: item.identificacao_condicao_diabetes
+        }
+    }
+});

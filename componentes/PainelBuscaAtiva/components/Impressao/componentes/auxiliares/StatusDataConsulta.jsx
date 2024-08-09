@@ -4,7 +4,8 @@ import * as icones from "../constantes/icones";
 
 export const StatusDataConsulta = ({
   value,
-  orientacao = "paisagem"
+  orientacao = "paisagem",
+  width = "90%"
 })=> {
   const dataFormatada = useMemo(() => {
     if(!value) return null;
@@ -26,7 +27,7 @@ export const StatusDataConsulta = ({
         : (
           <div style={{
             ...estilos.tagCinzaComIcone,
-            width: "75%",
+            width,
             fontSize: orientacao === "retrato" && "9px"
           }}>
             <img width={9} height={9} src={ icones.ampulheta_simbolo } />

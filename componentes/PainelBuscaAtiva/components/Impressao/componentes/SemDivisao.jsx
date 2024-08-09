@@ -7,7 +7,7 @@ export const SemDivisao =({
     cabecalho,
     tabelas,
     fontFamily="sans-serif",
-    complementoCabecalho
+    legendaImpressao
 })=>{
     return(
       <div
@@ -22,6 +22,7 @@ export const SemDivisao =({
           data_producao_mais_recente={cabecalho.data_producao_mais_recente}
           lista={cabecalho.lista}
           fontFamily = {fontFamily}
+          legendaImpressao={legendaImpressao}
         />
         <TabelaUnitaria
           data = {data}

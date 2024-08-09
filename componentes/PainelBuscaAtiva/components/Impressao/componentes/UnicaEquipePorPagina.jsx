@@ -8,7 +8,7 @@ export const UnicaEquipePorPagina = ({
   cabecalho,
   tabelas,
   fontFamily="sans-serif",
-  complementoCabecalho
+  legendaImpressao
 })=>{
     return(
         Object.keys(divisao_por_equipes).sort(ordenarEquipes).map((registro,index)=>{
@@ -25,6 +25,7 @@ export const UnicaEquipePorPagina = ({
                   data_producao_mais_recente={cabecalho.data_producao_mais_recente}
                   lista={cabecalho.lista}
                   fontFamily = {fontFamily}
+                  legendaImpressao={legendaImpressao}
                 />
                 <p style={{
                   fontSize : "11px",
