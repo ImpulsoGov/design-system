@@ -9,14 +9,15 @@ export const larguraColunasHipertensaoPaisagem = {
   'equipe_nome_cadastro' : "143px",
   'acs_nome_cadastro' : "183px",
 }
+
 export const larguraColunasHipertensaoRetrato = {
-  'cidadao_nome' : "105px",
+  'cidadao_nome' : "99px",
   'cpf_e_identificacao_condicao' : "120px",
   'cidadao_idade' : "40px",
-  'dt_consulta_mais_recente' : "111px",
-  'prazo_proxima_consulta' : "102px",
-  'dt_afericao_pressao_mais_recente' : "111px",
-  'prazo_proxima_afericao_pa' : "102px",
+  'dt_consulta_mais_recente' : "114px",
+  'prazo_proxima_consulta' : "105px",
+  'dt_afericao_pressao_mais_recente' : "114px",
+  'prazo_proxima_afericao_pa' : "105px",
   'equipe_nome_cadastro' : "72px",
-  'acs_nome_cadastro' : "103px",
+  'acs_nome_cadastro' : "97px",
 }
