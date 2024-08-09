@@ -31,9 +31,8 @@ export const SemDivisao =({
           divisorVertical={tabelas.divisorVertical}
           fontFamily = {fontFamily}
           indexTabela={0}
-          larguraColunas={tabelas.largura_colunas_impressao}
+          larguraColunas={tabelas.largura_colunas_impressao.paisagem}
           orientacao="paisagem"
-          complementoCabecalho = {complementoCabecalho}
         />
         <TabelaUnitaria
           data = {data}
@@ -42,9 +41,8 @@ export const SemDivisao =({
           divisorVertical={tabelas.divisorVertical}
           fontFamily = {fontFamily}
           indexTabela={0}
-          larguraColunas={tabelas.largura_colunas_impressao}
+          larguraColunas={tabelas.largura_colunas_impressao.retrato}
           orientacao="retrato"
-          complementoCabecalho = {complementoCabecalho}
         />
       </div>
 )} 

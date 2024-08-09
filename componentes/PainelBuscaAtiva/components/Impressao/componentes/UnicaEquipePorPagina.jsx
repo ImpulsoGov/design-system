@@ -38,9 +38,8 @@ export const UnicaEquipePorPagina = ({
                   divisorVertical={tabelas.divisorVertical}
                   fontFamily = {fontFamily}
                   indexTabela={index}
-                  larguraColunas={tabelas.largura_colunas_impressao}
+                  larguraColunas={tabelas.largura_colunas_impressao.retrato}
                   orientacao="retrato"
-                  complementoCabecalho = {complementoCabecalho}
                   />
                 <TabelaUnitaria
                   data = {divisao_por_equipes[registro]}
@@ -49,9 +48,8 @@ export const UnicaEquipePorPagina = ({
                   divisorVertical={tabelas.divisorVertical}
                   fontFamily = {fontFamily}
                   indexTabela={index}
-                  larguraColunas={tabelas.largura_colunas_impressao}
+                  larguraColunas={tabelas.largura_colunas_impressao.paisagem}
                   orientacao="paisagem"
-                  complementoCabecalho = {complementoCabecalho}
                 />
               </div>
             </>
