@@ -88,7 +88,8 @@ export const TabelaUnitaria = ({
                           borderRight: divisorVertical.includes(index) ? "solid 1px black" : "",
                           boxSizing : "border-box",
                           lineHeight : "140%",
-                          minHeight : "24px"
+                          minHeight : "24px",
+                          wordBreak: "break-word"
                       }}
                   >
                     {
